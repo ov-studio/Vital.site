@@ -1,0 +1,38 @@
+---
+title: crypto.decrypt
+description: Retrieves input buffer from precomputed encrypted cryptographic string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local buffer = crypto.decrypt(mode, hash, key, iv)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | mode | Either of the below modes:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
+| `string` | hash | Cryptographic hash to be decrypted |
+| `string` | key | Key to be used for decryption |
+| `string` | iv | Generated initialization vector |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | buffer | Computed input buffer from cryptographic hash on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local hash = "U2FsdGVkX1..."
+local key = "MySecretKey12345"
+local iv = "RandomIV12345678"
+engine.print("Encrypted:", hash)
+engine.print("Decrypted:", crypto.decrypt("AES256", hash, key, iv))
+```
