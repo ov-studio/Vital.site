@@ -21,7 +21,7 @@ local contents = file.contents(path)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | valid | Specified directory's contents |
+| `table` or `bool` | size | Contents of specified directory on successful execution, or `false` on failure |
 
 <hr/>
 
@@ -29,5 +29,5 @@ local contents = file.contents(path)
 
 ```lua
 engine.print("File contents:")
-engine.print(table.inspect(file.contents("files/images/")))
+engine.print(table.inspect(file.contents("files/images")))
 ```
