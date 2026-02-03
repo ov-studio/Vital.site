@@ -36,5 +36,5 @@ local response, error = rest.post(url, body, headers = {
 engine.print("Response:", rest.post("https://api.example.com/users", table.encode({
     name: "John Doe",
     email: "john@example.com"
-})))
+}, "json")))
 ```
