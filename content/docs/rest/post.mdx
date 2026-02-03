@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local response = rest.post(url, headers = {
+local response = rest.post(url, body, headers = {
     "Content-Type: application/json"
 })
 ```
@@ -17,6 +17,7 @@ local response = rest.post(url, headers = {
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | url | Request URL to query |
+| `string` | body | Request body for query |
 | `table` | headers | Request headers for query |
 
 
@@ -31,8 +32,8 @@ local response = rest.post(url, headers = {
 ### Example
 
 ```lua
-engine.print("Response:", rest.post("https://api.example.com/users", {
+engine.print("Response:", json.stringify(rest.post("https://api.example.com/users", {
     name: "John Doe",
     email: "john@example.com"
-}))
+})))
 ```
