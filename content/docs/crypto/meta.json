@@ -1,0 +1,11 @@
+{
+    "title": "Crypto",
+    "icon": "Lock",
+    "pages": [
+        "encode",
+        "decode",
+        "encrypt",
+        "decrypt",
+        "..."
+    ]
+}

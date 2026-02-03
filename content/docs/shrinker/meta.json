@@ -1,0 +1,9 @@
+{
+    "title": "Shrinker",
+    "icon": "Archive",
+    "pages": [
+        "compress",
+        "decompress",
+        "..."
+    ]
+}

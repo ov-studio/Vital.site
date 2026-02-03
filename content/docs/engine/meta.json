@@ -1,0 +1,11 @@
+{
+    "title": "Engine",
+    "icon": "Cog",
+    "pages": [
+        "get_platform",
+        "get_tick",
+        "get_timestamp",
+        "get_serial",
+        "..."
+    ]
+}
