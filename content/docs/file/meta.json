@@ -4,6 +4,7 @@
     "pages": [
         "exists",
         "size",
+        "delete",
         "..."
     ]
 }

@@ -1,20 +1,20 @@
 ---
-title: engine.print
-description: Prints info on engine's console
+title: file.delete
+description: Deletes specified file
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local status = engine.print(...)
+local state = file.delete(path)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `...` | ... | Values to print on engine's console |
+| `string` | path | File path to delete |
 
 
 ### Returns
@@ -28,5 +28,5 @@ local status = engine.print(...)
 ### Example
 
 ```lua
-engine.print("Hello", "World", 123)
+engine.print("File deleted:", file.delete("test.png"))
 ```

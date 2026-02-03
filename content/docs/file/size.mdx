@@ -1,27 +1,27 @@
 ---
 title: file.size
-description: Retrieves storage size of specified path
+description: Retrieves size of specified file
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local size = file.size(path)
+local state = file.delete(path)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | path | Path for storage size computation |
+| `string` | path | File path for size computation |
 
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` or `bool` | valid | Computed storage size of specified path on successful execution, or `false` on failure |
+| `int` or `bool` | valid | Computed size of specified file on successful execution, or `false` on failure |
 
 <hr/>
 
