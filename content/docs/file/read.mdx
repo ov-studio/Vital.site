@@ -1,0 +1,32 @@
+---
+title: file.read
+description: Reads content of specified file
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local data = file.read(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to read |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | data | Returns file's content on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+engine.print("File data:", file.read("test.png"))
+```

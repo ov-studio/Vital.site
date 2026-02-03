@@ -5,6 +5,7 @@
         "exists",
         "size",
         "delete",
+        "read",
         "..."
     ]
 }
