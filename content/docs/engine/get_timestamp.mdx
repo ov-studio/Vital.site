@@ -1,0 +1,31 @@
+---
+title: engine.get_timestamp
+description: Retrieves sandbox's timestamp
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local timestamp = engine.get_timestamp()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | timestamp | Sandbox's current timestamp containing the following fields:<br/>• `hour` (number) - Current hour<br/>• `minute` (number) - Current minute<br/>• `second` (number) - Current second<br/>• `day` (number) - Current day<br/>• `month` (number) - Current month<br/>• `year` (number) - Current year |
+
+<hr/>
+
+### Example
+
+```lua
+iprint(engine.get_timestamp())
+```

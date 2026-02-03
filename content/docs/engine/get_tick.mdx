@@ -1,6 +1,6 @@
 ---
 title: engine.get_tick
-description: Retrieves the current tickcount
+description: Retrieves sandbox's tickcount
 badge: Shared
 ---
 
@@ -20,13 +20,12 @@ local tick = engine.get_tick()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | tick | Platform's current tickcount |
+| `int` | tick | Sandbox's current tickcount |
 
 <hr/>
 
 ### Example
 
 ```lua
-local tickcount = engine.get_tick()
 print("Current tickcount", engine.get_tick())
 ```
