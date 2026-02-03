@@ -1,0 +1,33 @@
+---
+title: rest.get
+description: Executes a GET request on specified url
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local content = rest.get(url, headers = {})
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | url | Request URL to query |
+| `table` | headers | Request headers to be sent |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | content | Fetched remote content on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+engine.print("Data:", rest.get("https://github.com/ov-studio/Vital.kit/blob/main/manifest.json"))
+```

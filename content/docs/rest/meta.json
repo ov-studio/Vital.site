@@ -1,0 +1,9 @@
+{
+    "title": "Rest",
+    "icon": "Activity",
+    "pages": [
+        "get",
+        "post",
+        "..."
+    ]
+}
