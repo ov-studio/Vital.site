@@ -1,0 +1,33 @@
+---
+title: file.contents
+description: Retrieves contents of specified directory path
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local contents = file.contents(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Directory path to check for contents |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | valid | Specified directory's contents |
+
+<hr/>
+
+### Example
+
+```lua
+engine.print("File contents:")
+engine.print(table.inspect(file.contents("files/images/")))
+```
