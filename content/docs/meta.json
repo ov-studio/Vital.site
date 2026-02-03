@@ -1,0 +1,12 @@
+{
+    "title": "Vital.sandbox",
+    "description": "Sandbox's Doc",
+    "icon": "Book",
+    "root": true,
+    "pages": [
+        "---Glossary---",
+        "index",
+        "---Guide---",
+        "engine"
+    ]
+}
