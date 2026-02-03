@@ -1,0 +1,39 @@
+---
+title: crypto.encrypt
+description: Retrieves computed encrypted cryptographic string of an input buffer
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local hash, iv = crypto.encrypt(mode, buffer, key)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | mode | Either of the below modes:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
+| `string` | buffer | Buffer containing data to be encrypted |
+| `string` | key | Key to be used for encryption |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | hash | Computed encrypted string on successful execution, or `false` on failure |
+| `string` or `nil` | iv | Generated initialization vector (IV) on successful execution, or `nil` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local input = "Hello World"
+local key = "MySecretKey12345"
+local hash, iv = crypto.encrypt("AES256", input, key)
+engine.print("Input:", input)
+engine.print("AES256 Hash:", hash, "IV:", iv)
+```
