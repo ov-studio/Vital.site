@@ -30,8 +30,8 @@ local platform = engine.get_platform()
 local platform = engine.get_platform()
 
 if platform == "Client" then
-    print("Running on client")
+    engine.print("Running on client")
 elseif platform == "Server" then
-    print("Running on server")
+    engine.print("Running on server")
 end
 ```
