@@ -1,13 +1,13 @@
 ---
-title: engine.get_tick
-description: Retrieves sandbox's tickcount
-badge: Shared
+title: engine.get_serial
+description: Retrieves sandbox's serial
+badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local tick = engine.get_tick()
+local tick = engine.get_serial()
 ```
 
 ### Parameters
@@ -20,12 +20,12 @@ local tick = engine.get_tick()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | tick | Sandbox's current tickcount |
+| `int` | tick | Sandbox's current serial |
 
 <hr/>
 
 ### Example
 
 ```lua
-print("Current tickcount:", engine.get_tick())
+print("Your current serial:", engine.get_serial())
 ```
