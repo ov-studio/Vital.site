@@ -1,0 +1,34 @@
+---
+title: crypto.encode
+description: Retrieves computed Base64 encoded equivalent string of an input buffer
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local output = crypto.encode(buffer)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | buffer | Buffer containing data to be encoded |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | output | Computed Base64 equivalent on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local input = "Hello World"
+engine.print("Input:", input)
+engine.print("Base64:", crypto.encode(input))
+```
