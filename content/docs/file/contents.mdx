@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local contents = file.contents(path)
+local contents = file.contents(path, directory_search = false)
 ```
 
 ### Parameters
@@ -15,6 +15,7 @@ local contents = file.contents(path)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | path | Directory path to check for contents |
+| `bool` | directory_search | Indicates whether to search only for directories, ignoring files |
 
 
 ### Returns
