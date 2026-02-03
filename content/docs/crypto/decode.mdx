@@ -1,0 +1,34 @@
+---
+title: crypto.decode
+description: Retrieves input buffer from precomputed Base64 equivalent string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local buffer = crypto.decode(hash)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | hash | Bas64 hash to be decoded |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | buffer | Computed original buffer from Base64 hash on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local input = "SGVsbG8gV29ybGQ="
+engine.print("Input:", input)
+engine.print("Output:", crypto.decode(input))
+```
