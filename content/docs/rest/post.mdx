@@ -1,13 +1,15 @@
 ---
-title: rest.get
-description: Executes a GET request on specified url
+title: rest.post
+description: Executes a POST request on specified url
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local content = rest.get(url, headers = {})
+local content = rest.post(url, headers = {
+    "Content-Type: application/json"
+})
 ```
 
 ### Parameters
@@ -29,5 +31,8 @@ local content = rest.get(url, headers = {})
 ### Example
 
 ```lua
-engine.print("Response:", rest.get("https://github.com/ov-studio/Vital.kit/blob/main/manifest.json"))
+engine.print("Response:", rest.post("https://api.example.com/users", {
+    name: "John Doe",
+    email: "john@example.com"
+}))
 ```
