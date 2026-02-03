@@ -34,6 +34,6 @@ local hash = "U2FsdGVkX1..."
 local key = "MySecretKey12345"
 local iv = "RandomIV12345678"
 
-engine.print("Encrypted:", hash)
+engine.print("Input:", hash)
 engine.print("Decrypted:", crypto.decrypt("AES256", hash, key, iv))
 ```
