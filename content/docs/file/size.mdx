@@ -1,0 +1,32 @@
+---
+title: file.size
+description: Retrieves storage size of specified path
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local size = file.size(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Path for storage size computation |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` or `bool` | valid | Computed storage size of specified path on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+engine.print("File size:", file.size("test.png"))
+```

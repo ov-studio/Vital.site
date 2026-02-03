@@ -3,6 +3,7 @@
     "icon": "FileText",
     "pages": [
         "exists",
+        "size",
         "..."
     ]
 }
