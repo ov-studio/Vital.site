@@ -9,6 +9,7 @@
         "---Guides---",
         "engine",
         "crypto",
-        "shrinker"
+        "shrinker",
+        "file"
     ]
 }

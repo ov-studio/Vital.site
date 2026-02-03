@@ -1,0 +1,32 @@
+---
+title: file.exists
+description: Retrieves existence of specified path
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local valid = file.exists(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Path to verify for existence |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | valid | Specified path's existence |
+
+<hr/>
+
+### Example
+
+```lua
+engine.print("File exists:", file.exists("test.png"))
+```
