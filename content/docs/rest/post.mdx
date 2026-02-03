@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local response = rest.post(url, body, headers = {
+local response, error = rest.post(url, body, headers = {
     "Content-Type: application/json"
 })
 ```
@@ -26,6 +26,7 @@ local response = rest.post(url, body, headers = {
 | Type | Name | Description |
 |------|------|-------------|
 | `string` or `bool` | response | Response on successful execution, or `false` on failure |
+| `string` or `bool` | error | `false` on successful execution, or error on failure |
 
 <hr/>
 
