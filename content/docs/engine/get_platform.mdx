@@ -27,11 +27,5 @@ local platform = engine.get_platform()
 ### Example
 
 ```lua
-local platform = engine.get_platform()
-
-if platform == "Client" then
-    engine.print("Running on client")
-elseif platform == "Server" then
-    engine.print("Running on server")
-end
+engine.print("Platform Type:", engine.get_platform())
 ```
