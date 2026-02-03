@@ -1,26 +1,32 @@
 {
-  "name": "vcommunity-client",
-  "version": "1.0.0",
-  "author": "ᴏᴠ <crazynuggets@outlook.com> (https://github.com/ov-studio)",
-  "license": "GPLV3",
+  "name": "my-app",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "@nuxtjs/firebase": "^8.2.2",
-    "bootstrap": "^5.2.0",
-    "bootstrap-vue": "^2.22.0",
-    "core-js": "^3.23.5",
-    "firebase": "^9.9.0",
-    "nuxt": "^2.15.8",
-    "socket.io-client": "^4.5.1"
+    "fumadocs-core": "16.5.0",
+    "fumadocs-mdx": "14.2.6",
+    "fumadocs-ui": "16.5.0",
+    "lucide-react": "^0.563.0",
+    "next": "16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "sass": "^1.53.0",
-    "sass-loader": "^10.1.1",
-    "webpack": "^4.46.0"
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^25.1.0",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }

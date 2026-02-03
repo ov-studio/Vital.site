@@ -1,0 +1,37 @@
+---
+title: engine.get_platform
+description: Returns the current platform type, indicating whether the code is executing in a client or server environment.
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local string: platform = engine.get_platform()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | platform | Returns the platform type. <br/>Possible values are: `"Client"` (indicates client-side execution) or `"Server"` (indicates server-side execution) |
+
+<hr/>
+
+### Example
+
+```lua
+local platform = engine.get_platform()
+
+if platform == "Client" then
+    print("Running on client")
+elseif platform == "Server" then
+    print("Running on server")
+end
+```
