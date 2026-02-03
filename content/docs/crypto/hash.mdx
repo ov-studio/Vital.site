@@ -1,0 +1,35 @@
+---
+title: crypto.hash
+description: Retrieves computed cryptographic hash of an input buffer
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local hash = crypto.hash(mode, buffer)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | mode | Either of the below modes:<br/>• `"SHA1"` - Secure Hash Algorithm 1<br/>• `"SHA224"` - Secure Hash Algorithm 224-bit<br/>• `"SHA256"` - Secure Hash Algorithm 256-bit<br/>• `"SHA384"` - Secure Hash Algorithm 384-bit<br/>• `"SHA512"` - Secure Hash Algorithm 512-bit |
+| `string` | buffer | Buffer containing data to be hashed |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | hash | Computed cryptographic hash on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local input = "Hello World"
+engine.print("Input:", input)
+engine.print("Hash:", crypto.hash(input))
+```
