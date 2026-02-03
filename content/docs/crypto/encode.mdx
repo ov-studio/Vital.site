@@ -1,13 +1,13 @@
 ---
 title: crypto.encode
-description: Retrieves computed Base64 encoded equivalent string of an input buffer
+description: Retrieves computed Base64 equivalent string of an input buffer
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local output = crypto.encode(buffer)
+local hash = crypto.encode(buffer)
 ```
 
 ### Parameters
@@ -21,7 +21,7 @@ local output = crypto.encode(buffer)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | output | Computed Base64 equivalent on successful execution, or `false` on failure |
+| `string` or `bool` | hash | Computed Base64 equivalent string on successful execution, or `false` on failure |
 
 <hr/>
 
