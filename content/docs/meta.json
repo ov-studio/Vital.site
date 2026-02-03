@@ -8,9 +8,9 @@
         "index",
         "---Guides---",
         "engine",
-        "crypto",
-        "shrinker",
         "file",
-        "rest"
+        "rest",
+        "crypto",
+        "shrinker"
     ]
 }
