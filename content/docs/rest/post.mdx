@@ -32,7 +32,7 @@ local response = rest.post(url, body, headers = {
 ### Example
 
 ```lua
-engine.print("Response:", json.stringify(rest.post("https://api.example.com/users", {
+engine.print("Response:", rest.post("https://api.example.com/users", json.stringify({
     name: "John Doe",
     email: "john@example.com"
 })))
