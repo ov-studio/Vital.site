@@ -1,0 +1,35 @@
+---
+title: shrinker.decompress
+description: Retrieves input buffer from precomputed compressed string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local buffer = shrinker.decompress(hash)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | hash | Compressed hash to be decompressed |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | buffer | Computed input buffer from compressed hash on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local input = "SGVsbG8gV29ybGQ="
+
+engine.print("Input:", input)
+engine.print("Decompressed:", shrinker.decompress(input))
+```

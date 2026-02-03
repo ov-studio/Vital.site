@@ -1,0 +1,35 @@
+---
+title: shrinker.compress
+description: Retrieves computed compressed string of an input buffer
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local hash = shrinker.compress(buffer)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | buffer | Buffer containing data to be encoded |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` or `bool` | hash | Computed compressed string on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local input = "Hello World"
+
+engine.print("Input:", input)
+engine.print("Compressed:", shrinker.compress(input))
+```
