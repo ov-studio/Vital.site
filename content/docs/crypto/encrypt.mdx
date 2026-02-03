@@ -34,6 +34,7 @@ local hash, iv = crypto.encrypt(mode, buffer, key)
 local input = "Hello World"
 local key = "MySecretKey12345"
 local hash, iv = crypto.encrypt("AES256", input, key)
+
 engine.print("Input:", input)
-engine.print("AES256 Hash:", hash, "IV:", iv)
+engine.print("Encrypted:", hash, "IV:", iv)
 ```
