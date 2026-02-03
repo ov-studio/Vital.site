@@ -1,0 +1,40 @@
+---
+title: engine.load_string
+description: Executes a raw input buffer within the engine
+badge: Shared
+---
+
+### Syntax
+```lua
+local result = engine.load_string(buffer, autoload)
+```
+
+### Parameters
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | buffer | Buffer containing code to be loaded and executed |
+| `bool` | autoload | Determines execution behavior:<br/>• When `true` - the loaded function executes immediately<br/>• When `false` - returns a callable function for deferred execution |
+
+### Returns
+| Type | Name | Description |
+|------|------|-------------|
+| `function` or `bool` | result | • When `autoload` is `false` - returns the loaded function on success, or `false` on failure<br/>• When `autoload` is `true` - returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+```lua
+-- Immediate execution with autoload enabled
+local success = engine.load_string([[
+    engine.print("Immediate", "Execution")
+]], true)
+
+-- Deferred execution with autoload disabled
+local exec = engine.load_string([[
+    engine.print("Delayed", "Execution")
+]], false)
+
+if exec then
+    exec() -- Execute the loaded function manually
+end
+```
