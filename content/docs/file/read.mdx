@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local data = file.read(path)
+local content = file.read(path)
 ```
 
 ### Parameters
@@ -21,12 +21,12 @@ local data = file.read(path)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | data | Returns file's content on successful execution, or `false` on failure |
+| `string` or `bool` | content | Returns file's content on successful execution, or `false` on failure |
 
 <hr/>
 
 ### Example
 
 ```lua
-engine.print("File data:", file.read("test.png"))
+engine.print("File content:", file.read("test.png"))
 ```
