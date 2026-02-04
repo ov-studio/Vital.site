@@ -4,7 +4,7 @@ import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 
 type BadgeType = 'Shared' | 'Client' | 'Server' | 'Deprecated';
 
-const badgeConfig: Record<BadgeType, { styles: string; icon: React.ReactNode }> = {
+const Badges = {
   Shared: {
     styles: 'bg-orange-500/20 text-orange-400 border-orange-500/50',
     icon: <Globe className="w-3 h-3" />
@@ -24,7 +24,7 @@ const badgeConfig: Record<BadgeType, { styles: string; icon: React.ReactNode }> 
 };
 
 export function Badge({ type }: { type: BadgeType }) {
-  const config = badgeConfig[type];
+  const config = Badges[type];
   if (!config) return null;
   return (
     <span className={`${buttonVariants({ variant: 'outline', size: 'sm' })} inline-flex items-center gap-2 text-xs font-medium pointer-events-none ${config.styles}`}>
