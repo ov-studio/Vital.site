@@ -12,9 +12,6 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
-  console.log('Page data:', page.data);
-  console.log('Badge:', page.data.badge);
-
   const MDX = page.data.body;
   const gitConfig = {
     user: 'ov-studio',
