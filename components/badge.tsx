@@ -27,9 +27,9 @@ export function Badge({ type }: { type: BadgeType }) {
   const config = badgeConfig[type];
   if (!config) return null;
   return (
-    <span className={`${buttonVariants({ variant: 'outline', size: 'sm' })} inline-flex items-center gap-1.5 text-xs font-medium pointer-events-none ${config.styles}`}>
-      {config.icon}
+    <span className={`${buttonVariants({ variant: 'outline', size: 'sm' })} inline-flex items-center gap-2 text-xs font-medium pointer-events-none ${config.styles}`}>
       {type}
+      {config.icon}
     </span>
   );
 }
