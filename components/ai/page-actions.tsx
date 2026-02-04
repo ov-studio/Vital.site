@@ -1,6 +1,6 @@
 'use client';
 import { useMemo } from 'react';
-import { Check, ChevronDown, ExternalLinkIcon, MessageCircleIcon } from 'lucide-react';
+import { ChevronDown, ExternalLinkIcon, MessageCircleIcon } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from 'fumadocs-ui/components/ui/popover';
