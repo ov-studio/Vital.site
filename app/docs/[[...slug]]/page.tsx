@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { ViewOptions } from '@/components/ai/page-actions';
+import { DocAI } from '@/components/docai';
 import { Badge } from '@/components/badge';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
@@ -29,7 +29,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
           <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
           <div className="inline-flex items-center gap-2 font-semibold">
             {page.data.badge && <Badge type={page.data.badge} />}
-            <ViewOptions
+            <DocAI
               markdownUrl={`${page.url}.mdx`}
               githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/docs/${page.path}`}
             />

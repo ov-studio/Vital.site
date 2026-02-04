@@ -50,7 +50,7 @@ const AIProviders = [
   },
 ];
 
-export function ViewOptions({ markdownUrl, githubUrl }: { markdownUrl: string; githubUrl: string }) {
+export function DocAI({ markdownUrl, githubUrl }: { markdownUrl: string; githubUrl: string }) {
   const items = useMemo(() => {
     const fullUrl = typeof window !== 'undefined' ? new URL(markdownUrl, window.location.origin).toString() : 'loading';
     const query = `Read ${fullUrl}, I want to ask questions about it.`;
