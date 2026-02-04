@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
+import { site } from '@/site.config.ts';
 import { DocAI } from '@/components/docai';
 import { Badge } from '@/components/badge';
 
@@ -13,12 +14,6 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   if (!page) notFound();
 
   const MDX = page.data.body;
-  const gitConfig = {
-    user: 'ov-studio',
-    repo: 'Vital.site',
-    branch: 'main'
-  };
-
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <div className="flex flex-col border-b">
@@ -28,7 +23,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             {page.data.badge && <Badge type={page.data.badge} />}
             <DocAI
               markdownUrl={`${page.url}.mdx`}
-              githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/docs/${page.path}`}
+              githubUrl={`https://github.com/${site.git.user}/${site.git.repo}/blob/${site.git.branch}/content/docs/${page.path}`}
             />
           </div>
         </div>
@@ -56,7 +51,7 @@ export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): P
   if (!page) notFound();
 
   return {
-    title: page.data.title,
+    title: `${site.name} | ${page.data.title}`,
     description: page.data.description,
     openGraph: {
       images: getPageImage(page).url,
