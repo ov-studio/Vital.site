@@ -23,7 +23,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             {page.data.badge && <Badge type={page.data.badge} />}
             <DocAI
               markdownUrl={`${page.url}.mdx`}
-              githubUrl={`https://github.com/${site.git.user}/${site.git.repo}/blob/${site.git.branch}/content/docs/${page.path}`}
+              githubUrl={`https://github.com/${site.git.site.user}/${site.git.site.repo}/blob/${site.git.site.branch}/content/docs/${page.path}`}
             />
           </div>
         </div>
