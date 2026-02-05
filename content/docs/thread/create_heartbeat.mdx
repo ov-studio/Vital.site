@@ -40,8 +40,6 @@ local self = thread:create_heartbeat(
     function()
         counter = counter + 1
         engine.print("Heartbeat terminated:", counter)
-    end,
-    
-    1000
+    end, 1000
 )
 ```
