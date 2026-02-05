@@ -1,0 +1,33 @@
+---
+title: thread:create_promise
+description: Creates a new promise context
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ctx = thread:create_promise(exec = false, options = false)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | exec | Function executed post promise initialization |
+| `table` | options | Options containing the following fields:<br/>• `async` (bool) - whether to execute asynchronously<br/>• `timeout` (number) - timeout duration in milliseconds |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` or `bool` | ctx | Returns `promise` instance on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+--Create a heartbeat that increments counter every second until it reaches 5
+local self = thread:create_promise()
+```
