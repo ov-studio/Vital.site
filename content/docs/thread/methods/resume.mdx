@@ -14,7 +14,7 @@ local status = self:resume(options = nil)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | options | Options containing the following fields:<br/>• `executions` (number) - number of executions per frame<br/>• `frames` (number) - delay between frames in milliseconds |
+| `table` | options | Options containing the following fields:<br/>• `executions` (number) - number of executions per resume<br/>• `interval` (number) - resume interval in milliseconds |
 
 ### Returns
 
@@ -27,17 +27,24 @@ local status = self:resume(options = nil)
 ### Example
 
 ```lua
+--Resumes only once
 local self = thread:create(function(self)
-    engine.print("Hello from thread")
+    for i = 1, 5, 1 do
+        engine.print("Thread iteration count", i)
+    end
 end)
 
 self:resume()
 ```
 
 ```lua
+--Automatically resumes once every 1 second
 local self = thread:create(function(self)
-    engine.print("Hello from thread")
+    for i = 1, 5, 1 do
+        thread:pause()
+        engine.print("Thread iteration count", i)
+    end
 end)
 
-self:resume()
+self:resume({executions = 1, interval = 1000})
 ```
