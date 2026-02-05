@@ -25,18 +25,15 @@ local ctx = thread:create_promise(exec = false, options = false)
 
 <hr/>
 
-### Callback: `exec(resolve, reject)`
+### Callback
+
+```lua
+exec([self], resolve, reject)
+```
 
 | Type | Name | Description |
 |------|------|-------------|
-| `function` | resolve | Callable function to resolve the promise with passed arguments |
-| `function` | reject | Callable function to reject the promise with passed arguments |
-
-### Callback: `exec(self, resolve, reject)`
-
-| Type | Name | Description |
-|------|------|-------------|
-| `thread` | self | Running thread instance |
+| `thread` | self | Running thread instance incase `options.async` was enabled |
 | `function` | resolve | Callable function to resolve the promise with passed arguments |
 | `function` | reject | Callable function to reject the promise with passed arguments |
 
