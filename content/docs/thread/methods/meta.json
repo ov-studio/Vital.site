@@ -4,6 +4,7 @@
     "pages": [
         "destroy",
         "status",
+        "sleep",
         "..."
     ]
 }

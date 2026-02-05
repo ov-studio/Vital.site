@@ -1,0 +1,35 @@
+---
+title: self:sleep
+description: Puts an existing thread on sleep
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:sleep(duration)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | duration | Sleep duration in milliseconds |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Thread sleeping for 5 seconds")
+    self:sleep(5000)
+    engine.print("Thread awaken now")
+end):resume()
+```
