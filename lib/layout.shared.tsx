@@ -4,7 +4,7 @@ import { site } from '@/site.config.ts';
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: site.sandbox,
+      title: site.name,
     },
   };
 }

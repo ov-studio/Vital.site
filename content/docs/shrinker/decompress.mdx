@@ -28,7 +28,7 @@ local buffer = shrinker.decompress(hash)
 ### Example
 
 ```lua
-local input = "SGVsbG8gV29ybGQ="
+local input = shrinker.compress("Hello World")
 
 engine.print("Input:", input)
 engine.print("Decompressed:", shrinker.decompress(input))

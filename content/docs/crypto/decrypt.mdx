@@ -30,9 +30,8 @@ local buffer = crypto.decrypt(mode, hash, key, iv)
 ### Example
 
 ```lua
-local hash = "U2FsdGVkX1..."
 local key = "MySecretKey12345"
-local iv = "RandomIV12345678"
+local hash, iv = crypto.encrypt("AES256", "Hello World", key)
 
 engine.print("Input:", hash)
 engine.print("Decrypted:", crypto.decrypt("AES256", hash, key, iv))
