@@ -1,0 +1,43 @@
+---
+title: self:resume
+description: Resumes an existing suspended thread
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:resume(options = nil)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | options | Options containing the following fields:<br/>• `executions` (number) - number of executions per frame<br/>• `frames` (number) - delay between frames in milliseconds |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Hello from thread")
+end)
+
+self:resume()
+```
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Hello from thread")
+end)
+
+self:resume()
+```
