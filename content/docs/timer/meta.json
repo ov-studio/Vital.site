@@ -1,0 +1,9 @@
+{
+    "title": "Timer",
+    "icon": "Clock",
+    "pages": [
+        "create",
+        "methods",
+        "..."
+    ]
+}

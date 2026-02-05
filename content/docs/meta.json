@@ -11,6 +11,8 @@
         "file",
         "rest",
         "crypto",
-        "shrinker"
+        "shrinker",
+        "timer",
+        "..."
     ]
 }

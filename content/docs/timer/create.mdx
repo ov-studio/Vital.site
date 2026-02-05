@@ -1,0 +1,36 @@
+---
+title: timer:create
+description: Creates a new timer to execute the handler as specified
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ctx = timer:create(exec, interval, executions, ...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| function | exec | The function to be executed by the timer |
+| int | interval | Execution interval in milliseconds |
+| int | executions | Total number of times the function will execute |
+| ... | ... | Additional arguments to pass to the `exec` callback |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `timer` or `bool` | ctx | Returns `timer` instance on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local self = timer:create(function(message)
+    engine.print(message)
+end, 1000, 5, "Hello from timer")
+```

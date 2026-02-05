@@ -1,21 +1,19 @@
 ---
-title: engine.print
-description: Prints info on engine's console
+title: self:destroy
+description: Destroys an existing timer
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local status = engine.print(...)
+local status = self:destroy()
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `...` | ... | Values to print on engine's console |
-
 
 ### Returns
 
@@ -28,5 +26,9 @@ local status = engine.print(...)
 ### Example
 
 ```lua
-engine.print("Hello", "World", 123)
+local self = timer:create(function(message)
+    engine.print(message)
+end, 1000, 5, "Hello from timer")
+
+self:destroy()
 ```
