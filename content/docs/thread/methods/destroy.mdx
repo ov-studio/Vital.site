@@ -1,0 +1,34 @@
+---
+title: self:destroy
+description: Destroys an existing thread
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Hello from thread")
+end):resume()
+
+self:destroy()
+```

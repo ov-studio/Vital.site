@@ -12,6 +12,7 @@
         "rest",
         "crypto",
         "shrinker",
+        "thread",
         "timer",
         "..."
     ]

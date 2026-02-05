@@ -1,0 +1,33 @@
+---
+title: thread:create
+description: Creates a new thread to execute the handler as specified
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ctx = thread:create(exec)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | exec | The function to be executed by the timer |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` or `bool` | ctx | Returns `thread` instance on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Hello from thread")
+end):resume()
+```
