@@ -12,6 +12,11 @@ local response, error = rest.post(url, body, headers = {
 })
 ```
 
+<Callout type="warn">
+Requires execution within a valid thread context for asynchronous, non-blocking operation.<br/>
+Calls made outside a thread will fail to process.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

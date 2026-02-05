@@ -10,13 +10,17 @@ badge: Shared
 local response, error = rest.get(url, headers = {})
 ```
 
+<Callout type="warn">
+Requires execution within a valid thread context for asynchronous, non-blocking operation.<br/>
+Calls made outside a thread will fail to process.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | url | Request URL to query |
 | `table` | headers | Request headers for query |
-
 
 ### Returns
 
