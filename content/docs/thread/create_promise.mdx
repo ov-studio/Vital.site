@@ -21,13 +21,12 @@ local ctx = thread:create_promise(exec = false, options = false)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `promise` or `bool` | ctx | Returns `promise` instance on successful execution, or `false` on failure |
+| promise or bool | ctx | Returns promise instance containing the following methods on successful execution:<br/>• `resolve` (function) - resolves the promise with passed arguments<br/>• `reject` (function) - rejects the promise with passed arguments<br/>or false on failure |
 
 <hr/>
 
 ### Example
 
 ```lua
---Create a heartbeat that increments counter every second until it reaches 5
-local self = thread:create_promise()
+local promise = thread:create_promise()
 ```
