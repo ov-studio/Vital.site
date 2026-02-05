@@ -4,6 +4,7 @@
     "pages": [
         "create",
         "create_heartbeat",
+        "create_promise",
         "get_thread",
         "...",
         "methods"
