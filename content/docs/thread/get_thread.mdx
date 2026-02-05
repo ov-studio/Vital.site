@@ -1,0 +1,30 @@
+---
+title: thread:get_thread
+description: Retrieves currently running thread
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ctx = thread:get_thread()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` or `bool` | ctx | Returns currently running `thread` instance, or `false` if none is active |
+
+<hr/>
+
+### Example
+
+```lua
+engine.print("Running thread:", thread:get_thread())
+```

@@ -1,0 +1,34 @@
+---
+title: thread:pause
+description: Pauses currently running thread
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ctx = thread:pause()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | ctx | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Paused thread")
+    thread:pause()
+    engine.print("Hello from thread")
+end):resume()
+```

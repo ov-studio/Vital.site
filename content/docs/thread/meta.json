@@ -3,7 +3,8 @@
     "icon": "GitBranch",
     "pages": [
         "create",
-        "methods",
-        "..."
+        "get_thread",
+        "...",
+        "methods"
     ]
 }
