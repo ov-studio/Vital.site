@@ -1,0 +1,32 @@
+---
+title: self:status
+description: Retrieves status of an existing thread
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:status()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | status | Thread's current status |
+
+<hr/>
+
+### Example
+
+```lua
+local self = thread:create(function(self)
+    engine.print("Thread status:", self:status())
+end):resume()
+```
