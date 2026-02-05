@@ -31,5 +31,7 @@ local self = thread:create(function(self)
     engine.print("Thread sleeping for 5 seconds")
     self:sleep(5000)
     engine.print("Thread awaken now")
-end):resume()
+end)
+
+self:resume()
 ```

@@ -30,5 +30,7 @@ local self = thread:create(function(self)
     engine.print("Paused thread")
     thread:pause()
     engine.print("Hello from thread")
-end):resume()
+end)
+
+self:resume()
 ```

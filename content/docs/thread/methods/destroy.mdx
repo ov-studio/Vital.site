@@ -28,7 +28,8 @@ local status = self:destroy()
 ```lua
 local self = thread:create(function(self)
     engine.print("Hello from thread")
-end):resume()
+end)
 
+self:resume()
 self:destroy()
 ```

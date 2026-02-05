@@ -41,5 +41,7 @@ exec(self)
 ```lua
 local self = thread:create(function(self)
     engine.print("Hello from thread")
-end):resume()
+end)
+
+self:resume()
 ```
