@@ -3,6 +3,7 @@
     "icon": "GitBranch",
     "pages": [
         "create",
+        "create_heartbeat",
         "get_thread",
         "...",
         "methods"

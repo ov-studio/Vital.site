@@ -1,0 +1,47 @@
+---
+title: thread:create_heartbeat
+description: Creates a new heartbeat thread to execute the handler as specified
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ctx = thread:create_heartbeat(condition, exec, interval)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | condition | Conditional function - heartbeat continues while true, terminates when false |
+| `function` | exec | Callback function - executed upon heartbeat termination |
+| `int` | interval | Execution interval in milliseconds |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` or `bool` | ctx | Returns `thread` instance on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+local counter = 0
+
+--Create a heartbeat that increments counter every second until it reaches 5
+local self = thread:create_heartbeat(
+    function()
+        return counter < 5
+    end,
+
+    function()
+        counter = counter + 1
+        engine.print("Heartbeat terminated:", counter)
+    end,
+    
+    1000
+)
+```
