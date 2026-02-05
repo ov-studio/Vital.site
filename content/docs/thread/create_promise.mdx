@@ -21,7 +21,24 @@ local ctx = thread:create_promise(exec = false, options = false)
 
 | Type | Name | Description |
 |------|------|-------------|
-| promise or bool | ctx | Returns promise instance containing the following methods on successful execution:<br/>• `resolve` (function) - resolves the promise with passed arguments<br/>• `reject` (function) - rejects the promise with passed arguments<br/>or false on failure |
+| `table` or `bool` | ctx | Returns promise context containing the following fields on successful execution:<br/>• `resolve` (function) - callable function to resolve the promise with passed arguments<br/>• `reject` (function) - callable function to reject the promise with passed arguments<br/>or false on failure |
+
+<hr/>
+
+### Callback: `exec(resolve, reject)`
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | resolve | Callable function to resolve the promise with passed arguments |
+| `function` | reject | Callable function to reject the promise with passed arguments |
+
+### Callback: `exec(self, resolve, reject)`
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` | self | Running thread instance |
+| `function` | resolve | Callable function to resolve the promise with passed arguments |
+| `function` | reject | Callable function to reject the promise with passed arguments |
 
 <hr/>
 
