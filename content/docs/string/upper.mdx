@@ -1,0 +1,145 @@
+---
+title: string.upper
+description: Converts all lowercase letters to uppercase
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.upper(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to convert |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Modified string with all uppercase letters converted to uppercase |
+
+<hr/>
+
+### Example
+
+```lua
+--Convert to uppercase
+local result = string.upper("hello")
+engine.print(result) --HELLO
+```
+
+```lua
+--Mixed case
+local result = string.upper("Hello World")
+engine.print(result) --HELLO WORLD
+```
+
+```lua
+--Already uppercase (no change)
+local result = string.upper("ALREADY UPPERCASE")
+engine.print(result) --ALREADY UPPERCASE
+```
+
+```lua
+--Numbers and special characters unchanged
+local result = string.upper("abc123!@#")
+engine.print(result) --ABC123!@#
+```
+
+```lua
+--Case-insensitive comparison
+local str1 = "Hello"
+local str2 = "hello"
+if string.upper(str1) == string.upper(str2) then
+    engine.print("Strings are equal (case-insensitive)")
+end
+```
+
+```lua
+--Normalize user input
+local input = "yes"
+if string.upper(input) == "YES" then
+    engine.print("User confirmed")
+end
+```
+
+```lua
+--Create constant names
+local varName = "max_value"
+local constant = string.upper(varName)
+engine.print(constant) --MAX_VALUE
+```
+
+```lua
+--Emphasize text
+local text = "warning"
+local emphasized = string.upper(text)
+engine.print(emphasized) --WARNING
+```
+
+```lua
+--Convert enum values
+local status = "active"
+local enum = string.upper(status)
+engine.print(enum) --ACTIVE
+```
+
+```lua
+--String with only numbers (no change)
+local result = string.upper("123456")
+engine.print(result) --123456
+```
+
+```lua
+--Empty string
+local result = string.upper("")
+engine.print(result) --
+```
+
+```lua
+--Title to header
+local title = "my document title"
+local header = string.upper(title)
+engine.print(header) --MY DOCUMENT TITLE
+```
+
+```lua
+--SQL-like syntax
+local column = "user_id"
+engine.print(string.upper(column)) --USER_ID
+```
+
+```lua
+--Compare ignore case
+local function equalsIgnoreCase(a, b)
+    return string.upper(a) == string.upper(b)
+end
+engine.print(equalsIgnoreCase("Test", "test")) --true
+```
+
+```lua
+--Format command
+local cmd = "help"
+engine.print("Command: "..string.upper(cmd)) --Command: HELP
+```
+
+```lua
+--Acronym from words
+local text = "hypertext markup language"
+local acronym = ""
+for word in string.gmatch(text, "%S+") do
+    acronym = acronym..string.upper(string.sub(word, 1, 1))
+end
+engine.print(acronym) --HML
+```
+
+```lua
+--Shouty snake case
+local name = "my_variable_name"
+local shouty = string.upper(name)
+engine.print(shouty) --MY_VARIABLE_NAME
+```
