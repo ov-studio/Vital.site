@@ -1,0 +1,108 @@
+---
+title: string.lower
+description: Converts all uppercase letters to lowercase
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.lower(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to convert |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Modified string with all uppercase letters converted to lowercase |
+
+<hr/>
+
+### Example
+
+```lua
+--Convert to lowercase
+local result = string.lower("HELLO")
+engine.print(result) --hello
+```
+
+```lua
+--Mixed case
+local result = string.lower("Hello World")
+engine.print(result) --hello world
+```
+
+```lua
+--Already lowercase (no change)
+local result = string.lower("already lowercase")
+engine.print(result) --already lowercase
+```
+
+```lua
+--Numbers and special characters unchanged
+local result = string.lower("ABC123!@#")
+engine.print(result) --abc123!@#
+```
+
+```lua
+--Case-insensitive comparison
+local str1 = "Hello"
+local str2 = "HELLO"
+
+if string.lower(str1) == string.lower(str2) then
+    engine.print("Strings are equal (case-insensitive)")
+end
+```
+
+```lua
+--Normalize user input
+local input = "YES"
+if string.lower(input) == "yes" then
+    engine.print("User confirmed")
+end
+```
+
+```lua
+--Convert keys to lowercase
+local data = {
+    Name = "John",
+    Age = 25,
+    City = "NYC"
+}
+
+for key, value in pairs(data) do
+    engine.print(string.lower(key), value)
+end
+--Output: name John, age 25, city NYC
+```
+
+```lua
+--Email normalization
+local email = "User@Example.COM"
+local normalized = string.lower(email)
+engine.print(normalized) --user@example.com
+```
+
+```lua
+--String with only numbers (no change)
+local result = string.lower("123456")
+engine.print(result) --123456
+```
+
+```lua
+--Empty string
+local result = string.lower("")
+engine.print(result) --
+```
+
+```lua
+--Chaining with other string functions
+local result = string.lower("HELLO WORLD"):gsub(" ", "_")
+engine.print(result) --hello_world
+```
