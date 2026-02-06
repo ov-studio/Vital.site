@@ -1,0 +1,41 @@
+---
+title: self:await
+description: Puts an existing thread on await
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ... = self:await(promise)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` | promise | Promise context to await |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | Resolved values |
+
+<hr/>
+
+### Example
+
+```lua
+local promise = thread:create_promise()
+
+local self = thread:create(function(self)
+    local result = {self:await(promise)}
+    engine.print("Promise resolved:", table.unpack(result))
+end)
+
+self:resume()
+timer:create(function()
+    promise.resolve("Task completed", 123)
+end, 5000, 1)
+```
