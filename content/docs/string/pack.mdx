@@ -1,0 +1,138 @@
+---
+title: string.pack
+description: Packs values into a binary string according to a format
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local binary = string.pack(input, ...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Format string describing how to pack the values |
+| `...` | ... | Values to pack |
+
+### Format Options
+
+| Option | Description |
+|--------|-------------|
+| `b` | Signed byte (char) |
+| `B` | Unsigned byte (unsigned char) |
+| `h` | Signed short |
+| `H` | Unsigned short |
+| `l` | Signed long |
+| `L` | Unsigned long |
+| `j` | lua_Integer |
+| `J` | lua_Unsigned |
+| `T` | size_t |
+| `i[n]` | Signed int with n bytes |
+| `I[n]` | Unsigned int with n bytes |
+| `f` | Float |
+| `d` | Double |
+| `n` | Lua number |
+| `c[n]` | Fixed-size string of n bytes |
+| `z` | Zero-terminated string |
+| `s[n]` | String preceded by length |
+| `x` | One byte of padding |
+| `<` | Set little endian |
+| `>` | Set big endian |
+| `=` | Set native endian |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | binary | Binary string containing the packed values |
+
+<hr/>
+
+### Example
+
+```lua
+--Pack three integers
+local packed = string.pack("iii", 10, 20, 30)
+engine.print(#packed) --12
+```
+
+```lua
+--Pack a fixed-size string
+local packed = string.pack("c5", "hello")
+engine.print(#packed) --5
+```
+
+```lua
+--Pack zero-terminated string
+local packed = string.pack("z", "world")
+engine.print(#packed) --6
+```
+
+```lua
+--Pack mixed types
+local packed = string.pack("ifd", 42, 3.14, 2.718)
+```
+
+```lua
+--Little endian packing
+local packed = string.pack("<I4", 0x12345678)
+```
+
+```lua
+--Big endian packing
+local packed = string.pack(">I4", 0x12345678)
+```
+
+```lua
+--Pack bytes
+local packed = string.pack("BBB", 65, 66, 67)
+engine.print(packed) --ABC
+```
+
+```lua
+--Pack with padding
+local packed = string.pack("ixxi", 1, 2)
+```
+
+```lua
+--Pack unsigned short
+local packed = string.pack("H", 1000)
+```
+
+```lua
+--Pack double precision float
+local packed = string.pack("d", math.pi)
+```
+
+```lua
+--Pack string with length prefix
+local packed = string.pack("s1", "hello")
+```
+
+```lua
+--Pack multiple strings
+local packed = string.pack("zz", "first", "second")
+```
+
+```lua
+--Combine different types
+local packed = string.pack("i4f", 100, 1.5)
+```
+
+```lua
+--Pack network byte order (big endian)
+local packed = string.pack(">I2", 0xABCD)
+```
+
+```lua
+--Pack struct-like data
+local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
+```
+
+```lua
+--Pack boolean as byte
+local packed = string.pack("b", true and 1 or 0)
+```
