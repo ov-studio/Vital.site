@@ -6,6 +6,8 @@
         "unpack",
         "insert",
         "remove",
-        "sort"
+        "sort",
+        "concat",
+        "..."
     ]
 }
