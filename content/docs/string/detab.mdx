@@ -1,0 +1,44 @@
+---
+title: string.detab
+description: Converts tab characters to spaces in a string
+badge: Shared
+---
+
+### Syntax
+```lua
+local result = string.detab(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String containing tab characters |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Detabbed string |
+
+<hr/>
+
+### Example
+```lua
+--Convert single tab
+local result = string.detab("Hello\tWorld")
+engine.print(result) --Hello    World
+```
+
+```lua
+--Convert multiple tabs
+local result = string.detab("A\tB\tC")
+engine.print(result) --A    B    C
+```
+
+```lua
+--Format tab-separated values
+local tsv = "Name\tAge\tCity"
+local formatted = string.detab(tsv)
+engine.print(formatted) --Name    Age    City
+```
