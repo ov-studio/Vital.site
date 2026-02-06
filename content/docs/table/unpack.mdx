@@ -1,0 +1,105 @@
+---
+title: table.unpack
+description: Unpacks table elements into individual values
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ... = table.unpack(input, start_at = 1, end_at = #input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to unpack |
+| `int` | start_at | Position where unpacking starts |
+| `int` | end_at | Position where unpacking ends |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | Unpacked values from the table |
+
+<hr/>
+
+### Example
+
+```lua
+--Unpack all elements
+local t = {10, 20, 30}
+local a, b, c = table.unpack(t)
+engine.print(a, b, c) --10  20  30
+```
+
+```lua
+--Unpack into function arguments
+local coords = {100, 200, 50}
+setPosition(table.unpack(coords)) -- Same as setPosition(100, 200, 50)
+```
+
+```lua
+--Unpack subset of table
+local t = {1, 2, 3, 4, 5}
+local a, b = table.unpack(t, 2, 3)
+engine.print(a, b) --2  3
+```
+
+```lua
+--Unpack from specific start
+local t = {"a", "b", "c", "d"}
+local x, y, z = table.unpack(t, 2)
+engine.print(x, y, z) --b  c  d
+```
+
+```lua
+--Unpack single element
+local t = {42}
+local value = table.unpack(t)
+engine.print(value) --42
+```
+
+```lua
+--Unpack with nil values
+local t = {1, nil, 3}
+local a, b, c = table.unpack(t)
+engine.print(a, b, c) --1  nil  3
+```
+
+```lua
+--Swap variables using pack/unpack
+local a, b = 10, 20
+a, b = table.unpack({b, a})
+engine.print(a, b) --20  10
+```
+
+```lua
+--Unpack colors
+local color = {255, 128, 0}
+local r, g, b = table.unpack(color)
+setColor(r, g, b)
+```
+
+```lua
+--Unpack into multiple assignments
+local data = {true, "success", 100}
+local status, message, code = table.unpack(data)
+engine.print(status, message, code) --true  success  100
+```
+
+```lua
+--Unpack more values than exist
+local t = {1, 2}
+local a, b, c, d = table.unpack(t)
+engine.print(a, b, c, d) --1  2  nil  nil
+```
+
+```lua
+--Unpack with range
+local week = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
+local first, second, third = table.unpack(week, 1, 3)
+engine.print(first, second, third) --Mon  Tue  Wed
+```

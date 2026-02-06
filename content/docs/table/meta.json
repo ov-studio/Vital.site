@@ -2,6 +2,7 @@
     "title": "Table",
     "icon": "Table",
     "pages": [
-        "pack"
+        "pack",
+        "unpack"
     ]
 }
