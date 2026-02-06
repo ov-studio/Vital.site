@@ -44,7 +44,7 @@ local myFunc = function()
 end
 
 local dumped = string.dump(myFunc)
-local loaded = engine.load_string(dumped)
+local loaded = engine.load_string(dumped, false)
 engine.print(loaded()) --Hello, World!
 ```
 
@@ -68,7 +68,7 @@ local increment = function()
 end
 
 local dumped_counter = string.dump(increment)
-local loaded_counter = engine.load_string(dumped_counter)
+local loaded_counter = engine.load_string(dumped_counter, false)
 engine.print(loaded_counter()) --1
 engine.print(loaded_counter()) --2
 ```
