@@ -24,6 +24,18 @@ local ... = self:try(handles)
 
 <hr/>
 
+### Callback
+
+```lua
+exec(self)
+```
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` | self | Running virtualized thread instance |
+
+<hr/>
+
 ### Example
 
 ```lua
@@ -48,7 +60,6 @@ end)
 
 self:resume()
 timer:create(function()
-    --promise.resolve("Task completed", 123)
     promise.reject("Task failed", 456)
 end, 5000, 1)
 ```
