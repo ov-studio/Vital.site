@@ -4,6 +4,7 @@
     "pages": [
         "void",
         "parse",
+        "parse_hex",
         "sub",
         "gsub",
         "byte",

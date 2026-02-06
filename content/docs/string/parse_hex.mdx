@@ -1,0 +1,39 @@
+---
+title: string.parse_hex
+description: Converts a hexadecimal color string to RGB values
+badge: Shared
+---
+
+### Syntax
+```lua
+local r, g, b = string.parse_hex(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Hexadecimal color string - with or without `#` prefix |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | r | Red component (0-255) |
+| `int` | g | Green component (0-255) |
+| `int` | b | Blue component (0-255) |
+
+<hr/>
+
+### Example
+```lua
+--Parse hex color with # prefix
+local r, g, b = string.parse_hex("#FF5733")
+engine.print(r, g, b) --255  87  51
+```
+
+```lua
+--Parse hex color without # prefix
+local r, g, b = string.parse_hex("00FF00")
+engine.print(r, g, b) --0  255  0
+```
