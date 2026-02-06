@@ -7,25 +7,23 @@ badge: Shared
 ### Syntax
 
 ```lua
-local value1, value2, ..., next_pos = string.unpack(format, input, start_at = 1)
+local ..., next_pos = string.unpack(format, input, start_at = 1)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | format | Format string (same as used in string.pack) |
+| `string` | format | Format string - same format as used in [`string.pack`](/docs/string/pack) |
 | `string` | input | Binary string containing packed data |
-| `number` | start_at | Starting position in the string |
+| `int` | start_at | Starting position in the string |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `any` | value1 | First unpacked value |
-| `any` | value2 | Second unpacked value (if format specifies) |
-| `...` | ... | Additional unpacked values |
-| `number` | next_pos | Index of the first unread byte in the string |
+| `...` | ... | Unpacked values |
+| `int` | next_pos | Index of the first unread byte in the string |
 
 <hr/>
 
