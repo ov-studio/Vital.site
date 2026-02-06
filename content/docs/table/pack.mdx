@@ -1,0 +1,112 @@
+---
+title: table.pack
+description: Packs values into a table with size information
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = table.pack(...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | Values to pack into a table |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Table containing all values with field `n` set to the number of arguments |
+
+<hr/>
+
+### Example
+
+```lua
+--Pack multiple values
+local t = table.pack(1, 2, 3, 4, 5)
+engine.print(t[1], t[2], t[3]) --1  2  3
+engine.print(t.n) --5
+```
+
+```lua
+--Pack with nil values
+local t = table.pack("a", nil, "b", nil, "c")
+engine.print(t[1], t[2], t[3]) --a  nil  b
+engine.print(t.n) --5
+```
+
+```lua
+--Pack function returns
+local function multiReturn()
+    return 10, 20, 30
+end
+local t = table.pack(multiReturn())
+engine.print(t[1], t[2], t[3]) --10  20  30
+engine.print(t.n) --3
+```
+
+```lua
+--Pack strings
+local t = table.pack("hello", "world", "lua")
+for i = 1, t.n do
+    engine.print(t[i])
+end
+--Output: hello, world, lua
+```
+
+```lua
+--Pack empty (no arguments)
+local t = table.pack()
+engine.print(t.n) --0
+```
+
+```lua
+--Pack single value
+local t = table.pack(42)
+engine.print(t[1]) --42
+engine.print(t.n) --1
+```
+
+```lua
+--Pack mixed types
+local t = table.pack(1, "two", true, nil, {5})
+engine.print(t.n) --5
+engine.print(type(t[5])) --table
+```
+
+```lua
+--Difference from # operator with nil
+local t = table.pack(1, 2, nil, 4)
+engine.print(#t) --4 (might be 2 depending on implementation)
+engine.print(t.n) --4 (always correct)
+```
+
+```lua
+--Pack varargs in function
+local function countArgs(...)
+    local args = table.pack(...)
+    engine.print("Received", args.n, "arguments")
+    return args.n
+end
+countArgs(1, 2, 3) --Received 3 arguments
+```
+
+```lua
+--Preserve trailing nils
+local t = table.pack(1, 2, 3, nil, nil)
+engine.print(t.n) --5
+engine.print(t[5]) --nil
+```
+
+```lua
+--Iterate with correct count
+local t = table.pack("a", nil, "b", nil)
+for i = 1, t.n do
+    engine.print(i, t[i])
+end
+```
