@@ -1,0 +1,74 @@
+---
+title: string.dump
+description: Returns a binary representation of a function
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local binary = string.dump(exec, strip = false)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | exec | The function to serialize into binary format |
+| `boolean` | strip | If true, removes debug information to reduce size |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | binary | Binary string representation of the function that can be loaded via [`engine.load_string()`](/docs/engine/load_string) |
+
+<hr/>
+
+### Example
+
+```lua
+--Dump a simple function
+local myFunc = function()
+    return "Hello, World!"
+end
+
+local dumped = string.dump(myFunc)
+engine.print(type(dumped)) --string
+```
+
+```lua
+--Load and execute the dumped function
+local myFunc = function()
+    return "Hello, World!"
+end
+
+local dumped = string.dump(myFunc)
+local loaded = engine.load_string(dumped)
+engine.print(loaded()) --Hello, World!
+```
+
+```lua
+--Dump with debug info stripped
+local myFunc = function()
+    return "Test"
+end
+
+local normal = string.dump(myFunc)
+local stripped = string.dump(myFunc, true)
+engine.print(#normal, #stripped) --stripped version is smaller
+```
+
+```lua
+--Dump function with upvalues
+local counter = 0
+local increment = function()
+    counter = counter + 1
+    return counter
+end
+
+local dumped_counter = string.dump(increment)
+local loaded_counter = engine.load_string(dumped_counter)
+engine.print(loaded_counter()) --1
+engine.print(loaded_counter()) --2
+```
