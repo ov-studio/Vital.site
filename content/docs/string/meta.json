@@ -2,7 +2,22 @@
     "title": "String",
     "icon": "Regex",
     "pages": [
+        "sub",
         "gsub",
+        "byte",
+        "char",
+        "len",
+        "rep",
+        "match",
+        "gmatch",
+        "find",
+        "format",
+        "lower",
+        "upper",
+        "reverse",
+        "pack",
+        "packsize",
+        "unpack",
         "..."
     ]
 }
