@@ -1,0 +1,135 @@
+---
+title: string.gsub
+description: Replaces occurrences of a pattern with a replacement
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result, count = string.gsub(input, pattern, replacement, max_replacements = nil)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to modify |
+| `string` | pattern | Lua pattern to find |
+| `string`, `table`, `function` | replacement | Replacement string, table, or function |
+| `number` | max_replacements | Maximum number of replacements to make |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Modified string with replacements |
+| `number` | count | Number of substitutions that occurred |
+
+<hr/>
+
+### Example
+
+```lua
+--Simple text replacement
+local result, count = string.gsub("hello world", "world", "Lua")
+engine.print(result) --hello Lua
+engine.print(count) --1
+```
+
+```lua
+--Replace all occurrences
+local result = string.gsub("aaa", "a", "b")
+engine.print(result) --bbb
+```
+
+```lua
+--Limited replacements
+local result, count = string.gsub("aaa", "a", "b", 2)
+engine.print(result) --bba
+engine.print(count) --2
+```
+
+```lua
+--Pattern replacement
+local result = string.gsub("hello world", "%a+", "word")
+engine.print(result) --word word
+```
+
+```lua
+--Remove all spaces
+local result = string.gsub("h e l l o", " ", "")
+engine.print(result) --hello
+```
+
+```lua
+--Replace digits with X
+local result = string.gsub("call 555-1234", "%d", "X")
+engine.print(result) --call XXX-XXXX
+```
+
+```lua
+--Capture and reuse in replacement
+local result = string.gsub("hello world", "(%a+)", "<%1>")
+engine.print(result) --<hello> <world>
+```
+
+```lua
+--Swap two words
+local result = string.gsub("first second", "(%a+) (%a+)", "%2 %1")
+engine.print(result) --second first
+```
+
+```lua
+--Function replacement
+local result = string.gsub("I have 2 apples and 3 oranges", "%d+", function(n)
+    return tonumber(n)*2
+end)
+engine.print(result) --I have 4 apples and 6 oranges
+```
+
+```lua
+--Table replacement
+local replacements = {
+    hello = "goodbye",
+    world = "moon"
+}
+local result = string.gsub("hello world", "%a+", replacements)
+engine.print(result) --goodbye moon
+```
+
+```lua
+--Uppercase first letter of each word
+local result = string.gsub("hello world from lua", "%a+", function(word)
+    return string.upper(string.sub(word, 1, 1))..string.sub(word, 2)
+end)
+engine.print(result) --Hello World From Lua
+```
+
+```lua
+--Remove HTML tags
+local html = "<p>Hello <b>world</b></p>"
+local result = string.gsub(html, "<[^>]+>", "")
+engine.print(result) --Hello world
+```
+
+```lua
+--Escape special characters
+local result = string.gsub("cost: $5.00", "%$", "USD ")
+engine.print(result) --cost: USD 5.00
+```
+
+```lua
+--Convert snake_case to camelCase
+local result = string.gsub("my_variable_name", "_(%a)", function(letter)
+    return string.upper(letter)
+end)
+engine.print(result) --myVariableName
+```
+
+```lua
+--No replacement if pattern not found
+local result, count = string.gsub("hello", "xyz", "abc")
+engine.print(result) --hello
+engine.print(count) --0
+```
