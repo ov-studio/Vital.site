@@ -1,0 +1,124 @@
+---
+title: string.reverse
+description: Returns a string with characters in reverse order
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.reverse(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to reverse |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | String with all characters in reversed order |
+
+<hr/>
+
+### Example
+
+```lua
+--Reverse a word
+local result = string.reverse("hello")
+engine.print(result) --olleh
+```
+
+```lua
+--Reverse a sentence
+local result = string.reverse("hello world")
+engine.print(result) --dlrow olleh
+```
+
+```lua
+--Reverse numbers
+local result = string.reverse("12345")
+engine.print(result) --54321
+```
+
+```lua
+--Single character (no change visually)
+local result = string.reverse("a")
+engine.print(result) --a
+```
+
+```lua
+--Empty string
+local result = string.reverse("")
+engine.print(result) --
+```
+
+```lua
+--Check if string is palindrome
+local function isPalindrome(str)
+    return str == string.reverse(str)
+end
+
+engine.print(isPalindrome("racecar")) --true
+engine.print(isPalindrome("hello")) --false
+```
+
+```lua
+--Reverse and uppercase
+local result = string.upper(string.reverse("hello"))
+engine.print(result) --OLLEH
+```
+
+```lua
+--Reverse with special characters
+local result = string.reverse("hello!")
+engine.print(result) --!olleh
+```
+
+```lua
+--Double reverse returns original
+local original = "test"
+local reversed = string.reverse(string.reverse(original))
+engine.print(reversed == original) --true
+```
+
+```lua
+--Reverse each word separately
+local sentence = "hello world"
+local reversed = string.gsub(sentence, "%S+", function(word)
+    return string.reverse(word)
+end)
+engine.print(reversed) --olleh dlrow
+```
+
+```lua
+--Create mirror effect
+local text = "ABC"
+local mirror = text .. "|" .. string.reverse(text)
+engine.print(mirror) --ABC|CBA
+```
+
+```lua
+--Reverse binary string
+local binary = "1010"
+local reversed = string.reverse(binary)
+engine.print(reversed) --0101
+```
+
+```lua
+--With numbers as strings
+local num = "123456"
+engine.print(string.reverse(num)) --654321
+```
+
+```lua
+--Process from end to start
+local data = "ABCDEF"
+for i = 1, #data do
+    local char = string.sub(string.reverse(data), i, i)
+    engine.print(char) --F, E, D, C, B, A
+end
+```
