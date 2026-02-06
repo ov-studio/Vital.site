@@ -1,0 +1,164 @@
+---
+title: string.sub
+description: Extracts a substring from a string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.sub(input, start_at, end_at = -1)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to extract from |
+| `number` | start_at | Character position where extraction begins - negative counts from end |
+| `number` | end_at | Character position where extraction ends - negative counts from end |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | The extracted substring within string's specified range |
+
+<hr/>
+
+### Example
+
+```lua
+--Extract substring
+local result = string.sub("hello world", 1, 5)
+engine.print(result) --hello
+```
+
+```lua
+--From position to end
+local result = string.sub("hello world", 7)
+engine.print(result) --world
+```
+
+```lua
+--Get last characters using negative index
+local result = string.sub("hello", -3)
+engine.print(result) --llo
+```
+
+```lua
+--Using negative end position
+local result = string.sub("hello world", 1, -7)
+engine.print(result) --hello
+```
+
+```lua
+--Get middle portion
+local result = string.sub("hello world", 2, -2)
+engine.print(result) --ello worl
+```
+
+```lua
+--Single character
+local char = string.sub("hello", 1, 1)
+engine.print(char) --h
+```
+
+```lua
+--Last character
+local last = string.sub("hello", -1)
+engine.print(last) --o
+```
+
+```lua
+--Extract file extension
+local filename = "document.txt"
+local ext = string.sub(filename, -3)
+engine.print(ext) --txt
+```
+
+```lua
+--Get first word
+local text = "hello world"
+local space = string.find(text, " ")
+local firstWord = string.sub(text, 1, space - 1)
+engine.print(firstWord) --hello
+```
+
+```lua
+--Remove first and last character
+local str = "[hello]"
+local inner = string.sub(str, 2, -2)
+engine.print(inner) --hello
+```
+
+```lua
+--Equivalent to entire string
+local str = "hello"
+local copy = string.sub(str, 1, -1)
+engine.print(copy) --hello
+```
+
+```lua
+--Empty substring (start_at > end_at)
+local result = string.sub("hello", 5, 3)
+engine.print(result) --
+```
+
+```lua
+--Beyond string length
+local result = string.sub("hello", 1, 100)
+engine.print(result) --hello
+```
+
+```lua
+--Negative starting position
+local result = string.sub("hello", -5, -1)
+engine.print(result) --hello
+```
+
+```lua
+--Extract year from date
+local date = "2024-01-15"
+local year = string.sub(date, 1, 4)
+engine.print(year) --2024
+```
+
+```lua
+--Extract month
+local date = "2024-01-15"
+local month = string.sub(date, 6, 7)
+engine.print(month) --01
+```
+
+```lua
+--Split string into chunks
+local str = "abcdefgh"
+for i = 1, #str, 2 do
+    local chunk = string.sub(str, i, i + 1)
+    engine.print(chunk)
+end
+--Output: ab, cd, ef, gh
+```
+
+```lua
+--Truncate string
+local long = "This is a very long string"
+local short = string.sub(long, 1, 10) .. "..."
+engine.print(short) --This is a ...
+```
+
+```lua
+--Compare with sub-range
+local str = "hello world"
+if string.sub(str, 1, 5) == "hello" then
+    engine.print("Starts with hello")
+end
+```
+
+```lua
+--Extract between indices
+local str = "prefix_content_suffix"
+local content = string.sub(str, 8, 14)
+engine.print(content) --content
+```
