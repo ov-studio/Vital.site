@@ -10,6 +10,10 @@ badge: Shared
 local ctx = thread:create_promise(exec = false, options = false)
 ```
 
+<Callout type="info">
+Requires execution within a try/catch block to handle exceptions.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
