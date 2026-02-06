@@ -1,0 +1,122 @@
+---
+title: string.packsize
+description: Returns the size of a string resulting from string.pack
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local size = string.packsize(format)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | format | Format string - same format as used in [`string.pack`](/docs/string/pack) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | size | The size in bytes of the packed string that would result from [`string.pack`](/docs/string/pack) |
+
+<hr/>
+
+### Example
+
+```lua
+--Size of three integers
+local size = string.packsize("iii")
+engine.print(size) --12
+```
+
+```lua
+--Size of a double
+local size = string.packsize("d")
+engine.print(size) --8
+```
+
+```lua
+--Size of fixed string
+local size = string.packsize("c10")
+engine.print(size) --10
+```
+
+```lua
+--Size of multiple types
+local size = string.packsize("ifd")
+engine.print(size) --16
+```
+
+```lua
+--Size with little endian specifier
+local size = string.packsize("<I4")
+engine.print(size) --4
+```
+
+```lua
+--Size of byte
+local size = string.packsize("b")
+engine.print(size) --1
+```
+
+```lua
+--Size of short
+local size = string.packsize("h")
+engine.print(size) --2
+```
+
+```lua
+--Size of long
+local size = string.packsize("l")
+engine.print(size) --8
+```
+
+```lua
+--Size with padding
+local size = string.packsize("ixxi")
+engine.print(size) --12
+```
+
+```lua
+--Size comparison
+engine.print("i4:", string.packsize("i4")) --4
+engine.print("i8:", string.packsize("i8")) --8
+```
+
+```lua
+--Calculate buffer size needed
+local fmt = "i4i4f"
+local bufferSize = string.packsize(fmt)
+engine.print("Need", bufferSize, "bytes") --Need 12 bytes
+```
+
+```lua
+--Multiple fixed strings
+local size = string.packsize("c5c5c5")
+engine.print(size) --15
+```
+
+```lua
+--Verify pack size
+local fmt = "ifd"
+local size = string.packsize(fmt)
+local packed = string.pack(fmt, 1, 2.5, 3.14)
+engine.print(#packed == size) --true
+```
+
+```lua
+--Pre-allocate file buffer
+local recordFormat = "c32i4i4"
+local recordSize = string.packsize(recordFormat)
+engine.print("Each record:", recordSize, "bytes")
+```
+
+```lua
+--Network protocol size calculation
+local headerFormat = ">I2I2I4"
+local headerSize = string.packsize(headerFormat)
+engine.print("Header size:", headerSize) --8
+```
