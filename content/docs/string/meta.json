@@ -15,6 +15,7 @@
         "gmatch",
         "find",
         "format",
+        "format_time",
         "lower",
         "upper",
         "reverse",
