@@ -144,7 +144,7 @@ engine.print(bool) --true
 --Partial unpack
 local packed = string.pack("i4i4i4i4", 1, 2, 3, 4)
 local a, b, pos = string.unpack("i4i4", packed)
-engine.print(a, b) --1  2
 local c, d = string.unpack("i4i4", packed, pos)
+engine.print(a, b) --1  2
 engine.print(c, d) --3  4
 ```
