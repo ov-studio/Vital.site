@@ -87,16 +87,6 @@ engine.print(t.n) --4 (always correct)
 ```
 
 ```lua
---Pack varargs in function
-local function countArgs(...)
-    local args = table.pack(...)
-    engine.print("Received", args.n, "arguments")
-    return args.n
-end
-countArgs(1, 2, 3) --Received 3 arguments
-```
-
-```lua
 --Preserve trailing nils
 local t = table.pack(1, 2, 3, nil, nil)
 engine.print(t.n) --5
