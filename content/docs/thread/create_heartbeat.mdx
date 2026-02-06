@@ -29,9 +29,9 @@ local ctx = thread:create_heartbeat(condition, exec, interval)
 ### Example
 
 ```lua
+--Create a heartbeat that increments counter every second until it reaches 5
 local counter = 0
 
---Create a heartbeat that increments counter every second until it reaches 5
 local self = thread:create_heartbeat(
     function()
         return counter < 5

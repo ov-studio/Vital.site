@@ -42,5 +42,41 @@ exec([self], resolve, reject)
 ### Example
 
 ```lua
+--Promise awaited without error handling - will throw error if rejected
 local promise = thread:create_promise()
+
+local self = thread:create(function(self)
+    local result = {self:await(promise)}
+    engine.print("Promise resolved:", table.unpack(result))
+end)
+
+self:resume()
+timer:create(function()
+    promise.resolve("Task completed", 123)
+    --promise.reject("Task failed", 456)  -- This would cause an unhandled error
+end, 5000, 1)
+```
+
+```lua
+--Promise with try/catch - safely handles both resolve and reject cases
+local promise = thread:create_promise()
+
+local self = thread:create(function(self)
+    self:try({
+        exec = function(self)
+            local result = {self:await(promise)}
+            engine.print("Promise resolved:", table.unpack(result))
+        end,
+
+        catch = function(...)
+            engine.print("Promise rejected:", ...)
+        end   
+    })
+end)
+
+self:resume()
+timer:create(function()
+    --promise.resolve("Task completed", 123)
+    promise.reject("Task failed", 456)  -- This will be caught and handled
+end, 5000, 1)
 ```
