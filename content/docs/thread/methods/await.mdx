@@ -30,6 +30,7 @@ local ... = self:await(promise)
 local promise = thread:create_promise()
 
 local self = thread:create(function(self)
+    engine.print("Thread awaiting for promise")
     local result = {self:await(promise)}
     engine.print("Promise resolved:", table.unpack(result))
 end)
