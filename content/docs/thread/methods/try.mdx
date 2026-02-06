@@ -1,0 +1,54 @@
+---
+title: self:try
+description: Executes a function within a protected context with exception handling
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ... = self:try(handles)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| table | handles | Handles configuration containing the following fields:<br/>• `exec` (function) - primary function to execute<br/>• `catch` (function) - error handler invoked when an exception occurs |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | Returned values from exec/catch block |
+
+<hr/>
+
+### Example
+
+```lua
+local promise = thread:create_promise()
+
+local self = thread:create(function(self)
+    local result = self:try({
+        exec = function(self)
+            local result = {self:await(promise)}
+            engine.print("Promise resolved:", table.unpack(result))
+            return "resolved"
+        end,
+
+        catch = function(...)
+            engine.print("Promise rejected:", ...)
+            return "rejected"
+        end   
+    })
+
+    print("Try status:", result)
+end)
+
+self:resume()
+timer:create(function()
+    --promise.resolve("Task completed", 123)
+    promise.reject("Task failed", 456)
+end, 5000, 1)
+```
