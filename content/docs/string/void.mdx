@@ -1,0 +1,42 @@
+---
+title: string.void
+description: Verifies whether the string is empty or contains only whitespaces
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local void = string.void(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to verify |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | void | Returns `true` if the string is empty or contains only whitespaces, `false` otherwise |
+
+<hr/>
+
+### Example
+
+```lua
+local void = string.void("")
+engine.print(void) --true
+```
+
+```lua
+local void = string.void("      ")
+engine.print(void) --true
+```
+
+```lua
+local void = string.void("Hello")
+engine.print(void) --false
+```

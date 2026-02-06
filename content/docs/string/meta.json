@@ -2,6 +2,7 @@
     "title": "String",
     "icon": "Regex",
     "pages": [
+        "void",
         "sub",
         "gsub",
         "byte",
