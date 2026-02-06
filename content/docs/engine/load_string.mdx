@@ -24,12 +24,14 @@ local result = engine.load_string(buffer, autoload)
 
 ### Example
 ```lua
--- Immediate execution with autoload enabled
+--Immediate execution with autoload enabled
 local success = engine.load_string([[
     engine.print("Immediate", "Execution")
 ]], true)
+```
 
--- Deferred execution with autoload disabled
+```lua
+--Deferred execution with autoload disabled
 local exec = engine.load_string([[
     engine.print("Delayed", "Execution")
 ]], false)
