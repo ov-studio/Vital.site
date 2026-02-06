@@ -49,7 +49,7 @@ engine.print(result) --hi-hi-hi
 ```lua
 --Create padding
 local padding = string.rep(" ", 10)
-engine.print("[" .. padding .. "]") --[          ]
+engine.print("["..padding.."]") --[          ]
 ```
 
 ```lua
@@ -97,7 +97,7 @@ engine.print(result) --word word word word
 ```lua
 --Create indentation
 local indent = string.rep("  ", 3)
-engine.print(indent .. "code") --      code
+engine.print(indent.."code") --      code
 ```
 
 ```lua
@@ -109,7 +109,7 @@ engine.print(pattern) --* * * * *
 ```lua
 --Create table row
 local cells = string.rep("| Cell ", 4)
-engine.print(cells .. "|") --| Cell | Cell | Cell | Cell |
+engine.print(cells.."|") --| Cell | Cell | Cell | Cell |
 ```
 
 ```lua
