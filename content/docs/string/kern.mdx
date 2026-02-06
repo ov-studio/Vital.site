@@ -1,0 +1,50 @@
+---
+title: string.kern
+description: Inserts spacing between each character in a string
+badge: Shared
+---
+
+### Syntax
+```lua
+local result = string.kern(input, kerner = " ")
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to kern |
+| `string` | kerner | Character(s) to insert between each character |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Kerned string |
+
+<hr/>
+
+### Example
+```lua
+--Default kerning (single space)
+local result = string.kern("HELLO")
+engine.print(result) --H E L L O
+```
+
+```lua
+--Custom kerning with dash
+local result = string.kern("ABC", "-")
+engine.print(result) --A-B-C
+```
+
+```lua
+--Custom kerning with double space
+local result = string.kern("LUA", "  ")
+engine.print(result) --L  U  A
+```
+
+```lua
+--Kerning with dots
+local result = string.kern("123", ".")
+engine.print(result) --1.2.3
+```
