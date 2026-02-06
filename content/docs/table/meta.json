@@ -5,6 +5,7 @@
         "pack",
         "unpack",
         "insert",
-        "remove"
+        "remove",
+        "sort"
     ]
 }
