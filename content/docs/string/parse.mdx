@@ -1,0 +1,73 @@
+---
+title: string.parse
+description: Converts a string to its appropriate primitive type
+badge: Shared
+---
+
+### Syntax
+```lua
+local result = string.parse(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to parse and convert to its appropriate primitive type |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | result | Converted value:<br/>• `nil` - if input is "nil"<br/>• `boolean` - if input is "true" or "false"<br/>• `number` - if input represents a valid number<br/>• `default` - if input cannot be converted to other types |
+
+<hr/>
+
+### Example
+```lua
+--Parse nil string
+local result = string.parse("nil")
+engine.print(result) --nil
+```
+
+```lua
+--Parse boolean true
+local result = string.parse("true")
+engine.print(result) --true
+```
+
+```lua
+--Parse boolean false
+local result = string.parse("false")
+engine.print(result) --false
+```
+
+```lua
+--Parse integer
+local result = string.parse("42")
+engine.print(result) --42
+```
+
+```lua
+--Parse float
+local result = string.parse("3.14")
+engine.print(result) --3.14
+```
+
+```lua
+--Parse negative number
+local result = string.parse("-10")
+engine.print(result) ---10
+```
+
+```lua
+--Parse regular string (no conversion)
+local result = string.parse("hello")
+engine.print(result) --hello
+```
+
+```lua
+--Parse nil input
+local result = string.parse(nil)
+engine.print(result) --false
+```

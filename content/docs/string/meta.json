@@ -3,6 +3,7 @@
     "icon": "Regex",
     "pages": [
         "void",
+        "parse",
         "sub",
         "gsub",
         "byte",
