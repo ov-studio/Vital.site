@@ -1,0 +1,72 @@
+---
+title: table.concat
+description: Concatenates table elements into a single string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = table.concat(input, separator = "", start_at = 1, end_at = table.len(input))
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to concatenate |
+| `string` | separator | String to be inserted between concatenated elements |
+| `int` | start_at | Position where concatenation starts |
+| `int` | end_at | Position where concatenation ends |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Concatenated string |
+
+<hr/>
+
+### Example
+
+```lua
+--Concatenate all elements
+local t = {"hello", "world", "lua"}
+local result = table.concat(t)
+engine.print(result) --helloworldlua
+```
+
+```lua
+--Concatenate with separator
+local t = {"apple", "banana", "orange"}
+local result = table.concat(t, ", ")
+engine.print(result) --apple, banana, orange
+```
+
+```lua
+--Concatenate with space separator
+local words = {"Hello", "World"}
+local result = table.concat(words, " ")
+engine.print(result) --Hello World
+```
+
+```lua
+--Concatenate subset of table
+local t = {"a", "b", "c", "d", "e"}
+local result = table.concat(t, "-", 2, 4)
+engine.print(result) --b-c-d
+```
+
+```lua
+--Build CSV line
+local data = {"John", "25", "Developer"}
+local csv = table.concat(data, ",")
+engine.print(csv) --John,25,Developer
+```
+
+```lua
+--Build path
+local parts = {"home", "user", "documents"}
+local path = "/" .. table.concat(parts, "/")
+engine.print(path) --/home/user/documents
+```
