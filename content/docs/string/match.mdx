@@ -1,0 +1,128 @@
+---
+title: string.match
+description: Searches for the first match of a pattern and returns captures
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ... = string.match(input, pattern, start_at = 1)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to search in |
+| `string` | pattern | Lua pattern to match |
+| `number` | start_at | Position to start searching from |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` or `nil` | ... | Captured strings or `nil` if no match is found |
+
+<hr/>
+
+### Example
+
+```lua
+--Match and return entire pattern
+local result = string.match("hello 123", "%d+")
+engine.print(result) --123
+```
+
+```lua
+--Match with single capture
+local num = string.match("Price: $25", "%$(%d+)")
+engine.print(num) --25
+```
+
+```lua
+--Multiple captures
+local word1, word2 = string.match("hello world", "(%a+) (%a+)")
+engine.print(word1, word2) --hello  world
+```
+
+```lua
+--Extract email parts
+local user, domain = string.match("john@example.com", "(.+)@(.+)")
+engine.print(user) --john
+engine.print(domain) --example.com
+```
+
+```lua
+--Match with starting position
+local result = string.match("hello hello", "hello", 7)
+engine.print(result) --hello
+```
+
+```lua
+--Extract number from string
+local num = string.match("Temperature: 25°C", "%d+")
+engine.print(num) --25
+```
+
+```lua
+--Extract quoted text
+local text = 'name="John Doe"'
+local value = string.match(text, '"(.-)"')
+engine.print(value) --John Doe
+```
+
+```lua
+--Match URL components
+local url = "https://example.com/path"
+local protocol, domain, path = string.match(url, "(.-)://([^/]+)(.+)")
+engine.print(protocol) --https
+engine.print(domain) --example.com
+engine.print(path) --/path
+```
+
+```lua
+--No match returns nil
+local result = string.match("hello", "%d+")
+engine.print(result) --nil
+```
+
+```lua
+--Extract version number
+local version = string.match("v1.2.3", "v(%d+%.%d+%.%d+)")
+engine.print(version) --1.2.3
+```
+
+```lua
+--Match first word
+local word = string.match("  hello world  ", "%a+")
+engine.print(word) --hello
+```
+
+```lua
+--Extract hexadecimal color
+local color = string.match("color: #FF5733", "#(%x+)")
+engine.print(color) --FF5733
+```
+
+```lua
+--Validate and extract
+local text = "user123"
+local name = string.match(text, "^(%a+%d+)$")
+if name then
+    engine.print("Valid username:", name)
+end
+```
+
+```lua
+--Extract key-value pair
+local key, value = string.match("setting=enabled", "(.-)=(.*)")
+engine.print(key, value) --setting  enabled
+```
+
+```lua
+--Capture position (empty capture)
+local text = "hello world"
+local pos = string.match(text, "world()")
+engine.print(pos) --12
+```
