@@ -1,0 +1,58 @@
+---
+title: string.char
+description: Converts numeric codes to their corresponding characters
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.char(...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | Byte values to convert |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | String composed of characters corresponding to the byte values |
+
+<hr/>
+
+### Example
+
+```lua
+--Create string from byte values
+local str = string.char(65, 66, 67)
+engine.print(str) --ABC
+```
+
+```lua
+--Create greeting
+local greeting = string.char(72, 101, 108, 108, 111)
+engine.print(greeting) --Hello
+```
+
+```lua
+--Create single character
+local char = string.char(33)
+engine.print(char) --!
+```
+
+```lua
+--Create empty string
+local empty = string.char()
+engine.print(empty) --
+```
+
+```lua
+--Combine with string.byte
+local bytes = {string.byte("Hi", 1, -1)}
+local reconstructed = string.char(table.unpack(bytes))
+engine.print(reconstructed) --Hi
+```
