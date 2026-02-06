@@ -1,0 +1,101 @@
+---
+title: table.remove
+description: Removes and returns an element from a table
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local value = table.remove(input, position = table.len(input))
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to remove from |
+| `number` | position | Index of element to remove |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | value | Removed element on success, or `nil` if index is empty |
+
+<hr/>
+
+### Example
+
+```lua
+--Remove last element
+local t = {1, 2, 3, 4}
+local removed = table.remove(t)
+engine.print(removed) --4
+engine.print(table.concat(t, ", ")) --1, 2, 3
+```
+
+```lua
+--Remove at specific position
+local t = {"a", "b", "c", "d"}
+local removed = table.remove(t, 2)
+engine.print(removed) --b
+engine.print(table.concat(t, ", ")) --a, c, d
+```
+
+```lua
+--Remove first element
+local t = {10, 20, 30}
+local removed = table.remove(t, 1)
+engine.print(removed) --10
+engine.print(table.concat(t, ", ")) --20, 30
+```
+
+```lua
+--Stack operations (pop)
+local stack = {"first", "second", "third"}
+local top = table.remove(stack)
+engine.print(top) --third
+engine.print(#stack) --2
+```
+
+```lua
+--Queue operations (dequeue)
+local queue = {"task1", "task2", "task3"}
+local next = table.remove(queue, 1)
+engine.print(next) --task1
+engine.print(table.concat(queue, ", ")) --task2, task3
+```
+
+```lua
+--Remove all elements
+local t = {1, 2, 3}
+while #t > 0 do
+    local value = table.remove(t)
+    engine.print(value)
+end
+--Output: 3, 2, 1
+```
+
+```lua
+--Remove from empty table
+local t = {}
+local removed = table.remove(t)
+engine.print(removed) --nil
+```
+
+```lua
+--Remove middle element
+local colors = {"red", "green", "blue", "yellow"}
+table.remove(colors, 3)
+engine.print(table.concat(colors, ", ")) --red, green, yellow
+```
+
+```lua
+--Process and remove
+local tasks = {"a", "b", "c"}
+while #tasks > 0 do
+    local task = table.remove(tasks, 1)
+    engine.print("Processing:", task)
+end
+```
