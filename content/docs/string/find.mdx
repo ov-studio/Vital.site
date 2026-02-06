@@ -1,0 +1,80 @@
+---
+title: string.find
+description: Searches for a pattern in a string and returns its position
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local start_at, end_at, ... = string.find(input, pattern, start_at = 1, plain_text = false)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | The string to search in |
+| `string` | pattern | The pattern to search for (supports Lua patterns unless plain_text is true) |
+| `number` | start_at | Position to start searching from |
+| `boolean` | plain_text | If true, pattern is treated as plain text, not a pattern |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | start_at | Starting index of the match, or `nil` if not found |
+| `number` | end_at | Ending index of the match, or `nil` if not found |
+| `...` | ... | Any captured substrings from the pattern |
+
+<hr/>
+
+### Example
+
+```lua
+--Simple text search
+local s, e = string.find("hello world", "world")
+engine.print(s, e) --7  11
+```
+
+```lua
+--Find first occurrence of a character
+local pos = string.find("hello", "l")
+engine.print(pos) --3
+```
+
+```lua
+--Search with starting position
+local s, e = string.find("hello hello", "hello", 7)
+engine.print(s, e) --7  11
+```
+
+```lua
+--Pattern matching with digits
+local s, e = string.find("Price: $25.99", "%d+")
+engine.print(s, e) --9  10
+```
+
+```lua
+--Pattern with captures
+local s, e, num = string.find("hello 123 world", "(%d+)")
+engine.print(s, e, num) --7  9  123
+```
+
+```lua
+--Plain text search (disable pattern matching)
+local s, e = string.find("Cost: $5.00", "$", 1, true)
+engine.print(s, e) --7  7
+```
+
+```lua
+--Multiple captures
+local s, e, word1, word2 = string.find("hello world", "(%a+) (%a+)")
+engine.print(word1, word2) --hello  world
+```
+
+```lua
+--Search from end using negative index
+local s, e = string.find("hello", "l", -3)
+engine.print(s, e) --3  3
+```
