@@ -7,6 +7,7 @@
         "resume",
         "sleep",
         "await",
+        "try",
         "..."
     ]
 }
