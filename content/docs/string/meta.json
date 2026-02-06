@@ -19,6 +19,7 @@
         "lower",
         "upper",
         "reverse",
+        "split",
         "pack",
         "packsize",
         "unpack",
