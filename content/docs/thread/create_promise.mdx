@@ -53,7 +53,7 @@ end)
 self:resume()
 timer:create(function()
     promise.resolve("Task completed", 123)
-    --promise.reject("Task failed", 456)  -- This would cause an unhandled error
+    --promise.reject("Task failed", 456)  --This would cause an unhandled error
 end, 5000, 1)
 ```
 
@@ -77,6 +77,6 @@ end)
 self:resume()
 timer:create(function()
     --promise.resolve("Task completed", 123)
-    promise.reject("Task failed", 456)  -- This will be caught and handled
+    promise.reject("Task failed", 456)  --This will be caught and handled
 end, 5000, 1)
 ```
