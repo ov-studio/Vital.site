@@ -1,0 +1,131 @@
+---
+title: string.rep
+description: Repeats a string n times with optional separator
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.rep(input, count, separator = "")
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to repeat |
+| `number` | count | Number of times to repeat the string |
+| `string` | separator | Separator to insert between repetitions |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | String formed by repeating the input string specified number of times |
+
+<hr/>
+
+### Example
+
+```lua
+--Repeat string multiple times
+local result = string.rep("ab", 3)
+engine.print(result) --ababab
+```
+
+```lua
+--Repeat single character
+local line = string.rep("-", 40)
+engine.print(line) ----------------------------------------
+```
+
+```lua
+--Repeat with separator
+local result = string.rep("hi", 3, "-")
+engine.print(result) --hi-hi-hi
+```
+
+```lua
+--Create padding
+local padding = string.rep(" ", 10)
+engine.print("[" .. padding .. "]") --[          ]
+```
+
+```lua
+--Zero repetitions
+local result = string.rep("test", 0)
+engine.print(result) --
+```
+
+```lua
+--One repetition
+local result = string.rep("test", 1)
+engine.print(result) --test
+```
+
+```lua
+--Method syntax
+local result = ("*"):rep(5)
+engine.print(result) --*****
+```
+
+```lua
+--Create separator line
+local separator = string.rep("=", 50)
+engine.print(separator)
+```
+
+```lua
+--Build pattern strings
+local dots = string.rep(".", 3)
+engine.print(dots) --...
+```
+
+```lua
+--Create visual bars
+local bar = string.rep("█", 10)
+engine.print(bar) --██████████
+```
+
+```lua
+--Repeat with space separator
+local result = string.rep("word", 4, " ")
+engine.print(result) --word word word word
+```
+
+```lua
+--Create indentation
+local indent = string.rep("  ", 3)
+engine.print(indent .. "code") --      code
+```
+
+```lua
+--Build ASCII art
+local pattern = string.rep("* ", 5)
+engine.print(pattern) --* * * * * 
+```
+
+```lua
+--Create table row
+local cells = string.rep("| Cell ", 4)
+engine.print(cells .. "|") --| Cell | Cell | Cell | Cell |
+```
+
+```lua
+--Generate test data
+local data = string.rep("A", 100)
+engine.print(#data) --100
+```
+
+```lua
+--Multiple character pattern
+local pattern = string.rep("abc", 3)
+engine.print(pattern) --abcabcabc
+```
+
+```lua
+--With comma separator
+local csv = string.rep("field", 5, ",")
+engine.print(csv) --field,field,field,field,field
+```
