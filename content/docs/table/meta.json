@@ -3,6 +3,8 @@
     "icon": "Table",
     "pages": [
         "pack",
-        "unpack"
+        "unpack",
+        "insert",
+        "remove"
     ]
 }

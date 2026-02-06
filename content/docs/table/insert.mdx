@@ -1,0 +1,105 @@
+---
+title: table.insert
+description: Inserts an element into a table at a specified position
+badge: Shared
+---
+
+### Syntax
+
+```lua
+table.insert(list, value, index = #table.len(list) + 1)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | list | Table to insert into |
+| `any` | value | Value to insert |
+| `int` | index | Index where the element should be inserted |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+
+<hr/>
+
+### Example
+
+```lua
+--Append to end of table
+local t = {1, 2, 3}
+table.insert(t, 4)
+engine.print(table.concat(t, ", ")) --1, 2, 3, 4
+```
+
+```lua
+--Insert at specific position
+local t = {"a", "c", "d"}
+table.insert(t, 2, "b")
+engine.print(table.concat(t, ", ")) --a, b, c, d
+```
+
+```lua
+--Insert at beginning
+local t = {2, 3, 4}
+table.insert(t, 1, 1)
+engine.print(table.concat(t, ", ")) --1, 2, 3, 4
+```
+
+```lua
+--Build array dynamically
+local numbers = {}
+for i = 1, 5 do
+    table.insert(numbers, i * 10)
+end
+engine.print(table.concat(numbers, ", ")) --10, 20, 30, 40, 50
+```
+
+```lua
+--Insert strings
+local words = {"hello"}
+table.insert(words, "world")
+table.insert(words, "lua")
+engine.print(table.concat(words, " ")) --hello world lua
+```
+
+```lua
+--Insert at middle position
+local colors = {"red", "green", "blue"}
+table.insert(colors, 2, "yellow")
+engine.print(table.concat(colors, ", ")) --red, yellow, green, blue
+```
+
+```lua
+--Insert into empty table
+local t = {}
+table.insert(t, "first")
+engine.print(t[1]) --first
+```
+
+```lua
+--Stack operations (push)
+local stack = {}
+table.insert(stack, "item1")
+table.insert(stack, "item2")
+table.insert(stack, "item3")
+engine.print(#stack) --3
+```
+
+```lua
+--Build list from input
+local names = {}
+local inputs = {"Alice", "Bob", "Charlie"}
+for _, name in ipairs(inputs) do
+    table.insert(names, name)
+end
+```
+
+```lua
+--Insert table as element
+local lists = {{1, 2}, {3, 4}}
+table.insert(lists, {5, 6})
+engine.print(#lists) --3
+```
