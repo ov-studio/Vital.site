@@ -1,0 +1,106 @@
+---
+title: string.len
+description: Returns the length of a string in bytes
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local length = string.len(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to measure |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | length | Length of the string in bytes |
+
+<hr/>
+
+### Example
+
+```lua
+--Get length of string
+local len = string.len("hello")
+engine.print(len) --5
+```
+
+```lua
+--Empty string
+local len = string.len("")
+engine.print(len) --0
+```
+
+```lua
+--String with spaces
+local len = string.len("hello world")
+engine.print(len) --11
+```
+
+```lua
+--String with special characters
+local len = string.len("hello\nworld")
+engine.print(len) --11
+```
+
+```lua
+--String with null byte
+local len = string.len("hello\0world")
+engine.print(len) --11
+```
+
+```lua
+--Numbers as strings
+local len = string.len("12345")
+engine.print(len) --5
+```
+
+```lua
+--Method syntax
+local len = ("testing"):len()
+engine.print(len) --7
+```
+
+```lua
+--Using # operator (alternative)
+local len = #"hello"
+engine.print(len) --5
+```
+
+```lua
+--Comparing both methods
+local str = "Lua programming"
+engine.print(string.len(str)) --15
+engine.print(#str) --15
+engine.print(str:len()) --15
+```
+
+```lua
+--Multi-byte UTF-8 characters count as multiple bytes
+local str = "hello™"
+engine.print(string.len(str)) --8
+```
+
+```lua
+--Use in conditionals
+if string.len("test") > 0 then
+    engine.print("String is not empty")
+end
+```
+
+```lua
+--Get length before and after trimming
+local str = "  hello  "
+engine.print(string.len(str)) --9
+
+local trimmed = string.gsub(str, "^%s+", "")
+trimmed = string.gsub(trimmed, "%s+$", "")
+engine.print(string.len(trimmed)) --5
+```
