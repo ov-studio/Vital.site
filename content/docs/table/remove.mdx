@@ -70,7 +70,7 @@ engine.print(table.concat(queue, ", ")) --task2, task3
 ```lua
 --Remove all elements
 local t = {1, 2, 3}
-while #t > 0 do
+while table.len(t) > 0 do
     local value = table.remove(t)
     engine.print(value)
 end
