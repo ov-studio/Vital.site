@@ -102,15 +102,6 @@ engine.print(value) --3.14159...
 ```
 
 ```lua
---Read from binary file
-local file = io.open("data.bin", "rb")
-local data = file:read("*all")
-file:close()
-local v1, v2, v3 = string.unpack("i4i4i4", data)
-engine.print(v1, v2, v3)
-```
-
-```lua
 --Unpack struct-like data
 local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
 local name, health, score = string.unpack("c10i4f", packed)
