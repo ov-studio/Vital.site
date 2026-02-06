@@ -1,0 +1,143 @@
+---
+title: string.format
+description: Returns a formatted string using format specifiers
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = string.format(input, value1, value2, ...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Format string containing specifiers (%d, %s, %f, etc.) |
+| `...` | ... | Values to be formatted according to the format string |
+
+### Specifiers
+
+| Specifier | Description |
+|-----------|-------------|
+| `%d` / `%i` | Signed decimal integer |
+| `%u` | Unsigned decimal integer |
+| `%o` | Unsigned octal |
+| `%x` | Unsigned hexadecimal (lowercase) |
+| `%X` | Unsigned hexadecimal (uppercase) |
+| `%f` | Decimal floating point |
+| `%e` | Scientific notation (lowercase) |
+| `%E` | Scientific notation (uppercase) |
+| `%g` | Shortest of %e or %f |
+| `%G` | Shortest of %E or %f |
+| `%c` | Character (from byte value) |
+| `%s` | String |
+| `%q` | Quoted string |
+| `%%` | Literal percent sign |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | The formatted string |
+
+<hr/>
+
+### Example
+
+```lua
+--Basic string formatting
+local str = string.format("Hello %s", "World")
+engine.print(str) --Hello World
+```
+
+```lua
+--Integer formatting
+local num = string.format("Number: %d", 42)
+engine.print(num) --Number: 42
+```
+
+```lua
+--Multiple values
+local result = string.format("%d + %d = %d", 5, 3, 8)
+engine.print(result) --5 + 3 = 8
+```
+
+```lua
+--Floating point with precision
+local pi = string.format("Pi: %.2f", math.pi)
+engine.print(pi) --Pi: 3.14
+```
+
+```lua
+--More decimal places
+local precise = string.format("%.5f", math.pi)
+engine.print(precise) --3.14159
+```
+
+```lua
+--Padding with zeros
+local padded = string.format("%05d", 42)
+engine.print(padded) --00042
+```
+
+```lua
+--Hexadecimal uppercase
+local hex = string.format("0x%X", 255)
+engine.print(hex) --0xFF
+```
+
+```lua
+--Hexadecimal lowercase
+local hexLower = string.format("0x%x", 255)
+engine.print(hexLower) --0xff
+```
+
+```lua
+--Scientific notation
+local sci = string.format("%e", 1234.5)
+engine.print(sci) --1.234500e+03
+```
+
+```lua
+--Character from byte value
+local char = string.format("%c", 65)
+engine.print(char) --A
+```
+
+```lua
+--String with width (right aligned)
+local aligned = string.format("%10s", "right")
+engine.print(aligned) --     right
+```
+
+```lua
+--String with width (left aligned)
+local leftAligned = string.format("%-10s", "left")
+engine.print(leftAligned) --left      
+```
+
+```lua
+--Quoted string (escapes special characters)
+local quoted = string.format("%q", "hello\nworld")
+engine.print(quoted) --"hello\nworld"
+```
+
+```lua
+--Combining multiple specifiers
+local info = string.format("Name: %s, Age: %d, Score: %.1f%%", "Alice", 25, 95.5)
+engine.print(info) --Name: Alice, Age: 25, Score: 95.5%
+```
+
+```lua
+--Octal
+local oct = string.format("%o", 8)
+engine.print(oct) --10
+```
+
+```lua
+--Percent sign
+local percent = string.format("Progress: 100%%")
+engine.print(percent) --Progress: 100%
+```
