@@ -94,6 +94,7 @@ local replacements = {
     hello = "goodbye",
     world = "moon"
 }
+
 local result = string.gsub("hello world", "%a+", replacements)
 engine.print(result) --goodbye moon
 ```
