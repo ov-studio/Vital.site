@@ -2,6 +2,7 @@
     "title": "Crypto",
     "icon": "Lock",
     "pages": [
+        "hash",
         "encode",
         "decode",
         "encrypt",
