@@ -1,27 +1,27 @@
 ---
 title: shrinker.compress
-description: Compresses a buffer into equivalent string
+description: Compresses a string using zlib library
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local hash = shrinker.compress(buffer)
+local result = shrinker.compress(input)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | buffer | Buffer containing data to be encoded |
+| `string` | input | String containing data to be compressed |
 
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | hash | Compressed string on successful execution, or `false` on failure |
+| `string` or `bool` | result | Compressed string on successful execution, or `false` on failure |
 
 <hr/>
 
