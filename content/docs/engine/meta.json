@@ -6,6 +6,9 @@
         "get_tick",
         "get_timestamp",
         "get_serial",
+        "load_string",
+        "inspect",
+        "print",
         "..."
     ]
 }

@@ -1,5 +1,5 @@
 ---
-title: table.inspect
+title: engine.inspect
 description: Returns a human-readable string representation of any value
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = table.inspect(input, show_hidden = false, depth_limit = 0)
+local result = engine.inspect(input, show_hidden = false, depth_limit = 0)
 ```
 
 ### Parameters
@@ -31,7 +31,7 @@ local result = table.inspect(input, show_hidden = false, depth_limit = 0)
 ```lua
 --Inspect simple table
 local t = {a = 1, b = 2, c = 3}
-local output = table.inspect(t)
+local output = engine.inspect(t)
 engine.print(output)
 --{
 --  a: 1
@@ -43,7 +43,7 @@ engine.print(output)
 ```lua
 --Inspect array
 local arr = {10, 20, 30}
-local output = table.inspect(arr)
+local output = engine.inspect(arr)
 engine.print(output)
 --{
 --  1: 10
@@ -62,7 +62,7 @@ local data = {
     }
 }
 
-local output = table.inspect(data)
+local output = engine.inspect(data)
 engine.print(output)
 --{
 --  name: "John"
@@ -76,41 +76,41 @@ engine.print(output)
 ```lua
 --Inspect with depth limit
 local deep = {a = {b = {c = {d = {e = 5}}}}}
-local output = table.inspect(deep, false, 2)
+local output = engine.inspect(deep, false, 2)
 engine.print(output) --Shows up to 2 levels, then {...}
 ```
 
 ```lua
 --Inspect string
 local str = "hello world"
-local output = table.inspect(str)
+local output = engine.inspect(str)
 engine.print(output) --"hello world"
 ```
 
 ```lua
 --Inspect number
 local num = 42
-local output = table.inspect(num)
+local output = engine.inspect(num)
 engine.print(output) --42
 ```
 
 ```lua
 --Inspect boolean
 local bool = true
-local output = table.inspect(bool)
+local output = engine.inspect(bool)
 engine.print(output) --true
 ```
 
 ```lua
 --Inspect nil
 local value = nil
-local output = table.inspect(value)
+local output = engine.inspect(value)
 engine.print(output) --nil
 ```
 
 ```lua
 --Inspect function
 local func = function() return 42 end
-local output = table.inspect(func)
+local output = engine.inspect(func)
 engine.print(output) --<function: 0x...>
 ```
