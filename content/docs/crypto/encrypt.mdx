@@ -1,13 +1,13 @@
 ---
 title: crypto.encrypt
-description: Encrypts a buffer into a cryptographically encrypted string
+description: Encrypts a string into a cryptographically encrypted string
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local hash, iv = crypto.encrypt(mode, buffer, key)
+local hash, iv = crypto.encrypt(mode, input, key)
 ```
 
 ### Parameters
@@ -15,7 +15,7 @@ local hash, iv = crypto.encrypt(mode, buffer, key)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | mode | Encryption mode:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
-| `string` | buffer | Buffer containing data to be encrypted |
+| `string` | input | Buffer containing data to be encrypted |
 | `string` | key | Key to be used for encryption |
 
 
