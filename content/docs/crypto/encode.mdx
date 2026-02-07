@@ -1,27 +1,27 @@
 ---
 title: crypto.encode
-description: Encodes a buffer into equivalent base64 string
+description: Encodes a string into equivalent base64 string
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local hash = crypto.encode(buffer)
+local result = crypto.encode(input)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | buffer | Buffer containing data to be encoded |
+| `string` | input | String containing data to be encoded |
 
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | hash | Encoded base64 string on successful execution, or `false` on failure |
+| `string` or `bool` | result | Encoded string on successful execution, or `false` on failure |
 
 <hr/>
 

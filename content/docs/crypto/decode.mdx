@@ -1,13 +1,13 @@
 ---
 title: crypto.decode
-description: Decodes base64 string into equivalent buffer
+description: Decodes a base64 string
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local buffer = crypto.decode(hash)
+local result = crypto.decode(hash)
 ```
 
 ### Parameters
@@ -21,7 +21,7 @@ local buffer = crypto.decode(hash)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | buffer | Decoded buffer on successful execution, or `false` on failure |
+| `string` or `bool` | result | Decoded string on successful execution, or `false` on failure |
 
 <hr/>
 
