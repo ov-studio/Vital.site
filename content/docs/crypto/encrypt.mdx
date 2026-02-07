@@ -1,6 +1,6 @@
 ---
 title: crypto.encrypt
-description: Encrypts a string into a cryptographically encrypted string
+description: Encrypts a buffer into a cryptographically encrypted string
 badge: Shared
 ---
 
@@ -23,7 +23,7 @@ local hash, iv = crypto.encrypt(mode, buffer, key)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | hash | Computed encrypted string on successful execution, or `false` on failure |
+| `string` or `bool` | hash | Encrypted string on successful execution, or `false` on failure |
 | `string` or `nil` | iv | Generated initialization vector on successful execution, or `nil` on failure |
 
 <hr/>
