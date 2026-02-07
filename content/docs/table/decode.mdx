@@ -88,15 +88,6 @@ engine.print(table.len(data)) --0
 ```
 
 ```lua
---Decode from file
-local file = io.open("config.json", "r")
-local json = file:read("*all")
-file:close()
-local config = table.decode(json)
-engine.print(config.width, config.height)
-```
-
-```lua
 --Network data parsing
 local received = '{"type":"message","content":"Hello"}'
 local packet = table.decode(received)
