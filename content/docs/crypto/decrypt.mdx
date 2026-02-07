@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local buffer = crypto.decrypt(mode, hash, key, iv)
+local result = crypto.decrypt(mode, input, key, iv)
 ```
 
 ### Parameters
@@ -15,7 +15,7 @@ local buffer = crypto.decrypt(mode, hash, key, iv)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | mode | Encryption mode:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
-| `string` | hash | Cryptographic hash to be decrypted |
+| `string` | input | Encrypted string to be decrypted |
 | `string` | key | Key to be used for decryption |
 | `string` | iv | Generated initialization vector |
 
@@ -23,7 +23,7 @@ local buffer = crypto.decrypt(mode, hash, key, iv)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | buffer | Decrypted buffer on successful execution, or `false` on failure |
+| `string` or `bool` | result | Decrypted string on successful execution, or `false` on failure |
 
 <hr/>
 
@@ -31,8 +31,8 @@ local buffer = crypto.decrypt(mode, hash, key, iv)
 
 ```lua
 local key = "MySecretKey12345"
-local hash, iv = crypto.encrypt("AES256", "Hello World", key)
+local input, iv = crypto.encrypt("AES256", "Hello World", key)
 
-engine.print("Input:", hash)
-engine.print("Decrypted:", crypto.decrypt("AES256", hash, key, iv))
+engine.print("Input:", input)
+engine.print("Decrypted:", crypto.decrypt("AES256", input, key, iv))
 ```
