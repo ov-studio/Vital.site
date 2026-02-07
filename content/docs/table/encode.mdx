@@ -1,0 +1,56 @@
+---
+title: table.encode
+description: Encodes a table into a formatted string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local encoded = table.encode(input, mode = "JSON")
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to encode |
+| `string` | mode | Encoding mode:<br/>• `"JSON"` - JavaScript Object Notation<br/>• `"YAML"` - YAML Ain't Markup Language |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | encoded | Encoded string representation of the table, or `false` if encoding fails |
+
+<hr/>
+
+### Example
+
+```lua
+--Encode simple table to JSON
+local data = {name = "John", age = 25}
+local json = table.encode(data, "JSON")
+engine.print(json) --{"name":"John","age":25}
+```
+
+```lua
+--Encode array to JSON
+local colors = {"red", "green", "blue"}
+local json = table.encode(colors, "JSON")
+engine.print(json) --["red","green","blue"]
+```
+
+```lua
+--Encode numbers to JSON
+local coords = {100, 200, 300}
+local json = table.encode(coords, "JSON")
+engine.print(json) --[100,200,300]
+```
+
+```lua
+--Encode boolean values to JSON
+local settings = {enabled = true, debug = false}
+local json = table.encode(settings, "JSON")
+engine.print(json) --{"enabled":true,"debug":false}
+```

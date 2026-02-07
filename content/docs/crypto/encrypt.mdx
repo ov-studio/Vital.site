@@ -14,7 +14,7 @@ local hash, iv = crypto.encrypt(mode, buffer, key)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Either of the below modes:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
+| `string` | mode | Encryption mode:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
 | `string` | buffer | Buffer containing data to be encrypted |
 | `string` | key | Key to be used for encryption |
 
