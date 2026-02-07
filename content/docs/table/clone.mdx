@@ -1,0 +1,92 @@
+---
+title: table.clone
+description: Retrieves a cloned copy of a table
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = table.clone(input, recursive = false)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to be cloned |
+| `bool` | recursive | Determines cloning behavior:<br/>• When `true` - the function recursively clones nested tables (deep copy)<br/>• When `false` - the function only performs shallow copy (nested tables remain referenced). |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Cloned copy of the table |
+
+<hr/>
+
+### Example
+
+```lua
+--Shallow clone
+local original = {1, 2, 3, 4}
+local copy = table.clone(original)
+copy[1] = 99
+engine.print(original[1]) --1 (unchanged)
+engine.print(copy[1]) --99
+```
+
+```lua
+--Shallow clone with nested table
+local original = {a = 1, nested = {b = 2}}
+local copy = table.clone(original)
+copy.nested.b = 99
+engine.print(original.nested.b) --99 (changed! shallow copy)
+```
+
+```lua
+--Deep clone (recursive)
+local original = {a = 1, nested = {b = 2}}
+local copy = table.clone(original, true)
+copy.nested.b = 99
+engine.print(original.nested.b) --2 (unchanged)
+engine.print(copy.nested.b) --99
+```
+
+```lua
+--Clone array
+local colors = {"red", "green", "blue"}
+local copy = table.clone(colors)
+table.insert(copy, "yellow")
+engine.print(#colors) --3
+engine.print(#copy) --4
+```
+
+```lua
+--Shallow clone preserves references
+local shared = {x = 10}
+local t1 = {data = shared}
+local t2 = table.clone(t1)
+t2.data.x = 20
+engine.print(t1.data.x) --20 (both reference same table)
+```
+
+```lua
+--Deep clone breaks references
+local shared = {x = 10}
+local t1 = {data = shared}
+local t2 = table.clone(t1, true)
+t2.data.x = 20
+engine.print(t1.data.x) --10 (independent copies)
+```
+
+```lua
+--Use as template
+local template = {name = "", age = 0, active = true}
+local user1 = table.clone(template)
+local user2 = table.clone(template)
+user1.name = "Alice"
+user2.name = "Bob"
+engine.print(user1.name, user2.name) --Alice  Bob
+```
