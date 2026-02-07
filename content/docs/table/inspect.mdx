@@ -1,0 +1,116 @@
+---
+title: table.inspect
+description: Returns a human-readable string representation of any value
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = table.inspect(input, show_hidden = false, depth_limit = 0)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | input | Value to be inspected (table, string, number, boolean, etc.) |
+| `boolean` | show_hidden | Determines inspection depth:<br/>• When `true` - includes hidden elements such as metatables in the output<br/>• When `false` - displays only visible table contents |
+| `number` | depth_limit | Maximum nesting depth to display (0 = unlimited) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Formatted string representation of the value |
+
+<hr/>
+
+### Example
+
+```lua
+--Inspect simple table
+local t = {a = 1, b = 2, c = 3}
+local output = table.inspect(t)
+engine.print(output)
+--{
+--  a: 1
+--  b: 2
+--  c: 3
+--}
+```
+
+```lua
+--Inspect array
+local arr = {10, 20, 30}
+local output = table.inspect(arr)
+engine.print(output)
+--{
+--  1: 10
+--  2: 20
+--  3: 30
+--}
+```
+
+```lua
+--Inspect nested table
+local data = {
+    name = "John",
+    address = {
+        city = "NYC",
+        zip = 10001
+    }
+}
+
+local output = table.inspect(data)
+engine.print(output)
+--{
+--  name: "John"
+--  address: {
+--    city: "NYC"
+--    zip: 10001
+--  }
+--}
+```
+
+```lua
+--Inspect with depth limit
+local deep = {a = {b = {c = {d = {e = 5}}}}}
+local output = table.inspect(deep, false, 2)
+engine.print(output) --Shows up to 2 levels, then {...}
+```
+
+```lua
+--Inspect string
+local str = "hello world"
+local output = table.inspect(str)
+engine.print(output) --"hello world"
+```
+
+```lua
+--Inspect number
+local num = 42
+local output = table.inspect(num)
+engine.print(output) --42
+```
+
+```lua
+--Inspect boolean
+local bool = true
+local output = table.inspect(bool)
+engine.print(output) --true
+```
+
+```lua
+--Inspect nil
+local value = nil
+local output = table.inspect(value)
+engine.print(output) --nil
+```
+
+```lua
+--Inspect function
+local func = function() return 42 end
+local output = table.inspect(func)
+engine.print(output) --<function: 0x...>
+```
