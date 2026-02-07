@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local hash, iv = crypto.encrypt(mode, input, key)
+local result, iv = crypto.encrypt(mode, input, key)
 ```
 
 ### Parameters
@@ -23,7 +23,7 @@ local hash, iv = crypto.encrypt(mode, input, key)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` or `bool` | hash | Encrypted string on successful execution, or `false` on failure |
+| `string` or `bool` | result | Encrypted string on successful execution, or `false` on failure |
 | `string` or `nil` | iv | Generated initialization vector on successful execution, or `nil` on failure |
 
 <hr/>
@@ -33,8 +33,8 @@ local hash, iv = crypto.encrypt(mode, input, key)
 ```lua
 local input = "Hello World"
 local key = "MySecretKey12345"
-local hash, iv = crypto.encrypt("AES256", input, key)
+local output, iv = crypto.encrypt("AES256", input, key)
 
 engine.print("Input:", input)
-engine.print("Encrypted:", hash, "IV:", iv)
+engine.print("Encrypted:", output, "IV:", iv)
 ```
