@@ -69,13 +69,6 @@ engine.print(table.len(args)) --5 (always correct)
 ```
 
 ```lua
---Custom table with n field
-local t = {1, 2, 3, n = 10}
-local len = table.len(t)
-engine.print(len) --10 (uses n field)
-```
-
-```lua
 --Use in iteration
 local t = table.pack(1, nil, 2, nil, 3)
 for i = 1, table.len(t) do
