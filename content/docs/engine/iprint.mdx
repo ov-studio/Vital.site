@@ -53,18 +53,6 @@ engine.iprint(colors)
 ```
 
 ```lua
---Print nested structure
-local player = {
-    name = "Player1",
-    stats = {
-        health = 100,
-        mana = 50
-    }
-}
-engine.iprint(player)
-```
-
-```lua
 --Print with depth limit
 local deep = {a = {b = {c = {d = 1}}}}
 engine.iprint(deep, false, 2)
@@ -80,26 +68,12 @@ engine.iprint(config)
 
 ```lua
 --Print string
-engine.iprint("hello world")
---Output: "hello world"
+engine.iprint("hello world") --"hello world"
 ```
 
 ```lua
 --Print number
-engine.iprint(42)
---Output: 42
-```
-
-```lua
---Print boolean
-engine.iprint(true)
---Output: true
-```
-
-```lua
---Print nil
-engine.iprint(nil)
---Output: nil
+engine.iprint(42) --42
 ```
 
 ```lua
@@ -111,26 +85,9 @@ engine.iprint(t, true)
 ```
 
 ```lua
---Compare multiple values
-local v1 = {a = 1}
-local v2 = {a = 1}
-engine.iprint(v1)
-engine.iprint(v2)
-```
-
-```lua
---Print loop iteration
-local items = {{id = 1}, {id = 2}, {id = 3}}
-for i, item in ipairs(items) do
-    engine.iprint(item)
-end
-```
-
-```lua
 --Print empty table
 local empty = {}
-engine.iprint(empty)
---Output: {}
+engine.iprint(empty) --{}
 ```
 
 ```lua
