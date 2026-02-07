@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = table.decode(input, format = "json", ...)
+local result = table.decode(input, format = "JSON")
 ```
 
 ### Parameters
@@ -15,7 +15,7 @@ local result = table.decode(input, format = "json", ...)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | input | Encoded string to be decoded |
-| `string` | format | Decoding format (currently supports "json") |
+| `string` | mode | Decoding mode:<br/>• `"JSON"` - JavaScript Object Notation<br/>• `"YAML"` - YAML Ain't Markup Language |
 
 ### Returns
 
@@ -54,7 +54,7 @@ engine.print(data.user.email) --alice@example.com
 ```lua
 --Decode with explicit format
 local json = '{"x":10,"y":20}'
-local coords = table.decode(json, "json")
+local coords = table.decode(json, "JSON")
 engine.print(coords.x, coords.y) --10  20
 ```
 
