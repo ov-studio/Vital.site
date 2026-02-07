@@ -1,0 +1,99 @@
+---
+title: table.len
+description: Returns the length of a table
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local length = table.len(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to measure |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | length | Length of the table |
+
+<hr/>
+
+### Example
+
+```lua
+--Regular table length
+local t = {1, 2, 3, 4, 5}
+local len = table.len(t)
+engine.print(len) --5
+```
+
+```lua
+--Packed table with n field
+local packed = table.pack(1, nil, 3, nil, 5)
+local len = table.len(packed)
+engine.print(len) --5
+```
+
+```lua
+--Table with holes (without n field)
+local t = {1, 2, nil, 4}
+local len = table.len(t)
+engine.print(len) --4 (may vary, depends on #)
+```
+
+```lua
+--Empty table
+local t = {}
+local len = table.len(t)
+engine.print(len) --0
+```
+
+```lua
+--Comparison with # operator
+local t = {1, 2, 3}
+engine.print(table.len(t)) --3
+engine.print(#t) --3
+```
+
+```lua
+--Packed table preserves correct length
+local args = table.pack("a", nil, "b", nil, "c")
+engine.print(#args) --May be incorrect with nil holes
+engine.print(table.len(args)) --5 (always correct)
+```
+
+```lua
+--Custom table with n field
+local t = {1, 2, 3, n = 10}
+local len = table.len(t)
+engine.print(len) --10 (uses n field)
+```
+
+```lua
+--Use in iteration
+local t = table.pack(1, nil, 2, nil, 3)
+for i = 1, table.len(t) do
+    engine.print(i, t[i])
+end
+```
+
+```lua
+--Check if table is empty
+local t = {}
+if table.len(t) == 0 then
+    engine.print("Table is empty")
+end
+```
+
+```lua
+--Mixed array and hash table
+local t = {10, 20, 30, key = "value"}
+local len = table.len(t)
+engine.print(len) --3 (only counts array part)
+```
