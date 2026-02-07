@@ -1,0 +1,133 @@
+---
+title: table.decode
+description: Decodes an encoded string into equivalent table
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local decoded = table.decode(input, format = "json", ...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to decode |
+| `string` | format | Decoding format (currently supports "json") |
+| `...` | ... | Additional arguments passed to the decoder |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | decoded | Decoded table from the string, or `false` if decoding fails |
+
+<hr/>
+
+### Example
+
+```lua
+--Decode JSON object
+local json = '{"name":"John","age":25}'
+local data = table.decode(json)
+engine.print(data.name) --John
+engine.print(data.age) --25
+```
+
+```lua
+--Decode JSON array
+local json = '["red","green","blue"]'
+local colors = table.decode(json)
+engine.print(colors[1]) --red
+engine.print(colors[2]) --green
+```
+
+```lua
+--Decode nested structure
+local json = '{"user":{"name":"Alice","email":"alice@example.com"}}'
+local data = table.decode(json)
+engine.print(data.user.name) --Alice
+engine.print(data.user.email) --alice@example.com
+```
+
+```lua
+--Decode with explicit format
+local json = '{"x":10,"y":20}'
+local coords = table.decode(json, "json")
+engine.print(coords.x, coords.y) --10  20
+```
+
+```lua
+--Decode numbers
+local json = '[100,200,300]'
+local values = table.decode(json)
+engine.print(values[1], values[2], values[3]) --100  200  300
+```
+
+```lua
+--Decode boolean values
+local json = '{"enabled":true,"debug":false}'
+local settings = table.decode(json)
+engine.print(settings.enabled) --true
+engine.print(settings.debug) --false
+```
+
+```lua
+--Invalid input returns false
+local result = table.decode(123)
+engine.print(result) --false
+```
+
+```lua
+--Decode empty object
+local json = '{}'
+local data = table.decode(json)
+engine.print(table.len(data)) --0
+```
+
+```lua
+--Decode from file
+local file = io.open("config.json", "r")
+local json = file:read("*all")
+file:close()
+local config = table.decode(json)
+engine.print(config.width, config.height)
+```
+
+```lua
+--Network data parsing
+local received = '{"type":"message","content":"Hello"}'
+local packet = table.decode(received)
+if packet.type == "message" then
+    engine.print("Message:", packet.content)
+end
+```
+
+```lua
+--Decode array of objects
+local json = '[{"id":1,"name":"A"},{"id":2,"name":"B"}]'
+local items = table.decode(json)
+for i, item in ipairs(items) do
+    engine.print(item.id, item.name)
+end
+--Output: 1 A, 2 B
+```
+
+```lua
+--Handle decode errors
+local invalid = '{"invalid json'
+local result = table.decode(invalid)
+if result == false then
+    engine.print("Failed to decode JSON")
+end
+```
+
+```lua
+--Decode and modify
+local json = '{"count":10}'
+local data = table.decode(json)
+data.count = data.count + 5
+engine.print(data.count) --15
+```
