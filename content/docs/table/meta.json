@@ -9,6 +9,7 @@
         "remove",
         "move",
         "sort",
+        "clone",
         "concat",
         "encode",
         "decode",
