@@ -1,0 +1,141 @@
+---
+title: engine.iprint
+description: Prints a human-readable representation of any value
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = engine.iprint(value, show_hidden = false, depth_limit = 0)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | value | Value to print (table, string, number, boolean, etc.) |
+| `bool` | show_hidden | Determines inspection depth:<br/>• When `true` - includes hidden elements such as metatables in the output<br/>• When `false` - displays only visible table contents |
+| `int` | depth_limit | Maximum nesting depth to display (0 = unlimited) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Example
+
+```lua
+--Print simple table
+local t = {a = 1, b = 2, c = 3}
+engine.iprint(t)
+--Output:
+--{
+--  a: 1
+--  b: 2
+--  c: 3
+--}
+```
+
+```lua
+--Print array
+local colors = {"red", "green", "blue"}
+engine.iprint(colors)
+--Output:
+--{
+--  1: "red"
+--  2: "green"
+--  3: "blue"
+--}
+```
+
+```lua
+--Print nested structure
+local player = {
+    name = "Player1",
+    stats = {
+        health = 100,
+        mana = 50
+    }
+}
+engine.iprint(player)
+```
+
+```lua
+--Print with depth limit
+local deep = {a = {b = {c = {d = 1}}}}
+engine.iprint(deep, false, 2)
+--Shows only 2 levels deep
+```
+
+```lua
+--Debug variable
+local config = {width = 800, height = 600}
+engine.iprint(config)
+--Quick way to see table contents
+```
+
+```lua
+--Print string
+engine.iprint("hello world")
+--Output: "hello world"
+```
+
+```lua
+--Print number
+engine.iprint(42)
+--Output: 42
+```
+
+```lua
+--Print boolean
+engine.iprint(true)
+--Output: true
+```
+
+```lua
+--Print nil
+engine.iprint(nil)
+--Output: nil
+```
+
+```lua
+--Print with metatable visible
+local t = {x = 10}
+setmetatable(t, {__tostring = function() return "custom" end})
+engine.iprint(t, true)
+--Shows metatable when show_hidden = true
+```
+
+```lua
+--Compare multiple values
+local v1 = {a = 1}
+local v2 = {a = 1}
+engine.iprint(v1)
+engine.iprint(v2)
+```
+
+```lua
+--Print loop iteration
+local items = {{id = 1}, {id = 2}, {id = 3}}
+for i, item in ipairs(items) do
+    engine.iprint(item)
+end
+```
+
+```lua
+--Print empty table
+local empty = {}
+engine.iprint(empty)
+--Output: {}
+```
+
+```lua
+--Better than tostring for tables
+local t = {x = 1, y = 2}
+engine.print(tostring(t)) --table: 0x...
+engine.iprint(t) --Readable format
+```

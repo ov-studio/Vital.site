@@ -9,6 +9,7 @@
         "load_string",
         "inspect",
         "print",
+        "iprint",
         "..."
     ]
 }
