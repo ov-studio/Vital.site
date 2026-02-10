@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { site } from '@/site.config.ts';
+import { site } from '@/site.config';
 import { DocAI } from '@/components/docai';
 import { Badge } from '@/components/badge';
 
