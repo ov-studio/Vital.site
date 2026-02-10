@@ -2,7 +2,9 @@
 @import 'fumadocs-ui/css/dusk.css';
 @import 'fumadocs-ui/css/preset.css';
 
-.prose a { text-decoration: none; }
+:root {
+  --fd-layout-width: 95vw;
+}
 
 @theme {
   --color-fd-primary: hsl(0, 93%, 26%);
@@ -10,4 +12,8 @@
   
 .dark {
   --color-fd-primary: hsl(0, 93%, 71%);
+}
+
+.prose a {
+  text-decoration: none;
 }
