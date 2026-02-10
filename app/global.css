@@ -1,5 +1,13 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/dusk.css';
 @import 'fumadocs-ui/css/preset.css';
 
 .prose a { text-decoration: none; }
+
+@theme {
+  --color-fd-primary: hsl(0, 93%, 26%);
+}
+  
+.dark {
+  --color-fd-primary: hsl(0, 93%, 71%);
+}
