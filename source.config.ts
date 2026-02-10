@@ -6,13 +6,9 @@ import { z } from 'zod';
 export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
-    schema: {
-      frontmatter: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        badge: z.string().optional()
-      }),
-    },
+    schema: frontmatterSchema.extend({
+      badge: z.string().optional()
+    }),
     postprocess: {
       includeProcessedMarkdown: true,
     },
