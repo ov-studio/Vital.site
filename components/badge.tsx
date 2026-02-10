@@ -2,8 +2,6 @@
 import { Globe, Code, ServerCog, Ban } from 'lucide-react';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 
-type BadgeType = 'Shared' | 'Client' | 'Server' | 'Deprecated';
-
 const Badges = {
   Shared: {
     styles: 'bg-orange-500/20 text-orange-400 border-orange-500/50',
@@ -23,8 +21,8 @@ const Badges = {
   },
 };
 
-export function Badge({ type }: { type: BadgeType }) {
-  const config = Badges[type];
+export function Badge({ type }: { type: string }) {
+  const config = Badges[type as keyof typeof Badges];
   if (!config) return null;
   return (
     <span className={`${buttonVariants({ variant: 'outline', size: 'sm' })} inline-flex items-center gap-2 text-xs font-medium pointer-events-none ${config.styles}`}>
