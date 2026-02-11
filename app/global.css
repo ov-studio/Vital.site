@@ -8,6 +8,8 @@
 
 @theme {
   --color-fd-primary: hsl(0, 93%, 24%);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
 }
   
 .dark {
