@@ -12,7 +12,7 @@
   
 .dark {
   --color-fd-primary: hsl(0, 93%, 69%); 
-  --color-fd-background: hsl(250, 30%, 4%);
+  --color-fd-background: hsl(250, 25%, 4%);
 }
 
 .dark #nd-sidebar {
