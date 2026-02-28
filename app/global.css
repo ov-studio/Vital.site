@@ -6,15 +6,6 @@
   --fd-layout-width: 100vw;
 }
 
-#nd-sidebar {
-  width: 325px !important;
-  min-width: 325px !important;
-}
-
-#nd-sidebar > * {
-  width: 325px !important; 
-}
-
 @theme {
   --color-fd-primary: hsl(0, 93%, 24%);
   --font-sans: var(--font-geist);
@@ -32,4 +23,13 @@
 
 .prose a {
   text-decoration: none;
+}
+
+#nd-sidebar {
+  width: 325px !important;
+  min-width: 325px !important;
+}
+
+#nd-sidebar>* {
+  width: 325px !important;
 }
