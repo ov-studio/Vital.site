@@ -1,0 +1,35 @@
+---
+title: engine.adjustment.set_enabled
+description: Enables or disables the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.adjustment.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines adjustment's state:<br/>• When `true` - the adjustment effected is enabled<br/>• When `false` - the adjustment effected is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | Returns `true` on success |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable adjustment
+engine.adjustment.set_enabled(true)
+
+--Disable adjustment
+engine.adjustment.set_enabled(false)
+```
