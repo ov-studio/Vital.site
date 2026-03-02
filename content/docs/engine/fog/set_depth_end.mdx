@@ -1,0 +1,32 @@
+---
+title: engine.fog.set_depth_end
+description: The depth end distance to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.fog.set_depth_end(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Depth end value to be applied<br/>Sets the distance from the camera at which depth-based fog reaches full density. Geometry beyond this distance will be completely obscured by fog |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Fully obscure geometry beyond 200 units
+engine.fog.set_depth_end(200.0)
+```
