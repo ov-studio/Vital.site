@@ -1,0 +1,32 @@
+---
+title: engine.sdfgi.set_y_scale
+description: The Y-axis scale mode to be set for the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.sdfgi.set_y_scale(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Y scale mode to be applied<br/>Controls how tightly SDFGI cells are packed along the Y axis. Lower values pack cells closer together vertically, improving quality in scenes with significant vertical range or fast vertical camera movement:<br/>• `0` - 50% vertical scale<br/>• `1` - 75% vertical scale<br/>• `2` - 100% vertical scale |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set tighter vertical packing for a tall vertical scene
+engine.sdfgi.set_y_scale(0)
+```
