@@ -8,6 +8,8 @@
         "get_brightness",
         "set_contrast",
         "get_contrast",
+        "set_saturation",
+        "get_saturation",
         "..."
     ]
 }

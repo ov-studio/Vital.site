@@ -1,0 +1,30 @@
+---
+title: engine.adjustment.get_contrast
+description: Retrieves the current contrast level of the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.adjustment.get_contrast()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` / `bool` | result | Returns current contrast value on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("Current contrast:", engine.adjustment.get_contrast())
+```
