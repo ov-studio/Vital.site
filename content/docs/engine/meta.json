@@ -17,6 +17,7 @@
         "sdfgi",
         "fog",
         "volumetric_fog",
+        "emissive",
         "adjustment"
     ]
 }
