@@ -16,6 +16,7 @@
         "ssil",
         "sdfgi",
         "fog",
+        "volumetric_fog",
         "adjustment"
     ]
 }
