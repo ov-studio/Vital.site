@@ -1,6 +1,6 @@
 ---
 title: engine.adjustment.get_lut
-description: Retrieves the path of the currently active LUT texture
+description: Retrieves the path of the currently active LUT on the adjustment post-processing effect
 badge: Client
 ---
 
@@ -19,7 +19,7 @@ local result = engine.adjustment.get_lut()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` / `bool` | result | Returns the path of the active LUT texture, or `false` if no LUT is currently applied |
+| `string` / `bool` | result | Returns the path of the active LUT, or `false` if no LUT is currently applied |
 
 <hr/>
 
@@ -31,6 +31,6 @@ local lut = engine.adjustment.get_lut()
 if lut then
     engine.print("Active LUT:", lut)
 else
-    engine.print("No LUT applied")
+    engine.print("No LUT is currently applied")
 end
 ```
