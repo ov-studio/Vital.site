@@ -1,0 +1,30 @@
+---
+title: engine.sdfgi.is_reading_sky_light
+description: Retrieves whether sky light sampling is currently enabled for the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.sdfgi.is_reading_sky_light()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | Returns `true` if SDFGI sky light sampling is enabled, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("SDFGI reading sky light:", engine.sdfgi.is_reading_sky_light())
+```
