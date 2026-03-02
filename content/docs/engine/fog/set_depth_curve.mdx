@@ -1,0 +1,32 @@
+---
+title: engine.fog.set_depth_curve
+description: The depth curve to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.fog.set_depth_curve(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Depth curve value to be applied<br/>Controls the rate at which fog density increases between the depth begin and end points. Higher values cause fog to build up more aggressively near the end distance, while lower values spread the transition more evenly |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Apply an aggressive fog falloff toward the far end
+engine.fog.set_depth_curve(1.5)
+```
