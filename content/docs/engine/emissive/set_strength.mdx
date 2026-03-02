@@ -1,0 +1,32 @@
+---
+title: engine.emissive.set_strength
+description: The strength to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.emissive.set_strength(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Strength value to be applied<br/>Controls the glow's spread or filter strength. Higher values produce a softer, wider glow while lower values keep the glow tighter around emissive surfaces |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a soft wide glow spread
+engine.emissive.set_strength(2.0)
+```
