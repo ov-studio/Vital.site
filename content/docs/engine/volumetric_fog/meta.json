@@ -24,8 +24,8 @@
         "get_ambient_inject",
         "set_sky_affect",
         "get_sky_affect",
-        "set_temporal_reprojection_enabled",
         "is_temporal_reprojection_enabled",
+        "set_temporal_reprojection_enabled",
         "set_temporal_reprojection_amount",
         "get_temporal_reprojection_amount",
         "..."
