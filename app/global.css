@@ -7,13 +7,13 @@
 }
 
 @theme {
-  --color-fd-primary: hsl(0, 93%, 24%);
+  --color-fd-primary: hsl(220, 95%, 30%);
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
 }
   
 .dark {
-  --color-fd-primary: hsl(0, 93%, 69%); 
+  --color-fd-primary: hsl(220, 95%, 76%);
   --color-fd-background: hsl(250, 20%, 4%);
 }
 
