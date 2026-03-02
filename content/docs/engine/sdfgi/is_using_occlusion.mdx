@@ -1,0 +1,30 @@
+---
+title: engine.sdfgi.is_using_occlusion
+description: Retrieves whether occlusion is currently enabled for the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.sdfgi.is_using_occlusion()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | Returns `true` if SDFGI occlusion is enabled, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("SDFGI occlusion:", engine.sdfgi.is_using_occlusion())
+```
