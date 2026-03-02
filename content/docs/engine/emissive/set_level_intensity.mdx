@@ -1,0 +1,36 @@
+---
+title: engine.emissive.set_level_intensity
+description: The intensity to be set for a specific glow level of the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.emissive.set_level_intensity(idx, value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | idx | The glow level index to target. Glow is applied in multiple passes at different scales; each level corresponds to a blur pass of increasing size |
+| `float` | value | Intensity value to be applied to the specified level. Higher values increase the contribution of that glow level to the final result |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a strong contribution on glow level 1
+engine.emissive.set_level_intensity(1, 1.0)
+
+--Disable contribution on glow level 3
+engine.emissive.set_level_intensity(3, 0.0)
+```
