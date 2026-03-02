@@ -1,0 +1,32 @@
+---
+title: engine.ssil.set_sharpness
+description: The sharpness to be set for the SSIL post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.ssil.set_sharpness(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sharpness value to be applied<br/>Higher values preserve edge detail and prevent indirect light from bleeding across geometry boundaries |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Preserve sharp indirect light edges
+engine.ssil.set_sharpness(0.98)
+```
