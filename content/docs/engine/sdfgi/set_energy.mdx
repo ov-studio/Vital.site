@@ -1,0 +1,32 @@
+---
+title: engine.sdfgi.set_energy
+description: The energy output to be set for the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.sdfgi.set_energy(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Energy value to be applied<br/>Scales the overall brightness of the global illumination output. Higher values produce more intense indirect lighting across the scene |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Boost GI energy for brighter indirect lighting
+engine.sdfgi.set_energy(2.0)
+```
