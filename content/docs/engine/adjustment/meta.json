@@ -10,6 +10,9 @@
         "get_contrast",
         "set_saturation",
         "get_saturation",
+        "set_lut",
+        "get_lut",
+        "reset_lut",
         "..."
     ]
 }
