@@ -1,0 +1,32 @@
+---
+title: engine.ssr.set_fade_out
+description: Sets the fade-out distance of the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.ssr.set_fade_out(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Fade-out distance value to be applied<br/>Controls how gradually reflections disappear toward the edges of the screen, reducing visible clipping artifacts |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a gradual reflection fade-out
+engine.ssr.set_fade_out(2.0)
+```
