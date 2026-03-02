@@ -1,0 +1,30 @@
+---
+title: engine.ssr.get_max_steps
+description: Retrieves the current maximum number of ray march steps for the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.ssr.get_max_steps()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` / `bool` | result | Returns the current max steps value on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("SSR max steps:", engine.ssr.get_max_steps())
+```
