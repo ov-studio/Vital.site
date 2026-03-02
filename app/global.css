@@ -26,10 +26,10 @@
 }
 
 #nd-sidebar {
-  width: 325px !important;
-  min-width: 325px !important;
+  width: 375px !important;
+  min-width: 375px !important;
 }
 
 #nd-sidebar>* {
-  width: 325px !important;
+  width: 375px !important;
 }
