@@ -12,6 +12,7 @@
         "iprint",
         "...",
         "ssao",
+        "ssr",
         "adjustment"
     ]
 }
