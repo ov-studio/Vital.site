@@ -1,0 +1,30 @@
+---
+title: engine.adjustment.get_saturation
+description: Retrieves the current saturation level of the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.adjustment.get_saturation()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` / `bool` | result | Returns current saturation value on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("Current saturation:", engine.adjustment.get_saturation())
+```
