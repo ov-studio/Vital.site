@@ -4,6 +4,7 @@
     "pages": [
         "is_enabled",
         "set_enabled",
+        "set_brightness",
         "..."
     ]
 }
