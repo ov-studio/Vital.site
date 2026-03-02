@@ -5,6 +5,9 @@
         "is_enabled",
         "set_enabled",
         "set_brightness",
+        "get_brightness",
+        "set_contrast",
+        "get_contrast",
         "..."
     ]
 }
