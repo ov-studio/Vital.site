@@ -1,0 +1,35 @@
+---
+title: engine.ssr.set_enabled
+description: Toggles the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.ssr.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines SSR's state:<br/>• When `true` - SSR is enabled<br/>• When `false` - SSR is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable SSR
+engine.ssr.set_enabled(true)
+
+--Disable SSR
+engine.ssr.set_enabled(false)
+```
