@@ -1,0 +1,32 @@
+---
+title: engine.fog.set_density
+description: The density to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.fog.set_density(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Density value to be applied<br/>Controls the overall thickness of the fog. Higher values produce denser, more opaque fog that obscures the scene more quickly with distance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a thick dense fog
+engine.fog.set_density(0.05)
+```
