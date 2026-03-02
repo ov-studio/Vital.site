@@ -1,0 +1,32 @@
+---
+title: engine.fog.set_aerial_perspective
+description: The aerial perspective blend amount to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.fog.set_aerial_perspective(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Aerial perspective value to be applied<br/>Blends the sky's aerial perspective effect into the fog, simulating the way distant objects take on the hue and haze of the atmosphere. Higher values produce stronger atmospheric depth |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Add strong atmospheric haze to distant geometry
+engine.fog.set_aerial_perspective(0.5)
+```
