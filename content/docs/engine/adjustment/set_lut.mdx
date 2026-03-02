@@ -1,0 +1,36 @@
+---
+title: engine.adjustment.set_lut
+description: Applies a specified LUT (Look-Up Table) for color-correction on the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.adjustment.set_lut(path)
+```
+
+<Callout type="info">
+  Supports variable LUT sizes with two layouts: a **square grid** (e.g. 8×8, 16×16, 64×64) or a **strip layout** (single row of N columns).
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Path of the LUT to be applied |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Apply a LUT for cinematic color grading
+engine.adjustment.set_lut("lut/cinematic.png")
+```
