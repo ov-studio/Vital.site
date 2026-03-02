@@ -2,6 +2,7 @@
     "title": "Adjustment",
     "icon": "Package",
     "pages": [
+        "is_enabled",
         "set_enabled",
         "..."
     ]

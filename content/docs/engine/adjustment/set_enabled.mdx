@@ -7,20 +7,20 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = engine.adjustment.set_enabled(state)
+local status = engine.adjustment.set_enabled(state)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | state | Determines adjustment's state:<br/>• When `true` - the adjustment effected is enabled<br/>• When `false` - the adjustment effected is disabled |
+| `bool` | state | Determines adjustment's state:<br/>• When `true` - the adjustment is enabled<br/>• When `false` - the adjustment is disabled |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | Returns `true` on success |
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
 
 <hr/>
 
