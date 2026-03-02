@@ -1,0 +1,32 @@
+---
+title: engine.volumetric_fog.set_anisotropy
+description: The anisotropy to be set for the volumetric fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.volumetric_fog.set_anisotropy(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Anisotropy value to be applied<br/>Controls the directional bias of light scattering within the fog. Positive values scatter light forward in the direction of the light source, producing a glowing halo effect. Negative values scatter light backward, creating a more diffuse appearance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Bias scattering forward for a sun halo effect
+engine.volumetric_fog.set_anisotropy(0.5)
+```
