@@ -1,0 +1,33 @@
+{
+    "title": "Fog",
+    "icon": "CloudFog",
+    "pages": [
+        "is_enabled",
+        "set_enabled",
+        "set_mode",
+        "get_mode",
+        "set_light_color",
+        "get_light_color",
+        "set_light_energy",
+        "get_light_energy",
+        "set_sun_scatter",
+        "get_sun_scatter",
+        "set_density",
+        "get_density",
+        "set_height",
+        "get_height",
+        "set_height_density",
+        "get_height_density",
+        "set_aerial_perspective",
+        "get_aerial_perspective",
+        "set_sky_affect",
+        "get_sky_affect",
+        "set_depth_curve",
+        "get_depth_curve",
+        "set_depth_begin",
+        "get_depth_begin",
+        "set_depth_end",
+        "get_depth_end",
+        "..."
+    ]
+}
