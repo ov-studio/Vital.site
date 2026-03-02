@@ -1,0 +1,25 @@
+{
+    "title": "SSAO",
+    "icon": "Layers",
+    "pages": [
+        "is_enabled",
+        "set_enabled",
+        "set_radius",
+        "get_radius",
+        "set_intensity",
+        "get_intensity",
+        "set_power",
+        "get_power",
+        "set_detail",
+        "get_detail",
+        "set_horizon",
+        "get_horizon",
+        "set_sharpness",
+        "get_sharpness",
+        "set_direct_light_affect",
+        "get_direct_light_affect",
+        "set_channel_affect",
+        "get_channel_affect",
+        "..."
+    ]
+}

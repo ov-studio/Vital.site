@@ -1,6 +1,6 @@
 {
     "title": "Adjustment",
-    "icon": "Package",
+    "icon": "SlidersHorizontal",
     "pages": [
         "is_enabled",
         "set_enabled",
