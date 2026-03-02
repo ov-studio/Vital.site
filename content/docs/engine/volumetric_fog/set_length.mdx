@@ -1,0 +1,32 @@
+---
+title: engine.volumetric_fog.set_length
+description: The draw length to be set for the volumetric fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.volumetric_fog.set_length(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Length value to be applied<br/>Sets the maximum distance from the camera at which volumetric fog is rendered. Larger values extend the fog further into the scene at the cost of performance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Extend volumetric fog across a large distance
+engine.volumetric_fog.set_length(512.0)
+```
