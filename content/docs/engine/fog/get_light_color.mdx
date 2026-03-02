@@ -1,0 +1,34 @@
+---
+title: engine.fog.get_light_color
+description: Retrieves the current light color of the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local r, g, b, a = engine.fog.get_light_color()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | r | Red channel value of the current fog light color |
+| `float` | g | Green channel value of the current fog light color |
+| `float` | b | Blue channel value of the current fog light color |
+| `float` | a | Alpha channel value of the current fog light color |
+
+<hr/>
+
+### Examples
+
+```lua
+local r, g, b, a = engine.fog.get_light_color()
+engine.print("Fog light color:", r, g, b, a)
+```
