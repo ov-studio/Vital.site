@@ -1,0 +1,32 @@
+---
+title: engine.emissive.set_bloom
+description: The bloom threshold to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.emissive.set_bloom(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Bloom value to be applied<br/>Controls how much of the glow effect bleeds onto non-emissive surfaces in the scene. Higher values cause the glow to spread further and illuminate surrounding geometry |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Allow glow to bleed onto surrounding surfaces
+engine.emissive.set_bloom(0.5)
+```
