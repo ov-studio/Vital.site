@@ -1,0 +1,17 @@
+{
+    "title": "SSIL",
+    "icon": "Lightbulb",
+    "pages": [
+        "is_enabled",
+        "set_enabled",
+        "set_radius",
+        "get_radius",
+        "set_intensity",
+        "get_intensity",
+        "set_sharpness",
+        "get_sharpness",
+        "set_normal_rejection",
+        "get_normal_rejection",
+        "..."
+    ]
+}
