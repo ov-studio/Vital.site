@@ -1,0 +1,32 @@
+---
+title: engine.fog.set_height
+description: The height threshold to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.fog.set_height(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Height value to be applied<br/>Sets the world-space Y position below which height-based fog begins to accumulate. Lower values restrict fog to ground level while higher values allow fog to rise further up the scene |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Restrict fog to near ground level
+engine.fog.set_height(-10.0)
+```
