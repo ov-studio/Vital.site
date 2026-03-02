@@ -1,0 +1,32 @@
+---
+title: engine.ssr.set_fade_in
+description: Sets the fade-in distance of the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.ssr.set_fade_in(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Fade-in distance value to be applied<br/>Controls how gradually reflections appear as surfaces become more reflective, preventing hard edges at reflection boundaries |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a smooth reflection fade-in
+engine.ssr.set_fade_in(0.15)
+```
