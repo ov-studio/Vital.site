@@ -1,0 +1,30 @@
+---
+title: engine.ssao.get_channel_affect
+description: Retrieves the current AO channel influence of the SSAO post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = engine.ssao.get_channel_affect()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Returns the current channel affect value |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("SSAO channel affect:", engine.ssao.get_channel_affect())
+```
