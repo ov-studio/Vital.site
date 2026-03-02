@@ -1,0 +1,32 @@
+---
+title: engine.volumetric_fog.set_detail_spread
+description: The detail spread to be set for the volumetric fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = engine.volumetric_fog.set_detail_spread(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Detail spread value to be applied<br/>Controls how detail samples are distributed across the fog volume. Higher values spread detail more unevenly, concentrating finer detail near the camera and coarser detail further away |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Concentrate fog detail near the camera
+engine.volumetric_fog.set_detail_spread(2.0)
+```
