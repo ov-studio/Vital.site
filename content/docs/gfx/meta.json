@@ -1,6 +1,6 @@
 {
     "title": "GFX",
-    "icon": "Cog",
+    "icon": "Palette",
     "pages": [
         "...",
         "ssao",
