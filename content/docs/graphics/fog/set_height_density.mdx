@@ -1,0 +1,37 @@
+---
+title: gfx.fog.set_height_density
+description: The height density to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_height_density(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Height density value to be applied<br/>Controls how quickly fog density increases as height decreases. Use a negative value to instead increase fog density as height increases |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Increase fog density toward the ground
+gfx.fog.set_height_density(10.0)
+```
+
+```lua
+--Increase fog density toward the sky
+gfx.fog.set_height_density(-10.0)
+```

@@ -1,0 +1,32 @@
+---
+title: gfx.ssr.set_depth_tolerance
+description: Sets the depth tolerance of the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssr.set_depth_tolerance(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Depth tolerance value to be applied<br/>Determines how much depth difference is allowed before a ray march hit is rejected. Higher values produce softer, more forgiving reflections while lower values yield sharper, stricter results |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a lenient depth tolerance for smoother reflections
+gfx.ssr.set_depth_tolerance(0.2)
+```

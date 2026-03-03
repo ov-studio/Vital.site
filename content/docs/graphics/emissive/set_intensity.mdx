@@ -1,0 +1,32 @@
+---
+title: gfx.emissive.set_intensity
+description: The overall intensity to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_intensity(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Intensity value to be applied<br/>Controls the overall brightness multiplier of the glow effect. Higher values produce a more pronounced and brighter glow across all active levels |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a strong overall glow intensity
+gfx.emissive.set_intensity(1.5)
+```

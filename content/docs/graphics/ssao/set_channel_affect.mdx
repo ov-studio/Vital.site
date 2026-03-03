@@ -1,0 +1,32 @@
+---
+title: gfx.ssao.set_channel_affect
+description: Sets the AO channel influence of the SSAO post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssao.set_channel_affect(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Influence value to be applied<br/>Controls how much the SSAO result blends into the AO channel of materials, affecting surfaces that use ambient occlusion textures |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Fully blend SSAO into the AO channel
+gfx.ssao.set_channel_affect(1.0)
+```

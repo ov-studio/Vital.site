@@ -1,0 +1,32 @@
+---
+title: gfx.emissive.set_mix
+description: The mix amount to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_mix(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Mix value to be applied<br/>Controls the blend ratio between the glow effect and the original scene when the blend mode is set to mix. A value of `0` shows only the original scene while `1` shows only the glow result |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Blend glow at 50% with the original scene
+gfx.emissive.set_mix(0.5)
+```

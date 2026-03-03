@@ -1,0 +1,32 @@
+---
+title: gfx.fog.set_sun_scatter
+description: The sun scatter amount to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_sun_scatter(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sun scatter value to be applied<br/>Controls how much the sun's light scatters through the fog, producing a visible glow or halo effect in the direction of the sun |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Add a visible sun glow through the fog
+gfx.fog.set_sun_scatter(0.5)
+```

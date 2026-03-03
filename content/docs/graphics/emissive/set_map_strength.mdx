@@ -1,0 +1,32 @@
+---
+title: gfx.emissive.set_map_strength
+description: The glow map strength to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_map_strength(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Glow map strength value to be applied<br/>Controls how strongly the assigned glow map texture influences the glow effect. Higher values give the glow map more influence over which areas of the scene produce glow |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Give the glow map full influence
+gfx.emissive.set_map_strength(1.0)
+```

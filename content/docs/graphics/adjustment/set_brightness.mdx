@@ -1,0 +1,35 @@
+---
+title: gfx.adjustment.set_brightness
+description: Sets the brightness level of the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.adjustment.set_brightness(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Brightness value to be applied |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set brightness to default
+gfx.adjustment.set_brightness(1.0)
+
+--Increase brightness
+gfx.adjustment.set_brightness(1.5)
+```

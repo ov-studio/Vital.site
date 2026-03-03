@@ -10,14 +10,6 @@
         "inspect",
         "print",
         "iprint",
-        "...",
-        "ssao",
-        "ssr",
-        "ssil",
-        "sdfgi",
-        "fog",
-        "volumetric_fog",
-        "emissive",
-        "adjustment"
+        "..."
     ]
 }

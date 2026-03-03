@@ -1,0 +1,35 @@
+---
+title: gfx.emissive.set_enabled
+description: Toggles the emissive glow post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines emissive glow's state:<br/>• When `true` - emissive glow is enabled<br/>• When `false` - emissive glow is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable emissive glow
+gfx.emissive.set_enabled(true)
+
+--Disable emissive glow
+gfx.emissive.set_enabled(false)
+```

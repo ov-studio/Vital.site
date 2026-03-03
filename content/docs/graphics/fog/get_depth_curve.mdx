@@ -1,0 +1,34 @@
+---
+title: gfx.fog.get_depth_curve
+description: Retrieves the current depth curve of the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.fog.get_depth_curve()
+```
+
+<Callout type="warn">
+Only available when the fog mode is set to depth mode. See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) for more information.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current depth curve value |
+
+<hr/>
+
+### Examples
+
+```lua
+gfx.print("Fog depth curve:", gfx.fog.get_depth_curve())
+```

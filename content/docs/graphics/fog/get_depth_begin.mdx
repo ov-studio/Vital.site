@@ -1,0 +1,34 @@
+---
+title: gfx.fog.get_depth_begin
+description: Retrieves the current depth begin distance of the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.fog.get_depth_begin()
+```
+
+<Callout type="warn">
+Only available when the fog mode is set to depth mode. See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) for more information.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current depth begin value |
+
+<hr/>
+
+### Examples
+
+```lua
+gfx.print("Fog depth begin:", gfx.fog.get_depth_begin())
+```

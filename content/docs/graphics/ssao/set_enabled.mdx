@@ -1,0 +1,35 @@
+---
+title: gfx.ssao.set_enabled
+description: Toggles the SSAO post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssao.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines SSAO's state:<br/>• When `true` - SSAO is enabled<br/>• When `false` - SSAO is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable SSAO
+gfx.ssao.set_enabled(true)
+
+--Disable SSAO
+gfx.ssao.set_enabled(false)
+```

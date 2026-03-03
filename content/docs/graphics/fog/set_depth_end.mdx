@@ -1,0 +1,36 @@
+---
+title: gfx.fog.set_depth_end
+description: The depth end distance to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_depth_end(value)
+```
+
+<Callout type="warn">
+Only available when the fog mode is set to depth mode. See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) for more information.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Depth end value to be applied<br/>Sets the distance from the camera at which depth-based fog reaches full density. Geometry beyond this distance will be completely obscured by fog |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Fully obscure geometry beyond 200 units
+gfx.fog.set_depth_end(200.0)
+```

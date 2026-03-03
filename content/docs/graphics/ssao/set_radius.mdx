@@ -1,0 +1,32 @@
+---
+title: gfx.ssao.set_radius
+description: Sets the sampling radius of the SSAO post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssao.set_radius(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Radius value to be applied<br/>Larger values extend the reach of the occlusion shadow around geometry |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a wider occlusion radius
+gfx.ssao.set_radius(2.0)
+```

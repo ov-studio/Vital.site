@@ -1,0 +1,32 @@
+---
+title: gfx.emissive.set_hdr_bleed_threshold
+description: The HDR bleed threshold to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_hdr_bleed_threshold(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | HDR bleed threshold value to be applied<br/>Sets the luminance threshold above which bright HDR pixels begin to contribute to the glow effect. Only pixels brighter than this value will bleed glow into surrounding areas |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Only allow very bright pixels to bleed glow
+gfx.emissive.set_hdr_bleed_threshold(1.5)
+```

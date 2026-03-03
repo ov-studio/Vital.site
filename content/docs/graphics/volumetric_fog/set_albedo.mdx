@@ -1,0 +1,42 @@
+---
+title: gfx.volumetric_fog.set_albedo
+description: The albedo color to be set for the volumetric fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.volumetric_fog.set_albedo(r, g, b, a)
+local status = gfx.volumetric_fog.set_albedo(hex)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | r | Red channel value of the albedo color |
+| `float` | g | Green channel value of the albedo color |
+| `float` | b | Blue channel value of the albedo color |
+| `float` | a | Alpha channel value of the albedo color |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a cool blue-tinted fog albedo using RGBA
+gfx.volumetric_fog.set_albedo(0.6, 0.7, 1.0, 1.0)
+```
+
+```lua
+--Set albedo color using a hex string
+gfx.volumetric_fog.set_albedo("#99b3ff")
+```

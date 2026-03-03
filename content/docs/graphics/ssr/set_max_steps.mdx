@@ -1,0 +1,32 @@
+---
+title: gfx.ssr.set_max_steps
+description: Sets the maximum number of ray march steps for the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssr.set_max_steps(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Maximum number of ray march steps to be set<br/>Higher values produce more accurate reflections at the cost of performance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set high quality reflections
+gfx.ssr.set_max_steps(64)
+```

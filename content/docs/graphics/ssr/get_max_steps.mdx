@@ -1,0 +1,30 @@
+---
+title: gfx.ssr.get_max_steps
+description: Retrieves the current maximum number of ray march steps for the SSR post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.ssr.get_max_steps()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` / `bool` | result | Current max steps value on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+gfx.print("SSR max steps:", gfx.ssr.get_max_steps())
+```

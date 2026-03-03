@@ -1,0 +1,32 @@
+---
+title: gfx.fog.set_height
+description: The height threshold to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_height(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Height value to be applied<br/>Sets the world-space Y position at which the height fog effect begins |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set the height at which fog begins
+gfx.fog.set_height(0.0)
+```

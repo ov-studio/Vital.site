@@ -1,0 +1,32 @@
+---
+title: gfx.emissive.set_hdr_luminance_cap
+description: The HDR luminance cap to be set for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_hdr_luminance_cap(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | HDR luminance cap value to be applied<br/>Sets the maximum luminance value that any pixel can contribute to the glow effect, preventing excessively bright pixels from producing an overpowering or blown-out glow |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Cap luminance to prevent blown-out glow
+gfx.emissive.set_hdr_luminance_cap(8.0)
+```

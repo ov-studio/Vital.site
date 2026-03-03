@@ -1,0 +1,35 @@
+---
+title: gfx.ssil.set_enabled
+description: Toggles the SSIL post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssil.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines SSIL's state:<br/>• When `true` - SSIL is enabled<br/>• When `false` - SSIL is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable SSIL
+gfx.ssil.set_enabled(true)
+
+--Disable SSIL
+gfx.ssil.set_enabled(false)
+```

@@ -1,0 +1,32 @@
+---
+title: gfx.sdfgi.set_probe_bias
+description: The probe bias to be set for the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sdfgi.set_probe_bias(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Probe bias value to be applied<br/>Adjusts the offset used when sampling GI probes to avoid self-intersection artifacts, particularly on surfaces that are close to or overlapping SDFGI probe positions |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Tune probe bias to eliminate probe intersection artifacts
+gfx.sdfgi.set_probe_bias(1.1)
+```

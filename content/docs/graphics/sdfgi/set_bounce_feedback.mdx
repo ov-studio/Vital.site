@@ -1,0 +1,32 @@
+---
+title: gfx.sdfgi.set_bounce_feedback
+description: The bounce feedback strength to be set for the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sdfgi.set_bounce_feedback(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Bounce feedback value to be applied<br/>Controls how much indirect light is re-fed into the GI system on each bounce, simulating multi-bounce illumination. Higher values create richer, more colorful light bleeding between surfaces |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable strong multi-bounce color bleeding
+gfx.sdfgi.set_bounce_feedback(1.5)
+```

@@ -1,0 +1,35 @@
+---
+title: gfx.adjustment.set_enabled
+description: Toggles the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.adjustment.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines adjustment's state:<br/>• When `true` - the adjustment is enabled<br/>• When `false` - the adjustment is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable adjustment
+gfx.adjustment.set_enabled(true)
+
+--Disable adjustment
+gfx.adjustment.set_enabled(false)
+```

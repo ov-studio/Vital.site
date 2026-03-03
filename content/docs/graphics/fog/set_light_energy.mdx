@@ -1,0 +1,32 @@
+---
+title: gfx.fog.set_light_energy
+description: The light energy to be set for the fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_light_energy(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Light energy value to be applied<br/>Controls the brightness of the fog's light color. Higher values produce a more luminous, glowing fog appearance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set a bright fog light
+gfx.fog.set_light_energy(2.0)
+```

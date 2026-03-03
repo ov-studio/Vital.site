@@ -1,0 +1,37 @@
+---
+title: gfx.adjustment.get_lut
+description: Retrieves the path of the currently active LUT on the adjustment post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.adjustment.get_lut()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` / `bool` | result | Path of the active LUT, or `false` if no LUT is currently applied |
+
+<hr/>
+
+### Examples
+
+```lua
+--Retrieve currently active LUT
+local lut = gfx.adjustment.get_lut()
+
+if lut then
+    gfx.print("Active LUT:", lut)
+else
+    gfx.print("No LUT is currently applied")
+end
+```

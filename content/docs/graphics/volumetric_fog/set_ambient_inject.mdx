@@ -1,0 +1,32 @@
+---
+title: gfx.volumetric_fog.set_ambient_inject
+description: The ambient light injection amount to be set for the volumetric fog post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.volumetric_fog.set_ambient_inject(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Ambient inject value to be applied<br/>Controls how much ambient light is injected into the volumetric fog volume. Higher values allow the fog to be lit by the scene's ambient light, producing a softer and more naturally integrated appearance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Allow ambient light to fill the fog volume
+gfx.volumetric_fog.set_ambient_inject(0.5)
+```

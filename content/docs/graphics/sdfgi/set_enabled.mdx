@@ -1,0 +1,35 @@
+---
+title: gfx.sdfgi.set_enabled
+description: Toggles the SDFGI post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sdfgi.set_enabled(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines SDFGI's state:<br/>• When `true` - SDFGI is enabled<br/>• When `false` - SDFGI is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable SDFGI
+gfx.sdfgi.set_enabled(true)
+
+--Disable SDFGI
+gfx.sdfgi.set_enabled(false)
+```

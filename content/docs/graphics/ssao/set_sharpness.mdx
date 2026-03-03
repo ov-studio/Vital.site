@@ -1,0 +1,32 @@
+---
+title: gfx.ssao.set_sharpness
+description: Sets the sharpness of the SSAO post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssao.set_sharpness(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sharpness value to be applied<br/>Higher values preserve edge detail and reduce blur bleed across geometry boundaries |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Sharpen occlusion edges
+gfx.ssao.set_sharpness(0.98)
+```

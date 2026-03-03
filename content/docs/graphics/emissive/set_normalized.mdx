@@ -1,0 +1,32 @@
+---
+title: gfx.emissive.set_normalized
+description: Toggles glow level normalization for the emissive post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.emissive.set_normalized(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines whether glow levels are normalized:<br/>• When `true` - glow level intensities are normalized so their combined contribution always sums to `1.0`, preventing the overall brightness from increasing as more levels are enabled<br/>• When `false` - normalization is disabled and each level contributes independently |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable normalization to keep consistent brightness
+gfx.emissive.set_normalized(true)
+```
