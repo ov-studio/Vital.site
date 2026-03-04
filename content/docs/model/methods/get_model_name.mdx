@@ -1,0 +1,31 @@
+---
+title: self:get_model_name
+description: Retrieves the registered name of the model
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local name = self:get_model_name()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Registered name of the model |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+engine.print("info", "Model name:", instance:get_model_name())
+```

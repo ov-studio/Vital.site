@@ -1,0 +1,38 @@
+---
+title: self:set_component_visible
+description: Toggles the visibility of a specific component on the model
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_visible(name, state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Path of the component to update |
+| `bool` | state | Determines the component's visibility:<br/>• When `true` - the component is shown<br/>• When `false` - the component is hidden |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+
+--Show the hat
+instance:set_component_visible("Skeleton3D/Hat", true)
+
+--Hide the hat
+instance:set_component_visible("Skeleton3D/Hat", false)
+```

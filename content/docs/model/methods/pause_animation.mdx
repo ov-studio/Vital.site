@@ -1,0 +1,32 @@
+---
+title: self:pause_animation
+description: Pauses the currently playing animation on the model
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:pause_animation()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+instance:play_animation("idle")
+instance:pause_animation()
+```

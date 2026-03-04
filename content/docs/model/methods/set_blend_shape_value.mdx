@@ -1,0 +1,34 @@
+---
+title: self:set_blend_shape_value
+description: Sets the value of a blend shape on a specific component of the model
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_blend_shape_value(component, blend_shape, value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component containing the blend shape |
+| `string` | blend_shape | Name of the blend shape to update |
+| `float` | value | Value to apply to the blend shape |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+instance:set_blend_shape_value("Skeleton3D/Torso_vest_", "Smile", 1.0)
+```

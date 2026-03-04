@@ -1,0 +1,32 @@
+---
+title: self:get_current_animation
+description: Retrieves the name of the currently playing animation
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local name = self:get_current_animation()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the currently playing animation |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+instance:play_animation("idle")
+engine.print("info", "Current animation:", instance:get_current_animation())
+```

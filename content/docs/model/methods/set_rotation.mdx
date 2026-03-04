@@ -1,0 +1,34 @@
+---
+title: self:set_rotation
+description: Sets the rotation of the model in 3D space
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_rotation(x, y, z)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | x | Rotation on the X axis (in radians) |
+| `float` | y | Rotation on the Y axis (in radians) |
+| `float` | z | Rotation on the Z axis (in radians) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+instance:set_rotation(0, 1.57, 0)
+```

@@ -1,0 +1,31 @@
+---
+title: model.is_loaded
+description: Retrieves whether a model has been loaded into memory
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = model.is_loaded(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the model to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the model is loaded, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("info", "Model loaded:", model.is_loaded("character"))
+```

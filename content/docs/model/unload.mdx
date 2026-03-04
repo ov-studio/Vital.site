@@ -1,0 +1,31 @@
+---
+title: model.unload
+description: Unloads a previously loaded model from memory
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = model.unload(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the model to unload |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+model.unload("character")
+```

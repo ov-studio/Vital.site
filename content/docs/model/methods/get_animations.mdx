@@ -1,0 +1,34 @@
+---
+title: self:get_animations
+description: Retrieves a list of all available animations on the model
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local animations = self:get_animations()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | animations | Array of animation name strings |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+local animations = instance:get_animations()
+for i = 1, #animations do
+    engine.print("info", animations[i])
+end
+```

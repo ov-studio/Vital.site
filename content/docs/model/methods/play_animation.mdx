@@ -1,0 +1,39 @@
+---
+title: self:play_animation
+description: Plays a specified animation on the model
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:play_animation(name, loop = true, speed = 1.0)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the animation to play |
+| `bool` | loop | Determines whether the animation loops:<br/>• When `true` - the animation loops continuously<br/>• When `false` - the animation plays once |
+| `float` | speed | Playback speed multiplier. `1.0` is the default speed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+
+--Play looping idle animation at default speed
+instance:play_animation("idle")
+
+--Play walk animation once at half speed
+instance:play_animation("walk", false, 0.5)
+```

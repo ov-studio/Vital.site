@@ -1,0 +1,32 @@
+---
+title: self:is_component_visible
+description: Retrieves whether a specific component of the model is currently visible
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_component_visible(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Path of the component to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the component is visible, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+engine.print("info", "Hat visible:", instance:is_component_visible("Skeleton3D/Hat"))
+```

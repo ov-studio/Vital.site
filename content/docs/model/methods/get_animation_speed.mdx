@@ -1,0 +1,31 @@
+---
+title: self:get_animation_speed
+description: Retrieves the current playback speed of the model's animation
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local speed = self:get_animation_speed()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | speed | Current animation playback speed multiplier |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+engine.print("info", "Animation speed:", instance:get_animation_speed())
+```

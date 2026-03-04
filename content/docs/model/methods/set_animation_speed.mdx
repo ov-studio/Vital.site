@@ -1,0 +1,40 @@
+---
+title: self:set_animation_speed
+description: Sets the playback speed of the model's animation
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_animation_speed(speed)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | speed | Playback speed multiplier. `1.0` is the default speed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local instance = model.create("character")
+
+--Default speed
+instance:set_animation_speed(1.0)
+
+--Double speed
+instance:set_animation_speed(2.0)
+
+--Half speed
+instance:set_animation_speed(0.5)
+```

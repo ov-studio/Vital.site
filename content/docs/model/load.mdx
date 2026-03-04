@@ -1,0 +1,32 @@
+---
+title: model.load
+description: Loads a model from a file path into memory under a given name
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = model.load(name, path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name to register the model under |
+| `string` | path | File path of the model to load |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+model.load("character", "models/character.glb")
+```

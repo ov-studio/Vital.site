@@ -1,0 +1,28 @@
+{
+    "title": "Methods",
+    "icon": "Package",
+    "pages": [
+        "destroy",
+        "is_component_visible",
+        "is_animation_playing",
+        "set_position",
+        "set_rotation",
+        "set_component_visible",
+        "set_animation_speed",
+        "set_blend_shape_value",
+        "get_model_name",
+        "get_position",
+        "get_rotation",
+        "get_components",
+        "get_animations",
+        "get_blend_shapes",
+        "get_current_animation",
+        "get_animation_speed",
+        "get_blend_shape_value",
+        "play_animation",
+        "stop_animation",
+        "pause_animation",
+        "resume_animation",
+        "..."
+    ]
+}
