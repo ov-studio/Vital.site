@@ -29,6 +29,6 @@ local value = self:get_blend_shape_value(component, blend_shape)
 
 ```lua
 local instance = model.create("character")
-local value = instance:get_blend_shape_value("Skeleton3D/Torso_vest_", "Smile")
-engine.print("info", "Blend shape value:", value)
+
+engine.print("info", "Blend shape value:", instance:get_blend_shape_value("Skeleton3D/Torso_vest_", "Smile"))
 ```
