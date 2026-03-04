@@ -1,6 +1,6 @@
 {
     "title": "Webview",
-    "icon": "AppWindow",
+    "icon": "Globe",
     "pages": [
         "create",
         "...",
