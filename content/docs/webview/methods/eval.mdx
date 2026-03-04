@@ -27,9 +27,11 @@ local status = self:eval(input)
 ### Examples
 
 ```lua
+local browser = webview.create()
+
 --Change the page background color
-view:eval("document.body.style.background = 'red'")
+browser:eval("document.body.style.background = 'red'")
 
 --Post a message back to Lua
-view:eval("window.ipc.postMessage('hello from JS')")
+browser:eval("window.ipc.postMessage('hello from JS')")
 ```

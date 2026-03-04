@@ -27,7 +27,9 @@ local status = self:set_message_handler(handler)
 ### Examples
 
 ```lua
-view:set_message_handler(function(message)
+local browser = webview.create()
+
+browser:set_message_handler(function(message)
     engine.print("info", "Received:", message)
 end)
 ```

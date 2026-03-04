@@ -26,5 +26,7 @@ local result = self:is_devtools_visible()
 ### Examples
 
 ```lua
-engine.print("info", "Devtools open:", view:is_devtools_visible())
+local browser = webview.create()
+
+engine.print("info", "Devtools open:", browser:is_devtools_visible())
 ```

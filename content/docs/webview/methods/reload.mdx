@@ -26,5 +26,8 @@ local status = self:reload()
 ### Examples
 
 ```lua
-view:reload()
+local browser = webview.create()
+
+browser:load_url("https://google.com")
+browser:reload()
 ```

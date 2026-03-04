@@ -27,6 +27,8 @@ local status = self:emit(input)
 ### Examples
 
 ```lua
+local browser = webview.create()
+
 --Send a JSON payload to the webview
-view:emit('{"event":"ready","data":{"user":"aviril"}}')
+browser:emit('{"event":"ready","data":{"user":"aviril"}}')
 ```
