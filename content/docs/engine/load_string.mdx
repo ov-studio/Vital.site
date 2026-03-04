@@ -6,7 +6,7 @@ badge: Shared
 
 ### Syntax
 ```lua
-local result = engine.load_string(buffer, auto_load = true)
+local result = engine.load_string(buffer, auto_load = true, use_env = false, env = nil)
 ```
 
 ### Parameters
@@ -14,6 +14,8 @@ local result = engine.load_string(buffer, auto_load = true)
 |------|------|-------------|
 | `string` | buffer | Buffer containing code to be loaded and executed |
 | `bool` | auto_load | Determines execution behavior:<br/>• When `true` - the loaded function executes immediately<br/>• When `false` - returns a callable function for deferred execution |
+| `bool` | use_env | Determines environment behavior:<br/>• When `true` - executes the buffer inside the provided `env` table<br/>• When `false` - executes the buffer in the default global environment |
+| `table` | env | A table to use as the execution environment.<br/>Reads and writes inside the buffer are scoped to this table. Typically used with `__index = _G` to retain access to globals |
 
 ### Returns
 | Type | Name | Description |
@@ -39,4 +41,18 @@ local exec = engine.load_string([[
 if exec then
     exec() --Execute the loaded function manually
 end
+```
+
+```lua
+--Persistent environment across multiple load_string calls
+--Variables assigned in one call are accessible in the next
+local env = setmetatable({}, {__index = _G})
+
+engine.load_string([[
+    foo = "hello"
+]], true, true, env)
+
+engine.load_string([[
+    engine.print(foo) -- prints "hello"
+]], true, true, env)
 ```
