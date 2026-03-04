@@ -1,0 +1,33 @@
+---
+title: webview:set_size
+description: Sets the size of the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:set_size(x, y)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | x | Width to apply to the webview |
+| `float` | y | Height to apply to the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set webview to 800x600
+view:set_size(800, 600)
+```

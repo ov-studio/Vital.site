@@ -1,0 +1,36 @@
+---
+title: webview:set_position
+description: Sets the position of the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:set_position(x, y)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | x | Horizontal position to move the webview to |
+| `float` | y | Vertical position to move the webview to |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Move webview to top-left corner
+view:set_position(0, 0)
+
+--Move webview to a custom position
+view:set_position(100, 200)
+```

@@ -1,0 +1,31 @@
+---
+title: webview:load_html
+description: Loads raw HTML content into the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:load_html(html)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | html | Raw HTML string to load into the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+view:load_html("<h1>Hello World</h1>")
+```

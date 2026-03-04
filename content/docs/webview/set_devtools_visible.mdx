@@ -1,0 +1,35 @@
+---
+title: webview:set_devtools_visible
+description: Toggles the developer tools panel on the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:set_devtools_visible(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines the devtools visibility:<br/>• When `true` - the devtools panel is opened<br/>• When `false` - the devtools panel is closed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Open devtools
+view:set_devtools_visible(true)
+
+--Close devtools
+view:set_devtools_visible(false)
+```

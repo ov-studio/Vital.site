@@ -1,0 +1,32 @@
+---
+title: webview.create
+description: Creates a new webview instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = webview.create()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `webview` | instance | The created webview instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local view = webview.create()
+view:set_visible(true)
+view:load_url("https://google.com")
+```

@@ -1,0 +1,31 @@
+---
+title: webview:load_url
+description: Loads a URL in the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:load_url(url)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | url | URL to load in the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+view:load_url("https://google.com")
+```

@@ -1,0 +1,32 @@
+---
+title: webview:emit
+description: Posts a message from Lua to the webview's JavaScript context
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:emit(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Message string to post to the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Send a JSON payload to the webview
+view:emit('{"event":"ready","data":{"user":"aviril"}}')
+```

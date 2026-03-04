@@ -1,0 +1,35 @@
+---
+title: webview:set_autoplay
+description: Toggles autoplay on the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:set_autoplay(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines the webview's autoplay state:<br/>• When `true` - autoplay is enabled<br/>• When `false` - autoplay is disabled |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Enable autoplay
+view:set_autoplay(true)
+
+--Disable autoplay
+view:set_autoplay(false)
+```

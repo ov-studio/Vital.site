@@ -1,0 +1,32 @@
+---
+title: webview:update
+description: Refreshes the webview's size and visibility state
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:update()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Apply after repositioning or resizing
+view:set_size(1280, 720)
+view:update()
+```

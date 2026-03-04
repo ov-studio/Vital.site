@@ -1,0 +1,38 @@
+---
+title: webview:zoom
+description: Sets the zoom level of the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:zoom(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Zoom level to apply. `1.0` is the default zoom level |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Reset to default zoom
+view:zoom(1.0)
+
+--Zoom in
+view:zoom(1.5)
+
+--Zoom out
+view:zoom(0.75)
+```

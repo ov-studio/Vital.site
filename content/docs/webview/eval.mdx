@@ -1,0 +1,35 @@
+---
+title: webview:eval
+description: Evaluates a JavaScript expression inside the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:eval(input)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | JavaScript code to evaluate inside the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Change the page background color
+view:eval("document.body.style.background = 'red'")
+
+--Post a message back to Lua
+view:eval("window.ipc.postMessage('hello from JS')")
+```

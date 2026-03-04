@@ -1,0 +1,33 @@
+---
+title: webview:set_message_handler
+description: Registers a handler function to receive messages posted from the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = webview:set_message_handler(handler)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | handler | Callback function invoked when the webview posts a message via `window.ipc.postMessage()` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+view:set_message_handler(function(message)
+    engine.print("info", "Received:", message)
+end)
+```
