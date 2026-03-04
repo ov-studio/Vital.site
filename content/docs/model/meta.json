@@ -2,10 +2,10 @@
     "title": "Model",
     "icon": "Box",
     "pages": [
-        "create",
         "is_loaded",
         "load",
         "unload",
+        "create",
         "...",
         "methods"
     ]
