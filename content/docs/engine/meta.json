@@ -6,6 +6,7 @@
         "get_platform",
         "get_timestamp",
         "get_serial",
+        "compile_string",
         "load_string",
         "inspect",
         "print",

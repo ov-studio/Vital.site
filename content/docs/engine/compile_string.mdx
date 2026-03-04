@@ -1,0 +1,43 @@
+---
+title: engine.compile_string
+description: Validates whether a buffer contains valid Lua syntax
+badge: Shared
+---
+
+### Syntax
+```lua
+local result = engine.compile_string(buffer)
+```
+
+### Parameters
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | buffer | Buffer containing code to be validated |
+
+### Returns
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the buffer is valid Lua syntax, `false` otherwise |
+
+<hr/>
+
+### Examples
+```lua
+--Check if code is valid before executing
+local valid = engine.compile_string("engine.print('info', 'hello')")
+if valid then
+    engine.print("info", "Valid syntax")
+end
+```
+
+```lua
+--Use compile_string to try expression syntax before falling back to statement
+local code = "x = 1 + 1"
+local try_expr = "return "..code
+
+local fn = (
+    engine.compile_string(try_expr) and 
+    engine.load_string(try_expr, false)
+) or engine.load_string(code, false)
+if fn then fn() end
+```
