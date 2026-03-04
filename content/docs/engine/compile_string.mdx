@@ -35,9 +35,12 @@ end
 local code = "x = 1 + 1"
 local try_expr = "return "..code
 
-local fn = (
+local exec = (
     engine.compile_string(try_expr) and 
     engine.load_string(try_expr, false)
 ) or engine.load_string(code, false)
-if fn then fn() end
+
+if exec then
+    exec()
+end
 ```
