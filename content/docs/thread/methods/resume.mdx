@@ -30,7 +30,7 @@ local status = self:resume(options = false)
 --Resumes only once
 local self = thread:create(function(self)
     for i = 1, 5, 1 do
-        engine.print("Thread iteration count", i)
+        engine.print("info", "Thread iteration count", i)
     end
 end)
 
@@ -42,7 +42,7 @@ self:resume()
 local self = thread:create(function(self)
     for i = 1, 5, 1 do
         thread:pause()
-        engine.print("Thread iteration count", i)
+        engine.print("info", "Thread iteration count", i)
     end
 end)
 

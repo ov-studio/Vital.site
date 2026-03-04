@@ -55,7 +55,7 @@ engine.print(result) --ABC123!@#
 local str1 = "Hello"
 local str2 = "hello"
 if string.upper(str1) == string.upper(str2) then
-    engine.print("Strings are equal (case-insensitive)")
+    engine.print("info", "Strings are equal (case-insensitive)")
 end
 ```
 
@@ -63,7 +63,7 @@ end
 --Normalize user input
 local input = "yes"
 if string.upper(input) == "YES" then
-    engine.print("User confirmed")
+    engine.print("info", "User confirmed")
 end
 ```
 
@@ -124,7 +124,7 @@ engine.print(equalsIgnoreCase("Test", "test")) --true
 ```lua
 --Format command
 local cmd = "help"
-engine.print("Command: "..string.upper(cmd)) --Command: HELP
+engine.print("info", "Command: "..string.upper(cmd)) --Command: HELP
 ```
 
 ```lua

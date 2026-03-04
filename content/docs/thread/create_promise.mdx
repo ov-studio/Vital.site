@@ -51,7 +51,7 @@ local promise = thread:create_promise()
 
 local self = thread:create(function(self)
     local result = {self:await(promise)}
-    engine.print("Promise resolved:", table.unpack(result))
+    engine.print("info", "Promise resolved:", table.unpack(result))
 end)
 
 self:resume()
@@ -69,11 +69,11 @@ local self = thread:create(function(self)
     self:try({
         exec = function(self)
             local result = {self:await(promise)}
-            engine.print("Promise resolved:", table.unpack(result))
+            engine.print("info", "Promise resolved:", table.unpack(result))
         end,
 
         catch = function(...)
-            engine.print("Promise rejected:", ...)
+            engine.print("info", "Promise rejected:", ...)
         end   
     })
 end)

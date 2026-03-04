@@ -28,9 +28,9 @@ local status = self:sleep(duration)
 
 ```lua
 local self = thread:create(function(self)
-    engine.print("Thread sleeping for 5 seconds")
+    engine.print("info", "Thread sleeping for 5 seconds")
     self:sleep(5000)
-    engine.print("Thread awaken now")
+    engine.print("info", "Thread awaken now")
 end)
 
 self:resume()

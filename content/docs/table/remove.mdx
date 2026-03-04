@@ -96,6 +96,6 @@ engine.print(table.concat(colors, ", ")) --red, green, yellow
 local tasks = {"a", "b", "c"}
 while #tasks > 0 do
     local task = table.remove(tasks, 1)
-    engine.print("Processing:", task)
+    engine.print("info", "Processing:", task)
 end
 ```

@@ -56,7 +56,7 @@ local str1 = "Hello"
 local str2 = "HELLO"
 
 if string.lower(str1) == string.lower(str2) then
-    engine.print("Strings are equal (case-insensitive)")
+    engine.print("info", "Strings are equal (case-insensitive)")
 end
 ```
 
@@ -64,7 +64,7 @@ end
 --Normalize user input
 local input = "YES"
 if string.lower(input) == "yes" then
-    engine.print("User confirmed")
+    engine.print("info", "User confirmed")
 end
 ```
 

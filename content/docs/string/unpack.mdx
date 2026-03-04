@@ -127,9 +127,9 @@ engine.print(str1, str2) --first  second
 --Unpack network protocol header
 local header = string.pack(">I2I2I4", 1, 2, 1024)
 local version, type, length = string.unpack(">I2I2I4", header)
-engine.print("Version:", version)
-engine.print("Type:", type)
-engine.print("Length:", length)
+engine.print("info", "Version:", version)
+engine.print("info", "Type:", type)
+engine.print("info", "Length:", length)
 ```
 
 ```lua

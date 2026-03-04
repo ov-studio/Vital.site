@@ -45,12 +45,12 @@ local self = thread:create(function(self)
     local result = self:try({
         exec = function(self)
             local result = {self:await(promise)}
-            engine.print("Promise resolved:", table.unpack(result))
+            engine.print("info", "Promise resolved:", table.unpack(result))
             return "resolved"
         end,
 
         catch = function(...)
-            engine.print("Promise rejected:", ...)
+            engine.print("info", "Promise rejected:", ...)
             return "rejected"
         end   
     })

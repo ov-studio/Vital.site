@@ -31,6 +31,6 @@ local hash = crypto.hash(mode, input)
 ```lua
 local input = "Hello World"
 
-engine.print("Input:", input)
-engine.print("Hash:", crypto.hash("SHA256", input))
+engine.print("info", "Input:", input)
+engine.print("info", "Hash:", crypto.hash("SHA256", input))
 ```

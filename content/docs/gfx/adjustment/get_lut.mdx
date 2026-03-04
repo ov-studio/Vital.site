@@ -30,8 +30,8 @@ local result = gfx.adjustment.get_lut()
 local lut = gfx.adjustment.get_lut()
 
 if lut then
-    engine.print("Active LUT:", lut)
+    engine.print("info", "Active LUT:", lut)
 else
-    engine.print("No LUT is currently applied")
+    engine.print("info", "No LUT is currently applied")
 end
 ```

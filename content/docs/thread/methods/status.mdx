@@ -27,7 +27,7 @@ local status = self:status()
 
 ```lua
 local self = thread:create(function(self)
-    engine.print("Thread status:", self:status())
+    engine.print("info", "Thread status:", self:status())
 end)
 
 self:resume()

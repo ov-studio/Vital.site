@@ -35,6 +35,6 @@ local input = "Hello World"
 local key = "MySecretKey12345"
 local output, iv = crypto.encrypt("AES256", input, key)
 
-engine.print("Input:", input)
-engine.print("Encrypted:", output, "IV:", iv)
+engine.print("info", "Input:", input)
+engine.print("info", "Encrypted:", output, "IV:", iv)
 ```

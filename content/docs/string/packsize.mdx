@@ -82,15 +82,15 @@ engine.print(size) --12
 
 ```lua
 --Size comparison
-engine.print("i4:", string.packsize("i4")) --4
-engine.print("i8:", string.packsize("i8")) --8
+engine.print("info", "i4:", string.packsize("i4")) --4
+engine.print("info", "i8:", string.packsize("i8")) --8
 ```
 
 ```lua
 --Calculate buffer size needed
 local fmt = "i4i4f"
 local bufferSize = string.packsize(fmt)
-engine.print("Need", bufferSize, "bytes") --Need 12 bytes
+engine.print("info", "Need", bufferSize, "bytes") --Need 12 bytes
 ```
 
 ```lua
@@ -111,12 +111,12 @@ engine.print(#packed == size) --true
 --Pre-allocate file buffer
 local recordFormat = "c32i4i4"
 local recordSize = string.packsize(recordFormat)
-engine.print("Each record:", recordSize, "bytes")
+engine.print("info", "Each record:", recordSize, "bytes")
 ```
 
 ```lua
 --Network protocol size calculation
 local headerFormat = ">I2I2I4"
 local headerSize = string.packsize(headerFormat)
-engine.print("Header size:", headerSize) --8
+engine.print("info", "Header size:", headerSize) --8
 ```
