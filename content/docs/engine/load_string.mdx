@@ -6,32 +6,32 @@ badge: Shared
 
 ### Syntax
 ```lua
-local result = engine.load_string(buffer, autoload = true)
+local result = engine.load_string(buffer, auto_load = true)
 ```
 
 ### Parameters
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | buffer | Buffer containing code to be loaded and executed |
-| `bool` | autoload | Determines execution behavior:<br/>• When `true` - the loaded function executes immediately<br/>• When `false` - returns a callable function for deferred execution |
+| `bool` | auto_load | Determines execution behavior:<br/>• When `true` - the loaded function executes immediately<br/>• When `false` - returns a callable function for deferred execution |
 
 ### Returns
 | Type | Name | Description |
 |------|------|-------------|
-| `function` / `bool` | result | • When `autoload` is `false` - returns the loaded function on success, or `false` on failure<br/>• When `autoload` is `true` - returns `true` on successful execution, or `false` on failure |
+| `function` / `bool` | result | • When `auto_load` is `false` - returns the loaded function on success, or `false` on failure<br/>• When `auto_load` is `true` - returns `true` on successful execution, or `false` on failure |
 
 <hr/>
 
 ### Examples
 ```lua
---Immediate execution with autoload enabled
+--Immediate execution with auto_load enabled
 local success = engine.load_string([[
     engine.print("Immediate", "Execution")
 ]], true)
 ```
 
 ```lua
---Deferred execution with autoload disabled
+--Deferred execution with auto_load disabled
 local exec = engine.load_string([[
     engine.print("Delayed", "Execution")
 ]], false)
