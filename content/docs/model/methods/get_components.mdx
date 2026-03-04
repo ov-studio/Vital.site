@@ -26,8 +26,8 @@ local components = self:get_components()
 ### Examples
 
 ```lua
-local instance = model.create("character")
-local components = instance:get_components()
+local entity = model.create("character")
+local components = entity:get_components()
 
 for i = 1, #components do
     engine.print("info", components[i])

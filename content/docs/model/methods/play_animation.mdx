@@ -29,11 +29,11 @@ local status = self:play_animation(name, loop = true, speed = 1.0)
 ### Examples
 
 ```lua
-local instance = model.create("character")
+local entity = model.create("character")
 
 --Play looping idle animation at default speed
-instance:play_animation("idle")
+entity:play_animation("idle")
 
 --Play walk animation once at half speed
-instance:play_animation("walk", false, 0.5)
+entity:play_animation("walk", false, 0.5)
 ```

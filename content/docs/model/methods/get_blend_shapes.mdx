@@ -27,8 +27,8 @@ local blend_shapes = self:get_blend_shapes(component)
 ### Examples
 
 ```lua
-local instance = model.create("character")
-local blend_shapes = instance:get_blend_shapes("Skeleton3D/Torso_vest_")
+local entity = model.create("character")
+local blend_shapes = entity:get_blend_shapes("Skeleton3D/Torso_vest_")
 
 for i = 1, #blend_shapes do
     engine.print("info", blend_shapes[i])

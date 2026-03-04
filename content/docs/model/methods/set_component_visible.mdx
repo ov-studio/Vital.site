@@ -28,11 +28,11 @@ local status = self:set_component_visible(name, state)
 ### Examples
 
 ```lua
-local instance = model.create("character")
+local entity = model.create("character")
 
 --Show the hat
-instance:set_component_visible("Skeleton3D/Hat", true)
+entity:set_component_visible("Skeleton3D/Hat", true)
 
 --Hide the hat
-instance:set_component_visible("Skeleton3D/Hat", false)
+entity:set_component_visible("Skeleton3D/Hat", false)
 ```
