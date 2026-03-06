@@ -1,4 +1,81 @@
 ---
 title: Introduction
-description: Some introduction goes here
+description: Vital.sandbox — Next-gen sandbox. Script It, Ship It, Limitless.
 ---
+
+## Overview
+
+**Vital.sandbox** is the next-gen sandbox by [ov-studio](https://github.com/ov-studio) — **fully open-source**, built on top of the **Godot Engine**, and engineered in **C++17** to give creators the ultimate foundation for building sandbox experiences. Whether you're one developer with a big idea or a full team shipping something ambitious, Vital.sandbox gets out of your way and lets you build.
+
+No stitching together libraries. No boilerplate. No limits. Just a powerful, modular toolkit with everything built-in — from networking and threading to sandboxing, rendering, and asset delivery — ready to go from day one.
+
+It's built around three things that actually matter:
+
+**⚡ Performance-first** — Lean by design. No bloat, no unnecessary abstractions. The SDK stays out of your critical path.
+
+**🧱 Modular architecture** — Strict C++17 module system. Use what you need, extend what you want, leave the rest untouched.
+
+**🔧 Developer ergonomics** — Async/await, promises, heartbeats, event-driven patterns — modern concurrency that feels natural without losing low-level control.
+
+---
+
+## Features
+
+Vital.sandbox ships with an integrated suite of tools covering every layer of application development — from low-level threading to asset delivery and third-party integrations.
+
+### 🛠️ Core
+
+The backbone of the SDK. These utilities are available globally and underpin most of what Vital.sandbox does internally.
+
+| Tool | Description |
+|---|---|
+| **Crypto** | Cryptographic operations for securing sensitive data and payloads |
+| **Shrinker** | Asset and data compression to reduce memory and transfer overhead |
+| **Stack** | Managed stack abstraction for structured, predictable data handling |
+| **Inspect** | Hardware serial inspection and device fingerprint generation |
+
+### 📦 Sandboxing
+
+An isolated execution environment powered by **Lua** — untrusted or user-generated scripts run safely with zero access to host internals or native state.
+
+| Property | Details |
+|---|---|
+| **Language** | Lua |
+| **Isolation** | Full — no access to host internals or native state |
+| **Use Cases** | User scripting, modding, plugin systems |
+
+
+### 🌐 Networking
+
+Built for reliability at scale. The networking layer handles transport and timing so your application logic doesn't have to.
+
+| Tool | Description |
+|---|---|
+| **Rest** | HTTP/REST client for communicating with external APIs |
+| **Robust Networking** | High-performance transport with reliability and delivery guarantees |
+| **Scheduling** | Precise task scheduling for time-sensitive execution control |
+
+### 🧵 Threading
+
+A fully-featured async runtime that brings modern concurrency patterns to C++. No callbacks, no chaos.
+
+| Primitive | Description |
+|---|---|
+| **Async / Await** | First-class asynchronous execution with clean, readable control flow |
+| **Promises** | Deferred values with full chaining and resolution support |
+| **Heartbeats** | Scheduled recurring callbacks at defined intervals |
+| **Threader** | Low-level thread management, pooling, and lifecycle control |
+
+### 🖥️ Rendering
+
+| Tool | Description |
+|---|---|
+| **Rendering Solutions** | Integrated rendering pipeline built directly on top of Godot Engine |
+| **Webview** | Embedded web content rendering within the application window |
+
+### 🔗 Integrations
+
+| Integration | Description |
+|---|---|
+| **Discord SDK** | Native Rich Presence and Discord API integration |
+| **Event Tool** | Pub/sub event system for decoupled inter-module communication |

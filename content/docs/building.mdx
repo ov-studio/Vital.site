@@ -1,0 +1,67 @@
+---
+title: Building & Compiling
+description: Ready to build Vital.sandbox from scratch, extend it, or contribute your own features?
+---
+
+## Essentials
+
+So you want to go deeper — build from source, add your own features, extend existing ones, or contribute back to the project. You're in the right place. This page walks you through everything you need to get Vital.sandbox compiled and running on your machine.
+
+Make sure your environment is ready before firing up the build. Vital.sandbox is written in **C++17**, so you'll need a compatible compiler and the project's dependencies set up correctly.
+
+Here's a quick checklist to get you going:
+
+- ✅ A **C++17 compatible compiler** installed (MSVC on Windows, GCC/Clang on Linux)
+- ✅ All **project dependencies** installed and configured
+- ✅ The **repository cloned** locally and ready to go
+
+---
+
+## Builds
+
+Every build command takes two arguments — a **target** and a **configuration**.
+
+| Argument | Option | Description |
+|---|---|---|
+| **Target** | `client` | Builds into **Vital.client** |
+| | `server` | Builds into **Vital.server** |
+| **Configuration** | `debug` | Debug symbols & logging enabled — ideal for development |
+| | `release` | Fully optimized, production-ready build |
+
+
+#### Windows
+```bash
+build --[client/server] --[debug/release]
+```
+
+#### Linux
+```bash
+bash build.sh --[client/server] --[debug/release]
+```
+
+---
+
+## Artifacts
+
+Once the build completes successfully, your outputs will land in the following directories:
+
+| Target | Output Directory |
+|---|---|
+| `--client` | **Vital.client** |
+| `--server` | **Vital.server** |
+
+Both directories are self-contained — everything your target needs to run is packaged inside.
+
+---
+
+## Contributions
+
+Building from source is just the beginning — whether you're shipping a brand new feature, extending a module, or squashing a bug that's been bothering you, contributions are always welcome.
+
+Keep these in mind before diving in:
+
+- 🧱 **Stay modular** — Keep your additions self-contained. Avoid tight coupling with unrelated components.
+- 🐛 **Debug first** — Always validate with a `debug` build before touching `release`.
+- 📐 **Match the patterns** — Browse existing modules to get a feel for the code style before writing your own.
+
+Happy with your changes? Open a pull request on the official ov-studio repositories and the maintainers will take it from there. 🚀

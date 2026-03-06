@@ -6,7 +6,8 @@
     "pages": [
         "---Glossary---",
         "index",
-        "---Guides---",
+        "building",
+        "---Guide---",
         "engine",
         "model",
         "webview",
