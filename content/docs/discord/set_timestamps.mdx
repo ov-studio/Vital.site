@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = discord.set_timestamps(start_at, end_at)
+local status = discord.set_timestamps(start_at, end_at = 0)
 ```
 
 ### Parameters
@@ -15,7 +15,7 @@ local status = discord.set_timestamps(start_at, end_at)
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | start_at | Offset in seconds from now to start the timer |
-| `int` | end_at | Offset in seconds from now to end the timer. Defaults to `0` (no end) |
+| `int` | end_at | Offset in seconds from now to end the timer. |
 
 ### Returns
 
