@@ -1,8 +1,10 @@
 {
     "title": "Discord",
-    "icon": "MessageCircle",
+    "icon": "Gamepad2",
     "pages": [
         "is_connected",
+        "get_userid",
+        "get_username",
         "set_application_id",
         "reset_application",
         "set_state",
@@ -10,8 +12,6 @@
         "set_largeimage",
         "set_smallimage",
         "set_timestamps",
-        "get_userid",
-        "get_username",
         "..."
     ]
 }
