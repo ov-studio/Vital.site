@@ -10,6 +10,7 @@
         "engine",
         "model",
         "webview",
+        "discord",
         "gfx",
         "file",
         "rest",

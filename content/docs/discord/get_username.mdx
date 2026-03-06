@@ -1,0 +1,33 @@
+---
+title: discord.get_username
+description: Retrieves the username of the currently connected Discord account
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = discord.get_username()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | The username of the connected Discord account, or `false` if not connected |
+
+<hr/>
+
+### Examples
+
+```lua
+local username = discord.get_username()
+if username then
+    engine.print("info", "Discord username:", username)
+end
+```

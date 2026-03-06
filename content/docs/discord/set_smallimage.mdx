@@ -1,0 +1,36 @@
+---
+title: discord.set_smallimage
+description: Sets the small image asset of the Discord rich presence activity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = discord.set_smallimage(key, text)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | key | The asset key of the small image to display |
+| `string` | text | *(optional)* Tooltip text shown when hovering over the small image |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set small image without tooltip
+discord.set_smallimage("icon_ranked")
+
+--Set small image with tooltip
+discord.set_smallimage("icon_ranked", "Ranked Mode")
+```

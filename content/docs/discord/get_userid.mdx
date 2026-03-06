@@ -1,0 +1,37 @@
+---
+title: discord.get_userid
+description: Retrieves the user ID of the currently connected Discord account
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = discord.get_userid()
+```
+
+<Callout type="info">
+Returns the user ID as a **string** to preserve the full precision of Discord snowflake IDs, which exceed Lua's safe integer range.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | The user ID of the connected Discord account, or `false` if not connected |
+
+<hr/>
+
+### Examples
+
+```lua
+local userid = discord.get_userid()
+if userid then
+    engine.print("info", "Discord user ID:", userid)
+end
+```

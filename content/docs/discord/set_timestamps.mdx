@@ -1,0 +1,40 @@
+---
+title: discord.set_timestamps
+description: Sets the elapsed or remaining time shown on the Discord rich presence activity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = discord.set_timestamps(start_at, end_at)
+```
+
+<Callout type="info">
+Both `start_at` and `end_at` are offsets in **seconds** from the current time. Passing `0` for `start_at` starts the timer immediately from now. Omitting or passing `0` for `end_at` shows an elapsed timer with no end.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | start_at | Offset in seconds from now to start the timer |
+| `int` | end_at | *(optional)* Offset in seconds from now to end the timer. Defaults to `0` (no end) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Start elapsed timer from now
+discord.set_timestamps(0)
+
+--Start timer with a 5 minute countdown
+discord.set_timestamps(0, 300)
+```

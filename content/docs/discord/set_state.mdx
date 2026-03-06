@@ -1,0 +1,32 @@
+---
+title: discord.set_state
+description: Sets the state text of the Discord rich presence activity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = discord.set_state(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | state | The activity state text to be displayed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Update state
+discord.set_state("In a match")
+```

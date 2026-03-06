@@ -1,0 +1,32 @@
+---
+title: discord.set_details
+description: Sets the details text of the Discord rich presence activity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = discord.set_details(details)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | details | The activity details text to be displayed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Update details
+discord.set_details("Playing ranked")
+```

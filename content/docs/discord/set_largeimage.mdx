@@ -1,0 +1,36 @@
+---
+title: discord.set_largeimage
+description: Sets the large image asset of the Discord rich presence activity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = discord.set_largeimage(key, text)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | key | The asset key of the large image to display |
+| `string` | text | *(optional)* Tooltip text shown when hovering over the large image |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Set large image without tooltip
+discord.set_largeimage("logo")
+
+--Set large image with tooltip
+discord.set_largeimage("logo", "Vital Engine")
+```

@@ -1,0 +1,46 @@
+---
+title: discord.set_application_id
+description: Sets the Discord application ID and reconnects the client
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = discord.set_application_id(id, authenticate, force_reauth)
+```
+
+<Callout type="info">
+Discord snowflake IDs exceed Lua's safe integer range — always pass the ID as a **string** to avoid precision loss.
+
+Calling this will reset the current activity to the default and reconnect the client under the new application.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | id | The Discord application ID to connect with |
+| `bool` | authenticate | *(optional)* Whether to authenticate the client with OAuth. Defaults to `false` |
+| `bool` | force_reauth | *(optional)* Whether to force re-authentication even if a cached token exists. Defaults to `false` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+--Connect with a specific application ID
+discord.set_application_id("1461425342722998474")
+
+--Connect with authentication
+discord.set_application_id("1461425342722998474", true)
+
+--Connect and force re-authentication
+discord.set_application_id("1461425342722998474", true, true)
+```
