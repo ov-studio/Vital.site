@@ -7,22 +7,16 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = discord.set_application_id(id, authenticate, force_reauth)
+local status = discord.set_application_id(id, authenticate = false, force_reauth = false)
 ```
-
-<Callout type="info">
-Discord snowflake IDs exceed Lua's safe integer range — always pass the ID as a **string** to avoid precision loss.
-
-Calling this will reset the current activity to the default and reconnect the client under the new application.
-</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | id | The Discord application ID to connect with |
-| `bool` | authenticate | *(optional)* Whether to authenticate the client with OAuth. Defaults to `false` |
-| `bool` | force_reauth | *(optional)* Whether to force re-authentication even if a cached token exists. Defaults to `false` |
+| `string` | id | Discord application ID to connect with |
+| `bool` | authenticate | Whether to authenticate the client with OAuth. Defaults to `false` |
+| `bool` | force_reauth | Whether to force re-authentication even if a cached token exists. Defaults to `false` |
 
 ### Returns
 
