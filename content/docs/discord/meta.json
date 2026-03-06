@@ -5,7 +5,6 @@
         "is_connected",
         "set_application_id",
         "reset_application",
-        "set_activity",
         "set_state",
         "set_details",
         "set_largeimage",
