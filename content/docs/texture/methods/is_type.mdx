@@ -1,0 +1,34 @@
+---
+title: self:is_type
+description: Checks whether the instance belongs to the specified type
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_type(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type to check against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local tex = texture.create("assets/sprite.png")
+
+engine.print("info", tex:is_type("texture")) --true
+engine.print("info", tex:is_type("svg")) --false
+```

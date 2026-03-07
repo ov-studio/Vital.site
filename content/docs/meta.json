@@ -12,6 +12,8 @@
         "model",
         "webview",
         "discord",
+        "texture",
+        "svg",
         "rendertarget",
         "gfx",
         "file",

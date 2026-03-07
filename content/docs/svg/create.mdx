@@ -1,0 +1,31 @@
+---
+title: svg.create
+description: Creates a new SVG instance from a file path
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = svg.create(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the SVG asset |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `svg` | instance | Created SVG instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local icon = svg.create("assets/icon.svg")
+```

@@ -1,0 +1,37 @@
+---
+title: svg.create_from_raw
+description: Creates a new SVG instance from a raw SVG string
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = svg.create_from_raw(raw)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | raw | Raw SVG markup string |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `svg` | instance | Created SVG instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local markup = [[
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50"/>
+    </svg>
+]]
+
+local icon = svg.create_from_raw(markup)
+```

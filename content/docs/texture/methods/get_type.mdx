@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Returns the type name of the instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` / `bool` | result | Type of the instance, or `false` if unavailable |
+
+<hr/>
+
+### Examples
+
+```lua
+local tex = texture.create("assets/sprite.png")
+
+engine.print("info", tex:get_type()) --"texture"
+```

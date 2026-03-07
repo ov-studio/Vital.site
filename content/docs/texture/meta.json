@@ -1,0 +1,9 @@
+{
+    "title": "Texture",
+    "icon": "Image",
+    "pages": [
+        "create",
+        "...",
+        "methods"
+    ]
+}

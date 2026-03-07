@@ -1,0 +1,10 @@
+{
+    "title": "SVG",
+    "icon": "PenTool",
+    "pages": [
+        "create",
+        "create_from_raw",
+        "...",
+        "methods"
+    ]
+}

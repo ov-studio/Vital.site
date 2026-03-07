@@ -1,0 +1,41 @@
+---
+title: self:update
+description: Updates the SVG instance contents from a raw SVG string
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:update(raw)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | raw | Raw SVG markup string to replace the current contents with |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local icon = svg.create_from_raw([[
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50"/>
+    </svg>
+]])
+
+icon:update([[
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <rect width="100" height="100"/>
+    </svg>
+]])
+```

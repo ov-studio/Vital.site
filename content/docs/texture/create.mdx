@@ -1,0 +1,33 @@
+---
+title: texture.create
+description: Creates a new texture instance from a file path
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = texture.create(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the texture asset |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `texture` | instance | Created texture instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local tex = texture.create("assets/sprite.png")
+
+local tex = texture.create("assets/sprite.png", "player_sprite")
+```
