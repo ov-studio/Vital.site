@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local r, g, b, a = gfx.volumetric_fog.get_albedo()
+local color = gfx.volumetric_fog.get_albedo()
 ```
 
 ### Parameters
@@ -19,16 +19,14 @@ local r, g, b, a = gfx.volumetric_fog.get_albedo()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | r | Red channel value of the current albedo color |
-| `float` | g | Green channel value of the current albedo color |
-| `float` | b | Blue channel value of the current albedo color |
-| `float` | a | Alpha channel value of the current albedo color |
+| `color` | color | Volumetric fog albedo color as `{r, g, b, a}` |
 
 <hr/>
 
 ### Examples
 
 ```lua
-local r, g, b, a = gfx.volumetric_fog.get_albedo()
-engine.print("info", "Volumetric fog albedo:", r, g, b, a)
+local color = gfx.volumetric_fog.get_albedo()
+
+engine.print("info", "Volumetric fog albedo:", color[1], color[2], color[3], color[4])
 ```

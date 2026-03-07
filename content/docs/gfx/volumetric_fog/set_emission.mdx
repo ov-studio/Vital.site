@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.volumetric_fog.set_emission(r, g, b, a)
+local status = gfx.volumetric_fog.set_emission(color)
 local status = gfx.volumetric_fog.set_emission(hex)
 ```
 
@@ -15,10 +15,7 @@ local status = gfx.volumetric_fog.set_emission(hex)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | r | Red channel value of the emission color |
-| `float` | g | Green channel value of the emission color |
-| `float` | b | Blue channel value of the emission color |
-| `float` | a | Alpha channel value of the emission color |
+| `color` | color | Emission color as `{r, g, b, a}` |
 | `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
@@ -32,8 +29,8 @@ local status = gfx.volumetric_fog.set_emission(hex)
 ### Examples
 
 ```lua
---Set a warm orange emission color using RGBA
-gfx.volumetric_fog.set_emission(1.0, 0.4, 0.1, 1.0)
+--Set a warm orange emission color using a color table
+gfx.volumetric_fog.set_emission({1.0, 0.4, 0.1, 1.0})
 ```
 
 ```lua

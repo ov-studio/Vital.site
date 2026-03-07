@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.volumetric_fog.set_albedo(r, g, b, a)
+local status = gfx.volumetric_fog.set_albedo(color)
 local status = gfx.volumetric_fog.set_albedo(hex)
 ```
 
@@ -15,10 +15,7 @@ local status = gfx.volumetric_fog.set_albedo(hex)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | r | Red channel value of the albedo color |
-| `float` | g | Green channel value of the albedo color |
-| `float` | b | Blue channel value of the albedo color |
-| `float` | a | Alpha channel value of the albedo color |
+| `color` | color | Albedo color as `{r, g, b, a}` |
 | `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
@@ -32,8 +29,8 @@ local status = gfx.volumetric_fog.set_albedo(hex)
 ### Examples
 
 ```lua
---Set a cool blue-tinted fog albedo using RGBA
-gfx.volumetric_fog.set_albedo(0.6, 0.7, 1.0, 1.0)
+--Set a cool blue-tinted fog albedo using a color table
+gfx.volumetric_fog.set_albedo({0.6, 0.7, 1.0, 1.0})
 ```
 
 ```lua
