@@ -30,6 +30,6 @@ local status = self:set_message_handler(handler)
 local browser = webview.create()
 
 browser:set_message_handler(function(message)
-    engine.print("info", "Received:", message)
+    engine.print("info", "Received message:", message)
 end)
 ```
