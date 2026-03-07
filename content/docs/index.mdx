@@ -25,36 +25,35 @@ Vital.sandbox ships with an integrated suite of tools covering every layer of ap
 
 | Tool | Description |
 |---|---|
-| **Crypto** | Cryptographic operations for securing sensitive data and payloads |
-| **Shrinker** | Asset and data compression to reduce memory and transfer overhead |
-| **Stack** | Managed stack abstraction for structured, predictable data handling |
-| **Inspect** | Hardware serial inspection and device fingerprint generation |
+| 🔐 **Crypto** | Cryptographic primitives for securing sensitive data and payloads |
+| 🗜️ **Shrinker** | Asset and data compression to reduce memory footprint and transfer overhead |
+| 📚 **Stack** | Managed stack abstraction for structured, predictable data handling |
+| 🔍 **Inspect** | Hardware serial inspection and device fingerprint generation |
 
 ### 📦 Sandboxing
 
 | Property | Details |
 |---|---|
-| **Language** | Lua |
-| **Isolation** | Full — no access to host internals or native state |
-| **Use Cases** | User scripting, modding, plugin systems |
-
+| 🗣️ **Language** | Lua |
+| 🔒 **Isolation** | Full — no access to host internals or native state |
+| 🧩 **Use Cases** | User scripting, modding, plugin systems |
 
 ### 🌐 Networking
 
 | Tool | Description |
 |---|---|
-| **Rest** | HTTP/REST client for communicating with external APIs |
-| **Robust Networking** | High-performance transport with reliability and delivery guarantees |
-| **Scheduling** | Precise task scheduling for time-sensitive execution control |
+| 🌍 **Rest** | HTTP/REST client for communicating with external APIs |
+| 📡 **Robust Networking** | High-performance transport layer with reliability and delivery guarantees |
+| ⏱️ **Scheduling** | Precise task scheduling for time-sensitive execution control |
 
 ### 🧵 Threading
 
 | Primitive | Description |
 |---|---|
-| **Async / Await** | First-class asynchronous execution with clean, readable control flow |
-| **Promises** | Deferred values with full chaining and resolution support |
-| **Heartbeats** | Scheduled recurring callbacks at defined intervals |
-| **Threader** | Low-level thread management, pooling, and lifecycle control |
+| ⚡ **Async / Await** | First-class asynchronous execution with clean, readable control flow |
+| 🔗 **Promises** | Deferred values with full chaining and resolution support |
+| 💓 **Heartbeats** | Scheduled recurring callbacks at defined intervals |
+| 🧶 **Threader** | Low-level thread management, pooling, and lifecycle control |
 
 ### 🎨 Rendering
 
@@ -62,11 +61,11 @@ All rendering APIs are fully exposed to Lua, giving scripts direct control over 
 
 | API | Description |
 |---|---|
-| **Canvas** | 2D drawing surface — lines, shapes, images, and text composited each frame |
-| **RenderTarget** | Off-screen render surfaces; create, bind, and sample as textures at runtime |
-| **Texture** | Runtime texture loading, unloading, and sampler control |
-| **Font** | Font loading and text metrics for canvas-level text rendering |
-| **Webview** | Embedded web content rendering within the application window |
+| 🖌️ **Canvas** | 2D drawing surface with support for shapes, images, and text composited each frame |
+| 🎯 **RenderTarget** | Off-screen render surfaces — create, bind, and sample as textures at runtime |
+| 🖼️ **Texture** | Runtime texture loading, unloading, and sampler control |
+| 🔤 **Font** | Font loading and text metrics for canvas-level text rendering |
+| 🌐 **Webview** | Embedded web content rendering within the application window |
 
 #### 🧊 Models
 
@@ -74,16 +73,16 @@ Model API covers the full runtime lifecycle and is designed with customization s
 
 | Feature | Description |
 |---|---|
-| **Loading / Unloading** | Load and unload named model assets at runtime without restarting |
-| **Instantiation** | Spawn and destroy multiple independent instances at runtime |
-| **Transform Controller** | Full 3D transformation control per instance — position, rotation, and scale |
-| **Animation Controller** | Play, stop, pause, resume animations with speed control and loop toggle |
-| **Blend Shape Controller** | Per-component blend shape value get/set — facial expressions, body morphs |
-| **Component Visibility** | Per-component mesh visibility control — built for clothing and equipment systems |
+| 📦 **Loading / Unloading** | Load and unload named model assets at runtime without restart |
+| 🧬 **Instantiation** | Create and destroy independent runtime instances from a shared loaded asset |
+| 📐 **Transform** | Full 3D transformation control per instance — position, rotation, and scale |
+| 🎬 **Animation** | Per-instance animation playback with speed control, looping, pause, and resume |
+| 🎭 **Blend Shapes** | Per-component blend shape value control — facial expressions, body morphs, and more |
+| 👗 **Component Visibility** | Per-component mesh visibility control — built for clothing and equipment systems |
 
 ### 🔗 Integrations
 
 | Integration | Description |
 |---|---|
-| **Discord SDK** | Native Rich Presence and Discord API integration |
-| **Event Tool** | Pub/sub event system for decoupled inter-module communication |
+| 🎮 **Discord SDK** | Native Rich Presence and Discord API integration |
+| 📣 **Event Tool** | Pub/sub event system for decoupled inter-module communication |
