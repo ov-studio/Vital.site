@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.fog.set_light_color(r, g, b, a)
+local status = gfx.fog.set_light_color(color)
 local status = gfx.fog.set_light_color(hex)
 ```
 
@@ -15,10 +15,7 @@ local status = gfx.fog.set_light_color(hex)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | r | Red channel value of the fog light color |
-| `float` | g | Green channel value of the fog light color |
-| `float` | b | Blue channel value of the fog light color |
-| `float` | a | Alpha channel value of the fog light color |
+| `color` | color | Light color of the fog as `{r, g, b, a}` |
 | `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
@@ -32,8 +29,8 @@ local status = gfx.fog.set_light_color(hex)
 ### Examples
 
 ```lua
---Set fog light color using RGBA
-gfx.fog.set_light_color(0.5, 0.6, 0.7, 1.0)
+--Set fog light color using a color table
+gfx.fog.set_light_color({0.5, 0.6, 0.7, 1.0})
 ```
 
 ```lua
