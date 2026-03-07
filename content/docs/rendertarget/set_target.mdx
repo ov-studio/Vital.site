@@ -7,16 +7,16 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = rendertarget.set_target(instance = false, clear = false, instant = false)
+local status = rendertarget.set_target(instance = nil, clear = false, instant = false)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `rendertarget` | instance | Rendertarget instance to set as active<br/>Omitting this argument will clear the currently active target |
-| `bool` | clear | Whether to clear the rendertarget |
-| `bool` | instant | Whether to clear immediately |
+| `rendertarget` | instance | Rendertarget instance to set as active<br/>Omitting this argument will unset the currently active rendertarget |
+| `bool` | clear | Determines the clear state:<br/>• When `true` - clears the rendertarget upon binding<br/>• When `false` - preserves the existing contents |
+| `bool` | instant | Determines the clear timing:<br/>• When `true` - applies the clear immediately<br/>• When `false` - defers the clear to the next frame |
 
 ### Returns
 
@@ -33,6 +33,9 @@ local rt = rendertarget.create(1920, 1080, false)
 
 --Bind the rendertarget with a clear
 rendertarget.set_target(rt, true)
+
+--Bind the rendertarget with an immediate clear
+rendertarget.set_target(rt, true, true)
 
 --Unset the active rendertarget
 rendertarget.set_target()

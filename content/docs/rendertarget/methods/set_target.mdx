@@ -14,8 +14,8 @@ local status = self:set_target(clear = false, instant = false)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | clear | Whether to clear the rendertarget |
-| `bool` | instant | Whether to clear immediately |
+| `bool` | clear | Determines the clear state:<br/>• When `true` - clears the rendertarget upon binding<br/>• When `false` - preserves the existing contents |
+| `bool` | instant | Determines the clear timing:<br/>• When `true` - applies the clear immediately<br/>• When `false` - defers the clear to the next frame |
 
 ### Returns
 
