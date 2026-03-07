@@ -1,0 +1,13 @@
+{
+    "title": "Methods",
+    "icon": "Package",
+    "pages": [
+        "is_type",
+        "get_type",
+        "destroy",
+        "get_size",
+        "is_target",
+        "get_target",
+        "..."
+    ]
+}

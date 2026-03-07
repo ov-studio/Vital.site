@@ -12,6 +12,7 @@
         "model",
         "webview",
         "discord",
+        "rendertarget",
         "gfx",
         "file",
         "rest",

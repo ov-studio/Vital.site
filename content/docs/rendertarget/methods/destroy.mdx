@@ -1,0 +1,32 @@
+---
+title: self:destroy
+description: Destroys the rendertarget instance and frees its resources
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local rt = rendertarget.create(1920, 1080, false)
+
+rt:destroy()
+```

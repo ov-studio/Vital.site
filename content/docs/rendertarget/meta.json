@@ -1,0 +1,11 @@
+{
+    "title": "RenderTarget",
+    "icon": "Monitor",
+    "pages": [
+        "create",
+        "set_target",
+        "get_target",
+        "...",
+        "methods"
+    ]
+}

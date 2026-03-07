@@ -1,0 +1,35 @@
+---
+title: self:set_target
+description: Sets this instance as the active rendertarget
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_target(clear = false, instant = false)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | clear | Whether to clear the rendertarget |
+| `bool` | instant | Whether to clear immediately |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local rt = rendertarget.create(1920, 1080, false)
+
+rt:set_target(true)
+engine.print("info", "Is active target:", rt:is_target()) --true
+```

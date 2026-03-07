@@ -1,0 +1,33 @@
+---
+title: self:is_target
+description: Checks whether this instance is the currently active rendertarget
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_target()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if this instance is the active rendertarget, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local rt = rendertarget.create(1920, 1080, false)
+
+rt:set_target()
+engine.print("info", "Is active target:", rt:is_target()) --true
+```

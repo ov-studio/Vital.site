@@ -1,0 +1,35 @@
+---
+title: rendertarget.create
+description: Creates a new rendertarget instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = rendertarget.create(width, height, transparent = false)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | width | Width of the rendertarget in pixels |
+| `int` | height | Height of the rendertarget in pixels |
+| `bool` | transparent | Whether the rendertarget should have a transparent background |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `rendertarget` | instance | Created rendertarget instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local rt = rendertarget.create(1920, 1080, false)
+
+rt:set_target()
+```

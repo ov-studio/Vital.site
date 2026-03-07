@@ -1,0 +1,33 @@
+---
+title: self:get_size
+description: Retrieves the size of the rendertarget
+badge: Client
+---
+
+### Syntax
+
+```lua
+local x, y = self:get_size()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | x | Width of the rendertarget in pixels |
+| `int` | y | Height of the rendertarget in pixels |
+
+<hr/>
+
+### Examples
+
+```lua
+local rt = rendertarget.create(1920, 1080, false)
+
+engine.print("info", "Size:", rt:get_size())
+```
