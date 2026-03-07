@@ -1,6 +1,6 @@
 {
     "title": "RenderTarget",
-    "icon": "Monitor",
+    "icon": "Layers",
     "pages": [
         "create",
         "set_active",
