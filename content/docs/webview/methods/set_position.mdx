@@ -7,15 +7,14 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = self:set_position(x, y)
+local status = self:set_position(position)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Horizontal position to move the webview to |
-| `float` | y | Vertical position to move the webview to |
+| `vector2` | position | Position to move the webview to, as `{x, y}` |
 
 ### Returns
 
@@ -30,9 +29,9 @@ local status = self:set_position(x, y)
 ```lua
 local browser = webview.create()
 
---Move webview to top-left corner
-browser:set_position(0, 0)
+-- Move webview to top-left corner
+browser:set_position({0, 0})
 
---Move webview to a custom position
-browser:set_position(100, 200)
+-- Move webview to a custom position
+browser:set_position({100, 200})
 ```

@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local x, y = self:get_size()
+local size = self:get_size()
 ```
 
 ### Parameters
@@ -19,8 +19,7 @@ local x, y = self:get_size()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Width of the webview |
-| `float` | y | Height of the webview |
+| `vector2` | size | Size of the webview as `{x, y}` |
 
 <hr/>
 
@@ -29,6 +28,6 @@ local x, y = self:get_size()
 ```lua
 local browser = webview.create()
 
-local w, h = browser:get_size()
-engine.print("info", "Webview size:", w, h)
+local size = browser:get_size()
+engine.print("info", "Webview size:", size[1], size[2])
 ```

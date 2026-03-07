@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local x, y = self:get_position()
+local position = self:get_position()
 ```
 
 ### Parameters
@@ -19,8 +19,7 @@ local x, y = self:get_position()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Horizontal position of the webview |
-| `float` | y | Vertical position of the webview |
+| `vector2` | position | Position of the webview as `{x, y}` |
 
 <hr/>
 
@@ -29,6 +28,6 @@ local x, y = self:get_position()
 ```lua
 local browser = webview.create()
 
-local x, y = browser:get_position()
-engine.print("info", "Webview position:", x, y)
+local position = browser:get_position()
+engine.print("info", "Webview position:", position[1], position[2])
 ```
