@@ -2,6 +2,8 @@
     "title": "Methods",
     "icon": "Package",
     "pages": [
+        "is_type",
+        "get_type",
         "destroy",
         "get_model_name",
         "set_position",
