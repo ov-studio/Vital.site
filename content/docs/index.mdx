@@ -56,12 +56,30 @@ Vital.sandbox ships with an integrated suite of tools covering every layer of ap
 | **Heartbeats** | Scheduled recurring callbacks at defined intervals |
 | **Threader** | Low-level thread management, pooling, and lifecycle control |
 
-### 🖥️ Rendering
+### 🎨 Rendering
 
-| Tool | Description |
+All rendering APIs are fully exposed to Lua, giving scripts direct control over the visual layer with no ceremony.
+
+| API | Description |
 |---|---|
-| **Rendering Solutions** | Integrated rendering pipeline built directly on top of Godot Engine |
+| **Canvas** | 2D drawing surface — lines, shapes, images, and text composited each frame |
+| **RenderTarget** | Off-screen render surfaces; create, bind, and sample as textures at runtime |
+| **Texture** | Runtime texture loading, unloading, and sampler control |
+| **Font** | Font loading and text metrics for canvas-level text rendering |
 | **Webview** | Embedded web content rendering within the application window |
+
+#### 🧊 Models
+
+Model API covers the full runtime lifecycle and is designed with customization systems in mind.
+
+| Feature | Description |
+|---|---|
+| **Loading / Unloading** | Load and unload named model assets at runtime without restarting |
+| **Instantiation** | Spawn and destroy multiple independent instances at runtime |
+| **Transform Controller** | Full 3D transformation control per instance — position, rotation, and scale |
+| **Animation Controller** | Play, stop, pause, resume animations with speed control and loop toggle |
+| **Blend Shape Controller** | Per-component blend shape value get/set — facial expressions, body morphs |
+| **Component Visibility** | Per-component mesh visibility control — built for clothing and equipment systems |
 
 ### 🔗 Integrations
 
