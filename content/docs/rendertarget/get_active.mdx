@@ -1,5 +1,5 @@
 ---
-title: rendertarget.get_target
+title: rendertarget.get_active
 description: Retrieves the currently active rendertarget
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = rendertarget.get_target()
+local result = rendertarget.get_active()
 ```
 
 ### Parameters
@@ -26,9 +26,9 @@ local result = rendertarget.get_target()
 ### Examples
 
 ```lua
-local rt = rendertarget.get_target()
+local rt = rendertarget.get_active()
 
 if rt then
-    engine.print("info", "Active target size:", rt:get_size())
+    engine.print("info", "Active rendertarget size:", rt:get_size())
 end
 ```

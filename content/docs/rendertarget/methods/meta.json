@@ -6,8 +6,8 @@
         "get_type",
         "destroy",
         "get_size",
-        "is_target",
-        "get_target",
+        "is_active",
+        "get_active",
         "..."
     ]
 }

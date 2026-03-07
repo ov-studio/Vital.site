@@ -1,5 +1,5 @@
 ---
-title: self:is_target
+title: self:is_active
 description: Checks whether this instance is the currently active rendertarget
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = self:is_target()
+local result = self:is_active()
 ```
 
 ### Parameters
@@ -28,6 +28,6 @@ local result = self:is_target()
 ```lua
 local rt = rendertarget.create(1920, 1080, false)
 
-rt:set_target()
-engine.print("info", "Is active target:", rt:is_target()) --true
+rt:set_active()
+engine.print("info", "Is rendertarget active:", rt:is_active()) --true
 ```

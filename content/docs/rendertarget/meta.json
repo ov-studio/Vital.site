@@ -3,8 +3,8 @@
     "icon": "Monitor",
     "pages": [
         "create",
-        "set_target",
-        "get_target",
+        "set_active",
+        "get_active",
         "...",
         "methods"
     ]
