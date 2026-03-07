@@ -29,6 +29,6 @@ local result = self:is_type(name)
 ```lua
 local rt = rendertarget.create(1920, 1080, false)
 
-engine.print("info", rt:is_type("rendertarget")) --false
-engine.print("info", rt:is_type("webview")) --true
+engine.print("info", rt:is_type("rendertarget")) --true
+engine.print("info", rt:is_type("webview")) --false
 ```
