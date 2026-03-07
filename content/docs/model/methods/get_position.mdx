@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local x, y, z = self:get_position()
+local position = self:get_position()
 ```
 
 ### Parameters
@@ -19,9 +19,7 @@ local x, y, z = self:get_position()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Position on the X axis |
-| `float` | y | Position on the Y axis |
-| `float` | z | Position on the Z axis |
+| `vector3` | position | Position of the model in 3D space as `{x, y, z}` |
 
 <hr/>
 
@@ -29,6 +27,7 @@ local x, y, z = self:get_position()
 
 ```lua
 local entity = model.create("character")
+local position = entity:get_position()
 
-engine.print("info", "Entity position:", entity:get_position())
+engine.print("info", "Entity position:", position[1], position[2], position[3])
 ```

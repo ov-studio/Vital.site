@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local x, y, z = self:get_rotation()
+local rotation = self:get_rotation()
 ```
 
 ### Parameters
@@ -19,9 +19,7 @@ local x, y, z = self:get_rotation()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Rotation on the X axis (in radians) |
-| `float` | y | Rotation on the Y axis (in radians) |
-| `float` | z | Rotation on the Z axis (in radians) |
+| `vector3` | rotation | Rotation of the model in 3D space as `{x, y, z}` (in radians) |
 
 <hr/>
 
@@ -29,6 +27,7 @@ local x, y, z = self:get_rotation()
 
 ```lua
 local entity = model.create("character")
+local rotation = entity:get_rotation()
 
-engine.print("info", "Rotation:", entity:get_rotation())
+engine.print("info", "Rotation:", rotation[1], rotation[2], rotation[3])
 ```

@@ -7,16 +7,14 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = self:set_rotation(x, y, z)
+local status = self:set_rotation(rotation)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Rotation on the X axis (in degrees) |
-| `float` | y | Rotation on the Y axis (in degrees) |
-| `float` | z | Rotation on the Z axis (in degrees) |
+| `vector3` | rotation | Rotation to apply to the model, as `{x, y, z}` (in degrees) |
 
 ### Returns
 
@@ -31,5 +29,5 @@ local status = self:set_rotation(x, y, z)
 ```lua
 local entity = model.create("character")
 
-entity:set_rotation(0, 25, 0)
+entity:set_rotation({0, 25, 0})
 ```

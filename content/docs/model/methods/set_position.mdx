@@ -7,16 +7,14 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = self:set_position(x, y, z)
+local status = self:set_position(position)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | x | Position on the X axis |
-| `float` | y | Position on the Y axis |
-| `float` | z | Position on the Z axis |
+| `vector3` | position | Position to move the model to, as `{x, y, z}` |
 
 ### Returns
 
@@ -31,5 +29,5 @@ local status = self:set_position(x, y, z)
 ```lua
 local entity = model.create("character")
 
-entity:set_position(0, 0, 0)
+entity:set_position({0, 0, 0})
 ```
