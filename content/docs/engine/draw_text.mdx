@@ -1,0 +1,74 @@
+---
+title: engine.draw_text
+description: Draws text within a bounding box on the canvas
+badge: Canvas
+---
+
+> **Note:** This function must only be called inside the `vital.sandbox:draw` event. Calling it outside this event will have no effect.
+
+### Syntax
+
+```lua
+local status = engine.draw_text(
+    text, 
+    start_at, 
+    end_at, 
+    font, 
+    font_size, 
+    color = {1, 1, 1, 1}, 
+    alignment = {"left", "top"}, 
+    clip = false, 
+    wordwrap = false, 
+    stroke = 0, 
+    stroke_color = {1, 1, 1, 1}, 
+    rotation = 0, 
+    pivot = {0, 0}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | text | Text string to draw |
+| `vector2` | start_at | Top-left corner of the bounding box |
+| `vector2` | end_at | Bottom-right corner of the bounding box |
+| `font` | font | Font userdata to render the text with |
+| `int` | font_size | Font size in points |
+| `color` | color | Color of the text |
+| `alignment[]` | alignment | A two-element table `{horizontal, vertical}` controlling text alignment within the bounding box.<br/>Each value accepts a `string` or a Godot alignment `int`:<br/>• Horizontal: `"left"` `"center"` `"right"` `"fill"` (or `0`–`3`)<br/>• Vertical: `"top"` `"center"` `"bottom"` `"fill"` (or `0`–`3`) |
+| `bool` | clip | When `true`, text is clipped to the bounding box |
+| `bool` | wordwrap | When `true`, text wraps at the bounding box width |
+| `int` | stroke | Outline thickness in pixels. `0` disables the outline |
+| `color` | stroke_color | Color of the text outline |
+| `float` | rotation | Rotation angle in radians |
+| `vector2` | pivot | Pivot point for rotation, relative to `start_at` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+network:fetch("vital.sandbox:draw", true):on(function()
+    --Draw simple text
+    engine.draw_text("Hello World", {100, 100}, {400, 150}, my_font, 24)
+
+    --Draw centered text with a custom color
+    engine.draw_text("Centered", {100, 100}, {500, 200}, my_font, 32, {1, 1, 0, 1}, {"center", "center"})
+
+    --Draw word-wrapped text clipped to its box
+    engine.draw_text("This is a long string that will wrap.", {50, 50}, {300, 300}, my_font, 18, {1, 1, 1, 1}, {"left", "top"}, true, true)
+
+    --Draw text with an outline
+    engine.draw_text("Outlined", {100, 100}, {400, 160}, my_font, 28, {1, 1, 1, 1}, {"center", "center"}, false, false, 2, {0, 0, 0, 1})
+
+    --Draw rotated text
+    engine.draw_text("Rotated", {200, 200}, {400, 250}, my_font, 20, {1, 1, 1, 1}, {"left", "top"}, false, false, 0, {1, 1, 1, 1}, math.pi/6, {0, 0})
+end)
+```

@@ -2,6 +2,7 @@
     "title": "Engine",
     "icon": "Cog",
     "pages": [
+        "---Core---",
         "get_tick",
         "get_platform",
         "get_timestamp",
@@ -11,6 +12,13 @@
         "inspect",
         "print",
         "iprint",
+        "---Canvas---",
+        "draw_line",
+        "draw_polygon",
+        "draw_rectangle",
+        "draw_circle",
+        "draw_image",
+        "draw_text",
         "..."
     ]
 }

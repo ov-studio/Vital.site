@@ -1,0 +1,56 @@
+---
+title: engine.draw_rectangle
+description: Draws a filled rectangle on the canvas
+badge: Canvas
+---
+
+> **Note:** This function must only be called inside the `vital.sandbox:draw` event. Calling it outside this event will have no effect.
+
+### Syntax
+
+```lua
+local status = engine.draw_rectangle(
+    position, 
+    size, 
+    color = {1, 1, 1, 1}, 
+    stroke = 0, 
+    stroke_color = {1, 1, 1, 1}, 
+    rotation = 0, 
+    pivot = {0, 0}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Top-left corner of the rectangle |
+| `vector2` | size | Width and height of the rectangle |
+| `color` | color | Fill color of the rectangle |
+| `float` | stroke | Thickness of the outline in pixels. `0` disables the outline |
+| `color` | stroke_color | Color of the outline |
+| `float` | rotation | Rotation angle in radians |
+| `vector2` | pivot | Pivot point for rotation, relative to the rectangle's position |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+network:fetch("vital.sandbox:draw", true):on(function()
+    --Draw a plain white rectangle
+    engine.draw_rectangle({100, 100}, {200, 150})
+
+    --Draw a filled green rectangle with a black outline
+    engine.draw_rectangle({100, 100}, {200, 150}, {0, 1, 0, 1}, 2, {0, 0, 0, 1})
+
+    --Draw a rotated rectangle around its center
+    engine.draw_rectangle({100, 100}, {200, 150}, {1, 0.5, 0, 1}, 0, {1, 1, 1, 1}, math.pi/6, {100, 75})
+end)
+```

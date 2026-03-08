@@ -1,0 +1,60 @@
+---
+title: engine.draw_image
+description: Draws an image on the canvas from a file path or a texture resource
+badge: Canvas
+---
+
+> **Note:** This function must only be called inside the `vital.sandbox:draw` event. Calling it outside this event will have no effect.
+
+### Syntax
+
+```lua
+local status = engine.draw_image(
+    position, 
+    size, 
+    texture, 
+    rotation = 0, 
+    pivot = {0, 0}, 
+    color = {1, 1, 1, 1}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Top-left position to draw the image |
+| `vector2` | size | Width and height to render the image at |
+| `string \| Texture \| Rendertarget \| SVG` | texture | The image source. Accepts:<br/>• `string` — file path to an image asset<br/>• `Texture` — a loaded texture userdata<br/>• `Rendertarget` — a rendertarget userdata<br/>• `SVG` — an SVG userdata |
+| `float` | rotation | Rotation angle in radians |
+| `vector2` | pivot | Pivot point for rotation, relative to the image's position |
+| `color` | color | Tint color multiplied over the image |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+network:fetch("vital.sandbox:draw", true):on(function()
+    --Draw an image from a file path
+    engine.draw_image({0, 0}, {256, 256}, "assets/logo.png")
+
+    --Draw a tinted image
+    engine.draw_image({100, 100}, {128, 128}, "assets/icon.png", 0, {0, 0}, {1, 0.5, 0.5, 1})
+
+    --Draw a rotated image around its center
+    engine.draw_image({100, 100}, {128, 128}, "assets/arrow.png", math.pi/2, {64, 64})
+
+    --Draw from a Texture userdata
+    engine.draw_image({0, 0}, {512, 512}, my_texture)
+
+    --Draw from a Rendertarget
+    engine.draw_image({0, 0}, {1920, 1080}, my_rendertarget)
+end)
+```

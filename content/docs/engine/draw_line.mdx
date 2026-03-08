@@ -1,0 +1,48 @@
+---
+title: engine.draw_line
+description: Draws a polyline through a series of 2D points on the canvas
+badge: Canvas
+---
+
+> **Note:** This function must only be called inside the `vital.sandbox:draw` event. Calling it outside this event will have no effect.
+
+### Syntax
+
+```lua
+local status = engine.draw_line(
+    points, 
+    stroke = 0, 
+    color = {1, 1, 1, 1}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2[]` | points | Array of 2D points defining the line path |
+| `float` | stroke | Thickness of the line in pixels |
+| `color` | color | Color of the line |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+network:fetch("vital.sandbox:draw", true):on(function()
+    --Draw a simple horizontal line
+    engine.draw_line({{0, 100}, {400, 100}}, 2)
+
+    --Draw a colored diagonal line
+    engine.draw_line({{0, 0}, {200, 200}}, 4, {1, 0, 0, 1})
+
+    --Draw a multi-segment polyline
+    engine.draw_line({{0, 0}, {100, 100}, {200, 0}, {300, 100}}, 2, {0, 1, 0, 1})
+end)
+```
