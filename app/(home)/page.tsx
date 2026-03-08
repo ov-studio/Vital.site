@@ -330,7 +330,7 @@ self<span className="pu">:</span><span className="fn">resume</span><span classNa
           </div>
           <div className="footer-nav">
             <div className="footer-nav-col"><h4>Product</h4><ul><li><a href="#">Features</a></li><li><a href="#">API Reference</a></li><li><a href="#">Changelog</a></li><li><a href="#">Roadmap</a></li></ul></div>
-            <div className="footer-nav-col"><h4>Resources</h4><ul><li><a href="#">Documentation</a></li><li><a href="#">Examples</a></li><li><a href="#">Lua Guide</a></li><li><a href="#">C++ SDK</a></li></ul></div>
+            <div className="footer-nav-col"><h4>Resources</h4><ul><li><a href="/docs">Documentation</a></li><li><a href="#">Examples</a></li><li><a href="#">Lua Guide</a></li><li><a href="https://github.com/ov-studio/Vital.sandbox">C++ SDK</a></li></ul></div>
             <div className="footer-nav-col"><h4>Community</h4><ul><li><a href="https://github.com/ov-studio">GitHub</a></li><li><a href="http://discord.gg/sVCnxPW">Discord</a></li><li><a href="https://ko-fi.com/ovstudio">Ko-fi</a></li><li><a href="/docs/building">Contributing</a></li></ul></div>
           </div>
         </div>
