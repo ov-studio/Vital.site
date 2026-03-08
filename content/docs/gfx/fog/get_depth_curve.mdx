@@ -11,7 +11,10 @@ local result = gfx.fog.get_depth_curve()
 ```
 
 <Callout type="warn">
-Only available when the fog mode is set to depth mode. See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) for more information.
+  **Only available when the fog mode is set to depth mode.** See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) to configure the active fog mode.
+
+  - **Depth mode required** — calling this function in any other fog mode will return an unexpected result
+  - **Recommended usage** — use alongside [`gfx.fog.get_depth_begin`](/docs/gfx/fog/get_depth_begin) and [`gfx.fog.get_depth_end`](/docs/gfx/fog/get_depth_end) to inspect the complete fog transition profile
 </Callout>
 
 ### Parameters
