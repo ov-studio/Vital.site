@@ -5,6 +5,10 @@
         "create",
         "create_from_raw",
         "...",
-        "methods"
+        "---Methods---",
+        "method_is_type",
+        "method_get_type",
+        "method_destroy",
+        "method_update"
     ]
 }
