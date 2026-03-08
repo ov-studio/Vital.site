@@ -4,6 +4,9 @@
     "pages": [
         "create",
         "...",
-        "methods"
+        "---Methods---",
+        "method_is_type",
+        "method_get_type",
+        "method_destroy"
     ]
 }
