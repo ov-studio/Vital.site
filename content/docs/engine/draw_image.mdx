@@ -25,7 +25,7 @@ local status = engine.draw_image(
 |------|------|-------------|
 | `vector2` | position | Top-left position to draw the image |
 | `vector2` | size | Width and height to render the image at |
-| `string \| Texture \| Rendertarget \| SVG` | texture | The image source. Accepts:<br/>• `string` — file path to an image asset<br/>• `Texture` — a loaded texture userdata<br/>• `Rendertarget` — a rendertarget userdata<br/>• `SVG` — an SVG userdata |
+| `string` / `texture` / `rendertarget` / `svg` | texture | The image source. Accepts:<br/>• `string` — file path to an image asset<br/>• `Texture` — a loaded texture userdata<br/>• `Rendertarget` — a rendertarget userdata<br/>• `SVG` — an SVG userdata |
 | `float` | rotation | Rotation angle in radians |
 | `vector2` | pivot | Pivot point for rotation, relative to the image's position |
 | `color` | color | Tint color multiplied over the image |
