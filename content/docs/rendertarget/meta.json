@@ -2,6 +2,7 @@
     "title": "Rendertarget",
     "icon": "Layers",
     "pages": [
+        "---Core---",
         "create",
         "set_active",
         "get_active",

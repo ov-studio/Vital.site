@@ -2,6 +2,7 @@
     "title": "Model",
     "icon": "Box",
     "pages": [
+        "---Core---",
         "is_loaded",
         "load",
         "unload",

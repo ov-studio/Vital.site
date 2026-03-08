@@ -2,6 +2,7 @@
     "title": "Texture",
     "icon": "Image",
     "pages": [
+        "---Core---",
         "create",
         "...",
         "---Methods---",
