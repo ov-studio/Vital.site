@@ -93,7 +93,7 @@ export default function HomePage() {
             <li><a href="#features">Features</a></li>
             <li><a href="#api">API</a></li>
             <li><a href="#compare">Compare</a></li>
-            <li><a href="#docs">Docs</a></li>
+            <li><a href="/docs">Docs</a></li>
           </ul>
           <a href="#" className="ncta">Get Started</a>
         </div>
