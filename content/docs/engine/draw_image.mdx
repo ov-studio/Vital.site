@@ -4,8 +4,6 @@ description: Draws an image on the canvas from a file path or a texture resource
 badge: Canvas
 ---
 
-> **Note:** This function must only be called inside the `vital.sandbox:draw` event. Calling it outside this event will have no effect.
-
 ### Syntax
 
 ```lua
@@ -18,6 +16,14 @@ local status = engine.draw_image(
     color = {1, 1, 1, 1}
 )
 ```
+
+<Callout type="warn">
+  **Must be called within the `vital.sandbox:draw` event.** Invoking this function outside of that event will have no effect.
+
+  - **Inside the event** — executes as expected, rendering the image to the canvas each frame
+  - **Outside the event** — the call will be silently ignored and nothing will be drawn
+  - **Recommended usage** — register a handler via `network:fetch("vital.sandbox:draw", true):on(...)` and place all canvas draw calls inside it
+</Callout>
 
 ### Parameters
 
