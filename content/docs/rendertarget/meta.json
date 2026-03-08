@@ -2,12 +2,11 @@
     "title": "Rendertarget",
     "icon": "Layers",
     "pages": [
-        "---Core---",
         "create",
         "set_active",
         "get_active",
         "...",
-        "---Methods---",
+        "---Method---",
         "method_is_type",
         "method_get_type",
         "method_destroy",

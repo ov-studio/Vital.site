@@ -2,10 +2,9 @@
     "title": "Webview",
     "icon": "Globe",
     "pages": [
-        "---Core---",
         "create",
         "...",
-        "---Methods---",
+        "---Method---",
         "method_is_type",
         "method_get_type",
         "method_destroy",

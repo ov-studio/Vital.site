@@ -2,11 +2,10 @@
     "title": "SVG",
     "icon": "PenTool",
     "pages": [
-        "---Core---",
         "create",
         "create_from_raw",
         "...",
-        "---Methods---",
+        "---Method---",
         "method_is_type",
         "method_get_type",
         "method_destroy",

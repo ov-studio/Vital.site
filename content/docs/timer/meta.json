@@ -2,10 +2,9 @@
     "title": "Timer",
     "icon": "Clock",
     "pages": [
-        "---Core---",
         "create",
         "...",
-        "---Methods---",
+        "---Method---",
         "method_destroy"
     ]
 }
