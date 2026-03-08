@@ -5,6 +5,7 @@
         "create",
         "set_active",
         "get_active",
+        "...",
         "---Methods---",
         "method_is_type",
         "method_get_type",
@@ -12,7 +13,6 @@
         "method_get_size",
         "method_is_active",
         "method_get_active",
-        "method_set_active",
-        "..."
+        "method_set_active"
     ]
 }
