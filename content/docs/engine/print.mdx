@@ -11,7 +11,11 @@ local status = engine.print(...)
 ```
 
 <Callout type="idea">
-To output a much more human-readable representation of supported value types, including structured data such as tables use [`engine.iprint`](/docs/engine/iprint) instead.
+  **For a more human-readable output, consider using [`engine.iprint`](/docs/engine/iprint) instead.**
+
+  - **Basic output** — prints raw values to the console with minimal formatting
+  - **Structured data** — tables and nested types are not expanded; use `engine.iprint` for a fully readable representation
+  - **Recommended usage** — reserve `engine.print` for simple values such as strings and numbers; prefer `engine.iprint` when inspecting complex or nested data structures
 </Callout>
 
 ### Parameters
