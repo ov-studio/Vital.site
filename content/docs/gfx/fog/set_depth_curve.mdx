@@ -11,7 +11,10 @@ local status = gfx.fog.set_depth_curve(value)
 ```
 
 <Callout type="warn">
-Only available when the fog mode is set to depth mode. See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) for more information.
+  **Only available when the fog mode is set to depth mode.** See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) to configure the active fog mode.
+
+  - **Depth mode required** — calling this function in any other fog mode will have no effect
+  - **Recommended usage** — combine with [`gfx.fog.set_depth_begin`](/docs/gfx/fog/set_depth_begin) and [`gfx.fog.set_depth_end`](/docs/gfx/fog/set_depth_end) to fully control the fog transition shape
 </Callout>
 
 ### Parameters
