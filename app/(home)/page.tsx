@@ -316,17 +316,7 @@ self<span className="pu">:</span><span className="fn">resume</span><span classNa
       </section>
 
       {/* CTA */}
-      <section id="cta">
-        <div className="cta-inner">
-          <div className="cta-diamond"></div>
-          <h2 className="rev">Ready to <span>build?</span></h2>
-          <p className="rev">Start scripting your sandbox today. Open-source, no strings, no limits.</p>
-          <div className="cta-btns rev">
-            <a href="#" className="btn-primary">Get Started Free</a>
-            <a href="#" className="btn-secondary">Read the Docs <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
-          </div>
-        </div>
-      </section>
+
 
       {/* FOOTER */}
       <footer>

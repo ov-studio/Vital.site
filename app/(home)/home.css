@@ -151,16 +151,6 @@ h2 span{color:var(--blue)}
 .cpane.on{opacity:1;pointer-events:auto;visibility:visible}
 .cpane pre{font-family:'Geist Mono',monospace;font-size:.76rem;line-height:2;overflow-x:auto}
 
-#cta{padding:120px 0;border-top:1px solid var(--rule);text-align:center;position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
-#cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(hsla(220,50%,60%,.035) 1px,transparent 1px),linear-gradient(90deg,hsla(220,50%,60%,.035) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-#cta::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,hsla(220,95%,30%,.1),transparent 70%);pointer-events:none}
-.cta-inner{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:0 48px}
-.cta-diamond{width:48px;height:48px;border:1px solid var(--b30);transform:rotate(45deg);margin:0 auto 40px;display:flex;align-items:center;justify-content:center;animation:rotateSlow 8s linear infinite}
-.cta-diamond::after{content:'';width:12px;height:12px;background:var(--blue)}
-@keyframes rotateSlow{to{transform:rotate(405deg)}}
-#cta h2{font-size:clamp(2.8rem,5vw,5rem);margin-bottom:16px;letter-spacing:.01em}
-#cta p{font-size:1.05rem;color:hsl(220,10%,76%);line-height:1.8;margin-bottom:40px;font-weight:400}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
 .why-card{background:var(--bg);padding:36px 32px;position:relative;overflow:hidden;transition:background .25s}
