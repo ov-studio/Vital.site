@@ -11,7 +11,11 @@ local ctx = thread:create_promise(exec = false, options = false)
 ```
 
 <Callout type="info">
-Requires execution within a try/catch block to handle exceptions.
+  **Rejections that are not caught will throw a runtime error.** It is strongly recommended to wrap promise resolution in a `try/catch` block.
+
+  - **Unhandled rejection** — if the promise is rejected and no `catch` is present, an unhandled error will be thrown
+  - **With `try/catch`** — both resolved and rejected outcomes are safely handled without interrupting execution
+  - **Recommended usage** — always pair `self:await(promise)` with `self:try({ exec, catch })` for safe error handling
 </Callout>
 
 ### Parameters
