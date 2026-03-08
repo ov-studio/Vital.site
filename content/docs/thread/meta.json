@@ -7,6 +7,12 @@
         "create_promise",
         "get_thread",
         "...",
-        "methods"
+        "---Methods---",
+        "method_destroy",
+        "method_status",
+        "method_resume",
+        "method_sleep",
+        "method_await",
+        "method_try"
     ]
 }
