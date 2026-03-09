@@ -14,11 +14,11 @@
   
 .dark {
   --color-fd-primary: hsl(220, 95%, 76%);
-  --color-fd-background: hsl(250, 20%, 4%);
+  --color-fd-background: hsl(250, 25%, 2%);
 }
 
 .dark #nd-sidebar {
-  background-color: hsl(250 20% 3%);
+  background-color: hsl(250, 25%, 2%); 
 }
 
 .prose a {
