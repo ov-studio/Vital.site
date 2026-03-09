@@ -147,38 +147,6 @@
 
 .hstat-div { width: 1px; height: 48px; background: var(--rule) }
 
-/* Ko-fi */
-.kofi-wrap {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 40px;
-  width: 100%;
-  max-width: 340px
-}
-
-.kofi-line { flex: 1; height: 1px; background: var(--rule) }
-
-.kofi-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Geist', sans-serif;
-  font-size: .7rem;
-  font-weight: 400;
-  letter-spacing: .02em;
-  color: hsl(220, 10%, 30%);
-  text-decoration: none;
-  transition: color .25s;
-  white-space: nowrap;
-  flex-shrink: 0
-}
-
-.kofi-link:hover        { color: hsl(220, 10%, 55%) }
-.kofi-link svg          { color: hsl(350, 55%, 48%); flex-shrink: 0; transition: color .25s }
-.kofi-link:hover svg    { color: hsl(350, 65%, 60%) }
-
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   #hero         { padding-top: 130px; padding-bottom: 60px }
   .hero-center  { padding: 0 24px }

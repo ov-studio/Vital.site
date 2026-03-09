@@ -150,7 +150,6 @@
 .cpane::-webkit-scrollbar     { display: none }
 .cpane { -ms-overflow-style: none; scrollbar-width: none }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   #api               { padding: 72px 0 }
   .api-wrap          { grid-template-columns: 1fr; gap: 40px }

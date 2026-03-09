@@ -80,7 +80,6 @@ footer {
 
 .footer-nav-col ul li a:hover { color: var(--w) }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   .footer-main { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 40px }
   .footer-nav  { grid-template-columns: repeat(3, 1fr); gap: 24px }

@@ -69,7 +69,6 @@
 
 .why-card:hover::after { transform: scaleX(1) }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   .why-grid { grid-template-columns: 1fr 1fr }
   .why-card { padding: 28px 22px }

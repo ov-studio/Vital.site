@@ -46,7 +46,6 @@ body:has(button:hover) #cur-outer {
 
 body:has(a:hover) #cur-inner { transform: scale(1.6) }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   #cur, #cur-outer { display: none }
   body { cursor: auto }

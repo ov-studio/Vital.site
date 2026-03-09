@@ -29,7 +29,6 @@
   background: var(--rule)
 }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   #features   { padding: 72px 0 }
   .feat-grid  { grid-template-columns: 1fr 1fr }

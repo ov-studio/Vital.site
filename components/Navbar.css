@@ -85,7 +85,6 @@ nav.s::after {
 
 .ncta:hover { opacity: .8 }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   .nl  { display: none }
   .ni  { padding: 0 24px }

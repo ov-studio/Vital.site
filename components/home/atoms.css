@@ -73,7 +73,6 @@
     transform: scaleX(1)
 }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
     .fc {
         padding: 28px 22px
@@ -87,4 +86,5 @@
 
     .fc[style*="span 3"] {
         grid-column: span 1 !important
-    } }
+    }
+}

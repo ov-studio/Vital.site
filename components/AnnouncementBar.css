@@ -55,7 +55,6 @@
 
 .announce-link:hover { opacity: 1 }
 
-/* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media(max-width:960px) {
   .announce-bar  { padding: 10px 24px; gap: 10px }
   .announce-text { display: none }
