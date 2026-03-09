@@ -24,6 +24,10 @@ html {
   scroll-behavior: smooth
 }
 
+html {
+  overflow-x: hidden
+}
+
 body {
   background: var(--bg);
   color: var(--w);
@@ -1396,7 +1400,23 @@ footer {
   }
 
   .code-win {
+    overflow: hidden;
+    max-width: 100%
+  }
+
+  .cpane-container {
+    max-width: 100%;
+    overflow: hidden
+  }
+
+  .cpane {
     overflow-x: auto
+  }
+
+  .cpane pre {
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: pre
   }
 
   /* why */
@@ -1574,11 +1594,14 @@ footer {
   }
 
   .cpane {
-    padding: 20px 18px
+    padding: 20px 18px;
+    overflow-x: auto
   }
 
   .cpane pre {
-    font-size: .68rem
+    font-size: .68rem;
+    overflow-x: auto;
+    white-space: pre
   }
 
   /* why */
