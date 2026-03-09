@@ -5,7 +5,7 @@ import { usePageEffects }  from '@/components/home/usePageEffects';
 import { Overlays }        from '@/components/Overlays';
 import { Navbar }          from '@/components/Navbar';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
-import { Hero }            from '@/components/home/HeroSection';
+import { HeroSection }            from '@/components/home/HeroSection';
 import { FeaturesSection } from '@/components/home/FeaturesSection';
 import { ApiSection }      from '@/components/home/ApiSection';
 import { EthosSection }    from '@/components/home/EthosSection';
@@ -18,7 +18,7 @@ export default function HomePage() {
       <Overlays />
       <Navbar />
       <AnnouncementBar />
-      <Hero />
+      <HeroSection />
       <FeaturesSection />
       <ApiSection />
       <EthosSection />

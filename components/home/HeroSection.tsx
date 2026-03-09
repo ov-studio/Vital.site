@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { HERO_STATS } from '@/configs/homeData';
 
-export function Hero() {
+export function HeroSection() {
   return (
     <section id="hero">
       <div className="hgrid" />
