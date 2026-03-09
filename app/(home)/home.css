@@ -1352,7 +1352,6 @@ footer {
   /* hero */
   #hero {
     padding-top: 130px;
-    min-height: auto;
     padding-bottom: 60px
   }
 
@@ -1379,8 +1378,7 @@ footer {
 
   /* features */
   #features {
-    padding: 72px 0;
-    min-height: auto
+    padding: 72px 0
   }
 
   .sw {
@@ -1408,8 +1406,7 @@ footer {
 
   /* api */
   #api {
-    padding: 72px 0;
-    min-height: auto
+    padding: 72px 0
   }
 
   .api-wrap {
@@ -1439,7 +1436,6 @@ footer {
 
   /* why */
   #compare {
-    min-height: auto;
     padding: 0
   }
 
@@ -1484,7 +1480,8 @@ footer {
   /* hero */
   #hero {
     padding-top: 120px;
-    padding-bottom: 48px
+    padding-bottom: 48px;
+    min-height: 100vh
   }
 
   .hero-center {
@@ -1563,7 +1560,8 @@ footer {
 
   /* features */
   #features {
-    padding: 56px 0
+    padding: 56px 0;
+    min-height: 100vh
   }
 
   .sec-head {
@@ -1592,7 +1590,8 @@ footer {
 
   /* api */
   #api {
-    padding: 56px 0
+    padding: 56px 0;
+    min-height: 100vh
   }
 
   .api-wrap {
@@ -1623,6 +1622,10 @@ footer {
   }
 
   /* why */
+  #compare {
+    min-height: 100vh
+  }
+
   #compare .sw {
     padding-top: 56px;
     padding-bottom: 56px
