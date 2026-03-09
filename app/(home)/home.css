@@ -1088,6 +1088,24 @@ h2 span {
   overflow-x: auto
 }
 
+.cpane pre::-webkit-scrollbar {
+  display: none
+}
+
+.cpane::-webkit-scrollbar {
+  display: none
+}
+
+.cpane {
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+
+.cpane pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+
 
 .why-grid {
   display: grid;
