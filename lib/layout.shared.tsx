@@ -5,6 +5,6 @@ export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
       title: site.name
-    },
+    }
   };
 }
