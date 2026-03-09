@@ -28,7 +28,9 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen font-sans">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider theme={{ enabled: true, forcedTheme: 'dark' }}>
+          {children}
+        </RootProvider>
       </body>
     </html>
   );
