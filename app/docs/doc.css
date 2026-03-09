@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/dusk.css';
+@import 'fumadocs-ui/css/preset.css';
+
+:root {
+    --fd-layout-width: 100vw;
+}
+
+@theme {
+    --color-fd-primary: hsl(220, 95%, 30%);
+    --font-sans: var(--font-geist);
+    --font-mono: var(--font-geist-mono);
+}
+
+.dark {
+    --color-fd-primary: hsl(220, 95%, 76%);
+    --color-fd-background: hsl(250, 25%, 2%);
+}
+
+.dark #nd-sidebar {
+    background-color: hsl(250, 25%, 2%);
+}
+
+.prose a {
+    text-decoration: none;
+}
+
+#nd-sidebar {
+    width: 375px !important;
+    min-width: 375px !important;
+}
+
+#nd-sidebar>* {
+    width: 375px !important;
+}

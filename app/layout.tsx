@@ -1,5 +1,4 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
-import './global.css';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
 
 const geist = Geist({

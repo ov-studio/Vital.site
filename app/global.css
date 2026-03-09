@@ -1,35 +1,277 @@
-@import 'tailwindcss';
-@import 'fumadocs-ui/css/dusk.css';
-@import 'fumadocs-ui/css/preset.css';
 
+/* ─── Reset ───────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+/* ─── Variables ───────────────────────────────────────────────────────────── */
 :root {
-  --fd-layout-width: 100vw;
+    --bg: hsl(250, 25%, 2%);
+    --bg2: hsl(248, 22%, 4%);
+    --bg3: hsl(246, 20%, 5.5%);
+    --blue: hsl(220, 95%, 76%);
+    --b30: hsla(220, 95%, 76%, .3);
+    --b10: hsla(220, 95%, 76%, .1);
+    --b05: hsla(220, 95%, 76%, .05);
+    --w: hsl(0, 0%, 97%);
+    --dim: hsl(220, 10%, 72%);
+    --dark: hsl(220, 10%, 42%);
+    --rule: hsl(220, 18%, 9%)
 }
 
-@theme {
-  --color-fd-primary: hsl(220, 95%, 30%);
-  --font-sans: var(--font-geist);
-  --font-mono: var(--font-geist-mono);
-}
-  
-.dark {
-  --color-fd-primary: hsl(220, 95%, 76%);
-  --color-fd-background: hsl(250, 25%, 2%);
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden
 }
 
-.dark #nd-sidebar {
-  background-color: hsl(250, 25%, 2%); 
+body {
+    background: var(--bg);
+    color: var(--w);
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    cursor: none
 }
 
-.prose a {
-  text-decoration: none;
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(4.5rem, 8vw, 8rem);
+    font-weight: 700;
+    line-height: .92;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeIn .7s .2s forwards
 }
 
-#nd-sidebar {
-  width: 375px !important;
-  min-width: 375px !important;
+h1 .hl {
+    color: var(--blue);
+    display: block
 }
 
-#nd-sidebar>* {
-  width: 375px !important;
+h1 .ghost {
+    color: transparent;
+    -webkit-text-stroke: 1px hsla(220, 10%, 55%, .5);
+    display: block
+}
+
+h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: .95;
+    letter-spacing: .01em
+}
+
+h2 span {
+    color: var(--blue)
+}
+
+/* ─── Shared layout ───────────────────────────────────────────────────────── */
+.sw {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px
+}
+
+.slabel {
+    font-family: 'Geist', sans-serif;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.slabel::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--blue)
+}
+
+.sec-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px
+}
+
+.sec-link {
+    font-family: 'Geist', sans-serif;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: hsl(220, 10%, 65%);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color .2s;
+    flex-shrink: 0;
+    padding-bottom: 4px
+}
+
+.sec-link:hover {
+    color: var(--blue)
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+.btn-primary {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    background: var(--blue);
+    color: var(--bg);
+    padding: 13px 32px;
+    text-decoration: none;
+    clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+    transition: opacity .2s, transform .15s;
+    display: inline-block
+}
+
+.btn-primary:hover {
+    opacity: .85;
+    transform: translateY(-2px)
+}
+
+.btn-secondary {
+    font-family: 'Geist', sans-serif;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--w);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color .2s
+}
+
+.btn-secondary svg {
+    transition: transform .2s
+}
+
+.btn-secondary:hover svg {
+    transform: translateX(4px)
+}
+
+/* ─── Scroll reveal ───────────────────────────────────────────────────────── */
+.rev {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease
+}
+
+.rev-l {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity .6s ease, transform .6s ease
+}
+
+.rev-r {
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity .6s ease, transform .6s ease
+}
+
+.rev.in,
+.rev-l.in,
+.rev-r.in {
+    opacity: 1;
+    transform: none
+}
+
+/* ─── Code syntax tokens (shared across ApiSection) ──────────────────────── */
+.kw {
+    color: var(--blue)
+}
+
+.fn {
+    color: hsl(195, 65%, 65%)
+}
+
+.st {
+    color: hsl(142, 42%, 58%)
+}
+
+.cm {
+    color: hsl(220, 10%, 48%)
+}
+
+.nm {
+    color: hsl(30, 75%, 62%)
+}
+
+.pu {
+    color: hsl(220, 12%, 50%)
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+/* ─── Responsive base ─────────────────────────────────────────────────────── */
+@media(max-width:960px) {
+    .sw {
+        padding: 0 24px
+    }
+
+    .sec-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 40px
+    }
+
+    .sec-link {
+        align-self: flex-start
+    }
+}
+
+@media(max-width:640px) {
+    .sw {
+        padding: 0 20px
+    }
+
+    h2 {
+        font-size: clamp(2rem, 7vw, 2.8rem)
+    }
 }
