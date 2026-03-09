@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { HERO_STATS } from '@/configs/homeData';
+import './HeroSection.css';
 
 export function HeroSection() {
   return (

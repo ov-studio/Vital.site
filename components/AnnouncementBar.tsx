@@ -1,3 +1,5 @@
+import './AnnouncementBar.css';
+
 export function AnnouncementBar() {
   return (
     <div className="announce-bar">

@@ -1,4 +1,5 @@
 import { WHY_ITEMS } from '@/configs/homeData';
+import './EthosSection.css';
 
 export function EthosSection() {
   return (

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { NAV_LINKS } from '@/configs/homeData';
+import './Navbar.css';
 
 export function Navbar() {
   return (

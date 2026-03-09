@@ -1,3 +1,5 @@
+import './Overlays.css';
+
 export function Overlays() {
   return (
     <>

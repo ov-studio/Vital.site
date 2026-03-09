@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FOOTER_COLS } from '@/configs/homeData';
+import './Footer.css';
 
 export function Footer() {
   return (

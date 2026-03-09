@@ -1,4 +1,5 @@
 import type { FeatureItem } from '@/configs/types';
+import './atoms.css';
 
 export function ArrowRight({ size = 14 }: { size?: number }) {
   return (

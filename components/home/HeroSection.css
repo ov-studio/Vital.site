@@ -1,0 +1,213 @@
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 110px
+}
+
+.hgrid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0
+}
+
+.hgrid::before { display: none }
+
+.hgrid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 60% 50%, hsla(220, 95%, 30%, .12) 0%, transparent 70%)
+}
+
+.hero-center {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 48px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0
+}
+
+.hero-logo {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 28px;
+  opacity: 0;
+  filter: invert(1) brightness(1.9) drop-shadow(0 0 16px hsla(220, 95%, 76%, .5));
+  animation: fadeIn .5s .05s forwards, logoPulse 5s 1.2s ease-in-out infinite
+}
+
+@keyframes logoPulse {
+  0%, 100% { filter: invert(1) brightness(1.9) drop-shadow(0 0 16px hsla(220, 95%, 76%, .5)) }
+  50%      { filter: invert(1) brightness(2.3) drop-shadow(0 0 36px hsla(220, 95%, 76%, .9)) }
+}
+
+.hero-wordmark {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  font-weight: 700;
+  letter-spacing: .07em;
+  color: var(--w);
+  margin-bottom: 36px;
+  line-height: 1;
+  opacity: 0;
+  animation: fadeIn .6s .2s forwards
+}
+
+.hw-vital, .hw-dot, .hw-sub {
+  color: hsl(220, 60%, 72%);
+  font-weight: 700
+}
+
+.hw-sub { letter-spacing: .07em }
+
+.hero-motto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(.95rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeIn .7s .3s forwards
+}
+
+.hero-motto span { color: hsl(220, 10%, 60%) }
+.hm-blue         { color: var(--w) !important; font-weight: 700 }
+.hm-sep          { color: hsl(220, 10%, 22%) !important; font-weight: 300 }
+
+.hero-sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: hsl(220, 10%, 62%);
+  line-height: 1.8;
+  max-width: 560px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeIn .7s .4s forwards
+}
+
+.hbtns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn .7s .5s forwards;
+  margin-bottom: 116px
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  animation: fadeIn .7s .6s forwards
+}
+
+.hstat {
+  padding: 18px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px
+}
+
+.hstat-n {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--w)
+}
+
+.hstat-l {
+  font-family: 'Geist Mono', monospace;
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: hsl(220, 10%, 45%)
+}
+
+.hstat-div { width: 1px; height: 48px; background: var(--rule) }
+
+/* Ko-fi */
+.kofi-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 340px
+}
+
+.kofi-line { flex: 1; height: 1px; background: var(--rule) }
+
+.kofi-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Geist', sans-serif;
+  font-size: .7rem;
+  font-weight: 400;
+  letter-spacing: .02em;
+  color: hsl(220, 10%, 30%);
+  text-decoration: none;
+  transition: color .25s;
+  white-space: nowrap;
+  flex-shrink: 0
+}
+
+.kofi-link:hover        { color: hsl(220, 10%, 55%) }
+.kofi-link svg          { color: hsl(350, 55%, 48%); flex-shrink: 0; transition: color .25s }
+.kofi-link:hover svg    { color: hsl(350, 65%, 60%) }
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media(max-width:960px) {
+  #hero         { padding-top: 130px; padding-bottom: 60px }
+  .hero-center  { padding: 0 24px }
+  .hbtns        { margin-bottom: 56px }
+  .hero-stats   { flex-wrap: wrap; justify-content: center }
+  .hstat        { padding: 14px 20px }
+  .hstat-div    { display: none }
+}
+
+@media(max-width:640px) {
+  #hero          { padding-top: 120px; padding-bottom: 48px }
+  .hero-center   { padding: 0 20px }
+  .hero-logo     { width: 52px; height: 52px; margin-bottom: 20px }
+  .hero-wordmark { font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 24px }
+  .hero-motto    { gap: 10px; font-size: .85rem; margin-bottom: 20px }
+  .hero-sub      { font-size: .9rem; margin-bottom: 28px }
+  .hbtns         { flex-direction: column; align-items: center; width: 100%; gap: 20px; margin-bottom: 40px }
+  .btn-primary   { width: 100%; text-align: center; padding: 14px 24px }
+  .hero-stats    { gap: 0; width: 100%; border-top: 1px solid var(--rule) }
+  .hstat         { flex: 1; padding: 16px 8px; border-right: 1px solid var(--rule) }
+  .hstat:last-child { border-right: none }
+  .hstat-n       { font-size: 1rem }
+  .hstat-l       { font-size: .5rem; letter-spacing: .08em }
+}
+
+@media(max-width:400px) {
+  .hero-stats          { flex-wrap: wrap }
+  .hstat               { flex: 0 0 50%; border-bottom: 1px solid var(--rule) }
+  .hstat:nth-child(odd)      { border-right: 1px solid var(--rule) }
+  .hstat:nth-last-child(-n+2){ border-bottom: none }
+  .hstat-div           { display: none }
+}

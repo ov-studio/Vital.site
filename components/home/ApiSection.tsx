@@ -1,4 +1,5 @@
 import { API_TABS } from '@/configs/homeData';
+import './ApiSection.css';
 
 export function ApiSection() {
   return (

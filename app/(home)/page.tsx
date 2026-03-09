@@ -1,6 +1,5 @@
 'use client';
 
-import './home.css';
 import '../global.css';
 import { usePageEffects }  from '@/components/home/usePageEffects';
 import { Overlays }        from '@/components/Overlays';

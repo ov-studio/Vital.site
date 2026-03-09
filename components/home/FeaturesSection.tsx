@@ -1,5 +1,6 @@
 import { FEATURE_GROUPS } from '@/configs/homeData';
 import { ArrowRight, FeatureCard } from './atoms';
+import './FeaturesSection.css';
 
 export function FeaturesSection() {
   return (

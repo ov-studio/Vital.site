@@ -1,0 +1,53 @@
+#vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, hsla(250, 30%, 1.5%, .75) 100%)
+}
+
+#cur {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%)
+}
+
+#cur-inner {
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+  transition: transform .15s
+}
+
+#cur-outer {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--b30);
+  border-radius: 50%;
+  transition: width .2s, height .2s, border-color .2s
+}
+
+body:has(a:hover) #cur-outer,
+body:has(button:hover) #cur-outer {
+  width: 52px;
+  height: 52px;
+  border-color: var(--blue)
+}
+
+body:has(a:hover) #cur-inner { transform: scale(1.6) }
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media(max-width:960px) {
+  #cur, #cur-outer { display: none }
+  body { cursor: auto }
+}

@@ -1,0 +1,66 @@
+.announce-bar {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 499;
+  background: hsla(220, 95%, 68%, .18);
+  border-bottom: 1px solid hsla(220, 95%, 76%, .12);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 48px
+}
+
+.announce-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px hsla(220, 95%, 76%, .6);
+  animation: announcePulse 2.5s ease-in-out infinite
+}
+
+@keyframes announcePulse {
+  0%, 100% { opacity: 1 }
+  50%       { opacity: .4 }
+}
+
+.announce-text {
+  font-family: 'Geist', sans-serif;
+  font-size: .8rem;
+  font-weight: 400;
+  color: hsla(220, 60%, 88%, .75);
+  letter-spacing: .02em
+}
+
+.announce-link {
+  font-family: 'Geist', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  transition: opacity .2s;
+  opacity: .85
+}
+
+.announce-link:hover { opacity: 1 }
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media(max-width:960px) {
+  .announce-bar  { padding: 10px 24px; gap: 10px }
+  .announce-text { display: none }
+}
+
+@media(max-width:640px) {
+  .announce-bar { padding: 10px 20px }
+}

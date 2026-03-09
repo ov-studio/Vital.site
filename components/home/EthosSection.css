@@ -1,0 +1,81 @@
+#ethos {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid var(--rule)
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule)
+}
+
+.why-card {
+  background: var(--bg);
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background .25s
+}
+
+.why-card:hover { background: var(--bg2) }
+
+.why-ico {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  margin-bottom: 20px;
+  transition: border-color .3s
+}
+
+.why-card:hover .why-ico { border-color: var(--b30) }
+
+.why-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin-bottom: 10px;
+  color: var(--w)
+}
+
+.why-card p {
+  font-size: .87rem;
+  color: hsl(220, 10%, 68%);
+  line-height: 1.75;
+  font-weight: 400
+}
+
+.why-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease
+}
+
+.why-card:hover::after { transform: scaleX(1) }
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media(max-width:960px) {
+  .why-grid { grid-template-columns: 1fr 1fr }
+  .why-card { padding: 28px 22px }
+}
+
+@media(max-width:640px) {
+  .why-grid { grid-template-columns: 1fr }
+  .why-card { padding: 24px 20px }
+}
