@@ -30,7 +30,7 @@ type FooterCol = {
 const NAV_LINKS = [
   { label: 'Features', href: '#features' },
   { label: 'API', href: '#api' },
-  { label: 'Compare', href: '#compare' },
+  { label: 'Ethos', href: '#ethos' },
   { label: 'Docs', href: '/docs' },
 ];
 
@@ -340,7 +340,7 @@ function ApiSection() {
 
 function WhySection() {
   return (
-    <section id="compare" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: '1px solid var(--rule)' }}>
+    <section id="ethos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: '1px solid var(--rule)' }}>
       <div className="sw" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
         <div className="slabel rev">Why vital.sandbox</div>
         <h2 className="rev" style={{ marginBottom: '56px' }}>No bloat. No strings.<br /><span>Just power.</span></h2>
