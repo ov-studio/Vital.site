@@ -61,22 +61,22 @@ local status = engine.draw_text(
 ### Examples
 
 ```lua
-local fontface = font.create("fonts/Roboto-Regular.ttf")
+local my_font = font.create("fonts/Roboto-Regular.ttf")
 
 network:fetch("vital.sandbox:draw", true):on(function()
     --Draw simple text
-    engine.draw_text("Hello World", {100, 100}, {400, 150}, fontface, 24)
+    engine.draw_text("Hello World", {100, 100}, {400, 150}, my_font, 24)
 
     --Draw centered text with a custom color
-    engine.draw_text("Centered", {100, 100}, {500, 200}, fontface, 32, {1, 1, 0, 1}, {"center", "center"})
+    engine.draw_text("Centered", {100, 100}, {500, 200}, my_font, 32, {1, 1, 0, 1}, {"center", "center"})
 
     --Draw word-wrapped text clipped to its box
-    engine.draw_text("This is a long string that will wrap.", {50, 50}, {300, 300}, fontface, 18, {1, 1, 1, 1}, {"left", "top"}, true, true)
+    engine.draw_text("This is a long string that will wrap.", {50, 50}, {300, 300}, my_font, 18, {1, 1, 1, 1}, {"left", "top"}, true, true)
 
     --Draw text with an outline
-    engine.draw_text("Outlined", {100, 100}, {400, 160}, fontface, 28, {1, 1, 1, 1}, {"center", "center"}, false, false, 2, {0, 0, 0, 1})
+    engine.draw_text("Outlined", {100, 100}, {400, 160}, my_font, 28, {1, 1, 1, 1}, {"center", "center"}, false, false, 2, {0, 0, 0, 1})
 
     --Draw rotated text
-    engine.draw_text("Rotated", {200, 200}, {400, 250}, fontface, 20, {1, 1, 1, 1}, {"left", "top"}, false, false, 0, {1, 1, 1, 1}, math.pi/6, {0, 0})
+    engine.draw_text("Rotated", {200, 200}, {400, 250}, my_font, 20, {1, 1, 1, 1}, {"left", "top"}, false, false, 0, {1, 1, 1, 1}, math.pi/6, {0, 0})
 end)
 ```
