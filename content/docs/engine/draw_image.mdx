@@ -46,6 +46,10 @@ local status = engine.draw_image(
 ### Examples
 
 ```lua
+local my_texture = texture.create("assets/logo.png")
+local my_svg = svg.create("assets/icon.svg")
+local my_rt = rendertarget.create(1920, 1080)
+
 network:fetch("vital.sandbox:draw", true):on(function()
     --Draw an image from a file path
     engine.draw_image({0, 0}, {256, 256}, "assets/logo.png")
@@ -56,10 +60,13 @@ network:fetch("vital.sandbox:draw", true):on(function()
     --Draw a rotated image around its center
     engine.draw_image({100, 100}, {128, 128}, "assets/arrow.png", math.pi/2, {64, 64})
 
-    --Draw from a Texture userdata
+    --Draw from a texture instance
     engine.draw_image({0, 0}, {512, 512}, my_texture)
 
-    --Draw from a Rendertarget
-    engine.draw_image({0, 0}, {1920, 1080}, my_rendertarget)
+    --Draw from an svg instance
+    engine.draw_image({0, 0}, {256, 256}, my_svg)
+
+    --Draw from a rendertarget instance
+    engine.draw_image({0, 0}, {1920, 1080}, my_rt)
 end)
 ```
