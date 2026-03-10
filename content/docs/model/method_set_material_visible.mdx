@@ -1,0 +1,43 @@
+---
+title: self:set_material_visible
+description: Sets the visibility of a specific material on a component
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_material_visible(component, material, state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component containing the material |
+| `string` | material | Name of the material to toggle |
+| `bool` | state | Determines the visibility state:<br/>• When `true` - restores the material to its original appearance<br/>• When `false` - replaces the material with a fully transparent override |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local entity = model.create("character")
+
+--Hide a material
+entity:set_material_visible("Skeleton3D/Head", "eyelash_style_1_material", false)
+
+--Show it again
+entity:set_material_visible("Skeleton3D/Head", "eyelash_style_1_material", true)
+
+--Toggle based on current state
+local visible = entity:is_material_visible("Skeleton3D/Head", "eyelash_style_2_material")
+entity:set_material_visible("Skeleton3D/Head", "eyelash_style_2_material", not visible)
+```

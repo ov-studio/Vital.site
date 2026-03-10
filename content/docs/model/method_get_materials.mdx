@@ -1,0 +1,36 @@
+---
+title: self:get_materials
+description: Retrieves a list of all material names on a specific component
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local materials = self:get_materials(component)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to retrieve materials from |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | materials | Array of material name strings |
+
+<hr/>
+
+### Examples
+
+```lua
+local entity = model.create("character")
+local materials = entity:get_materials("Skeleton3D/Head")
+
+for i = 1, #materials do
+    engine.print("info", materials[i])
+end
+```

@@ -1,0 +1,34 @@
+---
+title: self:is_material_visible
+description: Retrieves whether a specific material on a component is currently visible
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_material_visible(component, material)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component containing the material |
+| `string` | material | Name of the material to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the material is visible, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local entity = model.create("character")
+
+engine.print("info", "Eyelash visible:", entity:is_material_visible("Skeleton3D/Head", "eyelash_style_1_material"))
+```
