@@ -1,0 +1,16 @@
+{
+    "title": "Font",
+    "icon": "Type",
+    "pages": [
+        "create",
+        "...",
+        "---Method---",
+        "method_is_type",
+        "method_get_type",
+        "method_destroy",
+        "method_set_antialiasing",
+        "method_get_antialiasing",
+        "method_set_oversampling",
+        "method_get_oversampling"
+    ]
+}

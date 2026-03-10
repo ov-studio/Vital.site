@@ -12,6 +12,7 @@
         "model",
         "webview",
         "discord",
+        "font",
         "texture",
         "svg",
         "rendertarget",

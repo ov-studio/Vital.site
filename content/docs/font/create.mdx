@@ -1,0 +1,33 @@
+---
+title: font.create
+description: Creates a new font instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = font.create(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Path to the font file relative to the resource directory |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `font` | instance | Created font instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local fontface = font.create("fonts/Roboto-Regular.ttf")
+
+engine.print("info", fontface:get_type()) --"font"
+```

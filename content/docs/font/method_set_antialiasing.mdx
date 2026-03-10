@@ -1,0 +1,34 @@
+---
+title: self:set_antialiasing
+description: Sets the antialiasing state of the font
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_antialiasing(enabled)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | enabled | Determines the antialiasing state:<br/>• When `true` - enables grayscale antialiasing for smoother glyph edges<br/>• When `false` - disables antialiasing, rendering glyphs as 1-bit bitmaps |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local fontface = font.create("fonts/Roboto-Regular.ttf")
+
+--Enable antialiasing
+fontface:set_antialiasing(true)
+```

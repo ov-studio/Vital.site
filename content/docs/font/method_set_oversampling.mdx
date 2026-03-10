@@ -1,0 +1,34 @@
+---
+title: self:set_oversampling
+description: Sets the oversampling factor of the font
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_oversampling(oversampling)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | oversampling | Oversampling factor for the font. A value of `1.0` is the default with no oversampling. Higher values improve sharpness when the font is scaled or transformed at the cost of memory |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local fontface = font.create("fonts/Roboto-Regular.ttf")
+
+--Customize oversampling
+fontface:set_oversampling(2.0)
+```

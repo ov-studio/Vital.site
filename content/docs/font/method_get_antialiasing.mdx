@@ -1,0 +1,32 @@
+---
+title: self:get_antialiasing
+description: Retrieves the antialiasing state of the font
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_antialiasing()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if antialiasing is enabled, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local fontface = font.create("fonts/Roboto-Regular.ttf")
+
+engine.print("info", "Font antialiasing:", fontface:get_antialiasing())
+```

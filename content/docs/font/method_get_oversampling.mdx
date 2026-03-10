@@ -1,0 +1,32 @@
+---
+title: self:get_oversampling
+description: Retrieves the oversampling factor of the font
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_oversampling()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current oversampling factor of the font |
+
+<hr/>
+
+### Examples
+
+```lua
+local fontface = font.create("fonts/Roboto-Regular.ttf")
+
+engine.print("info", "Font oversampling:", fontface:get_oversampling())
+```
