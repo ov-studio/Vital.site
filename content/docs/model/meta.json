@@ -28,8 +28,8 @@
         "method_stop_animation",
         "method_pause_animation",
         "method_resume_animation",
-        "method_get_blend_shapes",
-        "method_set_blend_shape_value",
-        "method_get_blend_shape_value"
+        "method_get_blendshapes",
+        "method_set_blendshape_value",
+        "method_get_blendshape_value"
     ]
 }

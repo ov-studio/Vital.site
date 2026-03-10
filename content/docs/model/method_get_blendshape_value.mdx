@@ -1,5 +1,5 @@
 ---
-title: self:get_blend_shape_value
+title: self:get_blendshape_value
 description: Retrieves the current value of a blend shape on a specific component
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local value = self:get_blend_shape_value(component, blend_shape)
+local value = self:get_blendshape_value(component, blendshape)
 ```
 
 ### Parameters
@@ -15,7 +15,7 @@ local value = self:get_blend_shape_value(component, blend_shape)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | component | Path of the component containing the blend shape |
-| `string` | blend_shape | Name of the blend shape to retrieve |
+| `string` | blendshape | Name of the blend shape to retrieve |
 
 ### Returns
 
@@ -30,5 +30,5 @@ local value = self:get_blend_shape_value(component, blend_shape)
 ```lua
 local entity = model.create("character")
 
-engine.print("info", "Blend shape value:", entity:get_blend_shape_value("Skeleton3D/Torso_vest_", "Smile"))
+engine.print("info", "Blend shape value:", entity:get_blendshape_value("Skeleton3D/Torso_vest_", "Smile"))
 ```

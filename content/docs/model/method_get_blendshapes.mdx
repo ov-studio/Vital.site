@@ -1,5 +1,5 @@
 ---
-title: self:get_blend_shapes
+title: self:get_blendshapes
 description: Retrieves a list of all blend shapes available on a specific component
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local blend_shapes = self:get_blend_shapes(component)
+local blendshapes = self:get_blendshapes(component)
 ```
 
 ### Parameters
@@ -20,7 +20,7 @@ local blend_shapes = self:get_blend_shapes(component)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | blend_shapes | Array of blend shape name strings |
+| `table` | blendshapes | Array of blend shape name strings |
 
 <hr/>
 
@@ -28,9 +28,9 @@ local blend_shapes = self:get_blend_shapes(component)
 
 ```lua
 local entity = model.create("character")
-local blend_shapes = entity:get_blend_shapes("Skeleton3D/Torso_vest_")
+local blendshapes = entity:get_blendshapes("Skeleton3D/Torso_vest_")
 
-for i = 1, #blend_shapes do
-    engine.print("info", blend_shapes[i])
+for i = 1, #blendshapes do
+    engine.print("info", blendshapes[i])
 end
 ```

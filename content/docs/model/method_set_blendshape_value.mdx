@@ -1,5 +1,5 @@
 ---
-title: self:set_blend_shape_value
+title: self:set_blendshape_value
 description: Sets the value of a blend shape on a specific component of the model
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = self:set_blend_shape_value(component, blend_shape, value)
+local status = self:set_blendshape_value(component, blendshape, value)
 ```
 
 ### Parameters
@@ -15,7 +15,7 @@ local status = self:set_blend_shape_value(component, blend_shape, value)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | component | Path of the component containing the blend shape |
-| `string` | blend_shape | Name of the blend shape to update |
+| `string` | blendshape | Name of the blend shape to update |
 | `float` | value | Value to apply to the blend shape |
 
 ### Returns
@@ -31,5 +31,5 @@ local status = self:set_blend_shape_value(component, blend_shape, value)
 ```lua
 local entity = model.create("character")
 
-entity:set_blend_shape_value("Skeleton3D/Torso_vest_", "Smile", 1.0)
+entity:set_blendshape_value("Skeleton3D/Torso_vest_", "Smile", 1.0)
 ```
