@@ -13,14 +13,14 @@
         "method_sync",
         "method_table",
         "---Query---",
+        "method_drop",
+        "method_truncate",
+        "method_fetch",
+        "method_execute",
         "method_select",
         "method_where",
-        "method_fetch",
         "method_insert",
         "method_update",
-        "method_delete",
-        "method_execute",
-        "method_truncate",
-        "method_drop"
+        "method_delete"
     ]
 }
