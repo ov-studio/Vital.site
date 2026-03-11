@@ -1,0 +1,32 @@
+---
+title: self:drop
+description: Drops the table from the database and removes it from the schema
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:drop()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:table("players"):drop()
+```

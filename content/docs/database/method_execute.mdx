@@ -1,0 +1,39 @@
+---
+title: self:execute
+description: Executes a prepared INSERT, UPDATE or DELETE query
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:execute()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+--Insert
+db:table("players"):insert({ name = "aviril", score = 0 }):execute()
+
+--Update
+db:table("players"):update({ score = 500 }):where("name", "=", "aviril"):execute()
+
+--Delete
+db:table("players"):delete():where("name", "=", "aviril"):execute()
+```

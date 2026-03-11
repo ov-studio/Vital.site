@@ -1,0 +1,32 @@
+---
+title: self:is_connected
+description: Checks whether the database instance has an active connection
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = self:is_connected()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the connection is active, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+engine.print("info", db:is_connected()) --true
+```

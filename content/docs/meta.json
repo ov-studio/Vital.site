@@ -11,6 +11,7 @@
         "engine",
         "model",
         "webview",
+        "database",
         "discord",
         "font",
         "texture",

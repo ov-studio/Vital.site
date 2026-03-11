@@ -1,0 +1,37 @@
+---
+title: database.create
+description: Creates a new database instance and establishes a MySQL connection
+badge: Server
+---
+
+### Syntax
+
+```lua
+local instance = database.create(host, user, password, database, port = 3306)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | host | Hostname or IP address of the MySQL server |
+| `string` | user | MySQL user to authenticate as |
+| `string` | password | Password for the MySQL user. Pass an empty string `""` if no password is set |
+| `string` | database | Name of the database to connect to |
+| `int` | port | Port the MySQL server is listening on |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database` | instance | Created database instance |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+local db = database.create("127.0.0.1", "root", "secret", "vital_sandbox", 3307)
+```

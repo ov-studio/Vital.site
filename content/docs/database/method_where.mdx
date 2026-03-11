@@ -1,0 +1,39 @@
+---
+title: self:where
+description: Adds a filter condition to the query
+badge: Server
+---
+
+### Syntax
+
+```lua
+local query = self:where(column, operator, value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | column | Name of the column to filter on |
+| `string` | operator | Comparison operator. Accepted values: `"="`, `"!="`, `">"`, `"<"`, `">="`, `"<="` |
+| `string` / `number` | value | Value to compare against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database_query` | query | The same query builder instance for chaining |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+--Fetch players with score above 100
+local rows = db:table("players"):select("id", "name", "score"):where("score", ">", 100):fetch()
+
+--Update a specific player
+db:table("players"):update({ score = 500 }):where("name", "=", "aviril"):execute()
+```

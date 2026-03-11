@@ -1,0 +1,33 @@
+---
+title: self:table
+description: Creates a query builder targeting the specified table
+badge: Server
+---
+
+### Syntax
+
+```lua
+local query = self:table(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the table to target. Must have been previously registered via `self:define` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database_query` | query | Query builder instance scoped to the given table |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+local query = db:table("players")
+```

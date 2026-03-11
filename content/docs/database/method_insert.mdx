@@ -1,0 +1,33 @@
+---
+title: self:insert
+description: Prepares an INSERT query with the given column values
+badge: Server
+---
+
+### Syntax
+
+```lua
+local query = self:insert(data)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | data | Map of column names to the values to insert. Values can be `string` or `number` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database_query` | query | The same query builder instance for chaining. Call `:execute()` to run |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:table("players"):insert({ name = "aviril", score = 0 }):execute()
+```

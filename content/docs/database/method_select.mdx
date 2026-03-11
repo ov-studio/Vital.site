@@ -1,0 +1,37 @@
+---
+title: self:select
+description: Specifies which columns to retrieve in a fetch query
+badge: Server
+---
+
+### Syntax
+
+```lua
+local query = self:select(...)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | ... | One or more column names to include in the result. If omitted, all columns are returned (`*`) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database_query` | query | The same query builder instance for chaining |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+--Select specific columns
+local rows = db:table("players"):select("id", "name", "score"):fetch()
+
+--Select all columns
+local rows = db:table("players"):fetch()
+```

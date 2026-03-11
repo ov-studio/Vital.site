@@ -1,0 +1,36 @@
+---
+title: self:fetch
+description: Executes a SELECT query and returns the matching rows
+badge: Server
+---
+
+### Syntax
+
+```lua
+local rows = self:fetch()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | rows | Array of rows<br/>Each row is a table mapping column names to their native values — `string`, `number`, or `nil` |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+local rows = db:table("players"):select("id", "name", "score"):where("score", ">", 100):fetch()
+
+for i = 1, #rows do
+    engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+end
+```

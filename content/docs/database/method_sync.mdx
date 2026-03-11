@@ -1,0 +1,38 @@
+---
+title: self:sync
+description: Synchronises all defined table schemas with the database, creating any tables that do not already exist
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:sync()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:define("players", {
+    id    = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
+    name  = { type = "VARCHAR(64)",  nullable = false },
+    score = { type = "INT",          nullable = true },
+})
+
+db:sync()
+```

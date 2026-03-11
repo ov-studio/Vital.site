@@ -1,0 +1,32 @@
+---
+title: self:truncate
+description: Removes all rows from the table and resets AUTO_INCREMENT counters
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:truncate()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:table("players"):truncate()
+```

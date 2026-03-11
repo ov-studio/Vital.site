@@ -1,0 +1,38 @@
+---
+title: self:define
+description: Defines the schema for a table, registering it for use with the database instance
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:define(table, columns)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | table | Name of the table to define |
+| `table` | columns | Map of column names to their definitions. Each definition is a table with the following fields:<br/>• `type` `string` — SQL column type e.g. `"INT"`, `"VARCHAR(64)"`. Defaults to `"VARCHAR(255)"` if omitted<br/>• `primary` `bool` — Whether this column is the primary key. Defaults to `false`<br/>• `autoincrement` `bool` — Whether this column auto-increments. Defaults to `false`<br/>• `nullable` `bool` — Whether this column allows `NULL`. Defaults to `true` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:define("players", {
+    id    = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
+    name  = { type = "VARCHAR(64)",  nullable = false },
+    score = { type = "INT",          nullable = true },
+})
+```

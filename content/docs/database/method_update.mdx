@@ -1,0 +1,33 @@
+---
+title: self:update
+description: Prepares an UPDATE query with the given column values
+badge: Server
+---
+
+### Syntax
+
+```lua
+local query = self:update(data)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | data | Map of column names to their new values. Values can be `string` or `number` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database_query` | query | The same query builder instance for chaining. Use `:where()` to filter affected rows, then `:execute()` to run |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:table("players"):update({ score = 500 }):where("name", "=", "aviril"):execute()
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Returns the type name of the instance
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` / `bool` | result | Type of the instance, or `false` if unavailable |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+engine.print("info", db:get_type()) --"database"
+```

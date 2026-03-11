@@ -1,0 +1,32 @@
+---
+title: self:delete
+description: Prepares a DELETE query
+badge: Server
+---
+
+### Syntax
+
+```lua
+local query = self:delete()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `database_query` | query | The same query builder instance for chaining. Use `:where()` to filter affected rows, then `:execute()` to run |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+db:table("players"):delete():where("name", "=", "aviril"):execute()
+```

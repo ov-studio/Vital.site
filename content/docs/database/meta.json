@@ -1,0 +1,26 @@
+{
+    "title": "Database",
+    "icon": "Database",
+    "pages": [
+        "create",
+        "...",
+        "---Method---",
+        "method_is_type",
+        "method_get_type",
+        "method_destroy",
+        "method_is_connected",
+        "method_define",
+        "method_sync",
+        "method_table",
+        "---Query---",
+        "method_select",
+        "method_where",
+        "method_fetch",
+        "method_insert",
+        "method_update",
+        "method_delete",
+        "method_execute",
+        "method_truncate",
+        "method_drop"
+    ]
+}
