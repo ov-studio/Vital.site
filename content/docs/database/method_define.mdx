@@ -21,7 +21,18 @@ local status = self:define(table, columns)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | table | Name of the table to be defined |
-| `table` | columns | Map of column names to their definitions. Each definition is a table with the following fields:<br/>• `type` `string` — SQL column type e.g. `"INT"`, `"VARCHAR(64)"`. Defaults to `"VARCHAR(255)"` if omitted<br/>• `primary` `bool` — Whether this column is the primary key. Defaults to `false`<br/>• `autoincrement` `bool` — Whether this column auto-increments. Defaults to `false`<br/>• `nullable` `bool` — Whether this column allows `NULL`. Defaults to `true` |
+| `table` | columns | Map of column names to their column definition. See **Column Definition** below |
+
+### Column Definition
+
+Each entry in the `columns` table is a key-value pair where the key is the column name and the value is a definition table with the following fields:
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `type` | `string` | `"VARCHAR(255)"` | SQL column type. Accepts any valid MySQL type, common types include:<br/>• `"INT"` / `"INT UNSIGNED"` / `"BIGINT"`<br/>• `"FLOAT"` / `"DOUBLE"`<br/>• `"BOOLEAN"`<br/>• `"VARCHAR(n)"` / `"TEXT"`<br/>• `"DATETIME"` / `"TIMESTAMP"` |
+| `primary` | `bool` | `false` | Whether this column is the primary key |
+| `autoincrement` | `bool` | `false` | Whether this column auto-increments. Typically used alongside `"INT UNSIGNED"` primary keys |
+| `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
 
 ### Returns
 
@@ -33,15 +44,16 @@ local status = self:define(table, columns)
 
 ### Examples
 ```lua
+-- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Define the players table schema
+-- Define the players table schema
 db:define("players", {
-    id = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
-    name = { type = "VARCHAR(64)", nullable = false },
+    id    = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
+    name  = { type = "VARCHAR(64)", nullable = false },
     score = { type = "INT", nullable = true }
 })
 
---Sync all defined schemas to the database
+-- Sync all defined schemas to the database
 db:sync()
 ```
