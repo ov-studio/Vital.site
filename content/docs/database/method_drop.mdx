@@ -28,5 +28,6 @@ local status = self:drop()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
+--Drop the players table from the database
 db:table("players"):drop()
 ```
