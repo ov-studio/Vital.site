@@ -5,30 +5,36 @@ badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local query = self:table(name)
 ```
+
+<Callout type="warn">
+  **The target table must be previously defined and synced before calling this function.** See [`self:define`](/docs/database/define) and [`self:sync`](/docs/database/sync) to register and sync your schemas.
+
+  - **Registered and synced** — a query builder instance is returned scoped to the given table
+  - **Not registered** — the call will fail and return `false`
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | name | Name of the table to target<br/>Must have been previously registered via `self:define` |
+| `string` | name | Name of the table to target |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `database_query` | query | Query builder instance scoped to the given table |
+| `database_query` / `bool` | query | Query builder instance scoped to the given table |
 
 <hr/>
 
 ### Examples
-
 ```lua
+-- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Create a query builder targeting the players table
+-- Create a query builder targeting the players table
 local query = db:table("players")
 ```
