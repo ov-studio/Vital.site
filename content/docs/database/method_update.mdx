@@ -20,7 +20,7 @@ local query = self:update(data)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `database_query` | query | Query builder instance for chaining<br/>Use `:where()` to filter affected rows, then `:execute()` to run |
+| `database_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 <hr/>
 
