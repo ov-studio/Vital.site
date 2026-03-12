@@ -5,10 +5,16 @@ badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local status = self:define(table, columns)
 ```
+
+<Callout type="info">
+  **Defining a schema does not create the table in the database.** Call [`self:sync`](/docs/database/sync) after all schemas have been defined to synchronise and create any tables that do not already exist.
+
+  - **Before sync** — the schema is registered locally on the database instance only
+  - **After sync** — the table is created in the database if it does not already exist
+</Callout>
 
 ### Parameters
 
@@ -26,13 +32,16 @@ local status = self:define(table, columns)
 <hr/>
 
 ### Examples
-
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
+--Define the players table schema
 db:define("players", {
-    id    = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
-    name  = { type = "VARCHAR(64)", nullable = false },
+    id = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
+    name = { type = "VARCHAR(64)", nullable = false },
     score = { type = "INT", nullable = true }
 })
+
+--Sync all defined schemas to the database
+db:sync()
 ```
