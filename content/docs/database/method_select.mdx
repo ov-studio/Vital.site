@@ -1,5 +1,5 @@
 ---
-title: self:select
+title: db_query:select
 description: Specifies which columns to retrieve in a fetch query
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local query = self:select(...)
+local query = db_query:select(...)
 ```
 
 ### Parameters
@@ -20,7 +20,7 @@ local query = self:select(...)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `database_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
+| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 <hr/>
 

@@ -1,5 +1,5 @@
 ---
-title: self:insert
+title: db_query:insert
 description: Prepares an INSERT query with the given column values
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local query = self:insert(data)
+local query = db_query:insert(data)
 ```
 
 ### Parameters
@@ -20,7 +20,7 @@ local query = self:insert(data)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `database_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
+| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 <hr/>
 

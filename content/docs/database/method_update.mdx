@@ -1,5 +1,5 @@
 ---
-title: self:update
+title: db_query:update
 description: Prepares an UPDATE query with the given column values
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local query = self:update(data)
+local query = db_query:update(data)
 ```
 
 ### Parameters
@@ -20,7 +20,7 @@ local query = self:update(data)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `database_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
+| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 <hr/>
 

@@ -1,5 +1,5 @@
 ---
-title: self:delete
+title: db_query:delete
 description: Prepares a DELETE query
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local query = self:delete()
+local query = db_query:delete()
 ```
 
 ### Parameters
@@ -19,7 +19,7 @@ local query = self:delete()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `database_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
+| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 <hr/>
 
