@@ -1,15 +1,21 @@
 ---
 title: db_query:delete
-description: Prepares a DELETE query
+description: Appends a row deletion to the query
 badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local query = db_query:delete()
 ```
 
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/database/method/execute) at the end to commit the query to the database.
+
+  - **Without conditions** — omitting `:where` will delete all rows in the table
+  - **Chaining** — compatible with `:where` to target specific rows for deletion
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the deletion
+</Callout>
 ### Parameters
 
 | Type | Name | Description |
@@ -24,7 +30,6 @@ local query = db_query:delete()
 <hr/>
 
 ### Examples
-
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
