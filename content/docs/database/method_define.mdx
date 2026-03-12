@@ -48,8 +48,8 @@ local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 --Define the players table schema
 db:define("players", {
-    id    = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
-    name  = { type = "VARCHAR(64)", nullable = false },
+    id = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
+    name = { type = "VARCHAR(64)", nullable = false },
     score = { type = "INT", nullable = true }
 })
 
