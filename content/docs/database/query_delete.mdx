@@ -10,7 +10,7 @@ local query = db_query:delete()
 ```
 
 <Callout type="info">
-  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/database/method/execute) at the end to commit the query to the database.
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/database/query/execute) at the end to commit the query to the database.
 
   - **Chaining** — compatible with `:where` to target specific rows for deletion
   - **Multiple deletions** — chain multiple `:delete` calls to append additional row deletions
