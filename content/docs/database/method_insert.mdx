@@ -1,20 +1,26 @@
 ---
 title: db_query:insert
-description: Prepares an INSERT query with the given column values
+description: Prepares an INSERT query with the provided column values
 badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local query = db_query:insert(data)
 ```
+
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/database/method/execute) at the end to commit the query to the database.
+
+  - **Data map** — provide a table of column name to value pairs to insert as a new row
+  - **Chaining** — compatible with `:where` to conditionally apply the insert
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | data | Map of column names to the values to insert<br/>Values can be `string` or `number` |
+| `table` | data | Map of column names to the values to insert<br/>Accepted value types are `string` and `number` |
 
 ### Returns
 
@@ -25,11 +31,11 @@ local query = db_query:insert(data)
 <hr/>
 
 ### Examples
-
 ```lua
+-- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Insert a new player record
+-- Insert a new player record
 db:table("players")
     :insert({ name = "aviril", score = 0 })
     :execute()
