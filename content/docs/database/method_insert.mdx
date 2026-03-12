@@ -33,10 +33,9 @@ local query = db_query:insert(data)
 
 ### Examples
 ```lua
--- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
--- Insert a new player record
+--Insert a new player record
 db:table("players")
     :insert({ name = "aviril", score = 0 })
     :execute()
