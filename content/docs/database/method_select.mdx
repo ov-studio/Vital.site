@@ -1,20 +1,26 @@
 ---
 title: db_query:select
-description: Specifies which columns to retrieve in a fetch query
+description: Specifies the columns to retrieve when executing a fetch query
 badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local query = db_query:select(...)
 ```
+
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:fetch`](/docs/database/method/fetch) at the end to retrieve the results.
+
+  - **With columns** — only the specified columns are included in the result
+  - **Without columns** — all columns are returned, equivalent to `SELECT *`
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | ... | One or more column names to include in the result<br/>If omitted, all columns are returned (`*`) |
+| `string` | ... | One or more column names to retrieve from the table<br/>If omitted, all columns are returned |
 
 ### Returns
 
@@ -25,7 +31,6 @@ local query = db_query:select(...)
 <hr/>
 
 ### Examples
-
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
