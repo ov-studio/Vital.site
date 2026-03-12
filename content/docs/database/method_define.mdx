@@ -20,7 +20,7 @@ local status = self:define(table, columns)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | table | Name of the table to define |
+| `string` | table | Name of the table to be defined |
 | `table` | columns | Map of column names to their definitions. Each definition is a table with the following fields:<br/>• `type` `string` — SQL column type e.g. `"INT"`, `"VARCHAR(64)"`. Defaults to `"VARCHAR(255)"` if omitted<br/>• `primary` `bool` — Whether this column is the primary key. Defaults to `false`<br/>• `autoincrement` `bool` — Whether this column auto-increments. Defaults to `false`<br/>• `nullable` `bool` — Whether this column allows `NULL`. Defaults to `true` |
 
 ### Returns
