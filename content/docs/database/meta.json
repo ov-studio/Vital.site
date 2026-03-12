@@ -13,16 +13,16 @@
         "method_sync",
         "method_table",
         "---Query---",
-        "method_drop",
-        "method_truncate",
-        "method_alter",
-        "method_fetch",
-        "method_execute",
+        "query_drop",
+        "query_truncate",
+        "query_alter",
+        "query_fetch",
+        "query_execute",
         "---Query Builder---",
-        "method_select",
-        "method_where",
-        "method_insert",
-        "method_delete",
-        "method_update"
+        "query_select",
+        "query_where",
+        "query_insert",
+        "query_delete",
+        "query_update"
     ]
 }
