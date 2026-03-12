@@ -14,6 +14,7 @@ local query = db_query:select(...)
 
   - **Chaining** — compatible with `:where` to apply filters to the selection
   - **Multiple selections** — chain multiple `:select` calls to append additional columns to the selection
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters
   - **With columns** — only the specified columns are included in the result
   - **Without columns** — all columns are returned, equivalent to `SELECT *`
 </Callout>
@@ -22,7 +23,7 @@ local query = db_query:select(...)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | ... | One or more column names to retrieve from the table<br/>If omitted, all columns are returned |
+| `...` | ... | One or more column names to retrieve from the table<br/>If omitted, all columns are returned |
 
 ### Returns
 
