@@ -1,20 +1,28 @@
 ---
 title: db_query:update
-description: Prepares an UPDATE query with the given column values
+description: Appends a row update to the query
 badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local query = db_query:update(data)
 ```
+
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/database/method/execute) at the end to commit the query to the database.
+
+  - **Data** — accepts a key-value table where each key is a column name and each value is the new data to apply
+  - **Chaining** — compatible with `:where` to target specific rows for updating
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the update
+  - **Without conditions** — omitting `:where` will update all rows in the table
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | data | Map of column names to their new values<br/>Values can be `string` or `number` |
+| `table` | data | Map of column names to their new values<br/>Accepted value types are `string` and `number` |
 
 ### Returns
 
@@ -25,11 +33,11 @@ local query = db_query:update(data)
 <hr/>
 
 ### Examples
-
 ```lua
+-- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Update the score for a specific player
+-- Update the score for a specific player
 db:table("players")
     :update({ score = 500 })
     :where("name", "=", "aviril")
