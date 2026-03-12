@@ -29,5 +29,9 @@ local query = self:update(data)
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-db:table("players"):update({ score = 500 }):where("name", "=", "aviril"):execute()
+--Update the score for a specific player
+db:table("players")
+    :update({ score = 500 })
+    :where("name", "=", "aviril")
+    :execute()
 ```
