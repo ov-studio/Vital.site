@@ -9,8 +9,11 @@ export const source = loader({
   slugs(file) {
     const parts = file.path.replace(/\.mdx?$/, '').split('/');
     const last = parts[parts.length - 1];
-    const match = last.match(/^method_(.+)$/);
-    if (match) return [...parts.slice(0, -1), 'method', match[1]];
+    const match = last.match(/^([^_]+)_(.+)$/);
+    if (match) {
+      const [, prefix, name] = match;
+      return [...parts.slice(0, -1), prefix, name];
+    }
   },
 });
 
