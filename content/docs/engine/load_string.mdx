@@ -20,7 +20,7 @@ local result = engine.load_string(buffer, auto_load = true, use_env = false, env
 ### Returns
 | Type | Name | Description |
 |------|------|-------------|
-| `function` / `bool` | result | • When `auto_load` is `false` - returns the loaded function on success, or `false` on failure<br/>• When `auto_load` is `true` - returns `true` on successful execution, or `false` on failure |
+| `function` / `bool` | result | Value depends on the `auto_load` argument:<br/>• When `auto_load` is `false` — the loaded function on success, or `false` on failure<br/>• When `auto_load` is `true` — `true` on successful execution, or `false` on failure |
 
 <hr/>
 
