@@ -14,7 +14,7 @@ local query = db_query:update(data)
 
   - **Data** — accepts a key-value table where each key is a column name and each value is the new data to apply
   - **Chaining** — compatible with `:where` to target specific rows for updating
-  - **Multiple updates** — chain multiple `:update` calls to append additional column updates to the same query
+  - **Multiple updates** — chain multiple `:update` calls to append additional column updates
   - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the update
   - **Without conditions** — omitting `:where` will update all rows in the table
 </Callout>
