@@ -31,9 +31,15 @@ local query = self:where(column, operator, value)
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Fetch players with score above 100
-local rows = db:table("players"):select("id", "name", "score"):where("score", ">", 100):fetch()
+--Fetch all players with a score greater than 100
+local rows = db:table("players")
+    :select("id", "name", "score")
+    :where("score", ">", 100)
+    :fetch()
 
---Update a specific player
-db:table("players"):update({ score = 500 }):where("name", "=", "aviril"):execute()
+--Update the score for a specific player
+db:table("players")
+    :update({ score = 500 })
+    :where("name", "=", "aviril")
+    :execute()
 ```
