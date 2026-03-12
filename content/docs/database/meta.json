@@ -17,6 +17,7 @@
         "method_truncate",
         "method_fetch",
         "method_execute",
+        "---Query Builder---",
         "method_select",
         "method_where",
         "method_insert",
