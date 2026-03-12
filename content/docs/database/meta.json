@@ -15,6 +15,7 @@
         "---Query---",
         "method_drop",
         "method_truncate",
+        "method_alter",
         "method_fetch",
         "method_execute",
         "---Query Builder---",

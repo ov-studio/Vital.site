@@ -1,0 +1,101 @@
+---
+title: db_query:alter
+description: Alters an existing table's schema by adding, modifying, or dropping columns
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = db_query:alter(actions)
+```
+
+<Callout type="warning">
+  **This operation executes immediately and cannot be rolled back.** Ensure data is migrated or backed up before modifying or dropping columns.
+
+  - **Modifying a column type** — existing data will be cast to the new type. Non-castable values may be truncated or cause an error depending on MySQL's strict mode setting
+  - **Dropping a column** — all data in that column is permanently deleted
+  - **Primary key** — cannot be changed via `modify`. Redefine the table schema and re-sync if a primary key change is needed
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | actions | Table describing the schema changes to apply — see **Actions** below |
+
+### Actions
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `add` | `table` | Map of column names to their column definitions to add to the table<br/>See **Column Definitions** below |
+| `modify` | `table` | Map of column names to their column definitions to modify on the table<br/>See **Column Definitions** below |
+| `drop` | `table` | Array of column name strings to drop from the table |
+
+### Column Definitions
+
+Each entry in the `columns` table is a key-value pair where the key is the column name and the value is a definition table with the following fields:
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `type` | `string` | `"VARCHAR(255)"` | SQL column type:<br/>• `"INT"` / `"INT UNSIGNED"` / `"BIGINT"`<br/>• `"FLOAT"` / `"DOUBLE"`<br/>• `"BOOLEAN"`<br/>• `"VARCHAR(n)"` / `"TEXT"`<br/>• `"DATETIME"` / `"TIMESTAMP"` |
+| `primary` | `bool` | `false` | Whether this column is the primary key |
+| `autoincrement` | `bool` | `false` | Whether this column auto-increments<br/>Typically used alongside `"INT UNSIGNED"` primary keys |
+| `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+--Add new columns to the players table
+db:table("players")
+    :alter({
+        add = {
+            age = { type = "INT UNSIGNED", nullable = false },
+            country = { type = "VARCHAR(64)", nullable = true }
+        }
+    })
+
+--Expand the name column and make score non-nullable
+db:table("players")
+    :alter({
+        modify = {
+            name = { type = "VARCHAR(128)", nullable = false },
+            score = { type = "INT", nullable = false }
+        }
+    })
+
+--Drop legacy columns from the players table
+db:table("players")
+    :alter({
+        drop = { "legacy_col1", "legacy_col2" }
+    })
+```
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+--Add, modify, and drop columns in one atomic operation
+db:table("players")
+    :alter({
+        add = {
+            age = { type = "INT UNSIGNED", nullable = false },
+            country = { type = "VARCHAR(64)", nullable = true }
+        },
+        modify = {
+            name = { type = "VARCHAR(128)", nullable = false },
+            score = { type = "INT", nullable = false }
+        },
+        drop = { "legacy_col1", "legacy_col2" }
+    })
+```
