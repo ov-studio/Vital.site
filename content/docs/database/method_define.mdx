@@ -29,9 +29,9 @@ Each entry in the `columns` table is a key-value pair where the key is the colum
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| `type` | `string` | `"VARCHAR(255)"` | SQL column type. Accepts any valid MySQL type, common types include:<br/>• `"INT"` / `"INT UNSIGNED"` / `"BIGINT"`<br/>• `"FLOAT"` / `"DOUBLE"`<br/>• `"BOOLEAN"`<br/>• `"VARCHAR(n)"` / `"TEXT"`<br/>• `"DATETIME"` / `"TIMESTAMP"` |
+| `type` | `string` | `"VARCHAR(255)"` | SQL column type:<br/>• `"INT"` / `"INT UNSIGNED"` / `"BIGINT"`<br/>• `"FLOAT"` / `"DOUBLE"`<br/>• `"BOOLEAN"`<br/>• `"VARCHAR(n)"` / `"TEXT"`<br/>• `"DATETIME"` / `"TIMESTAMP"` |
 | `primary` | `bool` | `false` | Whether this column is the primary key |
-| `autoincrement` | `bool` | `false` | Whether this column auto-increments. Typically used alongside `"INT UNSIGNED"` primary keys |
+| `autoincrement` | `bool` | `false` | Whether this column auto-increments<br/>Typically used alongside `"INT UNSIGNED"` primary keys |
 | `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
 
 ### Returns
@@ -44,16 +44,15 @@ Each entry in the `columns` table is a key-value pair where the key is the colum
 
 ### Examples
 ```lua
--- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
--- Define the players table schema
+--Define the players table schema
 db:define("players", {
     id    = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
     name  = { type = "VARCHAR(64)", nullable = false },
     score = { type = "INT", nullable = true }
 })
 
--- Sync all defined schemas to the database
+--Sync all defined schemas to the database
 db:sync()
 ```
