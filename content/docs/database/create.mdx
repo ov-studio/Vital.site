@@ -5,10 +5,16 @@ badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local instance = database.create(host, user, password, database, port = 3306)
 ```
+
+<Callout type="info">
+  **The `password` argument is always required.** See below for how to pass it depending on your setup.
+
+  - **With password** — pass the password as a string, e.g. `"secret"`
+  - **Without password** — pass `""` as the value
+</Callout>
 
 ### Parameters
 
@@ -16,7 +22,7 @@ local instance = database.create(host, user, password, database, port = 3306)
 |------|------|-------------|
 | `string` | host | Hostname or IP address of the MySQL server |
 | `string` | user | MySQL user to authenticate as |
-| `string` | password | Password for the MySQL user<br/>Pass an empty string `""` if no password is set |
+| `string` | password | Password for the MySQL user |
 | `string` | database | Name of the database to connect to |
 | `int` | port | Port the MySQL server is listening on |
 
@@ -29,7 +35,6 @@ local instance = database.create(host, user, password, database, port = 3306)
 <hr/>
 
 ### Examples
-
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
