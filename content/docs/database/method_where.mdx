@@ -12,8 +12,8 @@ local query = db_query:where(column, operator, value)
 <Callout type="info">
   **This function only prepares the query and does not execute it.** Chain [`db_query:fetch`](/docs/database/method/fetch) or [`db_query:execute`](/docs/database/method/execute) at the end to retrieve or commit the results.
 
-  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the same query
   - **Chaining** — compatible with `:select`, `:update`, and `:delete` query builders
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the same query
 </Callout>
 
 ### Parameters
