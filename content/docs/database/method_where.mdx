@@ -1,22 +1,28 @@
 ---
 title: db_query:where
-description: Adds a filter condition to the query
+description: Appends a filter condition to the query
 badge: Server
 ---
 
 ### Syntax
-
 ```lua
 local query = db_query:where(column, operator, value)
 ```
+
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:fetch`](/docs/database/method/fetch) or [`db_query:execute`](/docs/database/method/execute) at the end to retrieve or commit the results.
+
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the same query
+  - **Chaining** — compatible with `:select`, `:update`, and `:delete` query builders
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | column | Name of the column to filter on |
-| `string` | operator | Comparison operator<br/>Accepted values: `"="`, `"!="`, `">"`, `"<"`, `">="`, `"<="` |
-| `string` / `number` | value | Value to compare against |
+| `string` | operator | Comparison operator to apply — see **Filter Operators** below |
+| `string` / `number` | value | Value to compare the column against |
 
 ### Returns
 
@@ -24,10 +30,20 @@ local query = db_query:where(column, operator, value)
 |------|------|-------------|
 | `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
+### Filter Operators
+
+| Operator | Description |
+|----------|-------------|
+| `"="` | Equal to |
+| `"!="` | Not equal to |
+| `">"` | Greater than |
+| `"<"` | Less than |
+| `">="` | Greater than or equal to |
+| `"<="` | Less than or equal to |
+
 <hr/>
 
 ### Examples
-
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
