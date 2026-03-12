@@ -28,8 +28,10 @@ local rows = self:fetch()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
+--Fetch all players with a score greater than 100
 local rows = db:table("players"):select("id", "name", "score"):where("score", ">", 100):fetch()
 
+--Iterate over the results and print each row
 for i = 1, #rows do
     engine.print("info", rows[i].id, rows[i].name, rows[i].score)
 end
