@@ -13,6 +13,7 @@
         "method_sync",
         "method_table",
         "---Query---",
+        "query_destroy",
         "query_drop",
         "query_truncate",
         "query_alter",
