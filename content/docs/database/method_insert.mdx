@@ -29,5 +29,8 @@ local query = self:insert(data)
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-db:table("players"):insert({ name = "aviril", score = 0 }):execute()
+--Insert a new player record
+db:table("players")
+    :insert({ name = "aviril", score = 0 })
+    :execute()
 ```
