@@ -28,12 +28,12 @@ local status = self:execute()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Insert
+--Insert a new player record
 db:table("players"):insert({ name = "aviril", score = 0 }):execute()
 
---Update
+--Update the score for a specific player
 db:table("players"):update({ score = 500 }):where("name", "=", "aviril"):execute()
 
---Delete
+--Delete a specific player record
 db:table("players"):delete():where("name", "=", "aviril"):execute()
 ```
