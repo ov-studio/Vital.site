@@ -34,10 +34,9 @@ local query = db_query:update(data)
 
 ### Examples
 ```lua
--- Create a database connection
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
--- Update the score for a specific player
+--Update the score for a specific player
 db:table("players")
     :update({ score = 500 })
     :where("name", "=", "aviril")
