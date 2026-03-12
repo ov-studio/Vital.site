@@ -28,5 +28,9 @@ local query = self:delete()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-db:table("players"):delete():where("name", "=", "aviril"):execute()
+--Delete a specific player record
+db:table("players")
+    :delete()
+    :where("name", "=", "aviril")
+    :execute()
 ```
