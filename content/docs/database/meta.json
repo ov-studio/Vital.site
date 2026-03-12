@@ -20,7 +20,7 @@
         "method_select",
         "method_where",
         "method_insert",
-        "method_update",
-        "method_delete"
+        "method_delete",
+        "method_update"
     ]
 }
