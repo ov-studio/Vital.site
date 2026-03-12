@@ -1,0 +1,35 @@
+---
+title: db_query:is_type
+description: Checks whether the instance belongs to the specified type
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = db_query:is_type(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type to check against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local query = db:table("players")
+
+engine.print("info", db:is_type("db_query")) --true
+engine.print("info", db:is_type("database")) --false
+```

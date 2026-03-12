@@ -13,6 +13,7 @@
         "method_sync",
         "method_table",
         "---Query---",
+        "query_is_type",
         "query_get_type",
         "query_destroy",
         "query_drop",
