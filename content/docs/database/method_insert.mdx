@@ -13,9 +13,7 @@ local query = db_query:insert(data)
   **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/database/method/execute) at the end to commit the query to the database.
 
   - **Data** — accepts a key-value table where each key is a column name and each value is the data to insert
-  - **Chaining** — compatible with `:where` to conditionally apply the insert
   - **Multiple insertions** — chain multiple `:insert` calls to append additional row insertions
-  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the insertion
 </Callout>
 
 ### Parameters
