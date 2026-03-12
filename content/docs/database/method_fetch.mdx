@@ -1,6 +1,6 @@
 ---
 title: self:fetch
-description: Retrieves all rows matching the current query from the table
+description: Retrieves all rows matching the prepared query from the table
 badge: Server
 ---
 
@@ -20,6 +20,14 @@ local rows = self:fetch()
 | Type | Name | Description |
 |------|------|-------------|
 | `table` | rows | Array of matching rows, where each row is a table of column name to value pairs |
+
+### Query Builders
+
+| Builder | Description |
+|---------|-------------|
+| [`self:insert`](/docs/database/method/insert) | Inserts a new row into the table |
+| [`self:delete`](/docs/database/method/delete) | Deletes rows from the table |
+| [`self:update`](/docs/database/method/update) | Updates existing rows in the table |
 
 <hr/>
 
