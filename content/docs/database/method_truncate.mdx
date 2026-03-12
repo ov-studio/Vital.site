@@ -29,5 +29,6 @@ local status = self:truncate()
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 --Remove all rows from the players table
-db:table("players"):truncate()
+db:table("players")
+    :truncate()
 ```
