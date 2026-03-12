@@ -23,6 +23,12 @@ local status = self:define(table, columns)
 | `string` | table | Name of the table to be defined |
 | `table` | columns | Map of column names to their column definition<br/>See **Definitions** below |
 
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
 ### Definitions
 
 Each entry in the `columns` table is a key-value pair where the key is the column name and the value is a definition table with the following fields:
@@ -33,12 +39,6 @@ Each entry in the `columns` table is a key-value pair where the key is the colum
 | `primary` | `bool` | `false` | Whether this column is the primary key |
 | `autoincrement` | `bool` | `false` | Whether this column auto-increments<br/>Typically used alongside `"INT UNSIGNED"` primary keys |
 | `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
-
-### Returns
-
-| Type | Name | Description |
-|------|------|-------------|
-| `bool` | status | `true` on successful execution, or `false` on failure |
 
 <hr/>
 

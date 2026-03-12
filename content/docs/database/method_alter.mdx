@@ -24,6 +24,12 @@ local status = db_query:alter(actions)
 |------|------|-------------|
 | `table` | actions | Table describing the schema changes to apply<br/>See **Actions** below |
 
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
 ### Actions
 
 | Key | Type | Description |
@@ -42,13 +48,6 @@ Each entry in the `columns` table is a key-value pair where the key is the colum
 | `primary` | `bool` | `false` | Whether this column is the primary key |
 | `autoincrement` | `bool` | `false` | Whether this column auto-increments<br/>Typically used alongside `"INT UNSIGNED"` primary keys |
 | `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
-
-
-### Returns
-
-| Type | Name | Description |
-|------|------|-------------|
-| `bool` | status | `true` on successful execution, or `false` on failure |
 
 <hr/>
 
