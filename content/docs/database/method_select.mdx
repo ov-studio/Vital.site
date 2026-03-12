@@ -29,9 +29,12 @@ local query = self:select(...)
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Select specific columns
-local rows = db:table("players"):select("id", "name", "score"):fetch()
+--Fetch specific columns from the players table
+local rows = db:table("players")
+    :select("id", "name", "score")
+    :fetch()
 
---Select all columns
-local rows = db:table("players"):fetch()
+--Fetch all columns from the players table
+local rows = db:table("players")
+    :fetch()
 ```
