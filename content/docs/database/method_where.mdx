@@ -24,6 +24,12 @@ local query = db_query:where(column, operator, value)
 | `string` | operator | Comparison operator to apply<br/>See **Operators** below |
 | `string` / `number` | value | Value to compare the column against |
 
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
+
 ### Operators
 
 | Operator | Description |
@@ -34,12 +40,6 @@ local query = db_query:where(column, operator, value)
 | `"<"` | Less than |
 | `">="` | Greater than or equal to |
 | `"<="` | Less than or equal to |
-
-### Returns
-
-| Type | Name | Description |
-|------|------|-------------|
-| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 <hr/>
 
