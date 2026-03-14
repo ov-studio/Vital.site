@@ -1,6 +1,6 @@
 ---
 title: self:get_rotation
-description: Retrieves the current rotation of the model in 3D space
+description: Retrieves the current rotation of the model in 3D world-space
 badge: Shared
 ---
 
@@ -19,7 +19,7 @@ local rotation = self:get_rotation()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | rotation | Rotation of the model in 3D space as `{x, y, z}` (in radians) |
+| `vector3` | rotation | 3D world-space rotation of the model as `{x, y, z}` (in degrees) |
 
 <hr/>
 
