@@ -5,8 +5,8 @@
         "create",
         "...",
         "---Method---",
-        "method_is_type",
-        "method_get_type",
-        "method_destroy"
+        "method__is_type",
+        "method__get_type",
+        "method__destroy"
     ]
 }
