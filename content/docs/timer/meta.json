@@ -5,6 +5,6 @@
         "create",
         "...",
         "---Method---",
-        "method_destroy"
+        "method__destroy"
     ]
 }
