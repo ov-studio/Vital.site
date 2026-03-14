@@ -7,12 +7,12 @@
         "get_active",
         "...",
         "---Method---",
-        "method_is_type",
-        "method_get_type",
-        "method_destroy",
-        "method_get_size",
-        "method_is_active",
-        "method_get_active",
-        "method_set_active"
+        "method__is_type",
+        "method__get_type",
+        "method__destroy",
+        "method__get_size",
+        "method__is_active",
+        "method__get_active",
+        "method__set_active"
     ]
 }
