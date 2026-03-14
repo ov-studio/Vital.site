@@ -1,0 +1,40 @@
+---
+title: self:get_bone_position
+description: Retrieves the current position of a skeleton bone in 3D world-space
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local position = self:get_bone_position(bone)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | bone | Name of the bone to retrieve the position of |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | 3D world-space position of the bone as `{x, y, z}` |
+
+<hr/>
+
+### Examples
+
+```lua
+--Draw a marker at the bone's world position each frame
+local entity = model.create("character")
+
+network:fetch("vital.sandbox:draw", true):on(function()
+    local position = entity:get_bone_position("Head")
+    local screen, distance = engine.world_to_screen(position)
+    if screen[1] ~= -1 then
+        engine.draw_circle(screen, 5, {1, 0, 0, 1})
+    end
+end)
+```
