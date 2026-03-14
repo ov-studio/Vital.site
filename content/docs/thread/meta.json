@@ -8,11 +8,11 @@
         "get_thread",
         "...",
         "---Method---",
-        "method_destroy",
-        "method_status",
-        "method_resume",
-        "method_sleep",
-        "method_await",
-        "method_try"
+        "method__destroy",
+        "method__status",
+        "method__resume",
+        "method__sleep",
+        "method__await",
+        "method__try"
     ]
 }
