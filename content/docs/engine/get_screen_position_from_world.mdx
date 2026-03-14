@@ -33,11 +33,12 @@ local position, distance = engine.get_screen_position_from_world({0, 0, 0})
 
 --Draw a red rectangle at world origin with padding
 network:fetch("vital.sandbox:draw", true):on(function()
-    local position, distance = engine.get_screen_position_from_world({0, 0, 0}, 50)
+    local size = 10
+    local position, distance = engine.get_screen_position_from_world({0, 0, 0}, size*2)
     if position[1] ~= -1 then
         engine.draw_rectangle(
-            {position[1] - 5, position[2] - 5},
-            {10, 10},
+            {position[1] - size*0.5, position[2] - size*0.5},
+            {size, size},
             {1, 0, 0, 1}
         )
     end
