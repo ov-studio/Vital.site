@@ -36,8 +36,12 @@ local status = engine.print(type, ...)
 ### Examples
 
 ```lua
+local player_name = "Kivi"
+local mem_used, mem_total = 847, 1024
+local asset_path = "assets/models/Hat_01.fbx"
+
 engine.print("info", "Session started")
-engine.print("sbox", "Player joined:", player_name) 
+engine.print("sbox", "Player joined:", player_name)
 engine.print("warn", "Memory usage high:", mem_used, "/", mem_total)
 engine.print("error", "Failed to load asset:", asset_path)
 ```
