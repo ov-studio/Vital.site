@@ -22,7 +22,7 @@ local status = engine.print(type, ...)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | type | Log level: <br/>• `"sandbox"` - engine & runtime messages <br/>• `"info"` - general information <br/>• `"warn"` - non-critical warnings <br/>• `"error"` - errors and failures |
+| `string` | type | Log level: <br/>• `"sbox"` - engine & runtime messages <br/>• `"info"` - general information <br/>• `"warn"` - non-critical warnings <br/>• `"error"` - errors and failures |
 | `...` | ... | Values to print on console |
 
 ### Returns
@@ -39,5 +39,5 @@ local status = engine.print(type, ...)
 engine.print("info", "Session started")
 engine.print("warn", "Memory usage high:", mem_used, "/", mem_total)
 engine.print("error", "Failed to load asset:", asset_path)
-engine.print("sandbox", "Player joined:", player_name) 
+engine.print("sbox", "Player joined:", player_name) 
 ```
