@@ -6,9 +6,9 @@
         "create_from_raw",
         "...",
         "---Method---",
-        "method_is_type",
-        "method_get_type",
-        "method_destroy",
-        "method_update"
+        "method__is_type",
+        "method__get_type",
+        "method__destroy",
+        "method__update"
     ]
 }
