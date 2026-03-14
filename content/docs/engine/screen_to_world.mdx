@@ -1,0 +1,42 @@
+---
+title: engine.screen_to_world
+description: Projects a 2D screen position to 3D world coordinates via the active viewport camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local position = engine.screen_to_world(position, depth = 1)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | 2D screen pixel coordinates to convert to world coordinates |
+| `float` | depth | Distance in world units along the camera ray to retrieve the world position — defaults to `1.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | World-space position at the given depth behind the screen point — `{-1, -1, -1}` if no active camera |
+
+<hr/>
+
+### Examples
+
+```lua
+local position = engine.screen_to_world({960, 540}, 100)
+engine.print("info", position[1], position[2], position[3])
+```
+
+```lua
+--Retrieve the world position under the center of the screen at varying depths
+local near = engine.screen_to_world({960, 540}, 10)
+local far  = engine.screen_to_world({960, 540}, 500)
+
+engine.print("info", "Near:", near[1], near[2], near[3])
+engine.print("info", "Far:",  far[1],  far[2],  far[3])
+```
