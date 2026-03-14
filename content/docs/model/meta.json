@@ -27,6 +27,7 @@
         "method_set_material_visible",
         "method_set_blendshape_value",
         "method_get_blendshape_value",
+        "method_get_bone_position",
         "method_set_animation_speed",
         "method_get_animation_speed",
         "method_is_animation_playing",
