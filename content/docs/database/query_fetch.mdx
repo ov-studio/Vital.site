@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local rows = db_query:fetch()
+local rows = db_query:fetch(count = 0)
 ```
 
 ### Parameters
@@ -33,6 +33,12 @@ local rows = db:table("players")
     :select("id", "name", "score")
     :where("score", ">", 100)
     :fetch()
+
+--Fetch only the top 5 players with a score greater than 100
+local top5 = db:table("players")
+    :select("id", "name", "score")
+    :where("score", ">", 100)
+    :fetch(5)
 
 --Iterate over the results and print each row
 for i = 1, #rows do
