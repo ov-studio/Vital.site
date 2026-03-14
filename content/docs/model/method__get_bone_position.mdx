@@ -27,11 +27,19 @@ local position = self:get_bone_position(bone)
 ### Examples
 
 ```lua
---Draw a marker at the bone's world position each frame
 local entity = model.create("character")
+local position = entity:get_bone_position("Head")
+
+engine.print("info", "Bone position:", position[1], position[2], position[3])
+```
+
+```lua
+--Draw a marker at head bone's world position
+local entity = model.create("character")
+local bone = "Head"
 
 network:fetch("vital.sandbox:draw", true):on(function()
-    local position = entity:get_bone_position("Head")
+    local position = entity:get_bone_position(bone)
     local screen, distance = engine.world_to_screen(position)
     if screen[1] ~= -1 then
         engine.draw_circle(screen, 5, {1, 0, 0, 1})
