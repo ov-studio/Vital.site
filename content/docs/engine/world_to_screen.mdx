@@ -29,9 +29,9 @@ local position, distance = engine.world_to_screen(position, padding = 0)
 ### Examples
 
 ```lua
+--Draw a red rectangle at world origin with padding
 local position, distance = engine.world_to_screen({0, 0, 0})
 
---Draw a red rectangle at world origin with padding
 network:fetch("vital.sandbox:draw", true):on(function()
     local size = 10
     local position, distance = engine.world_to_screen({0, 0, 0}, size*2)
