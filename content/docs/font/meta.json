@@ -5,12 +5,12 @@
         "create",
         "...",
         "---Method---",
-        "method_is_type",
-        "method_get_type",
-        "method_destroy",
-        "method_set_antialiasing",
-        "method_get_antialiasing",
-        "method_set_oversampling",
-        "method_get_oversampling"
+        "method__is_type",
+        "method__get_type",
+        "method__destroy",
+        "method__set_antialiasing",
+        "method__get_antialiasing",
+        "method__set_oversampling",
+        "method__get_oversampling"
     ]
 }
