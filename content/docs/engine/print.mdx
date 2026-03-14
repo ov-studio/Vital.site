@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = engine.print(...)
+local status = engine.print(type, ...)
 ```
 
 <Callout type="idea">
@@ -36,5 +36,8 @@ local status = engine.print(...)
 ### Examples
 
 ```lua
-engine.print("info", "Hello", "World", 123) --Hello World 123
+engine.print("info", "Session started")
+engine.print("warn", "Memory usage high:", mem_used, "/", mem_total)
+engine.print("error", "Failed to load asset:", asset_path)
+engine.print("sandbox", "Player joined:", player_name) 
 ```
