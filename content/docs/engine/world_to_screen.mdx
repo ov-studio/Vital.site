@@ -1,6 +1,6 @@
 ---
 title: engine.world_to_screen
-description: Projects a 3D world position to 2D screen coordinates via the active viewport camera
+description: Projects a 3D world position to 2D screen-space coordinates via the active viewport camera
 badge: Client
 ---
 
@@ -14,14 +14,14 @@ local position, distance = engine.world_to_screen(position, padding = 0)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | 3D world position to convert to screen coordinates |
+| `vector3` | position | 3D world position to convert to screen-space coordinates |
 | `float` | padding | Extra pixel boundary beyond screen edges before treating the point as off-screen |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector2` | position | Screen pixel coordinates of the projected point or `{-1, -1}` if off-screen |
+| `vector2` | position | 2D screen-space pixel coordinates of the projected point or `{-1, -1}` if off-screen |
 | `float` | distance | Distance in world units from the camera to the point or `-1` if off-screen |
 
 <hr/>
