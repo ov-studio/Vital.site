@@ -1,6 +1,6 @@
 ---
 title: engine.screen_to_world
-description: Projects a 2D screen position to 3D world coordinates via the active viewport camera
+description: Projects a 2D screen-space position to 3D world-space coordinates via the active viewport camera
 badge: Client
 ---
 
@@ -14,14 +14,14 @@ local position = engine.screen_to_world(position, depth = 1)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector2` | position | 2D screen pixel coordinates to convert to world coordinates |
-| `float` | depth | Distance in world units along the camera ray to retrieve the world position — defaults to `1.0` |
+| `vector2` | position | 2D screen-space pixel coordinates to convert to 3D world-space coordinates |
+| `float` | depth | Distance in world units along the camera ray to retrieve the world position |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | World-space position at the given depth behind the screen point — `{-1, -1, -1}` if no active camera |
+| `vector3` | position | 3D world-space position at the given depth or `{-1, -1, -1}` if off-screen |
 
 <hr/>
 
