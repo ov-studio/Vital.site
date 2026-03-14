@@ -1,6 +1,6 @@
 ---
 title: self:set_position
-description: Sets the position of the model in 3D space
+description: Sets the position of the model in 3D world-space
 badge: Shared
 ---
 
@@ -14,7 +14,7 @@ local status = self:set_position(position)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | Position to move the model to, as `{x, y, z}` |
+| `vector3` | position | 3D world-space position to move the model to, as `{x, y, z}` |
 
 ### Returns
 
