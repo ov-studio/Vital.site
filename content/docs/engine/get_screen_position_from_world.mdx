@@ -1,0 +1,45 @@
+---
+title: engine.get_screen_position_from_world
+description: Projects a 3D world position to 2D screen coordinates via the active viewport camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local position, distance = engine.get_screen_position_from_world(position, padding = 0)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | 3D world position to convert to screen coordinates |
+| `float` | padding | Extra pixel boundary beyond screen edges before treating the point as off-screen |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Screen pixel coordinates of the projected point or `{-1, -1}` if off-screen |
+| `float` | distance | Distance in world units from the camera to the point or `-1` if off-screen |
+
+<hr/>
+
+### Examples
+
+```lua
+local position, distance = engine.get_screen_position_from_world({0, 0, 0})
+
+--Draw a red rectangle at world origin with padding
+network:fetch("vital.sandbox:draw", true):on(function()
+    local position, distance = engine.get_screen_position_from_world({0, 0, 0}, 50)
+    if position[1] ~= -1 then
+        engine.draw_rectangle(
+            {position[1] - 5, position[2] - 5},
+            {10, 10},
+            {1, 0, 0, 1}
+        )
+    end
+end)
+```

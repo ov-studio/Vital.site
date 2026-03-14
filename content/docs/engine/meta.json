@@ -12,6 +12,7 @@
         "inspect",
         "print",
         "iprint",
+        "get_screen_position_from_world",
         "---Canvas---",
         "draw_line",
         "draw_polygon",
