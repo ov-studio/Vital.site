@@ -1,0 +1,35 @@
+---
+title: self:get_bones
+description: Retrieves a list of all bone names in the model's skeleton
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local bones = self:get_bones()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | bones | Array of bone name strings |
+
+<hr/>
+
+### Examples
+
+```lua
+local entity = model.create("character")
+local bones = entity:get_bones()
+
+for i = 1, #bones do
+    engine.print("info", bones[i])
+end
+```
