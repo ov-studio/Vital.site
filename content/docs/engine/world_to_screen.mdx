@@ -1,5 +1,5 @@
 ---
-title: engine.get_screen_position_from_world
+title: engine.world_to_screen
 description: Projects a 3D world position to 2D screen coordinates via the active viewport camera
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local position, distance = engine.get_screen_position_from_world(position, padding = 0)
+local position, distance = engine.world_to_screen(position, padding = 0)
 ```
 
 ### Parameters
@@ -29,12 +29,12 @@ local position, distance = engine.get_screen_position_from_world(position, paddi
 ### Examples
 
 ```lua
-local position, distance = engine.get_screen_position_from_world({0, 0, 0})
+local position, distance = engine.world_to_screen({0, 0, 0})
 
 --Draw a red rectangle at world origin with padding
 network:fetch("vital.sandbox:draw", true):on(function()
     local size = 10
-    local position, distance = engine.get_screen_position_from_world({0, 0, 0}, size*2)
+    local position, distance = engine.world_to_screen({0, 0, 0}, size*2)
     if position[1] ~= -1 then
         engine.draw_rectangle(
             {position[1] - size*0.5, position[2] - size*0.5},
