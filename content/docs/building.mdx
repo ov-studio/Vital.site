@@ -23,32 +23,34 @@ Every build command takes two arguments — a **target** and a **configuration**
 
 | Argument | Option | Description |
 |---|---|---|
-| **Target** | `client` | Builds into **Vital.client** |
-| | `server` | Builds into **Vital.server** |
-| **Configuration** | `debug` | Debug symbols & logging enabled — ideal for development |
-| | `release` | Fully optimized, production-ready build |
+| **Target** | `--client` | Builds the client |
+| | `--server` | Builds the server |
+| | `--all` | Builds both client and server |
+| **Configuration** | `--debug` | Debug symbols & logging enabled — ideal for development |
+| | `--release` | Fully optimized, production-ready build |
 
 
 #### Windows
 ```bash
-build --[client/server] --[debug/release]
+build --[client/server/all] --[debug/release]
 ```
 
 #### Linux
 ```bash
-bash build.sh --[client/server] --[debug/release]
+bash build.sh --[client/server/all] --[debug/release]
 ```
 
 ---
 
 ## Artifacts
 
-Once the build completes successfully, your outputs will land in the following directories:
+Once the build completes successfully, your outputs will land under `.dist/[Target]/[Configuration]`:
 
 | Target | Output Directory |
 |---|---|
-| `--client` | **Vital.client** |
-| `--server` | **Vital.server** |
+| `--client` | `.dist/[debug\|release]/client` |
+| `--server` | `.dist/[debug\|release]/server` |
+| `--all` | Both of the above |
 
 Both directories are self-contained — everything your target needs to run is packaged inside.
 
