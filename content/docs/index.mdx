@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Vital.sandbox — Next-gen sandbox. Script It, Ship It, Limitless.
+description: Vital.sandbox — Next-generation sandbox. Script It. Ship It. Limitless.
 ---
 
 ## Overview
@@ -9,85 +9,85 @@ description: Vital.sandbox — Next-gen sandbox. Script It, Ship It, Limitless.
 
 One language. Complete control. From rendering to networking, the entire game stack is accessible through Lua.
 
-Four principles drive everything under the hood:
+Four core principles drive everything under the hood:
 
-- **⚡Performance-first** — Lean by design. No bloat, no unnecessary abstractions. Nothing stands between your scripts and the engine.
+- **Performance-first** — Lean by design. No bloat, no unnecessary abstractions. Nothing stands between your scripts and the engine.
 
-- **🧱 Modular by nature** — Strict C++17 module system. Use what you need, extend what you want, leave the rest untouched.
+- **Modular by nature** — A strict C++17 module system. Use only what you need, extend what you want, and leave the rest untouched.
 
-- **🔧 Built for developers** — Async/await, promises, heartbeats, event-driven patterns — modern concurrency that feels natural without sacrificing low-level control.
+- **Built for developers** — Async/await, promises, heartbeats, and event-driven patterns — modern concurrency without sacrificing low-level control.
 
-- **🌍 Open to the core** — No licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.
+- **Open at the core** — No licensing fees, no royalties, no restrictions. What you build is entirely yours.
 
 ---
 
 ## Features
 
-Vital.sandbox ships with an integrated suite of tools covering every layer of application development — from low-level threading to asset delivery and third-party integrations.
+Vital.sandbox provides an integrated suite of tools spanning the entire application stack — from low-level threading to asset delivery and external integrations.
 
 ### Core
 
 | Tool | Description |
 |---|---|
-| 🔐 **Crypto** | Cryptographic primitives for securing sensitive data and payloads |
-| 🗜️ **Shrinker** | Asset and data compression to reduce memory footprint and transfer overhead |
-| 📚 **Stack** | Managed stack abstraction for structured, predictable data handling |
-| 🔍 **Inspect** | Hardware serial inspection and device fingerprint generation |
-| 🖥️ **Console** | Built-in runtime console for executing commands and viewing debug, info, and error output |
+| **Crypto** | Cryptographic primitives for securing sensitive data and payloads |
+| **Shrinker** | Asset and data compression to reduce memory footprint and transfer overhead |
+| **Stack** | Managed stack abstraction for structured and predictable data handling |
+| **Inspect** | Hardware inspection and device fingerprint generation |
+| **Console** | Built-in runtime console for executing commands and viewing debug, informational, and error output |
 
 ### Sandboxing
 
 | Property | Details |
 |---|---|
-| 🗣️ **Language** | Lua |
-| 🔒 **Isolation** | Full — no access to host internals or native state |
-| 🧩 **Use Cases** | User scripting, modding, plugin systems |
+| **Language** | Lua |
+| **Isolation** | Full — no access to host internals or native state |
+| **Use Cases** | User scripting, modding, and plugin systems |
 
 ### Networking
 
 | Tool | Description |
 |---|---|
-| 🌍 **Rest** | HTTP/REST client for communicating with external APIs |
-| 📡 **Robust Networking** | High-performance transport layer with reliability and delivery guarantees |
-| ⏱️ **Scheduling** | Precise task scheduling for time-sensitive execution control |
+| **REST** | HTTP client for communicating with external APIs |
+| **Robust Networking** | High-performance transport layer with reliability and delivery guarantees |
+| **Scheduling** | Precise task scheduling for time-sensitive execution |
 
 ### Threading
 
 | Primitive | Description |
 |---|---|
-| ⚡ **Async / Await** | First-class asynchronous execution with clean, readable control flow |
-| 🔗 **Promises** | Deferred values with full chaining and resolution support |
-| 💓 **Heartbeats** | Scheduled recurring callbacks at defined intervals |
-| 🧶 **Threader** | Low-level thread management, pooling, and lifecycle control |
+| **Async / Await** | First-class asynchronous execution with clear and maintainable control flow |
+| **Promises** | Deferred values with full chaining and resolution support |
+| **Heartbeats** | Scheduled recurring callbacks at defined intervals |
+| **Threader** | Low-level thread management, pooling, and lifecycle control |
 
 ### Rendering
 
-Full programmatic control over every rendering primitive at runtime, with no overhead.
+Full programmatic control over rendering at runtime with minimal overhead.
 
 | API | Description |
 |---|---|
-| 🖌️ **Canvas** | 2D drawing surface with support for shapes, images, and text composited each frame |
-| 🎯 **RenderTarget** | Off-screen render surfaces — create, bind, and sample as textures at runtime |
-| 🖼️ **Texture** | Runtime texture loading, unloading, and sampler control |
-| 🔤 **Font** | Font loading and text metrics for canvas-level text rendering |
-| 🌐 **Webview** | Embedded web content rendering within the application window |
+| **Canvas** | 2D drawing surface supporting shapes, images, and text composited each frame |
+| **RenderTarget** | Off-screen render surfaces that can be created, bound, and sampled as textures |
+| **Texture** | Runtime texture loading, unloading, and sampler control |
+| **Font** | Font loading and text metrics for canvas-level text rendering |
+| **Webview** | Embedded web content rendered within the application window |
 
 ### Models
 
-Model API covers the full runtime lifecycle and is designed with customization systems in mind.
+The model API covers the full runtime lifecycle and is designed for advanced customization systems.
 
 | Feature | Description |
 |---|---|
-| 📦 **Loading / Unloading** | Load and unload named model assets at runtime without restart |
-| 🧬 **Instantiation** | Create and destroy independent runtime instances from a shared loaded asset |
-| 📐 **Transform** | Full 3D transformation control per instance — position, rotation, and scale |
-| 🎬 **Animation** | Per-instance animation playback with speed control, looping, pause, and resume |
-| 🎭 **Blend Shapes** | Per-component blend shape value control — facial expressions, body morphs, and more |
-| 👗 **Component Visibility** | Per-component mesh visibility control — built for clothing and equipment systems |
+| **Loading / Unloading** | Load and unload named model assets at runtime without requiring a restart |
+| **Instantiation** | Create and destroy independent runtime instances from shared assets |
+| **Transform** | Full 3D transformation control per instance — position, rotation, and scale |
+| **Animation** | Per-instance animation playback with speed control, looping, pause, and resume |
+| **Blend Shapes** | Per-component blend shape control for facial expressions and morph targets |
+| **Component Visibility** | Per-component mesh visibility control for equipment and customization systems |
 
 ### Integrations
 
 | Integration | Description |
 |---|---|
-| 🎮 **Discord SDK** | Native Rich Presence and Discord API integration |
-| 📣 **Event Tool** | Pub/sub event system for decoupled inter-module communication |
+| **Discord SDK** | Native Rich Presence and Discord API integration |
+| **Event Tool** | Publish/subscribe event system for decoupled module communication |
