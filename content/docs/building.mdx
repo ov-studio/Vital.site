@@ -40,11 +40,19 @@ build --[client/server/all] --[debug/release]
 bash build.sh --[client/server/all] --[debug/release]
 ```
 
+### Optional Flags
+
+| Flag | Description |
+|---|---|
+| `--skip-extension` | Skips the `Vital.extension` compilation step |
+| `--skip-export` | Skips the Godot project export step |
+| `--rebuild-godot` | Forces a full rebuild of `godot-cpp` (only needed after updating the submodule) |
+
 ---
 
 ## Artifacts
 
-After a successful build, output files are generated under `.dist/[Target]/[Configuration]`:
+After a successful build, output files are generated under `.dist/[Configuration]/[Target]`:
 
 | Target | Output Directory |
 |---|---|
