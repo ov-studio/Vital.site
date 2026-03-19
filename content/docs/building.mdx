@@ -1,41 +1,41 @@
 ---
 title: Building & Compiling
-description: Ready to build Vital.sandbox from scratch, extend it, or contribute your own features?
+description: Build Vital.sandbox from source, extend its functionality, or contribute to the project.
 ---
 
 ## Essentials
 
-So you want to go deeper — build from source, add your own features, extend existing ones, or contribute back to the project. You're in the right place. This page walks you through everything you need to get Vital.sandbox compiled and running on your machine.
+If you plan to build from source, extend existing functionality, or contribute to Vital.sandbox, this guide walks you through compiling and running the project locally.
 
-Make sure your environment is ready before firing up the build. Vital.sandbox is written in **C++17**, so you'll need a compatible compiler and the project's dependencies set up correctly.
+Before starting, ensure your development environment is properly configured. Vital.sandbox is written in **C++17**, requiring a compatible compiler and all necessary dependencies.
 
-Here's a quick checklist to get you going:
+### Requirements
 
-- ✅ A **C++17 compatible compiler** installed (MSVC on Windows, GCC/Clang on Linux)
-- ✅ All **project dependencies** installed and configured
-- ✅ The **repository cloned** locally and ready to go
+- A **C++17-compatible compiler** (MSVC on Windows, GCC or Clang on Linux)
+- All **project dependencies** installed and configured
+- The **repository cloned** locally
 
 ---
 
 ## Builds
 
-Every build command takes two arguments — a **target** and a **configuration**.
+Each build command accepts two arguments: a **target** and a **configuration**.
 
 | Argument | Option | Description |
 |---|---|---|
 | **Target** | `--client` | Builds the client |
 | | `--server` | Builds the server |
 | | `--all` | Builds both client and server |
-| **Configuration** | `--debug` | Debug symbols & logging enabled — ideal for development |
-| | `--release` | Fully optimized, production-ready build |
-
+| **Configuration** | `--debug` | Includes debug symbols and logging; suitable for development |
+| | `--release` | Optimized for production use |
 
 #### Windows
 ```bash
 build --[client/server/all] --[debug/release]
-```
+````
 
 #### Linux
+
 ```bash
 bash build.sh --[client/server/all] --[debug/release]
 ```
@@ -44,7 +44,7 @@ bash build.sh --[client/server/all] --[debug/release]
 
 ## Artifacts
 
-Once the build completes successfully, your outputs will land under `.dist/[Target]/[Configuration]`:
+After a successful build, output files are generated under `.dist/[Target]/[Configuration]`:
 
 | Target | Output Directory |
 |---|---|
@@ -52,21 +52,18 @@ Once the build completes successfully, your outputs will land under `.dist/[Targ
 | `--server` | `.dist/[debug\|release]/server` |
 | `--all` | Both of the above |
 
-Both directories are self-contained — everything your target needs to run is packaged inside.
+Each output directory is self-contained and includes all required runtime components.
 
 ---
 
 ## Contributions
 
-Building from source is just the beginning — whether you're shipping a brand new feature, extending a module, or squashing a bug that's been bothering you, contributions are always welcome.
+Building from source also enables you to contribute to the project. Whether you are implementing new features, improving existing systems, or fixing issues, contributions are encouraged.
 
-Keep these in mind before diving in:
+### Guidelines
 
-- 🧱 **Stay modular** — Keep your additions self-contained. Avoid tight coupling with unrelated components.
-- 🐛 **Debug first** — Always validate with a `debug` build before touching `release`.
-- 📐 **Match the patterns** — Browse existing modules to get a feel for the code style before writing your own.
 * **Maintain modularity** — Keep changes self-contained and avoid unnecessary coupling
 * **Validate in debug** — Test changes using a `debug` build before producing a `release` build
 * **Follow existing patterns** — Review current modules to ensure consistency in structure and style
 
-Happy with your changes? Open a pull request on the official ov-studio repositories and the maintainers will take it from there. 🚀
+Once your changes are ready, open a pull request in the official ov-studio repository for review.
