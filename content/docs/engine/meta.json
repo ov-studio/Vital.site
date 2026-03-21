@@ -13,6 +13,7 @@
         "print",
         "iprint",
         "---Canvas---",
+        "get_resolution",
         "world_to_screen",
         "screen_to_world",
         "draw_line",

@@ -1,0 +1,39 @@
+---
+title: engine.get_resolution
+description: Returns the current screen resolution in absolute pixels
+badge: Client
+---
+
+### Syntax
+```lua
+local resolution = engine.get_resolution()
+```
+
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | resolution | Screen resolution in pixels as `{width, height}` |
+
+<hr/>
+
+### Examples
+```lua
+-- Center a rectangle on screen
+local resolution = engine.get_resolution()
+
+network:fetch("vital.sandbox:draw", true):on(function()
+    local size = {200, 100}
+    engine.draw_rectangle(
+        {(resolution[1] - size[1])*0.5, (resolution[2] - size[2])*0.5},
+        {size[1], size[2]},
+        {1, 1, 1, 1}
+    )
+end)
+```
