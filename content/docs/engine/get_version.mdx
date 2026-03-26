@@ -1,0 +1,30 @@
+---
+title: engine.get_version
+description: Retrieves engine's current build version
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local version = engine.get_version()
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | version | Engine's current build version (e.g. `"v0.0.1-internal"`) |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("info", "Build Version:", engine.get_version())
+```
