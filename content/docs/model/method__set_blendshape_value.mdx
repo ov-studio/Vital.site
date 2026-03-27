@@ -15,7 +15,7 @@ local status = self:set_blendshape_value(component, blendshape, value)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | component | Path of the component containing the blend shape |
-| `string` | blendshape | Name of the blend shape to update |
+| `string` | blendshape | Name of the blend shape to update<br/>Supports `*` as a wildcard to match multiple blend shapes by pattern |
 | `float` | value | Value to apply to the blend shape |
 
 ### Returns
@@ -31,5 +31,12 @@ local status = self:set_blendshape_value(component, blendshape, value)
 ```lua
 local entity = model.create("character")
 
-entity:set_blendshape_value("Skeleton3D/Head", "Smile", 1.0)
+--Set a single blend shape value
+entity:set_blendshape_value("Skeleton3D/Head", "smile", 1.0)
+
+--Set blend shape values using a wildcard
+entity:set_blendshape_value("Skeleton3D/Head", "eye_*", 0.5)
+
+--Reset a blend shape to default
+entity:set_blendshape_value("Skeleton3D/Head", "sad", 0.0)
 ```
