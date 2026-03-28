@@ -1,0 +1,32 @@
+---
+title: file.hash
+description: Retrieves the hash of specified file
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local hash = file.hash(path, mode)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to hash |
+| `string` | mode | Hashing algorithm to use - same modes as used in [`crypto.hash`](/docs/crypto/hash) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` / `bool` | hash | Computed file hash on successful execution, or `false` on failure |
+
+<hr/>
+
+### Examples
+
+```lua
+engine.print("info", "File hash:", file.hash("files/images/test.png", "SHA256"))
+```

@@ -4,6 +4,7 @@
     "pages": [
         "exists",
         "size",
+        "hash",
         "delete",
         "read",
         "write",
