@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local response, error = rest.get(url, headers = {})
+local response, error = rest.get(url, headers = {}, timeout = 60)
 ```
 
 <Callout type="warn">
@@ -24,6 +24,7 @@ local response, error = rest.get(url, headers = {})
 |------|------|-------------|
 | `string` | url | Request URL to query |
 | `table` | headers | Request headers for query |
+| `int` | timeout | Read timeout in seconds |
 
 ### Returns
 
@@ -37,5 +38,25 @@ local response, error = rest.get(url, headers = {})
 ### Examples
 
 ```lua
-engine.print("info", "Response:", rest.get("https://github.com/ov-studio/Vital.kit/blob/main/manifest.json"))
+thread:create(function(self)
+    local response, errorcode = rest.get("https://api.example.com/info")
+
+    engine.print("info", "Response:", response, errorcode)
+end):resume()
+```
+
+```lua
+--With headers and custom timeout
+thread:create(function(self)
+    local response, errorcode = rest.get(
+        "https://api.example.com/data",
+        {
+            "User-Agent: MyApp",
+            "Accept: application/json"
+        }, 
+        30
+    )
+
+    engine.print("info", "Response:", response, errorcode)
+end):resume()
 ```

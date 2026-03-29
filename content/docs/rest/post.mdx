@@ -9,7 +9,7 @@ badge: Shared
 ```lua
 local response, error = rest.post(url, body, headers = {
     "Content-Type: application/json"
-})
+}, timeout = 60)
 ```
 
 <Callout type="warn">
@@ -27,6 +27,7 @@ local response, error = rest.post(url, body, headers = {
 | `string` | url | Request URL to query |
 | `string` | body | Request body for query |
 | `table` | headers | Request headers for query |
+| `int` | timeout | Read timeout in seconds |
 
 ### Returns
 
@@ -40,8 +41,34 @@ local response, error = rest.post(url, body, headers = {
 ### Examples
 
 ```lua
-engine.print("info", "Response:", rest.post("https://api.example.com/users", table.encode({
-    name: "John Doe",
-    email: "john@example.com"
-}, "JSON")))
+thread:create(function(self)
+    local response, errorcode = rest.post(
+        "https://api.example.com/users", 
+        table.encode({
+            name: "John Doe",
+            email: "john@example.com"
+        }, "JSON")
+    )
+
+    engine.print("info", "Response:", response, errorcode)
+end):resume()
+```
+
+```lua
+--With headers and custom timeout
+thread:create(function(self)
+    local response, errorcode = rest.post(
+        "https://api.example.com/users", 
+        table.encode({
+            name: "John Doe",
+            email: "john@example.com"
+        }, "JSON"), 
+        {
+            "Authorization: Bearer my-token"
+        },
+        30
+    )
+
+    engine.print("info", "Response:", response, errorcode)
+end):resume()
 ```
