@@ -10,6 +10,14 @@ badge: Shared
 local status = file.delete(path)
 ```
 
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to access files from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
+  - **Example** — `:resource_a/files/images/test.png` accesses `files/images/test.png` inside `resource_a`
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -29,4 +37,9 @@ local status = file.delete(path)
 ```lua
 --Deletes a file within current resource
 engine.print("info", "File deleted:", file.delete("files/images/test.png"))
+```
+
+```lua
+--Deletes a file from another running resource
+engine.print("info", "File deleted:", file.delete(":resource_a/files/images/test.png"))
 ```
