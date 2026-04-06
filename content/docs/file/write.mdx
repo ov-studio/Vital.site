@@ -1,6 +1,6 @@
 ---
 title: file.write
-description: Writes content to specified file
+description: Writes content to a specified file
 badge: Shared
 ---
 
@@ -14,7 +14,7 @@ local status = file.write(path, content)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | path | File path to write the contents in |
+| `string` | path | File path to write the contents to |
 | `string` | content | Content to be written |
 
 ### Returns
@@ -28,5 +28,6 @@ local status = file.write(path, content)
 ### Examples
 
 ```lua
-engine.print("info", "File written:", file.read("files/images/test.png"))
+--Writes content to a file within current resource
+engine.print("info", "File written:", file.write("files/data.json", "{}"))
 ```

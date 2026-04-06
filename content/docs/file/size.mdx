@@ -1,6 +1,6 @@
 ---
 title: file.size
-description: Retrieves the size of specified file
+description: Retrieves the size of a specified file
 badge: Shared
 ---
 
@@ -9,6 +9,14 @@ badge: Shared
 ```lua
 local size = file.size(path)
 ```
+
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to access files from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
+  - **Example** — `:resource_a/files/images/test.png` accesses `files/images/test.png` inside `resource_a`
+</Callout>
 
 ### Parameters
 
@@ -27,5 +35,11 @@ local size = file.size(path)
 ### Examples
 
 ```lua
+--Queries a file within current resource
 engine.print("info", "File size:", file.size("files/images/test.png"))
+```
+
+```lua
+--Queries a file from another running resource
+engine.print("info", "File size:", file.size(":resource_a/files/images/test.png"))
 ```

@@ -1,6 +1,6 @@
 ---
 title: file.contents
-description: Retrieves the contents of specified directory path
+description: Retrieves the contents of a specified directory path
 badge: Shared
 ---
 
@@ -9,6 +9,14 @@ badge: Shared
 ```lua
 local contents = file.contents(path, directory_search = false)
 ```
+
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to access directories from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
+  - **Example** — `:resource_a/files/images` accesses the `files/images` directory inside `resource_a`
+</Callout>
 
 ### Parameters
 
@@ -21,13 +29,20 @@ local contents = file.contents(path, directory_search = false)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` / `bool` | size | Contents of specified directory on successful execution, or `false` on failure |
+| `table` / `bool` | contents | Contents of the specified directory on successful execution, or `false` on failure |
 
 <hr/>
 
 ### Examples
 
 ```lua
+--Lists contents of a directory within current resource
 engine.print("info", "File contents:")
 engine.iprint(file.contents("files/images"))
+```
+
+```lua
+--Lists contents of a directory from another running resource
+engine.print("info", "File contents:")
+engine.iprint(file.contents(":resource_a/files/images"))
 ```

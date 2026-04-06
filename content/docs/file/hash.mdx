@@ -1,6 +1,6 @@
 ---
 title: file.hash
-description: Retrieves the hash of specified file
+description: Retrieves the hash of a specified file
 badge: Shared
 ---
 
@@ -9,6 +9,14 @@ badge: Shared
 ```lua
 local hash = file.hash(path, mode)
 ```
+
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to access files from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
+  - **Example** — `:resource_a/files/images/test.png` accesses `files/images/test.png` inside `resource_a`
+</Callout>
 
 ### Parameters
 
@@ -28,5 +36,11 @@ local hash = file.hash(path, mode)
 ### Examples
 
 ```lua
+--Queries a file within current resource
 engine.print("info", "File hash:", file.hash("files/images/test.png", "SHA256"))
+```
+
+```lua
+--Queries a file from another running resource
+engine.print("info", "File hash:", file.hash(":resource_a/files/images/test.png", "SHA256"))
 ```
