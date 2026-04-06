@@ -31,3 +31,8 @@ local status = file.write(path, content)
 --Writes content to a file within current resource
 engine.print("info", "File written:", file.write("files/data.json", "{}"))
 ```
+
+```lua
+--Writes content to a file path within current resource
+engine.print("info", "File written:", file.write("files/logs/session.log", "Session started"))
+```
