@@ -1,0 +1,61 @@
+---
+title: self:is_material_feature
+description: Retrieves whether a specific rendering feature is enabled on a material
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_material_feature(component, material, feature)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component containing the material |
+| `string` | material | Name of the material to check |
+| `int` | feature | Feature index to query<br/>Refer [Features](#features) section |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the feature is enabled, `false` otherwise |
+
+<hr/>
+
+### Features
+
+| Value | Name | Description |
+|-------|------|-------------|
+| `0` | `FEATURE_EMISSION` | Whether emission is enabled, allowing the material to emit light |
+| `1` | `FEATURE_NORMAL_MAPPING` | Whether a normal map is applied to simulate surface detail |
+| `2` | `FEATURE_RIM` | Whether rim lighting is enabled for a backlit glow effect |
+| `3` | `FEATURE_CLEARCOAT` | Whether a clearcoat layer is applied, simulating a glossy top coat |
+| `4` | `FEATURE_ANISOTROPY` | Whether anisotropic reflections are enabled |
+| `5` | `FEATURE_AMBIENT_OCCLUSION` | Whether ambient occlusion is applied to darken crevices |
+| `6` | `FEATURE_HEIGHT_MAPPING` | Whether a heightmap is used for parallax depth effects |
+| `7` | `FEATURE_SUBSURFACE_SCATTERING` | Whether subsurface scattering is enabled, used for skin and organic surfaces |
+| `8` | `FEATURE_SUBSURFACE_TRANSMITTANCE` | Whether light transmittance through the surface is enabled |
+| `9` | `FEATURE_BACKLIGHT` | Whether backlight is enabled, simulating light passing through thin surfaces |
+| `10` | `FEATURE_REFRACTION` | Whether refraction is enabled for transparent distortion effects |
+| `11` | `FEATURE_DETAIL` | Whether a detail layer (secondary albedo/normal) is enabled |
+| `12` | `FEATURE_BENT_NORMAL_MAPPING` | Whether bent normal mapping is used to improve ambient occlusion accuracy |
+
+<hr/>
+
+### Examples
+
+```lua
+local entity = model.create("character")
+
+--Check if emission is enabled on a material
+local emission = entity:is_material_feature("Skeleton3D/Body", "skin_material", 0)
+engine.print("info", "Emission enabled:", emission)
+
+--Check if subsurface scattering is active
+local scattering = entity:is_material_feature("Skeleton3D/Head", "face_material", 7)
+engine.print("info", "Subsurface scattering:", scattering)
+```
