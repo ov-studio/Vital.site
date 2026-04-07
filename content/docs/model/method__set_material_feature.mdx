@@ -1,0 +1,63 @@
+---
+title: self:set_material_feature
+description: Enables or disables a specific rendering feature on a material
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_material_feature(component, material, feature, state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component containing the material |
+| `string` | material | Name of the material to modify<br/>Supports `*` as a wildcard to match multiple materials by pattern |
+| `int` | feature | Feature index to toggle<br/>Refer [Features](#features) section |
+| `bool` | state | `true` to enable the feature, `false` to disable it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Features
+
+| Value | Name | Description |
+|-------|------|-------------|
+| `0` | `FEATURE_EMISSION` | Enables or disables emission, allowing the material to emit light |
+| `1` | `FEATURE_NORMAL_MAPPING` | Enables or disables a normal map to simulate surface detail |
+| `2` | `FEATURE_RIM` | Enables or disables rim lighting for a backlit glow effect |
+| `3` | `FEATURE_CLEARCOAT` | Enables or disables a clearcoat layer, simulating a glossy top coat |
+| `4` | `FEATURE_ANISOTROPY` | Enables or disables anisotropic reflections |
+| `5` | `FEATURE_AMBIENT_OCCLUSION` | Enables or disables ambient occlusion to darken crevices |
+| `6` | `FEATURE_HEIGHT_MAPPING` | Enables or disables a heightmap for parallax depth effects |
+| `7` | `FEATURE_SUBSURFACE_SCATTERING` | Enables or disables subsurface scattering, used for skin and organic surfaces |
+| `8` | `FEATURE_SUBSURFACE_TRANSMITTANCE` | Enables or disables light transmittance through the surface |
+| `9` | `FEATURE_BACKLIGHT` | Enables or disables backlight, simulating light passing through thin surfaces |
+| `10` | `FEATURE_REFRACTION` | Enables or disables refraction for transparent distortion effects |
+| `11` | `FEATURE_DETAIL` | Enables or disables a detail layer (secondary albedo/normal) |
+| `12` | `FEATURE_BENT_NORMAL_MAPPING` | Enables or disables bent normal mapping to improve ambient occlusion accuracy |
+
+<hr/>
+
+### Examples
+
+```lua
+local entity = model.create("character")
+
+--Enable emission on a specific material
+entity:set_material_feature("Skeleton3D/Body", "skin", 0, true)
+
+--Disable subsurface scattering
+entity:set_material_feature("Skeleton3D/Head", "face", 7, false)
+
+--Toggle rim lighting on all head materials using a wildcard
+entity:set_material_feature("Skeleton3D/Head", "*", 2, true)
+```
