@@ -14,7 +14,7 @@ local binary = string.pack(format, ...)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | format | Format string describing how to pack the values |
+| `string` | format | Format string containing specifiers describing how to pack the values<br/>Refer [**Specifiers**](#specifiers) section |
 | `...` | ... | Values to pack |
 
 ### Returns
@@ -23,9 +23,11 @@ local binary = string.pack(format, ...)
 |------|------|-------------|
 | `string` | binary | Binary string containing the packed values |
 
-### Format Options
+<hr/>
 
-| Option | Description |
+### Specifiers
+
+| Specifier | Description |
 |--------|-------------|
 | `b` | Signed byte (char) |
 | `B` | Unsigned byte (unsigned char) |
