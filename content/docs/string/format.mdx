@@ -14,8 +14,16 @@ local result = string.format(format, ...)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | format | Format string containing specifiers (%d, %s, %f, etc.) |
+| `string` | format | Format string containing specifiers<br/>Refer [**Specifiers**](#Specifiers) section |
 | `...` | ... | Values to be formatted according to the format string |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Formatted string |
+
+<hr/>
 
 ### Specifiers
 
@@ -35,12 +43,6 @@ local result = string.format(format, ...)
 | `%s` | String |
 | `%q` | Quoted string |
 | `%%` | Literal percent sign |
-
-### Returns
-
-| Type | Name | Description |
-|------|------|-------------|
-| `string` | result | Formatted string |
 
 <hr/>
 
