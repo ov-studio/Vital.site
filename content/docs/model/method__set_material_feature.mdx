@@ -17,7 +17,7 @@ local status = self:set_material_feature(component, material, feature, state)
 | `string` | component | Path of the component containing the material |
 | `string` | material | Name of the material to modify<br/>Supports `*` as a wildcard to match multiple materials by pattern |
 | `int` | feature | Feature index to toggle<br/>Refer [Features](#features) section |
-| `bool` | state | `true` to enable the feature, `false` to disable it |
+| `bool` | state | Determines the feature state:<br/>• When `true` - enables the specified feature<br/>• When `false` - disables the specified feature |
 
 ### Returns
 
