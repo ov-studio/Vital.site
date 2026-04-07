@@ -10,7 +10,7 @@ local query = self:table(name)
 ```
 
 <Callout type="warn">
-  **The target table must be previously defined and synced before calling this function.** See [`self:define`](/docs/database/method/define) and [`self:sync`](/docs/database/method/sync) to register and sync your schemas.
+  **The target table must be previously defined and synced before calling this function.** Refer [`self:define`](/docs/database/method/define) and [`self:sync`](/docs/database/method/sync) to register and sync your schemas.
 
   - **Registered and synced** — a query builder instance is returned scoped to the given table
   - **Not registered** — the call will fail and return `false`

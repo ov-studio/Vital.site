@@ -11,7 +11,7 @@ local status = gfx.fog.set_depth_begin(value)
 ```
 
 <Callout type="warn">
-  **Only available when the fog mode is set to depth mode.** See [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) to configure the active fog mode.
+  **Only available when the fog mode is set to depth mode.** Refer [`gfx.fog.set_mode`](/docs/gfx/fog/set_mode) to configure the active fog mode.
 
   - **Depth mode required** — calling this function in any other fog mode will have no effect
   - **Recommended usage** — set `depth_begin` less than `depth_end` to define a valid and visible fog transition range
