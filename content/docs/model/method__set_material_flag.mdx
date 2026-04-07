@@ -32,7 +32,7 @@ local status = self:set_material_flag(component, material, flag, state)
 | Value | Name | Description |
 |-------|------|-------------|
 | `0` | `FLAG_DISABLE_DEPTH_TEST` | Draws the material on top of all other objects, bypassing depth sorting. May cause z-fighting after the transparent pass |
-| `1` | `FLAG_ALBEDO_FROM_VERTEX_COLOR` | Sets the albedo colour from the per-vertex colour defined in the mesh |
+| `1` | `FLAG_ALBEDO_FROM_VERTEX_COLOR` | Sets the albedo color from the per-vertex color defined in the mesh |
 | `2` | `FLAG_SRGB_VERTEX_COLOR` | Treats vertex colours as nonlinear sRGB and converts them to linear for rendering. Only effective on Forward+ and Mobile |
 | `3` | `FLAG_USE_POINT_SIZE` | Uses point size to alter primitive point rendering; changes albedo texture lookup to use `POINT_COORD` instead of `UV` |
 | `4` | `FLAG_FIXED_SIZE` | Scales the object by depth so it always appears the same size on screen |
