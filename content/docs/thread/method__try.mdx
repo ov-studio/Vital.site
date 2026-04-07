@@ -22,7 +22,9 @@ local ... = self:try(handles)
 |------|------|-------------|
 | `...` | ... | Returned values from `exec`/`catch` handlers |
 
-### Callback
+<hr/>
+
+### Callback: `exec`
 
 ```lua
 exec(self)
@@ -31,6 +33,17 @@ exec(self)
 | Type | Name | Description |
 |------|------|-------------|
 | `thread` | self | Running virtualized thread instance |
+| `...` | ... | Additional arguments |
+
+### Callback: `catch`
+
+```lua
+catch(...)
+```
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | Additional arguments |
 
 <hr/>
 
