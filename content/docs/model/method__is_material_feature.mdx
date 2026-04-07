@@ -52,10 +52,8 @@ local result = self:is_material_feature(component, material, feature)
 local entity = model.create("character")
 
 --Check if emission is enabled on a material
-local emission = entity:is_material_feature("Skeleton3D/Body", "skin_material", 0)
-engine.print("info", "Emission enabled:", emission)
+engine.print("info", "Emission enabled:", entity:is_material_feature("Skeleton3D/Body", "skin", 0))
 
 --Check if subsurface scattering is active
-local scattering = entity:is_material_feature("Skeleton3D/Head", "face_material", 7)
-engine.print("info", "Subsurface scattering:", scattering)
+engine.print("info", "Subsurface scattering:", entity:is_material_feature("Skeleton3D/Head", "face", 7))
 ```
