@@ -22,7 +22,7 @@ local status = db_query:alter(actions)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | actions | Table describing the schema changes to apply<br/>See **Actions** below |
+| `table` | actions | Table describing the schema changes to apply<br/>Refer [**Actions**](#actions) section |
 
 ### Returns
 
@@ -30,13 +30,17 @@ local status = db_query:alter(actions)
 |------|------|-------------|
 | `bool` | status | `true` on successful execution, or `false` on failure |
 
+<hr/>
+
 ### Actions
 
 | Key | Type | Description |
 |-----|------|-------------|
-| `add` | `table` | Map of column names to their column definitions to add to the table<br/>See **Definitions** below |
-| `modify` | `table` | Map of column names to their column definitions to modify on the table<br/>See **Definitions** below |
+| `add` | `table` | Map of column names to their column definitions to add to the table<br/>Refer [**Definitions**](#definitions) section |
+| `modify` | `table` | Map of column names to their column definitions to modify on the table<br/>Refer [**Definitions**](#definitions) section |
 | `drop` | `table` | Array of column name strings to drop from the table |
+
+<hr/>
 
 ### Definitions
 
