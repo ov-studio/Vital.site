@@ -43,6 +43,6 @@ exec(...)
 
 ```lua
 local self = timer:create(function(message)
-    engine.print(message)
+    engine.print("info", message)
 end, 1000, 5, "Hello from timer")
 ```

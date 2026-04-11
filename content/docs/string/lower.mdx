@@ -29,25 +29,25 @@ local result = string.lower(input)
 ```lua
 --Convert to lowercase
 local result = string.lower("HELLO")
-engine.print(result) --hello
+engine.print("info", result) --hello
 ```
 
 ```lua
 --Mixed case
 local result = string.lower("Hello World")
-engine.print(result) --hello world
+engine.print("info", result) --hello world
 ```
 
 ```lua
 --Already lowercase (no change)
 local result = string.lower("already lowercase")
-engine.print(result) --already lowercase
+engine.print("info", result) --already lowercase
 ```
 
 ```lua
 --Numbers and special characters unchanged
 local result = string.lower("ABC123!@#")
-engine.print(result) --abc123!@#
+engine.print("info", result) --abc123!@#
 ```
 
 ```lua
@@ -77,7 +77,7 @@ local data = {
 }
 
 for key, value in pairs(data) do
-    engine.print(string.lower(key), value)
+    engine.print("info", string.lower(key), value)
 end
 --Output: name John, age 25, city NYC
 ```
@@ -86,23 +86,23 @@ end
 --Email normalization
 local email = "User@Example.COM"
 local normalized = string.lower(email)
-engine.print(normalized) --user@example.com
+engine.print("info", normalized) --user@example.com
 ```
 
 ```lua
 --String with only numbers (no change)
 local result = string.lower("123456")
-engine.print(result) --123456
+engine.print("info", result) --123456
 ```
 
 ```lua
 --Empty string
 local result = string.lower("")
-engine.print(result) --
+engine.print("info", result) --
 ```
 
 ```lua
 --Chaining with other string functions
 local result = string.lower("HELLO WORLD"):gsub(" ", "_")
-engine.print(result) --hello_world
+engine.print("info", result) --hello_world
 ```

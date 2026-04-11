@@ -29,25 +29,25 @@ local result = string.upper(input)
 ```lua
 --Convert to uppercase
 local result = string.upper("hello")
-engine.print(result) --HELLO
+engine.print("info", result) --HELLO
 ```
 
 ```lua
 --Mixed case
 local result = string.upper("Hello World")
-engine.print(result) --HELLO WORLD
+engine.print("info", result) --HELLO WORLD
 ```
 
 ```lua
 --Already uppercase (no change)
 local result = string.upper("ALREADY UPPERCASE")
-engine.print(result) --ALREADY UPPERCASE
+engine.print("info", result) --ALREADY UPPERCASE
 ```
 
 ```lua
 --Numbers and special characters unchanged
 local result = string.upper("abc123!@#")
-engine.print(result) --ABC123!@#
+engine.print("info", result) --ABC123!@#
 ```
 
 ```lua
@@ -71,46 +71,46 @@ end
 --Create constant names
 local varName = "max_value"
 local constant = string.upper(varName)
-engine.print(constant) --MAX_VALUE
+engine.print("info", constant) --MAX_VALUE
 ```
 
 ```lua
 --Emphasize text
 local text = "warning"
 local emphasized = string.upper(text)
-engine.print(emphasized) --WARNING
+engine.print("info", emphasized) --WARNING
 ```
 
 ```lua
 --Convert enum values
 local status = "active"
 local enum = string.upper(status)
-engine.print(enum) --ACTIVE
+engine.print("info", enum) --ACTIVE
 ```
 
 ```lua
 --String with only numbers (no change)
 local result = string.upper("123456")
-engine.print(result) --123456
+engine.print("info", result) --123456
 ```
 
 ```lua
 --Empty string
 local result = string.upper("")
-engine.print(result) --
+engine.print("info", result) --
 ```
 
 ```lua
 --Title to header
 local title = "my document title"
 local header = string.upper(title)
-engine.print(header) --MY DOCUMENT TITLE
+engine.print("info", header) --MY DOCUMENT TITLE
 ```
 
 ```lua
 --SQL-like syntax
 local column = "user_id"
-engine.print(string.upper(column)) --USER_ID
+engine.print("info", string.upper(column)) --USER_ID
 ```
 
 ```lua
@@ -118,7 +118,7 @@ engine.print(string.upper(column)) --USER_ID
 local function equalsIgnoreCase(a, b)
     return string.upper(a) == string.upper(b)
 end
-engine.print(equalsIgnoreCase("Test", "test")) --true
+engine.print("info", equalsIgnoreCase("Test", "test")) --true
 ```
 
 ```lua
@@ -134,12 +134,12 @@ local acronym = ""
 for word in string.gmatch(text, "%S+") do
     acronym = acronym..string.upper(string.sub(word, 1, 1))
 end
-engine.print(acronym) --HML
+engine.print("info", acronym) --HML
 ```
 
 ```lua
 --Shouty snake case
 local name = "my_variable_name"
 local shouty = string.upper(name)
-engine.print(shouty) --MY_VARIABLE_NAME
+engine.print("info", shouty) --MY_VARIABLE_NAME
 ```

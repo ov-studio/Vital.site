@@ -28,15 +28,15 @@ local void = string.void(input)
 
 ```lua
 local void = string.void("")
-engine.print(void) --true
+engine.print("info", void) --true
 ```
 
 ```lua
 local void = string.void("      ")
-engine.print(void) --true
+engine.print("info", void) --true
 ```
 
 ```lua
 local void = string.void("Hello")
-engine.print(void) --false
+engine.print("info", void) --false
 ```

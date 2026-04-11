@@ -33,40 +33,40 @@ local result = table.concat(input, separator = "", start_at = 1, end_at = table.
 --Concatenate all elements
 local t = {"hello", "world", "lua"}
 local result = table.concat(t)
-engine.print(result) --helloworldlua
+engine.print("info", result) --helloworldlua
 ```
 
 ```lua
 --Concatenate with separator
 local t = {"apple", "banana", "orange"}
 local result = table.concat(t, ", ")
-engine.print(result) --apple, banana, orange
+engine.print("info", result) --apple, banana, orange
 ```
 
 ```lua
 --Concatenate with space separator
 local words = {"Hello", "World"}
 local result = table.concat(words, " ")
-engine.print(result) --Hello World
+engine.print("info", result) --Hello World
 ```
 
 ```lua
 --Concatenate subset of table
 local t = {"a", "b", "c", "d", "e"}
 local result = table.concat(t, "-", 2, 4)
-engine.print(result) --b-c-d
+engine.print("info", result) --b-c-d
 ```
 
 ```lua
 --Build CSV line
 local data = {"John", "25", "Developer"}
 local csv = table.concat(data, ",")
-engine.print(csv) --John,25,Developer
+engine.print("info", csv) --John,25,Developer
 ```
 
 ```lua
 --Build path
 local parts = {"home", "user", "documents"}
 local path = "/" .. table.concat(parts, "/")
-engine.print(path) --/home/user/documents
+engine.print("info", path) --/home/user/documents
 ```

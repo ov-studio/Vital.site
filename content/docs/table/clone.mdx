@@ -32,8 +32,8 @@ local result = table.clone(input, recursive = false)
 local original = {1, 2, 3, 4}
 local copy = table.clone(original)
 copy[1] = 99
-engine.print(original[1]) --1 (unchanged)
-engine.print(copy[1]) --99
+engine.print("info", original[1]) --1 (unchanged)
+engine.print("info", copy[1]) --99
 ```
 
 ```lua
@@ -41,7 +41,7 @@ engine.print(copy[1]) --99
 local original = {a = 1, nested = {b = 2}}
 local copy = table.clone(original)
 copy.nested.b = 99
-engine.print(original.nested.b) --99 (changed! shallow copy)
+engine.print("info", original.nested.b) --99 (changed! shallow copy)
 ```
 
 ```lua
@@ -49,8 +49,8 @@ engine.print(original.nested.b) --99 (changed! shallow copy)
 local original = {a = 1, nested = {b = 2}}
 local copy = table.clone(original, true)
 copy.nested.b = 99
-engine.print(original.nested.b) --2 (unchanged)
-engine.print(copy.nested.b) --99
+engine.print("info", original.nested.b) --2 (unchanged)
+engine.print("info", copy.nested.b) --99
 ```
 
 ```lua
@@ -58,8 +58,8 @@ engine.print(copy.nested.b) --99
 local colors = {"red", "green", "blue"}
 local copy = table.clone(colors)
 table.insert(copy, "yellow")
-engine.print(#colors) --3
-engine.print(#copy) --4
+engine.print("info", #colors) --3
+engine.print("info", #copy) --4
 ```
 
 ```lua
@@ -68,7 +68,7 @@ local shared = {x = 10}
 local t1 = {data = shared}
 local t2 = table.clone(t1)
 t2.data.x = 20
-engine.print(t1.data.x) --20 (both reference same table)
+engine.print("info", t1.data.x) --20 (both reference same table)
 ```
 
 ```lua
@@ -77,7 +77,7 @@ local shared = {x = 10}
 local t1 = {data = shared}
 local t2 = table.clone(t1, true)
 t2.data.x = 20
-engine.print(t1.data.x) --10 (independent copies)
+engine.print("info", t1.data.x) --10 (independent copies)
 ```
 
 ```lua
@@ -87,5 +87,5 @@ local user1 = table.clone(template)
 local user2 = table.clone(template)
 user1.name = "Alice"
 user2.name = "Bob"
-engine.print(user1.name, user2.name) --Alice  Bob
+engine.print("info", user1.name, user2.name) --Alice  Bob
 ```

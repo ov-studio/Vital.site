@@ -29,15 +29,15 @@ local result = table.pack(...)
 ```lua
 --Pack multiple values
 local t = table.pack(1, 2, 3, 4, 5)
-engine.print(t[1], t[2], t[3]) --1  2  3
-engine.print(t.n) --5
+engine.print("info", t[1], t[2], t[3]) --1  2  3
+engine.print("info", t.n) --5
 ```
 
 ```lua
 --Pack with nil values
 local t = table.pack("a", nil, "b", nil, "c")
-engine.print(t[1], t[2], t[3]) --a  nil  b
-engine.print(t.n) --5
+engine.print("info", t[1], t[2], t[3]) --a  nil  b
+engine.print("info", t.n) --5
 ```
 
 ```lua
@@ -46,15 +46,15 @@ local function multiReturn()
     return 10, 20, 30
 end
 local t = table.pack(multiReturn())
-engine.print(t[1], t[2], t[3]) --10  20  30
-engine.print(t.n) --3
+engine.print("info", t[1], t[2], t[3]) --10  20  30
+engine.print("info", t.n) --3
 ```
 
 ```lua
 --Pack strings
 local t = table.pack("hello", "world", "lua")
 for i = 1, t.n do
-    engine.print(t[i])
+    engine.print("info", t[i])
 end
 --Output: hello, world, lua
 ```
@@ -62,41 +62,41 @@ end
 ```lua
 --Pack empty (no arguments)
 local t = table.pack()
-engine.print(t.n) --0
+engine.print("info", t.n) --0
 ```
 
 ```lua
 --Pack single value
 local t = table.pack(42)
-engine.print(t[1]) --42
-engine.print(t.n) --1
+engine.print("info", t[1]) --42
+engine.print("info", t.n) --1
 ```
 
 ```lua
 --Pack mixed types
 local t = table.pack(1, "two", true, nil, {5})
-engine.print(t.n) --5
-engine.print(type(t[5])) --table
+engine.print("info", t.n) --5
+engine.print("info", type(t[5])) --table
 ```
 
 ```lua
 --Difference from # operator with nil
 local t = table.pack(1, 2, nil, 4)
-engine.print(#t) --4 (might be 2 depending on implementation)
-engine.print(t.n) --4 (always correct)
+engine.print("info", #t) --4 (might be 2 depending on implementation)
+engine.print("info", t.n) --4 (always correct)
 ```
 
 ```lua
 --Preserve trailing nils
 local t = table.pack(1, 2, 3, nil, nil)
-engine.print(t.n) --5
-engine.print(t[5]) --nil
+engine.print("info", t.n) --5
+engine.print("info", t[5]) --nil
 ```
 
 ```lua
 --Iterate with correct count
 local t = table.pack("a", nil, "b", nil)
 for i = 1, t.n do
-    engine.print(i, t[i])
+    engine.print("info", i, t[i])
 end
 ```

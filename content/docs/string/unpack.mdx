@@ -33,7 +33,7 @@ local ..., next_pos = string.unpack(format, input, start_at = 1)
 --Pack and unpack integers
 local packed = string.pack("iii", 10, 20, 30)
 local a, b, c = string.unpack("iii", packed)
-engine.print(a, b, c) --10  20  30
+engine.print("info", a, b, c) --10  20  30
 ```
 
 ```lua
@@ -41,78 +41,78 @@ engine.print(a, b, c) --10  20  30
 local packed = string.pack("ii", 100, 200)
 local val1, pos = string.unpack("i", packed)
 local val2 = string.unpack("i", packed, pos)
-engine.print(val1, val2) --100  200
+engine.print("info", val1, val2) --100  200
 ```
 
 ```lua
 --Unpack fixed-size string
 local packed = string.pack("c5", "hello")
 local str = string.unpack("c5", packed)
-engine.print(str) --hello
+engine.print("info", str) --hello
 ```
 
 ```lua
 --Unpack zero-terminated string
 local packed = string.pack("z", "world")
 local str, nextPos = string.unpack("z", packed)
-engine.print(str) --world
-engine.print(nextPos) --7
+engine.print("info", str) --world
+engine.print("info", nextPos) --7
 ```
 
 ```lua
 --Unpack mixed types
 local packed = string.pack("ifd", 42, 3.14, 2.718)
 local i, f, d = string.unpack("ifd", packed)
-engine.print(i, f, d) --42  3.14  2.718
+engine.print("info", i, f, d) --42  3.14  2.718
 ```
 
 ```lua
 --Unpack from specific position
 local packed = string.pack("iii", 1, 2, 3)
 local value = string.unpack("i", packed, 5)
-engine.print(value) --2
+engine.print("info", value) --2
 ```
 
 ```lua
 --Little endian unpack
 local packed = string.pack("<I4", 0x12345678)
 local value = string.unpack("<I4", packed)
-engine.print(string.format("0x%X", value)) --0x12345678
+engine.print("info", string.format("0x%X", value)) --0x12345678
 ```
 
 ```lua
 --Big endian unpack
 local packed = string.pack(">I4", 0xABCDEF00)
 local value = string.unpack(">I4", packed)
-engine.print(string.format("0x%X", value)) --0xABCDEF00
+engine.print("info", string.format("0x%X", value)) --0xABCDEF00
 ```
 
 ```lua
 --Unpack bytes
 local packed = string.pack("BBB", 65, 66, 67)
 local b1, b2, b3 = string.unpack("BBB", packed)
-engine.print(string.char(b1, b2, b3)) --ABC
+engine.print("info", string.char(b1, b2, b3)) --ABC
 ```
 
 ```lua
 --Unpack double
 local packed = string.pack("d", math.pi)
 local value = string.unpack("d", packed)
-engine.print(value) --3.14159...
+engine.print("info", value) --3.14159...
 ```
 
 ```lua
 --Unpack struct-like data
 local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
 local name, health, score = string.unpack("c10i4f", packed)
-engine.print(name, health, score)
+engine.print("info", name, health, score)
 ```
 
 ```lua
 --Unpack string with length prefix
 local packed = string.pack("s1", "hello")
 local str = string.unpack("s1", packed)
-engine.print(str) --hello
+engine.print("info", str) --hello
 ```
 
 ```lua
@@ -120,7 +120,7 @@ engine.print(str) --hello
 local packed = string.pack("zz", "first", "second")
 local str1, pos = string.unpack("z", packed)
 local str2 = string.unpack("z", packed, pos)
-engine.print(str1, str2) --first  second
+engine.print("info", str1, str2) --first  second
 ```
 
 ```lua
@@ -137,7 +137,7 @@ engine.print("info", "Length:", length)
 local packed = string.pack("b", 1)
 local value = string.unpack("b", packed)
 local bool = value ~= 0
-engine.print(bool) --true
+engine.print("info", bool) --true
 ```
 
 ```lua
@@ -145,6 +145,6 @@ engine.print(bool) --true
 local packed = string.pack("i4i4i4i4", 1, 2, 3, 4)
 local a, b, pos = string.unpack("i4i4", packed)
 local c, d = string.unpack("i4i4", packed, pos)
-engine.print(a, b) --1  2
-engine.print(c, d) --3  4
+engine.print("info", a, b) --1  2
+engine.print("info", c, d) --3  4
 ```

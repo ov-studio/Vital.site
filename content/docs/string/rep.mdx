@@ -31,19 +31,19 @@ local result = string.rep(input, count, separator = "")
 ```lua
 --Repeat string multiple times
 local result = string.rep("ab", 3)
-engine.print(result) --ababab
+engine.print("info", result) --ababab
 ```
 
 ```lua
 --Repeat single character
 local line = string.rep("-", 40)
-engine.print(line) ----------------------------------------
+engine.print("info", line) ----------------------------------------
 ```
 
 ```lua
 --Repeat with separator
 local result = string.rep("hi", 3, "-")
-engine.print(result) --hi-hi-hi
+engine.print("info", result) --hi-hi-hi
 ```
 
 ```lua
@@ -55,77 +55,77 @@ engine.print("info", "["..padding.."]") --[          ]
 ```lua
 --Zero repetitions
 local result = string.rep("test", 0)
-engine.print(result) --
+engine.print("info", result) --
 ```
 
 ```lua
 --One repetition
 local result = string.rep("test", 1)
-engine.print(result) --test
+engine.print("info", result) --test
 ```
 
 ```lua
 --Method syntax
 local result = string.rep("*", 5)
-engine.print(result) --*****
+engine.print("info", result) --*****
 ```
 
 ```lua
 --Create separator line
 local separator = string.rep("=", 50)
-engine.print(separator)
+engine.print("info", separator)
 ```
 
 ```lua
 --Build pattern strings
 local dots = string.rep(".", 3)
-engine.print(dots) --...
+engine.print("info", dots) --...
 ```
 
 ```lua
 --Create visual bars
 local bar = string.rep("█", 10)
-engine.print(bar) --██████████
+engine.print("info", bar) --██████████
 ```
 
 ```lua
 --Repeat with space separator
 local result = string.rep("word", 4, " ")
-engine.print(result) --word word word word
+engine.print("info", result) --word word word word
 ```
 
 ```lua
 --Create indentation
 local indent = string.rep("  ", 3)
-engine.print(indent.."code") --      code
+engine.print("info", indent.."code") --      code
 ```
 
 ```lua
 --Build ASCII art
 local pattern = string.rep("* ", 5)
-engine.print(pattern) --* * * * * 
+engine.print("info", pattern) --* * * * * 
 ```
 
 ```lua
 --Create table row
 local cells = string.rep("| Cell ", 4)
-engine.print(cells.."|") --| Cell | Cell | Cell | Cell |
+engine.print("info", cells.."|") --| Cell | Cell | Cell | Cell |
 ```
 
 ```lua
 --Generate test data
 local data = string.rep("A", 100)
-engine.print(#data) --100
+engine.print("info", #data) --100
 ```
 
 ```lua
 --Multiple character pattern
 local pattern = string.rep("abc", 3)
-engine.print(pattern) --abcabcabc
+engine.print("info", pattern) --abcabcabc
 ```
 
 ```lua
 --With comma separator
 local csv = string.rep("field", 5, ",")
-engine.print(csv) --field,field,field,field,field
+engine.print("info", csv) --field,field,field,field,field
 ```

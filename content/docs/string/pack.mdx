@@ -58,19 +58,19 @@ local binary = string.pack(format, ...)
 ```lua
 --Pack three integers
 local packed = string.pack("iii", 10, 20, 30)
-engine.print(#packed) --12
+engine.print("info", #packed) --12
 ```
 
 ```lua
 --Pack a fixed-size string
 local packed = string.pack("c5", "hello")
-engine.print(#packed) --5
+engine.print("info", #packed) --5
 ```
 
 ```lua
 --Pack zero-terminated string
 local packed = string.pack("z", "world")
-engine.print(#packed) --6
+engine.print("info", #packed) --6
 ```
 
 ```lua
@@ -91,7 +91,7 @@ local packed = string.pack(">I4", 0x12345678)
 ```lua
 --Pack bytes
 local packed = string.pack("BBB", 65, 66, 67)
-engine.print(packed) --ABC
+engine.print("info", packed) --ABC
 ```
 
 ```lua

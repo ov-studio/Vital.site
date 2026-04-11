@@ -29,55 +29,55 @@ local size = string.packsize(format)
 ```lua
 --Size of three integers
 local size = string.packsize("iii")
-engine.print(size) --12
+engine.print("info", size) --12
 ```
 
 ```lua
 --Size of a double
 local size = string.packsize("d")
-engine.print(size) --8
+engine.print("info", size) --8
 ```
 
 ```lua
 --Size of fixed string
 local size = string.packsize("c10")
-engine.print(size) --10
+engine.print("info", size) --10
 ```
 
 ```lua
 --Size of multiple types
 local size = string.packsize("ifd")
-engine.print(size) --16
+engine.print("info", size) --16
 ```
 
 ```lua
 --Size with little endian specifier
 local size = string.packsize("<I4")
-engine.print(size) --4
+engine.print("info", size) --4
 ```
 
 ```lua
 --Size of byte
 local size = string.packsize("b")
-engine.print(size) --1
+engine.print("info", size) --1
 ```
 
 ```lua
 --Size of short
 local size = string.packsize("h")
-engine.print(size) --2
+engine.print("info", size) --2
 ```
 
 ```lua
 --Size of long
 local size = string.packsize("l")
-engine.print(size) --8
+engine.print("info", size) --8
 ```
 
 ```lua
 --Size with padding
 local size = string.packsize("ixxi")
-engine.print(size) --12
+engine.print("info", size) --12
 ```
 
 ```lua
@@ -96,7 +96,7 @@ engine.print("info", "Need", bufferSize, "bytes") --Need 12 bytes
 ```lua
 --Multiple fixed strings
 local size = string.packsize("c5c5c5")
-engine.print(size) --15
+engine.print("info", size) --15
 ```
 
 ```lua
@@ -104,7 +104,7 @@ engine.print(size) --15
 local fmt = "ifd"
 local size = string.packsize(fmt)
 local packed = string.pack(fmt, 1, 2.5, 3.14)
-engine.print(#packed == size) --true
+engine.print("info", #packed == size) --true
 ```
 
 ```lua

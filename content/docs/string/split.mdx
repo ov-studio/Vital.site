@@ -28,24 +28,24 @@ local parts = string.split(input, separator)
 ```lua
 --Split by comma
 local parts = string.split("apple,banana,orange", ",")
-engine.print(parts[1]) --apple
-engine.print(parts[2]) --banana
-engine.print(parts[3]) --orange
+engine.print("info", parts[1]) --apple
+engine.print("info", parts[2]) --banana
+engine.print("info", parts[3]) --orange
 ```
 
 ```lua
 --Split by multiple characters
 local parts = string.split("one::two::three", "::")
-engine.print(parts[1]) --one
-engine.print(parts[2]) --two
-engine.print(parts[3]) --three
+engine.print("info", parts[1]) --one
+engine.print("info", parts[2]) --two
+engine.print("info", parts[3]) --three
 ```
 
 ```lua
 --Split by space
 local words = string.split("hello world lua", " ")
 for i, word in ipairs(words) do
-    engine.print(word)
+    engine.print("info", word)
 end
 --Output: hello, world, lua
 ```

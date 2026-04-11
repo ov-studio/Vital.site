@@ -31,7 +31,7 @@ local iterator = string.gmatch(input, pattern)
 --Iterate over all words
 local text = "hello world from Lua"
 for word in string.gmatch(text, "%a+") do
-    engine.print(word)
+    engine.print("info", word)
 end
 --Output: hello, world, from, Lua
 ```
@@ -40,7 +40,7 @@ end
 --Extract all numbers
 local data = "x=10, y=20, z=30"
 for num in string.gmatch(data, "%d+") do
-    engine.print(num)
+    engine.print("info", num)
 end
 --Output: 10, 20, 30
 ```
@@ -49,7 +49,7 @@ end
 --Extract pairs of values
 local coords = "x=5 y=10 x=15 y=20"
 for key, value in string.gmatch(coords, "(%a+)=(%d+)") do
-    engine.print(key, value)
+    engine.print("info", key, value)
 end
 --Output: x 5, y 10, x 15, y 20
 ```
@@ -58,7 +58,7 @@ end
 --Split string by delimiter
 local csv = "apple,banana,orange"
 for item in string.gmatch(csv, "[^,]+") do
-    engine.print(item)
+    engine.print("info", item)
 end
 --Output: apple, banana, orange
 ```
@@ -69,14 +69,14 @@ local words = {}
 for word in string.gmatch("one two three", "%S+") do
     table.insert(words, word)
 end
-engine.print(table.concat(words, " | ")) --one | two | three
+engine.print("info", table.concat(words, " | ")) --one | two | three
 ```
 
 ```lua
 --Match quoted strings
 local text = 'name="John" age="25" city="NYC"'
 for value in string.gmatch(text, '"(.-)"') do
-    engine.print(value)
+    engine.print("info", value)
 end
 --Output: John, 25, NYC
 ```
@@ -85,7 +85,7 @@ end
 --Extract email addresses
 local text = "Contact: john@example.com or jane@example.com"
 for email in string.gmatch(text, "%S+@%S+") do
-    engine.print(email)
+    engine.print("info", email)
 end
 --Output: john@example.com, jane@example.com
 ```
@@ -96,5 +96,5 @@ local count = 0
 for _ in string.gmatch("the cat sat on the mat", "the") do
     count = count + 1
 end
-engine.print(count) --2
+engine.print("info", count) --2
 ```

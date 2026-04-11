@@ -33,51 +33,51 @@ local result, count = string.gsub(input, pattern, replacement, max_replacements 
 ```lua
 --Simple text replacement
 local result, count = string.gsub("hello world", "world", "Lua")
-engine.print(result) --hello Lua
-engine.print(count) --1
+engine.print("info", result) --hello Lua
+engine.print("info", count) --1
 ```
 
 ```lua
 --Replace all occurrences
 local result = string.gsub("aaa", "a", "b")
-engine.print(result) --bbb
+engine.print("info", result) --bbb
 ```
 
 ```lua
 --Limited replacements
 local result, count = string.gsub("aaa", "a", "b", 2)
-engine.print(result) --bba
-engine.print(count) --2
+engine.print("info", result) --bba
+engine.print("info", count) --2
 ```
 
 ```lua
 --Pattern replacement
 local result = string.gsub("hello world", "%a+", "word")
-engine.print(result) --word word
+engine.print("info", result) --word word
 ```
 
 ```lua
 --Remove all spaces
 local result = string.gsub("h e l l o", " ", "")
-engine.print(result) --hello
+engine.print("info", result) --hello
 ```
 
 ```lua
 --Replace digits with X
 local result = string.gsub("call 555-1234", "%d", "X")
-engine.print(result) --call XXX-XXXX
+engine.print("info", result) --call XXX-XXXX
 ```
 
 ```lua
 --Capture and reuse in replacement
 local result = string.gsub("hello world", "(%a+)", "<%1>")
-engine.print(result) --<hello> <world>
+engine.print("info", result) --<hello> <world>
 ```
 
 ```lua
 --Swap two words
 local result = string.gsub("first second", "(%a+) (%a+)", "%2 %1")
-engine.print(result) --second first
+engine.print("info", result) --second first
 ```
 
 ```lua
@@ -85,7 +85,7 @@ engine.print(result) --second first
 local result = string.gsub("I have 2 apples and 3 oranges", "%d+", function(n)
     return tonumber(n)*2
 end)
-engine.print(result) --I have 4 apples and 6 oranges
+engine.print("info", result) --I have 4 apples and 6 oranges
 ```
 
 ```lua
@@ -96,7 +96,7 @@ local replacements = {
 }
 
 local result = string.gsub("hello world", "%a+", replacements)
-engine.print(result) --goodbye moon
+engine.print("info", result) --goodbye moon
 ```
 
 ```lua
@@ -104,20 +104,20 @@ engine.print(result) --goodbye moon
 local result = string.gsub("hello world from lua", "%a+", function(word)
     return string.upper(string.sub(word, 1, 1))..string.sub(word, 2)
 end)
-engine.print(result) --Hello World From Lua
+engine.print("info", result) --Hello World From Lua
 ```
 
 ```lua
 --Remove HTML tags
 local html = "<p>Hello <b>world</b></p>"
 local result = string.gsub(html, "<[^>]+>", "")
-engine.print(result) --Hello world
+engine.print("info", result) --Hello world
 ```
 
 ```lua
 --Escape special characters
 local result = string.gsub("cost: $5.00", "%$", "USD ")
-engine.print(result) --cost: USD 5.00
+engine.print("info", result) --cost: USD 5.00
 ```
 
 ```lua
@@ -125,12 +125,12 @@ engine.print(result) --cost: USD 5.00
 local result = string.gsub("my_variable_name", "_(%a)", function(letter)
     return string.upper(letter)
 end)
-engine.print(result) --myVariableName
+engine.print("info", result) --myVariableName
 ```
 
 ```lua
 --No replacement if pattern not found
 local result, count = string.gsub("hello", "xyz", "abc")
-engine.print(result) --hello
-engine.print(count) --0
+engine.print("info", result) --hello
+engine.print("info", count) --0
 ```

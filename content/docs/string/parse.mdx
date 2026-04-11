@@ -27,47 +27,47 @@ local result = string.parse(input)
 ```lua
 --Parse nil string
 local result = string.parse("nil")
-engine.print(result) --nil
+engine.print("info", result) --nil
 ```
 
 ```lua
 --Parse boolean true
 local result = string.parse("true")
-engine.print(result) --true
+engine.print("info", result) --true
 ```
 
 ```lua
 --Parse boolean false
 local result = string.parse("false")
-engine.print(result) --false
+engine.print("info", result) --false
 ```
 
 ```lua
 --Parse integer
 local result = string.parse("42")
-engine.print(result) --42
+engine.print("info", result) --42
 ```
 
 ```lua
 --Parse float
 local result = string.parse("3.14")
-engine.print(result) --3.14
+engine.print("info", result) --3.14
 ```
 
 ```lua
 --Parse negative number
 local result = string.parse("-10")
-engine.print(result) ---10
+engine.print("info", result) ---10
 ```
 
 ```lua
 --Parse regular string (no conversion)
 local result = string.parse("hello")
-engine.print(result) --hello
+engine.print("info", result) --hello
 ```
 
 ```lua
 --Parse nil input
 local result = string.parse(nil)
-engine.print(result) --false
+engine.print("info", result) --false
 ```

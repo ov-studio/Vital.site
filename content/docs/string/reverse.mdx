@@ -29,31 +29,31 @@ local result = string.reverse(input)
 ```lua
 --Reverse a word
 local result = string.reverse("hello")
-engine.print(result) --olleh
+engine.print("info", result) --olleh
 ```
 
 ```lua
 --Reverse a sentence
 local result = string.reverse("hello world")
-engine.print(result) --dlrow olleh
+engine.print("info", result) --dlrow olleh
 ```
 
 ```lua
 --Reverse numbers
 local result = string.reverse("12345")
-engine.print(result) --54321
+engine.print("info", result) --54321
 ```
 
 ```lua
 --Single character (no change visually)
 local result = string.reverse("a")
-engine.print(result) --a
+engine.print("info", result) --a
 ```
 
 ```lua
 --Empty string
 local result = string.reverse("")
-engine.print(result) --
+engine.print("info", result) --
 ```
 
 ```lua
@@ -62,27 +62,27 @@ local function isPalindrome(str)
     return str == string.reverse(str)
 end
 
-engine.print(isPalindrome("racecar")) --true
-engine.print(isPalindrome("hello")) --false
+engine.print("info", isPalindrome("racecar")) --true
+engine.print("info", isPalindrome("hello")) --false
 ```
 
 ```lua
 --Reverse and uppercase
 local result = string.upper(string.reverse("hello"))
-engine.print(result) --OLLEH
+engine.print("info", result) --OLLEH
 ```
 
 ```lua
 --Reverse with special characters
 local result = string.reverse("hello!")
-engine.print(result) --!olleh
+engine.print("info", result) --!olleh
 ```
 
 ```lua
 --Double reverse returns original
 local original = "test"
 local reversed = string.reverse(string.reverse(original))
-engine.print(reversed == original) --true
+engine.print("info", reversed == original) --true
 ```
 
 ```lua
@@ -91,27 +91,27 @@ local sentence = "hello world"
 local reversed = string.gsub(sentence, "%S+", function(word)
     return string.reverse(word)
 end)
-engine.print(reversed) --olleh dlrow
+engine.print("info", reversed) --olleh dlrow
 ```
 
 ```lua
 --Create mirror effect
 local text = "ABC"
 local mirror = text.."|"..string.reverse(text)
-engine.print(mirror) --ABC|CBA
+engine.print("info", mirror) --ABC|CBA
 ```
 
 ```lua
 --Reverse binary string
 local binary = "1010"
 local reversed = string.reverse(binary)
-engine.print(reversed) --0101
+engine.print("info", reversed) --0101
 ```
 
 ```lua
 --With numbers as strings
 local num = "123456"
-engine.print(string.reverse(num)) --654321
+engine.print("info", string.reverse(num)) --654321
 ```
 
 ```lua
@@ -119,6 +119,6 @@ engine.print(string.reverse(num)) --654321
 local data = "ABCDEF"
 for i = 1, #data do
     local char = string.sub(string.reverse(data), i, i)
-    engine.print(char) --F, E, D, C, B, A
+    engine.print("info", char) --F, E, D, C, B, A
 end
 ```

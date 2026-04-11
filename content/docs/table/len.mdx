@@ -30,49 +30,49 @@ local length = table.len(input)
 --Regular table length
 local t = {1, 2, 3, 4, 5}
 local len = table.len(t)
-engine.print(len) --5
+engine.print("info", len) --5
 ```
 
 ```lua
 --Packed table with n field
 local packed = table.pack(1, nil, 3, nil, 5)
 local len = table.len(packed)
-engine.print(len) --5
+engine.print("info", len) --5
 ```
 
 ```lua
 --Table with holes (without n field)
 local t = {1, 2, nil, 4}
 local len = table.len(t)
-engine.print(len) --4 (may vary, depends on #)
+engine.print("info", len) --4 (may vary, depends on #)
 ```
 
 ```lua
 --Empty table
 local t = {}
 local len = table.len(t)
-engine.print(len) --0
+engine.print("info", len) --0
 ```
 
 ```lua
 --Comparison with # operator
 local t = {1, 2, 3}
-engine.print(table.len(t)) --3
-engine.print(#t) --3
+engine.print("info", table.len(t)) --3
+engine.print("info", #t) --3
 ```
 
 ```lua
 --Packed table preserves correct length
 local args = table.pack("a", nil, "b", nil, "c")
-engine.print(#args) --May be incorrect with nil holes
-engine.print(table.len(args)) --5 (always correct)
+engine.print("info", #args) --May be incorrect with nil holes
+engine.print("info", table.len(args)) --5 (always correct)
 ```
 
 ```lua
 --Use in iteration
 local t = table.pack(1, nil, 2, nil, 3)
 for i = 1, table.len(t) do
-    engine.print(i, t[i])
+    engine.print("info", i, t[i])
 end
 ```
 
@@ -88,5 +88,5 @@ end
 --Mixed array and hash table
 local t = {10, 20, 30, key = "value"}
 local len = table.len(t)
-engine.print(len) --3 (only counts array part)
+engine.print("info", len) --3 (only counts array part)
 ```
