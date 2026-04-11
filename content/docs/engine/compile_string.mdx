@@ -6,27 +6,39 @@ badge: Shared
 
 ### Syntax
 ```lua
-local result = engine.compile_string(buffer)
+local result, error = engine.compile_string(buffer, chunk_name = "")
 ```
 
 ### Parameters
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | buffer | Buffer containing code to be validated |
+| `string` | chunk_name | Label used in error messages to identify the source<br/>Example: `"scripts/init.lua"` |
 
 ### Returns
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | result | `true` if the buffer is valid Lua syntax, `false` otherwise |
+| `bool` / `string` | error | `false` on success, or error message containing chunk name and line number on failure |
 
 <hr/>
 
 ### Examples
 ```lua
 --Check if code is valid before executing
-local valid = engine.compile_string("engine.print('info', 'hello')")
-if valid then
-    engine.print("info", "info", "Valid syntax")
+local result, err = engine.compile_string("engine.print('info', 'hello')")
+if result then
+    engine.print("info", "Valid syntax")
+else
+    engine.print("error", err)
+end
+```
+
+```lua
+--Use chunk_name to get readable error locations
+local result, err = engine.compile_string("local x =", "scripts/init.lua")
+if not result then
+    engine.print("error", err) --scripts/init.lua:1: unexpected symbol near '<eof>'
 end
 ```
 
