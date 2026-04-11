@@ -45,6 +45,14 @@ end
 ```
 
 ```lua
+--Use chunk_name to get readable error locations
+local result = engine.load_string(
+    "local x =", 
+    "scripts/init.lua"
+) --Error: scripts/init.lua:2: unexpected symbol near '<eof>'
+```
+
+```lua
 --Persistent environment across multiple load_string calls
 --Variables assigned in one call are accessible in the next
 local env = setmetatable({}, {__index = _G})
