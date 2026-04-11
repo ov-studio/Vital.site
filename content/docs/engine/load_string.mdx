@@ -6,13 +6,14 @@ badge: Shared
 
 ### Syntax
 ```lua
-local result = engine.load_string(buffer, auto_load = true, use_env = false, env = nil)
+local result = engine.load_string(buffer, chunk_name = "", auto_load = true, use_env = false, env = nil)
 ```
 
 ### Parameters
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | buffer | Buffer containing code to be loaded and executed |
+| `string` | chunk_name | Label used in error messages to identify the source<br/>Example: `"scripts/init.lua"` |
 | `bool` | auto_load | Determines execution behavior:<br/>• When `true` - the loaded function executes immediately<br/>• When `false` - returns a callable function for deferred execution |
 | `bool` | use_env | Determines environment behavior:<br/>• When `true` - executes the buffer inside the provided `env` table<br/>• When `false` - executes the buffer in the default global environment |
 | `table` | env | A table to use as the execution environment.<br/>Reads and writes inside the buffer are scoped to this table. Typically used with `__index = _G` to retain access to globals |
@@ -27,16 +28,16 @@ local result = engine.load_string(buffer, auto_load = true, use_env = false, env
 ### Examples
 ```lua
 --Immediate execution with auto_load enabled
-local success = engine.load_string([[
+local result = engine.load_string([[
     engine.print("info", "Immediate", "Execution")
-]], true)
+]], false, true)
 ```
 
 ```lua
 --Deferred execution with auto_load disabled
 local exec = engine.load_string([[
     engine.print("info", "Delayed", "Execution")
-]], false)
+]], false, false)
 
 if exec then
     exec() --Execute the loaded function manually
@@ -50,9 +51,9 @@ local env = setmetatable({}, {__index = _G})
 
 engine.load_string([[
     foo = "hello"
-]], true, true, env)
+]], false, true, true, env)
 
 engine.load_string([[
     engine.print(foo) -- prints "hello"
-]], true, true, env)
-```
+]], false, true, true, env)
+```r
