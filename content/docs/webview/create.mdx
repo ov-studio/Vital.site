@@ -7,13 +7,14 @@ badge: Client
 ### Syntax
 
 ```lua
-local instance = webview.create()
+local instance = webview.create(options = {})
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
+| `table` | options | Optional configuration table<br/>Refer [**Options**](#options) section |
 
 ### Returns
 
@@ -23,10 +24,39 @@ local instance = webview.create()
 
 <hr/>
 
+### Options
+
+All fields are optional and fall back to their defaults if not specified.
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `fullscreen` | `bool` | `true` | Webview will always match the size of the viewport |
+| `transparent` | `bool` | `true` | Webview background will be transparent |
+| `incognito` | `bool` | `true` | Runs the webview in incognito mode, no data is persisted to disk |
+| `autoplay` | `bool` | `false` | Media can be played without user interaction |
+| `zoomable` | `bool` | `false` | Enables page zooming hotkeys |
+
+<hr/>
+
 ### Examples
 
 ```lua
+--Create with default options
 local browser = webview.create()
+
+browser:set_visible(true)
+browser:load_url("https://google.com")
+```
+
+```lua
+--Create with custom options
+local browser = webview.create({
+    fullscreen = true,
+    transparent = true,
+    incognito = false,
+    autoplay = false,
+    zoomable = false
+})
 
 browser:set_visible(true)
 browser:load_url("https://google.com")
