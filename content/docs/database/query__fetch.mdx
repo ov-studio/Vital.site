@@ -7,14 +7,14 @@ badge: Server
 ### Syntax
 
 ```lua
-local rows = db_query:fetch(count = 0)
+local rows = db_query:fetch(limit = 0)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | count | Specifies the maximum number of rows to retrieve<br/>When set to `0`, no upper limit is applied and all matching rows are returned |
+| `int` | limit | Limits the maximum number of rows to retrieve<br/>When set to `0`, no upper limit is applied and all matching rows are returned |
 
 ### Returns
 
