@@ -30,14 +30,14 @@ local result = engine.load_string(buffer, chunk_name = "", auto_load = true, use
 --Immediate execution with auto_load enabled
 local result = engine.load_string([[
     engine.print("info", "Immediate", "Execution")
-]], false, true)
+]], nil, true)
 ```
 
 ```lua
 --Deferred execution with auto_load disabled
 local exec = engine.load_string([[
     engine.print("info", "Delayed", "Execution")
-]], false, false)
+]], nil, false)
 
 if exec then
     exec() --Execute the loaded function manually
@@ -59,9 +59,9 @@ local env = setmetatable({}, {__index = _G})
 
 engine.load_string([[
     foo = "hello"
-]], false, true, true, env)
+]], nil, true, true, env)
 
 engine.load_string([[
     engine.print("info", foo) --prints "hello"
-]], false, true, true, env)
+]], nil, true, true, env)
 ```

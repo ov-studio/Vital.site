@@ -49,8 +49,8 @@ local try_expr = "return "..code
 
 local exec = (
     engine.compile_string(try_expr) and 
-    engine.load_string(try_expr, false)
-) or engine.load_string(code, false)
+    engine.load_string(try_expr, nil, false)
+) or engine.load_string(code, nil, false)
 
 if exec then
     exec()
