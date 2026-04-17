@@ -14,7 +14,7 @@
         "method__sync",
         "method__table",
 
-        "---Query---",
+        "---query---",
         "query__is_type",
         "query__get_type",
         "query__destroy",
@@ -24,7 +24,7 @@
         "query__fetch",
         "query__execute",
 
-        "---Query Builder---",
+        "---query builder---",
         "query__select",
         "query__where",
         "query__insert",
