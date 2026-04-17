@@ -27,15 +27,17 @@ local position = engine.screen_to_world(position, depth = 1)
 
 ### Examples
 
-```lua
-local position = engine.screen_to_world({960, 540}, 100)
+```lua lineNumbers title="Convert screen center to world position"
+local resolution = engine.get_resolution()
+local position = engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 100)
+
 engine.print("info", position[1], position[2], position[3])
 ```
 
-```lua
---Retrieve the world position under the center of the screen at varying depths
-local near = engine.screen_to_world({960, 540}, 10)
-local far  = engine.screen_to_world({960, 540}, 500)
+```lua lineNumbers title="Retrieve world positions at near and far depths"
+local resolution = engine.get_resolution()
+local near = engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 10)
+local far = engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 500)
 
 engine.print("info", "Near:", near[1], near[2], near[3])
 engine.print("info", "Far:",  far[1],  far[2],  far[3])

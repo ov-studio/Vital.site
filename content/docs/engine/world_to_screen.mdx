@@ -28,19 +28,18 @@ local position, distance = engine.world_to_screen(position, padding = 0)
 
 ### Examples
 
-```lua
---Draw a red rectangle at world origin with padding
+```lua lineNumbers title="Draw a rectangle at a world position projected to screen"
 local position, distance = engine.world_to_screen({0, 0, 0})
+local size = {10, 10}
 
 network:fetch("vital.sandbox:draw", true):on(function()
-    local size = 10
     local position, distance = engine.world_to_screen({0, 0, 0}, size*2)
-    if position[1] ~= -1 then
-        engine.draw_rectangle(
-            {position[1] - size*0.5, position[2] - size*0.5},
-            {size, size},
-            {1, 0, 0, 1}
-        )
-    end
+    if position[1] == -1 then return false end
+
+    engine.draw_rectangle(
+        {position[1] - size[1]*0.5, position[2] - size[2]*0.5},
+        size,
+        {1, 0, 0, 1}
+    )
 end)
 ```
