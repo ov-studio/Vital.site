@@ -1,6 +1,6 @@
 ---
 title: shrinker.decompress
-description: Decodes a compressed string using zstd library
+description: Decompresses a compressed string using zstd library
 badge: Shared
 ---
 
@@ -26,7 +26,7 @@ local result = shrinker.decompress(input)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Decompresses an input string"
 local input = shrinker.compress("Hello World")
 
 engine.print("info", "Input:", input)
