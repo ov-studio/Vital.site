@@ -2,10 +2,10 @@
     "title": "Model",
     "icon": "Box",
     "pages": [
+        "is_loaded",
         "load",
         "unload",
         "create",
-        "is_loaded",
         "...",
 
        "---::lifecycle---",
