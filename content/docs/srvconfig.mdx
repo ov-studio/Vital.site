@@ -1,5 +1,5 @@
 ---
-title: Server Configuration
+title: Server configuration
 description: Configure your Vital.server at runtime via config.yaml.
 ---
 
@@ -7,13 +7,13 @@ description: Configure your Vital.server at runtime via config.yaml.
 
 Every **Vital.server** ships with a `config.yaml` in its root directory, pre-populated with defaults. It is the single source of truth for runtime behaviour — modify the values, restart the server, and changes take effect immediately.
 
-Configuration is loaded at startup by the `SrvConfig` subsystem. If the file is absent or malformed, the server falls back to built-in defaults and logs a warning to the console. A missing file is non-fatal.
+If the config file is absent or malformed, the server falls back to built-in defaults and emits a diagnostic to the console. A missing file is non-fatal.
 
 ---
 
 ## Configuration
 
-Default Vital.server config as is shipped with sandbox.
+Default `config.yaml` as shipped with every Vital.server.
 
 ```yaml
 # =============================================================================
@@ -49,7 +49,7 @@ social:
 
 ---
 
-### Server Identity
+### Server
 
 Controls the display name, version string, and description exposed to clients and integrations.
 
@@ -79,7 +79,10 @@ network:
 ```
 
 <Callout type="warn">
-  Changing `port` requires clients to connect to the updated address. Ensure your firewall rules are updated accordingly.
+  **Both values directly affect client connectivity — change them with care.**
+
+  - **`port`** — Clients must target this exact port to establish a connection. Any change requires updating client configuration and firewall rules accordingly
+  - **`max_peers`** — Once the limit is reached, incoming connections are refused until a slot becomes available
 </Callout>
 
 | Key | Type | Default | Description |
@@ -91,7 +94,7 @@ network:
 
 ### HTTP
 
-Controls the asset delivery server. Clients download assets such as models and textures from this port.
+Controls the asset delivery server. Clients fetch assets such as models and textures from this port at runtime.
 
 ```yaml
 http:
@@ -99,12 +102,15 @@ http:
 ```
 
 <Callout type="info">
-  The HTTP server runs independently of the ENet port. Both must be open and reachable for clients to connect and load assets correctly.
+  **The HTTP server operates independently of the ENet transport layer.**
+
+  - **Both ports must be reachable** — clients require the network port to connect and the HTTP port to stream assets; blocking either will result in a failed session
+  - **Separate firewall rules** — ensure both ports are open in your firewall and, if applicable, forwarded correctly in your network configuration
 </Callout>
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `port` | integer | `7778` | Port the HTTP asset server listens on |
+| `port` | integer | `7778` | Port the HTTP asset delivery server listens on |
 
 ---
 
@@ -125,13 +131,17 @@ discord:
 ```
 
 <Callout type="info">
-  Image asset keys must be registered in the Discord Developer Portal under **Rich Presence → Art Assets** before they can be referenced here.
+  **Image asset keys must be registered before use.**
+
+  - **Register assets** — upload and name your images in the [Discord Developer Portal](https://discord.com/developers/applications) under **Rich Presence → Art Assets**
+  - **`application_id`** — must be a valid numeric string; non-numeric or empty values are treated as `0` and Rich Presence will not initialise
+  - **Placeholders** — `state` and `details` support `{server_name}`, `{player_count}`, and `{max_players}`, resolved at runtime
 </Callout>
 
 | Key | Type | Default | Description |
 |---|---|---|---|
 | `enabled` | boolean | `false` | Enables or disables Discord Rich Presence |
-| `application_id` | string | `"0"` | Application ID from the [Discord Developer Portal](https://discord.com/developers/applications) — must be numeric; invalid values fall back to `0` |
+| `application_id` | string | `"0"` | Application ID from the Discord Developer Portal — must be numeric |
 | `state` | string | `"Playing on {server_name}"` | State line displayed below the game name |
 | `details` | string | `"{player_count}/{max_players} players"` | Details line displayed above the state |
 | `large_image_key` | string | `""` | Asset key for the large Rich Presence image |
