@@ -26,15 +26,14 @@ local position = self:get_bone_position(bone)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Print the world-space position of a bone"
 local entity = model.create("character")
 local position = entity:get_bone_position("Head")
 
 engine.print("info", "Bone position:", position[1], position[2], position[3])
 ```
 
-```lua
---Draw a marker at head bone's world position
+```lua lineNumbers title="Draw a screen-space marker at a bone's world position"
 local entity = model.create("character")
 local bone = "Head"
 
