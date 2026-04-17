@@ -5,10 +5,13 @@
         "create",
         "create_from_raw",
         "...",
-        "---Method---",
+
+       "---::lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
+       "---::api---",
         "method__update"
     ]
 }

@@ -4,13 +4,18 @@
     "pages": [
         "create",
         "...",
-        "---Method---",
+
+       "---::lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
-        "method__set_antialiasing",
+        
+       "---::getter---",
         "method__get_antialiasing",
-        "method__set_oversampling",
-        "method__get_oversampling"
+        "method__get_oversampling",
+
+       "---::setter---",
+        "method__set_antialiasing",
+        "method__set_oversampling"
     ]
 }

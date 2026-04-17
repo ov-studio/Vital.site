@@ -4,7 +4,8 @@
     "pages": [
         "create",
         "...",
-        "---Method---",
+
+       "---::lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy"

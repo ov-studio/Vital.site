@@ -4,7 +4,8 @@
     "pages": [
         "create",
         "...",
-        "---Method---",
+
+       "---::api---",
         "method__is_type",
         "method__get_type",
         "method__is_connected",
@@ -12,6 +13,7 @@
         "method__define",
         "method__sync",
         "method__table",
+
         "---Query---",
         "query__is_type",
         "query__get_type",
@@ -21,6 +23,7 @@
         "query__alter",
         "query__fetch",
         "query__execute",
+
         "---Query Builder---",
         "query__select",
         "query__where",

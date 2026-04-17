@@ -6,13 +6,20 @@
         "set_active",
         "get_active",
         "...",
-        "---Method---",
+
+       "---::lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
-        "method__get_size",
+
+       "---::checker---",
         "method__is_active",
+
+       "---::getter---",
+        "method__get_size",
         "method__get_active",
+
+       "---::setter---",
         "method__set_active"
     ]
 }
