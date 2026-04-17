@@ -2,7 +2,6 @@
     "title": "Engine",
     "icon": "Cog",
     "pages": [
-        "---General---",
         "get_version",
         "get_tick",
         "get_platform",
