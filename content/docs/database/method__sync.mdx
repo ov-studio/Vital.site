@@ -25,7 +25,7 @@ local status = self:sync()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Define and sync the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 --Define the players table schema
@@ -35,6 +35,6 @@ db:define("players", {
     score = { type = "INT", nullable = true }
 })
 
---Sync all defined schemas
+--Sync all defined schemas to the database
 db:sync()
 ```
