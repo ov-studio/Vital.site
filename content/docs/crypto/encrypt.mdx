@@ -29,7 +29,7 @@ local result, iv = crypto.encrypt(mode, input, key)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Encrypts an input string"
 local input = "Hello World"
 local key = "MySecretKey12345"
 local output, iv = crypto.encrypt("AES256", input, key)

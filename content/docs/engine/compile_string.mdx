@@ -24,8 +24,7 @@ local result, error = engine.compile_string(buffer, chunk_name = "")
 <hr/>
 
 ### Examples
-```lua
---Check if code is valid before executing
+```lua lineNumbers title="Check if code is valid before executing"
 local result, err = engine.compile_string("engine.print('info', 'hello')")
 if result then
     engine.print("info", "Valid syntax")
@@ -34,16 +33,14 @@ else
 end
 ```
 
-```lua
---Use chunk_name to get readable error locations
+```lua lineNumbers title="Use chunk_name to get readable error locations"
 local result, err = engine.compile_string("local x =", "scripts/init.lua")
 if not result then
     engine.print("error", err) --scripts/init.lua:1: unexpected symbol near '<eof>'
 end
 ```
 
-```lua
---Use compile_string to try expression syntax before falling back to statement
+```lua lineNumbers title="Use compile_string to try expression syntax before falling back to statement"
 local code = "x = 1 + 1"
 local try_expr = "return "..code
 

@@ -29,7 +29,7 @@ local result = crypto.decrypt(mode, input, key, iv)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Decrypts an input string"
 local key = "MySecretKey12345"
 local input, iv = crypto.encrypt("AES256", "Hello World", key)
 
