@@ -1,0 +1,165 @@
+---
+title: Server Configuration
+description: Configure your Vital.server at runtime via config.yaml.
+---
+
+## Overview
+
+Every **Vital.server** ships with a `config.yaml` in its root directory, pre-populated with defaults. It is the single source of truth for runtime behaviour — modify the values, restart the server, and changes take effect immediately.
+
+Configuration is loaded at startup by the `SrvConfig` subsystem. If the file is absent or malformed, the server falls back to built-in defaults and logs a warning to the console. A missing file is non-fatal.
+
+---
+
+## Configuration
+
+Default Vital.server config as is shipped with sandbox.
+
+```yaml
+# =============================================================================
+# Vital Sandbox — Server Configuration
+# =============================================================================
+
+server:
+  name: "Vital Sandbox Server"
+  version: "1.0.0"
+  description: "A Vital Sandbox server"
+
+network:
+  port: 7777
+  max_peers: 32
+
+http:
+  port: 7778
+
+discord:
+  enabled: false
+  application_id: "0"
+  state: "Playing on {server_name}"
+  details: "{player_count}/{max_players} players"
+  large_image_key: ""
+  large_image_text: ""
+  small_image_key: ""
+  small_image_text: ""
+
+social:
+  discord_invite: ""
+  website: ""
+```
+
+---
+
+### Server Identity
+
+Controls the display name, version string, and description exposed to clients and integrations.
+
+```yaml
+server:
+  name: "Vital Sandbox Server"
+  version: "1.0.0"
+  description: "A Vital Sandbox server"
+```
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `name` | string | `"Vital Sandbox Server"` | Display name shown in the client UI and Discord Rich Presence |
+| `version` | string | `"1.0.0"` | Version identifier used for compatibility checks |
+| `description` | string | `""` | Optional description shown in the client UI |
+
+---
+
+### Network
+
+Controls the ENet multiplayer transport layer. Clients connect to the port defined here.
+
+```yaml
+network:
+  port: 7777
+  max_peers: 32
+```
+
+<Callout type="warn">
+  Changing `port` requires clients to connect to the updated address. Ensure your firewall rules are updated accordingly.
+</Callout>
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `port` | integer | `7777` | TCP port the ENet multiplayer server listens on |
+| `max_peers` | integer | `32` | Maximum number of concurrent client connections |
+
+---
+
+### HTTP
+
+Controls the asset delivery server. Clients download assets such as models and textures from this port.
+
+```yaml
+http:
+  port: 7778
+```
+
+<Callout type="info">
+  The HTTP server runs independently of the ENet port. Both must be open and reachable for clients to connect and load assets correctly.
+</Callout>
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `port` | integer | `7778` | Port the HTTP asset server listens on |
+
+---
+
+### Discord
+
+Configures Discord Rich Presence. This section **only applies to client builds** — it has no effect on server-only deployments.
+
+```yaml
+discord:
+  enabled: false
+  application_id: "0"
+  state: "Playing on {server_name}"
+  details: "{player_count}/{max_players} players"
+  large_image_key: ""
+  large_image_text: ""
+  small_image_key: ""
+  small_image_text: ""
+```
+
+<Callout type="info">
+  Image asset keys must be registered in the Discord Developer Portal under **Rich Presence → Art Assets** before they can be referenced here.
+</Callout>
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `enabled` | boolean | `false` | Enables or disables Discord Rich Presence |
+| `application_id` | string | `"0"` | Application ID from the [Discord Developer Portal](https://discord.com/developers/applications) — must be numeric; invalid values fall back to `0` |
+| `state` | string | `"Playing on {server_name}"` | State line displayed below the game name |
+| `details` | string | `"{player_count}/{max_players} players"` | Details line displayed above the state |
+| `large_image_key` | string | `""` | Asset key for the large Rich Presence image |
+| `large_image_text` | string | `""` | Tooltip text for the large image |
+| `small_image_key` | string | `""` | Asset key for the small Rich Presence image |
+| `small_image_text` | string | `""` | Tooltip text for the small image |
+
+The `state` and `details` fields support the following runtime placeholders:
+
+| Placeholder | Resolves To |
+|---|---|
+| `{server_name}` | Value of `server.name` |
+| `{player_count}` | Current number of connected players |
+| `{max_players}` | Value of `network.max_peers` |
+
+---
+
+### Social
+
+Defines community links surfaced in the client UI.
+
+```yaml
+social:
+  discord_invite: ""
+  website: ""
+```
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `discord_invite` | string | `""` | Discord server invite URL |
+| `website` | string | `""` | Website URL |
