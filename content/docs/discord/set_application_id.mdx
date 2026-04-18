@@ -1,6 +1,6 @@
 ---
 title: discord.set_application_id
-description: Sets the Discord application ID and reconnects the client
+description: Sets the Discord application-id and reconnects the client
 badge: Client
 ---
 
@@ -14,7 +14,7 @@ local status = discord.set_application_id(id, authenticate = false, force_reauth
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | id | Discord application ID to connect with |
+| `string` | id | Discord application-id to connect with |
 | `bool` | authenticate | Determines the authentication state:<br/>• When `true` - authenticates the client with OAuth<br/>• When `false` - connects without authentication |
 | `bool` | force_reauth | Determines the re-authentication state:<br/>• When `true` - forces re-authentication even if a cached token exists<br/>• When `false` - uses the cached token if available |
 
@@ -29,7 +29,7 @@ local status = discord.set_application_id(id, authenticate = false, force_reauth
 ### Examples
 
 ```lua lineNumbers title="Connect with various authentication options"
---Connect with a specific application ID
+--Connect with a specific application-id
 discord.set_application_id("1461425342722998474")
 
 --Connect with authentication
