@@ -137,7 +137,14 @@ for i = 1, #str, 2 do
     local chunk = string.sub(str, i, i + 1)
     engine.print("info", chunk)
 end
---Output: ab, cd, ef, gh
+
+--[[
+Output: 
+"ab"
+"cd"
+"ef"
+"gh"
+]]
 ```
 
 ```lua lineNumbers title="Truncate a long string with ellipsis"
