@@ -95,7 +95,7 @@ for word in string.gmatch("one two three", "%S+") do
     table.insert(words, word)
 end
 
-engine.print("info", table.concat(words, " | ")) --"one | two | three"
+engine.print("info", table.concat(words, " | ")) --'one | two | three'
 ```
 
 ```lua lineNumbers title="Match quoted strings"

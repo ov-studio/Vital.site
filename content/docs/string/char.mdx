@@ -29,30 +29,30 @@ local result = string.char(...)
 ```lua lineNumbers title="Create a string from byte values"
 local str = string.char(65, 66, 67)
 
-engine.print("info", str) --"ABC"
+engine.print("info", str) --'ABC'
 ```
 
 ```lua lineNumbers title="Build a greeting string from byte values"
 local greeting = string.char(72, 101, 108, 108, 111)
 
-engine.print("info", greeting) --"Hello"
+engine.print("info", greeting) --'Hello'
 ```
 
 ```lua lineNumbers title="Create a single character from a byte value"
 local char = string.char(33)
 
-engine.print("info", char) --"!"
+engine.print("info", char) --'!'
 ```
 
 ```lua lineNumbers title="Create an empty string with no arguments"
 local empty = string.char()
 
-engine.print("info", empty) --""
+engine.print("info", empty) --''
 ```
 
 ```lua lineNumbers title="Round-trip a string through byte and char"
 local bytes = {string.byte("Hi", 1, -1)}
 local reconstructed = string.char(table.unpack(bytes))
 
-engine.print("info", reconstructed) --"Hi"
+engine.print("info", reconstructed) --'Hi'
 ```

@@ -30,28 +30,28 @@ table.sort(input, comparison = nil)
 local nums = {5, 2, 8, 1, 9}
 table.sort(nums)
 
-engine.print("info", table.concat(nums, ", ")) --"1, 2, 5, 8, 9"
+engine.print("info", table.concat(nums, ", ")) --'1, 2, 5, 8, 9'
 ```
 
 ```lua lineNumbers title="Sort numbers in descending order"
 local nums = {5, 2, 8, 1, 9}
 table.sort(nums, function(a, b) return a > b end)
 
-engine.print("info", table.concat(nums, ", ")) --"9, 8, 5, 2, 1"
+engine.print("info", table.concat(nums, ", ")) --'9, 8, 5, 2, 1'
 ```
 
 ```lua lineNumbers title="Sort strings alphabetically"
 local words = {"zebra", "apple", "mango", "banana"}
 table.sort(words)
 
-engine.print("info", table.concat(words, ", ")) --"apple, banana, mango, zebra"
+engine.print("info", table.concat(words, ", ")) --'apple, banana, mango, zebra'
 ```
 
 ```lua lineNumbers title="Sort strings by length"
 local words = {"hi", "hello", "a", "world"}
 table.sort(words, function(a, b) return #a < #b end)
 
-engine.print("info", table.concat(words, ", ")) --"a, hi, hello, world"
+engine.print("info", table.concat(words, ", ")) --'a, hi, hello, world'
 ```
 
 ```lua lineNumbers title="Sort strings case-insensitively"
@@ -60,7 +60,7 @@ table.sort(names, function(a, b)
     return string.lower(a) < string.lower(b) 
 end)
 
-engine.print("info", table.concat(names, ", ")) --"alice, Bob, Charlie, david"
+engine.print("info", table.concat(names, ", ")) --'alice, Bob, Charlie, david'
 ```
 
 ```lua lineNumbers title="Sort mixed-case strings uniformly"
@@ -69,5 +69,5 @@ table.sort(items, function(a, b)
     return string.lower(a) < string.lower(b)
 end)
 
-engine.print("info", table.concat(items, ", ")) --"Apple, banana, Cherry, date"
+engine.print("info", table.concat(items, ", ")) --'Apple, banana, Cherry, date'
 ```

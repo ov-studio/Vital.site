@@ -72,7 +72,7 @@ engine.iprint(config) --Quick way to see table contents
 
 ```lua lineNumbers title="Print primitive values"
 --Print string
-engine.iprint("hello world") --"hello world"
+engine.iprint("hello world") --'hello world'
 
 --Print number
 engine.iprint(42) --42
@@ -89,6 +89,6 @@ engine.iprint(t, true) --Shows metatable when show_hidden = true
 --Better than tostring for tables
 local t = {x = 1, y = 2}
 
-engine.print(tostring(t)) --"table: 0x..."
+engine.print(tostring(t)) --'table: 0x...'
 engine.iprint(t) --Readable format
 ```

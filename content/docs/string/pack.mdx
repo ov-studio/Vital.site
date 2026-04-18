@@ -88,7 +88,7 @@ local packed = string.pack(">I4", 0x12345678)
 ```lua lineNumbers title="Pack raw bytes as a string"
 local packed = string.pack("BBB", 65, 66, 67)
 
-engine.print("info", packed) --"ABC"
+engine.print("info", packed) --'ABC'
 ```
 
 ```lua lineNumbers title="Pack values with padding bytes"

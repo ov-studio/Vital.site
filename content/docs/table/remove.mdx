@@ -40,7 +40,7 @@ local t = {"a", "b", "c", "d"}
 local removed = table.remove(t, 2)
 
 engine.print("info", removed) --b
-engine.print("info", table.concat(t, ", ")) --"a, c, d"
+engine.print("info", table.concat(t, ", ")) --'a, c, d'
 ```
 
 ```lua lineNumbers title="Remove the first element"
@@ -48,14 +48,14 @@ local t = {10, 20, 30}
 local removed = table.remove(t, 1)
 
 engine.print("info", removed) --10
-engine.print("info", table.concat(t, ", ")) --"20, 30"
+engine.print("info", table.concat(t, ", ")) --'20, 30'
 ```
 
 ```lua lineNumbers title="Pop the top element off a stack"
 local stack = {"first", "second", "third"}
 local top = table.remove(stack)
 
-engine.print("info", top) --"third"
+engine.print("info", top) --'third'
 engine.print("info", #stack) --2
 ```
 
@@ -63,8 +63,8 @@ engine.print("info", #stack) --2
 local queue = {"task1", "task2", "task3"}
 local next = table.remove(queue, 1)
 
-engine.print("info", next) --"task1"
-engine.print("info", table.concat(queue, ", ")) --"task2, task3"
+engine.print("info", next) --'task1'
+engine.print("info", table.concat(queue, ", ")) --'task2, task3'
 ```
 
 ```lua lineNumbers title="Remove all elements one by one"
@@ -95,7 +95,7 @@ engine.print("info", removed) --nil
 local colors = {"red", "green", "blue", "yellow"}
 table.remove(colors, 3)
 
-engine.print("info", table.concat(colors, ", ")) --"red, green, yellow"
+engine.print("info", table.concat(colors, ", ")) --'red, green, yellow'
 ```
 
 ```lua lineNumbers title="Process and remove elements in order"

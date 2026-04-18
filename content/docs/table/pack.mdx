@@ -36,7 +36,7 @@ engine.print("info", t.n) --5
 ```lua lineNumbers title="Pack values including nils and check count"
 local t = table.pack("a", nil, "b", nil, "c")
 
-engine.print("info", t[1], t[2], t[3]) --"a"  nil  "b"
+engine.print("info", t[1], t[2], t[3]) --'a'  nil  'b'
 engine.print("info", t.n) --5
 ```
 
@@ -82,7 +82,7 @@ engine.print("info", t.n) --1
 local t = table.pack(1, "two", true, nil, {5})
 
 engine.print("info", t.n) --5
-engine.print("info", type(t[5])) --"table"
+engine.print("info", type(t[5])) --'table'
 ```
 
 ```lua lineNumbers title="n field is more reliable than # with nils"

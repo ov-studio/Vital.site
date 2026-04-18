@@ -27,18 +27,18 @@ local result = string.detab(input)
 ```lua lineNumbers title="Convert a single tab to spaces"
 local result = string.detab("Hello\tWorld")
 
-engine.print("info", result) --"Hello    World"
+engine.print("info", result) --'Hello    World'
 ```
 
 ```lua lineNumbers title="Convert multiple tabs to spaces"
 local result = string.detab("A\tB\tC")
 
-engine.print("info", result) --"A    B    C"
+engine.print("info", result) --'A    B    C'
 ```
 
 ```lua lineNumbers title="Format tab-separated values"
 local tsv = "Name\tAge\tCity"
 local formatted = string.detab(tsv)
 
-engine.print("info", formatted) --"Name    Age    City"
+engine.print("info", formatted) --'Name    Age    City'
 ```
