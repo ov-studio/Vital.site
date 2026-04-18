@@ -1,6 +1,6 @@
 ---
 title: discord.get_userid
-description: Retrieves the user ID of the currently connected Discord account
+description: Retrieves the userid of the currently connected Discord account
 badge: Client
 ---
 
@@ -19,13 +19,13 @@ local result = discord.get_userid()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | result | User ID of the connected Discord account, or `false` if not connected |
+| `string` | result | Userid of the connected Discord account, or `false` if not connected |
 
 <hr/>
 
 ### Examples
 
-```lua lineNumbers title="Get the user ID of the connected discord account"
+```lua lineNumbers title="Get the userid of the connected discord account"
 local userid = discord.get_userid()
 
 engine.print("info", "Discord user ID:", userid)
