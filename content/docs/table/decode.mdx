@@ -28,32 +28,32 @@ local result = table.decode(input, mode = "JSON")
 ### Examples
 
 ```lua lineNumbers title="Decode a JSON object string into a table"
---Decode JSON object
 local json = '{"name":"John","age":25}'
 local data = table.decode(json)
-engine.print("info", data.name) --John
+
+engine.print("info", data.name) --'John'
 engine.print("info", data.age) --25
 ```
 
 ```lua lineNumbers title="Decode a JSON array string into a table"
---Decode JSON array
 local json = '["red","green","blue"]'
 local colors = table.decode(json)
-engine.print("info", colors[1]) --red
-engine.print("info", colors[2]) --green
+
+engine.print("info", colors[1]) --'red'
+engine.print("info", colors[2]) --'green'
 ```
 
 ```lua lineNumbers title="Decode a JSON number array"
---Decode JSON numbers
 local json = '[100,200,300]'
 local values = table.decode(json)
+
 engine.print("info", values[1], values[2], values[3]) --100  200  300
 ```
 
 ```lua lineNumbers title="Decode JSON boolean values"
---Decode JSON boolean values
 local json = '{"enabled":true,"debug":false}'
 local settings = table.decode(json)
+
 engine.print("info", settings.enabled) --true
 engine.print("info", settings.debug) --false
 ```
