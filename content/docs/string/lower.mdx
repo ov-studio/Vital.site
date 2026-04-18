@@ -27,31 +27,30 @@ local result = string.lower(input)
 ### Examples
 
 ```lua lineNumbers title="Convert an uppercase string to lowercase"
---Convert to lowercase
 local result = string.lower("HELLO")
-engine.print("info", result) --hello
+
+engine.print("info", result) --"hello"
 ```
 
 ```lua lineNumbers title="Convert a mixed-case string to lowercase"
---Mixed case
 local result = string.lower("Hello World")
-engine.print("info", result) --hello world
+
+engine.print("info", result) --"hello world"
 ```
 
 ```lua lineNumbers title="Already-lowercase strings are unchanged"
---Already lowercase (no change)
 local result = string.lower("already lowercase")
-engine.print("info", result) --already lowercase
+
+engine.print("info", result) --"already lowercase"
 ```
 
 ```lua lineNumbers title="Numbers and special characters are unchanged"
---Numbers and special characters unchanged
 local result = string.lower("ABC123!@#")
-engine.print("info", result) --abc123!@#
+
+engine.print("info", result) --"abc123!@#"
 ```
 
 ```lua lineNumbers title="Perform a case-insensitive comparison"
---Case-insensitive comparison
 local str1 = "Hello"
 local str2 = "HELLO"
 
@@ -61,15 +60,14 @@ end
 ```
 
 ```lua lineNumbers title="Normalize user input for comparison"
---Normalize user input
 local input = "YES"
+
 if string.lower(input) == "yes" then
     engine.print("info", "User confirmed")
 end
 ```
 
 ```lua lineNumbers title="Convert table keys to lowercase"
---Convert keys to lowercase
 local data = {
     Name = "John",
     Age = 25,
@@ -79,30 +77,36 @@ local data = {
 for key, value in pairs(data) do
     engine.print("info", string.lower(key), value)
 end
---Output: name John, age 25, city NYC
+
+--[[
+Output: 
+"name John"
+"age 25"
+"city NYC"
+]]
 ```
 
 ```lua lineNumbers title="Normalize an email address to lowercase"
---Email normalization
 local email = "User@Example.COM"
 local normalized = string.lower(email)
-engine.print("info", normalized) --user@example.com
+
+engine.print("info", normalized) --"user@example.com"
 ```
 
 ```lua lineNumbers title="Strings with only numbers are unchanged"
---String with only numbers (no change)
 local result = string.lower("123456")
-engine.print("info", result) --123456
+
+engine.print("info", result) --"123456"
 ```
 
 ```lua lineNumbers title="Lowercase an empty string"
---Empty string
 local result = string.lower("")
-engine.print("info", result) --
+
+engine.print("info", result) --""
 ```
 
 ```lua lineNumbers title="Chain lowercase with other string functions"
---Chaining with other string functions
 local result = string.lower("HELLO WORLD"):gsub(" ", "_")
-engine.print("info", result) --hello_world
+
+engine.print("info", result) --"hello_world"
 ```
