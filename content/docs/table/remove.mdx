@@ -28,72 +28,79 @@ local value = table.remove(input, position = table.len(input))
 ### Examples
 
 ```lua lineNumbers title="Remove the last element"
---Remove last element
 local t = {1, 2, 3, 4}
 local removed = table.remove(t)
+
 engine.print("info", removed) --4
 engine.print("info", table.concat(t, ", ")) --1, 2, 3
 ```
 
 ```lua lineNumbers title="Remove an element at a specific position"
---Remove at specific position
 local t = {"a", "b", "c", "d"}
 local removed = table.remove(t, 2)
+
 engine.print("info", removed) --b
-engine.print("info", table.concat(t, ", ")) --a, c, d
+engine.print("info", table.concat(t, ", ")) --"a, c, d"
 ```
 
 ```lua lineNumbers title="Remove the first element"
---Remove first element
 local t = {10, 20, 30}
 local removed = table.remove(t, 1)
+
 engine.print("info", removed) --10
-engine.print("info", table.concat(t, ", ")) --20, 30
+engine.print("info", table.concat(t, ", ")) --"20, 30"
 ```
 
 ```lua lineNumbers title="Pop the top element off a stack"
---Stack operations (pop)
 local stack = {"first", "second", "third"}
 local top = table.remove(stack)
-engine.print("info", top) --third
+
+engine.print("info", top) --"third"
 engine.print("info", #stack) --2
 ```
 
 ```lua lineNumbers title="Dequeue the first element from a queue"
---Queue operations (dequeue)
 local queue = {"task1", "task2", "task3"}
 local next = table.remove(queue, 1)
-engine.print("info", next) --task1
-engine.print("info", table.concat(queue, ", ")) --task2, task3
+
+engine.print("info", next) --"task1"
+engine.print("info", table.concat(queue, ", ")) --"task2, task3"
 ```
 
 ```lua lineNumbers title="Remove all elements one by one"
 --Remove all elements
 local t = {1, 2, 3}
+
 while table.len(t) > 0 do
     local value = table.remove(t)
     engine.print("info", value)
 end
---Output: 3, 2, 1
+
+--[[
+Output: 
+3
+2
+1
+]]
 ```
 
 ```lua lineNumbers title="Return nil when removing from an empty table"
---Remove from empty table
 local t = {}
 local removed = table.remove(t)
+
 engine.print("info", removed) --nil
 ```
 
 ```lua lineNumbers title="Remove a middle element"
---Remove middle element
 local colors = {"red", "green", "blue", "yellow"}
 table.remove(colors, 3)
-engine.print("info", table.concat(colors, ", ")) --red, green, yellow
+
+engine.print("info", table.concat(colors, ", ")) --"red, green, yellow"
 ```
 
 ```lua lineNumbers title="Process and remove elements in order"
---Process and remove
 local tasks = {"a", "b", "c"}
+
 while #tasks > 0 do
     local task = table.remove(tasks, 1)
     engine.print("info", "Processing:", task)
