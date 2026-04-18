@@ -32,49 +32,49 @@ local start_at, end_at, ... = string.find(input, pattern, start_at = 1, plain_te
 ### Examples
 
 ```lua lineNumbers title="Find the position of a substring"
---Simple text search
 local s, e = string.find("hello world", "world")
+
 engine.print("info", s, e) --7  11
 ```
 
 ```lua lineNumbers title="Find the first occurrence of a character"
---Find first occurrence of a character
 local pos = string.find("hello", "l")
+
 engine.print("info", pos) --3
 ```
 
 ```lua lineNumbers title="Search starting from a specific position"
---Search with starting position
 local s, e = string.find("hello hello", "hello", 7)
+
 engine.print("info", s, e) --7  11
 ```
 
 ```lua lineNumbers title="Find a pattern match position"
---Pattern matching with digits
 local s, e = string.find("Price: $25.99", "%d+")
+
 engine.print("info", s, e) --9  10
 ```
 
 ```lua lineNumbers title="Find a pattern and capture a group"
---Pattern with captures
 local s, e, num = string.find("hello 123 world", "(%d+)")
+
 engine.print("info", s, e, num) --7  9  123
 ```
 
 ```lua lineNumbers title="Use plain text search to disable pattern matching"
---Plain text search (disable pattern matching)
 local s, e = string.find("Cost: $5.00", "$", 1, true)
+
 engine.print("info", s, e) --7  7
 ```
 
 ```lua lineNumbers title="Find a pattern and capture multiple groups"
---Multiple captures
 local s, e, word1, word2 = string.find("hello world", "(%a+) (%a+)")
+
 engine.print("info", word1, word2) --hello  world
 ```
 
 ```lua lineNumbers title="Search from the end using a negative index"
---Search from end using negative index
 local s, e = string.find("hello", "l", -3)
+
 engine.print("info", s, e) --3  3
 ```

@@ -49,97 +49,97 @@ local result = string.format(format, ...)
 ### Examples
 
 ```lua lineNumbers title="Format a basic string"
---Basic string formatting
 local str = string.format("Hello %s", "World")
-engine.print("info", str) --Hello World
+
+engine.print("info", str) --"Hello World"
 ```
 
 ```lua lineNumbers title="Format an integer"
---Integer formatting
 local num = string.format("Number: %d", 42)
-engine.print("info", num) --Number: 42
+
+engine.print("info", num) --"Number: 42"
 ```
 
 ```lua lineNumbers title="Format multiple values in one string"
---Multiple values
 local result = string.format("%d + %d = %d", 5, 3, 8)
-engine.print("info", result) --5 + 3 = 8
+
+engine.print("info", result) --"5 + 3 = 8"
 ```
 
 ```lua lineNumbers title="Format a float with fixed decimal precision"
---Floating point with precision
 local pi = string.format("Pi: %.2f", math.pi)
-engine.print("info", pi) --Pi: 3.14
+
+engine.print("info", pi) --"Pi: 3.14"
 ```
 
 ```lua lineNumbers title="Format a float with more decimal places"
---More decimal places
 local precise = string.format("%.5f", math.pi)
-engine.print("info", precise) --3.14159
+
+engine.print("info", precise) --"3.14159"
 ```
 
 ```lua lineNumbers title="Pad an integer with leading zeros"
---Padding with zeros
 local padded = string.format("%05d", 42)
-engine.print("info", padded) --00042
+
+engine.print("info", padded) --"00042"
 ```
 
 ```lua lineNumbers title="Format a number as uppercase hexadecimal"
---Hexadecimal uppercase
 local hex = string.format("0x%X", 255)
-engine.print("info", hex) --0xFF
+
+engine.print("info", hex) --"0xFF"
 ```
 
 ```lua lineNumbers title="Format a number as lowercase hexadecimal"
---Hexadecimal lowercase
 local hexLower = string.format("0x%x", 255)
-engine.print("info", hexLower) --0xff
+
+engine.print("info", hexLower) --"0xff"
 ```
 
 ```lua lineNumbers title="Format a number in scientific notation"
---Scientific notation
 local sci = string.format("%e", 1234.5)
-engine.print("info", sci) --1.234500e+03
+
+engine.print("info", sci) --"1.234500e+03"
 ```
 
 ```lua lineNumbers title="Format a character from a byte value"
---Character from byte value
 local char = string.format("%c", 65)
-engine.print("info", char) --A
+
+engine.print("info", char) --"A"
 ```
 
 ```lua lineNumbers title="Right-align a string within a fixed width"
---String with width (right aligned)
 local aligned = string.format("%10s", "right")
-engine.print("info", aligned) --     right
+
+engine.print("info", aligned) --"     right"
 ```
 
 ```lua lineNumbers title="Left-align a string within a fixed width"
---String with width (left aligned)
 local leftAligned = string.format("%-10s", "left")
-engine.print("info", leftAligned) --left      
+
+engine.print("info", leftAligned) --"left"      
 ```
 
 ```lua lineNumbers title="Format a quoted string with escaped characters"
---Quoted string (escapes special characters)
 local quoted = string.format("%q", "hello\nworld")
-engine.print("info", quoted) --"hello\nworld"
+
+engine.print("info", quoted) --""hello\nworld""
 ```
 
 ```lua lineNumbers title="Combine multiple format specifiers"
---Combining multiple specifiers
 local info = string.format("Name: %s, Age: %d, Score: %.1f%%", "Alice", 25, 95.5)
-engine.print("info", info) --Name: Alice, Age: 25, Score: 95.5%
+
+engine.print("info", info) --"Name: Alice, Age: 25, Score: 95.5%"
 ```
 
 ```lua lineNumbers title="Format a number as octal"
---Octal
 local oct = string.format("%o", 8)
-engine.print("info", oct) --10
+
+engine.print("info", oct) --"10"
 ```
 
 ```lua lineNumbers title="Include a literal percent sign"
---Percent sign
 local percent = string.format("Progress: 100%%")
-engine.print("info", percent) --Progress: 100%
+
+engine.print("info", percent) --"Progress: 100%"
 ```
