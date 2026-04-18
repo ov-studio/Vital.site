@@ -26,7 +26,7 @@ local ... = self:await(promise)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Await a promise and print the resolved values"
 local promise = thread:create_promise()
 
 local self = thread:create(function(self)

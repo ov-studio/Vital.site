@@ -26,8 +26,7 @@ local status = self:resume(options = false)
 
 ### Examples
 
-```lua
---Resumes only once
+```lua lineNumbers title="Resume a thread once"
 local self = thread:create(function(self)
     for i = 1, 5, 1 do
         engine.print("info", "Thread iteration count", i)
@@ -37,8 +36,7 @@ end)
 self:resume()
 ```
 
-```lua
---Automatically resumes once every 1 second
+```lua lineNumbers title="Automatically resume a thread on an interval"
 local self = thread:create(function(self)
     for i = 1, 5, 1 do
         thread:pause()

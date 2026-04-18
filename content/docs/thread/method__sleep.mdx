@@ -26,7 +26,7 @@ local status = self:sleep(duration)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Sleep a thread for 5 seconds then continue"
 local self = thread:create(function(self)
     engine.print("info", "Thread sleeping for 5 seconds")
     self:sleep(5000)

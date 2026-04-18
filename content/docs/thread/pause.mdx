@@ -25,7 +25,7 @@ local ctx = thread:pause()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Pause a thread then resume it manually"
 local self = thread:create(function(self)
     engine.print("info", "Paused thread")
     thread:pause()

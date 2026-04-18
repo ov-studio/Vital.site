@@ -49,8 +49,7 @@ exec([self], resolve, reject)
 
 ### Examples
 
-```lua
---Promise awaited without error handling - will throw error if rejected
+```lua lineNumbers title="Await a promise without error handling"
 local promise = thread:create_promise()
 
 local self = thread:create(function(self)
@@ -65,8 +64,7 @@ timer:create(function()
 end, 5000, 1)
 ```
 
-```lua
---Promise with try/catch - safely handles both resolve and reject cases
+```lua lineNumbers title="Await a promise with try/catch for safe rejection handling"
 local promise = thread:create_promise()
 
 local self = thread:create(function(self)

@@ -25,7 +25,7 @@ local status = self:status()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Get the current thread status"
 local self = thread:create(function(self)
     engine.print("info", "Thread status:", self:status())
 end)
