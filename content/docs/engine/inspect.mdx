@@ -83,7 +83,7 @@ engine.print(output) --Shows up to 2 levels, then {...}
 --Inspect string
 local str = "hello world"
 local output = engine.inspect(str)
-engine.print(output) --"hello world"
+engine.print(output) --'hello world'
 
 --Inspect number
 local num = 42
@@ -103,5 +103,5 @@ engine.print(output) --nil
 --Inspect function
 local func = function() return 42 end
 local output = engine.inspect(func)
-engine.print(output) --<function: 0x...>
+engine.print(output) --'<function: 0x...>'
 ```
