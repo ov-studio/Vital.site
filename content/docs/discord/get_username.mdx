@@ -25,10 +25,8 @@ local result = discord.get_username()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Get the username of the connected discord account"
 local username = discord.get_username()
 
-if username then
-    engine.print("info", "Discord username:", username)
-end
+engine.print("info", "Discord username:", username)
 ```

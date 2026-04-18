@@ -25,10 +25,8 @@ local result = discord.get_userid()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Get the user ID of the connected discord account"
 local userid = discord.get_userid()
 
-if userid then
-    engine.print("info", "Discord user ID:", userid)
-end
+engine.print("info", "Discord user ID:", userid)
 ```
