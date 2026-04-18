@@ -35,12 +35,10 @@ local status = file.write(path, content)
 
 ### Examples
 
-```lua
---Writes content to a file within current resource
+```lua lineNumbers title="Write content to a file within the current resource"
 engine.print("info", "File written:", file.write("files/data.json", "{}"))
 ```
 
-```lua
---Writes content to a file from another running resource
+```lua lineNumbers title="Write content to a file from another running resource"
 engine.print("info", "File written:", file.write(":resource_a/files/data.json", "{}"))
 ```

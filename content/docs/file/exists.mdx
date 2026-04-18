@@ -34,12 +34,10 @@ local valid = file.exists(path)
 
 ### Examples
 
-```lua
---Queries a file within current resource
+```lua lineNumbers title="Check if a file exists within the current resource"
 engine.print("info", "File exists:", file.exists("files/images/test.png"))
 ```
 
-```lua
---Queries a file from another running resource
+```lua lineNumbers title="Check if a file exists from another running resource"
 engine.print("info", "File exists:", file.exists(":resource_a/files/images/test.png"))
 ```

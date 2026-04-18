@@ -35,12 +35,10 @@ local hash = file.hash(path, mode)
 
 ### Examples
 
-```lua
---Queries a file within current resource
+```lua lineNumbers title="Hash a file within the current resource"
 engine.print("info", "File hash:", file.hash("files/images/test.png", "SHA256"))
 ```
 
-```lua
---Queries a file from another running resource
+```lua lineNumbers title="Hash a file from another running resource"
 engine.print("info", "File hash:", file.hash(":resource_a/files/images/test.png", "SHA256"))
 ```

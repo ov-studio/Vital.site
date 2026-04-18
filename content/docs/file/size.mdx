@@ -34,12 +34,10 @@ local size = file.size(path)
 
 ### Examples
 
-```lua
---Queries a file within current resource
+```lua lineNumbers title="Get the size of a file within the current resource"
 engine.print("info", "File size:", file.size("files/images/test.png"))
 ```
 
-```lua
---Queries a file from another running resource
+```lua lineNumbers title="Get the size of a file from another running resource"
 engine.print("info", "File size:", file.size(":resource_a/files/images/test.png"))
 ```

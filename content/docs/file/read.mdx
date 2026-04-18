@@ -34,12 +34,10 @@ local content = file.read(path)
 
 ### Examples
 
-```lua
---Reads a file within current resource
+```lua lineNumbers title="Read a file within the current resource"
 engine.print("info", "File content:", file.read("files/data.json"))
 ```
 
-```lua
---Reads a file from another running resource
+```lua lineNumbers title="Read a file from another running resource"
 engine.print("info", "File content:", file.read(":resource_a/files/data.json"))
 ```

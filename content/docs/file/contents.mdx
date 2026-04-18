@@ -35,14 +35,12 @@ local contents = file.contents(path, directory_search = false)
 
 ### Examples
 
-```lua
---Lists contents of a directory within current resource
+```lua lineNumbers title="List the contents of a directory within the current resource"
 engine.print("info", "File contents:")
 engine.iprint(file.contents("files/images"))
 ```
 
-```lua
---Lists contents of a directory from another running resource
+```lua lineNumbers title="List the contents of a directory from another running resource"
 engine.print("info", "File contents:")
 engine.iprint(file.contents(":resource_a/files/images"))
 ```
