@@ -33,11 +33,15 @@ local t = {a = 1, b = 2, c = 3}
 local output = engine.inspect(t)
 
 engine.print(output)
---{
---  a: 1
---  b: 2
---  c: 3
---}
+
+--[[
+Output:
+{
+    a: 1
+    b: 2
+    c: 3
+}
+]]
 ```
 
 ```lua lineNumbers title="Inspect an array"
@@ -45,11 +49,15 @@ local arr = {10, 20, 30}
 local output = engine.inspect(arr)
 
 engine.print(output)
---{
---  1: 10
---  2: 20
---  3: 30
---}
+
+--[[
+Output:
+{
+    1: 10
+    2: 20
+    3: 30
+}
+]]
 ```
 
 ```lua lineNumbers title="Inspect a nested table"
@@ -63,13 +71,17 @@ local data = {
 local output = engine.inspect(data)
 
 engine.print(output)
---{
---  name: "John"
---  address: {
---    city: "NYC"
---    zip: 10001
---  }
---}
+
+--[[
+Output:
+{
+    name: "John"
+    address: {
+        city: "NYC"
+        zip: 10001
+    }
+}
+]]
 ```
 
 ```lua lineNumbers title="Inspect with a depth limit"

@@ -86,8 +86,7 @@ engine.iprint(t, true) --Shows metatable when show_hidden = true
 ```
 
 ```lua lineNumbers title="iprint vs tostring for tables"
---Better than tostring for tables
-local t = {x = 1, y = 2}
+local t = {x = 1, y = 2} --Better than tostring for tables
 
 engine.print(tostring(t)) --'table: 0x...'
 engine.iprint(t) --Readable format
