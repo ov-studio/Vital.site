@@ -43,31 +43,31 @@ engine.print("info", line) --'----------------------------------------'
 ```lua lineNumbers title="Repeat a string with a separator"
 local result = string.rep("hi", 3, "-")
 
-engine.print("info", result) --"hi-hi-hi"
+engine.print("info", result) --'hi-hi-hi'
 ```
 
 ```lua lineNumbers title="Create a padding string"
 local padding = string.rep(" ", 10)
 
-engine.print("info", "["..padding.."]") --"[          ]"
+engine.print("info", "["..padding.."]") --'[          ]'
 ```
 
 ```lua lineNumbers title="Return empty string with zero repetitions"
 local result = string.rep("test", 0)
 
-engine.print("info", result) --""
+engine.print("info", result) --''
 ```
 
 ```lua lineNumbers title="Return the original string with one repetition"
 local result = string.rep("test", 1)
 
-engine.print("info", result) --"test"
+engine.print("info", result) --'test'
 ```
 
 ```lua lineNumbers title="Repeat using method syntax"
 local result = string.rep("*", 5)
 
-engine.print("info", result) --"*****"
+engine.print("info", result) --'*****'
 ```
 
 ```lua lineNumbers title="Create a separator line"
@@ -79,37 +79,37 @@ engine.print("info", separator)
 ```lua lineNumbers title="Build a pattern string"
 local dots = string.rep(".", 3)
 
-engine.print("info", dots) --"..."
+engine.print("info", dots) --'...'
 ```
 
 ```lua lineNumbers title="Create a visual progress bar"
 local bar = string.rep("█", 10)
 
-engine.print("info", bar) --"██████████"
+engine.print("info", bar) --'██████████'
 ```
 
 ```lua lineNumbers title="Repeat words with a space separator"
 local result = string.rep("word", 4, " ")
 
-engine.print("info", result) --"word word word word"
+engine.print("info", result) --'word word word word'
 ```
 
 ```lua lineNumbers title="Create indentation with repeated spaces"
 local indent = string.rep("  ", 3)
 
-engine.print("info", indent.."code") --"      code"
+engine.print("info", indent.."code") --'      code'
 ```
 
 ```lua lineNumbers title="Build an ASCII art pattern"
 local pattern = string.rep("* ", 5)
 
-engine.print("info", pattern) --"* * * * * "
+engine.print("info", pattern) --'* * * * * '
 ```
 
 ```lua lineNumbers title="Create a repeated table row"
 local cells = string.rep("| Cell ", 4)
 
-engine.print("info", cells.."|") --"| Cell | Cell | Cell | Cell |"
+engine.print("info", cells.."|") --'| Cell | Cell | Cell | Cell |'
 ```
 
 ```lua lineNumbers title="Generate a fixed-length test string"
@@ -121,11 +121,11 @@ engine.print("info", #data) --100
 ```lua lineNumbers title="Repeat a multi-character pattern"
 local pattern = string.rep("abc", 3)
 
-engine.print("info", pattern) --"abcabcabc"
+engine.print("info", pattern) --'abcabcabc'
 ```
 
 ```lua lineNumbers title="Repeat fields with a comma separator"
 local csv = string.rep("field", 5, ",")
 
-engine.print("info", csv) --"field,field,field,field,field"
+engine.print("info", csv) --'field,field,field,field,field'
 ```

@@ -29,31 +29,31 @@ local result = string.reverse(input)
 ```lua lineNumbers title="Reverse a word"
 local result = string.reverse("hello")
 
-engine.print("info", result) --"olleh"
+engine.print("info", result) --'olleh'
 ```
 
 ```lua lineNumbers title="Reverse an entire sentence"
 local result = string.reverse("hello world")
 
-engine.print("info", result) --"dlrow olleh"
+engine.print("info", result) --'dlrow olleh'
 ```
 
 ```lua lineNumbers title="Reverse a numeric string"
 local result = string.reverse("12345")
 
-engine.print("info", result) --"54321"
+engine.print("info", result) --'54321'
 ```
 
 ```lua lineNumbers title="Reversing a single character returns itself"
 local result = string.reverse("a")
 
-engine.print("info", result) --"a"
+engine.print("info", result) --'a'
 ```
 
 ```lua lineNumbers title="Reversing an empty string returns empty"
 local result = string.reverse("")
 
-engine.print("info", result) --""
+engine.print("info", result) --''
 ```
 
 ```lua lineNumbers title="Check if a string is a palindrome"
@@ -68,13 +68,13 @@ engine.print("info", isPalindrome("hello")) --false
 ```lua lineNumbers title="Reverse a string and convert to uppercase"
 local result = string.upper(string.reverse("hello"))
 
-engine.print("info", result) --"OLLEH"
+engine.print("info", result) --'OLLEH'
 ```
 
 ```lua lineNumbers title="Reverse a string with special characters"
 local result = string.reverse("hello!")
 
-engine.print("info", result) --"!olleh"
+engine.print("info", result) --'!olleh'
 ```
 
 ```lua lineNumbers title="Double-reversing returns the original string"
@@ -90,31 +90,31 @@ local reversed = string.gsub(sentence, "%S+", function(word)
     return string.reverse(word)
 end)
 
-engine.print("info", reversed) --"olleh dlrow"
+engine.print("info", reversed) --'olleh dlrow'
 ```
 
 ```lua lineNumbers title="Create a mirror effect with a string"
 local text = "ABC"
 local mirror = text.."|"..string.reverse(text)
 
-engine.print("info", mirror) --"ABC|CBA"
+engine.print("info", mirror) --'ABC|CBA'
 ```
 
 ```lua lineNumbers title="Reverse a binary string"
 local binary = "1010"
 local reversed = string.reverse(binary)
 
-engine.print("info", reversed) --"0101"
+engine.print("info", reversed) --'0101'
 ```
 
 ```lua lineNumbers title="Reverse a number represented as a string"
-local num = "123456"
+local num = '123456'
 
-engine.print("info", string.reverse(num)) --"654321"
+engine.print("info", string.reverse(num)) --'654321'
 ```
 
 ```lua lineNumbers title="Iterate over a string from end to start"
-local data = "ABCDEF"
+local data = 'ABCDEF'
 
 for i = 1, #data do
     local char = string.sub(string.reverse(data), i, i)
@@ -123,11 +123,11 @@ end
 
 --[[
 Output: 
-"F"
-"E"
-"D"
-"C"
-"B"
-"A"
+'F'
+'E'
+'D'
+'C'
+'B'
+'A'
 ]]
 ```

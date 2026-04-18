@@ -31,54 +31,54 @@ local ... = string.match(input, pattern, start_at = 1)
 ```lua lineNumbers title="Match and return an entire pattern"
 local result = string.match("hello 123", "%d+")
 
-engine.print("info", result) --"123"
+engine.print("info", result) --'123'
 ```
 
 ```lua lineNumbers title="Match with a single capture group"
 local num = string.match("Price: $25", "%$(%d+)")
 
-engine.print("info", num) --"25"
+engine.print("info", num) --'25'
 ```
 
 ```lua lineNumbers title="Extract multiple captures at once"
 local word1, word2 = string.match("hello world", "(%a+) (%a+)")
 
-engine.print("info", word1, word2) --"hello  world"
+engine.print("info", word1, word2) --'hello  world'
 ```
 
 ```lua lineNumbers title="Extract user and domain from an email"
 local user, domain = string.match("john@example.com", "(.+)@(.+)")
 
-engine.print("info", user) --"john"
-engine.print("info", domain) --"example.com"
+engine.print("info", user) --'john'
+engine.print("info", domain) --'example.com'
 ```
 
 ```lua lineNumbers title="Match starting from a specific position"
 local result = string.match("hello hello", "hello", 7)
 
-engine.print("info", result) --"hello"
+engine.print("info", result) --'hello'
 ```
 
 ```lua lineNumbers title="Extract a number from a string"
 local num = string.match("Temperature: 25°C", "%d+")
 
-engine.print("info", num) --"25"
+engine.print("info", num) --'25'
 ```
 
 ```lua lineNumbers title="Extract text from within quotes"
 local text = 'name="John Doe"'
 local value = string.match(text, '"(.-)"')
 
-engine.print("info", value) --"John Doe"
+engine.print("info", value) --'John Doe'
 ```
 
 ```lua lineNumbers title="Parse URL into protocol, domain, and path"
 local url = "https://example.com/path"
 local protocol, domain, path = string.match(url, "(.-)://([^/]+)(.+)")
 
-engine.print("info", protocol) --"https"
-engine.print("info", domain) --"example.com"
-engine.print("info", path) --"/path"
+engine.print("info", protocol) --'https'
+engine.print("info", domain) --'example.com'
+engine.print("info", path) --'/path'
 ```
 
 ```lua lineNumbers title="Return nil when no match is found"
@@ -90,19 +90,19 @@ engine.print("info", result) --nil
 ```lua lineNumbers title="Extract a semantic version number"
 local version = string.match("v1.2.3", "v(%d+%.%d+%.%d+)")
 
-engine.print("info", version) --"1.2.3"
+engine.print("info", version) --'1.2.3'
 ```
 
 ```lua lineNumbers title="Match the first word in a string"
 local word = string.match("  hello world  ", "%a+")
 
-engine.print("info", word) --"hello"
+engine.print("info", word) --'hello'
 ```
 
 ```lua lineNumbers title="Extract a hexadecimal color code"
 local color = string.match("color: #FF5733", "#(%x+)")
 
-engine.print("info", color) --"FF5733"
+engine.print("info", color) --'FF5733'
 ```
 
 ```lua lineNumbers title="Validate and extract a username"
@@ -117,7 +117,7 @@ end
 ```lua lineNumbers title="Extract a key-value pair"
 local key, value = string.match("setting=enabled", "(.-)=(.*)")
 
-engine.print("info", key, value) --"setting  enabled"
+engine.print("info", key, value) --'setting  enabled'
 ```
 
 ```lua lineNumbers title="Capture the position after a match"
