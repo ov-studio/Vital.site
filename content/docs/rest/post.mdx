@@ -40,7 +40,7 @@ local response, error = rest.post(url, body, headers = {
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Send a basic POST request with a JSON body"
 thread:create(function(self)
     local response, errorcode = rest.post(
         "https://api.example.com/users", 
@@ -54,8 +54,7 @@ thread:create(function(self)
 end):resume()
 ```
 
-```lua
---With headers and custom timeout
+```lua lineNumbers title="POST with custom authorization header and timeout"
 thread:create(function(self)
     local response, errorcode = rest.post(
         "https://api.example.com/users", 

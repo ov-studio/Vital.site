@@ -37,7 +37,7 @@ local response, error = rest.get(url, headers = {}, timeout = 60)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Send a basic GET request"
 thread:create(function(self)
     local response, errorcode = rest.get("https://api.example.com/info")
 
@@ -45,8 +45,7 @@ thread:create(function(self)
 end):resume()
 ```
 
-```lua
---With headers and custom timeout
+```lua lineNumbers title="GET with custom headers and timeout"
 thread:create(function(self)
     local response, errorcode = rest.get(
         "https://api.example.com/data",
