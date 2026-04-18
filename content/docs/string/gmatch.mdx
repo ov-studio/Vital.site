@@ -28,73 +28,77 @@ local iterator = string.gmatch(input, pattern)
 ### Examples
 
 ```lua lineNumbers title="Iterate over all words in a string"
---Iterate over all words
 local text = "hello world from Lua"
+
 for word in string.gmatch(text, "%a+") do
     engine.print("info", word)
 end
+
 --Output: hello, world, from, Lua
 ```
 
 ```lua lineNumbers title="Extract all numbers from a string"
---Extract all numbers
 local data = "x=10, y=20, z=30"
+
 for num in string.gmatch(data, "%d+") do
     engine.print("info", num)
 end
+
 --Output: 10, 20, 30
 ```
 
 ```lua lineNumbers title="Extract key-value pairs"
---Extract pairs of values
 local coords = "x=5 y=10 x=15 y=20"
+
 for key, value in string.gmatch(coords, "(%a+)=(%d+)") do
     engine.print("info", key, value)
 end
+
 --Output: x 5, y 10, x 15, y 20
 ```
 
 ```lua lineNumbers title="Split a string by delimiter"
---Split string by delimiter
 local csv = "apple,banana,orange"
+
 for item in string.gmatch(csv, "[^,]+") do
     engine.print("info", item)
 end
+
 --Output: apple, banana, orange
 ```
 
 ```lua lineNumbers title="Collect all matches into a table"
---Collect matches into table
 local words = {}
 for word in string.gmatch("one two three", "%S+") do
     table.insert(words, word)
 end
+
 engine.print("info", table.concat(words, " | ")) --one | two | three
 ```
 
 ```lua lineNumbers title="Match quoted strings"
---Match quoted strings
 local text = 'name="John" age="25" city="NYC"'
 for value in string.gmatch(text, '"(.-)"') do
     engine.print("info", value)
 end
+
 --Output: John, 25, NYC
 ```
 
 ```lua lineNumbers title="Extract email addresses"
---Extract email addresses
 local text = "Contact: john@example.com or jane@example.com"
 for email in string.gmatch(text, "%S+@%S+") do
     engine.print("info", email)
 end
+
 --Output: john@example.com, jane@example.com
 ```
 
 ```lua lineNumbers title="Count pattern matches"
---Count matches
 local count = 0
 for _ in string.gmatch("the cat sat on the mat", "the") do
     count = count + 1
 end
+
 engine.print("info", count) --2
 ```
