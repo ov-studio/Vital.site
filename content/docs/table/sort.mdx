@@ -26,35 +26,35 @@ table.sort(input, comparison = nil)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Sort numbers in ascending order"
 --Sort numbers ascending (default)
 local nums = {5, 2, 8, 1, 9}
 table.sort(nums)
 engine.print("info", table.concat(nums, ", ")) --1, 2, 5, 8, 9
 ```
 
-```lua
+```lua lineNumbers title="Sort numbers in descending order"
 --Sort numbers descending
 local nums = {5, 2, 8, 1, 9}
 table.sort(nums, function(a, b) return a > b end)
 engine.print("info", table.concat(nums, ", ")) --9, 8, 5, 2, 1
 ```
 
-```lua
+```lua lineNumbers title="Sort strings alphabetically"
 --Sort strings alphabetically
 local words = {"zebra", "apple", "mango", "banana"}
 table.sort(words)
 engine.print("info", table.concat(words, ", ")) --apple, banana, mango, zebra
 ```
 
-```lua
+```lua lineNumbers title="Sort strings by length"
 --Sort strings by length
 local words = {"hi", "hello", "a", "world"}
 table.sort(words, function(a, b) return #a < #b end)
 engine.print("info", table.concat(words, ", ")) --a, hi, hello, world
 ```
 
-```lua
+```lua lineNumbers title="Sort strings case-insensitively"
 --Sort case-insensitive
 local names = {"Bob", "alice", "Charlie", "david"}
 table.sort(names, function(a, b) 
@@ -63,7 +63,7 @@ end)
 engine.print("info", table.concat(names, ", ")) --alice, Bob, Charlie, david
 ```
 
-```lua
+```lua lineNumbers title="Sort mixed-case strings uniformly"
 --Sort mixed case strings
 local items = {"Apple", "banana", "Cherry", "date"}
 table.sort(items, function(a, b)

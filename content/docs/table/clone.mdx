@@ -27,7 +27,7 @@ local result = table.clone(input, recursive = false)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Shallow clone a table"
 --Shallow clone
 local original = {1, 2, 3, 4}
 local copy = table.clone(original)
@@ -36,7 +36,7 @@ engine.print("info", original[1]) --1 (unchanged)
 engine.print("info", copy[1]) --99
 ```
 
-```lua
+```lua lineNumbers title="Shallow clone shares nested table references"
 --Shallow clone with nested table
 local original = {a = 1, nested = {b = 2}}
 local copy = table.clone(original)
@@ -44,7 +44,7 @@ copy.nested.b = 99
 engine.print("info", original.nested.b) --99 (changed! shallow copy)
 ```
 
-```lua
+```lua lineNumbers title="Deep clone breaks nested references"
 --Deep clone (recursive)
 local original = {a = 1, nested = {b = 2}}
 local copy = table.clone(original, true)
@@ -53,7 +53,7 @@ engine.print("info", original.nested.b) --2 (unchanged)
 engine.print("info", copy.nested.b) --99
 ```
 
-```lua
+```lua lineNumbers title="Clone an array and modify independently"
 --Clone array
 local colors = {"red", "green", "blue"}
 local copy = table.clone(colors)
@@ -62,7 +62,7 @@ engine.print("info", #colors) --3
 engine.print("info", #copy) --4
 ```
 
-```lua
+```lua lineNumbers title="Shallow clone preserves shared references"
 --Shallow clone preserves references
 local shared = {x = 10}
 local t1 = {data = shared}
@@ -71,7 +71,7 @@ t2.data.x = 20
 engine.print("info", t1.data.x) --20 (both reference same table)
 ```
 
-```lua
+```lua lineNumbers title="Deep clone creates fully independent copies"
 --Deep clone breaks references
 local shared = {x = 10}
 local t1 = {data = shared}
@@ -80,7 +80,7 @@ t2.data.x = 20
 engine.print("info", t1.data.x) --10 (independent copies)
 ```
 
-```lua
+```lua lineNumbers title="Use a clone as a reusable template"
 --Use as template
 local template = {name = "", age = 0, active = true}
 local user1 = table.clone(template)

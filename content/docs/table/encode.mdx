@@ -27,28 +27,28 @@ local result = table.encode(input, mode = "JSON")
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Encode a simple table to JSON"
 --Encode simple table to JSON
 local data = {name = "John", age = 25}
 local json = table.encode(data, "JSON")
 engine.print("info", json) --{"name":"John","age":25}
 ```
 
-```lua
+```lua lineNumbers title="Encode an array to JSON"
 --Encode array to JSON
 local colors = {"red", "green", "blue"}
 local json = table.encode(colors, "JSON")
 engine.print("info", json) --["red","green","blue"]
 ```
 
-```lua
+```lua lineNumbers title="Encode a numeric array to JSON"
 --Encode numbers to JSON
 local coords = {100, 200, 300}
 local json = table.encode(coords, "JSON")
 engine.print("info", json) --[100,200,300]
 ```
 
-```lua
+```lua lineNumbers title="Encode boolean values to JSON"
 --Encode boolean values to JSON
 local settings = {enabled = true, debug = false}
 local json = table.encode(settings, "JSON")

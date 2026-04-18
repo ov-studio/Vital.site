@@ -26,76 +26,76 @@ local result = table.pack(...)
 
 ### Examples
 
-```lua
---Pack multiple values
+```lua lineNumbers title="Pack multiple values into a table"
 local t = table.pack(1, 2, 3, 4, 5)
+
 engine.print("info", t[1], t[2], t[3]) --1  2  3
 engine.print("info", t.n) --5
 ```
 
-```lua
---Pack with nil values
+```lua lineNumbers title="Pack values including nils and check count"
 local t = table.pack("a", nil, "b", nil, "c")
-engine.print("info", t[1], t[2], t[3]) --a  nil  b
+
+engine.print("info", t[1], t[2], t[3]) --"a"  nil  "b"
 engine.print("info", t.n) --5
 ```
 
-```lua
---Pack function returns
+```lua lineNumbers title="Pack multiple return values from a function"
 local function multiReturn()
     return 10, 20, 30
 end
 local t = table.pack(multiReturn())
+
 engine.print("info", t[1], t[2], t[3]) --10  20  30
 engine.print("info", t.n) --3
 ```
 
-```lua
---Pack strings
+```lua lineNumbers title="Pack strings and iterate using n field"
 local t = table.pack("hello", "world", "lua")
 for i = 1, t.n do
     engine.print("info", t[i])
 end
+
 --Output: hello, world, lua
 ```
 
-```lua
---Pack empty (no arguments)
+```lua lineNumbers title="Pack with no arguments returns n of 0"
 local t = table.pack()
+
 engine.print("info", t.n) --0
 ```
 
-```lua
---Pack single value
+```lua lineNumbers title="Pack a single value"
 local t = table.pack(42)
+
 engine.print("info", t[1]) --42
 engine.print("info", t.n) --1
 ```
 
-```lua
---Pack mixed types
+```lua lineNumbers title="Pack mixed types into a table"
 local t = table.pack(1, "two", true, nil, {5})
+
 engine.print("info", t.n) --5
-engine.print("info", type(t[5])) --table
+engine.print("info", type(t[5])) --"table"
 ```
 
-```lua
---Difference from # operator with nil
+```lua lineNumbers title="n field is more reliable than # with nils"
 local t = table.pack(1, 2, nil, 4)
+
 engine.print("info", #t) --4 (might be 2 depending on implementation)
 engine.print("info", t.n) --4 (always correct)
 ```
 
-```lua
---Preserve trailing nils
+```lua lineNumbers title="Preserve trailing nils with n field"
 local t = table.pack(1, 2, 3, nil, nil)
+
 engine.print("info", t.n) --5
 engine.print("info", t[5]) --nil
 ```
 
-```lua
---Iterate with correct count
+```lua lineNumbers title="Iterate safely using n field"
 local t = table.pack("a", nil, "b", nil)
+
 for i = 1, t.n do
     engine.print("info", i, t[i])
 end
