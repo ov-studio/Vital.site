@@ -26,80 +26,80 @@ local size = string.packsize(format)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Get the size of three packed integers"
 --Size of three integers
 local size = string.packsize("iii")
 engine.print("info", size) --12
 ```
 
-```lua
+```lua lineNumbers title="Get the size of a packed double"
 --Size of a double
 local size = string.packsize("d")
 engine.print("info", size) --8
 ```
 
-```lua
+```lua lineNumbers title="Get the size of a fixed-length string"
 --Size of fixed string
 local size = string.packsize("c10")
 engine.print("info", size) --10
 ```
 
-```lua
+```lua lineNumbers title="Get the size of multiple packed types"
 --Size of multiple types
 local size = string.packsize("ifd")
 engine.print("info", size) --16
 ```
 
-```lua
+```lua lineNumbers title="Get the size with a little endian specifier"
 --Size with little endian specifier
 local size = string.packsize("<I4")
 engine.print("info", size) --4
 ```
 
-```lua
+```lua lineNumbers title="Get the size of a packed byte"
 --Size of byte
 local size = string.packsize("b")
 engine.print("info", size) --1
 ```
 
-```lua
+```lua lineNumbers title="Get the size of a packed short"
 --Size of short
 local size = string.packsize("h")
 engine.print("info", size) --2
 ```
 
-```lua
+```lua lineNumbers title="Get the size of a packed long"
 --Size of long
 local size = string.packsize("l")
 engine.print("info", size) --8
 ```
 
-```lua
+```lua lineNumbers title="Get the size of a format with padding"
 --Size with padding
 local size = string.packsize("ixxi")
 engine.print("info", size) --12
 ```
 
-```lua
+```lua lineNumbers title="Compare sizes of different integer widths"
 --Size comparison
 engine.print("info", "i4:", string.packsize("i4")) --4
 engine.print("info", "i8:", string.packsize("i8")) --8
 ```
 
-```lua
+```lua lineNumbers title="Calculate the buffer size needed for a format"
 --Calculate buffer size needed
 local fmt = "i4i4f"
 local bufferSize = string.packsize(fmt)
 engine.print("info", "Need", bufferSize, "bytes") --Need 12 bytes
 ```
 
-```lua
+```lua lineNumbers title="Get the size of multiple fixed strings"
 --Multiple fixed strings
 local size = string.packsize("c5c5c5")
 engine.print("info", size) --15
 ```
 
-```lua
+```lua lineNumbers title="Verify packsize matches the actual packed length"
 --Verify pack size
 local fmt = "ifd"
 local size = string.packsize(fmt)
@@ -107,14 +107,14 @@ local packed = string.pack(fmt, 1, 2.5, 3.14)
 engine.print("info", #packed == size) --true
 ```
 
-```lua
+```lua lineNumbers title="Pre-calculate record size for file buffers"
 --Pre-allocate file buffer
 local recordFormat = "c32i4i4"
 local recordSize = string.packsize(recordFormat)
 engine.print("info", "Each record:", recordSize, "bytes")
 ```
 
-```lua
+```lua lineNumbers title="Calculate a network protocol header size"
 --Network protocol size calculation
 local headerFormat = ">I2I2I4"
 local headerSize = string.packsize(headerFormat)

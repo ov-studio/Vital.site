@@ -28,26 +28,26 @@ local ... = string.byte(input, start_at = 1, end_at = -1)
 
 ### Examples
 
-```lua
---Get byte value of first character
+```lua lineNumbers title="Get the byte value of the first character"
 local byte = string.byte("A")
+
 engine.print("info", byte) --65
 ```
 
-```lua
---Get byte value at specific position
+```lua lineNumbers title="Get the byte value at a specific position"
 local byte = string.byte("ABC", 2)
+
 engine.print("info", byte) --66
 ```
 
-```lua
---Get multiple byte values
+```lua lineNumbers title="Get multiple byte values at once"
 local b1, b2, b3 = string.byte("ABC", 1, 3)
+
 engine.print("info", b1, b2, b3) --65  66  67
 ```
 
-```lua
---Using negative indices (from end)
+```lua lineNumbers title="Use a negative index to read from the end"
 local last = string.byte("Hello", -1)
+
 engine.print("info", last) --111 (character 'o')
 ```

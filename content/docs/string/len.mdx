@@ -26,49 +26,49 @@ local length = string.len(input)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Get the length of a string"
 --Get length of string
 local len = string.len("hello")
 engine.print("info", len) --5
 ```
 
-```lua
+```lua lineNumbers title="Get the length of an empty string"
 --Empty string
 local len = string.len("")
 engine.print("info", len) --0
 ```
 
-```lua
+```lua lineNumbers title="Length includes spaces"
 --String with spaces
 local len = string.len("hello world")
 engine.print("info", len) --11
 ```
 
-```lua
+```lua lineNumbers title="Length includes special characters"
 --String with special characters
 local len = string.len("hello\nworld")
 engine.print("info", len) --11
 ```
 
-```lua
+```lua lineNumbers title="Length includes null bytes"
 --String with null byte
 local len = string.len("hello\0world")
 engine.print("info", len) --11
 ```
 
-```lua
+```lua lineNumbers title="Get the length of a numeric string"
 --Numbers as strings
 local len = string.len("12345")
 engine.print("info", len) --5
 ```
 
-```lua
+```lua lineNumbers title="Use the # operator as an alternative"
 --Using # operator (alternative)
 local len = #"hello"
 engine.print("info", len) --5
 ```
 
-```lua
+```lua lineNumbers title="Compare string.len and # operator"
 --Comparing both methods
 local str = "Lua programming"
 engine.print("info", string.len(str)) --15
@@ -76,20 +76,20 @@ engine.print("info", #str) --15
 engine.print("info", string.len(len)) --15
 ```
 
-```lua
+```lua lineNumbers title="Multi-byte UTF-8 characters count as multiple bytes"
 --Multi-byte UTF-8 characters count as multiple bytes
 local str = "hello™"
 engine.print("info", string.len(str)) --8
 ```
 
-```lua
+```lua lineNumbers title="Use length in a conditional check"
 --Use in conditionals
 if string.len("test") > 0 then
     engine.print("info", "String is not empty")
 end
 ```
 
-```lua
+```lua lineNumbers title="Compare length before and after trimming"
 --Get length before and after trimming
 local str = "  hello  "
 engine.print("info", string.len(str)) --9

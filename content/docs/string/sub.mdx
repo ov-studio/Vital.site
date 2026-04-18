@@ -28,111 +28,110 @@ local result = string.sub(input, start_at, end_at = -1)
 
 ### Examples
 
-```lua
---Extract substring
+```lua lineNumbers title="Extract a substring by start and end position"
 local result = string.sub("hello world", 1, 5)
-engine.print("info", result) --hello
+
+engine.print("info", result) --"hello"
 ```
 
-```lua
---From position to end
+```lua lineNumbers title="Extract from a position to the end"
 local result = string.sub("hello world", 7)
-engine.print("info", result) --world
+
+engine.print("info", result) --"world"
 ```
 
-```lua
---Get last characters using negative index
+```lua lineNumbers title="Get the last characters using a negative index"
 local result = string.sub("hello", -3)
-engine.print("info", result) --llo
+
+engine.print("info", result) --"llo"
 ```
 
-```lua
---Using negative end position
+```lua lineNumbers title="Use a negative end position"
 local result = string.sub("hello world", 1, -7)
-engine.print("info", result) --hello
+
+engine.print("info", result) --"hello"
 ```
 
-```lua
---Get middle portion
+```lua lineNumbers title="Extract the middle portion of a string"
 local result = string.sub("hello world", 2, -2)
-engine.print("info", result) --ello worl
+
+engine.print("info", result) --"ello worl"
 ```
 
-```lua
---Single character
+```lua lineNumbers title="Extract a single character"
 local char = string.sub("hello", 1, 1)
-engine.print("info", char) --h
+
+engine.print("info", char) --"h"
 ```
 
-```lua
---Last character
+```lua lineNumbers title="Extract the last character"
 local last = string.sub("hello", -1)
-engine.print("info", last) --o
+
+engine.print("info", last) --"o"
 ```
 
-```lua
---Extract file extension
+```lua lineNumbers title="Extract a file extension"
 local filename = "document.txt"
 local ext = string.sub(filename, -3)
-engine.print("info", ext) --txt
+
+engine.print("info", ext) --"txt"
 ```
 
-```lua
---Get first word
+```lua lineNumbers title="Extract the first word from a string"
 local text = "hello world"
 local space = string.find(text, " ")
 local firstWord = string.sub(text, 1, space - 1)
-engine.print("info", firstWord) --hello
+
+engine.print("info", firstWord) --"hello"
 ```
 
-```lua
---Remove first and last character
+```lua lineNumbers title="Remove the first and last character"
 local str = "[hello]"
 local inner = string.sub(str, 2, -2)
-engine.print("info", inner) --hello
+
+engine.print("info", inner) --"hello"
 ```
 
-```lua
---Equivalent to entire string
+```lua lineNumbers title="Sub with full range returns the entire string"
 local str = "hello"
 local copy = string.sub(str, 1, -1)
-engine.print("info", copy) --hello
+
+engine.print("info", copy) --"hello"
 ```
 
-```lua
---Empty substring (start_at > end_at)
+```lua lineNumbers title="Return empty string when start exceeds end"
 local result = string.sub("hello", 5, 3)
-engine.print("info", result) --
+
+engine.print("info", result) --""
 ```
 
-```lua
---Beyond string length
+```lua lineNumbers title="Clamped to string length when end exceeds bounds"
 local result = string.sub("hello", 1, 100)
-engine.print("info", result) --hello
+
+engine.print("info", result) --"hello"
 ```
 
-```lua
---Negative starting position
+```lua lineNumbers title="Use a negative start position"
 local result = string.sub("hello", -5, -1)
-engine.print("info", result) --hello
+
+engine.print("info", result) --"hello"
 ```
 
-```lua
---Extract year from date
+```lua lineNumbers title="Extract the year from a date string"
 local date = "2024-01-15"
 local year = string.sub(date, 1, 4)
-engine.print("info", year) --2024
+
+engine.print("info", year) --"2024"
 ```
 
-```lua
---Extract month
+```lua lineNumbers title="Extract the month from a date string"
 local date = "2024-01-15"
 local month = string.sub(date, 6, 7)
-engine.print("info", month) --01
+
+engine.print("info", month) --"01"
 ```
 
-```lua
---Split string into chunks
+```lua lineNumbers title="Split a string into fixed-size chunks"
 local str = "abcdefgh"
 for i = 1, #str, 2 do
     local chunk = string.sub(str, i, i + 1)
@@ -141,24 +140,24 @@ end
 --Output: ab, cd, ef, gh
 ```
 
-```lua
---Truncate string
+```lua lineNumbers title="Truncate a long string with ellipsis"
 local long = "This is a very long string"
 local short = string.sub(long, 1, 10).."..."
-engine.print("info", short) --This is a ...
+
+engine.print("info", short) --"This is a ..."
 ```
 
-```lua
---Compare with sub-range
+```lua lineNumbers title="Check if a string starts with a prefix"
 local str = "hello world"
+
 if string.sub(str, 1, 5) == "hello" then
     engine.print("info", "Starts with hello")
 end
 ```
 
-```lua
---Extract between indices
+```lua lineNumbers title="Extract content between known indices"
 local str = "prefix_content_suffix"
 local content = string.sub(str, 8, 14)
-engine.print("info", content) --content
+
+engine.print("info", content) --"content"
 ```

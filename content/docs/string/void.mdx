@@ -26,17 +26,20 @@ local void = string.void(input)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Return true for an empty string"
 local void = string.void("")
+
 engine.print("info", void) --true
 ```
 
-```lua
+```lua lineNumbers title="Return true for a whitespace-only string"
 local void = string.void("      ")
+
 engine.print("info", void) --true
 ```
 
-```lua
+```lua lineNumbers title="Return false for a non-empty string"
 local void = string.void("Hello")
+
 engine.print("info", void) --false
 ```

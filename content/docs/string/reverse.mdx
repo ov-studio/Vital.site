@@ -26,37 +26,37 @@ local result = string.reverse(input)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Reverse a word"
 --Reverse a word
 local result = string.reverse("hello")
 engine.print("info", result) --olleh
 ```
 
-```lua
+```lua lineNumbers title="Reverse an entire sentence"
 --Reverse a sentence
 local result = string.reverse("hello world")
 engine.print("info", result) --dlrow olleh
 ```
 
-```lua
+```lua lineNumbers title="Reverse a numeric string"
 --Reverse numbers
 local result = string.reverse("12345")
 engine.print("info", result) --54321
 ```
 
-```lua
+```lua lineNumbers title="Reversing a single character returns itself"
 --Single character (no change visually)
 local result = string.reverse("a")
 engine.print("info", result) --a
 ```
 
-```lua
+```lua lineNumbers title="Reversing an empty string returns empty"
 --Empty string
 local result = string.reverse("")
 engine.print("info", result) --
 ```
 
-```lua
+```lua lineNumbers title="Check if a string is a palindrome"
 --Check if string is palindrome
 local function isPalindrome(str)
     return str == string.reverse(str)
@@ -66,26 +66,26 @@ engine.print("info", isPalindrome("racecar")) --true
 engine.print("info", isPalindrome("hello")) --false
 ```
 
-```lua
+```lua lineNumbers title="Reverse a string and convert to uppercase"
 --Reverse and uppercase
 local result = string.upper(string.reverse("hello"))
 engine.print("info", result) --OLLEH
 ```
 
-```lua
+```lua lineNumbers title="Reverse a string with special characters"
 --Reverse with special characters
 local result = string.reverse("hello!")
 engine.print("info", result) --!olleh
 ```
 
-```lua
+```lua lineNumbers title="Double-reversing returns the original string"
 --Double reverse returns original
 local original = "test"
 local reversed = string.reverse(string.reverse(original))
 engine.print("info", reversed == original) --true
 ```
 
-```lua
+```lua lineNumbers title="Reverse each word in a sentence individually"
 --Reverse each word separately
 local sentence = "hello world"
 local reversed = string.gsub(sentence, "%S+", function(word)
@@ -94,27 +94,27 @@ end)
 engine.print("info", reversed) --olleh dlrow
 ```
 
-```lua
+```lua lineNumbers title="Create a mirror effect with a string"
 --Create mirror effect
 local text = "ABC"
 local mirror = text.."|"..string.reverse(text)
 engine.print("info", mirror) --ABC|CBA
 ```
 
-```lua
+```lua lineNumbers title="Reverse a binary string"
 --Reverse binary string
 local binary = "1010"
 local reversed = string.reverse(binary)
 engine.print("info", reversed) --0101
 ```
 
-```lua
+```lua lineNumbers title="Reverse a number represented as a string"
 --With numbers as strings
 local num = "123456"
 engine.print("info", string.reverse(num)) --654321
 ```
 
-```lua
+```lua lineNumbers title="Iterate over a string from end to start"
 --Process from end to start
 local data = "ABCDEF"
 for i = 1, #data do

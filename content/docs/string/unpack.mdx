@@ -29,14 +29,14 @@ local ..., next_pos = string.unpack(format, input, start_at = 1)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Pack and unpack integers"
 --Pack and unpack integers
 local packed = string.pack("iii", 10, 20, 30)
 local a, b, c = string.unpack("iii", packed)
 engine.print("info", a, b, c) --10  20  30
 ```
 
-```lua
+```lua lineNumbers title="Unpack values using position tracking"
 --Unpack with position tracking
 local packed = string.pack("ii", 100, 200)
 local val1, pos = string.unpack("i", packed)
@@ -44,14 +44,14 @@ local val2 = string.unpack("i", packed, pos)
 engine.print("info", val1, val2) --100  200
 ```
 
-```lua
+```lua lineNumbers title="Unpack a fixed-size string"
 --Unpack fixed-size string
 local packed = string.pack("c5", "hello")
 local str = string.unpack("c5", packed)
 engine.print("info", str) --hello
 ```
 
-```lua
+```lua lineNumbers title="Unpack a zero-terminated string"
 --Unpack zero-terminated string
 local packed = string.pack("z", "world")
 local str, nextPos = string.unpack("z", packed)
@@ -59,63 +59,63 @@ engine.print("info", str) --world
 engine.print("info", nextPos) --7
 ```
 
-```lua
+```lua lineNumbers title="Unpack mixed types from a binary string"
 --Unpack mixed types
 local packed = string.pack("ifd", 42, 3.14, 2.718)
 local i, f, d = string.unpack("ifd", packed)
 engine.print("info", i, f, d) --42  3.14  2.718
 ```
 
-```lua
+```lua lineNumbers title="Unpack from a specific position"
 --Unpack from specific position
 local packed = string.pack("iii", 1, 2, 3)
 local value = string.unpack("i", packed, 5)
 engine.print("info", value) --2
 ```
 
-```lua
+```lua lineNumbers title="Unpack a little endian value"
 --Little endian unpack
 local packed = string.pack("<I4", 0x12345678)
 local value = string.unpack("<I4", packed)
 engine.print("info", string.format("0x%X", value)) --0x12345678
 ```
 
-```lua
+```lua lineNumbers title="Unpack a big endian value"
 --Big endian unpack
 local packed = string.pack(">I4", 0xABCDEF00)
 local value = string.unpack(">I4", packed)
 engine.print("info", string.format("0x%X", value)) --0xABCDEF00
 ```
 
-```lua
+```lua lineNumbers title="Unpack raw bytes into characters"
 --Unpack bytes
 local packed = string.pack("BBB", 65, 66, 67)
 local b1, b2, b3 = string.unpack("BBB", packed)
 engine.print("info", string.char(b1, b2, b3)) --ABC
 ```
 
-```lua
+```lua lineNumbers title="Unpack a double precision float"
 --Unpack double
 local packed = string.pack("d", math.pi)
 local value = string.unpack("d", packed)
 engine.print("info", value) --3.14159...
 ```
 
-```lua
+```lua lineNumbers title="Unpack struct-like player data"
 --Unpack struct-like data
 local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
 local name, health, score = string.unpack("c10i4f", packed)
 engine.print("info", name, health, score)
 ```
 
-```lua
+```lua lineNumbers title="Unpack a string with a length prefix"
 --Unpack string with length prefix
 local packed = string.pack("s1", "hello")
 local str = string.unpack("s1", packed)
 engine.print("info", str) --hello
 ```
 
-```lua
+```lua lineNumbers title="Unpack multiple strings sequentially"
 --Sequential unpacking
 local packed = string.pack("zz", "first", "second")
 local str1, pos = string.unpack("z", packed)
@@ -123,7 +123,7 @@ local str2 = string.unpack("z", packed, pos)
 engine.print("info", str1, str2) --first  second
 ```
 
-```lua
+```lua lineNumbers title="Unpack a network protocol header"
 --Unpack network protocol header
 local header = string.pack(">I2I2I4", 1, 2, 1024)
 local version, type, length = string.unpack(">I2I2I4", header)
@@ -132,7 +132,7 @@ engine.print("info", "Type:", type)
 engine.print("info", "Length:", length)
 ```
 
-```lua
+```lua lineNumbers title="Unpack a boolean stored as a byte"
 --Unpack boolean (stored as byte)
 local packed = string.pack("b", 1)
 local value = string.unpack("b", packed)
@@ -140,7 +140,7 @@ local bool = value ~= 0
 engine.print("info", bool) --true
 ```
 
-```lua
+```lua lineNumbers title="Partially unpack a binary string in two passes"
 --Partial unpack
 local packed = string.pack("i4i4i4i4", 1, 2, 3, 4)
 local a, b, pos = string.unpack("i4i4", packed)

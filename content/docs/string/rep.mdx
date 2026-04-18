@@ -28,103 +28,103 @@ local result = string.rep(input, count, separator = "")
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Repeat a string multiple times"
 --Repeat string multiple times
 local result = string.rep("ab", 3)
 engine.print("info", result) --ababab
 ```
 
-```lua
+```lua lineNumbers title="Repeat a single character to form a line"
 --Repeat single character
 local line = string.rep("-", 40)
 engine.print("info", line) ----------------------------------------
 ```
 
-```lua
+```lua lineNumbers title="Repeat a string with a separator"
 --Repeat with separator
 local result = string.rep("hi", 3, "-")
 engine.print("info", result) --hi-hi-hi
 ```
 
-```lua
+```lua lineNumbers title="Create a padding string"
 --Create padding
 local padding = string.rep(" ", 10)
 engine.print("info", "["..padding.."]") --[          ]
 ```
 
-```lua
+```lua lineNumbers title="Return empty string with zero repetitions"
 --Zero repetitions
 local result = string.rep("test", 0)
 engine.print("info", result) --
 ```
 
-```lua
+```lua lineNumbers title="Return the original string with one repetition"
 --One repetition
 local result = string.rep("test", 1)
 engine.print("info", result) --test
 ```
 
-```lua
+```lua lineNumbers title="Repeat using method syntax"
 --Method syntax
 local result = string.rep("*", 5)
 engine.print("info", result) --*****
 ```
 
-```lua
+```lua lineNumbers title="Create a separator line"
 --Create separator line
 local separator = string.rep("=", 50)
 engine.print("info", separator)
 ```
 
-```lua
+```lua lineNumbers title="Build a pattern string"
 --Build pattern strings
 local dots = string.rep(".", 3)
 engine.print("info", dots) --...
 ```
 
-```lua
+```lua lineNumbers title="Create a visual progress bar"
 --Create visual bars
 local bar = string.rep("█", 10)
 engine.print("info", bar) --██████████
 ```
 
-```lua
+```lua lineNumbers title="Repeat words with a space separator"
 --Repeat with space separator
 local result = string.rep("word", 4, " ")
 engine.print("info", result) --word word word word
 ```
 
-```lua
+```lua lineNumbers title="Create indentation with repeated spaces"
 --Create indentation
 local indent = string.rep("  ", 3)
 engine.print("info", indent.."code") --      code
 ```
 
-```lua
+```lua lineNumbers title="Build an ASCII art pattern"
 --Build ASCII art
 local pattern = string.rep("* ", 5)
 engine.print("info", pattern) --* * * * * 
 ```
 
-```lua
+```lua lineNumbers title="Create a repeated table row"
 --Create table row
 local cells = string.rep("| Cell ", 4)
 engine.print("info", cells.."|") --| Cell | Cell | Cell | Cell |
 ```
 
-```lua
+```lua lineNumbers title="Generate a fixed-length test string"
 --Generate test data
 local data = string.rep("A", 100)
 engine.print("info", #data) --100
 ```
 
-```lua
+```lua lineNumbers title="Repeat a multi-character pattern"
 --Multiple character pattern
 local pattern = string.rep("abc", 3)
 engine.print("info", pattern) --abcabcabc
 ```
 
-```lua
+```lua lineNumbers title="Repeat fields with a comma separator"
 --With comma separator
 local csv = string.rep("field", 5, ",")
 engine.print("info", csv) --field,field,field,field,field

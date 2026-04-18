@@ -26,14 +26,14 @@ local r, g, b = string.parse_hex(input)
 <hr/>
 
 ### Examples
-```lua
---Parse hex color with # prefix
+```lua lineNumbers title="Parse a hex color with # prefix"
 local r, g, b = string.parse_hex("#FF5733")
+
 engine.print("info", r, g, b) --255  87  51
 ```
 
-```lua
---Parse hex color without # prefix
+```lua lineNumbers title="Parse a hex color without # prefix"
 local r, g, b = string.parse_hex("00FF00")
+
 engine.print("info", r, g, b) --0  255  0
 ```

@@ -24,50 +24,50 @@ local result = string.parse(input)
 <hr/>
 
 ### Examples
-```lua
---Parse nil string
+```lua lineNumbers title="Parse a nil string"
 local result = string.parse("nil")
+
 engine.print("info", result) --nil
 ```
 
-```lua
---Parse boolean true
+```lua lineNumbers title="Parse a boolean true string"
 local result = string.parse("true")
+
 engine.print("info", result) --true
 ```
 
-```lua
---Parse boolean false
+```lua lineNumbers title="Parse a boolean false string"
 local result = string.parse("false")
+
 engine.print("info", result) --false
 ```
 
-```lua
---Parse integer
+```lua lineNumbers title="Parse an integer string"
 local result = string.parse("42")
+
 engine.print("info", result) --42
 ```
 
-```lua
---Parse float
+```lua lineNumbers title="Parse a float string"
 local result = string.parse("3.14")
+
 engine.print("info", result) --3.14
 ```
 
-```lua
---Parse negative number
+```lua lineNumbers title="Parse a negative number string"
 local result = string.parse("-10")
+
 engine.print("info", result) ---10
 ```
 
-```lua
---Parse regular string (no conversion)
+```lua lineNumbers title="Return unchanged string when no conversion applies"
 local result = string.parse("hello")
-engine.print("info", result) --hello
+
+engine.print("info", result) --"hello"
 ```
 
-```lua
---Parse nil input
+```lua lineNumbers title="Return false when input is nil"
 local result = string.parse(nil)
+
 engine.print("info", result) --false
 ```

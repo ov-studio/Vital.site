@@ -24,19 +24,19 @@ local result = string.detab(input)
 <hr/>
 
 ### Examples
-```lua
+```lua lineNumbers title="Convert a single tab to spaces"
 --Convert single tab
 local result = string.detab("Hello\tWorld")
 engine.print("info", result) --Hello    World
 ```
 
-```lua
+```lua lineNumbers title="Convert multiple tabs to spaces"
 --Convert multiple tabs
 local result = string.detab("A\tB\tC")
 engine.print("info", result) --A    B    C
 ```
 
-```lua
+```lua lineNumbers title="Format tab-separated values"
 --Format tab-separated values
 local tsv = "Name\tAge\tCity"
 local formatted = string.detab(tsv)
