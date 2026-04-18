@@ -31,96 +31,96 @@ local result = table.move(from, start_at, end_at, move_at, to = from)
 ### Examples
 
 ```lua lineNumbers title="Copy elements to another table"
---Copy elements to another table
 local src = {1, 2, 3, 4, 5}
 local dest = {}
 table.move(src, 1, 3, 1, dest)
-engine.print("info", table.concat(dest, ", ")) --1, 2, 3
+
+engine.print("info", table.concat(dest, ", ")) --"1, 2, 3"
 ```
 
 ```lua lineNumbers title="Move elements within the same table"
---Move elements within same table
 local t = {10, 20, 30, 40, 50}
 table.move(t, 1, 2, 4)
-engine.print("info", table.concat(t, ", ")) --10, 20, 30, 10, 20
+
+engine.print("info", table.concat(t, ", ")) --"10, 20, 30, 10, 20"
 ```
 
 ```lua lineNumbers title="Shift elements right within a table"
---Shift elements right
 local t = {1, 2, 3, 4}
 table.move(t, 1, 4, 2)
-engine.print("info", table.concat(t, ", ")) --1, 1, 2, 3, 4
+
+engine.print("info", table.concat(t, ", ")) --"1, 1, 2, 3, 4"
 ```
 
 ```lua lineNumbers title="Copy a subset of elements to a new position"
---Copy subset to new position
 local t = {"a", "b", "c", "d", "e"}
 table.move(t, 2, 4, 6)
-engine.print("info", table.concat(t, ", ")) --a, b, c, d, e, b, c, d
+
+engine.print("info", table.concat(t, ", ")) --"a, b, c, d, e, b, c, d"
 ```
 
 ```lua lineNumbers title="Clone an entire table using move"
---Clone entire table
 local original = {1, 2, 3}
 local clone = {}
 table.move(original, 1, table.len(original), 1, clone)
-engine.print("info", table.concat(clone, ", ")) --1, 2, 3
+
+engine.print("info", table.concat(clone, ", ")) --"1, 2, 3"
 ```
 
 ```lua lineNumbers title="Insert at the beginning by shifting right"
---Insert at beginning (shift right)
 local t = {2, 3, 4}
 table.move(t, 1, table.len(t), 2)
 t[1] = 1
-engine.print("info", table.concat(t, ", ")) --1, 2, 3, 4
+
+engine.print("info", table.concat(t, ", ")) --"1, 2, 3, 4"
 ```
 
 ```lua lineNumbers title="Append elements from another table"
---Append from another table
 local t1 = {1, 2, 3}
 local t2 = {4, 5, 6}
 table.move(t2, 1, table.len(t2), table.len(t1) + 1, t1)
-engine.print("info", table.concat(t1, ", ")) --1, 2, 3, 4, 5, 6
+
+engine.print("info", table.concat(t1, ", ")) --"1, 2, 3, 4, 5, 6"
 ```
 
 ```lua lineNumbers title="Remove an element by shifting left"
---Remove by shifting left
 local t = {1, 2, 3, 4, 5}
 table.move(t, 3, 5, 2)
 table.remove(t)
 table.remove(t)
-engine.print("info", table.concat(t, ", ")) --1, 3, 4, 5
+
+engine.print("info", table.concat(t, ", ")) --"1, 3, 4, 5"
 ```
 
 ```lua lineNumbers title="Duplicate a range of elements"
---Duplicate range
 local t = {"x", "y", "z"}
 table.move(t, 1, 3, 4)
-engine.print("info", table.concat(t, ", ")) --x, y, z, x, y, z
+
+engine.print("info", table.concat(t, ", ")) --"x, y, z, x, y, z"
 ```
 
 ```lua lineNumbers title="Copy a partial range into a destination table"
---Copy partial range
 local src = {10, 20, 30, 40, 50}
 local dest = {0, 0, 0, 0, 0}
 table.move(src, 2, 4, 1, dest)
-engine.print("info", table.concat(dest, ", ")) --20, 30, 40, 0, 0
+
+engine.print("info", table.concat(dest, ", ")) --"20, 30, 40, 0, 0"
 ```
 
 ```lua lineNumbers title="Copy elements in reverse order"
---Reverse copy
 local src = {1, 2, 3, 4}
 local dest = {}
 for i = table.len(src), 1, -1 do
     table.move(src, i, i, table.len(src) - i + 1, dest)
 end
-engine.print("info", table.concat(dest, ", ")) --4, 3, 2, 1
+
+engine.print("info", table.concat(dest, ", ")) --"4, 3, 2, 1"
 ```
 
 ```lua lineNumbers title="Efficiently extend an array with another"
---Efficient array extension
 local base = {1, 2, 3}
 local extension = {4, 5, 6, 7, 8}
 table.move(extension, 1, table.len(extension), table.len(base) + 1, base)
-engine.print("info", table.concat(base, ", ")) --1, 2, 3, 4, 5, 6, 7, 8
+
+engine.print("info", table.concat(base, ", ")) --"1, 2, 3, 4, 5, 6, 7, 8"
 ```
