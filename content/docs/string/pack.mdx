@@ -124,5 +124,5 @@ local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
 ```
 
 ```lua lineNumbers title="Pack a boolean as a byte"
-local packed = string.pack("b", true and 1 or 0)
+local packed = string.pack("b", (true and 1) or 0)
 ```
