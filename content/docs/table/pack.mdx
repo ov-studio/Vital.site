@@ -52,11 +52,17 @@ engine.print("info", t.n) --3
 
 ```lua lineNumbers title="Pack strings and iterate using n field"
 local t = table.pack("hello", "world", "lua")
+
 for i = 1, t.n do
     engine.print("info", t[i])
 end
 
---Output: hello, world, lua
+--[[
+Output: 
+"hello"
+"world"
+"lua"
+]]
 ```
 
 ```lua lineNumbers title="Pack with no arguments returns n of 0"
