@@ -32,24 +32,30 @@ local status = engine.iprint(value, show_hidden = false, depth_limit = 0)
 local t = {a = 1, b = 2, c = 3}
 
 engine.iprint(t)
---Output:
---{
---  a: 1
---  b: 2
---  c: 3
---}
+
+--[[
+Output:
+{
+    a: 1
+    b: 2
+    c: 3
+}
+]]
 ```
 
 ```lua lineNumbers title="Print an array"
 local colors = {"red", "green", "blue"}
 
 engine.iprint(colors)
---Output:
---{
---  1: "red"
---  2: "green"
---  3: "blue"
---}
+
+--[[
+Output:
+{
+    1: "red"
+    2: "green"
+    3: "blue"
+}
+]]
 ```
 
 ```lua lineNumbers title="Print with a depth limit"
@@ -73,7 +79,6 @@ engine.iprint(42) --42
 ```
 
 ```lua lineNumbers title="Print with metatable visible"
---Print with metatable visible
 local t = {x = 10}
 setmetatable(t, {__tostring = function() return "custom" end})
 
@@ -84,6 +89,6 @@ engine.iprint(t, true) --Shows metatable when show_hidden = true
 --Better than tostring for tables
 local t = {x = 1, y = 2}
 
-engine.print(tostring(t)) --table: 0x...
+engine.print(tostring(t)) --"table: 0x..."
 engine.iprint(t) --Readable format
 ```

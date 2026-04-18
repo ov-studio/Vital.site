@@ -34,7 +34,13 @@ for word in string.gmatch(text, "%a+") do
     engine.print("info", word)
 end
 
---Output: hello, world, from, Lua
+--[[
+Output: 
+  "hello"
+  "world"
+  "from"
+  "Lua"
+]]
 ```
 
 ```lua lineNumbers title="Extract all numbers from a string"
@@ -44,7 +50,7 @@ for num in string.gmatch(data, "%d+") do
     engine.print("info", num)
 end
 
---Output: 10, 20, 30
+--Output: "10", "20", "30"
 ```
 
 ```lua lineNumbers title="Extract key-value pairs"
@@ -54,7 +60,7 @@ for key, value in string.gmatch(coords, "(%a+)=(%d+)") do
     engine.print("info", key, value)
 end
 
---Output: x 5, y 10, x 15, y 20
+--Output: "x 5", "y 10", "x 15", "y 20"
 ```
 
 ```lua lineNumbers title="Split a string by delimiter"
@@ -64,7 +70,7 @@ for item in string.gmatch(csv, "[^,]+") do
     engine.print("info", item)
 end
 
---Output: apple, banana, orange
+--Output: "apple", "banana", "orange"
 ```
 
 ```lua lineNumbers title="Collect all matches into a table"
@@ -73,7 +79,7 @@ for word in string.gmatch("one two three", "%S+") do
     table.insert(words, word)
 end
 
-engine.print("info", table.concat(words, " | ")) --one | two | three
+engine.print("info", table.concat(words, " | ")) --"one | two | three"
 ```
 
 ```lua lineNumbers title="Match quoted strings"
@@ -82,7 +88,7 @@ for value in string.gmatch(text, '"(.-)"') do
     engine.print("info", value)
 end
 
---Output: John, 25, NYC
+--Output: "John", "25", "NYC"
 ```
 
 ```lua lineNumbers title="Extract email addresses"
@@ -91,7 +97,7 @@ for email in string.gmatch(text, "%S+@%S+") do
     engine.print("info", email)
 end
 
---Output: john@example.com, jane@example.com
+--Output: "john@example.com", "jane@example.com"
 ```
 
 ```lua lineNumbers title="Count pattern matches"
