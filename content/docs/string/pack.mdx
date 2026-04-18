@@ -56,85 +56,73 @@ local binary = string.pack(format, ...)
 ### Examples
 
 ```lua lineNumbers title="Pack three integers into a binary string"
---Pack three integers
 local packed = string.pack("iii", 10, 20, 30)
+
 engine.print("info", #packed) --12
 ```
 
 ```lua lineNumbers title="Pack a fixed-size string"
---Pack a fixed-size string
 local packed = string.pack("c5", "hello")
+
 engine.print("info", #packed) --5
 ```
 
 ```lua lineNumbers title="Pack a zero-terminated string"
---Pack zero-terminated string
 local packed = string.pack("z", "world")
+
 engine.print("info", #packed) --6
 ```
 
 ```lua lineNumbers title="Pack mixed types into one binary string"
---Pack mixed types
 local packed = string.pack("ifd", 42, 3.14, 2.718)
 ```
 
 ```lua lineNumbers title="Pack a value in little endian byte order"
---Little endian packing
 local packed = string.pack("<I4", 0x12345678)
 ```
 
 ```lua lineNumbers title="Pack a value in big endian byte order"
---Big endian packing
 local packed = string.pack(">I4", 0x12345678)
 ```
 
 ```lua lineNumbers title="Pack raw bytes as a string"
---Pack bytes
 local packed = string.pack("BBB", 65, 66, 67)
-engine.print("info", packed) --ABC
+
+engine.print("info", packed) --"ABC"
 ```
 
 ```lua lineNumbers title="Pack values with padding bytes"
---Pack with padding
 local packed = string.pack("ixxi", 1, 2)
 ```
 
 ```lua lineNumbers title="Pack an unsigned short"
---Pack unsigned short
 local packed = string.pack("H", 1000)
 ```
 
 ```lua lineNumbers title="Pack a double precision float"
---Pack double precision float
 local packed = string.pack("d", math.pi)
 ```
 
 ```lua lineNumbers title="Pack a string with a length prefix"
---Pack string with length prefix
 local packed = string.pack("s1", "hello")
 ```
 
 ```lua lineNumbers title="Pack multiple zero-terminated strings"
---Pack multiple strings
 local packed = string.pack("zz", "first", "second")
 ```
 
 ```lua lineNumbers title="Combine different types in one pack call"
---Combine different types
 local packed = string.pack("i4f", 100, 1.5)
 ```
 
 ```lua lineNumbers title="Pack a value in network byte order"
---Pack network byte order (big endian)
 local packed = string.pack(">I2", 0xABCD)
 ```
 
 ```lua lineNumbers title="Pack struct-like player data"
---Pack struct-like data
 local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
 ```
 
 ```lua lineNumbers title="Pack a boolean as a byte"
---Pack boolean as byte
 local packed = string.pack("b", true and 1 or 0)
 ```
