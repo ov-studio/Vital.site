@@ -1,6 +1,6 @@
 ---
 title: self:get_blendshape_value
-description: Retrieves the current value of a blend shape on a specific component
+description: Retrieves the current value of a blendshape on a specific component
 badge: Shared
 ---
 
@@ -14,20 +14,20 @@ local value = self:get_blendshape_value(component, blendshape)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | component | Path of the component containing the blend shape |
-| `string` | blendshape | Name of the blend shape to retrieve |
+| `string` | component | Path of the component containing the blendshape |
+| `string` | blendshape | Name of the blendshape to retrieve |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | value | Current value of the blend shape |
+| `float` | value | Current value of the blendshape |
 
 <hr/>
 
 ### Examples
 
-```lua lineNumbers title="Get the current value of a blend shape on a component"
+```lua lineNumbers title="Get the current value of a blendshape on a component"
 local entity = model.create("character")
 
 engine.print("info", "Blend shape value:", entity:get_blendshape_value("Skeleton3D/Head", "smile"))
