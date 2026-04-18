@@ -40,16 +40,14 @@ All fields are optional and fall back to their defaults if not specified.
 
 ### Examples
 
-```lua
---Create with default options
+```lua lineNumbers title="Create a webview with default options"
 local browser = webview.create()
 
 browser:set_visible(true)
 browser:load_url("https://google.com")
 ```
 
-```lua
---Create with custom options
+```lua lineNumbers title="Create a webview with custom options"
 local browser = webview.create({
     fullscreen = true,
     transparent = true,
