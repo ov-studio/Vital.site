@@ -26,12 +26,10 @@ local instance = svg.create_from_raw(raw)
 
 ### Examples
 
-```lua
-local markup = [[
+```lua lineNumbers title="Create an SVG instance from raw markup"
+local icon = svg.create_from_raw([[
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="50"/>
     </svg>
-]]
-
-local icon = svg.create_from_raw(markup)
+]])
 ```
