@@ -26,25 +26,25 @@ local result = string.kern(input, kerner = " ")
 
 ### Examples
 ```lua lineNumbers title="Apply default single-space kerning"
---Default kerning (single space)
 local result = string.kern("HELLO")
-engine.print("info", result) --H E L L O
+
+engine.print("info", result) --"H E L L O"
 ```
 
 ```lua lineNumbers title="Apply custom dash kerning"
---Custom kerning with dash
 local result = string.kern("ABC", "-")
-engine.print("info", result) --A-B-C
+
+engine.print("info", result) --"A-B-C"
 ```
 
 ```lua lineNumbers title="Apply double-space kerning"
---Custom kerning with double space
 local result = string.kern("LUA", "  ")
-engine.print("info", result) --L  U  A
+
+engine.print("info", result) --"L  U  A"
 ```
 
 ```lua lineNumbers title="Apply dot kerning"
---Kerning with dots
 local result = string.kern("123", ".")
-engine.print("info", result) --1.2.3
+
+engine.print("info", result) --"1.2.3"
 ```
