@@ -1,6 +1,6 @@
 ---
 title: timer:create
-description: Creates a new timer context
+description: Creates a new timer instance
 badge: Shared
 ---
 
@@ -41,7 +41,7 @@ exec(...)
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Create a timer that prints a message every second 5 times"
 local self = timer:create(function(message)
     engine.print("info", message)
 end, 1000, 5, "Hello from timer")
