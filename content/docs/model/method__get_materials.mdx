@@ -26,11 +26,9 @@ local materials = self:get_materials(component)
 
 ### Examples
 
-```lua lineNumbers title="Print all material names on a component"
+```lua lineNumbers title="Print all material names on a specific component"
 local entity = model.create("character")
 local materials = entity:get_materials("Skeleton3D/Head")
 
-for i = 1, #materials do
-    engine.print("info", materials[i])
-end
+engine.iprint(materials)
 ```
