@@ -48,14 +48,14 @@ engine.print("info", val1, val2) --100  200
 local packed = string.pack("c5", "hello")
 local str = string.unpack("c5", packed)
 
-engine.print("info", str) --"hello"
+engine.print("info", str) --'hello'
 ```
 
 ```lua lineNumbers title="Unpack a zero-terminated string"
 local packed = string.pack("z", "world")
 local str, nextPos = string.unpack("z", packed)
 
-engine.print("info", str) --"world"
+engine.print("info", str) --'world'
 engine.print("info", nextPos) --7
 ```
 
@@ -77,21 +77,21 @@ engine.print("info", value) --2
 local packed = string.pack("<I4", 0x12345678)
 local value = string.unpack("<I4", packed)
 
-engine.print("info", string.format("0x%X", value)) --"0x12345678"
+engine.print("info", string.format("0x%X", value)) --'0x12345678'
 ```
 
 ```lua lineNumbers title="Unpack a big endian value"
 local packed = string.pack(">I4", 0xABCDEF00)
 local value = string.unpack(">I4", packed)
 
-engine.print("info", string.format("0x%X", value)) --"0xABCDEF00"
+engine.print("info", string.format("0x%X", value)) --'0xABCDEF00'
 ```
 
 ```lua lineNumbers title="Unpack raw bytes into characters"
 local packed = string.pack("BBB", 65, 66, 67)
 local b1, b2, b3 = string.unpack("BBB", packed)
 
-engine.print("info", string.char(b1, b2, b3)) --"ABC"
+engine.print("info", string.char(b1, b2, b3)) --'ABC'
 ```
 
 ```lua lineNumbers title="Unpack a double precision float"
@@ -112,7 +112,7 @@ engine.print("info", name, health, score)
 local packed = string.pack("s1", "hello")
 local str = string.unpack("s1", packed)
 
-engine.print("info", str) --"hello"
+engine.print("info", str) --'hello'
 ```
 
 ```lua lineNumbers title="Unpack multiple strings sequentially"
@@ -120,7 +120,7 @@ local packed = string.pack("zz", "first", "second")
 local str1, pos = string.unpack("z", packed)
 local str2 = string.unpack("z", packed, pos)
 
-engine.print("info", str1, str2) --"first"  "second"
+engine.print("info", str1, str2) --'first'  'second'
 ```
 
 ```lua lineNumbers title="Unpack a network protocol header"

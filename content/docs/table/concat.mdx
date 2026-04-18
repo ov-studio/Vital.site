@@ -33,40 +33,40 @@ local result = table.concat(input, separator = "", start_at = 1, end_at = table.
 local t = {"hello", "world", "lua"}
 local result = table.concat(t)
 
-engine.print("info", result) --"helloworldlua"
+engine.print("info", result) --'helloworldlua'
 ```
 
 ```lua lineNumbers title="Concatenate elements with a separator"
 local t = {"apple", "banana", "orange"}
 local result = table.concat(t, ", ")
 
-engine.print("info", result) --"apple, banana, orange"
+engine.print("info", result) --'apple, banana, orange'
 ```
 
 ```lua lineNumbers title="Concatenate elements with a space separator"
 local words = {"Hello", "World"}
 local result = table.concat(words, " ")
 
-engine.print("info", result) --"Hello World"
+engine.print("info", result) --'Hello World'
 ```
 
 ```lua lineNumbers title="Concatenate a subset of the table"
 local t = {"a", "b", "c", "d", "e"}
 local result = table.concat(t, "-", 2, 4)
 
-engine.print("info", result) --"b-c-d"
+engine.print("info", result) --'b-c-d'
 ```
 
 ```lua lineNumbers title="Build a CSV line from a table"
 local data = {"John", "25", "Developer"}
 local csv = table.concat(data, ",")
 
-engine.print("info", csv) --"John,25,Developer"
+engine.print("info", csv) --'John,25,Developer'
 ```
 
 ```lua lineNumbers title="Build a file path from parts"
 local parts = {"home", "user", "documents"}
 local path = "/" .. table.concat(parts, "/")
 
-engine.print("info", path) --"/home/user/documents"
+engine.print("info", path) --'/home/user/documents'
 ```

@@ -31,21 +31,21 @@ table.insert(input, value, index = table.len(input) + 1)
 local t = {1, 2, 3}
 table.insert(t, 4)
 
-engine.print("info", table.concat(t, ", ")) --"1, 2, 3, 4"
+engine.print("info", table.concat(t, ", ")) --'1, 2, 3, 4'
 ```
 
 ```lua lineNumbers title="Insert an element at a specific position"
 local t = {"a", "c", "d"}
 table.insert(t, 2, "b")
 
-engine.print("info", table.concat(t, ", ")) --"a, b, c, d"
+engine.print("info", table.concat(t, ", ")) --'a, b, c, d'
 ```
 
 ```lua lineNumbers title="Insert an element at the beginning"
 local t = {2, 3, 4}
 table.insert(t, 1, 1)
 
-engine.print("info", table.concat(t, ", ")) --"1, 2, 3, 4"
+engine.print("info", table.concat(t, ", ")) --'1, 2, 3, 4'
 ```
 
 ```lua lineNumbers title="Build an array dynamically with a loop"
@@ -54,7 +54,7 @@ for i = 1, 5 do
     table.insert(numbers, i * 10)
 end
 
-engine.print("info", table.concat(numbers, ", ")) --"10, 20, 30, 40, 50"
+engine.print("info", table.concat(numbers, ", ")) --'10, 20, 30, 40, 50'
 ```
 
 ```lua lineNumbers title="Append multiple strings to a table"
@@ -62,21 +62,21 @@ local words = {"hello"}
 table.insert(words, "world")
 table.insert(words, "lua")
 
-engine.print("info", table.concat(words, " ")) --"hello world lua"
+engine.print("info", table.concat(words, " ")) --'hello world lua'
 ```
 
 ```lua lineNumbers title="Insert an element at a middle position"
 local colors = {"red", "green", "blue"}
 table.insert(colors, 2, "yellow")
 
-engine.print("info", table.concat(colors, ", ")) --"red, yellow, green, blue"
+engine.print("info", table.concat(colors, ", ")) --'red, yellow, green, blue'
 ```
 
 ```lua lineNumbers title="Insert into an empty table"
 local t = {}
 table.insert(t, "first")
 
-engine.print("info", t[1]) --"first"
+engine.print("info", t[1]) --'first'
 ```
 
 ```lua lineNumbers title="Push elements onto a stack"
