@@ -1,11 +1,3 @@
-export type FeatureItem = {
-  n: string;
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-  wide?: boolean;
-};
-
 export type WhyItem = {
   title: string;
   desc: string;

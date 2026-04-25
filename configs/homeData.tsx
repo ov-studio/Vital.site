@@ -1,4 +1,4 @@
-import type { FeatureItem, WhyItem, FooterCol } from './types';
+import type { WhyItem, FooterCol } from './types';
 
 export const NAV_LINKS = [
   { label: 'Features', href: '#features' },
