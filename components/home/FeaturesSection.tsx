@@ -101,7 +101,7 @@ export function FeaturesSection() {
               <div className="fhub">
                 <span className="fhub-ring" />
                 <span className="fhub-ring fhub-ring2" />
-                <span className="fhub-label">Vital<br />.sandbox</span>
+                <span className="fhub-label">VSDK</span>
               </div>
 
               {/* SVG connector lines */}
