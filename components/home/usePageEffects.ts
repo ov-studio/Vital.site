@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { API_TABS } from '@/configs/homeData';
 
 export function usePageEffects() {
   useEffect(() => {
@@ -42,23 +41,6 @@ export function usePageEffects() {
       });
     }, { threshold: 0.08 });
     revEls.forEach(el => observer.observe(el));
-
-    // API tab switching
-    const fileNames = Object.fromEntries(API_TABS.map(t => [t.id, t.file]));
-    document.querySelectorAll<HTMLElement>('.atab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const key     = tab.dataset.t!;
-        const current = document.querySelector<HTMLElement>('.cpane.on');
-        const next    = document.getElementById('cp-' + key);
-        if (!next || current === next) return;
-        document.querySelectorAll('.atab').forEach(t => t.classList.remove('on'));
-        tab.classList.add('on');
-        const cfile = document.getElementById('cfile');
-        if (cfile) cfile.textContent = fileNames[key];
-        current?.classList.remove('on');
-        requestAnimationFrame(() => next.classList.add('on'));
-      });
-    });
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove);
