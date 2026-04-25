@@ -152,7 +152,7 @@
 
 .hero-wordmark {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: 5rem;
   font-weight: 700;
   letter-spacing: .06em;
   color: hsl(220, 60%, 72%);
