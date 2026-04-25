@@ -173,7 +173,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .16em;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   opacity: 0;
   animation: fadeIn .7s .35s forwards;
 }
