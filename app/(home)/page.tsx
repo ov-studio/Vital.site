@@ -7,7 +7,6 @@ import { Navbar }          from '@/components/Navbar';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { HeroSection }            from '@/components/home/HeroSection';
 import { FeaturesSection } from '@/components/home/FeaturesSection';
-import { ApiSection }      from '@/components/home/ApiSection';
 import { EthosSection }    from '@/components/home/EthosSection';
 import { Footer }          from '@/components/Footer';
 
@@ -20,7 +19,6 @@ export default function HomePage() {
       <AnnouncementBar />
       <HeroSection />
       <FeaturesSection />
-      <ApiSection />
       <EthosSection />
       <Footer />
     </>
