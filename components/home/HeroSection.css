@@ -121,47 +121,6 @@
   text-align: center;
 }
 
-/* ── Badge ───────────────────────────────── */
-.hero-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Geist Mono', monospace;
-  font-size: .62rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: hsl(220, 10%, 48%);
-  border: 1px solid var(--rule);
-  padding: 6px 14px;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeIn .5s .1s forwards;
-}
-
-.hero-badge-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--blue);
-  flex-shrink: 0;
-  animation: dotpulse 2s ease-in-out infinite;
-}
-
-@keyframes dotpulse {
-
-  0%,
-  100% {
-    box-shadow: none;
-    opacity: .7;
-  }
-
-  50% {
-    box-shadow: 0 0 6px var(--blue);
-    opacity: 1;
-  }
-}
-
-/* ── Brand ───────────────────────────────── */
 .hero-brand {
   display: flex;
   flex-direction: column;
