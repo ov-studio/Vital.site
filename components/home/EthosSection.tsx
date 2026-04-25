@@ -3,20 +3,47 @@ import './EthosSection.css';
 
 export function EthosSection() {
   return (
-    <section id="ethos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: '1px solid var(--rule)' }}>
-      <div className="sw" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
-        <div className="slabel rev">Ethos</div>
-        <h2 className="rev" style={{ marginBottom: '56px' }}>No bloat. No strings.<br /><span>Just power.</span></h2>
-        <div className="why-grid rev">
-          {WHY_ITEMS.map(({ title, desc, icon }) => (
-            <div className="why-card" key={title}>
-              <div className="why-ico">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">{icon}</svg>
+    <section id="ethos">
+      <div className="sw">
+        <div className="ethos-head">
+          <div className="slabel rev">Ethos</div>
+          <h2 className="rev">No bloat. No strings.<br /><span>Just power.</span></h2>
+        </div>
+
+        <div className="ethos-body">
+          <div className="ethos-left rev-l">
+            {WHY_ITEMS.slice(0, 3).map(({ title, desc, icon }) => (
+              <div className="ethos-item" key={title}>
+                <div className="ethos-item-top">
+                  <div className="ethos-ico">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">{icon}</svg>
+                  </div>
+                  <h3 className="ethos-title">{title}</h3>
+                </div>
+                <p className="ethos-desc">{desc}</p>
               </div>
-              <h3>{title}</h3>
-              <p>{desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="ethos-divider">
+            <div className="ethos-divider-line" />
+            <div className="ethos-divider-node" />
+            <div className="ethos-divider-line" />
+          </div>
+
+          <div className="ethos-right rev-r">
+            {WHY_ITEMS.slice(3).map(({ title, desc, icon }) => (
+              <div className="ethos-item" key={title}>
+                <div className="ethos-item-top">
+                  <div className="ethos-ico">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">{icon}</svg>
+                  </div>
+                  <h3 className="ethos-title">{title}</h3>
+                </div>
+                <p className="ethos-desc">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

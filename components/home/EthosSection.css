@@ -3,78 +3,162 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-top: 1px solid var(--rule)
+  border-top: 1px solid var(--rule);
+  padding: 100px 0;
 }
 
-.why-grid {
+.ethos-head {
+  margin-bottom: 72px;
+}
+
+.ethos-head h2 {
+  margin-top: 8px;
+}
+
+.ethos-body {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--rule)
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 56px;
+  align-items: start;
 }
 
-.why-card {
+/* ── Divider ─────────────────────────────── */
+.ethos-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.ethos-divider-line {
+  flex: 1;
+  width: 1px;
+  background: var(--rule);
+}
+
+.ethos-divider-node {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--blue);
   background: var(--bg);
-  padding: 36px 32px;
-  position: relative;
-  overflow: hidden;
-  transition: background .25s
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin: 12px 0;
+  animation: nodeflash 3s ease-in-out infinite;
 }
 
-.why-card:hover { background: var(--bg2) }
+@keyframes nodeflash {
 
-.why-ico {
-  width: 40px;
-  height: 40px;
+  0%,
+  100% {
+    box-shadow: none;
+    opacity: .5;
+  }
+
+  50% {
+    box-shadow: 0 0 8px var(--blue);
+    opacity: 1;
+  }
+}
+
+/* ── Items ───────────────────────────────── */
+.ethos-item {
+  padding: 24px 0 24px 16px;
+  border-bottom: 1px solid var(--rule);
+  border-left: 2px solid transparent;
+  transition: border-color .25s;
+  position: relative;
+}
+
+.ethos-item:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.ethos-item:hover {
+  border-left-color: var(--blue);
+}
+
+.ethos-item-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.ethos-ico {
+  width: 34px;
+  height: 34px;
   border: 1px solid var(--rule);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--blue);
-  margin-bottom: 20px;
-  transition: border-color .3s
+  flex-shrink: 0;
+  transition: border-color .25s, background .25s;
 }
 
-.why-card:hover .why-ico { border-color: var(--b30) }
+.ethos-item:hover .ethos-ico {
+  border-color: var(--b30);
+  background: var(--b05);
+}
 
-.why-card h3 {
+.ethos-title {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .03em;
-  margin-bottom: 10px;
-  color: var(--w)
+  letter-spacing: .04em;
+  color: var(--dim);
+  transition: color .2s;
 }
 
-.why-card p {
-  font-size: .87rem;
-  color: hsl(220, 10%, 68%);
+.ethos-item:hover .ethos-title {
+  color: var(--w);
+}
+
+.ethos-desc {
+  font-size: .85rem;
+  color: hsl(220, 10%, 45%);
   line-height: 1.75;
-  font-weight: 400
+  font-weight: 300;
+  transition: color .2s;
 }
 
-.why-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--blue), transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .4s ease
+.ethos-item:hover .ethos-desc {
+  color: hsl(220, 10%, 60%);
 }
 
-.why-card:hover::after { transform: scaleX(1) }
-
+/* ── Responsive ──────────────────────────── */
 @media(max-width:960px) {
-  .why-grid { grid-template-columns: 1fr 1fr }
-  .why-card { padding: 28px 22px }
+  #ethos {
+    padding: 72px 0;
+  }
+
+  .ethos-body {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ethos-divider {
+    display: none;
+  }
+
+  .ethos-head {
+    margin-bottom: 48px;
+  }
 }
 
 @media(max-width:640px) {
-  .why-grid { grid-template-columns: 1fr }
-  .why-card { padding: 24px 20px }
+  #ethos {
+    padding: 56px 0;
+  }
+
+  .ethos-head {
+    margin-bottom: 36px;
+  }
+
+  .ethos-item {
+    padding: 20px 0 20px 14px;
+  }
 }
