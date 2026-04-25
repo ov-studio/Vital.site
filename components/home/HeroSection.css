@@ -199,6 +199,7 @@
   letter-spacing: .06em;
   color: hsl(220, 60%, 72%);
   line-height: 1;
+  margin-bottom: 4px;
 }
 
 
@@ -214,7 +215,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .16em;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   opacity: 0;
   animation: fadeIn .7s .35s forwards;
 }
@@ -246,6 +247,7 @@
 /* ── Buttons ─────────────────────────────── */
 .hbtns {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   align-items: center;
   justify-content: center;

@@ -42,7 +42,9 @@ export function HeroSection() {
 
         {/* CTA */}
         <div className="hbtns">
-          <a href="/docs" className="btn-primary">Start Building</a>
+          <a href="#features" className="btn-primary">
+            Download latest build
+          </a>
           <a href="#features" className="btn-secondary">
             Explore Features
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
