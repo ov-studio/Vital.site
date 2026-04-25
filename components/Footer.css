@@ -1,6 +1,6 @@
 footer {
   border-top: 1px solid var(--rule);
-  background: hsl(250, 25%, 1%)
+  background: var(--bg2);
 }
 
 .footer-main {
