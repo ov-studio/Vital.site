@@ -3,7 +3,7 @@ import type { FeatureItem, WhyItem, FooterCol } from './types';
 export const NAV_LINKS = [
   { label: 'Features', href: '#features' },
   { label: 'Ethos', href: '#ethos' },
-  { label: 'Docs',    href: '/docs'     },
+  { label: 'Documentations',    href: '/docs'     },
 ];
 
 export const HERO_STATS = [
@@ -26,26 +26,25 @@ export const FOOTER_COLS: FooterCol[] = [
   {
     heading: 'Sandbox',
     links: [
-      { label: 'Docs', href: '/docs' },
-      { label: 'Features', href: '#' },
-      { label: 'Changelog', href: '#' },
+      { label: 'Documentations', href: '/docs' },
       { label: 'Roadmap', href: '#' },
+      { label: 'Changelog', href: '#' },
+      { label: 'Contributing', href: '/docs/building' },
     ],
   },
   {
-    heading: 'Core',
+    heading: 'Resources',
     links: [
       { label: 'Vital.sandbox', href: 'https://github.com/ov-studio/Vital.sandbox' },
       { label: 'Vital.kit', href: 'https://github.com/ov-studio/Vital.kit' },
-      { label: 'Contributing', href: '/docs/building' },
     ],
   },
   {
     heading: 'Community',
     links: [
-      { label: 'GitHub', href: 'https://github.com/ov-studio' },
-      { label: 'Discord', href: 'http://discord.gg/sVCnxPW' },
       { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
+      { label: 'GitHub', href: 'https://github.com/ov-studio' },
+      { label: 'Discord', href: 'http://discord.gg/sVCnxPW' }
     ],
   },
 ];
