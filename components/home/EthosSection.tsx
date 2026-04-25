@@ -5,7 +5,7 @@ export function EthosSection() {
   return (
     <section id="ethos" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: '1px solid var(--rule)' }}>
       <div className="sw" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
-        <div className="slabel rev">Why vital.sandbox</div>
+        <div className="slabel rev">Ethos</div>
         <h2 className="rev" style={{ marginBottom: '56px' }}>No bloat. No strings.<br /><span>Just power.</span></h2>
         <div className="why-grid rev">
           {WHY_ITEMS.map(({ title, desc, icon }) => (
