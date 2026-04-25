@@ -36,8 +36,8 @@ export function HeroSection() {
 
         {/* Sub */}
         <p className="hero-sub">
-          The next-generation sandbox runtime. One language, infinite power —<br />
-          Lua from the ground up, built on Godot, engineered in C++17.
+          An open-source, high-performance sandbox built on Godot and powered by C++17. A clean Lua layer gives you full control over rendering, networking, threading, and assets — all in one seamless workflow.
+          <br/><br/>From indie ideas to large scale multiplayer worlds, build without compromise.
         </p>
 
         {/* CTA */}

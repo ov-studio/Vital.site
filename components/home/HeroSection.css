@@ -164,6 +164,7 @@
 /* ── Brand ───────────────────────────────── */
 .hero-brand {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   margin-bottom: 32px;
@@ -237,7 +238,6 @@
   font-weight: 400;
   color: hsl(220, 10%, 55%);
   line-height: 1.85;
-  max-width: 520px;
   margin-bottom: 40px;
   opacity: 0;
   animation: fadeIn .7s .45s forwards;
