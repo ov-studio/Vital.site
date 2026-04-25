@@ -5,24 +5,44 @@ import './HeroSection.css';
 export function HeroSection() {
   return (
     <section id="hero">
-      <div className="hgrid" />
+      {/* Animated background */}
+      <div className="hbg">
+        <div className="hbg-glow" />
+        <div className="hbg-grid" />
+        <div className="hbg-scanline" />
+      </div>
+
+      {/* Corner brackets */}
+      <div className="hcorner hcorner-tl" />
+      <div className="hcorner hcorner-tr" />
+      <div className="hcorner hcorner-bl" />
+      <div className="hcorner hcorner-br" />
+
       <div className="hero-center">
-        <Image src="/vital_sandbox_logo.png" alt="" width={72} height={72} className="hero-logo" />
-        <div className="hero-wordmark">
-          <span className="hw-vital">Vital</span><span className="hw-dot">.</span><span className="hw-sub">sandbox</span>
+        {/* Logo + wordmark */}
+        <div className="hero-brand">
+          <Image src="/vital_sandbox_logo.png" alt="" width={64} height={64} className="hero-logo" />
+          <div className="hero-wordmark">Vital.sandbox</div>
         </div>
+
+        {/* Motto */}
         <div className="hero-motto">
-          <span>Script It.</span>
+          <span className="hm-word">Script It.</span>
           <span className="hm-sep">—</span>
-          <span className="hm-blue">Ship It.</span>
+          <span className="hm-word hm-blue">Ship It.</span>
           <span className="hm-sep">—</span>
-          <span>Limitless.</span>
+          <span className="hm-word">Limitless.</span>
         </div>
+
+        {/* Sub */}
         <p className="hero-sub">
-          The next-generation sandbox runtime. One language, infinite power — Lua from the ground up, built on Godot, engineered in C++17.
+          The next-generation sandbox runtime. One language, infinite power —<br />
+          Lua from the ground up, built on Godot, engineered in C++17.
         </p>
+
+        {/* CTA */}
         <div className="hbtns">
-          <a href="#" className="btn-primary">Start Building</a>
+          <a href="/docs" className="btn-primary">Start Building</a>
           <a href="#features" className="btn-secondary">
             Explore Features
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -30,6 +50,8 @@ export function HeroSection() {
             </svg>
           </a>
         </div>
+
+        {/* Stats */}
         <div className="hero-stats">
           {HERO_STATS.map(({ value, label }, i) => (
             <>
