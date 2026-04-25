@@ -2,7 +2,6 @@ import type { FeatureItem, WhyItem, FooterCol } from './types';
 
 export const NAV_LINKS = [
   { label: 'Features', href: '#features' },
-  { label: 'API',      href: '#api'      },
   { label: 'Ethos',   href: '#ethos'    },
   { label: 'Docs',    href: '/docs'     },
 ];
