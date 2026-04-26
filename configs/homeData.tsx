@@ -26,17 +26,17 @@ export const FOOTER_COLS: FooterCol[] = [
     ],
   },
   {
-    heading: 'Resources',
+    heading: 'Resource',
     links: [
       { label: 'Vital.sandbox', href: 'https://github.com/ov-studio/Vital.sandbox' },
       { label: 'Vital.kit', href: 'https://github.com/ov-studio/Vital.kit' },
     ],
   },
   {
-    heading: 'Community',
+    heading: 'Social',
     links: [
-      { label: 'GitHub', href: 'https://github.com/ov-studio' },
       { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
+      { label: 'GitHub', href: 'https://github.com/ov-studio' },
       { label: 'Discord', href: 'http://discord.gg/sVCnxPW' }
     ],
   },
