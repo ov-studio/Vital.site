@@ -14,7 +14,7 @@ local result, iv = crypto.encrypt(mode, input, key)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Encryption mode:<br/>• `"AES128"` - Advanced Encryption Standard 128-bit<br/>• `"AES192"` - Advanced Encryption Standard 192-bit<br/>• `"AES256"` - Advanced Encryption Standard 256-bit |
+| `string` | mode | Encryption mode — see [Modes](#modes) below |
 | `string` | input | String containing data to be encrypted |
 | `string` | key | Key to be used for encryption |
 
@@ -24,6 +24,16 @@ local result, iv = crypto.encrypt(mode, input, key)
 |------|------|-------------|
 | `string` / `bool` | result | Encrypted string on successful execution, or `false` on failure |
 | `string` / `nil` | iv | Generated initialization vector on successful execution, or `nil` on failure |
+
+<hr/>
+
+### Modes
+
+| Mode | Description |
+|------|-------------|
+| `"AES128"` | Advanced Encryption Standard 128-bit |
+| `"AES192"` | Advanced Encryption Standard 192-bit |
+| `"AES256"` | Advanced Encryption Standard 256-bit |
 
 <hr/>
 
