@@ -43,6 +43,9 @@
     --syn-nm: hsl(30, 75%, 62%);
     --syn-pu: hsl(220, 12%, 50%);
 
+    /* ── Brand ─────────────────────────────── */
+    --brand-color: var(--blue);
+
     /* ── Nav ─────────────────────────────── */
     --nav-h: 68px;
     --nav-bg: hsla(250, 20%, 4%, .92);
@@ -50,7 +53,6 @@
     /* ── Social icons ────────────────────── */
     --social-color: hsl(220, 10%, 60%);
     --social-hover-bg: hsla(220, 20%, 100%, .06);
-    --social-kofi-hover: hsl(350, 80%, 65%)
 }
 
 html {

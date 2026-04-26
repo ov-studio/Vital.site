@@ -18,8 +18,6 @@ footer {
   margin-bottom: 20px;
   /* Dim the brand slightly to match footer's muted tone */
   --brand-color: hsl(220, 20%, 60%);
-  --brand-shadow-color: hsla(220, 95%, 76%, 0.15);
-  --brand-shadow-color-strong: hsla(220, 95%, 76%, 0.3);
 }
 
 .footer-tagline {

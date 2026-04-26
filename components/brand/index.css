@@ -1,6 +1,4 @@
 .vital-brand {
-  --brand-color: hsl(220, 60%, 72%);
-
   display: inline-flex;
   align-items: center;
   gap: var(--brand-gap, 18px);

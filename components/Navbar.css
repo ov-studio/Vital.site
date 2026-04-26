@@ -38,9 +38,6 @@ nav.s::after {
 }
 
 .nav-brand {
-  --brand-color: hsl(220, 45%, 68%);
-  --brand-shadow-color: hsla(220, 95%, 76%, 0.2);
-  --brand-shadow-color-strong: hsla(220, 95%, 76%, 0.4);
   flex-shrink: 0;
 }
 
