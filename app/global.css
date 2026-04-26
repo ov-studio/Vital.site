@@ -192,12 +192,12 @@ h2 span {
     transition: color .2s
 }
 
-.btn-secondary svg {
-    transition: transform .2s
+.btn-secondary {
+    transition: background .2s, color .2s;
 }
 
-.btn-secondary:hover svg {
-    transform: translateX(4px)
+.btn-secondary:hover {
+    color: var(--blue);
 }
 
 .btn-primary,

@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 
 interface ReleaseInfo {
@@ -14,7 +15,13 @@ const fmtSize = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 
 const DownloadIcon = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -35,9 +42,9 @@ export function DownloadButtons() {
         const server = assets.find((a) => a.name.toLowerCase().includes('server') && a.name.endsWith('.zip'));
 
         setInfo({
-          tag:        release.tag_name ?? '',
-          clientUrl:  client?.browser_download_url ?? null,
-          serverUrl:  server?.browser_download_url ?? null,
+          tag: release.tag_name ?? '',
+          clientUrl: client?.browser_download_url ?? null,
+          serverUrl: server?.browser_download_url ?? null,
           clientSize: client ? fmtSize(client.size) : null,
           serverSize: server ? fmtSize(server.size) : null,
         });
@@ -57,18 +64,11 @@ export function DownloadButtons() {
 
   return (
     <div className="hbtns">
-      {/* Client — primary */}
-      <a
-        href={info.clientUrl ?? RELEASES_PAGE}
-        className="btn-primary"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href={info.clientUrl ?? RELEASES_PAGE} className="btn-primary" target="_blank" rel="noreferrer">
         <DownloadIcon />
         Download Client{info.clientSize ? ` · ${info.clientSize}` : ''}
       </a>
 
-      {/* Server — secondary, same width feel */}
       {info.serverUrl && (
         <a href={info.serverUrl} className="btn-secondary" target="_blank" rel="noreferrer">
           <DownloadIcon />
