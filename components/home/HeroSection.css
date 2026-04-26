@@ -228,54 +228,16 @@
 }
 
 @media (max-width: 640px) {
-  #hero {
-    padding-top: 110px;
-    padding-bottom: 48px;
-  }
-
-  .hero-center {
-    padding: 0 20px;
-  }
-
-  .hero-motto {
-    gap: 10px;
-    font-size: .82rem;
-  }
-
-  .hero-sub {
-    font-size: .88rem;
-  }
-
-  .hcorner {
-    display: none;
-  }
-
-  /* 2x2 grid for stats on mobile */
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-
-  .hstat {
-    padding: 16px 12px;
-    border: none;
-  }
-
-  /* Remove pseudo-element dividers, use border instead */
-  .hstat::after {
-    display: none;
-  }
-
-  .hstat:nth-child(1),
-  .hstat:nth-child(2) {
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .hstat:nth-child(1),
-  .hstat:nth-child(3) {
-    border-right: 1px solid var(--rule);
-  }
+  #hero { padding-top: 110px; padding-bottom: 48px; }
+  .hero-center { padding: 0 20px; }
+  .hero-motto { gap: 10px; font-size: .82rem; }
+  .hero-sub { font-size: .88rem; }
+  .hcorner { display: none; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .hstat { padding: 16px 12px; border: none; }
+  .hstat::after { display: none; }
+  .hstat:nth-child(1), .hstat:nth-child(2) { border-bottom: 1px solid var(--rule); }
+  .hstat:nth-child(1), .hstat:nth-child(3) { border-right: 1px solid var(--rule); }
 }
 
 @media (max-width: 400px) {
