@@ -14,7 +14,7 @@ const fmtSize = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 
 const DownloadIcon = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -49,7 +49,7 @@ export function Download() {
     return (
       <div className="hbtns">
         <button className="btn-primary" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-          <DownloadIcon /> Fetching release…
+          <DownloadIcon/> Fetching release…
         </button>
       </div>
     );
@@ -58,13 +58,13 @@ export function Download() {
   return (
     <div className="hbtns">
       <a href={info.clientUrl ?? RELEASES_PAGE} className="btn-primary" target="_blank" rel="noreferrer">
-        <DownloadIcon />
+        <DownloadIcon/>
         Download Client{info.clientSize ? ` · ${info.clientSize}` : ''}
       </a>
 
       {info.serverUrl && (
         <a href={info.serverUrl} className="btn-secondary" target="_blank" rel="noreferrer">
-          <DownloadIcon />
+          <DownloadIcon/>
           Download Server{info.serverSize ? ` · ${info.serverSize}` : ''}
         </a>
       )}

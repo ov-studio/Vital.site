@@ -55,8 +55,8 @@ export async function Hero() {
       <div className="hero-center">
         <div className="hero-brand">
           {/* full wordmark on normal screens, logo-only on tiny screens */}
-          <Brand size="xl" variant="full" className="hero-brand--full" />
-          <Brand size="xl" variant="logo-only" className="hero-brand--logo" />
+          <Brand size="xl" variant="full" className="hero-brand--full"/>
+          <Brand size="xl" variant="logo-only" className="hero-brand--logo"/>
         </div>
 
         <div className="hero-motto">
@@ -73,7 +73,7 @@ export async function Hero() {
         </p>
 
         {/* Client component — fetches release info in the browser */}
-        <Download />
+        <Download/>
 
         <div className="hero-stats">
           {STATS.map(({ key, value, label }) => (
