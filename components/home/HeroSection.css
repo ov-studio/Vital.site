@@ -17,24 +17,6 @@
   z-index: 0;
 }
 
-.hbg-glow {
-  position: absolute;
-  inset: 0;
-  animation: glowpulse 6s ease-in-out infinite;
-}
-
-@keyframes glowpulse {
-
-  0%,
-  100% {
-    opacity: .8;
-  }
-
-  50% {
-    opacity: 1.4;
-  }
-}
-
 .hbg-grid {
   position: absolute;
   inset: 0;
@@ -67,33 +49,10 @@
   animation: cornerfade 3s ease-in-out infinite;
 }
 
-.hcorner-tl {
-  top: 24px;
-  left: 24px;
-  border-top: 1px solid var(--blue);
-  border-left: 1px solid var(--blue);
-}
-
-.hcorner-tr {
-  top: 24px;
-  right: 24px;
-  border-top: 1px solid var(--blue);
-  border-right: 1px solid var(--blue);
-}
-
-.hcorner-bl {
-  bottom: 24px;
-  left: 24px;
-  border-bottom: 1px solid var(--blue);
-  border-left: 1px solid var(--blue);
-}
-
-.hcorner-br {
-  bottom: 24px;
-  right: 24px;
-  border-bottom: 1px solid var(--blue);
-  border-right: 1px solid var(--blue);
-}
+.hcorner-tl { top: 24px;    left: 24px;  border-top: 1px solid var(--blue); border-left: 1px solid var(--blue); }
+.hcorner-tr { top: 24px;    right: 24px; border-top: 1px solid var(--blue); border-right: 1px solid var(--blue); }
+.hcorner-bl { bottom: 24px; left: 24px;  border-bottom: 1px solid var(--blue); border-left: 1px solid var(--blue); }
+.hcorner-br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 
 @keyframes cornerfade {
 
