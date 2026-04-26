@@ -1,5 +1,6 @@
 import './HeroSection.css';
 import { Brand } from '@/components/brand';
+import { DownloadButtons } from '@/components/DownloadButtons';
 
 async function getGitHubStats() {
   try {
@@ -24,31 +25,10 @@ async function getGitHubStats() {
 const fmt = (v: number | string) => typeof v === 'number' ? v.toLocaleString() : v;
 
 const STAT_ICONS = {
-  stars: (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-      <path d="M8 1l1.9 3.8L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.1-.8z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-    </svg>
-  ),
-  forks: (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-      <circle cx="5" cy="3" r="1.5" stroke="currentColor" strokeWidth="1.2"/>
-      <circle cx="11" cy="3" r="1.5" stroke="currentColor" strokeWidth="1.2"/>
-      <circle cx="8" cy="13" r="1.5" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M5 4.5v2a3 3 0 003 3m3-5v2a3 3 0 01-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  ),
-  commits: (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M1 8h4.5M10.5 8H15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  ),
-  issues: (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2"/>
-      <path d="M8 5v3.5M8 11v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-    </svg>
-  ),
+  stars: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.1-.8z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>),
+  forks: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="5" cy="3" r="1.5" stroke="currentColor" strokeWidth="1.2"/><circle cx="11" cy="3" r="1.5" stroke="currentColor" strokeWidth="1.2"/><circle cx="8" cy="13" r="1.5" stroke="currentColor" strokeWidth="1.2"/><path d="M5 4.5v2a3 3 0 003 3m3-5v2a3 3 0 01-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
+  commits: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.2"/><path d="M1 8h4.5M10.5 8H15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
+  issues: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2"/><path d="M8 5v3.5M8 11v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
 };
 
 export async function HeroSection() {
@@ -90,15 +70,8 @@ export async function HeroSection() {
           <br/><br/>From indie ideas to large scale multiplayer worlds, build without compromise.
         </p>
 
-        <div className="hbtns">
-          <a href="#" className="btn-primary">Download Latest Build</a>
-          <a href="#features" className="btn-secondary">
-            Explore Features
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-        </div>
+        {/* Client component — fetches release info in the browser */}
+        <DownloadButtons />
 
         <div className="hero-stats">
           {STATS.map(({ key, value, label }) => (
