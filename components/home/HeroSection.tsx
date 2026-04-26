@@ -35,10 +35,10 @@ export async function HeroSection() {
   const stats = await getGitHubStats();
 
   const STATS = [
-    { key: 'stars',   value: fmt(stats.stars),   label: 'Stars'   },
-    { key: 'forks',   value: fmt(stats.forks),   label: 'Forks'   },
+    { key: 'stars', value: fmt(stats.stars), label: 'Stars' },
+    { key: 'forks', value: fmt(stats.forks), label: 'Forks' },
     { key: 'commits', value: fmt(stats.commits), label: 'Commits' },
-    { key: 'issues',  value: fmt(stats.issues),  label: 'Issues'  },
+    { key: 'issues', value: fmt(stats.issues), label: 'Issues' },
   ] as const;
 
   return (
