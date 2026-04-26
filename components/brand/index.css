@@ -42,11 +42,18 @@
 
 /* ── Sizes ───────────────────────────────────────────── */
 
-/* xs — inline badges, favicons, footers */
-.vital-brand--xs {
+/* xxs — inline badges, favicons, footers */
+.vital-brand--xxs {
   --brand-logo-size: 1.25rem;
   --brand-wordmark-size: 1rem;
   --brand-gap: 8px;
+}
+
+/* xs — navbar / top-bar */
+.vital-brand--xs {
+  --brand-logo-size: 1.6rem;
+  --brand-wordmark-size: 1.28rem;
+  --brand-gap: 10px;
 }
 
 /* sm — nav bars, compact headers */

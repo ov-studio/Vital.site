@@ -1,6 +1,6 @@
 import './index.css';
 
-type BrandSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {

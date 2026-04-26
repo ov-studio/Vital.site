@@ -18,7 +18,7 @@ export function Navbar() {
   return (
     <nav id="nav">
       <div className="ni">
-        <Brand size="sm" variant="full" className="nav-brand"/>
+        <Brand size="xs" variant="full" className="nav-brand"/>
         <ul className="nl">
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}><a href={href}>{label}</a></li>
