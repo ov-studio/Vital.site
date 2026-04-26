@@ -1,21 +1,21 @@
-import './VitalBrand.css';
+import './brand.css';
 
-type VitalBrandSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type VitalBrandVariant = 'full' | 'logo-only' | 'wordmark-only';
+type BrandSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
-interface VitalBrandProps {
-  size?: VitalBrandSize;
-  variant?: VitalBrandVariant;
+interface BrandProps {
+  size?: BrandSize;
+  variant?: BrandVariant;
   className?: string;
   color?: string; // overrides default hsl(220, 60%, 72%)
 }
 
-export function VitalBrand({
+export function Brand({
   size = 'md',
   variant = 'full',
   className = '',
   color,
-}: VitalBrandProps) {
+}: BrandProps) {
   const colorStyle = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
 
   return (

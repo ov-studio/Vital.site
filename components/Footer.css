@@ -13,7 +13,7 @@ footer {
   align-items: start;
 }
 
-/* VitalBrand renders as inline-flex; give it block spacing */
+/* Brand renders as inline-flex; give it block spacing */
 .footer-brand-lock {
   margin-bottom: 20px;
   /* Dim the brand slightly to match footer's muted tone */

@@ -1,4 +1,4 @@
-import { VitalBrand } from '@/components/VitalBrand';
+import { Brand } from '@/components/brand';
 import { FOOTER_COLS } from '@/configs/homeData';
 import './Footer.css';
 
@@ -7,7 +7,7 @@ export function Footer() {
     <footer>
       <div className="footer-main">
         <div className="footer-brand">
-          <VitalBrand size="sm" className="footer-brand-lock" />
+          <Brand size="sm" className="footer-brand-lock" />
           <p className="footer-tagline">
             Next-generation sandbox. Script It. Ship It. Limitless.
           </p>

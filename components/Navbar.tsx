@@ -1,4 +1,4 @@
-import { VitalBrand } from '@/components/VitalBrand';
+import { Brand } from '@/components/brand';
 import { NAV_LINKS } from '@/configs/homeData';
 import './Navbar.css';
 
@@ -18,7 +18,7 @@ export function Navbar() {
   return (
     <nav id="nav">
       <div className="ni">
-        <VitalBrand size="sm" variant="full" className="nav-brand" />
+        <Brand size="sm" variant="full" className="nav-brand" />
         <ul className="nl">
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}><a href={href}>{label}</a></li>

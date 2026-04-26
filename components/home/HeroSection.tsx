@@ -1,5 +1,5 @@
 import './HeroSection.css';
-import { VitalBrand } from '@/components/VitalBrand';
+import { Brand } from '@/components/brand';
 
 async function getGitHubStats() {
   try {
@@ -74,7 +74,7 @@ export async function HeroSection() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <VitalBrand size="xl" variant="full" />
+          <Brand size="xl" variant="full" />
         </div>
 
         <div className="hero-motto">
