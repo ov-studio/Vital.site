@@ -200,6 +200,13 @@ h2 span {
     transform: translateX(4px)
 }
 
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .rev {
     opacity: 0;
     transform: translateY(20px);
