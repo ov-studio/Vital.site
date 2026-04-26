@@ -144,9 +144,3 @@ nav.s::after {
   width: 21px;
   height: 21px;
 }
-
-@media(max-width:640px) {
-  .nav-social {
-    display: none;
-  }
-}
