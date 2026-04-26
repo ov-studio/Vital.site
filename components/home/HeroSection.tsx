@@ -54,7 +54,9 @@ export async function HeroSection() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <Brand size="xl" variant="full"/>
+          {/* full wordmark on normal screens, logo-only on tiny screens */}
+          <Brand size="xl" variant="full" className="hero-brand--full" />
+          <Brand size="xl" variant="logo-only" className="hero-brand--logo" />
         </div>
 
         <div className="hero-motto">
