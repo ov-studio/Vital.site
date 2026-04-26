@@ -49,17 +49,8 @@
 }
 
 @keyframes nodeflash {
-
-  0%,
-  100% {
-    box-shadow: none;
-    opacity: .5;
-  }
-
-  50% {
-    box-shadow: 0 0 8px var(--blue);
-    opacity: 1;
-  }
+  0%, 100% { box-shadow: none; opacity: .5; }
+  50%       { box-shadow: 0 0 8px var(--blue); opacity: 1; }
 }
 
 /* ── Items ───────────────────────────────── */
@@ -119,46 +110,26 @@
 
 .ethos-desc {
   font-size: .85rem;
-  color: hsl(220, 10%, 45%);
+  color: var(--text-desc);
   line-height: 1.75;
   font-weight: 300;
   transition: color .2s;
 }
 
 .ethos-item:hover .ethos-desc {
-  color: hsl(220, 10%, 60%);
+  color: var(--text-desc-hover);
 }
 
 /* ── Responsive ──────────────────────────── */
 @media(max-width:960px) {
-  #ethos {
-    padding: 72px 0;
-  }
-
-  .ethos-body {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .ethos-divider {
-    display: none;
-  }
-
-  .ethos-head {
-    margin-bottom: 48px;
-  }
+  #ethos { padding: 72px 0; }
+  .ethos-body { grid-template-columns: 1fr; gap: 0; }
+  .ethos-divider { display: none; }
+  .ethos-head { margin-bottom: 48px; }
 }
 
 @media(max-width:640px) {
-  #ethos {
-    padding: 56px 0;
-  }
-
-  .ethos-head {
-    margin-bottom: 36px;
-  }
-
-  .ethos-item {
-    padding: 20px 0 20px 20px;
-  }
+  #ethos { padding: 56px 0; }
+  .ethos-head { margin-bottom: 36px; }
+  .ethos-item { padding: 20px 0 20px 20px; }
 }

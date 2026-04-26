@@ -35,8 +35,8 @@
     0deg,
     transparent,
     transparent 2px,
-    hsla(220, 95%, 76%, .012) 2px,
-    hsla(220, 95%, 76%, .012) 4px
+    var(--blue-scanline) 2px,
+    var(--blue-scanline) 4px
   );
   pointer-events: none;
 }
@@ -98,14 +98,14 @@
   animation: fadeIn .7s .35s forwards;
 }
 
-.hm-word { color: hsl(220, 10%, 55%); }
+.hm-word { color: var(--text-muted); }
 .hm-blue { color: var(--w); }
-.hm-sep  { color: hsl(220, 10%, 22%); font-weight: 300; }
+.hm-sep  { color: var(--text-sep); font-weight: 300; }
 
 /* ── Sub ─────────────────────────────────── */
 .hero-sub {
   font-size: .97rem;
-  color: hsl(220, 10%, 55%);
+  color: var(--text-muted);
   line-height: 1.85;
   margin-bottom: 40px;
   opacity: 0;
@@ -178,7 +178,7 @@
   font-family: 'Geist Mono', monospace;
   font-size: .8rem;
   font-weight: 500;
-  color: hsl(220, 10%, 50%);
+  color: var(--text-mid);
 }
 
 /* ── Responsive ──────────────────────────── */

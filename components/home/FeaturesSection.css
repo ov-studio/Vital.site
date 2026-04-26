@@ -61,14 +61,14 @@
 .fcluster-count {
   font-family: 'Geist Mono', monospace;
   font-size: .6rem;
-  color: hsl(220, 10%, 30%);
+  color: var(--text-dim2);
   letter-spacing: .06em;
 }
 
 .fcluster-desc {
   font-family: 'Barlow', sans-serif;
   font-size: .8rem;
-  color: hsl(220, 10%, 38%);
+  color: var(--text-faint);
   line-height: 1.65;
   padding: 0 16px 12px 28px;
   font-weight: 300;
@@ -205,7 +205,7 @@
 .fnode-leaf {
   font-family: 'Geist Mono', monospace;
   font-size: .58rem;
-  color: hsl(220, 10%, 55%);
+  color: var(--text-muted);
   background: var(--bg2);
   border: 1px solid var(--rule);
   border-left: 2px solid var(--blue);
