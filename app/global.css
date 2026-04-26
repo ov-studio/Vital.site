@@ -17,7 +17,11 @@
     --w: hsl(0, 0%, 97%);
     --dim: hsl(220, 10%, 72%);
     --dark: hsl(220, 10%, 42%);
-    --rule: hsl(220, 18%, 9%)
+    --rule: hsl(220, 18%, 9%);
+    --nav-h: 68px;
+    --nav-bg: hsla(250, 20%, 4%, .92);
+    --social-color: hsl(220, 10%, 60%);
+    --social-hover-bg: hsla(220, 20%, 100%, .06);
 }
 
 html {
@@ -190,36 +194,18 @@ h2 span {
     transform: none
 }
 
-.kw {
-    color: var(--blue)
-}
-
-.fn {
-    color: hsl(195, 65%, 65%)
-}
-
-.st {
-    color: hsl(142, 42%, 58%)
-}
-
-.cm {
-    color: hsl(220, 10%, 48%)
-}
-
-.nm {
-    color: hsl(30, 75%, 62%)
-}
-
-.pu {
-    color: hsl(220, 12%, 50%)
-}
+.kw { color: var(--blue) }
+.fn { color: hsl(195, 65%, 65%) }
+.st { color: hsl(142, 42%, 58%) }
+.cm { color: hsl(220, 10%, 48%) }
+.nm { color: hsl(30, 75%, 62%) }
+.pu { color: hsl(220, 12%, 50%) }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(16px)
     }
-
     to {
         opacity: 1;
         transform: none
@@ -231,7 +217,6 @@ h2 span {
         opacity: 0;
         transform: translateX(30px)
     }
-
     to {
         opacity: 1;
         transform: none
