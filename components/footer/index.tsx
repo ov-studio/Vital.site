@@ -7,7 +7,7 @@ export function Footer() {
     <footer>
       <div className="footer-main">
         <div className="footer-brand">
-          <Brand size="sm" className="footer-brand-lock" />
+          <Brand size="sm" className="footer-brand-lock"/>
           <p className="footer-tagline">
             Next-generation open-source sandbox<br/>Script It. Ship It. Limitless.
           </p>

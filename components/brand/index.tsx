@@ -25,7 +25,7 @@ export function Brand({
     >
       {variant !== 'wordmark-only' && (
         <div className="vital-brand__logo-wrapper">
-          <div className="vital-brand__logo" />
+          <div className="vital-brand__logo"/>
         </div>
       )}
 

@@ -1,5 +1,5 @@
-import './FeaturesSection.css';
-import { ArrowRight } from './atoms';
+import './index.css';
+import { ArrowRight } from '../atoms';
 
 const CLUSTERS = [
   { id: 'core',         label: 'Core',         angle: 0,   desc: 'Cryptography, compression, hardware inspection, and a full runtime console — the foundation everything runs on.',             items: ['Crypto', 'Shrinker', 'Stack', 'Inspect', 'Console'] },
@@ -17,16 +17,16 @@ const toXY = (deg: number) => {
   return { x: 50 + R * Math.cos(rad), y: 50 + R * Math.sin(rad) };
 };
 
-export function FeaturesSection() {
+export function Features() {
   return (
     <section id="features">
       <div className="sw">
         <div className="sec-head">
           <div className="rev">
             <div className="slabel">Features</div>
-            <h2>Built for creators.<br />Engineered for <span>production.</span></h2>
+            <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
           </div>
-          <a href="/docs" className="sec-link rev">View documentations <ArrowRight /></a>
+          <a href="/docs" className="sec-link rev">View documentations <ArrowRight/></a>
         </div>
 
         <div className="feat-body">
@@ -34,7 +34,7 @@ export function FeaturesSection() {
             {CLUSTERS.map((c, ci) => (
               <div key={c.id} className="fcluster" style={{ '--ci': ci } as React.CSSProperties}>
                 <div className="fcluster-head">
-                  <span className="fcluster-dot" />
+                  <span className="fcluster-dot"/>
                   <span className="fcluster-label">{c.label}</span>
                   <span className="fcluster-count">{c.items.length}</span>
                 </div>
@@ -58,15 +58,15 @@ export function FeaturesSection() {
               })}
 
               <div className="fhub">
-                <span className="fhub-ring" />
-                <span className="fhub-ring fhub-ring2" />
+                <span className="fhub-ring"/>
+                <span className="fhub-ring fhub-ring2"/>
                 <span className="fhub-label">VSDK</span>
               </div>
 
               <svg className="fdiagram-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {CLUSTERS.map((c) => {
                   const { x, y } = toXY(c.angle);
-                  return <line key={c.id} x1="50" y1="50" x2={x} y2={y} className="fdiagram-line" />;
+                  return <line key={c.id} x1="50" y1="50" x2={x} y2={y} className="fdiagram-line"/>;
                 })}
               </svg>
             </div>

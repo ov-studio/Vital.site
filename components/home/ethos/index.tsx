@@ -1,13 +1,13 @@
 import { WHY_ITEMS } from '@/configs/homeData';
-import './EthosSection.css';
+import './index.css';
 
-export function EthosSection() {
+export function Ethos() {
   return (
     <section id="ethos">
       <div className="sw">
         <div className="ethos-head">
           <div className="slabel rev">Ethos</div>
-          <h2 className="rev">No bloat. No strings.<br /><span>Just power.</span></h2>
+          <h2 className="rev">No bloat. No strings.<br/><span>Just power.</span></h2>
         </div>
 
         <div className="ethos-body">
@@ -26,9 +26,9 @@ export function EthosSection() {
           </div>
 
           <div className="ethos-divider">
-            <div className="ethos-divider-line" />
-            <div className="ethos-divider-node" />
-            <div className="ethos-divider-line" />
+            <div className="ethos-divider-line"/>
+            <div className="ethos-divider-node"/>
+            <div className="ethos-divider-line"/>
           </div>
 
           <div className="ethos-right rev-r">

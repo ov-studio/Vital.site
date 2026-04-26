@@ -20,7 +20,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         <div className="flex flex-row gap-2 items-center justify-between">
           <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
           <div className="inline-flex items-center gap-2 font-semibold">
-            {page.data.badge && <Badge type={page.data.badge} />}
+            {page.data.badge && <Badge type={page.data.badge}/>}
             <DocAI
               markdownUrl={`${page.url}.mdx`}
               githubUrl={`https://github.com/${site.git.site.user}/${site.git.site.repo}/blob/${site.git.site.branch}/content/docs/${page.path}`}
@@ -29,7 +29,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         </div>
         <DocsDescription className="mt-4 mb-5 text-base">{page.data.description}</DocsDescription>
       </div>
-      <br />
+      <br/>
       <DocsBody>
         <MDX
           components={getMDXComponents({
