@@ -1,6 +1,6 @@
-import './Overlays.css';
+import './index.css';
 
-export function Overlays() {
+export function Overlay() {
   return (
     <>
       <div id="vignette" />

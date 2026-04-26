@@ -1,5 +1,5 @@
 import '../global.css';
-import { Overlays } from '@/components/Overlays';
+import { Overlay } from '@/components/overlay';
 import { Navbar } from '@/components/Navbar';
 import { HeroSection } from '@/components/home/HeroSection';
 import { FeaturesSection } from '@/components/home/FeaturesSection';
@@ -10,7 +10,7 @@ import { ClientShell } from '@/components/home/ClientShell';
 export default function HomePage() {
   return (
     <ClientShell>
-      <Overlays />
+      <Overlay />
       <Navbar />
       <HeroSection />
       <FeaturesSection />
