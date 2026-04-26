@@ -55,7 +55,7 @@ export function FeaturesSection() {
             <div className="slabel">Features</div>
             <h2>Built for creators.<br />Engineered for <span>production.</span></h2>
           </div>
-          <a href="#" className="sec-link rev">View all docs <ArrowRight /></a>
+          <a href="/docs" className="sec-link rev">View documentations <ArrowRight /></a>
         </div>
 
         <div className="feat-body">
