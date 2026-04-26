@@ -181,6 +181,42 @@
   color: var(--text-mid);
 }
 
+/* Secondary button row (Server + Explore Features side-by-side) */
+.hbtns-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Release version tag shown below buttons */
+.hero-release-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-release-tag::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
+.hero-release-tag::after {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
 /* ── Responsive ──────────────────────────── */
 @media (max-width: 960px) {
   #hero { padding-top: 120px; padding-bottom: 60px; }
