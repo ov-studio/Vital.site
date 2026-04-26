@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { HeroSection } from '@/components/home/HeroSection';
 import { FeaturesSection } from '@/components/home/FeaturesSection';
 import { EthosSection } from '@/components/home/EthosSection';
-import { Footer } from '@/components/Footer';
+import { Footer } from '@/components/footer';
 import { ClientShell } from '@/components/home/ClientShell';
 
 export default function HomePage() {

@@ -1,6 +1,6 @@
 import { Brand } from '@/components/brand';
 import { FOOTER_COLS } from '@/configs/homeData';
-import './Footer.css';
+import './index.css';
 
 export function Footer() {
   return (
