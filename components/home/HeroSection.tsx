@@ -95,7 +95,7 @@ export async function HeroSection() {
       <div className="hero-center">
         {/* Logo + wordmark */}
         <div className="hero-brand">
-          <Image src="/vital_sandbox_logo.png" alt="" width={64} height={64} className="hero-logo" />
+          <div className="hero-logo" />
           <div className="hero-wordmark">Vital.sandbox</div>
         </div>
 

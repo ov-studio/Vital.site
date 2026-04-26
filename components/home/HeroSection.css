@@ -123,36 +123,27 @@
 
 .hero-brand {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 32px;
   opacity: 0;
   animation: fadeIn .6s .2s forwards;
 }
 
 .hero-logo {
-  width: 64px;
-  height: 64px;
-  filter: invert(1) brightness(1.9) drop-shadow(0 0 16px hsla(220, 95%, 76%, .5));
-  animation: logoPulse 5s 1s ease-in-out infinite;
-}
-
-@keyframes logoPulse {
-
-  0%,
-  100% {
-    filter: invert(1) brightness(1.9) drop-shadow(0 0 16px hsla(220, 95%, 76%, .4));
-  }
-
-  50% {
-    filter: invert(1) brightness(2.4) drop-shadow(0 0 32px hsla(220, 95%, 76%, .8));
-  }
+  width: 5.5rem;
+  height: 5.5rem;
+  background-color: hsl(220, 60%, 72%);
+  mask-image: url('/logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .hero-wordmark {
+  padding-top: 10px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   letter-spacing: .06em;
   color: hsl(220, 60%, 72%);
@@ -333,12 +324,12 @@
   }
 
   .hero-logo {
-    width: 52px;
-    height: 52px;
+    width: clamp(2.2rem, 9vw, 6rem);
+    height: clamp(2.2rem, 9vw, 6rem);
   }
 
   .hero-wordmark {
-    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-size: clamp(2.2rem, 9vw, 4rem);
   }
 
   .hero-motto {

@@ -7,7 +7,7 @@ export function Navbar() {
     <nav id="nav">
       <div className="ni">
         <div className="logo">
-          <Image src="/vital_sandbox_logo.png" alt="vital.sandbox" width={36} height={36} style={{ filter: 'invert(1) brightness(2)' }} />
+          <Image src="/logo.svg" alt="vital.sandbox" width={36} height={36} />
           <div className="logo-text">vital<b>.</b>sandbox</div>
         </div>
         <ul className="nl">

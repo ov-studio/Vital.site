@@ -8,7 +8,7 @@ export function Footer() {
       <div className="footer-main">
         <div className="footer-brand">
           <div className="footer-brand-lock">
-            <Image src="/vital_sandbox_logo.png" alt="vital.sandbox" width={28} height={28} style={{ filter: 'brightness(0) invert(1)', opacity: .7 }} />
+            <Image src="/logo.svg" alt="vital.sandbox" width={28} height={28} style={{ filter: 'brightness(0) invert(1)', opacity: .7 }} />
             <div className="footer-brand-name">Vital.sandbox</div>
           </div>
           <p className="footer-tagline">
