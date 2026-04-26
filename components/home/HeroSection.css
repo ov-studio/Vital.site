@@ -6,7 +6,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: var(--nav-h);
 }
 
 /* ── Background ──────────────────────────── */
