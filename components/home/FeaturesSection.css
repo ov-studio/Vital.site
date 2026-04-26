@@ -117,30 +117,12 @@
   stroke-dasharray: 2 3;
   animation: linepulse 3s ease-in-out infinite;
 }
-
-.fdiagram-line:nth-child(2) {
-  animation-delay: .4s;
-}
-
-.fdiagram-line:nth-child(3) {
-  animation-delay: .8s;
-}
-
-.fdiagram-line:nth-child(4) {
-  animation-delay: 1.2s;
-}
-
-.fdiagram-line:nth-child(5) {
-  animation-delay: 1.6s;
-}
-
-.fdiagram-line:nth-child(6) {
-  animation-delay: 2.0s;
-}
-
-.fdiagram-line:nth-child(7) {
-  animation-delay: 2.4s;
-}
+.fdiagram-line:nth-child(2) { animation-delay: .4s; }
+.fdiagram-line:nth-child(3) { animation-delay: .8s; }
+.fdiagram-line:nth-child(4) { animation-delay: 1.2s; }
+.fdiagram-line:nth-child(5) { animation-delay: 1.6s; }
+.fdiagram-line:nth-child(6) { animation-delay: 2.0s; }
+.fdiagram-line:nth-child(7) { animation-delay: 2.4s; }
 
 @keyframes linepulse {
 
