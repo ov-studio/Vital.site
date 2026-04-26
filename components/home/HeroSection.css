@@ -189,9 +189,7 @@
   align-items: stretch;
   opacity: 0;
   animation: fadeIn .7s .65s forwards;
-  border-top: 1px solid var(--rule);
-  margin-top: 40px;
-  padding-top: 32px;
+  margin-top: 52px;
   width: 100%;
   justify-content: center;
 }
@@ -287,7 +285,6 @@
 
   .hero-sub {
     font-size: .88rem;
-    margin-bottom: 28px;
   }
 
   .hcorner {
@@ -299,8 +296,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    margin-top: 32px;
-    padding-top: 24px;
   }
 
   .hstat {
