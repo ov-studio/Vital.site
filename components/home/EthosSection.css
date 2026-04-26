@@ -64,7 +64,7 @@
 
 /* ── Items ───────────────────────────────── */
 .ethos-item {
-  padding: 24px 0 24px 16px;
+  padding: 24px 0 24px 28px;
   border-bottom: 1px solid var(--rule);
   border-left: 2px solid transparent;
   transition: border-color .25s;
@@ -159,6 +159,6 @@
   }
 
   .ethos-item {
-    padding: 20px 0 20px 14px;
+    padding: 20px 0 20px 20px;
   }
 }
