@@ -127,11 +127,11 @@ h2 span {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: .08em;
+    letter-spacing: .06em;
     text-transform: uppercase;
     background: var(--blue);
     color: var(--bg);
-    padding: 13px 32px;
+    padding: 10px 30px;
     text-decoration: none;
     clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
     transition: opacity .2s, transform .15s;
