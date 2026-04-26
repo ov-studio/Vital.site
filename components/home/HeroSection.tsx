@@ -12,9 +12,9 @@ async function getGitHubStats() {
     const link = commitsRes.headers.get('link') ?? '';
     const match = link.match(/page=(\d+)>; rel="last"/);
     return {
-      stars:   repo.stargazers_count  ?? '—',
-      forks:   repo.forks_count       ?? '—',
-      issues:  repo.open_issues_count ?? '—',
+      stars: repo.stargazers_count ?? '—',
+      forks: repo.forks_count ?? '—',
+      issues: repo.open_issues_count ?? '—',
       commits: match ? parseInt(match[1]) : '—',
     };
   } catch {
