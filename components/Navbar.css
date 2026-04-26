@@ -37,19 +37,11 @@ nav.s::after {
   z-index: 1
 }
 
-.logo { display: flex; align-items: center; gap: 10px }
-
-.logo-text {
-  font-family: 'Geist', sans-serif;
-  font-size: .88rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  color: var(--w)
+.nl {
+  display: flex;
+  list-style: none;
+  gap: 0
 }
-
-.logo-text b { color: var(--blue); font-weight: 400 }
-
-.nl { display: flex; list-style: none; gap: 0 }
 
 .nl li a {
   font-family: 'Geist', sans-serif;
@@ -64,9 +56,17 @@ nav.s::after {
   display: block
 }
 
-.nl li a:hover           { color: var(--w) }
-.nl li                   { border-right: 1px solid var(--rule) }
-.nl li:first-child        { border-left: 1px solid var(--rule) }
+.nl li a:hover {
+  color: var(--w)
+}
+
+.nl li {
+  border-right: 1px solid var(--rule)
+}
+
+.nl li:first-child {
+  border-left: 1px solid var(--rule)
+}
 
 .ncta {
   font-family: 'Geist', sans-serif;
@@ -83,14 +83,26 @@ nav.s::after {
   transition: background .2s, opacity .2s
 }
 
-.ncta:hover { opacity: .8 }
+.ncta:hover {
+  opacity: .8
+}
 
 @media(max-width:960px) {
-  .nl  { display: none }
-  .ni  { padding: 0 24px }
+  .nl {
+    display: none
+  }
+
+  .ni {
+    padding: 0 24px
+  }
 }
 
 @media(max-width:640px) {
-  .ncta { display: none }
-  .ni   { padding: 0 20px }
+  .ncta {
+    display: none
+  }
+
+  .ni {
+    padding: 0 20px
+  }
 }
