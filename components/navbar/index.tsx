@@ -1,6 +1,6 @@
 import { Brand } from '@/components/brand';
 import { NAV_LINKS } from '@/configs/homeData';
-import './Navbar.css';
+import './index.css';
 
 const GitHubIcon = () => (
   <svg className="nav-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
