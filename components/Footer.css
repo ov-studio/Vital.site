@@ -10,30 +10,16 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start
+  align-items: start;
 }
 
+/* VitalBrand renders as inline-flex; give it block spacing */
 .footer-brand-lock {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px
-}
-
-.footer-brand-lock img {
-  height: 28px;
-  width: auto;
-  filter: brightness(0) invert(1);
-  opacity: .7
-}
-
-.footer-brand-name {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--w)
+  margin-bottom: 20px;
+  /* Dim the brand slightly to match footer's muted tone */
+  --brand-color: hsl(220, 20%, 60%);
+  --brand-shadow-color: hsla(220, 95%, 76%, 0.15);
+  --brand-shadow-color-strong: hsla(220, 95%, 76%, 0.3);
 }
 
 .footer-tagline {
@@ -42,13 +28,13 @@ footer {
   color: hsl(220, 10%, 42%);
   line-height: 1.7;
   max-width: 340px;
-  margin-bottom: 28px
+  margin-bottom: 28px;
 }
 
 .footer-nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px
+  gap: 40px;
 }
 
 .footer-nav-col h4 {
@@ -58,14 +44,14 @@ footer {
   letter-spacing: .18em;
   text-transform: uppercase;
   color: hsl(220, 10%, 38%);
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .footer-nav-col ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px
+  gap: 10px;
 }
 
 .footer-nav-col ul li a {
@@ -75,21 +61,21 @@ footer {
   color: hsl(220, 10%, 58%);
   text-decoration: none;
   transition: color .2s;
-  letter-spacing: .01em
+  letter-spacing: .01em;
 }
 
-.footer-nav-col ul li a:hover { color: var(--w) }
+.footer-nav-col ul li a:hover { color: var(--w); }
 
-@media(max-width:960px) {
-  .footer-main { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 40px }
-  .footer-nav  { grid-template-columns: repeat(3, 1fr); gap: 24px }
+@media (max-width: 960px) {
+  .footer-main { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 40px; }
+  .footer-nav  { grid-template-columns: repeat(3, 1fr); gap: 24px; }
 }
 
-@media(max-width:640px) {
-  .footer-main { padding: 40px 20px 32px; gap: 32px }
-  .footer-nav  { grid-template-columns: 1fr 1fr; gap: 32px 20px }
+@media (max-width: 640px) {
+  .footer-main { padding: 40px 20px 32px; gap: 32px; }
+  .footer-nav  { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
 }
 
-@media(max-width:400px) {
-  .footer-nav { grid-template-columns: 1fr }
+@media (max-width: 400px) {
+  .footer-nav { grid-template-columns: 1fr; }
 }

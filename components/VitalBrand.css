@@ -1,0 +1,102 @@
+.vital-brand {
+  --brand-color: hsl(220, 60%, 72%);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--brand-gap, 18px);
+  text-decoration: none;
+}
+
+/* ── Logo wrapper (handles the drop-shadow animation) ── */
+.vital-brand__logo-wrapper {
+  flex-shrink: 0;
+  width: var(--brand-logo-size);
+  height: var(--brand-logo-size);
+  animation: brandLogoPulse 5s 1s ease-in-out infinite;
+}
+
+/* ── Logo mask ── */
+.vital-brand__logo {
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand-color);
+  mask-image: url('/logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('/logo.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+/* ── Wordmark ── */
+.vital-brand__wordmark {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--brand-color);
+  line-height: 1;
+  font-size: var(--brand-wordmark-size);
+  padding-top: 0.1em; /* optical baseline alignment */
+  white-space: nowrap;
+}
+
+/* ── Sizes ───────────────────────────────────────────── */
+
+/* xs — inline badges, favicons, footers */
+.vital-brand--xs {
+  --brand-logo-size: 1.25rem;
+  --brand-wordmark-size: 1rem;
+  --brand-gap: 8px;
+}
+
+/* sm — nav bars, compact headers */
+.vital-brand--sm {
+  --brand-logo-size: 2rem;
+  --brand-wordmark-size: 1.6rem;
+  --brand-gap: 12px;
+}
+
+/* md — default, cards, sidebars */
+.vital-brand--md {
+  --brand-logo-size: 2.75rem;
+  --brand-wordmark-size: 2.2rem;
+  --brand-gap: 16px;
+}
+
+/* lg — section headers, about pages */
+.vital-brand--lg {
+  --brand-logo-size: 4rem;
+  --brand-wordmark-size: 3.2rem;
+  --brand-gap: 22px;
+}
+
+/* xl — hero sections, splash screens */
+.vital-brand--xl {
+  --brand-logo-size: 5.5rem;
+  --brand-wordmark-size: 4.5rem;
+  --brand-gap: 30px;
+}
+
+/* ── Responsive: shrink xl/lg on small screens ───────── */
+@media (max-width: 640px) {
+  .vital-brand--xl {
+    --brand-logo-size: clamp(2.8rem, 10vw, 5.5rem);
+    --brand-wordmark-size: clamp(2.2rem, 9vw, 4.5rem);
+    --brand-gap: clamp(14px, 4vw, 30px);
+  }
+
+  .vital-brand--lg {
+    --brand-logo-size: clamp(2.2rem, 8vw, 4rem);
+    --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem);
+    --brand-gap: clamp(10px, 3vw, 22px);
+  }
+}
+
+@media (max-width: 400px) {
+  .vital-brand--xl,
+  .vital-brand--lg {
+    --brand-gap: 10px;
+  }
+}

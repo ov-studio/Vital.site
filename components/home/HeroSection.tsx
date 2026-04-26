@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import './HeroSection.css';
+import { VitalBrand } from '@/components/VitalBrand';
 
 async function getGitHubStats() {
   try {
@@ -14,7 +14,6 @@ async function getGitHubStats() {
 
     const repo = await repoRes.json();
 
-    // Total commit count from Link header
     const linkHeader = commitsRes.headers.get('link') || '';
     const match = linkHeader.match(/page=(\d+)>; rel="last"/);
     const commits = match ? parseInt(match[1]) : '—';
@@ -93,10 +92,9 @@ export async function HeroSection() {
       <div className="hcorner hcorner-br" />
 
       <div className="hero-center">
-        {/* Logo + wordmark */}
+        {/* Brand — logo + wordmark */}
         <div className="hero-brand">
-          <div className="hero-logo" />
-          <div className="hero-wordmark">Vital.sandbox</div>
+          <VitalBrand size="xl" variant="full" />
         </div>
 
         {/* Motto */}
@@ -111,7 +109,7 @@ export async function HeroSection() {
         {/* Sub */}
         <p className="hero-sub">
           An open-source, high-performance sandbox built on Godot and powered by C++17. A clean Lua layer gives you full control over rendering, networking, threading, and assets — all in one seamless workflow.
-          <br/><br/>From indie ideas to large scale multiplayer worlds, build without compromise.
+          <br /><br />From indie ideas to large scale multiplayer worlds, build without compromise.
         </p>
 
         {/* CTA */}
@@ -126,7 +124,7 @@ export async function HeroSection() {
         </div>
 
         {/* GitHub stats bar */}
-        <div rel="noopener" className="hero-stats">
+        <div className="hero-stats">
           {STATS.map(({ value, label, icon }) => (
             <div key={label} className="hstat">
               <div className="hstat-top">
