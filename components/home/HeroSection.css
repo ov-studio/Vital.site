@@ -266,11 +266,6 @@
 }
 
 @media (max-width: 640px) {
-  .hero-brand--full {
-    display: none;
-  }
-
-  .hero-brand--logo {
-    display: inline-flex;
-  }
+  .hero-brand--full { display: none; }
+  .hero-brand--logo {display: inline-flex; }
 }
