@@ -26,10 +26,7 @@
   border-left: 1px solid var(--rule);
   transition: border-color .2s;
 }
-
-.fcluster:hover {
-  border-color: var(--blue);
-}
+.fcluster:hover { border-color: var(--blue); }
 
 .fcluster-head {
   display: flex;
@@ -47,26 +44,19 @@
   flex-shrink: 0;
   transition: background .2s, box-shadow .2s;
 }
-
-.fcluster:hover .fcluster-dot {
-  background: var(--blue);
-  box-shadow: 0 0 6px var(--blue);
-}
+.fcluster:hover .fcluster-dot { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
 
 .fcluster-label {
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
   font-weight: 600;
   letter-spacing: .1em;
-  color: var(--dim);
   text-transform: uppercase;
-  transition: color .2s;
+  color: var(--dim);
   flex: 1;
+  transition: color .2s;
 }
-
-.fcluster:hover .fcluster-label {
-  color: var(--w);
-}
+.fcluster:hover .fcluster-label { color: var(--w); }
 
 .fcluster-count {
   font-family: 'Geist Mono', monospace;
@@ -84,15 +74,10 @@
   font-weight: 300;
   transition: color .2s;
 }
-
-.fcluster:hover .fcluster-desc {
-  color: var(--dim);
-}
+.fcluster:hover .fcluster-desc { color: var(--dim); }
 
 /* ── Diagram ─────────────────────────────── */
-.feat-diagram {
-  position: relative;
-}
+.feat-diagram { position: relative; }
 
 .fdiagram-wrap {
   position: relative;
@@ -125,15 +110,8 @@
 .fdiagram-line:nth-child(7) { animation-delay: 2.4s; }
 
 @keyframes linepulse {
-
-  0%,
-  100% {
-    opacity: .12;
-  }
-
-  50% {
-    opacity: .38;
-  }
+  0%, 100% { opacity: .12; }
+  50%       { opacity: .38; }
 }
 
 /* ── Hub ─────────────────────────────────── */
@@ -158,25 +136,11 @@
   opacity: .25;
   animation: hubring 4s ease-in-out infinite;
 }
-
-.fhub-ring2 {
-  inset: -10px;
-  opacity: .1;
-  animation-delay: 2s;
-}
+.fhub-ring2 { inset: -10px; opacity: .1; animation-delay: 2s; }
 
 @keyframes hubring {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: .2;
-  }
-
-  50% {
-    transform: scale(1.06);
-    opacity: .4;
-  }
+  0%, 100% { transform: scale(1);    opacity: .2; }
+  50%       { transform: scale(1.06); opacity: .4; }
 }
 
 .fhub-label {
@@ -205,11 +169,7 @@
   transform: translate(-50%, -50%);
   z-index: 3;
 }
-
-.fnode-group:hover .fnode-leaves {
-  opacity: 1;
-  pointer-events: auto;
-}
+.fnode-group:hover .fnode-leaves { opacity: 1; pointer-events: auto; }
 
 .fnode {
   font-family: 'Geist', sans-serif;
@@ -225,11 +185,7 @@
   cursor: default;
   transition: border-color .2s, color .2s;
 }
-
-.fnode-group:hover .fnode {
-  border-color: var(--blue);
-  color: var(--w);
-}
+.fnode-group:hover .fnode { border-color: var(--blue); color: var(--w); }
 
 .fnode-leaves {
   position: absolute;
@@ -252,33 +208,19 @@
   color: hsl(220, 10%, 55%);
   background: var(--bg2);
   border: 1px solid var(--rule);
+  border-left: 2px solid var(--blue);
   padding: 3px 8px;
   white-space: nowrap;
-  border-left: 2px solid var(--blue);
 }
 
 /* ── Responsive ──────────────────────────── */
 @media(max-width:960px) {
-  #features {
-    padding: 72px 0;
-  }
-
-  .feat-body {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  .feat-diagram {
-    display: none;
-  }
+  #features { padding: 72px 0; }
+  .feat-body { grid-template-columns: 1fr; gap: 48px; }
+  .feat-diagram { display: none; }
 }
 
 @media(max-width:640px) {
-  #features {
-    padding: 56px 0;
-  }
-
-  .feat-body {
-    gap: 32px;
-  }
+  #features { padding: 56px 0; }
+  .feat-body { gap: 32px; }
 }
