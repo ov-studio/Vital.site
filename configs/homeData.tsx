@@ -6,13 +6,6 @@ export const NAV_LINKS = [
   { label: 'Documentations',    href: '/docs'     },
 ];
 
-export const HERO_STATS = [
-  { value: 'C++17',       label: 'Engine Core'   },
-  { value: 'Lua',         label: 'Scripting'     },
-  { value: '100+',        label: 'API Functions' },
-  { value: 'Open Source', label: 'No Royalties'  },
-];
-
 export const WHY_ITEMS: WhyItem[] = [
   { title: 'Open Source',              desc: 'Fully open-source, no licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.',     icon: <path d="M10 2l2.4 5 5.6.8-4 4 .9 5.5L10 14.5l-4.9 2.8.9-5.5-4-4 5.6-.8z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/> },
   { title: 'Zero Monetization Limits', desc: 'No platform cuts, no revenue gates, no forced monetization systems. Ship free, charge what you want, keep everything.',                        icon: <><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" strokeWidth="1.4"/><path d="M7 10l2 2 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></> },
@@ -42,8 +35,8 @@ export const FOOTER_COLS: FooterCol[] = [
   {
     heading: 'Community',
     links: [
-      { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
       { label: 'GitHub', href: 'https://github.com/ov-studio' },
+      { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
       { label: 'Discord', href: 'http://discord.gg/sVCnxPW' }
     ],
   },
