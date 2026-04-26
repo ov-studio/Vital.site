@@ -9,7 +9,7 @@ export function Footer() {
         <div className="footer-brand">
           <VitalBrand size="sm" className="footer-brand-lock" />
           <p className="footer-tagline">
-            The next-generation sandbox runtime. One language, infinite power — built on Godot, engineered in C++17.
+            Next-generation sandbox. Script It. Ship It. Limitless.
           </p>
         </div>
         <div className="footer-nav">

@@ -37,6 +37,13 @@ nav.s::after {
   z-index: 1
 }
 
+.nav-brand {
+  --brand-color: hsl(220, 45%, 68%);
+  --brand-shadow-color: hsla(220, 95%, 76%, 0.2);
+  --brand-shadow-color-strong: hsla(220, 95%, 76%, 0.4);
+  flex-shrink: 0;
+}
+
 .nl {
   display: flex;
   list-style: none;
@@ -56,7 +63,8 @@ nav.s::after {
   display: block
 }
 
-.nl li a:hover {
+.nl li a:hover,
+.nl li a.active {
   color: var(--w)
 }
 
