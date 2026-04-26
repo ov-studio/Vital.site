@@ -1,4 +1,4 @@
-import './HeroSection.css';
+import './index.css';
 import { Brand } from '@/components/brand';
 import { DownloadButtons } from '@/components/DownloadButtons';
 
@@ -31,7 +31,7 @@ const STAT_ICONS = {
   issues: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2"/><path d="M8 5v3.5M8 11v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
 };
 
-export async function HeroSection() {
+export async function Hero() {
   const stats = await getGitHubStats();
 
   const STATS = [
