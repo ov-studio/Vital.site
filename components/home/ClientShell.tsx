@@ -1,8 +1,8 @@
 'use client';
 
-import { usePageEffects } from '@/components/home/usePageEffects';
+import { Effect } from '@/components/effect';
 
 export function ClientShell({ children }: { children: React.ReactNode }) {
-    usePageEffects();
+    Effect();
     return <>{children}</>;
 }

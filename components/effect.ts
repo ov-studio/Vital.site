@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export function usePageEffects() {
+export function Effect() {
   useEffect(() => {
     // Custom cursor
     const cur = document.getElementById('cur');
