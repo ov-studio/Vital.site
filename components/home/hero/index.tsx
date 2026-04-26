@@ -1,6 +1,6 @@
 import './index.css';
 import { Brand } from '@/components/brand';
-import { DownloadButtons } from '@/components/DownloadButtons';
+import { Download } from '@/components/download';
 
 async function getGitHubStats() {
   try {
@@ -73,7 +73,7 @@ export async function Hero() {
         </p>
 
         {/* Client component — fetches release info in the browser */}
-        <DownloadButtons />
+        <Download />
 
         <div className="hero-stats">
           {STATS.map(({ key, value, label }) => (
