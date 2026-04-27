@@ -48,8 +48,8 @@
 }
 
 [data-search-full] {
-    margin-top: 2rem;
-    margin-bottom: 1rem; 
+    margin-top: 0.85rem;
+    margin-bottom: 2rem;
 }
 
 button[aria-label="Collapse Sidebar"] {
