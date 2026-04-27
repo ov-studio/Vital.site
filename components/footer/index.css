@@ -13,10 +13,8 @@ footer {
   align-items: start;
 }
 
-/* Brand renders as inline-flex; give it block spacing */
 .footer-brand-lock {
   margin-bottom: 20px;
-  /* Dim the brand slightly to match footer's muted tone */
   --brand-color: hsl(220, 20%, 60%);
 }
 
@@ -26,7 +24,26 @@ footer {
   color: hsl(220, 10%, 42%);
   line-height: 1.7;
   max-width: 340px;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
+}
+
+.footer-flags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-flag {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  opacity: 0.65;
+  transition: opacity .2s ease;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.footer-flag:hover {
+  opacity: 0.9;
 }
 
 .footer-nav {
