@@ -1,11 +1,11 @@
-.nav-social {
+.social {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
 }
 
-.nav-social-link {
+.social-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,11 +17,12 @@
     border-radius: 6px;
 }
 
-.nav-social-link:hover {
+.social-link:hover {
     color: var(--w);
     background: hsla(220, 20%, 100%, .06);
 }
 
-.nav-social-icon {
+.social-icon {
     width: 21px;
-    height: 21px; }
+    height: 21px;
+}
