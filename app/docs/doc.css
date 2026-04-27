@@ -114,27 +114,20 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 h1 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-size: clamp(1.2rem, 2vw, 1.2rem);
     font-weight: 600;
-    line-height: .95;
-    letter-spacing: .01em;
+    letter-spacing: .01em; 
     color: var(--blue)
 }
 
 h2 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.35rem);
+    font-size: clamp(1rem, 2vw, 1.1rem);
     font-weight: 600;
-    line-height: .95;
     letter-spacing: .01em;
     color: var(--blue)
 }
 
 h3 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.25rem);
-    font-weight: 600;
-    line-height: .95;
+    font-size: clamp(1rem, 2vw, 1.05rem);
     letter-spacing: .01em;
 }
