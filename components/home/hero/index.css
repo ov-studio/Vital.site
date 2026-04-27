@@ -9,7 +9,6 @@
   padding-top: var(--nav-h);
 }
 
-/* ── Background ──────────────────────────── */
 .hbg {
   position: absolute;
   inset: 0;
@@ -41,7 +40,6 @@
   pointer-events: none;
 }
 
-/* ── Corner brackets ─────────────────────── */
 .hcorner {
   position: absolute;
   width: 24px;
@@ -58,10 +56,9 @@
 
 @keyframes cornerfade {
   0%, 100% { opacity: .25; }
-  50%       { opacity: .55; }
+  50%      { opacity: .55; }
 }
 
-/* ── Center ──────────────────────────────── */
 .hero-center {
   max-width: 860px;
   margin: 0 auto;
@@ -102,7 +99,6 @@
 .hm-blue { color: var(--w); }
 .hm-sep  { color: var(--text-sep); font-weight: 300; }
 
-/* ── Sub ─────────────────────────────────── */
 .hero-sub {
   font-size: .97rem;
   color: var(--text-muted);
@@ -112,7 +108,6 @@
   animation: fadeIn .7s .45s forwards;
 }
 
-/* ── Buttons ─────────────────────────────── */
 .hbtns {
   display: flex;
   flex-direction: column;
@@ -123,7 +118,6 @@
   animation: fadeIn .7s .55s forwards;
 }
 
-/* ── GitHub Stats Bar ────────────────────── */
 .hero-stats {
   display: flex;
   align-items: stretch;
@@ -181,7 +175,6 @@
   color: var(--text-mid);
 }
 
-/* Secondary button row */
 .hbtns-row {
   display: flex;
   align-items: center;
@@ -190,7 +183,6 @@
   justify-content: center;
 }
 
-/* Release version tag */
 .hero-release-tag {
   font-family: 'Geist Mono', monospace;
   font-size: .68rem;
@@ -217,7 +209,6 @@
   background: var(--text-faint);
 }
 
-/* ── Responsive ──────────────────────────── */
 @media (max-width: 960px) {
   #hero { padding-top: 120px; padding-bottom: 60px; }
   .hero-center { padding: 0 24px; }
@@ -256,16 +247,10 @@
   .hstat-l { font-size: .65rem; }
 }
 
-/* ── Brand variant switching ─────────────── */
-.hero-brand--logo {
-  display: none;
-}
-
-.hero-brand--full {
-  display: inline-flex;
-}
+.hero-brand--logo { display: none; }
+.hero-brand--full { display: inline-flex; }
 
 @media (max-width: 640px) {
   .hero-brand--full { display: none; }
-  .hero-brand--logo {display: inline-flex; }
+  .hero-brand--logo { display: inline-flex; }
 }
