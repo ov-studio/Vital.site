@@ -14,7 +14,7 @@ local hash = crypto.hash(mode, input)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Hash mode:<br/>• `"SHA1"` - Secure Hash Algorithm 1<br/>• `"SHA224"` - Secure Hash Algorithm 224-bit<br/>• `"SHA256"` - Secure Hash Algorithm 256-bit<br/>• `"SHA384"` - Secure Hash Algorithm 384-bit<br/>• `"SHA512"` - Secure Hash Algorithm 512-bit |
+| `string` | mode | Hash mode<br/>Refer [**Modes**](#modes) section |
 | `string` | input | String containing data to be hashed |
 
 ### Returns
@@ -22,6 +22,18 @@ local hash = crypto.hash(mode, input)
 | Type | Name | Description |
 |------|------|-------------|
 | `string` / `bool` | hash | Computed hash on successful execution, or `false` on failure |
+
+<hr/>
+
+### Modes
+
+| Mode | Description |
+|------|-------------|
+| `"SHA1"` | Secure Hash Algorithm 1 |
+| `"SHA224"` | Secure Hash Algorithm 224-bit |
+| `"SHA256"` | Secure Hash Algorithm 256-bit |
+| `"SHA384"` | Secure Hash Algorithm 384-bit |
+| `"SHA512"` | Secure Hash Algorithm 512-bit |
 
 <hr/>
 
