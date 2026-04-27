@@ -42,18 +42,7 @@ local status = db_query:alter(actions)
 
 <hr/>
 
-### Definitions
-
-Each entry in the `columns` table is a key-value pair where the key is the column name and the value is a definition table with the following fields:
-
-| Field | Type | Default | Description |
-|-------|------|---------|-------------|
-| `type` | `string` | `"VARCHAR(255)"` | SQL column type:<br/>• `"INT"` / `"INT UNSIGNED"` / `"BIGINT"`<br/>• `"FLOAT"` / `"DOUBLE"`<br/>• `"BOOLEAN"`<br/>• `"VARCHAR(n)"` / `"TEXT"`<br/>• `"DATETIME"` / `"TIMESTAMP"` |
-| `primary` | `bool` | `false` | Whether this column is the primary key |
-| `autoincrement` | `bool` | `false` | Whether this column auto-increments<br/>Typically used alongside `"INT UNSIGNED"` primary keys |
-| `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
-
-<hr/>
+<include>./method__define.mdx#definitions</include>
 
 ### Examples
 
