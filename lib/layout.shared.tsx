@@ -5,11 +5,11 @@ import { SidebarToggle } from '@/components/docs-sidebar';
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: (
-        <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
-          <Brand size="xs" variant="full" href="/#" />
-          <SidebarToggle />
-          <br /><br />
+      title: <Brand size="xs" variant="full" href="/#"/>,
+      children: (
+        <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
+          <SidebarToggle/>
+          <br/><br/>
         </div>
       ),
     },
