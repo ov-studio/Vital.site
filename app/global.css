@@ -29,17 +29,6 @@ h1 {
     animation: fadeIn .7s .2s forwards
 }
 
-h1 .hl {
-    color: var(--blue);
-    display: block
-}
-
-h1 .ghost {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--text-ghost);
-    display: block
-}
-
 h2 {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(2.4rem, 4vw, 3.8rem);
