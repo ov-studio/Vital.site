@@ -1,3 +1,4 @@
+'use client';
 import { PanelLeft } from 'lucide-react';
 import { useState } from 'react';
 import './index.css';
