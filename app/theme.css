@@ -46,3 +46,8 @@
     --social-color: hsl(220, 10%, 60%);
     --social-hover-bg: hsla(220, 20%, 100%, .06);
 }
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}

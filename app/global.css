@@ -8,11 +8,6 @@
     padding: 0
 }
 
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden
-}
-
 body {
     background: var(--bg);
     color: var(--w);
