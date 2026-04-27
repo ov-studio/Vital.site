@@ -1,5 +1,5 @@
 import './index.css';
-import { ArrowRight } from '../atoms';
+import { ArrowRight } from '@/components/atoms';
 import { Features_Content } from '@/configs/home';
 
 const R = 38;
