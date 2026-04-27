@@ -6,12 +6,12 @@ export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
       title: (
-        <div style={{ marginTop: '14px' }}>
+        <div style={{ marginTop: '12px' }}>
           <Brand size="xs" variant="full" href="/#" />
         </div>
       ),
       children: (
-        <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', alignItems: 'center', marginTop: '14px' }}>
+        <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end', alignItems: 'center', marginTop: '12px' }}>
           <SidebarToggle/>
         </div>
       ),
