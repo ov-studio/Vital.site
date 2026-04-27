@@ -9,6 +9,8 @@ export const WHY_ITEMS: WhyItem[] = [
   { title: 'Performance First',        desc: 'Built on Godot, engineered in C++17. No overhead, no interpreter bottlenecks — maximum throughput at every layer.',                            icon: <path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
 ];
 
+export const LOVE_FLAGS = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
+
 export const FOOTER_COLS: FooterCol[] = [
   {
     heading: 'Sandbox',

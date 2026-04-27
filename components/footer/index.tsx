@@ -1,8 +1,6 @@
 import { Brand } from '@/components/brand';
-import { FOOTER_COLS } from '@/configs/homeData';
+import { LOVE_FLAGS, FOOTER_COLS } from '@/configs/homeData';
 import './index.css';
-
-const LOVE_FLAGS = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
 
 export function Footer() {
   return (
