@@ -20,18 +20,16 @@ const DiscordIcon = () => (
 
 export function Social() {
     return (
-        <social>
-            <div className="social">
-                <a href="https://ko-fi.com/ovstudio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Ko-fi">
-                    <KofiIcon />
-                </a>
-                <a href="https://github.com/ov-studio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-                    <GitHubIcon />
-                </a>
-                <a href="http://discord.gg/sVCnxPW" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Discord">
-                    <DiscordIcon />
-                </a>
-            </div>
-        </social>
+        <div className="social">
+            <a href="https://ko-fi.com/ovstudio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Ko-fi">
+                <KofiIcon />
+            </a>
+            <a href="https://github.com/ov-studio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+                <GitHubIcon />
+            </a>
+            <a href="http://discord.gg/sVCnxPW" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Discord">
+                <DiscordIcon />
+            </a>
+        </div>
     );
 }
