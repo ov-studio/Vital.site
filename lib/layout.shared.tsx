@@ -10,9 +10,9 @@ export function baseOptions(): BaseLayoutProps {
           <br /><br />
         </>
       ),
-      themeSwitch: {
-        enabled: false,
-      },
-    }
+    },
+    themeSwitch: {
+      enabled: false,
+    },
   };
 }
