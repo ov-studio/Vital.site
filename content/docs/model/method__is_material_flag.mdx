@@ -26,37 +26,7 @@ local result = self:is_material_flag(component, material, flag)
 
 <hr/>
 
-### Flags
-
-| Value | Name | Description |
-|-------|------|-------------|
-| `0` | `FLAG_DISABLE_DEPTH_TEST` | Drawn on top of all other objects, bypassing depth sorting. May cause z-fighting after transparent pass |
-| `1` | `FLAG_ALBEDO_FROM_VERTEX_COLOR` | Sets the albedo color from the per-vertex color defined in the mesh |
-| `2` | `FLAG_SRGB_VERTEX_COLOR` | Treats vertex colours as nonlinear sRGB and converts them to linear for rendering. Only effective on Forward+ and Mobile |
-| `3` | `FLAG_USE_POINT_SIZE` | Uses point size to alter primitive point rendering; changes albedo texture lookup to use `POINT_COORD` instead of `UV` |
-| `4` | `FLAG_FIXED_SIZE` | Scales the object by depth so it always appears the same size on screen |
-| `5` | `FLAG_BILLBOARD_KEEP_SCALE` | Preserves the scale set on the mesh when billboarding. Only applies when `billboard_mode` is `BILLBOARD_ENABLED` |
-| `6` | `FLAG_UV1_USE_TRIPLANAR` | Uses triplanar texture lookup for all texture lookups that would normally use `UV` |
-| `7` | `FLAG_UV2_USE_TRIPLANAR` | Uses triplanar texture lookup for all texture lookups that would normally use `UV2` |
-| `8` | `FLAG_UV1_USE_WORLD_TRIPLANAR` | Uses world-space triplanar texture lookup for all lookups that would normally use `UV` |
-| `9` | `FLAG_UV2_USE_WORLD_TRIPLANAR` | Uses world-space triplanar texture lookup for all lookups that would normally use `UV2` |
-| `10` | `FLAG_AO_ON_UV2` | Uses `UV2` coordinates to look up the ambient occlusion texture |
-| `11` | `FLAG_EMISSION_ON_UV2` | Uses `UV2` coordinates to look up the emission texture |
-| `12` | `FLAG_ALBEDO_TEXTURE_FORCE_SRGB` | Forces the shader to convert the albedo texture from nonlinear sRGB to linear encoding |
-| `13` | `FLAG_DONT_RECEIVE_SHADOWS` | Disables receiving shadows cast by other objects |
-| `14` | `FLAG_DISABLE_AMBIENT_LIGHT` | Disables the contribution of ambient light on this material |
-| `15` | `FLAG_USE_SHADOW_TO_OPACITY` | Enables the shadow-to-opacity feature |
-| `16` | `FLAG_USE_TEXTURE_REPEAT` | Enables texture repeat when UV coordinates fall outside the 0–1 range. May cause edge artefacts with linear filtering |
-| `17` | `FLAG_INVERT_HEIGHTMAP` | Inverts values read from the depth texture to convert them to height values |
-| `18` | `FLAG_SUBSURFACE_MODE_SKIN` | Enables skin mode for subsurface scattering to improve the look of human skin |
-| `19` | `FLAG_PARTICLE_TRAILS_MODE` | Enables shader parts required for `GPUParticles3D` trails such as `RibbonTrailMesh` or `TubeTrailMesh`. Enabling this on non-GPUParticles3D materials will break rendering |
-| `20` | `FLAG_ALBEDO_TEXTURE_MSDF` | Enables multichannel signed distance field rendering for the albedo shader |
-| `21` | `FLAG_DISABLE_FOG` | Disables depth-based or volumetric fog on this material |
-| `22` | `FLAG_DISABLE_SPECULAR_OCCLUSION` | Disables specular occlusion |
-| `23` | `FLAG_USE_Z_CLIP_SCALE` | Enables the use of `z_clip_scale` |
-| `24` | `FLAG_USE_FOV_OVERRIDE` | Enables the use of `fov_override` |
-
-<hr/>
+<include>./method__set_material_flag.mdx#flags</include>
 
 ### Examples
 
