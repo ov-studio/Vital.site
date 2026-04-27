@@ -47,9 +47,9 @@
     pointer-events: none !important;
 }
 
-/* Hide fumadocs collapse button */
-button[aria-label="Collapse Sidebar"] {
-    display: none !important;
+[data-search-full] {
+    margin-top: 2rem;
+    margin-bottom: 1rem; 
 }
 
 button[aria-label="Collapse Sidebar"] {
@@ -60,6 +60,8 @@ aside#nd-sidebar[data-collapsed="true"] {
     width: 0 !important;
     min-width: 0 !important;
     overflow: hidden !important;
+    padding: 0 !important;
+    border: none !important;
 }
 
 .sidebar-header-row {
