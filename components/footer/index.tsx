@@ -2,15 +2,7 @@ import { Brand } from '@/components/brand';
 import { FOOTER_COLS } from '@/configs/homeData';
 import './index.css';
 
-const LOVE_FLAGS = [
-  { code: 'BH', label: 'Bahrain' },
-  { code: 'TR', label: 'Turkey' },
-  { code: 'US', label: 'USA' },
-  { code: 'LT', label: 'Lithuania' },
-  { code: 'NL', label: 'Netherlands' },
-  { code: 'RU', label: 'Russia' },
-  { code: 'GB', label: 'UK' }
-];
+const LOVE_FLAGS = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB'];
 
 export function Footer() {
   return (
@@ -22,11 +14,12 @@ export function Footer() {
             Next-generation open-source sandbox<br />Script It. Ship It. Limitless.
           </p>
           <div className="footer-flags">
-            {LOVE_FLAGS.map(({ code, label }) => (
+            {LOVE_FLAGS.map((code) => (
               <img
                 key={code}
                 src={`https://flagsapi.com/${code}/flat/32.png`}
-                alt={label}
+                alt={code}
+                title={code}
                 className="footer-flag"
                 width={20}
                 height={20}
