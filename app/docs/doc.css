@@ -112,3 +112,21 @@ aside#nd-sidebar[data-collapsed="true"] {
         display: none;
     }
 }
+
+h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 600;
+    line-height: .95;
+    letter-spacing: .01em;
+    color: var(--blue)
+}
+
+h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 600;
+    line-height: .95;
+    letter-spacing: .01em;
+    color: var(--blue)
+}
