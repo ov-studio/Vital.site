@@ -129,7 +129,7 @@ h1 {
 
 h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.325rem);
+    font-size: clamp(1.1rem, 2vw, 1.3rem); 
     font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue);
@@ -137,14 +137,14 @@ h2 {
 
 h3 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1.2rem, 2vw, 1.2rem);
     font-weight: 600;
     letter-spacing: .01em;
 }
 
 h4 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.225rem);
+    font-size: clamp(1.1rem, 2vw, 1.15rem);
     font-weight: 600;
     letter-spacing: .01em;
 }
