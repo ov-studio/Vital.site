@@ -1,5 +1,5 @@
 import { Brand } from '@/components/brand';
-import { LOVE_FLAGS, FOOTER_COLS } from '@/configs/homeData';
+import { Footer_Flags, Footer_Content } from '@/configs/homeData';
 import './index.css';
 
 export function Footer() {
@@ -12,7 +12,7 @@ export function Footer() {
             Next-generation open-source sandbox<br />Script It. Ship It. Limitless.
           </p>
           <div className="footer-flags">
-            {LOVE_FLAGS.map((code) => (
+            {Footer_Flags.map((code) => (
               <img
                 key={code}
                 src={`https://flagsapi.com/${code}/flat/32.png`}
@@ -23,7 +23,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-nav">
-          {FOOTER_COLS.map(({ heading, links }) => (
+          {Footer_Content.map(({ heading, links }) => (
             <div className="footer-nav-col" key={heading}>
               <h4>{heading}</h4>
               <ul>

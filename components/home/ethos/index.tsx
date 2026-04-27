@@ -1,4 +1,4 @@
-import { WHY_ITEMS } from '@/configs/homeData';
+import { Ethos_Content } from '@/configs/homeData';
 import './index.css';
 
 export function Ethos() {
@@ -12,7 +12,7 @@ export function Ethos() {
 
         <div className="ethos-body">
           <div className="ethos-left rev-l">
-            {WHY_ITEMS.slice(0, 3).map(({ title, desc, icon }) => (
+            {Ethos_Content.slice(0, 3).map(({ title, desc, icon }) => (
               <div className="ethos-item" key={title}>
                 <div className="ethos-item-top">
                   <div className="ethos-ico">
@@ -32,7 +32,7 @@ export function Ethos() {
           </div>
 
           <div className="ethos-right rev-r">
-            {WHY_ITEMS.slice(3).map(({ title, desc, icon }) => (
+            {Ethos_Content.slice(3).map(({ title, desc, icon }) => (
               <div className="ethos-item" key={title}>
                 <div className="ethos-item-top">
                   <div className="ethos-ico">

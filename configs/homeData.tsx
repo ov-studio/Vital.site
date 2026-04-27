@@ -1,4 +1,4 @@
-export const WHY_ITEMS = [
+export const Ethos_Content = [
   { title: 'Open Source',              desc: 'Fully open-source, no licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.',     icon: <path d="M10 2l2.4 5 5.6.8-4 4 .9 5.5L10 14.5l-4.9 2.8.9-5.5-4-4 5.6-.8z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/> },
   { title: 'Zero Monetization Limits', desc: 'No platform cuts, no revenue gates, no forced monetization systems. Ship free, charge what you want, keep everything.',                        icon: <><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" strokeWidth="1.4"/><path d="M7 10l2 2 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></> },
   { title: 'No Bloat',                 desc: 'Lean by design. No unnecessary abstractions, no forced frameworks. Nothing stands between your scripts and the engine.',                        icon: <><path d="M10 2v16M2 10h16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1.4"/></> },
@@ -7,9 +7,8 @@ export const WHY_ITEMS = [
   { title: 'Performance First',        desc: 'Built on Godot, engineered in C++17. No overhead, no interpreter bottlenecks — maximum throughput at every layer.',                            icon: <path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
 ];
 
-export const LOVE_FLAGS = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
-
-export const FOOTER_COLS = [
+export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
+export const Footer_Content = [
   {
     heading: 'Sandbox',
     links: [
