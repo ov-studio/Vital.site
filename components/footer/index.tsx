@@ -19,7 +19,6 @@ export function Footer() {
                 key={code}
                 src={`https://flagsapi.com/${code}/flat/32.png`}
                 alt={code}
-                title={code}
                 className="footer-flag"
               />
             ))}
