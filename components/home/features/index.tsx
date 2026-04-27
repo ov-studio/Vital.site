@@ -1,5 +1,5 @@
 import './index.css';
-import { ArrowRight } from '@/components/atoms';
+import { ArrowRight_Icon } from '@/components/atoms';
 import { Features_Content } from '@/configs/home';
 
 const R = 38;
@@ -17,7 +17,7 @@ export function Features() {
             <div className="slabel">Features</div>
             <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
           </div>
-          <a href="/docs" className="sec-link rev">View documentations <ArrowRight/></a>
+          <a href="/docs" className="sec-link rev">View documentations <ArrowRight_Icon/></a>
         </div>
 
         <div className="feat-body">
