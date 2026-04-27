@@ -105,31 +105,17 @@ aside#nd-sidebar[data-collapsed="true"] {
     letter-spacing: .01em;
 }
 
-@media (max-width: 2000px) {
-    #nd-toc {
-        display: none !important;
-    }
-
-    .sidebar-header-row {
-        display: none;
-    }
-
-    .sidebar-expand-btn--fixed {
-        display: none;
-    }
-}
-
 h1 {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.2rem, 2vw, 1.35rem);
-    font-weight: 600; 
+    font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue);
 }
 
 h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.1rem, 2vw, 1.3rem); 
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue);
@@ -155,4 +141,18 @@ h4 {
     font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue) !important;
+}
+
+@media (max-width: 2000px) {
+    #nd-toc {
+        display: none !important;
+    }
+
+    .sidebar-header-row {
+        display: none;
+    }
+
+    .sidebar-expand-btn--fixed {
+        display: none;
+    }
 }
