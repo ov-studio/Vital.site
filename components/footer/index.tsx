@@ -21,8 +21,6 @@ export function Footer() {
                 alt={code}
                 title={code}
                 className="footer-flag"
-                width={20}
-                height={20}
               />
             ))}
           </div>
