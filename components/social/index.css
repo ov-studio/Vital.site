@@ -18,8 +18,8 @@
 }
 
 .social-link:hover {
-    color: var(--w);
-    background: hsla(220, 20%, 100%, .06);
+    color: var(--social-color);
+    background: var(--social-hover-bg);
 }
 
 .social-icon {
