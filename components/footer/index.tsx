@@ -7,9 +7,9 @@ export function Footer() {
     <footer>
       <div className="footer-main">
         <div className="footer-brand">
-          <Brand size="xs" className="footer-brand-lock" />
+          <Brand size="xs" className="footer-brand-lock"/>
           <p className="footer-tagline">
-            Next-generation open-source sandbox<br />Script It. Ship It. Limitless.
+            Next-generation open-source sandbox<br/>Script It. Ship It. Limitless.
           </p>
           <div className="footer-flags">
             {Footer_Flags.map((code) => (
