@@ -148,3 +148,11 @@ h4 {
     font-weight: 600;
     letter-spacing: .01em;
 }
+
+[class*="mb-1.5"][class*="inline-flex"] {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1rem, 2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: var(--blue) !important;
+}
