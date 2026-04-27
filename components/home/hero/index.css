@@ -56,7 +56,7 @@
 
 @keyframes cornerfade {
   0%, 100% { opacity: .25; }
-  50%      { opacity: .55; }
+  50% { opacity: .55; }
 }
 
 .hero-center {

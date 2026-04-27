@@ -49,7 +49,7 @@
 
 @keyframes nodeflash {
   0%, 100% { box-shadow: none; opacity: .5; }
-  50%       { box-shadow: 0 0 8px var(--blue); opacity: 1; }
+  50% { box-shadow: 0 0 8px var(--blue); opacity: 1; }
 }
 
 .ethos-item {

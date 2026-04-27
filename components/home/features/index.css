@@ -7,7 +7,6 @@
   justify-content: center;
 }
 
-/* ── Body layout ─────────────────────────── */
 .feat-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -15,7 +14,6 @@
   align-items: center;
 }
 
-/* ── Cluster list ────────────────────────── */
 .feat-clusters {
   display: flex;
   flex-direction: column;
@@ -76,7 +74,6 @@
 }
 .fcluster:hover .fcluster-desc { color: var(--dim); }
 
-/* ── Diagram ─────────────────────────────── */
 .feat-diagram { position: relative; }
 
 .fdiagram-wrap {
@@ -111,10 +108,9 @@
 
 @keyframes linepulse {
   0%, 100% { opacity: .12; }
-  50%       { opacity: .38; }
+  50% { opacity: .38; }
 }
 
-/* ── Hub ─────────────────────────────────── */
 .fhub {
   position: absolute;
   left: 50%;
@@ -140,7 +136,7 @@
 
 @keyframes hubring {
   0%, 100% { transform: scale(1);    opacity: .2; }
-  50%       { transform: scale(1.06); opacity: .4; }
+  50% { transform: scale(1.06); opacity: .4; }
 }
 
 .fhub-label {
@@ -163,7 +159,6 @@
   border: 1px solid var(--b30);
 }
 
-/* ── Group nodes ─────────────────────────── */
 .fnode-group {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -213,7 +208,6 @@
   white-space: nowrap;
 }
 
-/* ── Responsive ──────────────────────────── */
 @media(max-width:960px) {
   #features { padding: 72px 0; }
   .feat-body { grid-template-columns: 1fr; gap: 48px; }
