@@ -1,15 +1,6 @@
 import './index.css';
 import { ArrowRight } from '../atoms';
-
-const CLUSTERS = [
-  { id: 'core',         label: 'Core',         angle: 0,   desc: 'Cryptography, compression, hardware inspection, and a full runtime console — the foundation everything runs on.',             items: ['Crypto', 'Shrinker', 'Stack', 'Inspect', 'Console'] },
-  { id: 'rendering',    label: 'Rendering',    angle: 51,  desc: 'Full programmatic control over 2D canvas, textures, fonts, render targets, and embedded web content.',                       items: ['Canvas', 'RenderTarget', 'Texture', 'Font', 'Webview'] },
-  { id: 'models',       label: 'Models',       angle: 102, desc: 'Load, spawn, transform, animate, and morph 3D assets at runtime — built for advanced customization systems.',               items: ['Load / Unload', 'Instantiation', 'Transform', 'Animation', 'Blend Shapes', 'Visibility'] },
-  { id: 'threading',    label: 'Threading',    angle: 180, desc: 'Async/await, promises, heartbeats, and low-level thread pooling — modern concurrency without sacrificing control.',          items: ['Async / Await', 'Promises', 'Heartbeats', 'Threader'] },
-  { id: 'networking',   label: 'Networking',   angle: 231, desc: 'HTTP REST, high-performance transport, and precise task scheduling for time-sensitive execution.',                           items: ['REST', 'Robust Transport', 'Scheduling'] },
-  { id: 'sandbox',      label: 'Sandboxing',   angle: 282, desc: 'Full Lua isolation with no access to host internals — safe, extensible, built for user scripting and plugins.',             items: ['Lua Isolation', 'User Scripting', 'Plugin Systems'] },
-  { id: 'integrations', label: 'Integrations', angle: 333, desc: 'Native Discord Rich Presence and a pub/sub event system for clean decoupled module communication.',                         items: ['Discord SDK', 'Event System'] },
-];
+import { Features_Content } from '@/configs/homeData';
 
 const R = 38;
 const toXY = (deg: number) => {
@@ -31,7 +22,7 @@ export function Features() {
 
         <div className="feat-body">
           <div className="feat-clusters rev-l">
-            {CLUSTERS.map((c, ci) => (
+            {Features_Content.map((c, ci) => (
               <div key={c.id} className="fcluster" style={{ '--ci': ci } as React.CSSProperties}>
                 <div className="fcluster-head">
                   <span className="fcluster-dot"/>
@@ -45,7 +36,7 @@ export function Features() {
 
           <div className="feat-diagram rev-r">
             <div className="fdiagram-wrap">
-              {CLUSTERS.map((c) => {
+              {Features_Content.map((c) => {
                 const { x, y } = toXY(c.angle);
                 return (
                   <div key={c.id} className="fnode-group" style={{ left: `${x}%`, top: `${y}%` }}>
@@ -64,7 +55,7 @@ export function Features() {
               </div>
 
               <svg className="fdiagram-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {CLUSTERS.map((c) => {
+                {Features_Content.map((c) => {
                   const { x, y } = toXY(c.angle);
                   return <line key={c.id} x1="50" y1="50" x2={x} y2={y} className="fdiagram-line"/>;
                 })}
