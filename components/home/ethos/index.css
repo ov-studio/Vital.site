@@ -22,7 +22,6 @@
   align-items: start;
 }
 
-/* ── Divider ─────────────────────────────── */
 .ethos-divider {
   display: flex;
   flex-direction: column;
@@ -53,7 +52,6 @@
   50%       { box-shadow: 0 0 8px var(--blue); opacity: 1; }
 }
 
-/* ── Items ───────────────────────────────── */
 .ethos-item {
   padding: 24px 0 24px 28px;
   border-bottom: 1px solid var(--rule);
@@ -120,7 +118,6 @@
   color: var(--text-desc-hover);
 }
 
-/* ── Responsive ──────────────────────────── */
 @media(max-width:960px) {
   #ethos { padding: 72px 0; }
   .ethos-body { grid-template-columns: 1fr; gap: 0; }
