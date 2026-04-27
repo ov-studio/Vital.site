@@ -24,7 +24,7 @@ export function Brand({
     <>
       {variant !== 'wordmark-only' && (
         <div className="brand_logo-wrapper">
-          <div className="brand_logo" />
+          <div className="brand_logo"/>
         </div>
       )}
       {variant !== 'logo-only' && (

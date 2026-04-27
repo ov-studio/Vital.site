@@ -6,8 +6,8 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: (
         <>
-          <Brand size="xs" variant="full" href="/#" />
-          <br /><br />
+          <Brand size="xs" variant="full" href="/#"/>
+          <br/><br/>
         </>
       ),
     },

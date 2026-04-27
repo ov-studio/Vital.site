@@ -21,7 +21,7 @@ export function SidebarToggle() {
             {!collapsed && (
                 <div className="sidebar-header-row">
                     <button className="sidebar-toggle-btn" onClick={toggle}>
-                        <PanelLeft size={15} />
+                        <PanelLeft size={15}/>
                     </button>
                 </div>
             )}
@@ -48,7 +48,7 @@ export function SidebarToggle() {
                         cursor: 'pointer',
                     }}
                 >
-                    <PanelLeft size={15} />
+                    <PanelLeft size={15}/>
                 </button>
             )}
         </>
