@@ -115,7 +115,7 @@ aside#nd-sidebar[data-collapsed="true"] {
 
 h1 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
     font-weight: 600;
     line-height: .95;
     letter-spacing: .01em;
@@ -124,7 +124,7 @@ h1 {
 
 h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-size: clamp(1.2rem, 2vw, 1.3rem);
     font-weight: 600;
     line-height: .95;
     letter-spacing: .01em;
@@ -133,7 +133,7 @@ h2 {
 
 h3 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.35rem);
+    font-size: clamp(1.2rem, 2vw, 1.2rem);
     font-weight: 600;
     line-height: .95;
     letter-spacing: .01em;
