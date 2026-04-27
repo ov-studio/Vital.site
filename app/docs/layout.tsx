@@ -9,7 +9,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
       tree={source.getPageTree()}
       {...baseOptions()}
       sidebar={{
-        collapsible: false,
+        collapsible: true,
         footer: <div className="p-2">My Custom Footer</div>,
       }}
     >
