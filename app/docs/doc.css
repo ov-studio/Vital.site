@@ -35,7 +35,7 @@
 }
 
 #nd-sidebar>* {
-    width: 375px !important;
+    width: var(--sidebar-width) !important;
 }
 
 [data-sidebar-panel] {
