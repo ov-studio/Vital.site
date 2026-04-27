@@ -1,10 +1,18 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { site } from '@/site.config';
+import { Brand } from '@/components/brand';
 
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: site.name
+      title: (
+        <>
+          <Brand size="xs" variant="full" href="/#" />
+          <br /><br />
+        </>
+      ),
+      themeSwitch: {
+        enabled: false,
+      },
     }
   };
 }

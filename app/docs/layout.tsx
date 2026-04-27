@@ -5,14 +5,15 @@ import { baseOptions } from '@/lib/layout.shared';
 
 export default function Layout({ children }: LayoutProps<'/docs'>) {
   return (
-    <>
-      <DocsLayout
-        tree={source.getPageTree()}
-        {...baseOptions()}
-        sidebar={{ collapsible: false }}
-      >
-        {children}
-      </DocsLayout>
-    </>
+    <DocsLayout
+      tree={source.getPageTree()}
+      {...baseOptions()}
+      sidebar={{
+        collapsible: false,
+        footer: <div className="p-2">My Custom Footer</div>,
+      }}
+    >
+      {children}
+    </DocsLayout>
   );
 }
