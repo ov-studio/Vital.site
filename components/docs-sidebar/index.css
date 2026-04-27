@@ -1,3 +1,7 @@
+.sidebar-header-row {
+    padding-right: 0px;
+}
+
 .sidebar-expand-btn--fixed {
     position: fixed;
     top: 1rem;
