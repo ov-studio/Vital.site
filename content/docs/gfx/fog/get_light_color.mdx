@@ -26,7 +26,5 @@ local color = gfx.fog.get_light_color()
 ### Examples
 
 ```lua lineNumbers title="Print current fog light color"
-local color = gfx.fog.get_light_color()
-
-engine.print("info", "Fog light color:", color[1], color[2], color[3], color[4])
+engine.print("info", "Fog light color:", table.unpack(gfx.fog.get_light_color()))
 ```

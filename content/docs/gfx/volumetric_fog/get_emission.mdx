@@ -26,7 +26,5 @@ local color = gfx.volumetric_fog.get_emission()
 ### Examples
 
 ```lua lineNumbers title="Print current volumetric fog emission color"
-local color = gfx.volumetric_fog.get_emission()
-
-engine.print("info", "Volumetric fog emission:", color[1], color[2], color[3], color[4])
+engine.print("info", "Volumetric fog emission:", table.unpack(gfx.volumetric_fog.get_emission()))
 ```
