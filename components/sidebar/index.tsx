@@ -9,7 +9,6 @@ export function SidebarToggle() {
     const toggle = () => {
         const sidebar = document.querySelector('#nd-sidebar') as HTMLElement;
         if (!sidebar) return;
-
         const next = !collapsed;
         setCollapsed(next);
         sidebar.setAttribute('data-collapsed', String(next));

@@ -1,6 +1,6 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import { Brand } from '@/components/brand';
-import { SidebarToggle } from '@/components/docs-sidebar';
+import { SidebarToggle } from '@/components/sidebar';
 
 export function baseOptions(): BaseLayoutProps {
   return {

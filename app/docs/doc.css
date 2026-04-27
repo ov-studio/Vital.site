@@ -102,4 +102,12 @@ aside#nd-sidebar[data-collapsed="true"] {
     #nd-toc {
         display: none !important;
     }
+
+    .sidebar-header-row {
+        display: none;
+    }
+
+    .sidebar-expand-btn--fixed {
+        display: none;
+    }
 }
