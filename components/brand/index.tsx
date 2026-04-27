@@ -23,22 +23,22 @@ export function Brand({
   const inner = (
     <>
       {variant !== 'wordmark-only' && (
-        <div className="vital-brand__logo-wrapper">
-          <div className="vital-brand__logo" />
+        <div className="brand_logo-wrapper">
+          <div className="brand_logo" />
         </div>
       )}
       {variant !== 'logo-only' && (
-        <span className="vital-brand__wordmark">Vital.sandbox</span>
+        <span className="brand_wordmark">Vital.sandbox</span>
       )}
     </>
   );
 
   return (
     <div
-      className={`vital-brand vital-brand--${size} vital-brand--${variant} ${className}`}
+      className={`brand brand--${size} brand--${variant} ${className}`}
       style={colorStyle}
     >
-      {href ? (<a href={href} className="vital-brand__link">{inner}</a>) : inner}
+      {href ? (<a href={href} className="brand_link">{inner}</a>) : inner}
     </div>
   );
 }
