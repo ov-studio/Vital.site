@@ -11,7 +11,11 @@ export default function HomePage() {
   return (
     <ClientShell>
       <Overlay/>
-      <Navbar/>
+      <Navbar links={[
+        { label: 'Features', href: '#features' },
+        { label: 'Ethos', href: '#ethos' },
+        { label: 'Documentations', href: '/docs' }
+      ]}/>
       <Hero/>
       <Features/>
       <Ethos/>
