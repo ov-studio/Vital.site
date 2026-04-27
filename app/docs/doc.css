@@ -115,24 +115,20 @@ aside#nd-sidebar[data-collapsed="true"] {
 
 h1 {
     font-size: clamp(1.2rem, 2vw, 1.2rem);
-    font-weight: 600;
-    letter-spacing: .01em; 
-    color: var(--blue)
+    font-weight: 500; 
+    color: var(--blue);
 }
 
 h2 {
     font-size: clamp(1rem, 2vw, 1.15rem);
-    font-weight: 600;
-    letter-spacing: .01em;
-    color: var(--blue)
+    font-weight: 500;
+    color: var(--blue);
 }
 
 h3 {
     font-size: clamp(1rem, 2vw, 1.05rem);
-    letter-spacing: .01em;
 }
 
 h4 {
     font-size: clamp(1rem, 2vw, 1.025rem);
-    letter-spacing: .01em;
 }
