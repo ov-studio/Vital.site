@@ -16,11 +16,11 @@ export function Social() {
     return (
         <social>
             <div className="social">
-                <a href="https://github.com/ov-studio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-                    <GitHubIcon/>
-                </a>
                 <a href="https://ko-fi.com/ovstudio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Ko-fi">
                     <KofiIcon/>
+                </a>
+                <a href="https://github.com/ov-studio" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+                    <GitHubIcon />
                 </a>
             </div>
         </social>

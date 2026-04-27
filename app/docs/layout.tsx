@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
         collapsible: true,
         banner: <SidebarToggle/>,
         footer: (
-          <div className="p-2">
+          <div style={{ justifyContent: 'flex-end', display: 'flex' }}>
             <Social/>
           </div>
         ),
