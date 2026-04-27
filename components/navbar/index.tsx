@@ -26,7 +26,7 @@ export function Navbar({ links = [] }: NavbarProps) {
   return (
     <nav id="nav">
       <div className="ni">
-        <Brand size="xs" variant="full" className="nav-brand" />
+        <Brand size="xs" variant="full" className="nav-brand" href="/#" />
         <ul className="nl">
           {links.map(({ label, href }) => (
             <li key={href}><a href={href}>{label}</a></li>

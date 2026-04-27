@@ -40,6 +40,14 @@
   white-space: nowrap;
 }
 
+.vital-brand__link {
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ── Sizes ───────────────────────────────────────────── */
 
 /* xxs — inline badges, favicons, footers */
