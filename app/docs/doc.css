@@ -99,7 +99,7 @@ aside#nd-sidebar[data-collapsed="true"] {
     margin: 0 auto;
 }
 
-#nd-toc {
+#nd-toc, [class*="border-fd-foreground"] a {
     font-family: 'Rajdhani', sans-serif; 
     font-weight: 600;
     letter-spacing: .01em;
