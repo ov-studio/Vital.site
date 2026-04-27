@@ -11,7 +11,7 @@
     justify-content: center;
     width: 34px;
     height: 34px;
-    color: hsl(220, 10%, 60%);
+    color: var(--social-color);
     text-decoration: none;
     transition: color .2s, background .2s;
     border-radius: 6px;
