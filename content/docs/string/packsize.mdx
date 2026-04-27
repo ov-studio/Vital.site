@@ -14,7 +14,7 @@ local size = string.packsize(format)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | format | Format string - same format as used in [`string.pack`](/docs/string/pack) |
+| `string` | format | Format string containing specifiers describing how to pack the values<br/>Refer [**Specifiers**](#specifiers) section |
 
 ### Returns
 
@@ -23,6 +23,8 @@ local size = string.packsize(format)
 | `int` | size | The size in bytes of the packed string that would result from [`string.pack`](/docs/string/pack) |
 
 <hr/>
+
+<include>./pack.mdx#specifiers</include>
 
 ### Examples
 
