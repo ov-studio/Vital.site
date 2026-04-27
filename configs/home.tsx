@@ -16,31 +16,3 @@ export const Ethos_Content = [
   { title: 'Modding & Plugin Ready',   desc: 'Built for user scripting, modding, and plugin systems from day one. Full sandboxed Lua isolation — safe, powerful, extensible.',               icon: <><path d="M10 2a8 8 0 100 16A8 8 0 0010 2z" stroke="currentColor" strokeWidth="1.4"/><path d="M7 10l2 2 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></> },
   { title: 'Performance First',        desc: 'Built on Godot, engineered in C++17. No overhead, no interpreter bottlenecks — maximum throughput at every layer.',                            icon: <path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/> },
 ];
-
-export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
-export const Footer_Content = [
-  {
-    heading: 'Sandbox',
-    links: [
-      { label: 'Documentations', href: '/docs' },
-      { label: 'Roadmap', href: '#' },
-      { label: 'Changelog', href: '#' },
-      { label: 'Contributing', href: '/docs/building' },
-    ],
-  },
-  {
-    heading: 'Resource',
-    links: [
-      { label: 'Vital.sandbox', href: 'https://github.com/ov-studio/Vital.sandbox' },
-      { label: 'Vital.kit', href: 'https://github.com/ov-studio/Vital.kit' },
-    ],
-  },
-  {
-    heading: 'Social',
-    links: [
-      { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
-      { label: 'GitHub', href: 'https://github.com/ov-studio' },
-      { label: 'Discord', href: 'http://discord.gg/sVCnxPW' }
-    ],
-  },
-];

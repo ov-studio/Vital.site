@@ -1,6 +1,6 @@
 import './index.css';
 import { ArrowRight } from '../atoms';
-import { Features_Content } from '@/configs/homeData';
+import { Features_Content } from '@/configs/home';
 
 const R = 38;
 const toXY = (deg: number) => {

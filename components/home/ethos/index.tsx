@@ -1,4 +1,4 @@
-import { Ethos_Content } from '@/configs/homeData';
+import { Ethos_Content } from '@/configs/home';
 import './index.css';
 
 export function Ethos() {
