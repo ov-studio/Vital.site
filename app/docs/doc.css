@@ -121,7 +121,7 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-size: clamp(1rem, 2vw, 1.15rem);
     font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue)
@@ -129,5 +129,10 @@ h2 {
 
 h3 {
     font-size: clamp(1rem, 2vw, 1.05rem);
+    letter-spacing: .01em;
+}
+
+h4 {
+    font-size: clamp(1rem, 2vw, 1.025rem);
     letter-spacing: .01em;
 }
