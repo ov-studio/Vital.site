@@ -11,7 +11,6 @@
     --color-fd-primary: hsl(220, 95%, 30%);
     --font-sans: var(--font-geist);
     --font-mono: var(--font-geist-mono);
-    --breakpoint-md: 2000px;
 }
 
 .dark {
@@ -33,14 +32,16 @@
     transition: width 0.25s ease, min-width 0.25s ease !important;
 }
 
-#nd-sidebar>* {
-    width: 375px !important;
-}
-
 aside#nd-sidebar[data-collapsed="true"] {
     width: 0 !important;
     min-width: 0 !important;
     overflow: hidden !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+#nd-docs-layout:has(#nd-sidebar[data-collapsed="true"]) {
+    --fd-sidebar-width: 0px !important;
 }
 
 /* Kill hover popup */
@@ -52,18 +53,6 @@ aside#nd-sidebar[data-collapsed="true"] {
 /* Hide fumadocs collapse button */
 button[aria-label="Collapse Sidebar"] {
     display: none !important;
-}
-
-/* Kill hover popup */
-[data-sidebar-panel] {
-    display: none !important;
-    pointer-events: none !important;
-}
-
-aside#nd-sidebar[data-collapsed="true"] {
-    width: 0 !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
 }
 
 .sidebar-header-row {
@@ -89,28 +78,4 @@ aside#nd-sidebar[data-collapsed="true"] {
 .sidebar-toggle-btn:hover {
     color: hsl(0, 0%, 97%);
     background: hsl(250, 25%, 9%);
-}
-
-aside#nd-sidebar[data-collapsed="true"] {
-    width: 0 !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    border: none !important;
-}
-
-/* Make the grid column collapse too */
-#nd-docs-layout:has(#nd-sidebar[data-collapsed="true"]) {
-    --fd-sidebar-width: 0px !important;
-}
-
-#nd-docs-layout:has(#nd-sidebar[data-collapsed="true"]) #nd-page {
-    max-width: 860px;
-    margin: 0 auto;
-}
-
-@media (max-width: 2000px) {
-    #nd-toc {
-        display: none !important;
-    }
 }
