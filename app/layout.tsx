@@ -40,7 +40,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: `${site.name} - %s`,
+    template: `%s - ${site.name}`,
     default: `${site.name}`,
   },
   description: 'Built for creators. Engineered for production.',
