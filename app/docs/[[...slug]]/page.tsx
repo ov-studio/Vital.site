@@ -4,7 +4,7 @@ import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layo
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { site } from '@/site.config';
+import { site } from '@/configs/site.config';
 import { DocAI } from '@/components/docai';
 import { Badge } from '@/components/badge';
 

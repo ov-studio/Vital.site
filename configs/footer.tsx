@@ -1,4 +1,4 @@
-import { site } from '@/site.config';
+import { site } from '@/configs/site.config';
 
 export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
 export const Footer_Content = [

@@ -1,5 +1,5 @@
 import './index.css';
-import { site } from '@/site.config';
+import { site } from '@/configs/site.config';
 
 type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';

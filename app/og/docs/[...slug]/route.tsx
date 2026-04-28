@@ -2,7 +2,7 @@ import { getPageImage, source } from '@/lib/source';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
 import { generate as DefaultImage } from 'fumadocs-ui/og';
-import { site } from '@/site.config';
+import { site } from '@/configs/site.config';
 
 export const revalidate = false;
 
