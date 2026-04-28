@@ -1,3 +1,5 @@
+import { site } from '@/site.config';
+
 export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
 export const Footer_Content = [
   {
@@ -13,7 +15,7 @@ export const Footer_Content = [
     heading: 'Resource',
     links: [
       { label: 'Vital.sandbox', href: 'https://github.com/ov-studio/Vital.sandbox' },
-      { label: 'Vital.kit', href: 'https://github.com/ov-studio/Vital.kit' },
+      { label: 'Vital.kit', href: `https://github.com/${site.git.kit.user}/${site.git.kit.repo}` },
     ],
   },
   {
