@@ -15,7 +15,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 
   const MDX = page.data.body;
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage breadcrumb={{ enabled: false }} toc={page.data.toc} full={page.data.full}>
       <div className="flex flex-col border-b">
         <div className="flex flex-row gap-2 items-center justify-between">
           <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
