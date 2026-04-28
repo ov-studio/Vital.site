@@ -9,7 +9,7 @@
         "building",
         "config_server",
 
-        "---Guide---",
+        "---Core---",
         "engine",
         "model",
         "webview",
@@ -28,6 +28,16 @@
         "timer",
         "string",
         "table",
+
+        "---GFX---",
+        "ssao",
+        "ssr",
+        "ssil",
+        "sdfgi",
+        "fog",
+        "volumetric_fog",
+        "emissive",
+        "adjustment",
         "..."
     ]
 }
