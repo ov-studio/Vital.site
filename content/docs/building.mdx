@@ -19,7 +19,14 @@ Before starting, ensure your development environment is properly configured. Vit
 
 ## Builds
 
-Each build command accepts two arguments: a **target** and a **configuration**.
+#### Command
+
+| Platform | Command |
+|---|---|
+| Windows | `build --[client/server/all] --[debug/release]` |
+| Linux | `bash build.sh --[client/server/all] --[debug/release]` |
+
+#### Arguments
 
 | Argument | Option | Description |
 |---|---|---|
@@ -28,17 +35,6 @@ Each build command accepts two arguments: a **target** and a **configuration**.
 | | `--all` | Builds both client and server |
 | **Configuration** | `--debug` | Includes debug symbols and logging; suitable for development |
 | | `--release` | Optimized for production use |
-
-#### Windows
-```bash
-build --[client/server/all] --[debug/release]
-````
-
-#### Linux
-
-```bash
-bash build.sh --[client/server/all] --[debug/release]
-```
 
 #### Optional Flags
 
