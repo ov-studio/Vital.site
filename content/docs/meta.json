@@ -19,6 +19,8 @@
         "texture",
         "svg",
         "rendertarget",
+
+        "---Utility---",
         "file",
         "rest",
         "crypto",
@@ -27,7 +29,7 @@
         "timer",
         "string",
         "table",
-
+        
         "---GFX---",
         "ssao",
         "ssr",
