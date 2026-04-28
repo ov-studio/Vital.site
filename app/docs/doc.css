@@ -137,7 +137,7 @@ h4 {
 
 [class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.07rem, 2vw, 1.035rem);
+    font-size: clamp(1.09rem, 2vw, 1.035rem);
     font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue) !important;
@@ -146,21 +146,13 @@ h4 {
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.035rem, 2vw, 1.025rem);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: .01em;
     color: var(--blue) !important;
 }
 
 @media (max-width: 2000px) {
-    #nd-toc {
-        display: none !important;
-    }
-
-    .sidebar-header-row {
-        display: none;
-    }
-
-    .sidebar-expand-btn--fixed {
-        display: none;
-    }
+    #nd-toc { display: none !important; }
+    .sidebar-header-row { display: none; }
+    .sidebar-expand-btn--fixed { display: none; }
 }
