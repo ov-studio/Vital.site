@@ -135,10 +135,18 @@ h4 {
     letter-spacing: .01em;
 }
 
-[class*="mb-1.5"][class*="inline-flex"] {
+[class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.07rem, 2vw, 1.035rem);
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: var(--blue) !important;
+}
+
+[class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.035rem, 2vw, 1.025rem);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: .01em;
     color: var(--blue) !important;
 }
