@@ -146,7 +146,7 @@ h4 {
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
-    font-size: clamp(0.95rem, 2vw, 0.95rem);
+    font-size: clamp(0.9rem, 2vw, 0.9rem);
     letter-spacing: .035em;
     color: var(--blue) !important;
     margin-left: 17px !important;
