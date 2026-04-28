@@ -157,7 +157,7 @@ h4 {
 }
 
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
-    margin-top: 8px !important;
+    margin-top: 10px !important
 }
  
 @media (max-width: 2000px) {
