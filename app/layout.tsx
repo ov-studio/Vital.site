@@ -1,5 +1,6 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
+import { site } from '@/site.config';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -39,8 +40,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: 'Vital.sandbox - %s',
-    default: 'Vital.sandbox',
+    template: `${site.name} - %s`,
+    default: `${site.name}`,
   },
   description: 'Built for creators. Engineered for production.',
 };
