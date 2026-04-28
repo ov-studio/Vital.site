@@ -21,12 +21,12 @@
         "rendertarget",
 
         "---Utility---",
+        "thread",
+        "timer",
         "file",
         "rest",
         "crypto",
         "shrinker",
-        "thread",
-        "timer",
         "string",
         "table",
         
