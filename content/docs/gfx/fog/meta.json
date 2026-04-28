@@ -2,6 +2,7 @@
     "title": "Fog",
     "icon": "CloudFog",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_mode",

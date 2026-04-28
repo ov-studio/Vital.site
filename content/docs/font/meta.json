@@ -2,6 +2,7 @@
     "title": "Font",
     "icon": "Type",
     "pages": [
+        "---Base---",
         "create",
         "...",
 

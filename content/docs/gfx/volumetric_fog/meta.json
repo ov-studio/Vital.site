@@ -2,6 +2,7 @@
     "title": "Volumetric Fog",
     "icon": "CloudHail",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_emission",

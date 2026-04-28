@@ -2,6 +2,7 @@
     "title": "Timer",
     "icon": "Clock",
     "pages": [
+        "---Base---",
         "create",
         "...",
 

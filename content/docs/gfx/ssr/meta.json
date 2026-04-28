@@ -2,6 +2,7 @@
     "title": "SSR",
     "icon": "Sparkles",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_max_steps",

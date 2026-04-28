@@ -2,6 +2,7 @@
     "title": "SVG",
     "icon": "PenTool",
     "pages": [
+        "---Base---",
         "create",
         "create_from_raw",
         "...",

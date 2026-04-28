@@ -2,6 +2,7 @@
     "title": "Thread",
     "icon": "GitBranch",
     "pages": [
+        "---Base---",
         "create",
         "create_heartbeat",
         "create_promise",

@@ -2,6 +2,7 @@
     "title": "SSIL",
     "icon": "Lightbulb",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_radius",

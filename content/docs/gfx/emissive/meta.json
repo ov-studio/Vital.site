@@ -2,6 +2,7 @@
     "title": "Emissive",
     "icon": "CircleDot",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_level_intensity",

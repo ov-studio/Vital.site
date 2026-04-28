@@ -2,6 +2,7 @@
     "title": "File",
     "icon": "FileText",
     "pages": [
+        "---Base---",
         "exists",
         "size",
         "hash",

@@ -2,6 +2,7 @@
     "title": "Discord",
     "icon": "Gamepad2",
     "pages": [
+        "---Base---",
         "is_connected",
         "get_userid",
         "get_username",

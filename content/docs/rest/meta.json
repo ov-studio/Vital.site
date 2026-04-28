@@ -2,6 +2,7 @@
     "title": "Rest",
     "icon": "Activity",
     "pages": [
+        "---Base---",
         "get",
         "post",
         "..."

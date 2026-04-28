@@ -2,6 +2,7 @@
     "title": "SDFGI",
     "icon": "Sun",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_cascades",

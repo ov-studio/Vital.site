@@ -2,6 +2,7 @@
     "title": "Engine",
     "icon": "Cog",
     "pages": [
+        "---Base---",
         "get_version",
         "get_tick",
         "get_platform",
@@ -12,6 +13,7 @@
         "inspect",
         "print",
         "iprint",
+        
         "---Canvas---",
         "get_resolution",
         "world_to_screen",

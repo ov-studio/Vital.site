@@ -2,6 +2,7 @@
     "title": "Adjustment",
     "icon": "SlidersHorizontal",
     "pages": [
+        "---Base---",
         "is_enabled",
         "set_enabled",
         "set_brightness",

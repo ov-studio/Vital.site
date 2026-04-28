@@ -2,6 +2,7 @@
     "title": "String",
     "icon": "Regex",
     "pages": [
+        "---Base---",
         "void",
         "parse",
         "parse_hex",

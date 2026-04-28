@@ -2,6 +2,7 @@
     "title": "Shrinker",
     "icon": "Archive",
     "pages": [
+        "---Base---",
         "compress",
         "decompress",
         "..."
