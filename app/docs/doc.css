@@ -146,12 +146,12 @@ h4 {
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
-    font-size: clamp(0.0rem, 2vw, 0.95rem);
+    font-size: clamp(0.95rem, 2vw, 0.95rem);
     letter-spacing: .035em;
     color: var(--blue) !important;
     margin-left: 17px !important;
-    background: color-mix(in srgb, var(--blue) 5%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--blue) 25%, transparent);
+    background: color-mix(in srgb, var(--blue) 2%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--blue) 20%, transparent);
     border-radius: 4px;
     padding: 1px 8px !important;
 }
