@@ -1,12 +1,13 @@
 import './index.css';
 import { Brand } from '@/components/brand';
 import { Download } from '@/components/download';
+import { site } from '@/site.config';
 
 async function getGitHubStats() {
   try {
     const [repoRes, commitsRes] = await Promise.all([
-      fetch('https://api.github.com/repos/ov-studio/Vital.sandbox', { next: { revalidate: 3600 } }),
-      fetch('https://api.github.com/repos/ov-studio/Vital.sandbox/commits?per_page=1', { next: { revalidate: 3600 } }),
+      fetch(`https://api.github.com/repos/${site.git.sandbox.user}/${site.git.sandbox.repo}`, { next: { revalidate: 3600 } }),
+      fetch(`https://api.github.com/repos/${site.git.sandbox.user}/${site.git.sandbox.repo}/commits?per_page=1`, { next: { revalidate: 3600 } }),
     ]);
     const repo = await repoRes.json();
     const link = commitsRes.headers.get('link') ?? '';
