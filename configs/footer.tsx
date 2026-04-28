@@ -14,8 +14,9 @@ export const Footer_Content = [
   {
     heading: 'Resource',
     links: [
-      { label: 'Vital.sandbox', href: 'https://github.com/ov-studio/Vital.sandbox' },
-      { label: 'Vital.kit', href: `https://github.com/${site.git.kit.user}/${site.git.kit.repo}` },
+      { label: `${site.git.site.repo}`, href: `https://github.com/${site.git.site.user}/${site.git.site.repo}` },
+      { label: `${site.git.kit.repo}`, href: `https://github.com/${site.git.kit.user}/${site.git.kit.repo}` },
+      { label: `${site.git.sandbox.repo}`, href: `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}` },
     ],
   },
   {
