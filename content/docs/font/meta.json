@@ -5,16 +5,16 @@
         "create",
         "...",
 
-       "---::lifecycle---",
+       "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
         
-       "---::getter---",
+       "---::Getter---",
         "method__get_antialiasing",
         "method__get_oversampling",
 
-       "---::setter---",
+       "---::Setter---",
         "method__set_antialiasing",
         "method__set_oversampling"
     ]

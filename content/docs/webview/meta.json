@@ -5,12 +5,12 @@
         "create",
         "...",
 
-       "---::lifecycle---",
+       "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-       "---::checker---",
+       "---::Checker---",
         "method__is_visible",
         "method__is_fullscreen",
         "method__is_transparent",
@@ -19,18 +19,18 @@
         "method__is_zoomable",
         "method__is_devtools_visible",
     
-       "---::getter---",
+       "---::Getter---",
         "method__get_position",
         "method__get_size",
 
-       "---::setter---",
+       "---::Setter---",
         "method__set_position",
         "method__set_size",
         "method__set_visible",
         "method__set_devtools_visible",
         "method__set_message_handler",
 
-       "---::api---",
+       "---::API---",
         "method__load_url",
         "method__load_html",
         "method__focus",

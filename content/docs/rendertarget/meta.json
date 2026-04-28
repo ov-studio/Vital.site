@@ -7,19 +7,19 @@
         "get_active",
         "...",
 
-       "---::lifecycle---",
+       "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-       "---::checker---",
+       "---::Checker---",
         "method__is_active",
 
-       "---::getter---",
+       "---::Getter---",
         "method__get_size",
         "method__get_active",
 
-       "---::setter---",
+       "---::Setter---",
         "method__set_active"
     ]
 }

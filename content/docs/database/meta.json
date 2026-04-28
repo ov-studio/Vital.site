@@ -5,7 +5,7 @@
         "create",
         "...",
 
-       "---::api---",
+       "---::API---",
         "method__is_type",
         "method__get_type",
         "method__is_connected",

@@ -2,26 +2,26 @@
     "title": "Model",
     "icon": "Box",
     "pages": [
-        "---core---",
+        "---Base---",
         "is_loaded",
         "load",
         "unload",
         "create",
         "...",
 
-       "---::lifecycle---",
+       "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-       "---::checker---",
+       "---::Checker---",
         "method__is_component_visible",
         "method__is_material_visible",
         "method__is_material_feature",
         "method__is_material_flag",
         "method__is_animation_playing",
 
-       "---::getter---",
+       "---::Getter---",
         "method__get_model_name",
         "method__get_components",
         "method__get_materials",
@@ -35,7 +35,7 @@
         "method__get_animation_speed",
         "method__get_current_animation",
 
-       "---::setter---",
+       "---::Setter---",
         "method__set_position",
         "method__set_rotation",
         "method__set_component_visible",
@@ -45,7 +45,7 @@
         "method__set_blendshape_value",
         "method__set_animation_speed",
 
-       "---::api---",
+       "---::API---",
         "method__play_animation",
         "method__stop_animation",
         "method__pause_animation",

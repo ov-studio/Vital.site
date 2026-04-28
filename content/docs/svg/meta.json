@@ -6,12 +6,12 @@
         "create_from_raw",
         "...",
 
-       "---::lifecycle---",
+       "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-       "---::api---",
+       "---::API---",
         "method__update"
     ]
 }

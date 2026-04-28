@@ -8,7 +8,7 @@
         "get_thread",
         "...",
 
-       "---::api---",
+       "---::API---",
         "method__destroy",
         "method__status",
         "method__resume",
