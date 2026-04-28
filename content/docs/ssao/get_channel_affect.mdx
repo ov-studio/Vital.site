@@ -1,5 +1,5 @@
 ---
-title: gfx.ssao.get_channel_affect
+title: ssao.get_channel_affect
 description: Retrieves the current AO channel influence of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = gfx.ssao.get_channel_affect()
+local result = ssao.get_channel_affect()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = gfx.ssao.get_channel_affect()
 ### Examples
 
 ```lua lineNumbers title="Get the current ssao channel affect"
-engine.print("info", "SSAO channel affect:", gfx.ssao.get_channel_affect())
+engine.print("info", "SSAO channel affect:", ssao.get_channel_affect())
 ```

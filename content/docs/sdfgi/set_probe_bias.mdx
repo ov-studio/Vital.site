@@ -1,5 +1,5 @@
 ---
-title: gfx.sdfgi.set_probe_bias
+title: sdfgi.set_probe_bias
 description: The probe bias to be set for the SDFGI post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.sdfgi.set_probe_bias(value)
+local status = sdfgi.set_probe_bias(value)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local status = gfx.sdfgi.set_probe_bias(value)
 ### Examples
 
 ```lua lineNumbers title="Tune probe bias to eliminate probe intersection artifacts"
-gfx.sdfgi.set_probe_bias(1.1)
+sdfgi.set_probe_bias(1.1)
 ```

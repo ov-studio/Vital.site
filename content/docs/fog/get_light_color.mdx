@@ -1,5 +1,5 @@
 ---
-title: gfx.fog.get_light_color
+title: fog.get_light_color
 description: Retrieves the current light color of the fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local color = gfx.fog.get_light_color()
+local color = fog.get_light_color()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local color = gfx.fog.get_light_color()
 ### Examples
 
 ```lua lineNumbers title="Print current fog light color"
-engine.print("info", "Fog light color:", table.unpack(gfx.fog.get_light_color()))
+engine.print("info", "Fog light color:", table.unpack(fog.get_light_color()))
 ```

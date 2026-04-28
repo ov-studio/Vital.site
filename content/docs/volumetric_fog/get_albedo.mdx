@@ -1,5 +1,5 @@
 ---
-title: gfx.volumetric_fog.get_albedo
+title: volumetric_fog.get_albedo
 description: Retrieves the current albedo color of the volumetric fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local color = gfx.volumetric_fog.get_albedo()
+local color = volumetric_fog.get_albedo()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local color = gfx.volumetric_fog.get_albedo()
 ### Examples
 
 ```lua lineNumbers title="Print current volumetric fog albedo color"
-engine.print("info", "Volumetric fog albedo:", table.unpack(gfx.volumetric_fog.get_albedo()))
+engine.print("info", "Volumetric fog albedo:", table.unpack(volumetric_fog.get_albedo()))
 ```

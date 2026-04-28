@@ -1,5 +1,5 @@
 ---
-title: gfx.emissive.set_blend_mode
+title: emissive.set_blend_mode
 description: The blend mode to be set for the emissive post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_blend_mode(value)
+local status = emissive.set_blend_mode(value)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.emissive.set_blend_mode(value)
 
 ```lua lineNumbers title="Set emissive blend mode"
 --Set additive blend mode
-gfx.emissive.set_blend_mode(0)
+emissive.set_blend_mode(0)
 
 --Set mix blend mode
-gfx.emissive.set_blend_mode(4)
+emissive.set_blend_mode(4)
 ```

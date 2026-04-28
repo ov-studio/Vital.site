@@ -1,5 +1,5 @@
 ---
-title: gfx.emissive.get_level_intensity
+title: emissive.get_level_intensity
 description: Retrieves the current intensity of a specific glow level of the emissive post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = gfx.emissive.get_level_intensity(idx)
+local result = emissive.get_level_intensity(idx)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local result = gfx.emissive.get_level_intensity(idx)
 ### Examples
 
 ```lua lineNumbers title="Print intensity of a specific glow level"
-engine.print("info", "Glow level 1 intensity:", gfx.emissive.get_level_intensity(1))
+engine.print("info", "Glow level 1 intensity:", emissive.get_level_intensity(1))
 ```

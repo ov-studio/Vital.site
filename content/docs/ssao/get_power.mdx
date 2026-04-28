@@ -1,5 +1,5 @@
 ---
-title: gfx.ssao.get_power
+title: ssao.get_power
 description: Retrieves the current power curve of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = gfx.ssao.get_power()
+local result = ssao.get_power()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = gfx.ssao.get_power()
 ### Examples
 
 ```lua lineNumbers title="Get the current ssao power value"
-engine.print("info", "SSAO power:", gfx.ssao.get_power())
+engine.print("info", "SSAO power:", ssao.get_power())
 ```

@@ -1,5 +1,5 @@
 ---
-title: gfx.fog.set_height_density
+title: fog.set_height_density
 description: The height density to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.fog.set_height_density(value)
+local status = fog.set_height_density(value)
 ```
 
 ### Parameters
@@ -27,9 +27,9 @@ local status = gfx.fog.set_height_density(value)
 ### Examples
 
 ```lua lineNumbers title="Increase fog density toward the ground"
-gfx.fog.set_height_density(10.0)
+fog.set_height_density(10.0)
 ```
 
 ```lua lineNumbers title="Increase fog density toward the sky"
-gfx.fog.set_height_density(-10.0)
+fog.set_height_density(-10.0)
 ```

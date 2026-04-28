@@ -1,5 +1,5 @@
 ---
-title: gfx.ssao.set_horizon
+title: ssao.set_horizon
 description: Sets the horizon threshold of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.ssao.set_horizon(value)
+local status = ssao.set_horizon(value)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local status = gfx.ssao.set_horizon(value)
 ### Examples
 
 ```lua lineNumbers title="Reduce silhouette halos"
-gfx.ssao.set_horizon(0.06)
+ssao.set_horizon(0.06)
 ```

@@ -1,5 +1,5 @@
 ---
-title: gfx.ssr.set_enabled
+title: ssr.set_enabled
 description: Toggles the SSR post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.ssr.set_enabled(state)
+local status = ssr.set_enabled(state)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.ssr.set_enabled(state)
 
 ```lua lineNumbers title="Toggle ssr effect"
 --Enable SSR
-gfx.ssr.set_enabled(true)
+ssr.set_enabled(true)
 
 --Disable SSR
-gfx.ssr.set_enabled(false)
+ssr.set_enabled(false)
 ```

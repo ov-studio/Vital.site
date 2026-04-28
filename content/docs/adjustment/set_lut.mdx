@@ -1,5 +1,5 @@
 ---
-title: gfx.adjustment.set_lut
+title: adjustment.set_lut
 description: Applies a specified LUT on the adjustment post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.adjustment.set_lut(path)
+local status = adjustment.set_lut(path)
 ```
 
 <Callout type="info">
@@ -36,5 +36,5 @@ local status = gfx.adjustment.set_lut(path)
 ### Examples
 
 ```lua lineNumbers title="Apply a LUT for cinematic color grading"
-gfx.adjustment.set_lut("lut/cinematic.png")
+adjustment.set_lut("lut/cinematic.png")
 ```

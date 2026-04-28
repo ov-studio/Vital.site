@@ -1,5 +1,5 @@
 ---
-title: gfx.sdfgi.set_read_sky_light
+title: sdfgi.set_read_sky_light
 description: Toggles sky light sampling for the SDFGI post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.sdfgi.set_read_sky_light(state)
+local status = sdfgi.set_read_sky_light(state)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local status = gfx.sdfgi.set_read_sky_light(state)
 ### Examples
 
 ```lua lineNumbers title="Include sky light in GI calculation"
-gfx.sdfgi.set_read_sky_light(true)
+sdfgi.set_read_sky_light(true)
 ```

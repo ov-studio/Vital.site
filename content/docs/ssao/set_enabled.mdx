@@ -1,5 +1,5 @@
 ---
-title: gfx.ssao.set_enabled
+title: ssao.set_enabled
 description: Toggles the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.ssao.set_enabled(state)
+local status = ssao.set_enabled(state)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.ssao.set_enabled(state)
 
 ```lua lineNumbers title="Toggle ssao effect"
 --Enable SSAO
-gfx.ssao.set_enabled(true)
+ssao.set_enabled(true)
 
 --Disable SSAO
-gfx.ssao.set_enabled(false)
+ssao.set_enabled(false)
 ```

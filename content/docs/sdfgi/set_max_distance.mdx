@@ -1,5 +1,5 @@
 ---
-title: gfx.sdfgi.set_max_distance
+title: sdfgi.set_max_distance
 description: The maximum draw distance to be set for the SDFGI post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.sdfgi.set_max_distance(value)
+local status = sdfgi.set_max_distance(value)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local status = gfx.sdfgi.set_max_distance(value)
 ### Examples
 
 ```lua lineNumbers title="Extend GI coverage for large outdoor scenes"
-gfx.sdfgi.set_max_distance(500.0)
+sdfgi.set_max_distance(500.0)
 ```

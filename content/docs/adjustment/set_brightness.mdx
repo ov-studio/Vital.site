@@ -1,5 +1,5 @@
 ---
-title: gfx.adjustment.set_brightness
+title: adjustment.set_brightness
 description: Sets the brightness level of the adjustment post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.adjustment.set_brightness(value)
+local status = adjustment.set_brightness(value)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.adjustment.set_brightness(value)
 
 ```lua lineNumbers title="Set adjustment brightness"
 --Set brightness to default
-gfx.adjustment.set_brightness(1.0)
+adjustment.set_brightness(1.0)
 
 --Increase brightness
-gfx.adjustment.set_brightness(1.5)
+adjustment.set_brightness(1.5)
 ```

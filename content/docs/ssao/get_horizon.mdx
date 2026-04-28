@@ -1,5 +1,5 @@
 ---
-title: gfx.ssao.get_horizon
+title: ssao.get_horizon
 description: Retrieves the current horizon threshold of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = gfx.ssao.get_horizon()
+local result = ssao.get_horizon()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = gfx.ssao.get_horizon()
 ### Examples
 
 ```lua lineNumbers title="Get the current ssao horizon value"
-engine.print("info", "SSAO horizon:", gfx.ssao.get_horizon())
+engine.print("info", "SSAO horizon:", ssao.get_horizon())
 ```

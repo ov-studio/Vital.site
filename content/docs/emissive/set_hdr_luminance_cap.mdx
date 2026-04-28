@@ -1,5 +1,5 @@
 ---
-title: gfx.emissive.set_hdr_luminance_cap
+title: emissive.set_hdr_luminance_cap
 description: The HDR luminance cap to be set for the emissive post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_hdr_luminance_cap(value)
+local status = emissive.set_hdr_luminance_cap(value)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local status = gfx.emissive.set_hdr_luminance_cap(value)
 ### Examples
 
 ```lua lineNumbers title="Cap luminance to prevent blown-out glow"
-gfx.emissive.set_hdr_luminance_cap(8.0)
+emissive.set_hdr_luminance_cap(8.0)
 ```

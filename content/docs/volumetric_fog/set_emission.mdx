@@ -1,5 +1,5 @@
 ---
-title: gfx.volumetric_fog.set_emission
+title: volumetric_fog.set_emission
 description: The emission color to be set for the volumetric fog post-processing effect
 badge: Client
 ---
@@ -7,8 +7,8 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.volumetric_fog.set_emission(color)
-local status = gfx.volumetric_fog.set_emission(hex)
+local status = volumetric_fog.set_emission(color)
+local status = volumetric_fog.set_emission(hex)
 ```
 
 ### Parameters
@@ -29,9 +29,9 @@ local status = gfx.volumetric_fog.set_emission(hex)
 ### Examples
 
 ```lua lineNumbers title="Set a warm orange emission color using a color table"
-gfx.volumetric_fog.set_emission({1.0, 0.4, 0.1, 1.0})
+volumetric_fog.set_emission({1.0, 0.4, 0.1, 1.0})
 ```
 
 ```lua lineNumbers title="Set emission color using a hex string"
-gfx.volumetric_fog.set_emission("#ff6619")
+volumetric_fog.set_emission("#ff6619")
 ```

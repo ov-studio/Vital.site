@@ -1,5 +1,5 @@
 ---
-title: gfx.adjustment.set_contrast
+title: adjustment.set_contrast
 description: Sets the contrast level of the adjustment post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.adjustment.set_contrast(value)
+local status = adjustment.set_contrast(value)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.adjustment.set_contrast(value)
 
 ```lua lineNumbers title="Set adjustment contrast"
 --Set contrast to default
-gfx.adjustment.set_contrast(1.0)
+adjustment.set_contrast(1.0)
 
 --Increase contrast
-gfx.adjustment.set_contrast(1.3)
+adjustment.set_contrast(1.3)
 ```

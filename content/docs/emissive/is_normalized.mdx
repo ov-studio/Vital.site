@@ -1,5 +1,5 @@
 ---
-title: gfx.emissive.is_normalized
+title: emissive.is_normalized
 description: Retrieves whether glow level normalization is currently enabled for the emissive post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = gfx.emissive.is_normalized()
+local result = emissive.is_normalized()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = gfx.emissive.is_normalized()
 ### Examples
 
 ```lua lineNumbers title="Check if glow normalization is enabled"
-engine.print("info", "Emissive normalized:", gfx.emissive.is_normalized())
+engine.print("info", "Emissive normalized:", emissive.is_normalized())
 ```

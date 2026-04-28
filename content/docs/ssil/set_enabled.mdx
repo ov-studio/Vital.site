@@ -1,5 +1,5 @@
 ---
-title: gfx.ssil.set_enabled
+title: ssil.set_enabled
 description: Toggles the SSIL post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.ssil.set_enabled(state)
+local status = ssil.set_enabled(state)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.ssil.set_enabled(state)
 
 ```lua lineNumbers title="Toggle ssil effect"
 --Enable SSIL
-gfx.ssil.set_enabled(true)
+ssil.set_enabled(true)
 
 --Disable SSIL
-gfx.ssil.set_enabled(false)
+ssil.set_enabled(false)
 ```

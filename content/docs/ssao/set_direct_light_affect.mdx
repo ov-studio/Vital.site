@@ -1,5 +1,5 @@
 ---
-title: gfx.ssao.set_direct_light_affect
+title: ssao.set_direct_light_affect
 description: Sets the direct lighting influence of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.ssao.set_direct_light_affect(value)
+local status = ssao.set_direct_light_affect(value)
 ```
 
 ### Parameters
@@ -27,5 +27,5 @@ local status = gfx.ssao.set_direct_light_affect(value)
 ### Examples
 
 ```lua lineNumbers title="Apply occlusion to directly lit surfaces"
-gfx.ssao.set_direct_light_affect(0.5)
+ssao.set_direct_light_affect(0.5)
 ```

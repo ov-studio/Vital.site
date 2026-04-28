@@ -1,5 +1,5 @@
 ---
-title: gfx.emissive.set_normalized
+title: emissive.set_normalized
 description: Toggles glow level normalization for the emissive post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_normalized(state)
+local status = emissive.set_normalized(state)
 ```
 
 ### Parameters
@@ -28,8 +28,8 @@ local status = gfx.emissive.set_normalized(state)
 
 ```lua lineNumbers title="Toggle glow level normalization"
 --Enable normalization to keep consistent brightness
-gfx.emissive.set_normalized(true)
+emissive.set_normalized(true)
 
 --Disable normalization
-gfx.emissive.set_normalized(false)
+emissive.set_normalized(false)
 ```
