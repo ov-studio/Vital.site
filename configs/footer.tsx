@@ -22,9 +22,9 @@ export const Footer_Content = [
   {
     heading: 'Social',
     links: [
-      { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
-      { label: 'GitHub', href: 'https://github.com/ov-studio' },
-      { label: 'Discord', href: 'http://discord.gg/sVCnxPW' }
+      site.social.kofi,
+      site.social.github,
+      site.social.discord
     ],
   },
 ];
