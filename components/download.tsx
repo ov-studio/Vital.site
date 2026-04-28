@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { site } from '@/configs/site.config';
+import { site } from '@/configs/site';
 
 interface ReleaseInfo {
   tag: string;

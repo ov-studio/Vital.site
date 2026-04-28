@@ -1,6 +1,6 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
-import { site } from '@/configs/site.config';
+import { site } from '@/configs/site';
 
 const geist = Geist({
   subsets: ['latin'],
