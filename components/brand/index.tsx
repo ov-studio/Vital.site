@@ -1,4 +1,5 @@
 import './index.css';
+import { site } from '@/site.config';
 
 type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
@@ -28,7 +29,7 @@ export function Brand({
         </div>
       )}
       {variant !== 'logo-only' && (
-        <span className="brand_wordmark">Vital.sandbox</span>
+        <span className="brand_wordmark">{site.name}</span>
       )}
     </>
   );

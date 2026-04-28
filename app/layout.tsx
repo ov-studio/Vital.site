@@ -34,3 +34,13 @@ export default function Layout({ children }: LayoutProps<'/'>) {
     </html>
   );
 }
+
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    template: 'Vital.sandbox - %s',
+    default: 'Vital.sandbox',
+  },
+  description: 'Built for creators. Engineered for production.',
+};

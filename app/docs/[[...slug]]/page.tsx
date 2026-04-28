@@ -1,8 +1,8 @@
+import type { Metadata } from 'next';
 import { getPageImage, source } from '@/lib/source';
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
-import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { site } from '@/site.config';
 import { DocAI } from '@/components/docai';
@@ -51,7 +51,7 @@ export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): P
   if (!page) notFound();
 
   return {
-    title: `${site.name} - ${page.data.title}`,
+    title: `${page.data.title}`,
     description: page.data.description,
     openGraph: {
       images: getPageImage(page).url,
