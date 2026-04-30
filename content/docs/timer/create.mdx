@@ -15,9 +15,8 @@ local ctx = timer.create(exec, interval, executions)
 | Type | Name | Description |
 |------|------|-------------|
 | `function` | exec | Function to be executed by the timer |
-| `int` | interval | Execution interval in milliseconds |
-| `int` | executions | Total number of times the function will execute |
-| `...` | ... | Additional arguments to pass to the `exec` callback<br/>Refer [**Callback**](#callback) section |
+| `int` | interval | Interval in milliseconds between each execution<br/>Must be `>= 0` |
+| `int` | executions | Number of times to execute (`0` means infinite)<br/>Must be `>= 0` |
 
 ### Returns
 
