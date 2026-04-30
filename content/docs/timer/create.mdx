@@ -37,12 +37,17 @@ exec(...)
 |------|------|-------------|
 | `...` | ... | Additional arguments |
 
-<hr/>
+```lua lineNumbers title="Create a one-shot timer"
+local tm = timer.create(function(count)
+    engine.print("info", "Counter:", count)
+end, 1000, 1)
+```
 
 ### Examples
+end, 500, 0)
 
-```lua lineNumbers title="Create a timer that prints a message every second 5 times"
-local self = timer:create(function(message)
-    engine.print("info", message)
-end, 1000, 5, "Hello from timer")
+```lua lineNumbers title="Create a timer that fires 3 times then auto-destroys"
+local tm = timer.create(function(count)
+    engine.print("info", count.."/3")
+end, 1000, 3)
 ```
