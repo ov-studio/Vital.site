@@ -1,0 +1,35 @@
+---
+title: self:is_type
+description: Checks whether the instance belongs to the specified type
+---
+
+### Syntax
+
+```lua
+local result = self:is_type(name)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type to check against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Check the type of a timer instance"
+local tm = timer.create(function(count)
+    engine.print("info", "Counter:", count)
+end, 1000, 1)
+
+engine.print("info", tm:is_type("timer")) --true
+engine.print("info", tm:is_type("texture")) --false
+```
