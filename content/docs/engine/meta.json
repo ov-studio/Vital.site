@@ -3,8 +3,8 @@
     "icon": "Cog",
     "pages": [
         "---Base---",
-        "get_version",
         "get_tick",
+        "get_version",
         "get_platform",
         "get_timestamp",
         "get_serial",
