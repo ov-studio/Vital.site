@@ -1,7 +1,6 @@
 ---
 title: self:destroy
-description: Destroys an existing timer
-badge: Shared
+description: Destroys the timer instance and frees its resources
 ---
 
 ### Syntax
@@ -26,9 +25,9 @@ local status = self:destroy()
 ### Examples
 
 ```lua lineNumbers title="Destroy a timer instance"
-local self = timer:create(function(message)
-    engine.print("info", message)
-end, 1000, 5, "Hello from timer")
+local tm = timer.create(function(count)
+    engine.print("info", "Tick: "..engine.get_tick())
+end, 500, 0)
 
-self:destroy()
+tm:destroy()
 ```
