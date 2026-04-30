@@ -29,12 +29,14 @@ local ctx = timer.create(exec, interval, executions)
 ### Callback: `exec`
 
 ```lua
-exec(...)
+exec(count)
 ```
 
 | Type | Name | Description |
 |------|------|-------------|
-| `...` | ... | Additional arguments |
+| `int` | count | Current execution count |
+
+<hr/>
 
 ```lua lineNumbers title="Create a one-shot timer"
 local tm = timer.create(function(count)
