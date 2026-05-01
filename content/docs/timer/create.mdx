@@ -39,19 +39,19 @@ exec(count)
 <hr/>
 
 ```lua lineNumbers title="Create a one-shot timer"
-local tm = timer.create(function(count)
+local ctx = timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 1000, 1)
 ```
 
 ```lua lineNumbers title="Create a repeating timer"
-local tm = timer.create(function(count)
+local ctx = timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 500, 0)
 ```
 
 ```lua lineNumbers title="Create a timer that fires 3 times then auto-destroys"
-local tm = timer.create(function(count)
+local ctx = timer.create(function(count)
     engine.print("info", count.."/3")
 end, 1000, 3)
 ```

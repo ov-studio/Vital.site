@@ -27,10 +27,10 @@ local result = self:is_type(name)
 ### Examples
 
 ```lua lineNumbers title="Check the type of a timer instance"
-local tm = timer.create(function(count)
+local ctx = timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 1000, 1)
 
-engine.print("info", tm:is_type("timer")) --true
-engine.print("info", tm:is_type("texture")) --false
+engine.print("info", ctx:is_type("timer")) --true
+engine.print("info", ctx:is_type("texture")) --false
 ```

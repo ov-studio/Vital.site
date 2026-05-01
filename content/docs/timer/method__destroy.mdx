@@ -26,9 +26,9 @@ local status = self:destroy()
 ### Examples
 
 ```lua lineNumbers title="Destroy a timer instance"
-local tm = timer.create(function(count)
+local ctx = timer.create(function(count)
     engine.print("info", "Tick: "..engine.get_tick())
 end, 500, 0)
 
-tm:destroy()
+ctx:destroy()
 ```

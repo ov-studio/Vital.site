@@ -26,9 +26,9 @@ local result = self:get_type()
 ### Examples
 
 ```lua lineNumbers title="Get the type of a timer instance"
-local tm = timer.create(function(count)
+local ctx = timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 1000, 1)
 
-engine.print("info", tm:get_type()) --'timer'
+engine.print("info", ctx:get_type()) --'timer'
 ```
