@@ -21,8 +21,8 @@
         "rendertarget",
 
         "---Utility---",
-        "thread",
         "timer",
+        "thread",
         "file",
         "rest",
         "crypto",
