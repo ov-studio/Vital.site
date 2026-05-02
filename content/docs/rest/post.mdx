@@ -7,9 +7,14 @@ badge: Shared
 ### Syntax
 
 ```lua
-local response, error = rest.post(url, body, headers = {
-    "Content-Type: application/json"
-}, timeout = 60)
+local response, error = rest.post(
+    url, 
+    body, 
+    headers = {
+        "Content-Type: application/json"
+    },
+    timeout = 60
+)
 ```
 
 <Callout type="warn">
