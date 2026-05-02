@@ -19,8 +19,7 @@ local x, y = self:get_size()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | x | Width of the rendertarget in pixels |
-| `int` | y | Height of the rendertarget in pixels |
+| `vector2` | size | Size of the rendertarget as `{width, height}` |
 
 <hr/>
 
@@ -28,6 +27,7 @@ local x, y = self:get_size()
 
 ```lua lineNumbers title="Get the size of a rendertarget"
 local rt = rendertarget.create(1920, 1080, false)
+local size = rt:get_size()
 
-engine.print("info", "Rendertarget size:", rt:get_size())
+engine.print("info", "Rendertarget size:", size[1], size[2])
 ```

@@ -8,8 +8,7 @@ badge: Client
 
 ```lua
 local instance = rendertarget.create(
-    width,
-    height,
+    size,
     transparent = false
 )
 ```
@@ -18,8 +17,7 @@ local instance = rendertarget.create(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | width | Width of the rendertarget in pixels |
-| `int` | height | Height of the rendertarget in pixels |
+| `vector2` | size | Size of the rendertarget as `{width, height}` |
 | `bool` | transparent | Whether the rendertarget should have a transparent background |
 
 ### Returns
@@ -33,7 +31,7 @@ local instance = rendertarget.create(
 ### Examples
 
 ```lua lineNumbers title="Create a rendertarget and set it as active"
-local rt = rendertarget.create(1920, 1080, false)
+local rt = rendertarget.create({1920, 1080}, false)
 
 rt:set_active()
 ```
