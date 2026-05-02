@@ -1,6 +1,6 @@
 interface IconProps {
   className?: string;
-  size?: number;
+  size?: number
 }
 
 export const icons = {
