@@ -9,7 +9,9 @@ badge: Shared
 ```lua
 local response, error = rest.get(
     url,
-    headers = {},
+    headers = {
+        "Content-Type: application/json"
+    },
     timeout = 60
 )
 ```
