@@ -25,6 +25,6 @@ export const Footer_Content = [
       label: item.label,
       href: item.href,
       icon: key
-    })),
+    }))
   },
 ];
