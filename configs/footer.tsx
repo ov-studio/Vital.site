@@ -21,11 +21,10 @@ export const Footer_Content = [
   },
   {
     heading: 'Social',
-    links: [
-      site.social.kofi,
-      site.social.github,
-      site.social.discord,
-      site.social.youtube
-    ],
+    links: Object.entries(site.social).map(([key, item]) => ({
+      label: item.label,
+      href: item.href,
+      icon: key
+    })),
   },
 ];
