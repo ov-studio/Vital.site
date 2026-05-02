@@ -24,7 +24,8 @@ export const Footer_Content = [
     links: [
       site.social.kofi,
       site.social.github,
-      site.social.discord
+      site.social.discord,
+      site.social.youtube
     ],
   },
 ];

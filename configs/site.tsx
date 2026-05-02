@@ -10,6 +10,7 @@ export const site = {
     social: {
       kofi: { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
       github: { label: 'GitHub', href: 'https://github.com/ov-studio' },
-      discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW' }
+      discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW' },
+      youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community' }
     }
 };
