@@ -1,3 +1,8 @@
+interface IconProps {
+  className?: string;
+  size?: number;
+}
+
 export const icons = {
   arrow_right: ({ className, size = 14 }: IconProps) => (
     <svg width={size} height={size} viewBox="0 0 14 14" fill="none" className={className}>
