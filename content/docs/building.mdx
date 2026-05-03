@@ -60,6 +60,30 @@ Each output directory is self-contained and includes all required runtime compon
 
 ---
 
+## Debugging
+
+Vital.sandbox supports native debugging on Windows via Visual Studio. Debug symbols are generated automatically for `--debug` builds and can be loaded at runtime using the steps below.
+
+#### Attaching Visual Studio to a Running Process
+
+1. In Visual Studio, open **Debug → Attach to Process**
+2. Select the target executable and click **Attach**
+
+#### Loading Debug Symbols
+
+Once attached, load the PDB files for the extension module:
+
+1. Open **Debug → Windows → Modules**
+2. Right-click the `vital.sdk` entry in the module list
+3. Select **Load Symbols** and navigate to the appropriate build directory
+
+| Target | PDB Directory |
+|---|---|
+| Server | `.dist/debug/server` |
+| Client | `.dist/debug/client` |
+
+---
+
 ## Contributions
 
 Building from source also enables you to contribute to the project. Whether you are implementing new features, improving existing systems, or fixing issues, contributions are encouraged.
