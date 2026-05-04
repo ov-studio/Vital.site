@@ -5,7 +5,7 @@ import { Footer } from '@/components/footer';
 import { Hero } from '@/components/home/hero';
 import { Features } from '@/components/home/features';
 import { Ethos } from '@/components/home/ethos';
-import { ClientShell } from '@/components/home/ClientShell';
+import { ClientShell } from '@/components/clientshell';
 
 export default function HomePage() {
   return (
