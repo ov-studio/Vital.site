@@ -1,5 +1,5 @@
 'use client';
-import { Effect } from '@/components/effect';
+import { Effect } from '@/components/clientshell/effect';
 
 export function ClientShell({ children }: { children: React.ReactNode }) {
     Effect();
