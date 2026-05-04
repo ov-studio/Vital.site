@@ -31,7 +31,6 @@
   align-items: center;
   gap: 10px;
   padding: 12px 16px 6px;
-  cursor: default;
 }
 
 .fcluster-dot {
@@ -177,7 +176,6 @@
   border: 1px solid var(--rule);
   padding: 5px 10px;
   white-space: nowrap;
-  cursor: default;
   transition: border-color .2s, color .2s;
 }
 .fnode-group:hover .fnode { border-color: var(--blue); color: var(--w); }
