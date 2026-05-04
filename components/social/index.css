@@ -1,7 +1,7 @@
 .social {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 3px;
     flex-shrink: 0;
 }
 
@@ -23,6 +23,6 @@
 }
 
 .social-icon {
-    width: 19px;
-    height: 19px;
+    width: 18px;
+    height: 18px;
 }
