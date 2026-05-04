@@ -81,6 +81,7 @@ aside#nd-sidebar[data-collapsed="true"] {
     border: 1px solid hsl(220, 18%, 12%);
     background: transparent;
     color: hsl(220, 10%, 50%);
+    cursor: pointer;
     transition: color 0.2s, background 0.2s;
 }
 
