@@ -32,7 +32,7 @@
   transform: translate(-50%, -50%);
   width: 36px;
   height: 36px;
-  border: 1px solid var(--b30);
+  border: 2px solid var(--b30);
   border-radius: 50%;
   transition: width .2s, height .2s, border-color .2s
 }
@@ -42,6 +42,7 @@ body:has(button:hover) #cur-outer {
   width: 52px;
   height: 52px;
   border-color: var(--blue)
+
 }
 
 body:has(a:hover) #cur-inner { transform: scale(1.6) }
