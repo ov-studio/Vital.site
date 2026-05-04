@@ -6,7 +6,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    cursor: none
 }
 
 body {
@@ -15,7 +14,6 @@ body {
     font-family: 'Barlow', sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    cursor: none
 }
 
 h1 {
