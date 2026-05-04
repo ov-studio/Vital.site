@@ -1,11 +1,15 @@
 import './index.css';
 
-export function Overlay() {
+interface OverlayProps {
+  vignette?: boolean;
+}
+
+export function Overlay({ vignette = true }: OverlayProps) {
   return (
     <>
-      <div id="vignette"/>
-      <div id="cur"><div id="cur-inner"/></div>
-      <div id="cur-outer"/>
+      {vignette && <div id="vignette" />}
+      <div id="cur"><div id="cur-inner" /></div>
+      <div id="cur-outer" />
     </>
   );
 }

@@ -9,7 +9,7 @@ import { ClientShell } from '@/components/clientshell';
 export default function Layout({ children }: LayoutProps<'/docs'>) {
   return (
     <ClientShell>
-      <Overlay />
+      <Overlay vignette={false} />
       <DocsLayout
         tree={source.getPageTree()}
         {...baseOptions()}
