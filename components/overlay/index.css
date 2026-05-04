@@ -49,5 +49,5 @@ body:has(a:hover) #cur-inner { transform: scale(1.6) }
 
 @media(max-width:960px) {
   #cur, #cur-outer { display: none }
-  body { cursor: auto }
+  * { cursor: auto; }
 }
