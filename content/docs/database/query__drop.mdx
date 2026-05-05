@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local status = db_query:drop()
+local promise = db_query:drop()
 ```
 
 ### Parameters
@@ -19,7 +19,17 @@ local status = db_query:drop()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | status | `true` on successful execution, or `false` on failure |
+| `promise` | promise | Refer [**Settlements**](#settlements) section |
+
+---
+
+### Settlements
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on success, `false` on failure |
+| `bool` | resolved | true |
+| `string` | rejected | Error message describing the failure |
 
 <hr/>
 
@@ -28,7 +38,12 @@ local status = db_query:drop()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Drop the players table from the database
-db:table("players")
-    :drop()
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :drop())
+
+    if not ok then
+        engine.print("error", "Drop failed: "..err)
+    end
+end):resume()
 ```
