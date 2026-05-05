@@ -38,7 +38,7 @@ local promise = db_query:fetch(
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Fetch all players with a score greater than 100"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
@@ -52,9 +52,14 @@ thread.create(function(self)
             engine.print("info", rows[i].id, rows[i].name, rows[i].score)
         end
     end
+end):resume()
+```
 
-    --Fetch only the top 5
-    local ok, top5 = self:await(db:table("players")
+```lua lineNumbers title="Fetch only the top 5 players"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
         :select("id", "name", "score")
         :where("score", ">", 100)
         :fetch(5))
