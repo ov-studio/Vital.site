@@ -17,7 +17,7 @@ local promise = rest.get(
 ```
 
 <Callout type="info">
-  **This function returns a promise — use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.**
+  **This function returns a promise — use [`thread:await`](/) inside a thread to retrieve the result.**
 
   - **Inside a thread** — `self:await(rest.get(...))` yields until the response is received, then returns the resolved values
   - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
@@ -35,26 +35,35 @@ local promise = rest.get(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `promise` | promise | Resolves with the response `string` on success, or rejects with an error `string` on failure |
+| `promise` | promise | Refer [**Promise**](#promise) section |
+
+---
+
+### Promise Results
+
+| Type | Name | Description |
+|---------|------|-------------|
+| `bool` | status | `true` on success, `false` on failure |
+| `string` | result | • When `true` - response body returned by the server<br/>• When `false` - error message describing the failure |
 
 <hr/>
 
 ### Examples
 
 ```lua lineNumbers title="Send a basic GET request"
-local t = thread.create(function(self)
+thread.create(function(self)
     local ok, result = self:await(rest.get("https://api.example.com/info"))
+    
     if ok then
         engine.print("info", "Response:", result)
     else
         engine.print("error", "Request failed:", result)
     end
-end)
-t:resume()
+end):resume()
 ```
 
 ```lua lineNumbers title="GET with custom headers and timeout"
-local t = thread.create(function(self)
+thread.create(function(self)
     local ok, result = self:await(rest.get(
         "https://api.example.com/data",
         {
@@ -63,7 +72,7 @@ local t = thread.create(function(self)
         },
         30
     ))
+
     engine.print("info", "Response:", result)
-end)
-t:resume()
+end):resume()
 ```

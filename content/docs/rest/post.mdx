@@ -18,7 +18,7 @@ local promise = rest.post(
 ```
 
 <Callout type="info">
-  **This function returns a promise — use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.**
+  **This function returns a promise — use [`thread:await`](/) inside a thread to retrieve the result.**
 
   - **Inside a thread** — `self:await(rest.post(...))` yields until the response is received, then returns the resolved values
   - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
@@ -37,7 +37,16 @@ local promise = rest.post(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `promise` | promise | Resolves with the response `string` on success, or rejects with an error `string` on failure |
+| `promise` | promise | Refer [**Promise**](#promise) section |
+
+---
+
+### Promise Results
+
+| Type | Name | Description |
+|---------|------|-------------|
+| `bool` | status | `true` on success, `false` on failure |
+| `string` | result | • When `true` - response body returned by the server<br/>• When `false` - error message describing the failure |
 
 <hr/>
 
@@ -74,7 +83,7 @@ thread.create(function(self)
         },
         30
     ))
-    
+
     engine.print("info", "Response:", result)
 end):resume()
 ```
