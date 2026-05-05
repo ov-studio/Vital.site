@@ -28,20 +28,22 @@ local promise = db_query:execute()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Insert a new player record
-db:table("players")
-    :insert({ name = "aviril", score = 0 })
-
---Update the score for a specific player
-db:table("players")
-    :update({ score = 500 })
-    :where("name", "=", "aviril")
-    :execute()
-
---Delete a specific player record
-db:table("players")
-    :delete()
-    :where("name", "=", "aviril")
-    :execute()
+thread.create(function(self)
+    --Insert a new player record
     self:await(db:table("players")
+        :insert({ name = "aviril", score = 0 })
+        :execute())
+
+    --Update the score for a specific player
+    self:await(db:table("players")
+        :update({ score = 500 })
+        :where("name", "=", "aviril")
+        :execute())
+
+    --Delete a specific player record
+    self:await(db:table("players")
+        :delete()
+        :where("name", "=", "aviril")
+        :execute())
+end):resume()
 ```
