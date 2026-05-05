@@ -31,7 +31,6 @@ local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 --Insert a new player record
 db:table("players")
     :insert({ name = "aviril", score = 0 })
-    :execute()
 
 --Update the score for a specific player
 db:table("players")
