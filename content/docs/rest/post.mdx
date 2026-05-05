@@ -7,9 +7,9 @@ badge: Shared
 ### Syntax
 
 ```lua
-local response, error = rest.post(
-    url, 
-    body, 
+local promise = rest.post(
+    url,
+    body,
     headers = {
         "Content-Type: application/json"
     },
@@ -17,12 +17,11 @@ local response, error = rest.post(
 )
 ```
 
-<Callout type="warn">
-  **Must be called within a valid thread context** to operate asynchronously and without blocking execution.
+<Callout type="info">
+  **This function returns a promise — use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.**
 
-  - **Inside a thread** — runs asynchronously, yielding until the response is received
-  - **Outside a thread** — the request will not be processed and execution may stall
-  - **Recommended usage** — wrap calls in a coroutine or a thread spawned via your runtime's threading API
+  - **Inside a thread** — `self:await(rest.post(...))` yields until the response is received, then returns the resolved values
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
 </Callout>
 
 ### Parameters
@@ -38,41 +37,44 @@ local response, error = rest.post(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` / `bool` | response | Response on successful execution, or `false` on failure |
-| `string` / `bool` | error | `false` on successful execution, or error on failure |
+| `promise` | promise | Resolves with the response `string` on success, or rejects with an error `string` on failure |
 
 <hr/>
 
 ### Examples
 
 ```lua lineNumbers title="Send a basic POST request with a JSON body"
-thread:create(function(self)
-    local response, errorcode = rest.post(
-        "https://api.example.com/users", 
+thread.create(function(self)
+    local ok, result = self:await(rest.post(
+        "https://api.example.com/users",
         table.encode({
-            name: "John Doe",
-            email: "john@example.com"
+            name = "John Doe",
+            email = "john@example.com"
         }, "JSON")
-    )
+    ))
 
-    engine.print("info", "Response:", response, errorcode)
+    if ok then
+        engine.print("info", "Response:", result)
+    else
+        engine.print("error", "Request failed:", result)
+    end
 end):resume()
 ```
 
 ```lua lineNumbers title="POST with custom authorization header and timeout"
-thread:create(function(self)
-    local response, errorcode = rest.post(
-        "https://api.example.com/users", 
+thread.create(function(self)
+    local ok, result = self:await(rest.post(
+        "https://api.example.com/users",
         table.encode({
-            name: "John Doe",
-            email: "john@example.com"
-        }, "JSON"), 
+            name = "John Doe",
+            email = "john@example.com"
+        }, "JSON"),
         {
             "Authorization: Bearer my-token"
         },
         30
-    )
-
-    engine.print("info", "Response:", response, errorcode)
+    ))
+    
+    engine.print("info", "Response:", result)
 end):resume()
 ```
