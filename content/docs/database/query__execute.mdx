@@ -19,7 +19,16 @@ local promise = db_query:execute()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | status | `true` on successful execution, or `false` on failure |
+| `promise` | promise | Refer [**Settlements**](#settlements) section |
+
+---
+
+### Settlements
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on success, `false` on failure |
+| `bool` | resolved | true |
 | `string` | rejected | Error message describing the failure |
 
 <hr/>
