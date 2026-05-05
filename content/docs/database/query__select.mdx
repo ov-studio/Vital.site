@@ -36,15 +36,34 @@ local query = db_query:select(
 ---
 
 ### Examples
-```lua
+
+```lua lineNumbers title="Fetch specific columns from the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Fetch specific columns from the players table
-local rows = db:table("players")
-    :select("id", "name", "score")
-    :fetch()
+thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :select("id", "name", "score")
+        :fetch())
 
---Fetch all columns from the players table
-local rows = db:table("players")
-    :fetch()
+    if ok then
+        for i = 1, #rows do
+            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Fetch all columns from the 'players' table"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :fetch())
+
+    if ok then
+        for i = 1, #rows do
+            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
+end):resume()
 ```
