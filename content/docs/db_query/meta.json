@@ -6,10 +6,10 @@
         "method__is_type",
         "method__get_type",
         "method__destroy",
+        "method__fetch",
+        "method__alter",
         "method__drop",
         "method__truncate",
-        "method__alter",
-        "method__fetch",
         "method__execute",
 
         "---::Builder---",
