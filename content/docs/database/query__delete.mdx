@@ -33,12 +33,32 @@ local query = db_query:delete()
 ---
 
 ### Examples
-```lua
+
+```lua lineNumbers title="Delete a specific player record"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Delete a specific player record
-db:table("players")
-    :delete()
-    :where("name", "=", "aviril")
-    :execute()
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :delete()
+        :where("name", "=", "aviril")
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Delete all rows in the 'players' table"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :delete()
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
 ```
