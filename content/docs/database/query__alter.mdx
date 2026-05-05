@@ -12,6 +12,13 @@ local promise = db_query:alter(
 )
 ```
 
+<Callout type="info">
+  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Inside a thread** — `self:await(db:table(...):alter(...))` yields until the operation completes, then returns the resolved values
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
+</Callout>
+
 <Callout type="warning">
   **This operation executes immediately and cannot be rolled back.** Ensure data is migrated or backed up before modifying or dropping columns.
 
