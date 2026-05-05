@@ -36,12 +36,49 @@ local query = db_query:update(
 ---
 
 ### Examples
-```lua
+
+```lua lineNumbers title="Update a column for a specific row in the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Update the score for a specific player
-db:table("players")
-    :update({ score = 500 })
-    :where("name", "=", "aviril")
-    :execute()
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 500 })
+        :where("name", "=", "aviril")
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Update all rows in the 'players' table without a condition"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 0 })
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Chain multiple updates and multiple conditions in a single execution"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 1000 })
+        :update({ rank = "elite" })
+        :where("name", "=", "aviril")
+        :where("score", ">=", 500)
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
 ```
