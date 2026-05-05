@@ -44,7 +44,7 @@ thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", "Insert failed: "..err)
+        engine.print("error", err)
     end
 end):resume()
 ```
@@ -59,7 +59,7 @@ thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", "Update failed: "..err)
+        engine.print("error", err)
     end
 end):resume()
 ```
@@ -74,7 +74,7 @@ thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", "Delete failed: "..err)
+        engine.print("error", err)
     end
 end):resume()
 ```

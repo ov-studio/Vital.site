@@ -43,7 +43,7 @@ thread.create(function(self)
         :drop())
 
     if not ok then
-        engine.print("error", "Drop failed: "..err)
+        engine.print("error", err)
     end
 end):resume()
 ```
