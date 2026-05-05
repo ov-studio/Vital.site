@@ -56,37 +56,65 @@ local promise = db_query:alter(
 | `string` | resolved | Schema was successfully altered |
 | `string` | rejected | Error message describing the failure |
 
---Expand the name column and make score non-nullable
-db:table("players")
-    :alter({
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Add new columns to the players table"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    self:await(db:table("players"):alter({
+        add = {
+            age = { type = "INT UNSIGNED", nullable = false },
+            country = { type = "VARCHAR(64)", nullable = true }
+        }
+    }))
+
+    if not ok then
+        engine.print("error", "Alter failed: "..err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Expand the name column and make score non-nullable"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    self:await(db:table("players"):alter({
         modify = {
             name = { type = "VARCHAR(128)", nullable = false },
             score = { type = "INT", nullable = false }
         }
-    })
-
---Drop legacy columns from the players table
-db:table("players")
-    :alter({
-        drop = { "legacy_col1", "legacy_col2" }
-    })
+    }))
+end):resume()
 ```
 
-```lua
+    :alter({
+```lua lineNumbers title="Drop legacy columns from the players table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
-    self:await(db:table("players")
-        :alter({
-            add = {
-                age = { type = "INT UNSIGNED", nullable = false },
-                country = { type = "VARCHAR(64)", nullable = true }
-            },
-            modify = {
-                name = { type = "VARCHAR(128)", nullable = false },
-                score = { type = "INT", nullable = false }
-            },
-            drop = { "legacy_col1", "legacy_col2" }
-        }))
+    self:await(db:table("players"):alter({
+        drop = { "legacy_col1", "legacy_col2" }
+    }))
+end):resume()
+```
+
+```lua lineNumbers title="Add, modify, and drop columns in one atomic operation"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    self:await(db:table("players"):alter({
+        add = {
+            age = { type = "INT UNSIGNED", nullable = false },
+            country = { type = "VARCHAR(64)", nullable = true }
+        },
+
+        modify = {
+            name = { type = "VARCHAR(128)", nullable = false },
+            score = { type = "INT", nullable = false }
+        },
+        
 end):resume()
 ```
