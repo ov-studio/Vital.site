@@ -52,7 +52,7 @@ local query = db_query:where(
 
 ### Examples
 
-```lua lineNumbers title="Filter rows with a single condition using :select"
+```lua lineNumbers title="Filter rows with a single condition"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
@@ -69,7 +69,7 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Chain multiple conditions with :select"
+```lua lineNumbers title="Chain multiple conditions to filter rows"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
@@ -87,7 +87,7 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Update rows with a single condition using :update"
+```lua lineNumbers title="Update rows with a single condition"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
@@ -102,7 +102,7 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Chain multiple conditions with :update"
+```lua lineNumbers title="Chain multiple conditions to update rows"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
