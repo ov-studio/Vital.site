@@ -13,23 +13,6 @@
         "method__destroy",
         "method__define",
         "method__sync",
-        "method__table",
-
-        "---query---",
-        "query__is_type",
-        "query__get_type",
-        "query__destroy",
-        "query__drop",
-        "query__truncate",
-        "query__alter",
-        "query__fetch",
-        "query__execute",
-
-        "---query builder---",
-        "query__select",
-        "query__where",
-        "query__insert",
-        "query__delete",
-        "query__update"
+        "method__table"
     ]
 }

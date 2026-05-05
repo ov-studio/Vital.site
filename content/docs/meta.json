@@ -14,6 +14,7 @@
         "model",
         "webview",
         "database",
+        "db_query",
         "discord",
         "font",
         "texture",
