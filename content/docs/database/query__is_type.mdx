@@ -28,10 +28,10 @@ local result = db_query:is_type(
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Check the type of a db_query instance"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 local query = db:table("players")
 
-engine.print("info", db:is_type("db_query")) --true
-engine.print("info", db:is_type("database")) --false
+engine.print("info", query:is_type("db_query")) --true
+engine.print("info", query:is_type("database")) --false
 ```
