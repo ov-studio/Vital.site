@@ -61,5 +61,11 @@ db:define("players", {
 })
 
 --Sync all defined schemas to the database
-db:sync()
+thread.create(function(self)
+    local ok, err = self:await(db:sync())
+    
+    if not ok then
+        engine.print("error", "Sync failed: "..err)
+    end
+end):resume()
 ```
