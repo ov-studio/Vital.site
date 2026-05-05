@@ -42,7 +42,7 @@ local promise = db_query:drop()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Drop the 'players' table from the database"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
