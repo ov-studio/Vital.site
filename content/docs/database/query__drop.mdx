@@ -10,6 +10,13 @@ badge: Server
 local promise = db_query:drop()
 ```
 
+<Callout type="info">
+  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Inside a thread** — `self:await(db:table(...):drop())` yields until the operation completes, then returns the resolved values
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
+</Callout>
+
 ### Parameters
 
 | No parameters are accepted by this function |
