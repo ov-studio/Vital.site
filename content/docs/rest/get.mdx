@@ -63,7 +63,7 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="GET with custom headers and timeout"
+```lua lineNumbers title="Send a GET with custom headers and timeout"
 thread.create(function(self)
     local ok, result = self:await(rest.get(
         "https://api.example.com/data",

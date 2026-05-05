@@ -71,7 +71,7 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="POST with custom authorization header and timeout"
+```lua lineNumbers title="Send a POST with custom authorization header and timeout"
 thread.create(function(self)
     local ok, result = self:await(rest.post(
         "https://api.example.com/users",
