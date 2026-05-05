@@ -16,7 +16,7 @@ local query = db_query:select(
   **This function only prepares the query and does not execute it.** Chain [`db_query:fetch`](/docs/database/query/fetch) at the end to retrieve the results.
 
   - **Chaining** — compatible with `:where` to apply filters to the selection
-  - **Multiple selections** — chain multiple `:select` calls to append additional columns to the selectionZ
+  - **Multiple selections** — chain multiple `:select` calls to append additional columns to the selection
   - **Without selections** — all columns are returned, equivalent to `SELECT *`
   - **Multiple conditions** — chain multiple `:where` calls to apply additional filters
 </Callout>
