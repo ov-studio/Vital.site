@@ -51,18 +51,69 @@ local query = db_query:where(
 ---
 
 ### Examples
-```lua
+
+```lua lineNumbers title="Filter rows with a single condition using :select"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Fetch all players with a score greater than 100
-local rows = db:table("players")
-    :select("id", "name", "score")
-    :where("score", ">", 100)
-    :fetch()
+thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :select("id", "name", "score")
+        :where("score", ">", 100)
+        :fetch())
 
---Update the score for a specific player
-db:table("players")
-    :update({ score = 500 })
-    :where("name", "=", "aviril")
-    :execute()
+    if ok then
+        for i = 1, #rows do
+            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Chain multiple conditions with :select"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :select("id", "name", "score")
+        :where("name", "=", "aviril")
+        :where("score", ">=", 500)
+        :fetch())
+
+    if ok then
+        for i = 1, #rows do
+            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Update rows with a single condition using :update"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 500 })
+        :where("name", "=", "aviril")
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Chain multiple conditions with :update"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 0 })
+        :where("status", "=", "active")
+        :where("score", "<", 50)
+        :execute())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
 ```
