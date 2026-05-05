@@ -25,7 +25,7 @@ local result = self:is_connected()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Check whether the database connection is active"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 engine.print("info", db:is_connected()) --true
