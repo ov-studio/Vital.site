@@ -27,7 +27,7 @@ local status = self:destroy()
 
 ```lua lineNumbers title="Destroy a query builder instance and free its resources"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local query = db:table("players")
 
-db:table("players")
-    :destroy()
+query:destroy()
 ```
