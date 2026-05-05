@@ -10,6 +10,13 @@ badge: Server
 local promise = db_query:truncate()
 ```
 
+<Callout type="info">
+  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Inside a thread** — `self:await(db:table(...):truncate())` yields until the operation completes, then returns the resolved values
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
+</Callout>
+
 ### Parameters
 
 | No parameters are accepted by this function |
@@ -35,7 +42,7 @@ local promise = db_query:truncate()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Truncate all rows from the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
