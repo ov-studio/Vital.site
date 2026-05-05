@@ -50,5 +50,12 @@ db:define("players", {
     name = { type = "VARCHAR(64)", nullable = false },
     score = { type = "INT", nullable = true }
 })
-db:sync()
+
+thread.create(function(self)
+    local ok, err = self:await(db:sync())
+
+    if not ok then
+        engine.print("error", err)
+    end
+end):resume()
 ```
