@@ -35,23 +35,32 @@ local promise = db_query:execute()
 
 ### Examples
 
-```lua
+```lua lineNumbers title="Insert a new player record"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
-    --Insert a new player record
-    self:await(db:table("players")
+    local ok, err = self:await(db:table("players")
         :insert({ name = "aviril", score = 0 })
         :execute())
+end):resume()
+```
 
-    --Update the score for a specific player
-    self:await(db:table("players")
+```lua lineNumbers title="Update the score for a specific player"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
         :update({ score = 500 })
         :where("name", "=", "aviril")
         :execute())
+end):resume()
+```
 
-    --Delete a specific player record
-    self:await(db:table("players")
+```lua lineNumbers title="Delete a specific player record"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
         :delete()
         :where("name", "=", "aviril")
         :execute())
