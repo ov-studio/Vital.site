@@ -51,14 +51,11 @@ local status = db_query:alter(
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Add new columns to the players table
-db:table("players")
-    :alter({
-        add = {
-            age = { type = "INT UNSIGNED", nullable = false },
-            country = { type = "VARCHAR(64)", nullable = true }
-        }
-    })
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on success, `false` on failure |
+| `string` | resolved | Schema was successfully altered |
+| `string` | rejected | Error message describing the failure |
 
 --Expand the name column and make score non-nullable
 db:table("players")
