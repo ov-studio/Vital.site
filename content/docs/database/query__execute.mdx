@@ -42,6 +42,10 @@ thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :insert({ name = "aviril", score = 0 })
         :execute())
+
+    if not ok then
+        engine.print("error", "Insert failed: "..err)
+    end
 end):resume()
 ```
 
@@ -53,6 +57,10 @@ thread.create(function(self)
         :update({ score = 500 })
         :where("name", "=", "aviril")
         :execute())
+
+    if not ok then
+        engine.print("error", "Update failed: "..err)
+    end
 end):resume()
 ```
 
@@ -64,5 +72,9 @@ thread.create(function(self)
         :delete()
         :where("name", "=", "aviril")
         :execute())
+
+    if not ok then
+        engine.print("error", "Delete failed: "..err)
+    end
 end):resume()
 ```
