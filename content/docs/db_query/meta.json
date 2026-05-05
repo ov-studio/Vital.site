@@ -1,6 +1,6 @@
 {
     "title": "Database Query",
-    "icon": "Database",
+    "icon": "TableProperties",
     "pages": [
         "---::API---",
         "method__is_type",
