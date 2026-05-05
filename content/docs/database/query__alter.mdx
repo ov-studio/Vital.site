@@ -76,17 +76,18 @@ db:table("players")
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Add, modify, and drop columns in one atomic operation
-db:table("players")
-    :alter({
-        add = {
-            age = { type = "INT UNSIGNED", nullable = false },
-            country = { type = "VARCHAR(64)", nullable = true }
-        },
-        modify = {
-            name = { type = "VARCHAR(128)", nullable = false },
-            score = { type = "INT", nullable = false }
-        },
-        drop = { "legacy_col1", "legacy_col2" }
-    })
+thread.create(function(self)
+    self:await(db:table("players")
+        :alter({
+            add = {
+                age = { type = "INT UNSIGNED", nullable = false },
+                country = { type = "VARCHAR(64)", nullable = true }
+            },
+            modify = {
+                name = { type = "VARCHAR(128)", nullable = false },
+                score = { type = "INT", nullable = false }
+            },
+            drop = { "legacy_col1", "legacy_col2" }
+        }))
+end):resume()
 ```
