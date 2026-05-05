@@ -43,4 +43,5 @@ db:table("players")
     :delete()
     :where("name", "=", "aviril")
     :execute()
+    self:await(db:table("players")
 ```
