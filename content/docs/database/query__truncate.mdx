@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local status = db_query:truncate()
+local promise = db_query:truncate()
 ```
 
 ### Parameters
@@ -28,7 +28,12 @@ local status = db_query:truncate()
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Remove all rows from the players table
-db:table("players")
-    :truncate()
+thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :truncate())
+
+    if not ok then
+        engine.print("error", "Truncate failed: "..err)
+    end
+end):resume()
 ```
