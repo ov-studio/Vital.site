@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local rows = db_query:fetch(
+local promise = db_query:fetch(
     limit = 0
 )
 ```
@@ -22,7 +22,17 @@ local rows = db_query:fetch(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | rows | Array of matching rows, where each row is a table of column name to value pairs |
+| `promise` | promise | Refer [**Settlements**](#settlements) section |
+
+---
+
+### Settlements
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on success, `false` on failure |
+| `table` | resolved | Array of matching rows, where each row is a table of column name to value pairs |
+| `string` | rejected | Error message describing the failure |
 
 <hr/>
 
@@ -31,20 +41,22 @@ local rows = db_query:fetch(
 ```lua
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
---Fetch all players with a score greater than 100
-local rows = db:table("players")
-    :select("id", "name", "score")
-    :where("score", ">", 100)
-    :fetch()
+thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :select("id", "name", "score")
+        :where("score", ">", 100)
+        :fetch())
 
---Fetch only the top 5 players with a score greater than 100
-local top5 = db:table("players")
-    :select("id", "name", "score")
-    :where("score", ">", 100)
-    :fetch(5)
+    if ok then
+        for i = 1, #rows do
+            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
 
---Iterate over the results and print each row
-for i = 1, #rows do
-    engine.print("info", rows[i].id, rows[i].name, rows[i].score)
-end
+    --Fetch only the top 5
+    local ok, top5 = self:await(db:table("players")
+        :select("id", "name", "score")
+        :where("score", ">", 100)
+        :fetch(5))
+end):resume()
 ```
