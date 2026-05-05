@@ -12,6 +12,7 @@ local promise = db_query:fetch(
 )
 ```
 
+  - **Inside a thread** — `self:await(db:table(...):fetch())` yields until the results are retrieved, then returns the resolved values
 ### Parameters
 
 | Type | Name | Description |
