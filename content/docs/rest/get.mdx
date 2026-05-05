@@ -44,7 +44,8 @@ local promise = rest.get(
 | Type | Name | Description |
 |---------|------|-------------|
 | `bool` | status | `true` on success, `false` on failure |
-| `string` | result | • When `true` - response body returned by the server<br/>• When `false` - error message describing the failure |
+| `string` | resolved | Response body returned by the server |
+| `string` | rejected | Error message describing the failure |
 
 <hr/>
 
