@@ -42,8 +42,11 @@ local instance = database.create(
 ---
 
 ### Examples
-```lua
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
+```lua lineNumbers title="Connect to a local database without a password"
+local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+```
+
+```lua lineNumbers title="Connect with a password and custom port"
 local db = database.create("127.0.0.1", "root", "secret", "vital_sandbox", 3307)
 ```
