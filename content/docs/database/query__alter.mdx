@@ -67,7 +67,7 @@ local promise = db_query:alter(
 
 ### Examples
 
-```lua lineNumbers title="Add new columns to the players table"
+```lua lineNumbers title="Add new columns to the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
@@ -103,7 +103,7 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Drop legacy columns from the players table"
+```lua lineNumbers title="Drop legacy columns from the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 thread.create(function(self)
