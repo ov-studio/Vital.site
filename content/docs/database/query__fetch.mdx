@@ -63,5 +63,11 @@ thread.create(function(self)
         :select("id", "name", "score")
         :where("score", ">", 100)
         :fetch(5))
+
+    if ok then
+        for i = 1, #rows do
+            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
 end):resume()
 ```
