@@ -73,6 +73,10 @@ thread.create(function(self)
         30
     ))
 
-    engine.print("info", "Response:", result)
+    if ok then
+        engine.print("info", "Response:", result)
+    else
+        engine.print("error", "Request failed:", result)
+    end
 end):resume()
 ```
