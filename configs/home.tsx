@@ -3,7 +3,7 @@ export const Features_Content = [
   { id: 'rendering', label: 'Rendering', angle: 51, desc: 'Full programmatic control over 2D canvas, textures, fonts, rendertargets, and embedded web content.', items: ['Canvas', 'Rendertarget', 'Texture', 'Font', 'Webview'] },
   { id: 'models', label: 'Models', angle: 102, desc: 'Load, spawn, transform, animate, and morph 3D assets at runtime — built for advanced customization systems.', items: ['Load / Unload', 'Instantiation', 'Transform', 'Animation', 'Blend Shapes', 'Visibility'] },
   { id: 'threading', label: 'Threading', angle: 180, desc: 'Async/await, promises, heartbeats, and low-level thread pooling — modern concurrency without sacrificing control.', items: ['Async / Await', 'Promises', 'Heartbeats', 'Threader'] },
-  { id: 'networking', label: 'Networking', angle: 231, desc: 'HTTP REST, high-performance transport, and precise task scheduling for time-sensitive execution.', items: ['REST', 'Robust Transport', 'Scheduling'] },
+  { id: 'networking', label: 'Networking', angle: 231, desc: 'HTTP, high-performance transport, and precise task scheduling for time-sensitive execution.', items: ['HTTP', 'Robust Transport', 'Scheduling'] },
   { id: 'sandbox', label: 'Sandboxing', angle: 282, desc: 'Full Lua isolation with no access to host internals — safe, extensible, built for user scripting and plugins.', items: ['Lua Isolation', 'User Scripting', 'Plugin Systems'] },
   { id: 'integrations', label: 'Integrations', angle: 333, desc: 'Native Discord Rich Presence and a pub/sub event system for clean decoupled module communication.', items: ['Discord SDK', 'Event System'] },
 ];
