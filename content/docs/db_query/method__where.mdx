@@ -27,13 +27,13 @@ local query = self:where(
 |------|------|-------------|
 | `string` | column | Name of the column to filter on |
 | `string` | operator | Comparison operator to apply<br/>Refer [**Operators**](#operators) section |
-| `string` / `number` | value | Value to compare the column against |
+| `string` \| `number` | value | Value to compare the column against |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `db_query` / `bool` | query | Query builder instance on successful execution, or `false` on failure |
+| `db_query` \| `bool` | query | Query builder instance on successful execution, or `false` on failure |
 
 ---
 
