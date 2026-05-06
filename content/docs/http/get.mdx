@@ -65,8 +65,7 @@ end):resume()
 
 ```lua lineNumbers title="Send a GET with custom headers and timeout"
 thread.create(function(self)
-    local ok, result = self:await(http.get(
-        "https://api.example.com/data",
+    local ok, result = self:await(http.get("https://api.example.com/data",
         {
             "User-Agent: MyApp",
             "Accept: application/json"

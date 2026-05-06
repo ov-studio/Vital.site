@@ -55,8 +55,7 @@ local promise = http.post(
 
 ```lua lineNumbers title="Send a basic POST request with a JSON body"
 thread.create(function(self)
-    local ok, result = self:await(http.post(
-        "https://api.example.com/users",
+    local ok, result = self:await(http.post("https://api.example.com/users",
         table.encode({
             name = "John Doe",
             email = "john@example.com"
@@ -73,8 +72,7 @@ end):resume()
 
 ```lua lineNumbers title="Send a POST with custom authorization header and timeout"
 thread.create(function(self)
-    local ok, result = self:await(http.post(
-        "https://api.example.com/users",
+    local ok, result = self:await(http.post("https://api.example.com/users",
         table.encode({
             name = "John Doe",
             email = "john@example.com"
