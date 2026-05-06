@@ -25,7 +25,7 @@
         "timer",
         "thread",
         "file",
-        "rest",
+        "http",
         "crypto",
         "shrinker",
         "string",

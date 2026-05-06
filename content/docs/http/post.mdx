@@ -1,14 +1,15 @@
 ---
-title: rest.get
-description: Executes a GET request on specified url
+title: http.post
+description: Executes a POST request on specified url
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local promise = rest.get(
+local promise = http.post(
     url,
+    body,
     headers = {
         "Content-Type: application/json"
     },
@@ -19,7 +20,7 @@ local promise = rest.get(
 <Callout type="info">
   **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
 
-  - **Inside a thread** — `self:await(rest.get(...))` yields until the response is received, then returns the resolved values
+  - **Inside a thread** — `self:await(http.post(...))` yields until the response is received, then returns the resolved values
   - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
 </Callout>
 
@@ -28,6 +29,7 @@ local promise = rest.get(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | url | Request URL to query |
+| `string` | body | Request body for query |
 | `table` | headers | Request headers for query |
 | `int` | timeout | Read timeout in seconds |
 
@@ -51,10 +53,16 @@ local promise = rest.get(
 
 ### Examples
 
-```lua lineNumbers title="Send a basic GET request"
+```lua lineNumbers title="Send a basic POST request with a JSON body"
 thread.create(function(self)
-    local ok, result = self:await(rest.get("https://api.example.com/info"))
-    
+    local ok, result = self:await(http.post(
+        "https://api.example.com/users",
+        table.encode({
+            name = "John Doe",
+            email = "john@example.com"
+        }, "JSON")
+    ))
+
     if ok then
         engine.print("info", "Response:", result)
     else
@@ -63,13 +71,16 @@ thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Send a GET with custom headers and timeout"
+```lua lineNumbers title="Send a POST with custom authorization header and timeout"
 thread.create(function(self)
-    local ok, result = self:await(rest.get(
-        "https://api.example.com/data",
+    local ok, result = self:await(http.post(
+        "https://api.example.com/users",
+        table.encode({
+            name = "John Doe",
+            email = "john@example.com"
+        }, "JSON"),
         {
-            "User-Agent: MyApp",
-            "Accept: application/json"
+            "Authorization: Bearer my-token"
         },
         30
     ))
