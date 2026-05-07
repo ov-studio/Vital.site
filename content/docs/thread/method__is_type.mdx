@@ -30,9 +30,10 @@ local result = self:is_type(
 
 ```lua lineNumbers title="Check the type of a thread instance"
 local ctx = thread.create(function(self)
-    engine.print("info", self:is_type("thread")) --true
-    engine.print("info", self:is_type("database")) --false
+    self:sleep(2000)
 end)
 
 ctx:resume()
+engine.print("info", self:is_type("thread")) --true
+engine.print("info", self:is_type("database")) --false
 ```
