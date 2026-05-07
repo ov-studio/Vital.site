@@ -11,8 +11,10 @@
         "method__get_type",
         "method__destroy",
 
-       "---::API---",
+        "---::Checker---",
         "method__is_connected",
+        
+        "---::API---",
         "method__define",
         "method__sync",
         "method__table"

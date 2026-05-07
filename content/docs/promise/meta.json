@@ -11,8 +11,10 @@
         "method__get_type",
         "method__destroy",
 
-        "---::API---",
+        "---::Checker---",
         "method__is_pending",
+
+        "---::API---",
         "method__resolve",
         "method__reject"
     ]
