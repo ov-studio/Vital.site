@@ -11,15 +11,14 @@
     justify-content: center;
     width: 34px;
     height: 34px;
-    color: var(--social-color);
+    color: var(--dim);
     text-decoration: none;
-    transition: color .2s, background .2s;
+    transition: color .2s;
     border-radius: 6px;
 }
 
 .social-link:hover {
-    color: var(--social-color);
-    background: var(--social-hover-bg);
+    color: var(--white);
 }
 
 .social-icon {

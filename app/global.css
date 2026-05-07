@@ -10,7 +10,7 @@
 
 body {
     background: var(--bg);
-    color: var(--w);
+    color: var(--white);
     font-family: 'Barlow', sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -120,7 +120,7 @@ h2 span {
     font-weight: 500;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: var(--w);
+    color: var(--white);
     text-decoration: none;
     display: flex;
     align-items: center;

@@ -54,7 +54,7 @@
   flex: 1;
   transition: color .2s;
 }
-.fcluster:hover .fcluster-label { color: var(--w); }
+.fcluster:hover .fcluster-label { color: var(--white); }
 
 .fcluster-count {
   font-family: 'Geist Mono', monospace;
@@ -180,7 +180,7 @@
   cursor: default;
   transition: border-color .2s, color .2s;
 }
-.fnode-group:hover .fnode { border-color: var(--blue); color: var(--w); }
+.fnode-group:hover .fnode { border-color: var(--blue); color: var(--white); }
 
 .fnode-leaves {
   position: absolute;

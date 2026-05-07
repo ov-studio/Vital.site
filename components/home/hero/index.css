@@ -95,7 +95,7 @@
 }
 
 .hm-word { color: var(--text-muted); }
-.hm-blue { color: var(--w); }
+.hm-blue { color: var(--white); }
 .hm-sep  { color: var(--text-sep); font-weight: 300; }
 
 .hero-sub {
@@ -162,7 +162,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--w);
+  color: var(--white);
   letter-spacing: .02em;
   line-height: 1;
 }
