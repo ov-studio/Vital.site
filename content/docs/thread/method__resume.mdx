@@ -46,6 +46,5 @@ local ctx = thread.create(function(self)
 end)
 
 ctx:resume()
-
-engine.print("info", ctx:resume()) --false, thread is sleeping
+engine.print("info", ctx:resume()) --false
 ```
