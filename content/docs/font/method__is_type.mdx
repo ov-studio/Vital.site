@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of a font instance"
-local fontface = font.create("fonts/Roboto-Regular.ttf")
+local ft = font.create("fonts/Roboto-Regular.ttf")
 
-engine.print("info", fontface:is_type("font")) --true
-engine.print("info", fontface:is_type("texture")) --false
+engine.print("info", ft:is_type("font")) --true
+engine.print("info", ft:is_type("texture")) --false
 ```

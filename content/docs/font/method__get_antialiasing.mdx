@@ -26,7 +26,7 @@ local result = self:get_antialiasing()
 ### Examples
 
 ```lua lineNumbers title="Get the antialiasing state of a font"
-local fontface = font.create("fonts/Roboto-Regular.ttf")
+local ft = font.create("fonts/Roboto-Regular.ttf")
 
-engine.print("info", "Font antialiasing:", fontface:get_antialiasing())
+engine.print("info", "Font antialiasing:", ft:get_antialiasing())
 ```
