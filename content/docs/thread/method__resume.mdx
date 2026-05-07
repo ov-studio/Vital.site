@@ -1,22 +1,26 @@
 ---
 title: self:resume
-description: Resumes an existing suspended thread
+description: Resumes a suspended thread instance
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local status = self:resume(
-    options = false
-)
+local status = self:resume()
 ```
+
+<Callout type="info">
+  **A thread cannot be resumed while it is sleeping or awaiting a promise.** Both states must be cleared before `self:resume` can run successfully.
+
+  - **Sleeping** — the thread is currently inside a [`self:sleep`](/docs/thread/method/sleep) call and has not yet woken up
+  - **Awaiting** — the thread is currently suspended inside a [`self:await`](/docs/thread/method/await) call waiting for a promise to settle
+</Callout>
 
 ### Parameters
 
-| Type | Name | Description |
-|------|------|-------------|
-| `table` | options | Options containing the following fields:<br/>• `executions` (number) - number of executions per resume<br/>• `interval` (number) - resume interval in milliseconds |
+| No parameters are accepted by this function |
+|---------------------------------------------|
 
 ### Returns
 
@@ -24,27 +28,24 @@ local status = self:resume(
 |------|------|-------------|
 | `bool` | status | `true` on successful execution, or `false` on failure |
 
-<hr/>
+---
 
 ### Examples
 
-```lua lineNumbers title="Resume a thread once"
-local self = thread:create(function(self)
-    for i = 1, 5, 1 do
-        engine.print("info", "Thread iteration count", i)
-    end
+```lua lineNumbers title="Create and resume a basic thread"
+local ctx = thread.create(function(self)
+    engine.print("info", "Hello from thread")
 end)
 
-self:resume()
+ctx:resume()
 ```
 
-```lua lineNumbers title="Automatically resume a thread on an interval"
-local self = thread:create(function(self)
-    for i = 1, 5, 1 do
-        thread:pause()
-        engine.print("info", "Thread iteration count", i)
-    end
+```lua lineNumbers title="Attempt to resume a sleeping thread"
+local ctx = thread.create(function(self)
+    self:sleep(5000)
 end)
 
-self:resume({executions = 1, interval = 1000})
+ctx:resume()
+
+engine.print("info", ctx:resume()) --false, thread is sleeping
 ```

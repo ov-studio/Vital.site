@@ -1,22 +1,29 @@
 ---
 title: self:sleep
-description: Puts an existing thread on sleep
+description: Suspends the thread for the specified duration, then resumes automatically
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local status = self:sleep(
+self:sleep(
     duration
 )
 ```
+
+<Callout type="info">
+  **A thread cannot be put to sleep if it is already sleeping or awaiting a promise.** Both conditions will cause the call to return `false` immediately.
+
+  - **Available** — the thread yields for the given duration and resumes automatically when the timer expires
+  - **Sleeping or awaiting** — the call is ignored and returns `false`
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | duration | Sleep duration in milliseconds |
+| `int` | duration | Sleep duration in milliseconds, must be `>= 0` |
 
 ### Returns
 
@@ -24,16 +31,27 @@ local status = self:sleep(
 |------|------|-------------|
 | `bool` | status | `true` on successful execution, or `false` on failure |
 
-<hr/>
+---
 
 ### Examples
 
 ```lua lineNumbers title="Sleep a thread for 5 seconds then continue"
-local self = thread:create(function(self)
-    engine.print("info", "Thread sleeping for 5 seconds")
+local ctx = thread.create(function(self)
+    engine.print("info", "Sleeping for 5 seconds")
     self:sleep(5000)
-    engine.print("info", "Thread awaken now")
+    engine.print("info", "Awake now")
 end)
 
-self:resume()
+ctx:resume()
+```
+
+```lua lineNumbers title="Sleep repeatedly inside a loop"
+local ctx = thread.create(function(self)
+    for i = 1, 3 do
+        engine.print("info", "Tick", i)
+        self:sleep(1000)
+    end
+end)
+
+ctx:resume()
 ```

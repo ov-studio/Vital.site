@@ -1,13 +1,13 @@
 ---
-title: self:destroy
-description: Destroys the thread instance and frees its resources
+title: self:get_type
+description: Returns the type name of the instance
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local status = self:destroy()
+local result = self:get_type()
 ```
 
 ### Parameters
@@ -19,17 +19,16 @@ local status = self:destroy()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | status | `true` on successful execution, or `false` on failure |
+| `string` \| `bool` | result | Type of the instance, or `false` if unavailable |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Destroy a thread instance"
+```lua lineNumbers title="Get the type of a thread instance"
 local ctx = thread.create(function(self)
-    engine.print("info", "Hello from thread")
+    engine.print("info", self:get_type()) --'thread'
 end)
 
 ctx:resume()
-ctx:destroy()
 ```

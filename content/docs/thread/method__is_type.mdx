@@ -1,0 +1,38 @@
+---
+title: self:is_type
+description: Checks whether the instance belongs to the specified type
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_type(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type to check against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the type of a thread instance"
+local ctx = thread.create(function(self)
+    engine.print("info", self:is_type("thread")) --true
+    engine.print("info", self:is_type("database")) --false
+end)
+
+ctx:resume()
+```

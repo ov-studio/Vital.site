@@ -1,13 +1,13 @@
 ---
-title: thread:create
-description: Creates a new thread context
+title: thread.create
+description: Creates a new thread instance
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local ctx = thread:create(
+local ctx = thread.create(
     exec
 )
 ```
@@ -22,9 +22,9 @@ local ctx = thread:create(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `thread` \| `bool` | ctx | `thread` instance on successful execution, or `false` on failure |
+| `thread` \| `bool` | ctx | Created `thread` instance on successful execution, or `false` on failure |
 
-<hr/>
+---
 
 ### Callback: `exec`
 
@@ -36,14 +36,24 @@ exec(self)
 |------|------|-------------|
 | `thread` | self | Running thread instance |
 
-<hr/>
+---
 
 ### Examples
 
 ```lua lineNumbers title="Create and resume a basic thread"
-local self = thread:create(function(self)
+local ctx = thread.create(function(self)
     engine.print("info", "Hello from thread")
 end)
 
-self:resume()
+ctx:resume()
+```
+
+```lua lineNumbers title="Create a thread and sleep inside it"
+local ctx = thread.create(function(self)
+    engine.print("info", "Sleeping for 2 seconds")
+    self:sleep(2000)
+    engine.print("info", "Awake now")
+end)
+
+ctx:resume()
 ```

@@ -1,44 +1,67 @@
 ---
 title: self:await
-description: Pauses an existing thread while waiting for a promise to settle
+description: Suspends the thread until the given promise settles, then returns its resolved values
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local ... = self:await(
+local bool, ... = self:await(
     promise
 )
 ```
+
+<Callout type="info">
+  **This function must be called from within a running thread.** It cannot be used outside a virtual context, while the thread is sleeping, or while it is already awaiting another promise.
+
+  - **Resolved** — resumes the thread with `true` followed by the resolved values
+  - **Rejected** — resumes the thread with `false` followed by the rejection values
+  - **Already settled** — returns immediately without yielding
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `promise` | promise | Promise context to await |
+| `promise` | promise | Promise instance to await |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `...` | ... | Resolved values |
+| `bool` | resolved | `true` if the promise resolved, `false` if it was rejected |
+| `...` | ... | Values the promise was settled with |
 
-<hr/>
+---
 
 ### Examples
 
 ```lua lineNumbers title="Await a promise and print the resolved values"
-local promise = thread:create_promise()
+local p = promise.create()
 
-local self = thread:create(function(self)
-    engine.print("info", "Thread awaiting for promise")
-    local result = {self:await(promise)}
-    engine.print("info", "Promise resolved:", table.unpack(result))
+local ctx = thread.create(function(self)
+    local ok, result = self:await(p)
+    engine.print("info", "Resolved:", ok, result)
 end)
 
-self:resume()
-timer:create(function()
-    promise.resolve("Task completed", 123)
-end, 5000, 1)
+ctx:resume()
+p:resolve("done")
+```
+
+```lua lineNumbers title="Handle both resolve and reject outcomes"
+local p = promise.create()
+
+local ctx = thread.create(function(self)
+    local ok, value = self:await(p)
+
+    if ok then
+        engine.print("info", "Success:", value)
+    else
+        engine.print("error", "Failed:", value)
+    end
+end)
+
+ctx:resume()
+p:reject("something went wrong")
 ```

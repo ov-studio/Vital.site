@@ -4,17 +4,16 @@
     "pages": [
         "---Base---",
         "create",
-        "create_heartbeat",
-        "create_promise",
-        "get_thread",
+        "current",
         "...",
 
-       "---::API---",
+        "---::API---",
+        "method__is_type",
+        "method__get_type",
         "method__destroy",
-        "method__status",
         "method__resume",
+        "method__pause",
         "method__sleep",
-        "method__await",
-        "method__try"
+        "method__await"
     ]
 }
