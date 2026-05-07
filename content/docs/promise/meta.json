@@ -1,6 +1,6 @@
 {
     "title": "Promise",
-    "icon": "Promise",
+    "icon": "CircleDotDashed",
     "pages": [
         "---Base---",
         "create",
