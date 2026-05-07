@@ -1,0 +1,35 @@
+---
+title: self:is_pending
+description: Checks whether the promise is still in a pending state
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = self:is_pending()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the promise has not yet been settled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a promise is still pending"
+local p = promise.create()
+
+engine.print("info", p:is_pending()) --true
+
+p:resolve(true)
+engine.print("info", p:is_pending()) --false
+```
