@@ -6,11 +6,13 @@
         "create",
         "...",
 
-        "---::API---",
+        "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
-        "method__is_pending",
         "method__destroy",
+
+        "---::API---",
+        "method__is_pending",
         "method__resolve",
         "method__reject"
     ]

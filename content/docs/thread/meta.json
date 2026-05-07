@@ -7,10 +7,12 @@
         "current",
         "...",
 
-        "---::API---",
+        "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
+        "---::API---",
         "method__resume",
         "method__pause",
         "method__sleep",

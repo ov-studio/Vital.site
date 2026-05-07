@@ -6,11 +6,13 @@
         "create",
         "...",
 
-       "---::API---",
+        "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
-        "method__is_connected",
         "method__destroy",
+
+       "---::API---",
+        "method__is_connected",
         "method__define",
         "method__sync",
         "method__table"
