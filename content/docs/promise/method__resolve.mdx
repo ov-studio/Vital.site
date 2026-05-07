@@ -1,0 +1,60 @@
+---
+title: self:resolve
+description: Resolves the promise with the given values, resuming any threads awaiting it
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:resolve(
+    ...
+)
+```
+
+<Callout type="info">
+  **A promise can only be settled once.** Calling `self:resolve` or [`self:reject`](/docs/promise/method/reject) on an already-settled promise has no effect and returns `false`.
+
+  - **Pending** — the promise is resolved and all awaiting threads are resumed with the provided values
+  - **Already settled** — the call is ignored and `false` is returned
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | ... | One or more values to resolve the promise with |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if the promise was successfully resolved, `false` if it was already settled |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Resolve a promise with a single value"
+local p = promise.create()
+
+p:resolve(true)
+```
+
+```lua lineNumbers title="Resolve a promise and retrieve the value from a thread"
+local p = promise.create()
+
+p:resolve("hello", "world")
+
+thread.create(function(self)
+    local a, b = self:await(p)
+    engine.print("info", a, b) --'hello'    'world'
+end):resume()
+```
+
+```lua lineNumbers title="Attempt to resolve an already-settled promise"
+local p = promise.create()
+
+p:resolve(true)
+engine.print("info", p:resolve(false)) --false
+```
