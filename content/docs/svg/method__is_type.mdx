@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of an SVG instance"
-local icon = svg.create("assets/icon.svg")
+local tex = svg.create("assets/icon.svg")
 
-engine.print("info", icon:is_type("svg")) --true
-engine.print("info", icon:is_type("texture")) --false
+engine.print("info", tex:is_type("svg")) --true
+engine.print("info", tex:is_type("texture")) --false
 ```
