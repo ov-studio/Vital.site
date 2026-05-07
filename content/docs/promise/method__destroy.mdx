@@ -1,0 +1,40 @@
+---
+title: self:destroy
+description: Destroys the promise instance and frees its resources
+badge: Server
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+<Callout type="warn">
+  **Destroying a pending promise will leave any threads awaiting it suspended indefinitely.** Ensure the promise has been settled or no threads are awaiting it before calling this function.
+
+  - **Settled promise** — safe to destroy at any time
+  - **Pending promise with active waiters** — awaiting threads will never resume
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, or `false` on failure |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a promise instance"
+local p = promise.create()
+
+p:resolve(true)
+p:destroy()
+```
