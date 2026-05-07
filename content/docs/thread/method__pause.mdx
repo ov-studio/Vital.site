@@ -11,10 +11,11 @@ self:pause()
 ```
 
 <Callout type="info">
-  **This function must be called from within a running thread.** Calling it outside of a thread context has no effect and returns `false`.
+  **This function must be called from within a running thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a promise.
 
-  - **Inside a thread** — execution is suspended at the call site and resumes from that point when [`self:resume`](/docs/thread/method/resume) is called
+  - **Available** — execution is suspended at the call site and resumes from that point when [`self:resume`](/docs/thread/method/resume) is called
   - **Outside a thread** — the call is a no-op and returns `false`
+  - **Sleeping or awaiting** — the call is ignored and returns `false`
 </Callout>
 
 ### Parameters
