@@ -13,9 +13,10 @@ self:sleep(
 ```
 
 <Callout type="info">
-  **A thread cannot be put to sleep if it is already sleeping or awaiting a promise.** Both conditions will cause the call to return `false` immediately.
+  **This function must be called from within a running thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a promise.
 
   - **Available** — the thread yields for the given duration and resumes automatically when the timer expires
+  - **Outside a thread** — the call is a no-op and returns `false`
   - **Sleeping or awaiting** — the call is ignored and returns `false`
 </Callout>
 
