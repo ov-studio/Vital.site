@@ -34,12 +34,12 @@
        "---::API---",
         "method__load_url",
         "method__load_html",
+        "method__clear_history",
         "method__focus",
         "method__reload",
         "method__zoom",
         "method__update",
         "method__eval",
-        "method__emit",
-        "method__clear_history"
+        "method__emit"
     ]
 }
