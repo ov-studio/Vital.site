@@ -29,11 +29,11 @@ local status = self:eval(
 ### Examples
 
 ```lua lineNumbers title="Evaluate JavaScript expressions inside a webview"
-local browser = webview.create()
+local wv = webview.create()
 
 --Change the page background color
-browser:eval("document.body.style.background = 'red'")
+wv:eval("document.body.style.background = 'red'")
 
 --Post a message back to Lua
-browser:eval("window.ipc.postMessage('hello from JS')")
+wv:eval("window.ipc.postMessage('hello from JS')")
 ```

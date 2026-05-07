@@ -43,14 +43,14 @@ All fields are optional and fall back to their defaults if not specified.
 ### Examples
 
 ```lua lineNumbers title="Create a webview with default options"
-local browser = webview.create()
+local wv = webview.create()
 
-browser:set_visible(true)
-browser:load_url("https://google.com")
+wv:set_visible(true)
+wv:load_url("https://google.com")
 ```
 
 ```lua lineNumbers title="Create a webview with custom options"
-local browser = webview.create({
+local wv = webview.create({
     fullscreen = true,
     transparent = true,
     incognito = false,
@@ -58,6 +58,6 @@ local browser = webview.create({
     zoomable = false
 })
 
-browser:set_visible(true)
-browser:load_url("https://google.com")
+wv:set_visible(true)
+wv:load_url("https://google.com")
 ```
