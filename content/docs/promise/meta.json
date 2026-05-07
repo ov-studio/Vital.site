@@ -1,0 +1,17 @@
+{
+    "title": "Promise",
+    "icon": "Promise",
+    "pages": [
+        "---Base---",
+        "create",
+        "...",
+
+        "---::API---",
+        "method__is_type",
+        "method__get_type",
+        "method__is_pending",
+        "method__destroy",
+        "method__resolve",
+        "method__reject"
+    ]
+}

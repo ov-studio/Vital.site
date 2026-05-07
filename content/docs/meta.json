@@ -23,6 +23,7 @@
 
         "---Utility---",
         "timer",
+        "promise",
         "thread",
         "file",
         "http",

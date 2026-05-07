@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Returns the type name of the instance
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Type of the instance, or `false` if unavailable |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a promise instance"
+local p = promise.create()
+
+engine.print("info", p:get_type()) --'promise'
+```

@@ -1,0 +1,52 @@
+---
+title: promise.create
+description: Creates a new promise instance in a pending state
+badge: Server
+---
+
+### Syntax
+
+```lua
+local instance = promise.create()
+```
+
+<Callout type="info">
+  **A promise starts in a pending state and must be explicitly settled.** Use [`self:resolve`](/docs/promise/method/resolve) or [`self:reject`](/docs/promise/method/reject) to settle the promise, and [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Resolved** — the operation completed successfully; awaiting returns the resolved values
+  - **Rejected** — the operation failed; awaiting throws with the rejection reason
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` | instance | Created promise instance in a pending state |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create and resolve a promise"
+local p = promise.create()
+
+p:resolve(true, "done")
+```
+
+```lua lineNumbers title="Create a promise and await it inside a thread"
+local p = promise.create()
+
+thread.create(function(self)
+    local value = self:await(p)
+    engine.print("info", value) --42
+end):resume()
+
+timer.create(function()
+    p:resolve(42)
+end, 1000, 1)
+```
