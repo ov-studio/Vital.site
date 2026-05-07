@@ -13,7 +13,7 @@ local bool, ... = self:await(
 ```
 
 <Callout type="info">
-  **This function must be called from within a running thread.** It cannot be used outside a virtual context, while the thread is sleeping, or while it is already awaiting another promise.
+  **This function must be called from within a running thread.** It cannot be used outside a thread context, while the thread is sleeping, or while it is already awaiting another promise.
 
   - **Resolved** — resumes the thread with `true` followed by the resolved values
   - **Rejected** — resumes the thread with `false` followed by the rejection values

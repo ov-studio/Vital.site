@@ -11,7 +11,7 @@ self:pause()
 ```
 
 <Callout type="info">
-  **This function must be called from within a running thread.** Calling it outside of a virtual (thread) context has no effect and returns `false`.
+  **This function must be called from within a running thread.** Calling it outside of a thread context has no effect and returns `false`.
 
   - **Inside a thread** — execution is suspended at the call site and resumes from that point when [`self:resume`](/docs/thread/method/resume) is called
   - **Outside a thread** — the call is a no-op and returns `false`
