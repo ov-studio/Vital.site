@@ -14,7 +14,7 @@ footer {
 }
 
 .footer-brand-lock {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   --brand-color: hsl(220, 20%, 60%);
 }
 
@@ -24,7 +24,7 @@ footer {
   color: hsl(220, 10%, 42%);
   line-height: 1.7;
   max-width: 340px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .footer-flags {
