@@ -1,0 +1,32 @@
+---
+title: self:is_incognito
+description: Retrieves whether the webview is in incognito mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_incognito()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the webview is fullscreen, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Check if a webview is in incognito mode"
+local browser = webview.create()
+
+engine.print("info", "Webview incognito:", browser:is_incognito())
+```
