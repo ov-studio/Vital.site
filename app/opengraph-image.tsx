@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 
 export const runtime = 'nodejs';
-export const size = { width: 1000, height: 325 };
+export const size = { width: 1000, height: 300 };
 export const contentType = 'image/png';
 
 const bg = 'hsl(250, 25%, 2%)';
@@ -43,16 +43,16 @@ export default async function OGImage() {
                 }} />
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
-                        <img src={logosrc} width={100} />
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+                        <img src={logosrc} width={'140'} />
                     </div>
 
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '16px',
-                        marginTop: '34px',
-                        fontSize: 16,
+                        marginTop: '49px',
+                        fontSize: '1.1rem',
                         fontFamily: 'Rajdhani, sans-serif',
                         fontWeight: 600,
                         letterSpacing: '0.16em',

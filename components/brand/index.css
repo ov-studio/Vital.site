@@ -9,7 +9,6 @@
   flex-shrink: 0;
   width: var(--brand-logo-size);
   height: var(--brand-logo-size);
-  animation: brandLogoPulse 5s 1s ease-in-out infinite;
 }
 
 .brand_logo {

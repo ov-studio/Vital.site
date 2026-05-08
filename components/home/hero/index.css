@@ -85,7 +85,7 @@
   gap: 16px;
   flex-wrap: wrap;
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(.9rem, 1.4vw, 1.15rem);
+  font-size: clamp(.9rem, 1.4vw, 1.1rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .16em;
