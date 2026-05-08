@@ -55,10 +55,10 @@ footer {
 .footer-nav-col h4 {
   font-family: 'Geist', sans-serif;
   font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .18em;
+  font-weight: 800;
+  letter-spacing: .01em;
   text-transform: uppercase;
-  color: hsl(220, 10%, 38%);
+  color: hsl(220, 20%, 60%);
   margin-bottom: 16px;
 }
 
