@@ -16,7 +16,7 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
     {
       width: 1200,
       height: 630,
-    },
+    }
   );
 }
 
