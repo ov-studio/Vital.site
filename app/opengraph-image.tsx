@@ -4,8 +4,9 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 
 export const runtime = 'nodejs';
-export const size = { width: 1200, height: 630 };
+export const size = { width: 1000, height: 375 };
 export const contentType = 'image/png';
+
 const bg = 'hsl(250, 25%, 2%)';
 const blue = 'hsl(220, 95%, 76%)';
 const dim = 'hsl(220, 10%, 70%)';
@@ -17,10 +18,8 @@ export default async function OGImage() {
         readFile(join(process.cwd(), 'public/logo.svg')),
     ]);
 
-    const logoColored = logo
-        .toString()
-        .replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
-    const logoSrc = `data:image/svg+xml;base64,${Buffer.from(logoColored).toString('base64')}`;
+    const logo = logo.toString().replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
+    const logoSrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
 
     return new ImageResponse(
         (
@@ -45,13 +44,12 @@ export default async function OGImage() {
                 }} />
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
-                    {/* brand row — matches brand--xl, flex-direction column */}
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}>
-                        <img src={logoSrc} width={88} height={67} />
+                        <img src={logoSrc} width={95} />
                         <span style={{
                             fontFamily: 'Rajdhani, sans-serif',
                             fontWeight: 700,
-                            fontSize: 72,
+                            fontSize: 78,
                             letterSpacing: '0.06em',
                             color: blue,
                             lineHeight: 1,
@@ -61,13 +59,12 @@ export default async function OGImage() {
                         </span>
                     </div>
 
-                    {/* motto — matches .hero-motto styles */}
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '16px',
-                        marginTop: '54px',
-                        fontSize: 20,
+                        marginTop: '34px',
+                        fontSize: 18,
                         fontFamily: 'Rajdhani, sans-serif',
                         fontWeight: 600,
                         letterSpacing: '0.16em',
