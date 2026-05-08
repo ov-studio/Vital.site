@@ -43,5 +43,5 @@ export const metadata: Metadata = {
     template: `%s - ${site.name}`,
     default: `${site.name}`,
   },
-  description: 'Built for creators. Engineered for production.',
+  description: 'Next-generation open-source sandbox. Script it. Ship it. Limitless.'
 };
