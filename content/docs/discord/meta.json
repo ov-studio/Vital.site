@@ -13,8 +13,8 @@
         "set_application_id",
         "set_state",
         "set_details",
-        "set_smallimage",
-        "set_largeimage",
+        "set_small_image",
+        "set_large_image",
         "set_timestamps",
         "reset_application",
         "..."

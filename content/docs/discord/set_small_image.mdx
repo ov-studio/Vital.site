@@ -1,5 +1,5 @@
 ---
-title: discord.set_smallimage
+title: discord.set_small_image
 description: Sets the small image asset of the Discord rich presence activity
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = discord.set_smallimage(
+local status = discord.set_small_image(
     key,
     text = "N/A"
 )
@@ -32,8 +32,8 @@ local status = discord.set_smallimage(
 
 ```lua lineNumbers title="Set the small image on a rich presence activity"
 --Set small image without tooltip
-discord.set_smallimage("rank")
+discord.set_small_image("rank")
 
 --Set small image with tooltip
-discord.set_smallimage("rank", "Server rank")
+discord.set_small_image("rank", "Server rank")
 ```
