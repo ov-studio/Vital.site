@@ -1,5 +1,6 @@
 export const site = {
     name: "Vital.sandbox",
+    description: "Script it. Ship it. Limitless.",
 
     git: {
       site: { user: 'ov-studio', repo: 'Vital.site', branch: 'main' },

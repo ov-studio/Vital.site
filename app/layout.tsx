@@ -43,11 +43,11 @@ export const metadata: Metadata = {
     template: `%s - ${site.name}`,
     default: site.name,
   },
-  description: 'Script it. Ship it. Limitless.',
+  description: site.description,
 
   openGraph: {
     title: site.name,
-    description: 'Script it. Ship it. Limitless.',
+    description: site.description,
     siteName: site.name,
     type: 'website'
   }
