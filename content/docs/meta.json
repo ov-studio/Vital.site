@@ -35,10 +35,10 @@
         "---GFX---",
         "adjustment",
         "emissive",
-        "ssao",
         "ssr",
         "ssil",
         "sdfgi",
+        "ssao",
         "fog",
         "volumetric_fog",
         "..."
