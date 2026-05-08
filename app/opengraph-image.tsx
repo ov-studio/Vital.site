@@ -13,13 +13,12 @@ const dim = 'hsl(220, 10%, 70%)';
 const rule = 'hsl(220, 18%, 9%)';
 
 export default async function OGImage() {
-    const [rajdhani, logosvg] = await Promise.all([
-        readFile(join(process.cwd(), 'public/font/Rajdhani-Bold.ttf')),
-        readFile(join(process.cwd(), 'public/logo.svg')),
+    const [logosvg, rajdhani] = await Promise.all([
+        readFile(join(process.cwd(), 'public/logo.svg')), 
+        readFile(join(process.cwd(), 'public/font/Rajdhani-Bold.ttf'))
     ]);
-
     const logo = logosvg.toString().replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
-    const logoSrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
+    const logosrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
 
     return new ImageResponse(
         (
@@ -45,7 +44,7 @@ export default async function OGImage() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
-                        <img src={logoSrc} width={100} />
+                        <img src={logosrc} width={100} />
                         <span style={{
                             fontFamily: 'Rajdhani, sans-serif',
                             fontWeight: 700,
