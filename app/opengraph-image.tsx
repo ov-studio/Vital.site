@@ -50,9 +50,9 @@ export default async function OGImage() {
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '16px',
+                        gap: '20px',
                         marginTop: '49px',
-                        fontSize: '1.1rem',
+                        fontSize: '1.0rem',
                         fontFamily: 'Rajdhani, sans-serif',
                         fontWeight: 600,
                         letterSpacing: '0.16em',
