@@ -2,17 +2,21 @@
     "title": "SSIL",
     "icon": "Lightbulb",
     "pages": [
-        "---Base---",
+        "---Checker---",
         "is_enabled",
+
+        "---Getter---",
+        "get_radius",
+        "get_intensity",
+        "get_sharpness",
+        "get_normal_rejection",
+
+        "---Setter---",
         "set_enabled",
         "set_radius",
-        "get_radius",
         "set_intensity",
-        "get_intensity",
         "set_sharpness",
-        "get_sharpness",
         "set_normal_rejection",
-        "get_normal_rejection",
         "..."
     ]
 }
