@@ -81,21 +81,36 @@
   --brand-gap: 30px;
 }
 
+.brand--xxl {
+  --brand-logo-size: 8.5rem;
+  --brand-wordmark-size: 6.8rem;
+  --brand-gap: 40px;
+}
+
 @media (max-width: 640px) {
+  .brand--lg {
+    --brand-logo-size: clamp(2.2rem, 8vw, 4rem);
+    --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem);
+    --brand-gap: clamp(10px, 3vw, 22px);
+  }
+
   .brand--xl {
     --brand-logo-size: clamp(2.8rem, 10vw, 5.5rem);
     --brand-wordmark-size: clamp(2.2rem, 9vw, 4.5rem);
     --brand-gap: clamp(14px, 4vw, 30px);
   }
 
-  .brand--lg {
-    --brand-logo-size: clamp(2.2rem, 8vw, 4rem);
-    --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem);
-    --brand-gap: clamp(10px, 3vw, 22px);
+  .brand--xxl {
+    --brand-logo-size: clamp(4rem, 14vw, 8.5rem);
+    --brand-wordmark-size: clamp(3rem, 11vw, 6.8rem);
+    --brand-gap: clamp(18px, 5vw, 40px);
   }
 }
 
 @media (max-width: 400px) {
-  .brand--xl,
-  .brand--lg { --brand-gap: 10px; }
+  .brand--lg,
+  .brand--xxl,
+  .brand--xl {
+    --brand-gap: 10px;
+  }
 }

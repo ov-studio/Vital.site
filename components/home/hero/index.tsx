@@ -55,7 +55,7 @@ export async function Hero() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <Brand size="xl" variant="logo-only" className="hero-brand--logo"/>
+          <Brand size="xxl" variant="logo-only" className="hero-brand--logo"/>
         </div>
 
         <div className="hero-motto">

@@ -1,7 +1,7 @@
 import './index.css';
 import { site } from '@/configs/site';
 
-type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {
