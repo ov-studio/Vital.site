@@ -73,7 +73,7 @@
 }
 
 .hero-brand {
-  margin-bottom: 65px;
+  margin-bottom: 40px;
   opacity: 0;
   animation: fadeIn .6s .2s forwards;
 }
@@ -244,12 +244,4 @@
 @media (max-width: 400px) {
   .hstat-n { font-size: .9rem; }
   .hstat-l { font-size: .65rem; }
-}
-
-.hero-brand--logo { display: none; }
-.hero-brand--full { display: inline-flex; }
-
-@media (max-width: 640px) {
-  .hero-brand--full { display: none; }
-  .hero-brand--logo { display: inline-flex; }
 }
