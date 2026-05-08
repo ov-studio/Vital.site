@@ -41,7 +41,14 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: {
     template: `%s - ${site.name}`,
-    default: `${site.name}`,
+    default: site.name,
   },
-  description: 'Next-generation open-source sandbox. Script it. Ship it. Limitless.'
+  description: 'Script it. Ship it. Limitless.',
+
+  openGraph: {
+    title: site.name,
+    description: 'Script it. Ship it. Limitless.',
+    siteName: site.name,
+    type: 'website'
+  }
 };
