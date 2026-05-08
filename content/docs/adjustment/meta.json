@@ -2,17 +2,21 @@
     "title": "Adjustment",
     "icon": "SlidersHorizontal",
     "pages": [
-        "---Base---",
+        "---Checker---",
         "is_enabled",
+
+        "---Getter---",
+        "get_brightness",
+        "get_contrast",
+        "get_saturation",
+        "get_lut",
+        
+        "---Setter---",
         "set_enabled",
         "set_brightness",
-        "get_brightness",
         "set_contrast",
-        "get_contrast",
         "set_saturation",
-        "get_saturation",
         "set_lut",
-        "get_lut",
         "reset_lut",
         "..."
     ]
