@@ -2,25 +2,29 @@
     "title": "SSAO",
     "icon": "Layers",
     "pages": [
-        "---Base---",
+        "---Checker---",
         "is_enabled",
+
+        "---Getter---",
+        "get_radius",
+        "get_intensity",
+        "get_power",
+        "get_detail",
+        "get_horizon",
+        "get_sharpness",
+        "get_direct_light_affect",
+        "get_channel_affect",
+        
+        "---Setter---",
         "set_enabled",
         "set_radius",
-        "get_radius",
         "set_intensity",
-        "get_intensity",
         "set_power",
-        "get_power",
         "set_detail",
-        "get_detail",
         "set_horizon",
-        "get_horizon",
         "set_sharpness",
-        "get_sharpness",
         "set_direct_light_affect",
-        "get_direct_light_affect",
         "set_channel_affect",
-        "get_channel_affect",
         "..."
     ]
 }
