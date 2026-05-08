@@ -6,9 +6,11 @@
         "load",
         "unload",
         "create",
-        "is_loaded",
         "...",
 
+        "---Checker---",
+        "is_loaded",
+    
        "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
