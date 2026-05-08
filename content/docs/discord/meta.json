@@ -2,17 +2,21 @@
     "title": "Discord",
     "icon": "Gamepad2",
     "pages": [
-        "---Base---",
+        "---Checker---",
         "is_connected",
+
+        "---Getter---",
         "get_userid",
         "get_username",
+
+        "---Setter---",
         "set_application_id",
-        "reset_application",
         "set_state",
         "set_details",
         "set_largeimage",
         "set_smallimage",
         "set_timestamps",
+        "reset_application",
         "..."
     ]
 }
