@@ -73,7 +73,7 @@
 }
 
 .hero-brand {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   opacity: 0;
   animation: fadeIn .6s .2s forwards;
 }
@@ -89,7 +89,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .16em;
-  margin-bottom: 25px;
+  margin-bottom: 34px;
   opacity: 0;
   animation: fadeIn .7s .35s forwards;
 }
