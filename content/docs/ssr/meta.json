@@ -2,17 +2,21 @@
     "title": "SSR",
     "icon": "Sparkles",
     "pages": [
-        "---Base---",
+        "---Checker---",
         "is_enabled",
+
+        "---Getter---",
+        "get_max_steps",
+        "get_fade_in",
+        "get_fade_out",
+        "get_depth_tolerance",
+
+        "---Setter---",
         "set_enabled",
         "set_max_steps",
-        "get_max_steps",
         "set_fade_in",
-        "get_fade_in",
         "set_fade_out",
-        "get_fade_out",
         "set_depth_tolerance",
-        "get_depth_tolerance",
         "..."
     ]
 }
