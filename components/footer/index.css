@@ -21,7 +21,7 @@ footer {
 .footer-tagline {
   font-family: 'Barlow', sans-serif;
   font-size: .875rem;
-  color: hsl(220, 10%, 42%);
+  color: var(--text-mid);
   line-height: 1.7;
   max-width: 340px;
   margin-bottom: 10px;
@@ -73,7 +73,7 @@ footer {
   font-family: 'Geist', sans-serif;
   font-size: .85rem;
   font-weight: 400;
-  color: hsl(220, 10%, 58%);
+  color: var(--text-mid);
   text-decoration: none;
   transition: color .2s;
   letter-spacing: .01em;
