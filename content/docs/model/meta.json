@@ -3,10 +3,10 @@
     "icon": "Box",
     "pages": [
         "---Base---",
-        "is_loaded",
         "load",
         "unload",
         "create",
+        "is_loaded",
         "...",
 
        "---::Lifecycle---",
@@ -23,18 +23,18 @@
 
        "---::Getter---",
         "method__get_model_name",
+        "method__get_position",
+        "method__get_rotation",
         "method__get_components",
         "method__get_materials",
         "method__get_blendshapes",
         "method__get_bones",
         "method__get_animations",
-        "method__get_position",
-        "method__get_rotation",
         "method__get_blendshape_value",
         "method__get_bone_position",
-        "method__get_animation_speed",
         "method__get_current_animation",
-
+        "method__get_animation_speed",
+        
        "---::Setter---",
         "method__set_position",
         "method__set_rotation",
