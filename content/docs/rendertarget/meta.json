@@ -4,9 +4,13 @@
     "pages": [
         "---Base---",
         "create",
-        "set_active",
-        "get_active",
         "...",
+
+        "---Getter---",
+        "get_active",
+
+        "---Setter---",
+        "set_active",
 
        "---::Lifecycle---",
         "method__is_type",
