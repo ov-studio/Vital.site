@@ -33,14 +33,14 @@
         "shrinker",
         
         "---GFX---",
+        "adjustment",
+        "emissive",
         "ssao",
         "ssr",
         "ssil",
         "sdfgi",
         "fog",
         "volumetric_fog",
-        "emissive",
-        "adjustment",
         "..."
     ]
 }
