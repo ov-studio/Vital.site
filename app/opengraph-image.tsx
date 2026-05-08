@@ -45,17 +45,6 @@ export default async function OGImage() {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
                         <img src={logosrc} width={100} />
-                        <span style={{
-                            fontFamily: 'Rajdhani, sans-serif',
-                            fontWeight: 700,
-                            fontSize: 70,
-                            letterSpacing: '0.06em',
-                            color: blue,
-                            lineHeight: 1,
-                            paddingTop: '0.1em',
-                        }}>
-                            {site.name}
-                        </span>
                     </div>
 
                     <div style={{

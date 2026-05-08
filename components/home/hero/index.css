@@ -96,7 +96,7 @@
 
 .hm-word { color: var(--text-muted); }
 .hm-blue { color: var(--white); }
-.hm-sep  { color: var(--text-sep); font-weight: 300; }
+.hm-sep  { color: var(--dim); font-weight: 300; }
 
 .hero-sub {
   font-size: .97rem;
