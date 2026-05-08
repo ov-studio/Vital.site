@@ -3,19 +3,22 @@
     "icon": "Cog",
     "pages": [
         "---Base---",
+        "print",
+        "iprint",
+        "inspect",
+        "compile_string",
+        "load_string",
+        
+        "---Getter---",
         "get_tick",
         "get_version",
         "get_platform",
         "get_timestamp",
         "get_serial",
-        "compile_string",
-        "load_string",
-        "inspect",
-        "print",
-        "iprint",
-        
-        "---Canvas---",
         "get_resolution",
+
+
+        "---Canvas---",
         "world_to_screen",
         "screen_to_world",
         "draw_line",
