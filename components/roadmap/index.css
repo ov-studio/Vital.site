@@ -76,7 +76,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: border-color .15s;
+  transition: border-color .2s;
   /* width is controlled by parent column, height is natural / auto */
   width: 100%;
 }
@@ -133,7 +133,7 @@
   color: var(--blue);
   background: hsla(220,95%,76%,.1);
   border: 1px solid hsla(220,95%,76%,.15);
-  transition: background .15s, border-color .15s;
+  transition: background .2s, border-color .2s;
 }
 
 .rcard--partial .rcard-icon {
