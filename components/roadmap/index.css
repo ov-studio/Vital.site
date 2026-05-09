@@ -189,7 +189,7 @@
 
 .rcard-pct {
   font-family: 'Rajdhani', sans-serif;
-  font-size: .8rem;
+  font-size: .82rem;
   font-weight: 800;
   letter-spacing: .04em;
   flex-shrink: 0;
@@ -244,9 +244,9 @@
 
 .ritem-tag {
   font-family: 'Rajdhani', sans-serif;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   flex-shrink: 0;
 }
