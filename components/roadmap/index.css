@@ -257,16 +257,16 @@
 
 .ritem-tag {
   font-family: 'Rajdhani', sans-serif;
-  font-size: .62rem;
+  font-size: .72rem;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   flex-shrink: 0;
   padding: 2px 8px;
 }
-.ritem--completed .ritem-tag { color: var(--blue);       background: hsla(220,95%,76%,.08); border: 1px solid hsla(220,95%,76%,.15); }
-.ritem--partial   .ritem-tag { color: hsl(45,80%,58%);   background: hsla(45,80%,58%,.08);  border: 1px solid hsla(45,80%,58%,.15); }
-.ritem--pending   .ritem-tag { color: var(--text-dim2);  background: hsla(220,10%,50%,.05); border: 1px solid hsla(220,10%,50%,.1); }
+.ritem--completed .ritem-tag { color: var(--blue); }
+.ritem--partial   .ritem-tag { color: hsl(45,80%,58%); }
+.ritem--pending   .ritem-tag { color: var(--text-dim2); }
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
