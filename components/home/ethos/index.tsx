@@ -20,7 +20,6 @@ export function Ethos() {
             >
               <span className="ecard-corner ecard-corner--tl"/>
               <span className="ecard-corner ecard-corner--br"/>
-              <span className="ecard-scan"/>
 
               <div className="ecard-ico">
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none">{icon}</svg>

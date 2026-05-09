@@ -18,20 +18,29 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  width: 100%;
 }
 
 .fcluster {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg2);
   border-left: 2px solid var(--rule);
-  transition: border-color .2s;
+  transition: border-color .2s, background .3s;
 }
-.fcluster.is-active { border-color: var(--blue); }
+
+.fcluster.is-active {
+  border-color: var(--blue);
+}
 
 .fcluster-head {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 16px 6px;
+  padding: 14px 16px 8px;
   cursor: default;
+  position: relative;
+  z-index: 1;
 }
 
 .fcluster-dot {
@@ -42,7 +51,11 @@
   flex-shrink: 0;
   transition: background .2s, box-shadow .2s;
 }
-.fcluster.is-active .fcluster-dot { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
+
+.fcluster.is-active .fcluster-dot {
+  background: var(--blue);
+  box-shadow: 0 0 6px var(--blue);
+}
 
 .fcluster-label {
   font-family: 'Geist', sans-serif;
@@ -54,13 +67,13 @@
   flex: 1;
   transition: color .2s;
 }
-.fcluster.is-active .fcluster-label { color: var(--white); }
+
+.fcluster.is-active .fcluster-label {
+  color: var(--white);
+}
 
 .fcluster-count {
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
-  color: var(--text-dim2);
-  letter-spacing: .06em;
+  display: none;
 }
 
 .fcluster-desc {
@@ -68,13 +81,20 @@
   font-size: .8rem;
   color: var(--text-faint);
   line-height: 1.65;
-  padding: 0 16px 12px 28px;
+  padding: 0 16px 14px 28px;
   font-weight: 300;
   transition: color .2s;
+  position: relative;
+  z-index: 1;
 }
-.fcluster.is-active .fcluster-desc { color: var(--dim); }
 
-.feat-diagram { position: relative; }
+.fcluster.is-active .fcluster-desc {
+  color: var(--dim);
+}
+
+.feat-diagram {
+  position: relative;
+}
 
 .fdiagram-wrap {
   position: relative;
@@ -130,11 +150,22 @@
   opacity: .15;
   animation: fhub-pulse 3.5s ease-in-out infinite;
 }
-.fhub-ring-2 { inset: -20px; opacity: .08; animation-delay: 1.75s; }
+
+.fhub-ring-2 {
+  inset: -20px;
+  opacity: .08;
+  animation-delay: 1.75s;
+}
 
 @keyframes fhub-pulse {
-  0%, 100% { transform: scale(1); opacity: .15; }
-  50% { transform: scale(1.05); opacity: .75; }
+  0%, 100% {
+    transform: scale(1);
+    opacity: .15;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: .75;
+  }
 }
 
 .fnode-group {
@@ -170,23 +201,43 @@
   opacity: 0;
   transition: opacity .2s;
 }
-.fnode::before { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
-.fnode::after { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+
+.fnode::before {
+  top: -2px;
+  left: -2px;
+  border-width: 2px 0 0 2px;
+}
+
+.fnode::after {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2px 2px 0;
+}
 
 .fnode-group.is-active .fnode {
   border-color: var(--blue);
   color: var(--white);
 }
+
 .fnode-group.is-active .fnode::before,
 .fnode-group.is-active .fnode::after { opacity: 1; }
 
 @media (max-width: 960px) {
-  #features { padding: 72px 0; }
-  .feat-body { grid-template-columns: 1fr; gap: 48px; }
+  #features {
+    padding: 72px 0;
+    min-height: unset;
+  }
+
+  .feat-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .feat-clusters { width: 100%; }
   .feat-diagram { display: none; }
 }
 
 @media (max-width: 640px) {
   #features { padding: 56px 0; }
-  .feat-body { gap: 32px; }
 }

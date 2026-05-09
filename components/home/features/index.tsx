@@ -37,14 +37,10 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
   function resize() {
     const rect = canvas.parentElement!.getBoundingClientRect();
     dpr = window.devicePixelRatio || 1;
-    W = rect.width;
-    H = rect.height;
-    canvas.width = Math.round(W * dpr);
-    canvas.height = Math.round(H * dpr);
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    cx = W / 2;
-    cy = H / 2;
+    W = rect.width; H = rect.height;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    cx = W / 2; cy = H / 2;
   }
   resize();
   const ro = new ResizeObserver(resize);
@@ -54,22 +50,18 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
 
   function frame(now: number) {
     const dt = Math.min(now - last, 32); last = now;
-
-    /* Reset to identity, clear the full physical canvas, then re-apply dpr scale */
     ctx.resetTransform();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const baseR = Math.min(W, H) * BASE_R;
 
-    /* ambient center glow */
     const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, baseR * 0.6);
     grd.addColorStop(0, `rgba(${BLUE},0.04)`);
     grd.addColorStop(1, 'transparent');
     ctx.fillStyle = grd as unknown as string;
     ctx.fillRect(0, 0, W, H);
 
-    /* decoration rings */
     for (const [rr, op] of [
       [baseR * 1.18, 0.45], [baseR * 1.36, 0.18], [baseR * 0.44, 0.20],
     ] as [number, number][]) {
@@ -80,14 +72,12 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.stroke();
     }
 
-    /* main orbit ring */
     ctx.beginPath();
     ctx.arc(cx, cy, baseR, 0, Math.PI * 2);
     ctx.strokeStyle = `rgba(${BLUE},0.06)`;
     ctx.lineWidth = 4;
     ctx.stroke();
 
-    /* advance motion */
     const pos: { x: number; y: number }[] = [];
     for (let i = 0; i < N; i++) {
       const s = states[i];
@@ -97,7 +87,6 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       pos.push({ x: cx + Math.cos(s.angle) * r, y: cy + Math.sin(s.angle) * r });
     }
 
-    /* spokes */
     for (let i = 0; i < N; i++) {
       ctx.beginPath();
       ctx.setLineDash([2, 6]);
@@ -109,7 +98,6 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.setLineDash([]);
     }
 
-    /* DOM labels */
     for (let i = 0; i < N; i++) {
       const { x, y } = pos[i];
       const el = nodeEls[i];
@@ -144,10 +132,10 @@ export function Features() {
         <div className="sec-head">
           <div className="rev">
             <div className="slabel">Features</div>
-            <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
+            <h2>Built for creators.<br />Engineered for <span>production.</span></h2>
           </div>
           <a href="/docs" className="sec-link rev">
-            View documentations <icons.arrow_right/>
+            View documentations <icons.arrow_right />
           </a>
         </div>
 
@@ -162,7 +150,7 @@ export function Features() {
                 onMouseLeave={handleLeave}
               >
                 <div className="fcluster-head">
-                  <span className="fcluster-dot"/>
+                  <span className="fcluster-dot" />
                   <span className="fcluster-label">{c.label}</span>
                   <span className="fcluster-count">{c.items.length}</span>
                 </div>
@@ -173,12 +161,12 @@ export function Features() {
 
           <div className="feat-diagram rev-r">
             <div className="fdiagram-wrap">
-              <canvas ref={canvasRef} className="fdiagram-canvas"/>
+              <canvas ref={canvasRef} className="fdiagram-canvas" />
 
               <div className="fhub">
                 <div className="fhub-inner">
-                  <span className="fhub-ring"/>
-                  <span className="fhub-ring fhub-ring-2"/>
+                  <span className="fhub-ring" />
+                  <span className="fhub-ring fhub-ring-2" />
                   <span className="fhub-label">vsdk</span>
                 </div>
               </div>

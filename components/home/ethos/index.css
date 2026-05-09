@@ -55,26 +55,6 @@
 }
 .ecard:hover .ecard-corner { opacity: 1; }
 
-.ecard-scan {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 0%, var(--b05) 50%, transparent 100%);
-  transform: translateY(-100%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .2s;
-}
-
-.ecard:hover .ecard-scan {
-  opacity: 1;
-  animation: ethos-scan .9s ease-in-out forwards;
-}
-
-@keyframes ethos-scan {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(100%); }
-}
-
 .ecard-ico {
   position: relative;
   width: 36px;
