@@ -45,7 +45,6 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
     canvas.style.height = H + 'px';
     cx = W / 2;
     cy = H / 2;
-    /* Do NOT call ctx.scale here — we apply it every frame instead */
   }
   resize();
   const ro = new ResizeObserver(resize);
