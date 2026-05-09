@@ -247,6 +247,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     desc: 'Load/unload, transform, animation, blend shapes',
     icon: ICON.model,
     items: [
+      { label: 'Support format: GLB', status: 'completed' },
       { label: 'Load / unload',           status: 'completed' },
       { label: 'Transform (pos/rot/scale)',status: 'completed' },
       { label: 'Animation player',        status: 'completed' },
