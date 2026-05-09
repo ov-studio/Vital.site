@@ -6,8 +6,8 @@ import { Roadmap_Content, type FeatureStatus, type RoadmapCard } from '@/configs
 /* ── helpers ─────────────────────────────────────────────── */
 const STATUS_WEIGHT: Record<FeatureStatus, number> = {
   completed: 1,
-  partial: 0.5,
-  pending: 0,
+  partial:   0.5,
+  pending:   0,
 };
 
 function cardPct(card: RoadmapCard): number {
@@ -17,79 +17,130 @@ function cardPct(card: RoadmapCard): number {
   );
 }
 
-/* ── single row ──────────────────────────────────────────── */
-function FeatureRow({ card, index }: { card: RoadmapCard; index: number }) {
-  const [open, setOpen] = useState(false);
-  const pct     = cardPct(card);
-  const done    = card.items.filter(i => i.status === 'completed').length;
-  const partial = card.items.filter(i => i.status === 'partial').length;
-  const pending = card.items.filter(i => i.status === 'pending').length;
+function cardStatus(card: RoadmapCard): FeatureStatus {
+  const pct = cardPct(card);
+  return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
+}
 
-  const rowStatus: FeatureStatus =
-    pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
+type Category = { label: string; cards: RoadmapCard[] };
+
+function groupByCategory(cards: RoadmapCard[]): Category[] {
+  const map = new Map<string, RoadmapCard[]>();
+  for (const card of cards) {
+    const key = card.category ?? 'General';
+    if (!map.has(key)) map.set(key, []);
+    map.get(key)!.push(card);
+  }
+  return Array.from(map.entries()).map(([label, cards]) => ({ label, cards }));
+}
+
+/* ── feature card ─────────────────────────────────────────
+   IMPORTANT: defined at module level so React never remounts
+   it just because a parent re-renders.
+──────────────────────────────────────────────────────────── */
+function FeatureCard({ card }: { card: RoadmapCard }) {
+  const [open, setOpen] = useState(false);
+  const pct    = cardPct(card);
+  const status = cardStatus(card);
 
   return (
-    <>
+    <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
+
+      {/* top progress bar */}
+      <span className="rcard-bar">
+        <span className="rcard-bar-fill" style={{ width: `${pct}%` }} />
+      </span>
+
+      {/* clickable header */}
       <div
-        className={`rrow${open ? ' rrow--open' : ''}`}
-        style={{ '--i': index } as React.CSSProperties}
+        className="rcard-body"
         onClick={() => setOpen(o => !o)}
         role="button"
         tabIndex={0}
         onKeyDown={e => e.key === 'Enter' && setOpen(o => !o)}
       >
-        <span className="rrow-accent" style={{ width: `${pct}%` }} />
-
-        <div className="rrow-category">
-          <div className="rrow-icon">
+        <div className="rcard-header">
+          <div className="rcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
               <path d={card.icon} fill="currentColor" />
             </svg>
           </div>
-          <div className="rrow-text">
-            <span className="rrow-name">{card.label}</span>
-            <span className="rrow-subdesc">{card.desc}</span>
+
+          <div className="rcard-info">
+            <span className="rcard-name">{card.label}</span>
+            <span className="rcard-desc">{card.desc}</span>
           </div>
-        </div>
 
-        <div className="rrow-cell rrow-cell--status">
-          <span className={`rdot rdot--${rowStatus}`} />
-          <span className="rrow-pct">{pct}%</span>
-        </div>
-
-        <div className="rrow-cell rrow-cell--counts">
-          {done > 0    && <span className="rcount rcount--done">{done}</span>}
-          {partial > 0 && <span className="rcount rcount--partial">{partial}</span>}
-          {pending > 0 && <span className="rcount rcount--pending">{pending}</span>}
-        </div>
-
-        <div className="rrow-cell rrow-cell--chevron">
-          <svg
-            width="10" height="10" viewBox="0 0 10 10" fill="none"
-            className={`rchevron${open ? ' rchevron--up' : ''}`}
-          >
-            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5"
-              strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+            className={`rchevron${open ? ' rchevron--up' : ''}`}>
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor"
+              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
+
+        {/* class/api tags */}
+        {card.tags && card.tags.length > 0 && (
+          <div className="rcard-tags">
+            {card.tags.map(tag => (
+              <span key={tag} className="rcard-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        {/* priority badge */}
+        {card.priority && (
+          <span className={`rcard-priority rcard-priority--${card.priority.toLowerCase().replace(/\s+/g, '-')}`}>
+            {card.priority}
+          </span>
+        )}
       </div>
 
-      {open && (
-        <div className="rrow-items">
+      {/* expanded items — keyed by card.id so state never leaks */}
+      {open && card.items.length > 0 && (
+        <div className="rcard-items">
           {card.items.map((item, i) => (
             <div key={i} className={`ritem ritem--${item.status}`}>
               <span className="ritem-dot" />
               <span className="ritem-label">{item.label}</span>
-              <span className="ritem-status">
+              <span className="ritem-tag">
                 {item.status === 'completed' ? 'Done'
-                  : item.status === 'partial' ? 'Partial'
-                  : 'Pending'}
+                  : item.status === 'partial' ? 'In progress'
+                  : 'Planned'}
               </span>
             </div>
           ))}
         </div>
       )}
-    </>
+    </div>
+  );
+}
+
+/* ── category section ────────────────────────────────────── */
+function CategorySection({ cat, index }: { cat: Category; index: number }) {
+  const allItems = cat.cards.flatMap(c => c.items);
+  const total    = allItems.length;
+  const done     = allItems.filter(i => i.status === 'completed').length;
+  const partial  = allItems.filter(i => i.status === 'partial').length;
+  const pct      = total
+    ? Math.round((allItems.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / total) * 100)
+    : 0;
+
+  return (
+    <div className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
+      <div className="rcategory-head">
+        <span className="rcategory-index">{index + 1}</span>
+        <span className="rcategory-sep">—</span>
+        <span className="rcategory-label">{cat.label}</span>
+        <span className="rcategory-coverage">({pct}% covered)</span>
+      </div>
+
+      <div className="rcategory-grid">
+        {/* key by card.id, never by index */}
+        {cat.cards.map(card => (
+          <FeatureCard key={card.id} card={card} />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -116,8 +167,8 @@ function OverallProgress() {
         <span className="roadmap-progress-pct">{pct}% complete</span>
         <div className="roadmap-progress-counts">
           <span className="rcount rcount--done">{done} done</span>
-          <span className="rcount rcount--partial">{partial} partial</span>
-          <span className="rcount rcount--pending">{pending} pending</span>
+          <span className="rcount rcount--partial">{partial} in progress</span>
+          <span className="rcount rcount--pending">{pending} planned</span>
         </div>
       </div>
     </div>
@@ -126,6 +177,8 @@ function OverallProgress() {
 
 /* ── main export ─────────────────────────────────────────── */
 export function RoadmapGrid() {
+  const categories = groupByCategory(Roadmap_Content);
+
   return (
     <section id="roadmap">
       <div className="sw">
@@ -137,16 +190,9 @@ export function RoadmapGrid() {
           <OverallProgress />
         </div>
 
-        <div className="roadmap-legend">
-          <div className="rl-label">Feature area</div>
-          <div className="rl-label rl-label--c">Status</div>
-          <div className="rl-label rl-label--c">Items</div>
-          <div className="rl-label" />
-        </div>
-
-        <div className="roadmap-table">
-          {Roadmap_Content.map((card, i) => (
-            <FeatureRow key={card.id} card={card} index={i} />
+        <div className="roadmap-body">
+          {categories.map((cat, i) => (
+            <CategorySection key={cat.label} cat={cat} index={i} />
           ))}
         </div>
       </div>
