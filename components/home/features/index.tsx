@@ -12,7 +12,7 @@ interface NodeState {
   radAmp: number;
 }
 
-const BASE_R = 0.375;
+const BASE_R = 0.385;
 const SPEED = 0.00028;
 const BLUE = [148, 178, 252] as const;
 
@@ -98,23 +98,6 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       pos.push({ x: cx + Math.cos(s.angle) * r, y: cy + Math.sin(s.angle) * r });
     }
 
-    /* proximity web */
-    for (let i = 0; i < N; i++) {
-      for (let j = i + 1; j < N; j++) {
-        const dx = pos[i].x - pos[j].x, dy = pos[i].y - pos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxD = baseR * 1.5;
-        if (dist < maxD) {
-          ctx.beginPath();
-          ctx.moveTo(pos[i].x, pos[i].y);
-          ctx.lineTo(pos[j].x, pos[j].y);
-          ctx.strokeStyle = `rgba(${BLUE},${(1 - dist / maxD) * 0.14})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-    }
-
     /* spokes */
     for (let i = 0; i < N; i++) {
       ctx.beginPath();
@@ -127,26 +110,9 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.setLineDash([]);
     }
 
-    /* glows + DOM labels */
+    /* DOM labels */
     for (let i = 0; i < N; i++) {
       const { x, y } = pos[i];
-
-      /* glow halo */
-      const gn = ctx.createRadialGradient(x, y, 0, x, y, 13);
-      gn.addColorStop(0, `rgba(${BLUE},0.22)`);
-      gn.addColorStop(1, 'transparent');
-      ctx.fillStyle = gn as unknown as string;
-      ctx.beginPath();
-      ctx.arc(x, y, 13, 0, Math.PI * 2);
-      ctx.fill();
-
-      /* center dot */
-      ctx.beginPath();
-      ctx.arc(x, y, 2.8, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${BLUE},0.95)`;
-      ctx.fill();
-
-      /* DOM label position */
       const el = nodeEls[i];
       if (el) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
     }
