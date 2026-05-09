@@ -94,8 +94,8 @@ export const Roadmap_Content: RoadmapCard[] = [
   {
     id: 'ui',
     category: 'Rendering & Visuals',
-    label: 'UI — Webview',
-    desc: 'HTML/CSS/JS rendered into SubViewport',
+    label: 'Webview',
+    desc: 'HTML/CSS/JS renderer',
     icon: ICON.ui,
     items: [
       { label: 'SubViewport bridge',      status: 'completed' },
