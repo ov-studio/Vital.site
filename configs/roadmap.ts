@@ -123,7 +123,7 @@ export const Roadmap_Content: RoadmapCard[] = [
   {
     id: 'gfx',
     category: 'Rendering',
-    label: 'GFX & Environment',
+    label: 'GFX',
     desc: 'SSAO, SSIL, SSR, SDFGI, fog, volumetric, adjustment',
     icon: ICON.gfx,
     items: [
