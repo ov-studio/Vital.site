@@ -144,37 +144,6 @@ function CategorySection({ cat, index }: { cat: Category; index: number }) {
   );
 }
 
-/* ── overall progress ────────────────────────────────────── */
-function OverallProgress() {
-  const all     = Roadmap_Content.flatMap(c => c.items);
-  const total   = all.length;
-  const done    = all.filter(i => i.status === 'completed').length;
-  const partial = all.filter(i => i.status === 'partial').length;
-  const pending = all.filter(i => i.status === 'pending').length;
-  const pct     = total
-    ? Math.round((all.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / total) * 100)
-    : 0;
-
-  return (
-    <div className="roadmap-progress">
-      <div className="roadmap-progress-track">
-        <span className="roadmap-progress-fill roadmap-progress-fill--done"
-          style={{ width: `${(done / total) * 100}%` }} />
-        <span className="roadmap-progress-fill roadmap-progress-fill--partial"
-          style={{ width: `${(partial / total) * 100}%` }} />
-      </div>
-      <div className="roadmap-progress-meta">
-        <span className="roadmap-progress-pct">{pct}% complete</span>
-        <div className="roadmap-progress-counts">
-          <span className="rcount rcount--done">{done} done</span>
-          <span className="rcount rcount--partial">{partial} in progress</span>
-          <span className="rcount rcount--pending">{pending} planned</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ── main export ─────────────────────────────────────────── */
 export function RoadmapGrid() {
   const categories = groupByCategory(Roadmap_Content);
@@ -187,7 +156,6 @@ export function RoadmapGrid() {
           <div className="sec-head">
             <h2>What's built.<br />What's <span>coming.</span></h2>
           </div>
-          <OverallProgress />
         </div>
 
         <div className="roadmap-body">

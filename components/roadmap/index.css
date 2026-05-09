@@ -12,58 +12,6 @@
   margin-bottom: 24px;
 }
 
-/* ── Overall progress ────────────────────────────────────── */
-.roadmap-progress {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 560px;
-}
-
-.roadmap-progress-track {
-  height: 2px;
-  background: var(--rule);
-  display: flex;
-  overflow: hidden;
-  border-radius: 2px;
-}
-
-.roadmap-progress-fill {
-  display: block;
-  height: 100%;
-  transition: width .8s cubic-bezier(.4,0,.2,1);
-}
-.roadmap-progress-fill--done    { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
-.roadmap-progress-fill--partial { background: hsl(45,80%,58%); }
-
-.roadmap-progress-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.roadmap-progress-pct {
-  font-family: 'Geist Mono', monospace;
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  color: var(--blue);
-}
-
-.roadmap-progress-counts { display: flex; gap: 14px; }
-
-.rcount {
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-}
-.rcount--done    { color: var(--blue); }
-.rcount--partial { color: hsl(45,80%,58%); }
-.rcount--pending { color: var(--text-faint); }
-
 /* ── Body ────────────────────────────────────────────────── */
 .roadmap-body {
   display: flex;
