@@ -40,19 +40,6 @@
   border-bottom: 1px solid var(--rule);
 }
 
-.rcategory-index {
-  font-family: 'Geist Mono', monospace;
-  font-size: .72rem;
-  font-weight: 700;
-  color: var(--text-dim2);
-  letter-spacing: .05em;
-}
-
-.rcategory-sep {
-  font-size: .72rem;
-  color: var(--text-dim2);
-}
-
 .rcategory-label {
   font-family: 'Geist', sans-serif;
   font-size: .72rem;
