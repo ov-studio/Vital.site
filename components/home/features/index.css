@@ -66,7 +66,7 @@
   text-transform: uppercase;
   color: var(--dim);
   flex: 1;
-  transition: color .3s;
+  transition: color .25s;
 }
 
 .fcluster.is-active .fcluster-label {
@@ -80,7 +80,7 @@
   line-height: 1.65;
   padding: 0 16px 14px 28px;
   font-weight: 300;
-  transition: color .3s;
+  transition: color .25s;
   position: relative;
   z-index: 1;
 }
@@ -184,7 +184,7 @@
   white-space: nowrap;
   cursor: default;
   position: relative;
-  transition: border-color .3s, color .3s;
+  transition: border-color .3s, color .25s;
 }
 
 .fnode::before,
