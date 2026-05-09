@@ -87,7 +87,7 @@
 .rcard-header {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 20px;
 }
 
 /* ── Icon ────────────────────────────────────────────────── */
@@ -141,6 +141,7 @@
   font-weight: 700;
   color: var(--dim);
   line-height: 1.15;
+  letter-spacing: .01rem;
   transition: color .25s;
 }
 .rcard:hover .rcard-name,
@@ -150,7 +151,7 @@
   font-family: 'Barlow', sans-serif;
   font-size: .78rem;
   color: var(--text-desc);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.7;
   transition: color .25s;
 }
@@ -200,9 +201,10 @@
 
 /* pct label color per status */
 .rcard-pct {
-  font-family: 'Geist', sans-serif;
-  font-size: .6rem;
-  font-weight: 600;
+  
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .8rem;
+  font-weight: 800;
   letter-spacing: .04em;
   flex-shrink: 0;
   min-width: 28px;
@@ -248,7 +250,7 @@
 .ritem-label {
   font-family: 'Barlow', sans-serif;
   font-size: .76rem;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 1.5;
 }
 .ritem--completed .ritem-label { color: var(--text-soft); }
