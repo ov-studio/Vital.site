@@ -53,7 +53,7 @@
 .rcategory-cols {
   display: flex;
   align-items: flex-start;
-  gap: 2px;
+  gap: 10px;
 }
 
 .rcategory-col {
@@ -61,7 +61,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 10px;
 }
 
 /* ── Feature card ────────────────────────────────────────── */
@@ -73,40 +73,12 @@
   width: 100%;
   cursor: pointer;
   transition: background .3s;
-  /* NO overflow:hidden — corners are inside the card naturally */
 }
 
 .rcard:hover,
 .rcard--open { background: var(--bg3); }
 
-/* ── Corner brackets ─────────────────────────────────────────
-   TL is positioned from the top of the card.
-   BR uses position:absolute but anchors to the LAST child
-   via a dedicated .rcard-corner-anchor at the true bottom.
-──────────────────────────────────────────────────────────── */
-.rcard-corner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--blue);
-  border-style: solid;
-  opacity: 0;
-  transition: opacity .3s;
-  pointer-events: none;
-  z-index: 1;
-}
-.rcard-corner--tl { top: 10px;    left: 10px;  border-width: 2px 0 0 2px; }
-/* BR anchored to bottom of the full card at all times */
-.rcard-corner--br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
-
-.rcard:hover .rcard-corner,
-.rcard--open  .rcard-corner { opacity: 1; }
-
-/* partial → amber corners */
-.rcard--partial:hover .rcard-corner,
-.rcard--partial.rcard--open .rcard-corner { border-color: hsl(45,80%,58%); }
-
-/* card body */
+/* ── Card body ───────────────────────────────────────────── */
 .rcard-body {
   padding: 24px 22px 18px;
   user-select: none;
@@ -120,7 +92,7 @@
   gap: 14px;
 }
 
-/* ── Icon ── */
+/* ── Icon ────────────────────────────────────────────────── */
 .rcard-icon {
   position: relative;
   width: 36px;
@@ -129,27 +101,33 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--blue);
 }
 
-.rcard--partial .rcard-icon { color: hsl(45,80%,58%); }
+/* icon color per status — set explicitly, no fallback to blue */
+.rcard--completed .rcard-icon { color: var(--blue); }
+.rcard--partial   .rcard-icon { color: hsl(45,80%,58%); }
+.rcard--pending   .rcard-icon { color: var(--text-dim2); }
 
+/* icon ring — color also set per status, not inherited */
 .rcard-icon-ring {
   position: absolute;
   inset: -6px;
-  border: 2px solid var(--b30);
   border-radius: 50%;
+  border: 2px solid transparent;
   opacity: 0;
   transform: scale(0.7);
   transition: opacity .3s, transform .3s;
   pointer-events: none;
 }
-.rcard--partial .rcard-icon-ring { border-color: hsla(45,80%,58%,.3); }
+
+.rcard--completed .rcard-icon-ring { border-color: var(--b30); }
+.rcard--partial   .rcard-icon-ring { border-color: hsla(45,80%,58%,.3); }
+.rcard--pending   .rcard-icon-ring { border-color: hsla(220,10%,50%,.2); }
 
 .rcard:hover .rcard-icon-ring,
 .rcard--open  .rcard-icon-ring { opacity: 1; transform: scale(1); }
 
-/* ── Text info ── */
+/* ── Text info ───────────────────────────────────────────── */
 .rcard-info {
   flex: 1;
   display: flex;
@@ -181,16 +159,18 @@
 .rcard:hover .rcard-desc,
 .rcard--open  .rcard-desc { color: var(--text-desc-hover); }
 
-/* chevron */
+/* ── Chevron ─────────────────────────────────────────────── */
 .rchevron {
   color: var(--text-faint);
   transition: transform .2s, color .2s;
   flex-shrink: 0;
   margin-top: 3px;
 }
-.rchevron--up { transform: rotate(180deg); color: var(--blue); }
+.rcard--completed .rchevron--up { transform: rotate(180deg); color: var(--blue); }
+.rcard--partial   .rchevron--up { transform: rotate(180deg); color: hsl(45,80%,58%); }
+.rcard--pending   .rchevron--up { transform: rotate(180deg); color: var(--text-dim2); }
 
-/* ── Progress bar row ── */
+/* ── Progress bar row ────────────────────────────────────── */
 .rcard-bar-row {
   display: flex;
   align-items: center;
@@ -206,17 +186,21 @@
 
 .rcard-bar-track-fill {
   height: 100%;
+  transition: width .6s cubic-bezier(.4,0,.2,1);
+}
+.rcard--completed .rcard-bar-track-fill {
   background: var(--blue);
   box-shadow: 0 0 5px var(--blue);
-  transition: width .6s cubic-bezier(.4,0,.2,1);
 }
 .rcard--partial .rcard-bar-track-fill {
   background: hsl(45,80%,58%);
   box-shadow: 0 0 5px hsla(45,80%,58%,.6);
 }
-.rcard--pending .rcard-bar-track-fill { opacity: 0; }
+.rcard--pending .rcard-bar-track-fill {
+  width: 0 !important;
+}
 
-/* pct label — color matches status */
+/* pct label color per status */
 .rcard-pct {
   font-family: 'Geist', sans-serif;
   font-size: .6rem;
@@ -239,8 +223,6 @@
 
 .rcard-items {
   border-top: 1px solid var(--rule);
-  /* extra bottom padding so last item has breathing room
-     and the BR corner (10px from bottom of card) clears content */
   padding: 8px 22px 28px;
   display: flex;
   flex-direction: column;

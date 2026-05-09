@@ -36,8 +36,8 @@ function groupByCategory(cards: RoadmapCard[]): Category[] {
 
 /* ── feature card ────────────────────────────────────────── */
 function FeatureCard({ card }: { card: RoadmapCard }) {
-  const [open, setOpen]   = useState(false);
-  const innerRef          = useRef<HTMLDivElement>(null);
+  const [open, setOpen]     = useState(false);
+  const innerRef            = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
   const pct    = cardPct(card);
   const status = cardStatus(card);
@@ -48,12 +48,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
 
   return (
     <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
-
-      {/* ethos-style corner brackets */}
-      <span className="rcard-corner rcard-corner--tl" />
-      <span className="rcard-corner rcard-corner--br" />
-
-      {/* clickable header */}
       <div
         className="rcard-body"
         onClick={() => setOpen(o => !o)}
@@ -62,8 +56,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
         onKeyDown={e => e.key === 'Enter' && setOpen(o => !o)}
       >
         <div className="rcard-header">
-
-          {/* icon with ring — matches ecard-ico */}
           <div className="rcard-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d={card.icon} fill="currentColor" />
@@ -83,7 +75,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
           </svg>
         </div>
 
-        {/* progress bar row */}
         <div className="rcard-bar-row">
           <div className="rcard-bar-track">
             <div className="rcard-bar-track-fill" style={{ width: `${pct}%` }} />
@@ -92,7 +83,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
         </div>
       </div>
 
-      {/* smooth animated expand — always in DOM, height-transitioned */}
       {card.items.length > 0 && (
         <div
           className="rcard-items-wrap"
