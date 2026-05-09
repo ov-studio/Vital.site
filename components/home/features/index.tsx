@@ -77,7 +77,7 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.beginPath();
       ctx.arc(cx, cy, rr, 0, Math.PI * 2);
       ctx.strokeStyle = `hsla(220,18%,9%,${op})`;
-      ctx.lineWidth = 0.8;
+      ctx.lineWidth = 2;
       ctx.stroke();
     }
 
@@ -85,7 +85,7 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
     ctx.beginPath();
     ctx.arc(cx, cy, baseR, 0, Math.PI * 2);
     ctx.strokeStyle = `rgba(${BLUE},0.06)`;
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 4;
     ctx.stroke();
 
     /* advance motion */
@@ -104,8 +104,8 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.setLineDash([2, 6]);
       ctx.moveTo(cx, cy);
       ctx.lineTo(pos[i].x, pos[i].y);
-      ctx.strokeStyle = `rgba(${BLUE},0.055)`;
-      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = `rgba(${BLUE},0.25)`;
+      ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
     }
