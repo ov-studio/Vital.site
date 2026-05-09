@@ -41,7 +41,7 @@
 }
 
 .rcategory-label {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: .72rem;
   font-weight: 700;
   letter-spacing: .14em;
@@ -49,14 +49,14 @@
   color: var(--dim);
 }
 
-/* ── Column layout (replaces grid) ──────────────────────────
-   Each column is independent — expanding a card only pushes
-   cards below it in that same column, not across the row.
+/* ── Column layout ───────────────────────────────────────────
+   Independent flex columns with 2px gap matching ethos grid.
+   Expanding a card only pushes cards below it in that column.
 ──────────────────────────────────────────────────────────── */
 .rcategory-cols {
   display: flex;
-  align-items: flex-start;   /* columns don't stretch to match each other */
-  gap: 10px;
+  align-items: flex-start;
+  gap: 2px;
 }
 
 .rcategory-col {
@@ -64,168 +64,177 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
 }
 
 /* ── Feature card ────────────────────────────────────────── */
 .rcard {
-  background: hsl(248,22%,5%);
-  border: 1px solid hsl(220,18%,11%);
-  border-radius: 6px;
+  position: relative;
+  background: var(--bg2);
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
-  transition: border-color .2s;
-  /* width is controlled by parent column, height is natural / auto */
   width: 100%;
+  cursor: pointer;
+  transition: background .3s;
 }
 
 .rcard:hover,
-.rcard--open { border-color: hsl(220,18%,16%); }
+.rcard--open { background: var(--bg3); }
 
-/* top progress bar */
-.rcard-bar {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: hsl(220,18%,9%);
-  flex-shrink: 0;
-  position: relative;
+/* corner brackets — identical to ecard-corner */
+.rcard-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--blue);
+  border-style: solid;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
 }
+.rcard-corner--tl { top: 10px; left: 10px;   border-width: 2px 0 0 2px; }
+.rcard-corner--br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
 
-.rcard-bar-fill {
-  display: block;
-  height: 100%;
-  background: var(--blue);
-  box-shadow: 0 0 6px var(--blue);
-  transition: width .6s cubic-bezier(.4,0,.2,1);
-}
+.rcard:hover .rcard-corner,
+.rcard--open  .rcard-corner { opacity: 1; }
 
-.rcard--partial .rcard-bar-fill { background: hsl(45,80%,58%); box-shadow: 0 0 6px hsla(45,80%,58%,.5); }
-.rcard--pending .rcard-bar-fill { display: none; }
+/* partial gets amber corners */
+.rcard--partial:hover .rcard-corner,
+.rcard--partial.rcard--open .rcard-corner { border-color: hsl(45,80%,58%); }
 
 /* card body */
 .rcard-body {
-  padding: 16px 16px 14px;
-  cursor: pointer;
+  padding: 24px 22px 18px;
   user-select: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .rcard-header {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
 }
 
-/* icon */
+/* ── Icon — matches ecard-ico + ecard-ico-ring ── */
 .rcard-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 7px;
+  position: relative;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   color: var(--blue);
-  background: hsla(220,95%,76%,.1);
-  border: 1px solid hsla(220,95%,76%,.15);
-  transition: background .2s, border-color .2s;
 }
 
-.rcard--partial .rcard-icon {
-  color: hsl(45,80%,58%);
-  background: hsla(45,80%,58%,.1);
-  border-color: hsla(45,80%,58%,.18);
-}
+.rcard--partial .rcard-icon { color: hsl(45,80%,58%); }
 
-.rcard:hover .rcard-icon,
-.rcard--open .rcard-icon {
-  background: hsla(220,95%,76%,.16);
-  border-color: hsla(220,95%,76%,.25);
+.rcard-icon-ring {
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--b30);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
 }
+.rcard--partial .rcard-icon-ring { border-color: hsla(45,80%,58%,.3); }
 
+.rcard:hover .rcard-icon-ring,
+.rcard--open  .rcard-icon-ring { opacity: 1; transform: scale(1); }
+
+/* ── Text info ── */
 .rcard-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   min-width: 0;
+  padding-top: 2px;
 }
 
+/* title — Rajdhani uppercase matching ecard-title */
 .rcard-name {
-  font-family: 'Geist', sans-serif;
-  font-size: .82rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
-  color: hsl(0,0%,88%);
-  letter-spacing: .02em;
-  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--dim);
+  line-height: 1.15;
+  transition: color .25s;
 }
+.rcard:hover .rcard-name,
+.rcard--open  .rcard-name { color: var(--white); }
 
+/* desc — Barlow light matching ecard-desc */
 .rcard-desc {
   font-family: 'Barlow', sans-serif;
-  font-size: .74rem;
-  color: var(--text-faint);
+  font-size: .78rem;
+  color: var(--text-desc);
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.7;
+  transition: color .25s;
 }
+.rcard:hover .rcard-desc,
+.rcard--open  .rcard-desc { color: var(--text-desc-hover); }
 
 /* chevron */
 .rchevron {
   color: var(--text-faint);
   transition: transform .2s, color .2s;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 .rchevron--up { transform: rotate(180deg); color: var(--blue); }
 
-/* priority badge */
-.rcard-priority {
-  display: inline-flex;
-  align-self: flex-start;
+/* ── Progress bar row (below header) ── */
+.rcard-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.rcard-bar-track {
+  flex: 1;
+  height: 2px;
+  background: hsla(220,18%,100%,.06);
+}
+
+.rcard-bar-track-fill {
+  height: 100%;
+  background: var(--blue);
+  box-shadow: 0 0 5px var(--blue);
+  transition: width .6s cubic-bezier(.4,0,.2,1);
+}
+.rcard--partial .rcard-bar-track-fill { background: hsl(45,80%,58%); box-shadow: 0 0 5px hsla(45,80%,58%,.6); }
+.rcard--pending .rcard-bar-track-fill { opacity: 0; }
+
+.rcard-pct {
   font-family: 'Geist', sans-serif;
-  font-size: .58rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 4px;
-}
-
-.rcard-priority--must-have {
-  color: hsl(220,95%,76%);
-  background: hsla(220,95%,76%,.1);
-  border: 1px solid hsla(220,95%,76%,.2);
-}
-
-.rcard-priority--high-value {
-  color: hsl(168,60%,55%);
-  background: hsla(168,60%,55%,.1);
-  border: 1px solid hsla(168,60%,55%,.2);
-}
-
-.rcard-priority--low-priority {
+  font-size: .6rem;
+  font-weight: 600;
   color: var(--text-faint);
-  background: hsla(220,10%,50%,.06);
-  border: 1px solid hsla(220,10%,50%,.12);
+  letter-spacing: .04em;
+  flex-shrink: 0;
+  min-width: 28px;
+  text-align: right;
 }
 
 /* ── Expanded items ──────────────────────────────────────── */
-
-/* Wrapper: animates max-height so the card height change is smooth
-   and pushes sibling cards down fluidly instead of jumping. */
 .rcard-items-wrap {
   overflow: hidden;
   max-height: 0;
-  transition: max-height .2s cubic-bezier(.4,0,.2,1);
+  transition: max-height .25s cubic-bezier(.4,0,.2,1);
 }
 
 .rcard-items {
-  border-top: 1px solid hsl(220,18%,9%);
-  padding: 8px 16px 12px 16px;
+  border-top: 1px solid var(--rule);
+  padding: 8px 22px 14px;
   display: flex;
   flex-direction: column;
 }
@@ -235,9 +244,9 @@
   grid-template-columns: 8px 1fr auto;
   align-items: center;
   gap: 0 10px;
-  padding: 6px 0;
+  padding: 7px 0;
 }
-.ritem:not(:last-child) { border-bottom: 1px solid hsla(220,18%,9%,.9); }
+.ritem:not(:last-child) { border-bottom: 1px solid hsla(220,18%,100%,.04); }
 
 .ritem-dot {
   width: 4px;
@@ -245,43 +254,43 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
-.ritem--completed .ritem-dot { background: var(--blue);        box-shadow: 0 0 4px var(--blue); }
+.ritem--completed .ritem-dot { background: var(--blue);      box-shadow: 0 0 4px var(--blue); }
 .ritem--partial   .ritem-dot { background: hsl(45,80%,58%); }
-.ritem--pending   .ritem-dot { background: transparent;        border: 1px solid var(--text-faint); opacity: .4; }
+.ritem--pending   .ritem-dot { background: transparent;      border: 1px solid var(--text-faint); opacity: .4; }
 
 .ritem-label {
   font-family: 'Barlow', sans-serif;
-  font-size: .75rem;
+  font-size: .76rem;
   font-weight: 300;
   line-height: 1.5;
 }
-.ritem--completed .ritem-label { color: hsl(220,10%,68%); }
+.ritem--completed .ritem-label { color: var(--text-soft); }
 .ritem--partial   .ritem-label { color: var(--text-soft); }
 .ritem--pending   .ritem-label { color: var(--text-faint); }
 
 .ritem-tag {
-  font-family: 'Geist', sans-serif;
-  font-size: .52rem;
-  font-weight: 600;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
   flex-shrink: 0;
-  padding: 2px 7px;
-  border-radius: 3px;
+  padding: 2px 8px;
 }
-.ritem--completed .ritem-tag { color: var(--blue);       background: hsla(220,95%,76%,.08);  border: 1px solid hsla(220,95%,76%,.15); }
-.ritem--partial   .ritem-tag { color: hsl(45,80%,58%);   background: hsla(45,80%,58%,.08);   border: 1px solid hsla(45,80%,58%,.15); }
-.ritem--pending   .ritem-tag { color: var(--text-dim2);  background: hsla(220,10%,50%,.05);  border: 1px solid hsla(220,10%,50%,.1); }
+.ritem--completed .ritem-tag { color: var(--blue);        background: hsla(220,95%,76%,.08); border: 1px solid hsla(220,95%,76%,.15); }
+.ritem--partial   .ritem-tag { color: hsl(45,80%,58%);    background: hsla(45,80%,58%,.08);  border: 1px solid hsla(45,80%,58%,.15); }
+.ritem--pending   .ritem-tag { color: var(--text-dim2);   background: hsla(220,10%,50%,.05); border: 1px solid hsla(220,10%,50%,.1); }
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   #roadmap { padding: 72px 0 100px; }
   .rcategory-cols { flex-wrap: wrap; }
-  .rcategory-col  { flex: 1 1 calc(50% - 5px); min-width: calc(50% - 5px); }
+  .rcategory-col  { flex: 1 1 calc(50% - 1px); min-width: calc(50% - 1px); }
 }
 
 @media (max-width: 640px) {
   #roadmap { padding: 56px 0 80px; }
   .rcategory-cols { flex-direction: column; }
   .rcategory-col  { flex: none; width: 100%; }
+  .rcard-body { padding: 20px 18px 16px; }
 }

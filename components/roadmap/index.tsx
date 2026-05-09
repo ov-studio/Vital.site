@@ -36,19 +36,22 @@ function groupByCategory(cards: RoadmapCard[]): Category[] {
 
 /* ── feature card ────────────────────────────────────────── */
 function FeatureCard({ card }: { card: RoadmapCard }) {
-  const [open, setOpen] = useState(false);
-  const innerRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen]   = useState(false);
+  const innerRef          = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
   const pct    = cardPct(card);
   const status = cardStatus(card);
 
-  // Measure the real content height whenever items change
   useEffect(() => {
     if (innerRef.current) setHeight(innerRef.current.scrollHeight);
   }, [card.items]);
 
   return (
     <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
+
+      {/* ethos-style corner brackets */}
+      <span className="rcard-corner rcard-corner--tl" />
+      <span className="rcard-corner rcard-corner--br" />
 
       {/* clickable header */}
       <div
@@ -59,20 +62,18 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
         onKeyDown={e => e.key === 'Enter' && setOpen(o => !o)}
       >
         <div className="rcard-header">
+
+          {/* icon with ring — matches ecard-ico */}
           <div className="rcard-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d={card.icon} fill="currentColor" />
             </svg>
+            <span className="rcard-icon-ring" />
           </div>
 
           <div className="rcard-info">
             <span className="rcard-name">{card.label}</span>
             <span className="rcard-desc">{card.desc}</span>
-
-            {/* progress bar */}
-            <span className="rcard-bar">
-              <span className="rcard-bar-fill" style={{ width: `${pct}%` }} />
-            </span>
           </div>
 
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
@@ -81,9 +82,17 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
               strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
+
+        {/* progress bar row */}
+        <div className="rcard-bar-row">
+          <div className="rcard-bar-track">
+            <div className="rcard-bar-track-fill" style={{ width: `${pct}%` }} />
+          </div>
+          <span className="rcard-pct">{pct > 0 ? `${pct}%` : '—'}</span>
+        </div>
       </div>
 
-      {/* always rendered — height animated via max-height so layout pushes smoothly */}
+      {/* smooth animated expand — always in DOM, height-transitioned */}
       {card.items.length > 0 && (
         <div
           className="rcard-items-wrap"
@@ -96,7 +105,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
                 <span className="ritem-label">{item.label}</span>
                 <span className="ritem-tag">
                   {item.status === 'completed' ? 'Done'
-                    : item.status === 'partial' ? 'In progress'
+                    : item.status === 'partial'  ? 'In progress'
                     : 'Planned'}
                 </span>
               </div>
@@ -110,8 +119,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
 
 /* ── category section ────────────────────────────────────── */
 function CategorySection({ cat, index }: { cat: Category; index: number }) {
-  // Distribute cards into 3 columns top-to-bottom (like Pinterest/masonry)
-  // so expanding a card only pushes cards below it in the same column.
   const COLS = 3;
   const columns: RoadmapCard[][] = Array.from({ length: COLS }, () => []);
   cat.cards.forEach((card, i) => columns[i % COLS].push(card));
