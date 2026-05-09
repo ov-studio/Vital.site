@@ -26,7 +26,7 @@
   overflow: hidden;
   background: var(--bg2);
   border-left: 2px solid var(--rule);
-  transition: border-color .2s, background .3s;
+  transition: border-color .3s, background .3s;
 }
 
 .fcluster.is-active {
@@ -50,7 +50,7 @@
   border-radius: 50%;
   background: var(--rule);
   flex-shrink: 0;
-  transition: background .3s, box-shadow .2s;
+  transition: background .3s, box-shadow .3s;
 }
 
 .fcluster.is-active .fcluster-dot {
@@ -66,15 +66,11 @@
   text-transform: uppercase;
   color: var(--dim);
   flex: 1;
-  transition: color .2s;
+  transition: color .3s;
 }
 
 .fcluster.is-active .fcluster-label {
   color: var(--white);
-}
-
-.fcluster-count {
-  display: none;
 }
 
 .fcluster-desc {
@@ -84,7 +80,7 @@
   line-height: 1.65;
   padding: 0 16px 14px 28px;
   font-weight: 300;
-  transition: color .2s;
+  transition: color .3s;
   position: relative;
   z-index: 1;
 }
@@ -188,7 +184,7 @@
   white-space: nowrap;
   cursor: default;
   position: relative;
-  transition: border-color .2s, color .2s, box-shadow .2s;
+  transition: border-color .3s, color .3s;
 }
 
 .fnode::before,
@@ -200,7 +196,7 @@
   border-color: var(--blue);
   border-style: solid;
   opacity: 0;
-  transition: opacity .2s;
+  transition: opacity .3s;
 }
 
 .fnode::before {

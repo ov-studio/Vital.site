@@ -152,7 +152,6 @@ export function Features() {
                 <div className="fcluster-head">
                   <span className="fcluster-dot" />
                   <span className="fcluster-label">{c.label}</span>
-                  <span className="fcluster-count">{c.items.length}</span>
                 </div>
                 <p className="fcluster-desc">{c.desc}</p>
               </div>
