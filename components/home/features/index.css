@@ -133,7 +133,7 @@
 .fhub-ring-2 { inset: -20px; opacity: .08; animation-delay: 1.75s; }
 
 @keyframes fhub-pulse {
-  0%, 100% { transform: scale(1);    opacity: .15; }
+  0%, 100% { transform: scale(1); opacity: .15; }
   50% { transform: scale(1.05); opacity: .75; }
 }
 
@@ -170,8 +170,8 @@
   opacity: 0;
   transition: opacity .2s;
 }
-.fnode::before { top: -2px; left: -2px; border-width: 1px 0 0 1px; }
-.fnode::after { bottom: -2px; right: -2px; border-width: 0 1px 1px 0; }
+.fnode::before { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+.fnode::after { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
 
 .fnode-group.is-active .fnode {
   border-color: var(--blue);
