@@ -34,10 +34,7 @@ function groupByCategory(cards: RoadmapCard[]): Category[] {
   return Array.from(map.entries()).map(([label, cards]) => ({ label, cards }));
 }
 
-/* ── feature card ─────────────────────────────────────────
-   IMPORTANT: defined at module level so React never remounts
-   it just because a parent re-renders.
-──────────────────────────────────────────────────────────── */
+/* ── feature card ────────────────────────────────────────── */
 function FeatureCard({ card }: { card: RoadmapCard }) {
   const [open, setOpen] = useState(false);
   const pct    = cardPct(card);
@@ -64,7 +61,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
           <div className="rcard-info">
             <span className="rcard-name">{card.label}</span>
             <span className="rcard-desc">{card.desc}</span>
-            
+
             {/* top progress bar */}
             <span className="rcard-bar">
               <span className="rcard-bar-fill" style={{ width: `${pct}%` }} />
@@ -79,7 +76,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
         </div>
       </div>
 
-      {/* expanded items — keyed by card.id so state never leaks */}
+      {/* expanded items */}
       {open && card.items.length > 0 && (
         <div className="rcard-items">
           {card.items.map((item, i) => (
@@ -101,16 +98,25 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
 
 /* ── category section ────────────────────────────────────── */
 function CategorySection({ cat, index }: { cat: Category; index: number }) {
+  // Distribute cards into 3 columns top-to-bottom (like Pinterest/masonry)
+  // so expanding a card only pushes cards below it in the same column.
+  const COLS = 3;
+  const columns: RoadmapCard[][] = Array.from({ length: COLS }, () => []);
+  cat.cards.forEach((card, i) => columns[i % COLS].push(card));
+
   return (
     <div className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
         <span className="rcategory-label">{cat.label}</span>
       </div>
 
-      <div className="rcategory-grid">
-        {/* key by card.id, never by index */}
-        {cat.cards.map(card => (
-          <FeatureCard key={card.id} card={card} />
+      <div className="rcategory-cols">
+        {columns.map((col, ci) => (
+          <div key={ci} className="rcategory-col">
+            {col.map(card => (
+              <FeatureCard key={card.id} card={card} />
+            ))}
+          </div>
         ))}
       </div>
     </div>

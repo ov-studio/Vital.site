@@ -49,10 +49,21 @@
   color: var(--dim);
 }
 
-/* ── Card grid ───────────────────────────────────────────── */
-.rcategory-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* ── Column layout (replaces grid) ──────────────────────────
+   Each column is independent — expanding a card only pushes
+   cards below it in that same column, not across the row.
+──────────────────────────────────────────────────────────── */
+.rcategory-cols {
+  display: flex;
+  align-items: flex-start;   /* columns don't stretch to match each other */
+  gap: 10px;
+}
+
+.rcategory-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -66,6 +77,8 @@
   position: relative;
   overflow: hidden;
   transition: border-color .15s;
+  /* width is controlled by parent column, height is natural / auto */
+  width: 100%;
 }
 
 .rcard:hover,
@@ -100,7 +113,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
 }
 
 .rcard-header {
@@ -261,10 +273,12 @@
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   #roadmap { padding: 72px 0 100px; }
-  .rcategory-grid { grid-template-columns: 1fr 1fr; }
+  .rcategory-cols { flex-wrap: wrap; }
+  .rcategory-col  { flex: 1 1 calc(50% - 5px); min-width: calc(50% - 5px); }
 }
 
 @media (max-width: 640px) {
   #roadmap { padding: 56px 0 80px; }
-  .rcategory-grid { grid-template-columns: 1fr; }
+  .rcategory-cols { flex-direction: column; }
+  .rcategory-col  { flex: none; width: 100%; }
 }
