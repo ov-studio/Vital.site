@@ -105,7 +105,7 @@
   height: 80px;
   border-radius: 50%;
   background: var(--bg);
-  border: 1px solid var(--b30);
+  border: 10px solid var(--b30);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,15 +126,15 @@
   position: absolute;
   inset: -9px;
   border-radius: 50%;
-  border: 1px solid var(--blue);
-  opacity: .18;
+  border: 2px solid var(--blue);
+  opacity: .15;
   animation: fhub-pulse 3.5s ease-in-out infinite;
 }
 .fhub-ring-2 { inset: -20px; opacity: .08; animation-delay: 1.75s; }
 
 @keyframes fhub-pulse {
   0%, 100% { transform: scale(1);    opacity: .15; }
-  50% { transform: scale(1.05); opacity: .35; }
+  50% { transform: scale(1.05); opacity: .75; }
 }
 
 .fnode-group {
