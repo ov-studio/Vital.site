@@ -112,7 +112,7 @@ function CategorySection({ cat, index }: { cat: Category; index: number }) {
   return (
     <div className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <span className="rcategory-label">{cat.label}</span>
+        <span className="rcategory-label"># {cat.label}</span>
       </div>
 
       <div className="rcategory-cols">
