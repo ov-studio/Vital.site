@@ -21,7 +21,7 @@
 }
 
 .fcluster {
-  border-left: 1px solid var(--rule);
+  border-left: 2px solid var(--rule);
   transition: border-color .2s;
 }
 .fcluster.is-active { border-color: var(--blue); }
