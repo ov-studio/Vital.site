@@ -183,7 +183,7 @@ export const Roadmap_Content: RoadmapCard[] = [
       { label: 'SDFGI',                   status: 'completed' },
       { label: 'Fog',                     status: 'completed' },
       { label: 'Volumetric Fog',          status: 'completed' },
-      { label: 'Adjustment (color grade)',status: 'completed' },
+      { label: 'Adjustment', status: 'completed' },
       { label: 'Emissive',                status: 'completed' },
     ],
   },
