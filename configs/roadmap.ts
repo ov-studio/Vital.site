@@ -11,7 +11,6 @@ export interface RoadmapCard {
   desc: string;
   icon: string;
   category: string;
-  tags?: string[];
   priority?: string;
   items: RoadmapItem[];
 }
@@ -49,9 +48,8 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Core Runtime',
     desc: 'Threading, timers, crypto, promises, I/O utilities',
     icon: ICON.cpu,
-    tags: ['Thread', 'Timer', 'FileAccess', 'HTTPClient', 'Crypto'],
     items: [
-      { label: 'Thread & Mutex',          status: 'completed' },
+      { label: 'Thread',          status: 'completed' },
       { label: 'Timer',                   status: 'completed' },
       { label: 'File I/O',                status: 'completed' },
       { label: 'HTTP client',             status: 'completed' },
@@ -68,7 +66,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Scene & Node Tree',
     desc: 'SceneTree, scene loading, node query, groups',
     icon: ICON.scene,
-    tags: ['SceneTree', 'change_scene_to_file()', 'Node.get_node()'],
     priority: 'Must have',
     items: [
       { label: 'SceneTree access',        status: 'partial'   },
@@ -85,7 +82,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Performance Monitor',
     desc: 'Read FPS, draw calls, memory from Lua scripts',
     icon: ICON.perf,
-    tags: ['Performance', 'Engine.get_frames_per_second()'],
     items: [
       { label: 'Performance singleton',   status: 'pending' },
       { label: 'FPS / frame time',        status: 'pending' },
@@ -101,7 +97,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'UI — Webview',
     desc: 'HTML/CSS/JS rendered into SubViewport',
     icon: ICON.ui,
-    tags: ['SubViewport', 'WebView', 'JavaScriptBridge'],
     items: [
       { label: 'SubViewport bridge',      status: 'completed' },
       { label: 'HTML/CSS rendering',      status: 'completed' },
@@ -115,7 +110,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Rendering',
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
-    tags: ['Canvas', 'Viewport', 'Texture2D', 'FontFile'],
     items: [
       { label: 'Canvas (2D draw API)',    status: 'completed' },
       { label: 'Rendertarget / Viewport', status: 'completed' },
@@ -132,7 +126,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'GFX & Environment',
     desc: 'SSAO, SSIL, SSR, SDFGI, fog, volumetric, adjustment',
     icon: ICON.gfx,
-    tags: ['WorldEnvironment', 'Environment', 'SDFGI'],
     items: [
       { label: 'SSAO',                    status: 'completed' },
       { label: 'SSIL',                    status: 'completed' },
@@ -151,7 +144,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Lighting',
     desc: 'Directional, omni, spot lights from Lua',
     icon: ICON.light,
-    tags: ['DirectionalLight3D', 'OmniLight3D', 'SpotLight3D'],
     items: [
       { label: 'DirectionalLight3D',      status: 'pending' },
       { label: 'OmniLight3D',             status: 'pending' },
@@ -165,7 +157,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Shader Uniforms',
     desc: 'Set ShaderMaterial uniforms and parameters from Lua',
     icon: ICON.shader,
-    tags: ['ShaderMaterial', 'set_shader_parameter()'],
     items: [
       { label: 'ShaderMaterial.set_shader_parameter', status: 'pending' },
       { label: 'Texture uniform binding', status: 'pending' },
@@ -178,7 +169,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Decals',
     desc: 'Project textures onto surfaces at runtime',
     icon: ICON.decal,
-    tags: ['Decal'],
     items: [
       { label: 'Decal node control',      status: 'pending' },
       { label: 'Texture assignment',      status: 'pending' },
@@ -191,7 +181,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'GPU Particles',
     desc: 'GPUParticles3D control, emission, restart from Lua',
     icon: ICON.particles,
-    tags: ['GPUParticles3D', 'ParticleProcessMaterial'],
     items: [
       { label: 'GPUParticles3D',          status: 'pending' },
       { label: 'Emit / restart',          status: 'pending' },
@@ -207,7 +196,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Models',
     desc: 'Load/unload, transform, animation, blend shapes',
     icon: ICON.model,
-    tags: ['MeshInstance3D', 'AnimationPlayer', 'MorphTarget'],
     items: [
       { label: 'Load / unload',           status: 'completed' },
       { label: 'Transform (pos/rot/scale)',status: 'completed' },
@@ -222,7 +210,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Camera 3D',
     desc: 'Camera control, FOV, projection, current camera',
     icon: ICON.camera,
-    tags: ['Camera3D', 'set_current()', 'fov'],
     items: [
       { label: 'Camera3D transform',      status: 'pending' },
       { label: 'FOV / projection',        status: 'pending' },
@@ -236,7 +223,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Tween',
     desc: 'Interpolate any node property with easing & chaining',
     icon: ICON.tween,
-    tags: ['Tween', 'create_tween()', 'PropertyTweener'],
     priority: 'Must have',
     items: [
       { label: 'Tween.tween_property',    status: 'pending' },
@@ -253,7 +239,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Physics 3D',
     desc: 'RigidBody3D, raycasts, shapecasts, collision layers',
     icon: ICON.physics,
-    tags: ['PhysicsServer3D', 'RigidBody3D', 'PhysicsDirectBodyState3D'],
     priority: 'Must have',
     items: [
       { label: 'PhysicsServer3D',         status: 'pending' },
@@ -270,7 +255,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Physics 2D',
     desc: '2D raycast, collision queries, rigidbody for platformers',
     icon: ICON.physics,
-    tags: ['PhysicsServer2D', 'RigidBody2D'],
     priority: 'High value',
     items: [
       { label: 'PhysicsServer2D',         status: 'pending' },
@@ -285,7 +269,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Navigation',
     desc: 'Navmesh queries, agent pathfinding, avoidance',
     icon: ICON.nav,
-    tags: ['NavigationServer3D', 'NavigationAgent3D'],
     priority: 'Must have',
     items: [
       { label: 'NavigationServer3D',      status: 'pending' },
@@ -302,7 +285,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Input',
     desc: 'Keyboard, mouse, gamepad, InputMap bindings',
     icon: ICON.input,
-    tags: ['Input', 'InputEvent', 'InputMap'],
     priority: 'Must have',
     items: [
       { label: 'Input singleton',         status: 'pending' },
@@ -319,7 +301,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Audio',
     desc: 'Playback, 3D positional sound, bus effects',
     icon: ICON.audio,
-    tags: ['AudioStreamPlayer', 'AudioStreamPlayer3D', 'AudioServer'],
     priority: 'Must have',
     items: [
       { label: 'AudioStreamPlayer (2D)',  status: 'pending' },
@@ -337,7 +318,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Networking',
     desc: 'HTTP, ENet low-level UDP, WebSocket, multiplayer API',
     icon: ICON.network,
-    tags: ['ENetConnection', 'WebSocketPeer', 'MultiplayerAPI'],
     items: [
       { label: 'HTTP (requests)',         status: 'completed' },
       { label: 'ENet (UDP peer)',         status: 'completed' },
@@ -356,7 +336,6 @@ export const Roadmap_Content: RoadmapCard[] = [
     label: 'Display & Window',
     desc: 'DisplayServer: resolution, fullscreen, clipboard',
     icon: ICON.display,
-    tags: ['DisplayServer', 'window_set_mode()', 'clipboard_set()'],
     items: [
       { label: 'DisplayServer.window_*',  status: 'pending' },
       { label: 'Fullscreen / borderless', status: 'pending' },

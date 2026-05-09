@@ -78,15 +78,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
           </svg>
         </div>
 
-        {/* class/api tags */}
-        {card.tags && card.tags.length > 0 && (
-          <div className="rcard-tags">
-            {card.tags.map(tag => (
-              <span key={tag} className="rcard-tag">{tag}</span>
-            ))}
-          </div>
-        )}
-
         {/* priority badge */}
         {card.priority && (
           <span className={`rcard-priority rcard-priority--${card.priority.toLowerCase().replace(/\s+/g, '-')}`}>

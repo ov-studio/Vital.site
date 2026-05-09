@@ -191,25 +191,6 @@
 }
 .rchevron--up { transform: rotate(180deg); color: var(--blue); }
 
-/* api/class tags */
-.rcard-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.rcard-tag {
-  font-family: 'Geist Mono', monospace;
-  font-size: .58rem;
-  font-weight: 500;
-  color: hsl(220,10%,55%);
-  background: hsl(220,18%,8%);
-  border: 1px solid hsl(220,18%,12%);
-  padding: 2px 7px;
-  border-radius: 3px;
-  white-space: nowrap;
-}
-
 /* priority badge */
 .rcard-priority {
   display: inline-flex;
