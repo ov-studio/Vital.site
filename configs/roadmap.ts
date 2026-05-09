@@ -140,8 +140,8 @@ export const Roadmap_Content: RoadmapCard[] = [
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
     items: [
-      { label: 'Support format: TTF', status: 'completed' },
-      { label: 'Support format: OTF', status: 'completed' }
+      { label: 'Format: TTF', status: 'completed' },
+      { label: 'Format: OTF', status: 'completed' }
     ],
   },
 
@@ -152,10 +152,10 @@ export const Roadmap_Content: RoadmapCard[] = [
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
     items: [
-      { label: 'Support format: JPG', status: 'completed' },
-      { label: 'Support format: PNG', status: 'completed' },
-      { label: 'Support format: WEBP', status: 'completed' },
-      { label: 'Support format: SVG', status: 'completed' }
+      { label: 'Format: JPG', status: 'completed' },
+      { label: 'Format: PNG', status: 'completed' },
+      { label: 'Format: WEBP', status: 'completed' },
+      { label: 'Format: SVG', status: 'completed' }
     ],
   },
   
@@ -243,18 +243,20 @@ export const Roadmap_Content: RoadmapCard[] = [
   {
     id: 'models',
     category: '3D World',
-    label: 'Models',
+    label: 'Model',
     desc: 'Load/unload, transform, animation, blend shapes',
     icon: ICON.model,
     items: [
-      { label: 'Support format: GLB', status: 'completed' },
+      { label: 'Format: GLB', status: 'completed' },
       { label: 'Load / unload',           status: 'completed' },
-      { label: 'Transform (pos/rot/scale)',status: 'completed' },
-      { label: 'Animation player',        status: 'completed' },
-      { label: 'Blend shapes',            status: 'completed' },
+      { label: 'Transformations',status: 'completed' },
+      { label: 'Blendshapes', status: 'completed' },
+      { label: 'Components', status: 'completed' },
+      { label: 'Materials', status: 'completed' },
+      { label: 'Animation player',        status: 'completed' }
     ],
   },
-
+  
   {
     id: 'camera',
     category: '3D World',
