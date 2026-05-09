@@ -142,7 +142,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'lighting',
     category: 'Rendering',
     label: 'Lighting',
-    desc: 'Directional, omni, spot lights from Lua',
+    desc: 'Create/configure DirectionalLight, OmniLight, SpotLight — color, energy, shadow, range from Lua.',
     icon: ICON.light,
     items: [
       { label: 'DirectionalLight3D',      status: 'pending' },
@@ -167,7 +167,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'decals',
     category: 'Rendering',
     label: 'Decals',
-    desc: 'Project textures onto surfaces at runtime',
+    desc: 'Project textures onto surfaces at runtime — bullet holes, footprints, damage overlays.',
     icon: ICON.decal,
     items: [
       { label: 'Decal node control',      status: 'pending' },
@@ -208,7 +208,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'camera',
     category: '3D World',
     label: 'Camera 3D',
-    desc: 'Camera control, FOV, projection, current camera',
+    desc: 'FOV, near/far clip, projection mode, per-camera environment override from Lua.',
     icon: ICON.camera,
     items: [
       { label: 'Camera3D transform',      status: 'pending' },
@@ -237,7 +237,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'physics3d',
     category: 'Physics',
     label: 'Physics 3D',
-    desc: 'RigidBody3D, raycasts, shapecasts, collision layers',
+    desc: 'Raycast, shapecast, apply forces/impulses to rigidbodies, collision layer queries from Lua.',
     icon: ICON.physics,
     priority: 'Must have',
     items: [
@@ -253,7 +253,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'navigation',
     category: 'Physics',
     label: 'Navigation',
-    desc: 'Navmesh queries, agent pathfinding, avoidance',
+    desc: 'Agent pathfinding, avoidance, navmesh queries. Essential for any NPC or AI movement.',
     icon: ICON.nav,
     priority: 'Must have',
     items: [
@@ -269,7 +269,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'input',
     category: 'Input & Audio',
     label: 'Input',
-    desc: 'Keyboard, mouse, gamepad, InputMap bindings',
+    desc: 'Key pressed/released/just_pressed, mouse position, button state, scroll wheel delta.',
     icon: ICON.input,
     priority: 'Must have',
     items: [
@@ -285,7 +285,7 @@ export const Roadmap_Content: RoadmapCard[] = [
     id: 'audio',
     category: 'Input & Audio',
     label: 'Audio',
-    desc: 'Playback, 3D positional sound, bus effects',
+    desc: 'Play/stop/pause/seek streams. 2D flat audio and 3D positional sound with distance attenuation.',
     icon: ICON.audio,
     priority: 'Must have',
     items: [

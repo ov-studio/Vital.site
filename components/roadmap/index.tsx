@@ -46,11 +46,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
   return (
     <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
 
-      {/* top progress bar */}
-      <span className="rcard-bar">
-        <span className="rcard-bar-fill" style={{ width: `${pct}%` }} />
-      </span>
-
       {/* clickable header */}
       <div
         className="rcard-body"
@@ -69,6 +64,11 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
           <div className="rcard-info">
             <span className="rcard-name">{card.label}</span>
             <span className="rcard-desc">{card.desc}</span>
+            
+            {/* top progress bar */}
+            <span className="rcard-bar">
+              <span className="rcard-bar-fill" style={{ width: `${pct}%` }} />
+            </span>
           </div>
 
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
@@ -104,8 +104,6 @@ function CategorySection({ cat, index }: { cat: Category; index: number }) {
   return (
     <div className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <span className="rcategory-index">{index + 1}</span>
-        <span className="rcategory-sep">—</span>
         <span className="rcategory-label">{cat.label}</span>
       </div>
 
@@ -129,7 +127,7 @@ export function RoadmapGrid() {
         <div className="roadmap-head">
           <div className="slabel">Roadmap</div>
           <div className="sec-head">
-            <h2>What's built.<br />What's <span>coming.</span></h2>
+            <h2>What we've achieved.<br />What's <span>coming.</span></h2>
           </div>
         </div>
 
