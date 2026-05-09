@@ -17,7 +17,7 @@
     background: hsl(250, 25%, 6%);
     color: hsl(220, 10%, 60%);
     cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .sidebar-expand-btn--fixed:hover {

@@ -1,6 +1,6 @@
 'use client';
 import './index.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Roadmap_Content, type FeatureStatus, type RoadmapCard } from '@/configs/roadmap';
 
 /* ── helpers ─────────────────────────────────────────────── */
@@ -37,8 +37,15 @@ function groupByCategory(cards: RoadmapCard[]): Category[] {
 /* ── feature card ────────────────────────────────────────── */
 function FeatureCard({ card }: { card: RoadmapCard }) {
   const [open, setOpen] = useState(false);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
   const pct    = cardPct(card);
   const status = cardStatus(card);
+
+  // Measure the real content height whenever items change
+  useEffect(() => {
+    if (innerRef.current) setHeight(innerRef.current.scrollHeight);
+  }, [card.items]);
 
   return (
     <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
@@ -62,7 +69,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
             <span className="rcard-name">{card.label}</span>
             <span className="rcard-desc">{card.desc}</span>
 
-            {/* top progress bar */}
+            {/* progress bar */}
             <span className="rcard-bar">
               <span className="rcard-bar-fill" style={{ width: `${pct}%` }} />
             </span>
@@ -76,20 +83,25 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
         </div>
       </div>
 
-      {/* expanded items */}
-      {open && card.items.length > 0 && (
-        <div className="rcard-items">
-          {card.items.map((item, i) => (
-            <div key={i} className={`ritem ritem--${item.status}`}>
-              <span className="ritem-dot" />
-              <span className="ritem-label">{item.label}</span>
-              <span className="ritem-tag">
-                {item.status === 'completed' ? 'Done'
-                  : item.status === 'partial' ? 'In progress'
-                  : 'Planned'}
-              </span>
-            </div>
-          ))}
+      {/* always rendered — height animated via max-height so layout pushes smoothly */}
+      {card.items.length > 0 && (
+        <div
+          className="rcard-items-wrap"
+          style={{ maxHeight: open ? `${height}px` : '0px' }}
+        >
+          <div ref={innerRef} className="rcard-items">
+            {card.items.map((item, i) => (
+              <div key={i} className={`ritem ritem--${item.status}`}>
+                <span className="ritem-dot" />
+                <span className="ritem-label">{item.label}</span>
+                <span className="ritem-tag">
+                  {item.status === 'completed' ? 'Done'
+                    : item.status === 'partial' ? 'In progress'
+                    : 'Planned'}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

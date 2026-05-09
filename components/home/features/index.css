@@ -50,7 +50,7 @@
   border-radius: 50%;
   background: var(--rule);
   flex-shrink: 0;
-  transition: background .2s, box-shadow .2s;
+  transition: background .3s, box-shadow .2s;
 }
 
 .fcluster.is-active .fcluster-dot {

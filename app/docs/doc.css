@@ -31,7 +31,7 @@
 #nd-sidebar {
     width: var(--sidebar-width) !important;
     min-width: var(--sidebar-width) !important;
-    transition: width 0.25s ease, min-width 0.25s ease !important;
+    transition: width 0.2s ease, min-width 0.2s ease !important;
 }
 
 #nd-sidebar>* {
