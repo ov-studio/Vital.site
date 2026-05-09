@@ -250,20 +250,6 @@ export const Roadmap_Content: RoadmapCard[] = [
   },
 
   {
-    id: 'physics2d',
-    category: 'Physics',
-    label: 'Physics 2D',
-    desc: '2D raycast, collision queries, rigidbody for platformers',
-    icon: ICON.physics,
-    priority: 'High value',
-    items: [
-      { label: 'PhysicsServer2D',         status: 'pending' },
-      { label: 'RigidBody2D control',     status: 'pending' },
-      { label: '2D raycast',              status: 'pending' },
-    ],
-  },
-
-  {
     id: 'navigation',
     category: 'Physics',
     label: 'Navigation',
