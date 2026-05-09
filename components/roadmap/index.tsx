@@ -101,21 +101,12 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
 
 /* ── category section ────────────────────────────────────── */
 function CategorySection({ cat, index }: { cat: Category; index: number }) {
-  const allItems = cat.cards.flatMap(c => c.items);
-  const total    = allItems.length;
-  const done     = allItems.filter(i => i.status === 'completed').length;
-  const partial  = allItems.filter(i => i.status === 'partial').length;
-  const pct      = total
-    ? Math.round((allItems.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / total) * 100)
-    : 0;
-
   return (
     <div className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
         <span className="rcategory-index">{index + 1}</span>
         <span className="rcategory-sep">—</span>
         <span className="rcategory-label">{cat.label}</span>
-        <span className="rcategory-coverage">({pct}% covered)</span>
       </div>
 
       <div className="rcategory-grid">

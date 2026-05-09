@@ -62,14 +62,6 @@
   color: var(--dim);
 }
 
-.rcategory-coverage {
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
-  color: var(--text-dim2);
-  letter-spacing: .04em;
-  margin-left: 2px;
-}
-
 /* ── Card grid ───────────────────────────────────────────── */
 .rcategory-grid {
   display: grid;
