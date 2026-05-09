@@ -13,7 +13,7 @@ interface NodeState {
 }
 
 const BASE_R = 0.385;
-const SPEED = 0.00028;
+const SPEED = 0.00025;
 const BLUE = [148, 178, 252] as const;
 
 function rng(lo: number, hi: number) { return lo + Math.random() * (hi - lo); }
