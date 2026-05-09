@@ -140,8 +140,8 @@ export const Roadmap_Content: RoadmapCard[] = [
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
     items: [
-      { label: 'TTF', status: 'completed' },
-      { label: 'OTF', status: 'completed' }
+      { label: 'Support format: TTF', status: 'completed' },
+      { label: 'Support format: OTF', status: 'completed' }
     ],
   },
 
@@ -152,10 +152,10 @@ export const Roadmap_Content: RoadmapCard[] = [
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
     items: [
-      { label: 'JPG', status: 'completed' },
-      { label: 'PNG', status: 'completed' },
-      { label: 'WEBP', status: 'completed' },
-      { label: 'SVG', status: 'completed' }
+      { label: 'Support format: JPG', status: 'completed' },
+      { label: 'Support format: PNG', status: 'completed' },
+      { label: 'Support format: WEBP', status: 'completed' },
+      { label: 'Support format: SVG', status: 'completed' }
     ],
   },
   
