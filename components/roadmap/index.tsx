@@ -55,9 +55,9 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
         <div className="rcard-header">
           <div className="rcard-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d={card.icon} fill="currentColor" />
+              <path d={card.icon} fill="currentColor"/>
             </svg>
-            <span className="rcard-icon-ring" />
+            <span className="rcard-icon-ring"/>
           </div>
 
           <div className="rcard-info">
@@ -68,13 +68,13 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
             className={`rchevron${open ? ' rchevron--up' : ''}`}>
             <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor"
-              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
 
         <div className="rcard-bar-row">
           <div className="rcard-bar-track">
-            <div className="rcard-bar-track-fill" style={{ width: `${pct}%` }} />
+            <div className="rcard-bar-track-fill" style={{ width: `${pct}%` }}/>
           </div>
           <span className="rcard-pct">{pct > 0 ? `${pct}%` : '—'}</span>
         </div>
@@ -88,7 +88,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
           <div ref={innerRef} className="rcard-items">
             {card.items.map((item, i) => (
               <div key={i} className={`ritem ritem--${item.status}`}>
-                <span className="ritem-dot" />
+                <span className="ritem-dot"/>
                 <span className="ritem-label">{item.label}</span>
                 <span className="ritem-tag">
                   {item.status === 'completed' ? 'Done'
@@ -119,7 +119,7 @@ function CategorySection({ cat, index }: { cat: Category; index: number }) {
         {columns.map((col, ci) => (
           <div key={ci} className="rcategory-col">
             {col.map(card => (
-              <FeatureCard key={card.id} card={card} />
+              <FeatureCard key={card.id} card={card}/>
             ))}
           </div>
         ))}
@@ -137,13 +137,13 @@ export function RoadmapGrid() {
         <div className="roadmap-head">
           <div className="slabel">Roadmap</div>
           <div className="sec-head">
-            <h2>What we've achieved.<br />What's <span>coming.</span></h2>
+            <h2>What we've achieved.<br/>What's <span>coming.</span></h2>
           </div>
         </div>
 
         <div className="roadmap-body">
           {categories.map((cat, i) => (
-            <CategorySection key={cat.label} cat={cat} index={i} />
+            <CategorySection key={cat.label} cat={cat} index={i}/>
           ))}
         </div>
       </div>
