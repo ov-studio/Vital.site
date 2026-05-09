@@ -93,7 +93,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'ui',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'Webview',
     desc: 'HTML/CSS/JS renderer',
     icon: ICON.ui,
@@ -106,7 +106,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'rendering',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'Rendering',
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
@@ -122,7 +122,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'gfx',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'GFX & Environment',
     desc: 'SSAO, SSIL, SSR, SDFGI, fog, volumetric, adjustment',
     icon: ICON.gfx,
@@ -140,7 +140,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'lighting',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'Lighting',
     desc: 'Directional, omni, spot lights from Lua',
     icon: ICON.light,
@@ -153,7 +153,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'shader',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'Shader Uniforms',
     desc: 'Set ShaderMaterial uniforms and parameters from Lua',
     icon: ICON.shader,
@@ -165,7 +165,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'decals',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'Decals',
     desc: 'Project textures onto surfaces at runtime',
     icon: ICON.decal,
@@ -177,7 +177,7 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'particles',
-    category: 'Rendering & Visuals',
+    category: 'Rendering',
     label: 'GPU Particles',
     desc: 'GPUParticles3D control, emission, restart from Lua',
     icon: ICON.particles,
