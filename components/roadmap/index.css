@@ -1,7 +1,8 @@
 /* ── Section ─────────────────────────────────────────────── */
 #roadmap {
-  padding: 100px 0 140px;
-  border-top: 1px solid var(--rule);
+  min-height: 100vh;
+  margin-top: calc(var(--nav-h)*2);
+  margin-bottom: var(--nav-h);
 }
 
 .roadmap-head {
@@ -15,8 +16,9 @@
 /* ── Body ────────────────────────────────────────────────── */
 .roadmap-body {
   display: flex;
+  margin-top: 80px;
   flex-direction: column;
-  gap: 52px;
+  gap: 80px;
 }
 
 /* ── Category ────────────────────────────────────────────── */
@@ -42,10 +44,9 @@
 
 .rcategory-label {
   font-family: 'Rajdhani', sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: .01em;
   color: var(--dim);
 }
 
@@ -53,7 +54,7 @@
 .rcategory-cols {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 14px;
 }
 
 .rcategory-col {
@@ -61,7 +62,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 /* ── Feature card ────────────────────────────────────────── */
@@ -269,13 +270,11 @@
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
-  #roadmap { padding: 72px 0 100px; }
   .rcategory-cols { flex-wrap: wrap; }
   .rcategory-col  { flex: 1 1 calc(50% - 1px); min-width: calc(50% - 1px); }
 }
 
 @media (max-width: 640px) {
-  #roadmap { padding: 56px 0 80px; }
   .rcategory-cols { flex-direction: column; }
   .rcategory-col  { flex: none; width: 100%; }
   .rcard-body { padding: 20px 18px 16px; }
