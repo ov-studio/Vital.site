@@ -29,9 +29,6 @@ export function Ethos() {
 
               <h3 className="ecard-title">{title}</h3>
               <p className="ecard-desc">{desc}</p>
-              <div className="ecard-bar">
-                <span className="ecard-bar-fill"/>
-              </div>
             </div>
           ))}
         </div>

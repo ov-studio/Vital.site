@@ -124,38 +124,6 @@
 }
 .ecard:hover .ecard-desc { color: var(--text-desc-hover); }
 
-.ecard-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--rule);
-  overflow: hidden;
-}
-
-.ecard-bar-fill {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: var(--blue);
-  transition: width .45s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 0 0 8px var(--blue);
-}
-.ecard:hover .ecard-bar-fill { width: 100%; }
-
-.ecard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 0%;
-  background: var(--blue);
-  transition: height .35s cubic-bezier(.4, 0, .2, 1);
-}
-.ecard:hover::before { height: 100%; }
-
 .ecard.rev {
   transition:
     opacity .55s ease calc(var(--i, 0) * 55ms),
