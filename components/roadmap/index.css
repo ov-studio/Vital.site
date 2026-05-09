@@ -151,7 +151,7 @@
   font-family: 'Barlow', sans-serif;
   font-size: .78rem;
   color: var(--text-desc);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.7;
   transition: color .25s;
 }
@@ -222,7 +222,7 @@
 
 .rcard-items {
   border-top: 1px solid var(--rule);
-  padding: 8px 22px 28px;
+  padding: 0px 22px;
   display: flex;
   flex-direction: column;
 }
@@ -249,7 +249,7 @@
 .ritem-label {
   font-family: 'Barlow', sans-serif;
   font-size: .76rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
 }
 .ritem--completed .ritem-label { color: var(--text-soft); }
@@ -259,11 +259,10 @@
 .ritem-tag {
   font-family: 'Rajdhani', sans-serif;
   font-size: .72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   flex-shrink: 0;
-  padding: 2px 8px;
 }
 .ritem--completed .ritem-tag { color: var(--blue); }
 .ritem--partial   .ritem-tag { color: hsl(45,80%,58%); }
