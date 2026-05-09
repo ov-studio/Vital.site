@@ -24,10 +24,7 @@
   border-left: 1px solid var(--rule);
   transition: border-color .2s;
 }
-
-.fcluster.is-active {
-  border-color: var(--blue);
-}
+.fcluster.is-active { border-color: var(--blue); }
 
 .fcluster-head {
   display: flex;
@@ -45,11 +42,7 @@
   flex-shrink: 0;
   transition: background .2s, box-shadow .2s;
 }
-
-.fcluster.is-active .fcluster-dot {
-  background: var(--blue);
-  box-shadow: 0 0 6px var(--blue);
-}
+.fcluster.is-active .fcluster-dot { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
 
 .fcluster-label {
   font-family: 'Geist', sans-serif;
@@ -61,10 +54,7 @@
   flex: 1;
   transition: color .2s;
 }
-
-.fcluster.is-active .fcluster-label {
-  color: var(--white);
-}
+.fcluster.is-active .fcluster-label { color: var(--white); }
 
 .fcluster-count {
   font-family: 'Geist Mono', monospace;
@@ -82,14 +72,9 @@
   font-weight: 300;
   transition: color .2s;
 }
+.fcluster.is-active .fcluster-desc { color: var(--dim); }
 
-.fcluster.is-active .fcluster-desc {
-  color: var(--dim);
-}
-
-.feat-diagram {
-  position: relative;
-}
+.feat-diagram { position: relative; }
 
 .fdiagram-wrap {
   position: relative;
@@ -145,24 +130,11 @@
   opacity: .18;
   animation: fhub-pulse 3.5s ease-in-out infinite;
 }
-
-.fhub-ring-2 {
-  inset: -20px;
-  opacity: .08;
-  animation-delay: 1.75s;
-}
+.fhub-ring-2 { inset: -20px; opacity: .08; animation-delay: 1.75s; }
 
 @keyframes fhub-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: .15;
-  }
-
-  50% {
-    transform: scale(1.05);
-    opacity: .35;
-  }
+  0%, 100% { transform: scale(1);    opacity: .15; }
+  50% { transform: scale(1.05); opacity: .35; }
 }
 
 .fnode-group {
@@ -198,36 +170,20 @@
   opacity: 0;
   transition: opacity .2s;
 }
-
-.fnode::before {
-  top: -2px;
-  left: -2px;
-  border-width: 1px 0 0 1px;
-}
-
-.fnode::after {
-  bottom: -2px;
-  right: -2px;
-  border-width: 0 1px 1px 0;
-}
+.fnode::before { top: -2px; left: -2px; border-width: 1px 0 0 1px; }
+.fnode::after { bottom: -2px; right: -2px; border-width: 0 1px 1px 0; }
 
 .fnode-group.is-active .fnode {
   border-color: var(--blue);
   color: var(--white);
   box-shadow: 0 0 12px var(--b10);
 }
-
 .fnode-group.is-active .fnode::before,
 .fnode-group.is-active .fnode::after { opacity: 1; }
 
 @media (max-width: 960px) {
   #features { padding: 72px 0; }
-
-  .feat-body {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
+  .feat-body { grid-template-columns: 1fr; gap: 48px; }
   .feat-diagram { display: none; }
 }
 
