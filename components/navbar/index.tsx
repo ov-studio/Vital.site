@@ -1,3 +1,4 @@
+'use client';
 import { Brand } from '@/components/brand';
 import { Social } from '@/components/social';
 import './index.css';

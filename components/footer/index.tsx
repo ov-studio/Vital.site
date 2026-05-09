@@ -1,3 +1,4 @@
+'use client';
 import { Brand } from '@/components/brand';
 import { Footer_Flags, Footer_Content } from '@/configs/footer';
 import './index.css';

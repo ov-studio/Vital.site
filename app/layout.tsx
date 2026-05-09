@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
 import { site } from '@/configs/site';
@@ -20,6 +21,21 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
+export const metadata: Metadata = {
+  title: {
+    template: `%s - ${site.name}`,
+    default: site.name,
+  },
+  description: site.description,
+
+  openGraph: {
+    title: site.name,
+    description: site.description,
+    siteName: site.name,
+    type: 'website'
+  }
+};
+
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
@@ -35,20 +51,3 @@ export default function Layout({ children }: LayoutProps<'/'>) {
     </html>
   );
 }
-
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: {
-    template: `%s - ${site.name}`,
-    default: site.name,
-  },
-  description: site.description,
-
-  openGraph: {
-    title: site.name,
-    description: site.description,
-    siteName: site.name,
-    type: 'website'
-  }
-};

@@ -6,7 +6,7 @@ export const Footer_Content = [
     heading: 'Sandbox',
     links: [
       { label: 'Documentations', href: '/docs' },
-      { label: 'Roadmap', href: '#' },
+      { label: 'Roadmap', href: '/roadmap' },
       { label: 'Changelog', href: '#' },
       { label: 'Contributing', href: '/docs/building' },
     ],

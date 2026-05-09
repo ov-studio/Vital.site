@@ -14,7 +14,8 @@ export default function HomePage() {
       <Navbar links={[
         { label: 'Features', href: '#features' },
         { label: 'Ethos', href: '#ethos' },
-        { label: 'Documentations', href: '/docs' }
+        { label: 'Documentations', href: '/docs' },
+        { label: 'Roadmap', href: '/roadmap' }
       ]}/>
       <Hero/>
       <Features/>

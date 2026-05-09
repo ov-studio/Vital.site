@@ -1,0 +1,288 @@
+/* ─── Section ────────────────────────────────────────────── */
+#roadmap {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--rule);
+}
+
+.roadmap-head {
+  margin-bottom: 56px;
+}
+
+.roadmap-head .sec-head {
+  margin-bottom: 28px;
+}
+
+/* ─── Overall progress strip ─────────────────────────────── */
+.roadmap-progress {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.roadmap-progress-bar {
+  flex: 1;
+  height: 2px;
+  background: var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmap-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--blue);
+  box-shadow: 0 0 10px var(--blue);
+  transition: width .8s cubic-bezier(.4, 0, .2, 1);
+}
+
+.roadmap-progress-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.roadmap-progress-counts {
+  display: flex;
+  gap: 14px;
+}
+
+.rcount {
+  font-family: 'Geist', sans-serif;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.rcount--done    { color: var(--blue); }
+.rcount--partial { color: hsl(45, 85%, 60%); }
+.rcount--pending { color: var(--text-faint); }
+
+/* ─── Legend row ─────────────────────────────────────────── */
+.roadmap-legend {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 72px);
+  align-items: center;
+  gap: 0 8px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2px;
+}
+
+.roadmap-legend-label {
+  font-family: 'Geist', sans-serif;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.roadmap-legend-label--center {
+  text-align: center;
+}
+
+/* ─── Feature rows ───────────────────────────────────────── */
+.roadmap-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rrow {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 72px);
+  align-items: center;
+  gap: 0 8px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  transition: background .15s;
+}
+
+.rrow::before {
+  content: '';
+  position: absolute;
+  inset: 0 -24px;
+  background: var(--b05);
+  opacity: 0;
+  transition: opacity .15s;
+  pointer-events: none;
+}
+
+.rrow:hover::before { opacity: 1; }
+
+/* ─── Category block (icon + name + desc) ────────────────── */
+.rrow-category {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.rrow-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  opacity: .7;
+  flex-shrink: 0;
+  transition: opacity .2s;
+}
+
+.rrow:hover .rrow-icon { opacity: 1; }
+
+.rrow-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rrow-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  transition: color .2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rrow:hover .rrow-name { color: var(--white); }
+
+.rrow-desc {
+  font-family: 'Barlow', sans-serif;
+  font-size: .72rem;
+  color: var(--text-faint);
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Status cells ───────────────────────────────────────── */
+.rrow-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rstat {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* done: filled circle with checkmark */
+.rstat--done::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  display: block;
+}
+
+/* partial: half-filled ring */
+.rstat--partial::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: hsl(45, 85%, 60%);
+  box-shadow: 0 0 6px hsla(45, 85%, 60%, .5);
+  display: block;
+  opacity: .8;
+}
+
+/* pending: open ring */
+.rstat--pending::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--text-faint);
+  display: block;
+  opacity: .5;
+}
+
+/* empty cell */
+.rstat--empty::before {
+  content: '—';
+  font-size: .55rem;
+  color: var(--text-faint);
+  opacity: .3;
+}
+
+/* ─── Category group headers ─────────────────────────────── */
+.rgroup-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 0 8px;
+}
+
+.rgroup-head-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.rgroup-head-label {
+  font-family: 'Geist', sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ─── Progress bar per-row (thin accent on hover) ────────── */
+.rrow-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: var(--blue);
+  opacity: 0;
+  transition: opacity .2s, width .4s;
+}
+
+.rrow:hover .rrow-bar { opacity: .35; }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 960px) {
+  #roadmap { padding: 72px 0 88px; }
+  .roadmap-head { margin-bottom: 40px; }
+  .roadmap-legend,
+  .rrow { grid-template-columns: 1fr repeat(3, 60px); }
+}
+
+@media (max-width: 640px) {
+  #roadmap { padding: 56px 0 72px; }
+
+  .roadmap-legend,
+  .rrow { grid-template-columns: 1fr repeat(3, 48px); gap: 0 4px; }
+
+  .rrow-desc { display: none; }
+
+  .roadmap-progress { flex-wrap: wrap; gap: 10px; }
+  .roadmap-progress-counts { gap: 10px; }
+
+  .rrow::before { inset: 0 -20px; }
+}
