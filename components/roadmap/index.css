@@ -267,6 +267,4 @@
 @media (max-width: 640px) {
   #roadmap { padding: 56px 0 80px; }
   .rcategory-grid { grid-template-columns: 1fr; }
-  .roadmap-progress-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .rcard-desc { display: none; }
 }

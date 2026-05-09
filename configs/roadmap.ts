@@ -89,11 +89,29 @@ export const Roadmap_Content: RoadmapCard[] = [
     ],
   },
 
+  {
+    id: 'scripting',
+    category: 'Foundation',
+    label: 'Resource',
+    desc: 'Resources',
+    icon: ICON.display,
+    items: [],
+  },
+
+  {
+    id: 'scripting',
+    category: 'Foundation',
+    label: 'Console',
+    desc: 'Resources',
+    icon: ICON.display,
+    items: [],
+  },
+
   // ══ RENDERING & VISUALS ═════════════════════════════════════════════════════
 
   {
     id: 'ui',
-    category: 'Rendering',
+    category: 'UI',
     label: 'Webview',
     desc: 'HTML/CSS/JS renderer',
     icon: ICON.ui,
@@ -106,17 +124,49 @@ export const Roadmap_Content: RoadmapCard[] = [
 
   {
     id: 'rendering',
-    category: 'Rendering',
-    label: 'Rendering',
+    category: 'UI',
+    label: 'Canvas',
     desc: 'Canvas, viewports, textures, fonts, SVG',
     icon: ICON.render,
     items: [
-      { label: 'Canvas (2D draw API)',    status: 'completed' },
-      { label: 'Rendertarget / Viewport', status: 'completed' },
-      { label: 'Texture',                 status: 'completed' },
-      { label: 'Font',                    status: 'completed' },
-      { label: 'SVG',                     status: 'completed' },
-      { label: 'Screenshot capture',      status: 'pending'   },
+      { label: '2D Canvas API', status: 'completed' }
+    ],
+  },
+  
+  {
+    id: 'rendering',
+    category: 'UI',
+    label: 'Font',
+    desc: 'Canvas, viewports, textures, fonts, SVG',
+    icon: ICON.render,
+    items: [
+      { label: 'TTF', status: 'completed' },
+      { label: 'OTF', status: 'completed' }
+    ],
+  },
+
+  {
+    id: 'rendering',
+    category: 'UI',
+    label: 'Texture',
+    desc: 'Canvas, viewports, textures, fonts, SVG',
+    icon: ICON.render,
+    items: [
+      { label: 'JPG', status: 'completed' },
+      { label: 'PNG', status: 'completed' },
+      { label: 'WEBP', status: 'completed' },
+      { label: 'SVG', status: 'completed' }
+    ],
+  },
+  
+  {
+    id: 'rendering',
+    category: 'UI',
+    label: 'Screenshot capture',
+    desc: 'Canvas, viewports, textures, fonts, SVG',
+    icon: ICON.render,
+    items: [
+      { label: 'Screenshot capture', status: 'pending' },
     ],
   },
 
@@ -313,6 +363,10 @@ export const Roadmap_Content: RoadmapCard[] = [
       { label: 'MultiplayerSynchronizer', status: 'pending'  },
     ],
   },
+
+  // event system add under networking
+
+
 
   // ══ SYSTEM ══════════════════════════════════════════════════════════════════
 

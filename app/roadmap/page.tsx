@@ -7,7 +7,7 @@ import { RoadmapGrid } from '@/components/roadmap';
 import { ClientShell } from '@/components/clientshell';
 
 export const metadata: Metadata = {
-  title: 'Roadmap — Vital.sandbox',
+  title: 'Roadmap - Vital.sandbox',
   description: 'Track the development progress of every Vital.sandbox module.',
 };
 
