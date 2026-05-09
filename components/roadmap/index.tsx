@@ -3,17 +3,17 @@ import './index.css';
 import { useState, useRef, useEffect } from 'react';
 import { Roadmap_Content, type FeatureStatus, type RoadmapCard } from '@/configs/roadmap';
 
-/* ── helpers ─────────────────────────────────────────────── */
+type Category = { label: string; cards: RoadmapCard[] };
 const STATUS_WEIGHT: Record<FeatureStatus, number> = {
   completed: 1,
-  partial:   0.5,
-  pending:   0,
+  partial: 0.5,
+  pending: 0,
 };
 
 function cardPct(card: RoadmapCard): number {
   if (!card.items.length) return 0;
   return Math.round(
-    (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / card.items.length) * 100
+    (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0)/card.items.length)*100
   );
 }
 
@@ -21,8 +21,6 @@ function cardStatus(card: RoadmapCard): FeatureStatus {
   const pct = cardPct(card);
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
-
-type Category = { label: string; cards: RoadmapCard[] };
 
 function groupByCategory(cards: RoadmapCard[]): Category[] {
   const map = new Map<string, RoadmapCard[]>();
@@ -34,7 +32,6 @@ function groupByCategory(cards: RoadmapCard[]): Category[] {
   return Array.from(map.entries()).map(([label, cards]) => ({ label, cards }));
 }
 
-/* ── feature card ────────────────────────────────────────── */
 function FeatureCard({ card }: { card: RoadmapCard }) {
   const [open, setOpen]     = useState(false);
   const innerRef            = useRef<HTMLDivElement>(null);
@@ -107,7 +104,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
   );
 }
 
-/* ── category section ────────────────────────────────────── */
 function CategorySection({ cat, index }: { cat: Category; index: number }) {
   const COLS = 3;
   const columns: RoadmapCard[][] = Array.from({ length: COLS }, () => []);
@@ -132,7 +128,6 @@ function CategorySection({ cat, index }: { cat: Category; index: number }) {
   );
 }
 
-/* ── main export ─────────────────────────────────────────── */
 export function RoadmapGrid() {
   const categories = groupByCategory(Roadmap_Content);
 
