@@ -176,7 +176,6 @@
 .fnode-group.is-active .fnode {
   border-color: var(--blue);
   color: var(--white);
-  box-shadow: 0 0 12px var(--b10);
 }
 .fnode-group.is-active .fnode::before,
 .fnode-group.is-active .fnode::after { opacity: 1; }
