@@ -201,7 +201,6 @@
 
 /* pct label color per status */
 .rcard-pct {
-  
   font-family: 'Rajdhani', sans-serif;
   font-size: .8rem;
   font-weight: 800;
@@ -250,7 +249,7 @@
 .ritem-label {
   font-family: 'Barlow', sans-serif;
   font-size: .76rem;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.5;
 }
 .ritem--completed .ritem-label { color: var(--text-soft); }
