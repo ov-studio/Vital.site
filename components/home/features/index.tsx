@@ -6,15 +6,14 @@ import { Features_Content } from '@/configs/home';
 
 interface NodeRef { el: HTMLDivElement | null }
 interface NodeState {
-  angle: number;   // current angle
-  radPhase: number;   // phase of radial wobble
-  radFreq: number;   // wobble frequency (unique per node)
-  radAmp: number;   // wobble amplitude (px, unique per node)
+  angle: number;
+  radPhase: number;
+  radFreq: number;
+  radAmp: number;
 }
 
 const BASE_R = 0.375;
-const TRAIL_LEN = 38;
-const SPEED = 0.00028;   // rad/ms — single constant, all nodes same direction
+const SPEED = 0.00028;
 const BLUE = [148, 178, 252] as const;
 
 function rng(lo: number, hi: number) { return lo + Math.random() * (hi - lo); }
@@ -33,19 +32,20 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
   let W = 0, H = 0, cx = 0, cy = 0, dpr = 1, raf = 0;
 
   const N = nodeEls.length;
-  const states: NodeState[] = Array.from({ length: N }, (_, i) => makeState(i, N));
-  const trails: Array<Array<{ x: number; y: number }>> =
-    Array.from({ length: N }, () => []);
+  const states = Array.from({ length: N }, (_, i) => makeState(i, N));
 
   function resize() {
     const rect = canvas.parentElement!.getBoundingClientRect();
     dpr = window.devicePixelRatio || 1;
-    W = rect.width; H = rect.height;
-    canvas.width = W * dpr; canvas.height = H * dpr;
+    W = rect.width;
+    H = rect.height;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
     canvas.style.width = W + 'px';
     canvas.style.height = H + 'px';
-    ctx.scale(dpr, dpr);
-    cx = W / 2; cy = H / 2;
+    cx = W / 2;
+    cy = H / 2;
+    /* Do NOT call ctx.scale here — we apply it every frame instead */
   }
   resize();
   const ro = new ResizeObserver(resize);
@@ -55,7 +55,11 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
 
   function frame(now: number) {
     const dt = Math.min(now - last, 32); last = now;
-    ctx.clearRect(0, 0, W, H);
+
+    /* Reset to identity, clear the full physical canvas, then re-apply dpr scale */
+    ctx.resetTransform();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const baseR = Math.min(W, H) * BASE_R;
 
@@ -84,9 +88,8 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
     ctx.lineWidth = 1;
     ctx.stroke();
 
-    /* ── advance motion ── */
+    /* advance motion */
     const pos: { x: number; y: number }[] = [];
-
     for (let i = 0; i < N; i++) {
       const s = states[i];
       s.angle += SPEED * dt;
@@ -124,35 +127,26 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.setLineDash([]);
     }
 
-    /* trails + glows + DOM labels */
+    /* glows + DOM labels */
     for (let i = 0; i < N; i++) {
       const { x, y } = pos[i];
 
-      trails[i].push({ x, y });
-      if (trails[i].length > TRAIL_LEN) trails[i].shift();
-      const tl = trails[i];
-      for (let t = 1; t < tl.length; t++) {
-        ctx.beginPath();
-        ctx.moveTo(tl[t - 1].x, tl[t - 1].y);
-        ctx.lineTo(tl[t].x, tl[t].y);
-        ctx.strokeStyle = `rgba(${BLUE},${(t / TRAIL_LEN) * 0.38})`;
-        ctx.lineWidth = 1.6 * (t / TRAIL_LEN);
-        ctx.stroke();
-      }
-
+      /* glow halo */
       const gn = ctx.createRadialGradient(x, y, 0, x, y, 13);
-      gn.addColorStop(0, `rgba(${BLUE},0.2)`);
+      gn.addColorStop(0, `rgba(${BLUE},0.22)`);
       gn.addColorStop(1, 'transparent');
       ctx.fillStyle = gn as unknown as string;
       ctx.beginPath();
       ctx.arc(x, y, 13, 0, Math.PI * 2);
       ctx.fill();
 
+      /* center dot */
       ctx.beginPath();
-      ctx.arc(x, y, 2.6, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${BLUE},0.9)`;
+      ctx.arc(x, y, 2.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${BLUE},0.95)`;
       ctx.fill();
 
+      /* DOM label position */
       const el = nodeEls[i];
       if (el) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
     }
