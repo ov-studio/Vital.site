@@ -12,7 +12,7 @@ interface NodeState {
   radAmp: number;
 }
 
-const BASE_R = 0.385;
+const BASE_R = 0.46;
 const SPEED = 0.00025;
 const BLUE = [148, 178, 252] as const;
 
