@@ -259,7 +259,7 @@
 .ritem-tag {
   font-family: 'Rajdhani', sans-serif;
   font-size: .72rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   flex-shrink: 0;
@@ -268,7 +268,6 @@
 .ritem--partial   .ritem-tag { color: hsl(45,80%,58%); }
 .ritem--pending   .ritem-tag { color: var(--text-dim2); }
 
-/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   .rcategory-cols { flex-wrap: wrap; }
   .rcategory-col  { flex: 1 1 calc(50% - 1px); min-width: calc(50% - 1px); }
