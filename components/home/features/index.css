@@ -31,6 +31,7 @@
 
 .fcluster.is-active {
   border-color: var(--blue);
+  background: var(--bg3);
 }
 
 .fcluster-head {
