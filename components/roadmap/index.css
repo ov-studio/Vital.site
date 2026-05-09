@@ -208,7 +208,7 @@
 
 .rcard-items {
   border-top: 1px solid var(--rule);
-  padding: 0px 22px;
+  padding: 5px 22px;
   display: flex;
   flex-direction: column;
 }
@@ -255,7 +255,7 @@
 .ritem--pending   .ritem-tag { color: var(--text-dim2); }
 
 @media (max-width: 960px) {
-  .rcategory-cols { flex-wrap: wrap; }
+  .rcategory-cols { flex-o: wrap; }
   .rcategory-col  { flex: 1 1 calc(50% - 1px); min-width: calc(50% - 1px); }
 }
 
