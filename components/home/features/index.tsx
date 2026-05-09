@@ -144,10 +144,10 @@ export function Features() {
         <div className="sec-head">
           <div className="rev">
             <div className="slabel">Features</div>
-            <h2>Built for creators.<br />Engineered for <span>production.</span></h2>
+            <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
           </div>
           <a href="/docs" className="sec-link rev">
-            View documentations <icons.arrow_right />
+            View documentations <icons.arrow_right/>
           </a>
         </div>
 
@@ -162,7 +162,7 @@ export function Features() {
                 onMouseLeave={handleLeave}
               >
                 <div className="fcluster-head">
-                  <span className="fcluster-dot" />
+                  <span className="fcluster-dot"/>
                   <span className="fcluster-label">{c.label}</span>
                   <span className="fcluster-count">{c.items.length}</span>
                 </div>
@@ -173,12 +173,12 @@ export function Features() {
 
           <div className="feat-diagram rev-r">
             <div className="fdiagram-wrap">
-              <canvas ref={canvasRef} className="fdiagram-canvas" />
+              <canvas ref={canvasRef} className="fdiagram-canvas"/>
 
               <div className="fhub">
                 <div className="fhub-inner">
-                  <span className="fhub-ring" />
-                  <span className="fhub-ring fhub-ring-2" />
+                  <span className="fhub-ring"/>
+                  <span className="fhub-ring fhub-ring-2"/>
                   <span className="fhub-label">vsdk</span>
                 </div>
               </div>

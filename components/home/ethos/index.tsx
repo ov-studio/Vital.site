@@ -1,3 +1,4 @@
+'use client';
 import { Ethos_Content } from '@/configs/home';
 import './index.css';
 
@@ -10,40 +11,29 @@ export function Ethos() {
           <h2 className="rev">No bloat. No strings.<br/><span>Just power.</span></h2>
         </div>
 
-        <div className="ethos-body">
-          <div className="ethos-left rev-l">
-            {Ethos_Content.slice(0, 3).map(({ title, desc, icon }) => (
-              <div className="ethos-item" key={title}>
-                <div className="ethos-item-top">
-                  <div className="ethos-ico">
-                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">{icon}</svg>
-                  </div>
-                  <h3 className="ethos-title">{title}</h3>
-                </div>
-                <p className="ethos-desc">{desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="ethos-grid">
+          {Ethos_Content.map(({ title, desc, icon }, i) => (
+            <div
+              className="ecard rev"
+              key={title}
+              style={{ '--i': i } as React.CSSProperties}
+            >
+              <span className="ecard-corner ecard-corner--tl"/>
+              <span className="ecard-corner ecard-corner--br"/>
+              <span className="ecard-scan"/>
 
-          <div className="ethos-divider">
-            <div className="ethos-divider-line"/>
-            <div className="ethos-divider-node"/>
-            <div className="ethos-divider-line"/>
-          </div>
-
-          <div className="ethos-right rev-r">
-            {Ethos_Content.slice(3).map(({ title, desc, icon }) => (
-              <div className="ethos-item" key={title}>
-                <div className="ethos-item-top">
-                  <div className="ethos-ico">
-                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">{icon}</svg>
-                  </div>
-                  <h3 className="ethos-title">{title}</h3>
-                </div>
-                <p className="ethos-desc">{desc}</p>
+              <div className="ecard-ico">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">{icon}</svg>
+                <span className="ecard-ico-ring"/>
               </div>
-            ))}
-          </div>
+
+              <h3 className="ecard-title">{title}</h3>
+              <p className="ecard-desc">{desc}</p>
+              <div className="ecard-bar">
+                <span className="ecard-bar-fill"/>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
