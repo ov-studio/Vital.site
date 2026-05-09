@@ -5,44 +5,56 @@
 }
 
 .roadmap-head {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 .roadmap-head .sec-head {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-/* ─── Overall progress strip ─────────────────────────────── */
+/* ─── Progress strip ─────────────────────────────────────── */
 .roadmap-progress {
+  margin-top: 24px;
   display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 28px;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.roadmap-progress-bar {
-  flex: 1;
+.roadmap-progress-track {
   height: 2px;
   background: var(--rule);
-  position: relative;
+  display: flex;
   overflow: hidden;
 }
 
 .roadmap-progress-fill {
-  position: absolute;
-  inset: 0 auto 0 0;
-  background: var(--blue);
-  box-shadow: 0 0 10px var(--blue);
+  display: block;
+  height: 100%;
   transition: width .8s cubic-bezier(.4, 0, .2, 1);
 }
 
-.roadmap-progress-label {
+.roadmap-progress-fill--done {
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+}
+
+.roadmap-progress-fill--partial {
+  background: hsl(45, 85%, 60%);
+}
+
+.roadmap-progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.roadmap-progress-pct {
   font-family: 'Geist Mono', monospace;
-  font-size: .7rem;
+  font-size: .68rem;
   font-weight: 600;
   letter-spacing: .1em;
   color: var(--blue);
-  white-space: nowrap;
 }
 
 .roadmap-progress-counts {
@@ -50,30 +62,28 @@
   gap: 14px;
 }
 
+/* ─── Shared count badges ────────────────────────────────── */
 .rcount {
-  font-family: 'Geist', sans-serif;
+  font-family: 'Geist Mono', monospace;
   font-size: .62rem;
   font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 
 .rcount--done    { color: var(--blue); }
 .rcount--partial { color: hsl(45, 85%, 60%); }
 .rcount--pending { color: var(--text-faint); }
 
-/* ─── Legend row ─────────────────────────────────────────── */
+/* ─── Legend ─────────────────────────────────────────────── */
 .roadmap-legend {
   display: grid;
-  grid-template-columns: 1fr repeat(3, 72px);
-  align-items: center;
+  grid-template-columns: 1fr 100px 100px 32px;
   gap: 0 8px;
-  padding: 0 0 10px;
+  padding: 0 16px 10px;
   border-bottom: 1px solid var(--rule);
-  margin-bottom: 2px;
 }
 
-.roadmap-legend-label {
+.rl-label {
   font-family: 'Geist', sans-serif;
   font-size: .58rem;
   font-weight: 600;
@@ -82,61 +92,89 @@
   color: var(--text-faint);
 }
 
-.roadmap-legend-label--center {
-  text-align: center;
-}
+.rl-label--c { text-align: center; }
 
-/* ─── Feature rows ───────────────────────────────────────── */
+/* ─── Table ──────────────────────────────────────────────── */
 .roadmap-table {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
+/* ─── Row ────────────────────────────────────────────────── */
 .rrow {
   display: grid;
-  grid-template-columns: 1fr repeat(3, 72px);
-  align-items: center;
+  grid-template-columns: 1fr 100px 100px 32px;
   gap: 0 8px;
-  padding: 13px 0;
+  align-items: center;
+  padding: 0 16px;
   border-bottom: 1px solid var(--rule);
   position: relative;
-  transition: background .15s;
+  cursor: pointer;
+  min-height: 52px;
+
+  opacity: 0;
+  animation: rrow-in .4s ease forwards;
+  animation-delay: calc(var(--i, 0) * 35ms);
 }
 
+@keyframes rrow-in {
+  to { opacity: 1; }
+}
+
+/* hover bg */
 .rrow::before {
   content: '';
   position: absolute;
-  inset: 0 -24px;
+  inset: 0;
   background: var(--b05);
   opacity: 0;
   transition: opacity .15s;
   pointer-events: none;
 }
 
-.rrow:hover::before { opacity: 1; }
+.rrow:hover::before,
+.rrow--open::before { opacity: 1; }
 
-/* ─── Category block (icon + name + desc) ────────────────── */
+/* bottom accent bar (completion %) */
+.rrow-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: var(--blue);
+  opacity: 0;
+  transition: opacity .2s;
+  pointer-events: none;
+}
+
+.rrow:hover .rrow-accent,
+.rrow--open .rrow-accent { opacity: .4; }
+
+/* ─── Category cell ──────────────────────────────────────── */
 .rrow-category {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
+  position: relative;
+  z-index: 1;
+  padding: 14px 0;
 }
 
 .rrow-icon {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--blue);
-  opacity: .7;
+  opacity: .55;
   flex-shrink: 0;
   transition: opacity .2s;
 }
 
-.rrow:hover .rrow-icon { opacity: 1; }
+.rrow:hover .rrow-icon,
+.rrow--open .rrow-icon { opacity: 1; }
 
 .rrow-text {
   display: flex;
@@ -158,11 +196,12 @@
   text-overflow: ellipsis;
 }
 
-.rrow:hover .rrow-name { color: var(--white); }
+.rrow:hover .rrow-name,
+.rrow--open .rrow-name { color: var(--white); }
 
-.rrow-desc {
+.rrow-subdesc {
   font-family: 'Barlow', sans-serif;
-  font-size: .72rem;
+  font-size: .7rem;
   color: var(--text-faint);
   font-weight: 300;
   white-space: nowrap;
@@ -170,119 +209,161 @@
   text-overflow: ellipsis;
 }
 
-/* ─── Status cells ───────────────────────────────────────── */
+/* ─── Data cells ─────────────────────────────────────────── */
 .rrow-cell {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.rstat {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
   position: relative;
+  z-index: 1;
 }
 
-/* done: filled circle with checkmark */
-.rstat--done::before {
-  content: '';
+.rrow-cell--status {
+  gap: 8px;
+}
+
+.rrow-cell--counts {
+  gap: 6px;
+}
+
+.rrow-cell--chevron {
+  justify-content: flex-end;
+}
+
+.rrow-pct {
+  font-family: 'Geist Mono', monospace;
+  font-size: .65rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  letter-spacing: .04em;
+  min-width: 28px;
+}
+
+/* ─── Status dot ─────────────────────────────────────────── */
+.rdot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  flex-shrink: 0;
+  display: block;
+}
+
+.rdot--completed {
   background: var(--blue);
-  box-shadow: 0 0 8px var(--blue);
-  display: block;
+  box-shadow: 0 0 7px var(--blue);
 }
 
-/* partial: half-filled ring */
-.rstat--partial::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+.rdot--partial {
   background: hsl(45, 85%, 60%);
-  box-shadow: 0 0 6px hsla(45, 85%, 60%, .5);
-  display: block;
-  opacity: .8;
+  box-shadow: 0 0 5px hsla(45, 85%, 60%, .5);
 }
 
-/* pending: open ring */
-.rstat--pending::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.rdot--pending {
+  background: transparent;
   border: 1px solid var(--text-faint);
-  display: block;
   opacity: .5;
 }
 
-/* empty cell */
-.rstat--empty::before {
-  content: '—';
-  font-size: .55rem;
+/* ─── Chevron ────────────────────────────────────────────── */
+.rchevron {
   color: var(--text-faint);
-  opacity: .3;
+  transition: transform .2s, color .2s;
+  display: block;
 }
 
-/* ─── Category group headers ─────────────────────────────── */
-.rgroup-head {
+.rchevron--up {
+  transform: rotate(180deg);
+  color: var(--blue);
+}
+
+/* ─── Expandable sub-items ───────────────────────────────── */
+.rrow-items {
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg2);
+  animation: ritems-reveal .2s ease;
+  padding: 4px 0 8px 56px;
+}
+
+@keyframes ritems-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.ritem {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 28px 0 8px;
+  padding: 7px 16px 7px 0;
+  border-bottom: 1px solid transparent;
 }
 
-.rgroup-head-line {
-  flex: 1;
-  height: 1px;
-  background: var(--rule);
+.ritem:last-child { border-bottom: none; }
+
+.ritem-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.rgroup-head-label {
-  font-family: 'Geist', sans-serif;
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  white-space: nowrap;
-}
-
-/* ─── Progress bar per-row (thin accent on hover) ────────── */
-.rrow-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1px;
+.ritem--completed .ritem-dot {
   background: var(--blue);
-  opacity: 0;
-  transition: opacity .2s, width .4s;
+  box-shadow: 0 0 4px var(--blue);
 }
 
-.rrow:hover .rrow-bar { opacity: .35; }
+.ritem--partial .ritem-dot {
+  background: hsl(45, 85%, 60%);
+}
+
+.ritem--pending .ritem-dot {
+  background: transparent;
+  border: 1px solid var(--text-faint);
+  opacity: .4;
+}
+
+.ritem-label {
+  flex: 1;
+  font-family: 'Barlow', sans-serif;
+  font-size: .78rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.ritem--completed .ritem-label { color: var(--dim); }
+.ritem--partial   .ritem-label { color: var(--text-soft); }
+.ritem--pending   .ritem-label { color: var(--text-faint); }
+
+.ritem-status {
+  font-family: 'Geist', sans-serif;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.ritem--completed .ritem-status { color: var(--blue); }
+.ritem--partial   .ritem-status { color: hsl(45, 85%, 60%); }
+.ritem--pending   .ritem-status { color: var(--text-dim2); }
 
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 960px) {
   #roadmap { padding: 72px 0 88px; }
-  .roadmap-head { margin-bottom: 40px; }
+
   .roadmap-legend,
-  .rrow { grid-template-columns: 1fr repeat(3, 60px); }
+  .rrow { grid-template-columns: 1fr 80px 80px 28px; }
 }
 
 @media (max-width: 640px) {
   #roadmap { padding: 56px 0 72px; }
 
   .roadmap-legend,
-  .rrow { grid-template-columns: 1fr repeat(3, 48px); gap: 0 4px; }
+  .rrow { grid-template-columns: 1fr 60px 60px 24px; padding-left: 12px; padding-right: 12px; }
 
-  .rrow-desc { display: none; }
+  .rrow-subdesc { display: none; }
 
-  .roadmap-progress { flex-wrap: wrap; gap: 10px; }
-  .roadmap-progress-counts { gap: 10px; }
+  .roadmap-progress-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
 
-  .rrow::before { inset: 0 -20px; }
+  .rrow-items { padding-left: 40px; }
 }
