@@ -77,13 +77,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
               strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-
-        {/* priority badge */}
-        {card.priority && (
-          <span className={`rcard-priority rcard-priority--${card.priority.toLowerCase().replace(/\s+/g, '-')}`}>
-            {card.priority}
-          </span>
-        )}
       </div>
 
       {/* expanded items — keyed by card.id so state never leaks */}
