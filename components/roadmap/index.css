@@ -49,10 +49,7 @@
   color: var(--dim);
 }
 
-/* ── Column layout ───────────────────────────────────────────
-   Independent flex columns with 2px gap matching ethos grid.
-   Expanding a card only pushes cards below it in that column.
-──────────────────────────────────────────────────────────── */
+/* ── Column layout ───────────────────────────────────────── */
 .rcategory-cols {
   display: flex;
   align-items: flex-start;
@@ -73,16 +70,20 @@
   background: var(--bg2);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   width: 100%;
   cursor: pointer;
   transition: background .3s;
+  /* NO overflow:hidden — corners are inside the card naturally */
 }
 
 .rcard:hover,
 .rcard--open { background: var(--bg3); }
 
-/* corner brackets — identical to ecard-corner */
+/* ── Corner brackets ─────────────────────────────────────────
+   TL is positioned from the top of the card.
+   BR uses position:absolute but anchors to the LAST child
+   via a dedicated .rcard-corner-anchor at the true bottom.
+──────────────────────────────────────────────────────────── */
 .rcard-corner {
   position: absolute;
   width: 12px;
@@ -92,14 +93,16 @@
   opacity: 0;
   transition: opacity .3s;
   pointer-events: none;
+  z-index: 1;
 }
-.rcard-corner--tl { top: 10px; left: 10px;   border-width: 2px 0 0 2px; }
+.rcard-corner--tl { top: 10px;    left: 10px;  border-width: 2px 0 0 2px; }
+/* BR anchored to bottom of the full card at all times */
 .rcard-corner--br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
 
 .rcard:hover .rcard-corner,
 .rcard--open  .rcard-corner { opacity: 1; }
 
-/* partial gets amber corners */
+/* partial → amber corners */
 .rcard--partial:hover .rcard-corner,
 .rcard--partial.rcard--open .rcard-corner { border-color: hsl(45,80%,58%); }
 
@@ -117,7 +120,7 @@
   gap: 14px;
 }
 
-/* ── Icon — matches ecard-ico + ecard-ico-ring ── */
+/* ── Icon ── */
 .rcard-icon {
   position: relative;
   width: 36px;
@@ -156,7 +159,6 @@
   padding-top: 2px;
 }
 
-/* title — Rajdhani uppercase matching ecard-title */
 .rcard-name {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
@@ -170,7 +172,6 @@
 .rcard:hover .rcard-name,
 .rcard--open  .rcard-name { color: var(--white); }
 
-/* desc — Barlow light matching ecard-desc */
 .rcard-desc {
   font-family: 'Barlow', sans-serif;
   font-size: .78rem;
@@ -191,7 +192,7 @@
 }
 .rchevron--up { transform: rotate(180deg); color: var(--blue); }
 
-/* ── Progress bar row (below header) ── */
+/* ── Progress bar row ── */
 .rcard-bar-row {
   display: flex;
   align-items: center;
@@ -211,19 +212,25 @@
   box-shadow: 0 0 5px var(--blue);
   transition: width .6s cubic-bezier(.4,0,.2,1);
 }
-.rcard--partial .rcard-bar-track-fill { background: hsl(45,80%,58%); box-shadow: 0 0 5px hsla(45,80%,58%,.6); }
+.rcard--partial .rcard-bar-track-fill {
+  background: hsl(45,80%,58%);
+  box-shadow: 0 0 5px hsla(45,80%,58%,.6);
+}
 .rcard--pending .rcard-bar-track-fill { opacity: 0; }
 
+/* pct label — color matches status */
 .rcard-pct {
   font-family: 'Geist', sans-serif;
   font-size: .6rem;
   font-weight: 600;
-  color: var(--text-faint);
   letter-spacing: .04em;
   flex-shrink: 0;
   min-width: 28px;
   text-align: right;
 }
+.rcard--completed .rcard-pct { color: var(--blue); }
+.rcard--partial   .rcard-pct { color: hsl(45,80%,58%); }
+.rcard--pending   .rcard-pct { color: var(--text-dim2); }
 
 /* ── Expanded items ──────────────────────────────────────── */
 .rcard-items-wrap {
@@ -234,7 +241,9 @@
 
 .rcard-items {
   border-top: 1px solid var(--rule);
-  padding: 8px 22px 14px;
+  /* extra bottom padding so last item has breathing room
+     and the BR corner (10px from bottom of card) clears content */
+  padding: 8px 22px 28px;
   display: flex;
   flex-direction: column;
 }
@@ -277,9 +286,9 @@
   flex-shrink: 0;
   padding: 2px 8px;
 }
-.ritem--completed .ritem-tag { color: var(--blue);        background: hsla(220,95%,76%,.08); border: 1px solid hsla(220,95%,76%,.15); }
-.ritem--partial   .ritem-tag { color: hsl(45,80%,58%);    background: hsla(45,80%,58%,.08);  border: 1px solid hsla(45,80%,58%,.15); }
-.ritem--pending   .ritem-tag { color: var(--text-dim2);   background: hsla(220,10%,50%,.05); border: 1px solid hsla(220,10%,50%,.1); }
+.ritem--completed .ritem-tag { color: var(--blue);       background: hsla(220,95%,76%,.08); border: 1px solid hsla(220,95%,76%,.15); }
+.ritem--partial   .ritem-tag { color: hsl(45,80%,58%);   background: hsla(45,80%,58%,.08);  border: 1px solid hsla(45,80%,58%,.15); }
+.ritem--pending   .ritem-tag { color: var(--text-dim2);  background: hsla(220,10%,50%,.05); border: 1px solid hsla(220,10%,50%,.1); }
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
