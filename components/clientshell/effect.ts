@@ -28,6 +28,7 @@ export function Effect() {
 
     const anchors = Array.from(document.querySelectorAll<HTMLElement>('section[id], div[id].rcategory'));
     const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nl li a'));
+
     const setActive = (id: string) => {
       navLinks.forEach(a => {
         const href = (a.getAttribute('href') ?? '').replace(/^#/, '');
@@ -36,6 +37,7 @@ export function Effect() {
     };
 
     const navH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
+
     const getActiveId = (): string | null => {
       const offset = navH() + 32;
       let best: { id: string; gap: number } | null = null;
@@ -43,9 +45,10 @@ export function Effect() {
       anchors.forEach(el => {
         const top = el.getBoundingClientRect().top - offset;
         if (top > 0) return;
-        if (!best || top > best.gap) best = { id: el.id, gap: top };
+        if (best === null || top > best.gap) best = { id: el.id, gap: top };
       });
-      return best?.id ?? null;
+
+      return best !== null ? best.id : null;
     };
 
     let forcedId: string | null = null;
