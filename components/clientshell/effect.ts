@@ -1,6 +1,8 @@
 'use client';
 import { useEffect } from 'react';
 
+type ActiveBest = { id: string; gap: number };
+
 export function Effect() {
   useEffect(() => {
     const cur = document.getElementById('cur');
@@ -40,15 +42,16 @@ export function Effect() {
 
     const getActiveId = (): string | null => {
       const offset = navH() + 32;
-      let best: { id: string; gap: number } | null = null;
+      const candidates: ActiveBest[] = [];
 
       anchors.forEach(el => {
         const top = el.getBoundingClientRect().top - offset;
-        if (top > 0) return;
-        if (best === null || top > best.gap) best = { id: el.id, gap: top };
+        if (top <= 0) candidates.push({ id: el.id, gap: top });
       });
 
-      return best !== null ? best.id : null;
+      if (candidates.length === 0) return null;
+      candidates.sort((a, b) => b.gap - a.gap);
+      return candidates[0].id;
     };
 
     let forcedId: string | null = null;
