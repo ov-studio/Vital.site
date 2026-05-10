@@ -125,7 +125,7 @@ export function RoadmapGrid() {
       <div className="sw">
         <div className="roadmap-head">
           <div className="sec-head">
-            <h2>What's built¿<br/>What's <span>coming?</span></h2>
+            <h2>What's built,<br/>What's <span>coming?</span></h2>
           </div>
           <div className="roadmap-intro">
             Complete breakdown of every feature in the sandbox —{' '}
