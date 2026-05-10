@@ -129,7 +129,7 @@
 
 .rcard-name {
   font-family: 'Geist', sans-serif;
-  font-size: .78rem;
+  font-size: .82rem;
   font-weight: 800;
   color: var(--dim);
   transition: color .25s;
@@ -138,10 +138,10 @@
 .rcard--open  .rcard-name { color: var(--white); }
 
 .rcard-desc {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: .78rem;
   color: var(--text-desc);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.7;
   transition: color .25s;
 }
