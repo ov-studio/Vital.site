@@ -67,7 +67,8 @@ export async function Hero() {
         </div>
 
         <p className="hero-sub">
-          An open-source, high-performance sandbox built on Godot and powered by C++17. A clean Lua layer gives you full control over rendering, networking, threading, and assets — all in one seamless workflow.
+          An open-source, high-performance sandbox built on Godot and powered by C++17 and Lua.
+          <br />— Full control over rendering, networking, threading, and assets - one seamless workflow—
           <br/><br/>From indie ideas to large scale multiplayer worlds, build without compromise.
         </p>
 
