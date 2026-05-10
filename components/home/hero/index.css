@@ -99,6 +99,7 @@
 .hm-sep  { color: var(--dim); font-weight: 300; }
 
 .hero-sub {
+  font-family: 'Geist', sans-serif;
   font-size: .97rem;
   color: var(--text-muted);
   line-height: 1.85;
