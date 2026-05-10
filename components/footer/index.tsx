@@ -16,7 +16,7 @@ export function Footer() {
             {Footer_Flags.map((code) => (
               <img
                 key={code}
-                src={`https://flagsapi.com/${code}/flat/32.png`}
+                src={`https://flagsapi.com/${code}/flat/64.png`}
                 alt={code}
                 className="footer-flag"
               />

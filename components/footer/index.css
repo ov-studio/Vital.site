@@ -14,14 +14,14 @@ footer {
 }
 
 .footer-brand-lock {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   --brand-color: hsl(220, 20%, 60%);
 }
 
 .footer-tagline {
   margin-bottom: 4px;
   font-family: 'Barlow', sans-serif;
-  font-size: .88rem;
+  font-size: .84rem;
   font-weight: 500;
   line-height: 1.7;
   color: var(--text-desc);
@@ -35,7 +35,6 @@ footer {
 
 .footer-flag {
   width: 20px;
-  height: 20px;
   object-fit: cover;
   opacity: 0.65;
   transition: opacity .2s ease;
@@ -71,7 +70,7 @@ footer {
 
 .footer-nav-col ul li a {
   font-family: 'Barlow', sans-serif;
-  font-size: .85rem;
+  font-size: .84rem;
   font-weight: 500;
   color: var(--text-desc);
   text-decoration: none;
