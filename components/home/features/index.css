@@ -131,7 +131,7 @@
 
 .fhub-label {
   font-family: 'Geist', sans-serif;
-  font-size: .68rem;
+  font-size: .65rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -174,7 +174,7 @@
 
 .fnode {
   font-family: 'Geist', sans-serif;
-  font-size: .72rem;
+  font-size: .7rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
