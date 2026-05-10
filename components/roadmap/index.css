@@ -44,7 +44,11 @@
   font-weight: 600;
   letter-spacing: .01em;
   color: var(--dim);
+  text-decoration: none;
+  transition: color .2s;
+  cursor: pointer;
 }
+.rcategory-label:hover { color: var(--white); }
 
 .rcategory-cols {
   display: flex;
