@@ -709,4 +709,35 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
+  // ── CLIENT ────────────────────────────────────────────────────────────────
+  {
+    name: 'Client',
+    cards: [
+      {
+        label: 'Main Menu',
+        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
+        icon: ICON.ui,
+        items: [
+          { label: 'Main menu scene & layout', status: 'pending' },
+          { label: 'Play / browse servers flow', status: 'pending' },
+          { label: 'Settings screen', status: 'pending' },
+          { label: 'Credits screen', status: 'pending' },
+          { label: 'Version & build info display', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Game Browser',
+        desc: 'In-client server list — query, filter, sort, and join available game servers',
+        icon: ICON.network,
+        items: [
+          { label: 'Server list fetch & display', status: 'pending' },
+          { label: 'Filter by name / gamemode / region', status: 'pending' },
+          { label: 'Sort by player count / ping / name', status: 'pending' },
+          { label: 'Direct connect by IP & port', status: 'pending' },
+          { label: 'Refresh & auto-refresh interval', status: 'pending' },
+          { label: 'Favorite servers list', status: 'pending' },
+        ],
+      }
+    ],
+  },
 ]);
