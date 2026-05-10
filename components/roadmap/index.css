@@ -267,7 +267,7 @@
 
 @media (max-width: 960px) {
   #roadmap {
-    padding: 72px 0 100px;
+    padding: calc(100px + var(--nav-h)*0.25) 0;
   }
 
   .rcategory-cols {
@@ -282,7 +282,7 @@
 
 @media (max-width: 640px) {
   #roadmap {
-    padding: 56px 0 80px;
+    padding: calc(100px + var(--nav-h)*0.25) 0;
   }
 
   .rcategory-cols {
