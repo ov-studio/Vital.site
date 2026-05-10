@@ -1,35 +1,24 @@
 'use client';
 import './index.css';
 import { useState, useRef, useEffect } from 'react';
-import { Roadmap_Content, type FeatureStatus, type RoadmapCard } from '@/configs/roadmap';
+import { Roadmap_Sections, type FeatureStatus, type RoadmapCard, type RoadmapSection } from '@/configs/roadmap';
 
-type Category = { label: string; cards: RoadmapCard[] };
 const STATUS_WEIGHT: Record<FeatureStatus, number> = {
   completed: 1,
-  partial: 0.5,
-  pending: 0,
+  partial:   0.5,
+  pending:   0,
 };
 
 function cardPct(card: RoadmapCard): number {
   if (!card.items.length) return 0;
   return Math.round(
-    (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0)/card.items.length)*100
+    (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / card.items.length) * 100
   );
 }
 
 function cardStatus(card: RoadmapCard): FeatureStatus {
   const pct = cardPct(card);
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
-}
-
-function groupByCategory(cards: RoadmapCard[]): Category[] {
-  const map = new Map<string, RoadmapCard[]>();
-  for (const card of cards) {
-    const key = card.category ?? 'General';
-    if (!map.has(key)) map.set(key, []);
-    map.get(key)!.push(card);
-  }
-  return Array.from(map.entries()).map(([label, cards]) => ({ label, cards }));
 }
 
 function FeatureCard({ card }: { card: RoadmapCard }) {
@@ -45,6 +34,9 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
 
   return (
     <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
+      <span className="rcard-corner rcard-corner--tl"/>
+      <span className="rcard-corner rcard-corner--br"/>
+
       <div
         className="rcard-body"
         onClick={() => setOpen(o => !o)}
@@ -104,15 +96,15 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
   );
 }
 
-function CategorySection({ cat, index }: { cat: Category; index: number }) {
+function SectionBlock({ section, index }: { section: RoadmapSection; index: number }) {
   const COLS = 3;
   const columns: RoadmapCard[][] = Array.from({ length: COLS }, () => []);
-  cat.cards.forEach((card, i) => columns[i % COLS].push(card));
+  section.cards.forEach((card, i) => columns[i % COLS].push(card));
 
   return (
     <div className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <span className="rcategory-label"># {cat.label}</span>
+        <span className="rcategory-label"># {section.name}</span>
       </div>
 
       <div className="rcategory-cols">
@@ -129,8 +121,6 @@ function CategorySection({ cat, index }: { cat: Category; index: number }) {
 }
 
 export function RoadmapGrid() {
-  const categories = groupByCategory(Roadmap_Content);
-
   return (
     <section id="roadmap">
       <div className="sw">
@@ -142,8 +132,8 @@ export function RoadmapGrid() {
         </div>
 
         <div className="roadmap-body">
-          {categories.map((cat, i) => (
-            <CategorySection key={cat.label} cat={cat} index={i}/>
+          {Roadmap_Sections.map((section, i) => (
+            <SectionBlock key={section.name} section={section} index={i}/>
           ))}
         </div>
       </div>
