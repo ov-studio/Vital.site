@@ -21,8 +21,8 @@ export default function HomePage() {
         { label: 'Rendering', href: '#rendering' },
         { label: '3D World', href: '#3d-world' },
         { label: 'Physics', href: '#physics' },
-        { label: 'Input', href: '#input-audio' },
-        { label: 'Audio', href: '#input-audio' },
+        { label: 'Input', href: '#input' },
+        { label: 'Audio', href: '#audio' },
         { label: 'Networking', href: '#networking' },
       ]} />
       <RoadmapGrid />
