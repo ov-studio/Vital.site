@@ -28,7 +28,7 @@
 .brand_wordmark {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   color: var(--brand-color);
   line-height: 1;
   font-size: var(--brand-wordmark-size);
@@ -47,31 +47,31 @@
 .brand--xxs {
   --brand-logo-size: 1.25rem;
   --brand-wordmark-size: 1rem;
-  --brand-gap: 8px;
+  --brand-gap: 10px;
 }
 
 .brand--xs {
   --brand-logo-size: 1.6rem;
   --brand-wordmark-size: 1.28rem;
-  --brand-gap: 10px;
+  --brand-gap: 12px;
 }
 
 .brand--sm {
   --brand-logo-size: 2rem;
   --brand-wordmark-size: 1.6rem;
-  --brand-gap: 12px;
+  --brand-gap: 14px;
 }
 
 .brand--md {
   --brand-logo-size: 2.75rem;
   --brand-wordmark-size: 2.2rem;
-  --brand-gap: 16px;
+  --brand-gap: 18px;
 }
 
 .brand--lg {
   --brand-logo-size: 4rem;
   --brand-wordmark-size: 3.2rem;
-  --brand-gap: 22px;
+  --brand-gap: 24px;
 }
 
 .brand--xl {
@@ -88,25 +88,26 @@
 
 @media (max-width: 640px) {
   .brand--lg {
-    --brand-logo-size: clamp(2.2rem, 8vw, 4rem);
+    --brand-logo-size: clamp(2.2rem, 8vw, 4.2rem);
     --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem);
     --brand-gap: clamp(10px, 3vw, 22px);
   }
 
   .brand--xl {
-    --brand-logo-size: clamp(2.8rem, 10vw, 5.5rem);
+    --brand-logo-size: clamp(2.8rem, 10vw, 5.7rem);
     --brand-wordmark-size: clamp(2.2rem, 9vw, 4.5rem);
     --brand-gap: clamp(14px, 4vw, 30px);
   }
 
   .brand--xxl {
-    --brand-logo-size: clamp(4rem, 14vw, 8.5rem);
+    --brand-logo-size: clamp(4rem, 14vw, 8.7rem);
     --brand-wordmark-size: clamp(3rem, 11vw, 6.8rem);
     --brand-gap: clamp(18px, 5vw, 40px);
   }
 }
 
 @media (max-width: 400px) {
+
   .brand--lg,
   .brand--xxl,
   .brand--xl {
