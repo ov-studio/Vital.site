@@ -1,7 +1,5 @@
 #roadmap {
-  min-height: 100vh;
-  margin-top: calc(var(--nav-h)*2);
-  margin-bottom: var(--nav-h);
+  padding: calc(100px + var(--nav-h)*0.5) 0;
 }
 
 .roadmap-head {
