@@ -28,11 +28,9 @@ export function Effect() {
     };
     window.addEventListener('scroll', onNavBlur, { passive: true });
 
+    const navH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
     const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nl li a'));
-    const navHrefs = new Set(
-      navLinks.map(a => (a.getAttribute('href') ?? '').replace(/^#/, '')).filter(Boolean)
-    );
-
+    const navHrefs = new Set(navLinks.map(a => (a.getAttribute('href') ?? '').replace(/^#/, '')).filter(Boolean));
     const anchors = Array.from(
       document.querySelectorAll<HTMLElement>('div[id].rcategory, section[id]:not(#roadmap)')
     ).filter(el => navHrefs.has(el.id));
@@ -43,10 +41,6 @@ export function Effect() {
         a.classList.toggle('active', href === id);
       });
     };
-
-    const navH = () => parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--nav-h')
-    );
 
     const getActiveId = (): string | null => {
       const offset = navH() + 32;
