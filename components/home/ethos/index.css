@@ -96,9 +96,9 @@
 .ecard-desc {
   font-family: 'Barlow', sans-serif;
   font-size: .84rem;
-  color: var(--text-desc);
-  line-height: 1.8;
   font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-desc);
   transition: color .25s;
 }
 .ecard:hover .ecard-desc { color: var(--text-desc-hover); }
