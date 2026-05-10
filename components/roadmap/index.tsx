@@ -34,9 +34,6 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
 
   return (
     <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
-      <span className="rcard-corner rcard-corner--tl"/>
-      <span className="rcard-corner rcard-corner--br"/>
-
       <div
         className="rcard-body"
         onClick={() => setOpen(o => !o)}
