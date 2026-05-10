@@ -164,7 +164,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── UTILITIES ─────────────────────────────────────────────────────────────
   {
     name: 'Utility',
     cards: [
@@ -293,7 +292,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── UI ────────────────────────────────────────────────────────────────────
   {
     name: 'UI',
     cards: [
@@ -419,9 +417,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── RENDERING ─────────────────────────────────────────────────────────────
   {
-    name: 'Rendering',
+    name: 'Graphics',
     cards: [
       {
         label: 'GFX',
@@ -498,7 +495,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── 3D WORLD ──────────────────────────────────────────────────────────────
   {
     name: '3D',
     cards: [
@@ -561,7 +557,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── PHYSICS ───────────────────────────────────────────────────────────────
   {
     name: 'Physics',
     cards: [
@@ -598,7 +593,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── AUDIO ─────────────────────────────────────────────────────────────────
   {
     name: 'Audio',
     cards: [
@@ -622,9 +616,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── NETWORKING ────────────────────────────────────────────────────────────
   {
-    name: 'Networking',
+    name: 'Network',
     cards: [
       {
         label: 'ENet Transport',
@@ -664,7 +657,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── INTEGRATIONS ──────────────────────────────────────────────────────────
   {
     name: 'Integrations',
     cards: [
