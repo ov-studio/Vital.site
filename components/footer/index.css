@@ -20,9 +20,8 @@ footer {
 
 .footer-tagline {
   margin-bottom: 4px;
-  max-width: 340px;
-  font-family: 'Geist', sans-serif;
-  font-size: .87rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: .88rem;
   font-weight: 500;
   line-height: 1.7;
   color: var(--text-desc);
