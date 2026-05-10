@@ -128,7 +128,7 @@ export function RoadmapGrid() {
         <div className="roadmap-head">
           <div className="slabel">Roadmap</div>
           <div className="sec-head">
-            <h2>What we've achieved.<br/>What's <span>coming.</span></h2>
+            <h2>What's built.<br/>What's <span>coming.</span></h2>
           </div>
         </div>
 
