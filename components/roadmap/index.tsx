@@ -119,7 +119,7 @@ function SectionBlock({ section, index }: { section: RoadmapSection; index: numb
   );
 }
 
-export function RoadmapGrid() {
+export function RoadmapGrid({ sections }: { sections: RoadmapSection[] }) {
   return (
     <section id="roadmap">
       <div className="sw">
