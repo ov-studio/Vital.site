@@ -28,8 +28,14 @@ export function Effect() {
     };
     window.addEventListener('scroll', onNavBlur, { passive: true });
 
-    const anchors = Array.from(document.querySelectorAll<HTMLElement>('section[id], div[id].rcategory'));
     const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nl li a'));
+    const navHrefs = new Set(
+      navLinks.map(a => (a.getAttribute('href') ?? '').replace(/^#/, '')).filter(Boolean)
+    );
+
+    const anchors = Array.from(
+      document.querySelectorAll<HTMLElement>('div[id].rcategory, section[id]:not(#roadmap)')
+    ).filter(el => navHrefs.has(el.id));
 
     const setActive = (id: string) => {
       navLinks.forEach(a => {
@@ -38,18 +44,25 @@ export function Effect() {
       });
     };
 
-    const navH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
+    const navH = () => parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--nav-h')
+    );
 
     const getActiveId = (): string | null => {
       const offset = navH() + 32;
       const candidates: ActiveBest[] = [];
+      const hasRoadmapAnchors = anchors.some(el => el.classList.contains('rcategory'));
 
       anchors.forEach(el => {
         const top = el.getBoundingClientRect().top - offset;
         if (top <= 0) candidates.push({ id: el.id, gap: top });
       });
 
-      if (candidates.length === 0) return null;
+      if (candidates.length === 0) {
+        if (hasRoadmapAnchors) return anchors.length > 0 ? anchors[0].id : null;
+        return null;
+      }
+
       candidates.sort((a, b) => b.gap - a.gap);
       return candidates[0].id;
     };
@@ -57,13 +70,23 @@ export function Effect() {
     let forcedId: string | null = null;
     let forcedY = 0;
 
+    const forceActive = (id: string) => {
+      forcedId = id;
+      forcedY = window.scrollY;
+      setActive(id);
+    };
+
     navLinks.forEach(a => {
       a.addEventListener('click', () => {
         const id = (a.getAttribute('href') ?? '').replace(/^#/, '');
-        if (!id) return;
-        forcedId = id;
-        forcedY = window.scrollY;
-        setActive(id);
+        if (id) forceActive(id);
+      });
+    });
+
+    Array.from(document.querySelectorAll<HTMLAnchorElement>('a.rcategory-label')).forEach(a => {
+      a.addEventListener('click', () => {
+        const id = (a.getAttribute('href') ?? '').replace(/^#/, '');
+        if (id) forceActive(id);
       });
     });
 
@@ -74,10 +97,11 @@ export function Effect() {
       }
       const id = getActiveId();
       if (id) setActive(id);
+      else navLinks.forEach(a => a.classList.remove('active'));
     };
 
     window.addEventListener('scroll', onScrollActive, { passive: true });
-    onScrollActive();
+    requestAnimationFrame(onScrollActive);
 
     const revEls = document.querySelectorAll<HTMLElement>('.rev,.rev-l,.rev-r');
     const revObserver = new IntersectionObserver(entries => {
