@@ -102,7 +102,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Resource System',
-        desc: 'Runtime resource loading, caching, and unloading via ResourceLoader',
+        desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
         icon: ICON.file,
         items: [
           { label: 'ResourceLoader.load (blocking)', status: 'partial' },
@@ -110,6 +110,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'ResourceLoader.load_threaded_get', status: 'pending' },
           { label: 'Resource caching control', status: 'pending' },
           { label: 'Custom resource types', status: 'pending' },
+          { label: 'Resource downloader (HTTP fetch to disk)', status: 'pending' },
+          { label: 'Download progress callbacks', status: 'pending' },
+          { label: 'Checksum validation on download', status: 'pending' },
         ],
       },
       {
@@ -177,18 +180,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'Thread',
-        desc: 'Low-level thread management, pooling, and lifecycle control from Lua',
-        icon: ICON.thread,
-        items: [
-          { label: 'Thread.create', status: 'completed' },
-          { label: 'Thread.destroy', status: 'completed' },
-          { label: 'Thread.sleep', status: 'completed' },
-          { label: 'Thread pool management', status: 'completed' },
-          { label: 'Thread lifecycle hooks', status: 'completed' },
-        ],
-      },
-      {
         label: 'Timer',
         desc: 'Precise one-shot and repeating timers with pause, resume, and destroy support',
         icon: ICON.timer,
@@ -213,6 +204,18 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        label: 'Thread',
+        desc: 'Low-level thread management, pooling, and lifecycle control from Lua',
+        icon: ICON.thread,
+        items: [
+          { label: 'Thread.create', status: 'completed' },
+          { label: 'Thread.destroy', status: 'completed' },
+          { label: 'Thread.sleep', status: 'completed' },
+          { label: 'Thread pool management', status: 'completed' },
+          { label: 'Thread lifecycle hooks', status: 'completed' },
+        ],
+      },
+      {
         label: 'File I/O',
         desc: 'Read, write, and manage files on disk from within Lua scripts',
         icon: ICON.file,
@@ -225,7 +228,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'HTTP Client',
+        label: 'HTTP',
         desc: 'Full async HTTP layer for communicating with external REST APIs and asset servers',
         icon: ICON.network,
         items: [
@@ -260,7 +263,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'Event System',
+        label: 'Event',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: ICON.event,
         items: [
