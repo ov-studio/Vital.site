@@ -80,9 +80,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
                 <span className="ritem-dot"/>
                 <span className="ritem-label">{item.label}</span>
                 <span className="ritem-tag">
-                  {item.status === 'completed' ? 'Done'
-                    : item.status === 'partial'  ? 'In progress'
-                    : 'Planned'}
+                  {item.status === 'completed' ? 'Completed' : item.status === 'partial'  ? 'WIP' : 'Planned'}
                 </span>
               </div>
             ))}
