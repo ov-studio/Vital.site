@@ -74,15 +74,15 @@
 }
 
 .fcluster-desc {
+  z-index: 1;
+  position: relative;
   font-family: 'Barlow', sans-serif;
   font-size: .8rem;
-  color: var(--text-faint);
-  line-height: 1.65;
-  padding: 0 16px 14px 28px;
   font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-faint);
+  padding: 0 16px 14px 28px;
   transition: color .25s;
-  position: relative;
-  z-index: 1;
 }
 
 .fcluster.is-active .fcluster-desc {
