@@ -10,9 +10,15 @@
   margin-bottom: 24px;
 }
 
+.roadmap-intro {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
 .roadmap-body {
   display: flex;
-  margin-top: 80px;
   flex-direction: column;
   gap: 80px;
 }
