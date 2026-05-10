@@ -18,19 +18,18 @@
 .ethos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 14px;
 }
 
 .ecard {
   position: relative;
   padding: 32px 28px 28px;
-  background: var(--bg2);
+  background: var(--bg3);
   overflow: hidden;
   cursor: default;
   transition: background .3s;
   transition-delay: calc(var(--i, 0) * 60ms);
 }
-.ecard:hover { background: var(--bg3); }
 
 .ecard-corner {
   position: absolute;
