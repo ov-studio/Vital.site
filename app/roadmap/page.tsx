@@ -14,13 +14,19 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <ClientShell>
-      <Overlay/>
+      <Overlay />
       <Navbar links={[
-        { label: 'Home', href: '/' },
-        { label: 'Documentations', href: '/docs' }
-      ]}/>
+        { label: 'Foundation', href: '#foundation' },
+        { label: 'UI', href: '#ui' },
+        { label: 'Rendering', href: '#rendering' },
+        { label: '3D World', href: '#3d-world' },
+        { label: 'Physics', href: '#physics' },
+        { label: 'Input', href: '#input-audio' },
+        { label: 'Audio', href: '#input-audio' },
+        { label: 'Networking', href: '#networking' },
+      ]} />
       <RoadmapGrid />
-      <Footer/>
+      <Footer />
     </ClientShell>
   );
 }
