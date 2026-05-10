@@ -9,7 +9,7 @@ export interface RoadmapCard {
   id: string;
   label: string;
   desc: string;
-  icon: string;
+  icon: React.ReactNode;
   priority?: string;
   items: RoadmapItem[];
 }
@@ -33,40 +33,71 @@ function build(sections: SectionInput[]): RoadmapSection[] {
   }));
 }
 
+// Shared stroke props for outline style
+const s = { stroke: 'currentColor', strokeWidth: '1.4', strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
+
 const ICON = {
-  cpu: 'M9 3H7a2 2 0 00-2 2v2M9 3h6M9 3v2m6-2h2a2 2 0 012 2v2m-4-4v2M3 9v6m18-6v6M9 21H7a2 2 0 01-2-2v-2m4 4h6m-6 0v-2m6 2h2a2 2 0 002-2v-2m-4 4v-2M9 9h6v6H9z',
-  audio: 'M9 18V5l12-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-2a3 3 0 11-6 0 3 3 0 016 0z',
-  input: 'M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z',
-  physics: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
-  scene: 'M3 7a2 2 0 012-2h4l2 3h8a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z',
-  render: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
-  gfx: 'M7 4v16M17 4v16M3 8h4m10 0h4M3 16h4m10 0h4M4 12h16',
-  model: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
-  network: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
-  ui: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  light: 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z',
-  camera: 'M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z',
-  shader: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-  tween: 'M13 10V3L4 14h7v7l9-11h-7z',
-  particles: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
-  display: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  perf: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-  nav: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
-  decal: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14',
-  db: 'M4 7a2 2 0 012-2h12a2 2 0 012 2v1a2 2 0 01-2 2H6a2 2 0 01-2-2V7zm0 6a2 2 0 012-2h12a2 2 0 012 2v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1zm0 6a2 2 0 012-2h12a2 2 0 012 2v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1z',
-  discord: 'M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z',
-  event: 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9',
-  string: 'M4 6h16M4 12h16M4 18h7',
-  table: 'M3 10h18M3 14h18M10 3v18',
-  crypto: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
-  file: 'M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z',
-  promise: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
-  thread: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
-  timer: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-  shrinker: 'M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z',
-  svg: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-  rendertgt: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  inspect: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+  // ── Sandbox ────────────────────────────────────────────────────────────────
+  engineCore: <><rect x="3" y="3" width="14" height="14" rx="2" {...s} /><path d="M7 10h6M10 7v6" {...s} /></>,
+  sceneTree: <><path d="M3 4h4v4H3zM13 4h4v4h-4zM8 13h4v4H8z" {...s} /><path d="M5 8v2h8V8M10 13v-2" {...s} /></>,
+  resource: <><path d="M4 4h7l5 5v9a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z" {...s} /><path d="M11 4v5h5M7 12l3 3 3-3" {...s} /></>,
+  console: <><rect x="2" y="4" width="16" height="12" rx="2" {...s} /><path d="M5 9l3 3-3 3M11 15h4" {...s} /></>,
+  perfMonitor: <><path d="M2 14l4-6 4 4 3-4 3 3" {...s} /><path d="M2 17h16" {...s} /></>,
+  database: <><ellipse cx="10" cy="6" rx="7" ry="2.5" {...s} /><path d="M3 6v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6M3 10v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4" {...s} /></>,
+  dbQuery: <><ellipse cx="10" cy="5" rx="6" ry="2" {...s} /><path d="M4 5v3c0 1.1 2.7 2 6 2s6-.9 6-2V5M4 8v3c0 1.1 2.7 2 6 2" {...s} /><path d="M13 14l2 2 4-4" {...s} /></>,
+
+  // ── Utility ────────────────────────────────────────────────────────────────
+  inspect: <><circle cx="10" cy="9" r="5" {...s} /><path d="M10 6v3l2 2" {...s} /><path d="M13.5 13.5L17 17" {...s} /></>,
+  timer: <><circle cx="10" cy="11" r="7" {...s} /><path d="M10 7v4l3 2" {...s} /><path d="M7 2h6" {...s} /></>,
+  promise: <><circle cx="10" cy="10" r="7" {...s} /><path d="M7 10l2 2 4-4" {...s} /></>,
+  thread: <><path d="M4 5h12M4 10h12M4 15h12" {...s} /><circle cx="16" cy="5" r="1.5" {...s} /><circle cx="4" cy="10" r="1.5" {...s} /><circle cx="16" cy="15" r="1.5" {...s} /></>,
+  fileIO: <><path d="M4 4h7l5 5v9a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z" {...s} /><path d="M11 4v5h5M7 13h6M7 16h4" {...s} /></>,
+  http: <><circle cx="10" cy="10" r="7" {...s} /><path d="M3 10h14M10 3c-2 2-3 4.5-3 7s1 5 3 7M10 3c2 2 3 4.5 3 7s-1 5-3 7" {...s} /></>,
+  crypto: <><rect x="5" y="10" width="10" height="8" rx="1" {...s} /><path d="M7 10V7a3 3 0 016 0v3" {...s} /><circle cx="10" cy="14" r="1" fill="currentColor" stroke="none" /></>,
+  shrinker: <><rect x="3" y="3" width="7" height="7" rx="1" {...s} /><rect x="10" y="10" width="7" height="7" rx="1" {...s} /><path d="M10 6h4v4M6 10v4H10" {...s} /></>,
+  event: <><path d="M10 2v3M10 15v3M2 10h3M15 10h3M4.9 4.9l2.1 2.1M13 13l2.1 2.1M15.1 4.9l-2.1 2.1M7 13l-2.1 2.1" {...s} /><circle cx="10" cy="10" r="3" {...s} /></>,
+  input: <><rect x="2" y="6" width="16" height="10" rx="2" {...s} /><path d="M6 10v2M9 10v2M12 10v2M15 10v2M6 14h8" {...s} /></>,
+
+  // ── UI ─────────────────────────────────────────────────────────────────────
+  mainMenu: <><rect x="3" y="3" width="14" height="14" rx="2" {...s} /><path d="M7 8h6M7 11h6M7 14h4" {...s} /></>,
+  gameBrowser: <><rect x="2" y="4" width="16" height="12" rx="2" {...s} /><path d="M2 8h16M6 12h8M6 15h5" {...s} /><circle cx="5" cy="6" r="1" fill="currentColor" stroke="none" /><circle cx="8" cy="6" r="1" fill="currentColor" stroke="none" /></>,
+  displayWindow: <><rect x="2" y="3" width="16" height="13" rx="2" {...s} /><path d="M2 7h16M6 19h8M10 16v3" {...s} /></>,
+  webview: <><rect x="2" y="3" width="16" height="13" rx="2" {...s} /><path d="M2 7h16M6 11l2 2-2 2M10 15h4" {...s} /></>,
+  canvas: <><rect x="3" y="3" width="14" height="14" rx="2" {...s} /><path d="M6 14l3-5 3 3 2-3 3 5" {...s} /><circle cx="7" cy="7" r="1.5" {...s} /></>,
+  font: <><path d="M4 16L8 4l4 12M5.5 12h5" {...s} /><path d="M14 8v8M14 8a2 2 0 012-2h0a2 2 0 012 2v0a2 2 0 01-2 2h-2" {...s} /><path d="M14 12h2a2 2 0 012 2v0a2 2 0 01-2 2h-2" {...s} /></>,
+  texture: <><rect x="3" y="3" width="14" height="14" rx="2" {...s} /><path d="M3 13l4-4 3 3 3-3 4 4" {...s} /><circle cx="8" cy="8" r="1.5" {...s} /></>,
+  svg: <><rect x="2" y="2" width="16" height="16" rx="2" {...s} /><path d="M5 13l3-5 3 4 2-3 3 4" {...s} /></>,
+  rendertarget: <><rect x="2" y="2" width="16" height="16" rx="2" {...s} /><rect x="6" y="6" width="8" height="8" rx="1" {...s} /><path d="M10 2v4M10 14v4M2 10h4M14 10h4" {...s} /></>,
+  screenshot: <><path d="M2 8V6a2 2 0 012-2h2M14 4h2a2 2 0 012 2v2M18 12v2a2 2 0 01-2 2h-2M6 16H4a2 2 0 01-2-2v-2" {...s} /><circle cx="10" cy="10" r="3" {...s} /></>,
+
+  // ── Graphics ───────────────────────────────────────────────────────────────
+  gfx: <><circle cx="10" cy="10" r="7" {...s} /><path d="M10 5v2M10 13v2M5 10h2M13 10h2M6.8 6.8l1.4 1.4M11.8 11.8l1.4 1.4M13.2 6.8l-1.4 1.4M8.2 11.8l-1.4 1.4" {...s} /></>,
+  lighting: <><circle cx="10" cy="10" r="4" {...s} /><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.9 4.9l1.4 1.4M13.7 13.7l1.4 1.4M15.1 4.9l-1.4 1.4M6.3 13.7l-1.4 1.4" {...s} /></>,
+  environment: <><path d="M2 15c2-5 4-7 8-7s6 2 8 7" {...s} /><path d="M6 15c1-3 2-4 4-4s3 1 4 4" {...s} /><circle cx="10" cy="5" r="2" {...s} /><path d="M10 2v1" {...s} /></>,
+  shaderUniforms: <><path d="M4 4l5 5M4 9l5-5M11 7h6" {...s} /><path d="M4 13l5 5M4 18l5-5M11 15h6" {...s} /></>,
+  decals: <><ellipse cx="10" cy="12" rx="6" ry="3" {...s} /><path d="M4 12V8a6 6 0 0112 0v4" {...s} /><path d="M10 9v3" {...s} /></>,
+  particles: <><circle cx="10" cy="10" r="1.5" {...s} /><circle cx="5" cy="5" r="1" {...s} /><circle cx="15" cy="5" r="1.5" {...s} /><circle cx="5" cy="15" r="1.5" {...s} /><circle cx="15" cy="15" r="1" {...s} /><circle cx="10" cy="3" r="1" {...s} /><circle cx="17" cy="10" r="1" {...s} /><circle cx="3" cy="10" r="1" {...s} /><circle cx="10" cy="17" r="1" {...s} /></>,
+
+  // ── 3D ─────────────────────────────────────────────────────────────────────
+  model: <><path d="M10 2l7 4v8l-7 4-7-4V6z" {...s} /><path d="M10 2v14M3 6l7 4 7-4" {...s} /></>,
+  camera3d: <><rect x="2" y="7" width="11" height="8" rx="2" {...s} /><path d="M13 9.5l5-2v7l-5-2" {...s} /></>,
+  tween: <><path d="M3 16c2-7 4-9 7-9s5 5 7 9" {...s} /><circle cx="3" cy="16" r="1.5" {...s} /><circle cx="17" cy="16" r="1.5" {...s} /><circle cx="10" cy="7" r="1.5" {...s} /></>,
+  meshPrimitives: <><path d="M10 2l7 4v8l-7 4-7-4V6z" {...s} /><path d="M5 5l5 3 5-3M10 8v8" {...s} /></>,
+
+  // ── Physics ────────────────────────────────────────────────────────────────
+  physics3d: <><circle cx="10" cy="10" r="7" {...s} /><path d="M10 6v4l3 3M7 17l3-3 3 3" {...s} /></>,
+  navigation: <><circle cx="10" cy="10" r="7" {...s} /><path d="M10 5l1.5 4h4l-3 2.5 1 4-3.5-2.5L6.5 15.5l1-4-3-2.5h4z" {...s} /></>,
+
+  // ── Audio ──────────────────────────────────────────────────────────────────
+  audio: <><path d="M9 5v10l-4-3H2V8h3l4-3z" {...s} /><path d="M14 7a4 4 0 010 6M16 4a8 8 0 010 12" {...s} /></>,
+
+  // ── Network ────────────────────────────────────────────────────────────────
+  enet: <><circle cx="10" cy="10" r="7" {...s} /><path d="M3 10h14M10 3c-2 2-3 4.5-3 7s1 5 3 7M10 3c2 2 3 4.5 3 7s-1 5-3 7" {...s} /></>,
+  websocket: <><path d="M4 8a6 6 0 0112 0" {...s} /><path d="M16 12a6 6 0 01-12 0" {...s} /><path d="M8 8l4 4M12 8l-4 4" {...s} /></>,
+  multiplayer: <><circle cx="5" cy="5" r="2" {...s} /><circle cx="15" cy="5" r="2" {...s} /><circle cx="10" cy="15" r="2" {...s} /><path d="M5 7v2c0 1.1.9 2 2 2h6a2 2 0 002-2V7M10 13v-2" {...s} /></>,
+
+  // ── Integrations ───────────────────────────────────────────────────────────
+  discord: <><path d="M6 4a12 12 0 00-2 7c0 2 .7 3.5 2 4.5.5.4 1 .5 1.5.3L8 14c-.8-.5-1.3-1-1.5-1.8C6.2 11.4 6 10.5 6 9.5c0-2 .8-4 2-5.5" {...s} /><path d="M14 4a12 12 0 012 7c0 2-.7 3.5-2 4.5-.5.4-1 .5-1.5.3L12 14c.8-.5 1.3-1 1.5-1.8.3-.8.5-1.7.5-2.7 0-2-.8-4-2-5.5" {...s} /><circle cx="7.5" cy="10" r="1.5" {...s} /><circle cx="12.5" cy="10" r="1.5" {...s} /></>,
 };
 
 export const Roadmap_Section: RoadmapSection[] = build([
@@ -76,7 +107,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Engine Core',
         desc: 'Top-level engine singleton access: quit, pause, version, and main loop control',
-        icon: ICON.cpu,
+        icon: ICON.engineCore,
         items: [
           { label: 'Engine.get_version_info', status: 'completed' },
           { label: 'Engine.quit', status: 'partial' },
@@ -88,7 +119,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Scene & Node Tree',
         desc: 'SceneTree access, scene switching, additive loading, node queries, and groups',
-        icon: ICON.scene,
+        icon: ICON.sceneTree,
         priority: 'Must have',
         items: [
           { label: 'SceneTree singleton access', status: 'partial' },
@@ -103,7 +134,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Resource System',
         desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
-        icon: ICON.file,
+        icon: ICON.resource,
         items: [
           { label: 'ResourceLoader.load (blocking)', status: 'partial' },
           { label: 'ResourceLoader.load_threaded_request', status: 'pending' },
@@ -118,7 +149,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Console',
         desc: 'Built-in runtime console for commands, debug output, and structured logging',
-        icon: ICON.display,
+        icon: ICON.console,
         items: [
           { label: 'engine.print / warn / error', status: 'completed' },
           { label: 'Log levels (info / warn / error)', status: 'completed' },
@@ -129,7 +160,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Performance Monitor',
         desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
-        icon: ICON.perf,
+        icon: ICON.perfMonitor,
         items: [
           { label: 'Performance.get (FPS / frame time)', status: 'pending' },
           { label: 'Draw calls & vertices', status: 'pending' },
@@ -141,7 +172,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
-        icon: ICON.db,
+        icon: ICON.database,
         items: [
           { label: 'db.connect / disconnect', status: 'completed' },
           { label: 'db.exec (raw query)', status: 'completed' },
@@ -152,7 +183,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Database Query',
         desc: 'Fluent query builder API — select, insert, update, delete, and filtering',
-        icon: ICON.db,
+        icon: ICON.dbQuery,
         items: [
           { label: 'query.select / from / where', status: 'completed' },
           { label: 'query.insert / update / delete', status: 'completed' },
@@ -217,7 +248,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'File I/O',
         desc: 'Read, write, and manage files on disk from within Lua scripts',
-        icon: ICON.file,
+        icon: ICON.fileIO,
         items: [
           { label: 'File.read', status: 'completed' },
           { label: 'File.write', status: 'completed' },
@@ -229,7 +260,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'HTTP',
         desc: 'Full async HTTP layer for communicating with external REST APIs and asset servers',
-        icon: ICON.network,
+        icon: ICON.http,
         items: [
           { label: 'HTTP.get / post / put / delete', status: 'completed' },
           { label: 'Custom headers', status: 'completed' },
@@ -298,7 +329,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Main Menu',
         desc: 'Default client entry point — play, settings, credits, and server browser navigation',
-        icon: ICON.ui,
+        icon: ICON.mainMenu,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
           { label: 'Play / browse servers flow', status: 'pending' },
@@ -310,7 +341,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Game Browser',
         desc: 'In-client server list — query, filter, sort, and join available game servers',
-        icon: ICON.network,
+        icon: ICON.gameBrowser,
         items: [
           { label: 'Server list fetch & display', status: 'pending' },
           { label: 'Filter by name / gamemode / region', status: 'pending' },
@@ -323,7 +354,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Display & Window',
         desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
-        icon: ICON.display,
+        icon: ICON.displayWindow,
         items: [
           { label: 'window_get / set_size', status: 'pending' },
           { label: 'Fullscreen / borderless / maximized', status: 'pending' },
@@ -337,7 +368,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Webview',
         desc: 'HTML/CSS/JS renderer bridged into a SubViewport with bidirectional Lua ↔ JS messaging',
-        icon: ICON.ui,
+        icon: ICON.webview,
         items: [
           { label: 'SubViewport bridge', status: 'completed' },
           { label: 'HTML / CSS rendering', status: 'completed' },
@@ -349,7 +380,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Canvas',
         desc: '2D drawing API — shapes, images, gradients, and text composited into viewports each frame',
-        icon: ICON.render,
+        icon: ICON.canvas,
         items: [
           { label: '2D Canvas API (draw_rect / circle / line)', status: 'completed' },
           { label: 'Image blitting', status: 'completed' },
@@ -361,7 +392,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Font',
         desc: 'Runtime font loading and text metrics for canvas-level text rendering',
-        icon: ICON.render,
+        icon: ICON.font,
         items: [
           { label: 'Format: TTF', status: 'completed' },
           { label: 'Format: OTF', status: 'completed' },
@@ -373,7 +404,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Texture',
         desc: 'Runtime image texture loading, unloading, and sampler configuration',
-        icon: ICON.render,
+        icon: ICON.texture,
         items: [
           { label: 'Format: JPG', status: 'completed' },
           { label: 'Format: PNG', status: 'completed' },
@@ -396,7 +427,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Rendertarget',
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
-        icon: ICON.rendertgt,
+        icon: ICON.rendertarget,
         items: [
           { label: 'SubViewport creation / destruction', status: 'completed' },
           { label: 'Render-to-texture binding', status: 'completed' },
@@ -407,13 +438,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Screenshot Capture',
         desc: 'Grab the current viewport frame as a raw image or save directly to disk',
-        icon: ICON.render,
+        icon: ICON.screenshot,
         items: [
           { label: 'Viewport.get_texture snapshot', status: 'pending' },
           { label: 'Save to PNG / JPG', status: 'pending' },
           { label: 'Region capture (partial frame)', status: 'pending' },
         ],
-      }
+      },
     ],
   },
 
@@ -438,7 +469,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Lighting',
         desc: 'Create and configure DirectionalLight, OmniLight, and SpotLight — color, energy, shadows, and range from Lua',
-        icon: ICON.light,
+        icon: ICON.lighting,
         items: [
           { label: 'DirectionalLight3D (create / config)', status: 'pending' },
           { label: 'OmniLight3D (create / config)', status: 'pending' },
@@ -450,7 +481,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Environment',
         desc: 'World environment overrides — sky, ambient light, tonemap, and background from Lua',
-        icon: ICON.light,
+        icon: ICON.environment,
         items: [
           { label: 'WorldEnvironment access', status: 'pending' },
           { label: 'Sky / panorama background', status: 'pending' },
@@ -462,7 +493,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Shader Uniforms',
         desc: 'Set ShaderMaterial parameters and texture uniforms at runtime from Lua',
-        icon: ICON.shader,
+        icon: ICON.shaderUniforms,
         items: [
           { label: 'ShaderMaterial.set_shader_parameter', status: 'pending' },
           { label: 'Texture uniform binding', status: 'pending' },
@@ -473,7 +504,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Decals',
         desc: 'Project textures onto surfaces at runtime — bullet holes, footprints, and damage overlays',
-        icon: ICON.decal,
+        icon: ICON.decals,
         items: [
           { label: 'Decal node creation / placement', status: 'pending' },
           { label: 'Texture assignment per channel', status: 'pending' },
@@ -518,7 +549,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Camera 3D',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
-        icon: ICON.camera,
+        icon: ICON.camera3d,
         items: [
           { label: 'Camera3D transform (position / rotation)', status: 'pending' },
           { label: 'FOV / orthographic size', status: 'pending' },
@@ -546,7 +577,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
-        icon: ICON.model,
+        icon: ICON.meshPrimitives,
         items: [
           { label: 'BoxMesh / SphereMesh / CapsuleMesh', status: 'pending' },
           { label: 'CylinderMesh / PlaneMesh', status: 'pending' },
@@ -563,7 +594,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Physics 3D',
         desc: 'Raycast, shapecast, apply forces and impulses to rigid bodies, and query collision layers from Lua',
-        icon: ICON.physics,
+        icon: ICON.physics3d,
         priority: 'Must have',
         items: [
           { label: 'PhysicsServer3D singleton access', status: 'pending' },
@@ -579,7 +610,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Navigation',
         desc: 'Agent pathfinding, steering avoidance, and navmesh queries — essential for NPC and AI movement',
-        icon: ICON.nav,
+        icon: ICON.navigation,
         priority: 'Must have',
         items: [
           { label: 'NavigationServer3D singleton access', status: 'pending' },
@@ -622,7 +653,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'ENet Transport',
         desc: 'High-performance UDP peer — reliable, sequenced, and unreliable channels for multiplayer',
-        icon: ICON.network,
+        icon: ICON.enet,
         items: [
           { label: 'ENet peer connect / disconnect', status: 'completed' },
           { label: 'Reliable channel send / receive', status: 'completed' },
@@ -634,7 +665,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'WebSocket',
         desc: 'Full-duplex WebSocket client and server for real-time browser and service communication',
-        icon: ICON.network,
+        icon: ICON.websocket,
         items: [
           { label: 'WebSocketPeer.connect_to_url', status: 'pending' },
           { label: 'send / receive (text & binary)', status: 'pending' },
@@ -645,7 +676,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Multiplayer API',
         desc: 'High-level multiplayer with RPC, spawning, and state synchronization from Lua',
-        icon: ICON.network,
+        icon: ICON.multiplayer,
         items: [
           { label: 'MultiplayerAPI setup', status: 'pending' },
           { label: 'RPC (reliable / unreliable)', status: 'pending' },
@@ -673,5 +704,5 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
     ],
-  }
+  },
 ]);
