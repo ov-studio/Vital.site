@@ -20,7 +20,8 @@
 .rcategory {
   opacity: 0;
   animation: rcategory-in .45s ease forwards;
-  animation-delay: calc(var(--ci,0) * 70ms);
+  animation-delay: calc(var(--ci, 0) * 70ms);
+  scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
 @keyframes rcategory-in {
@@ -164,23 +165,25 @@
 
 .rcard-bar-track {
   flex: 1;
-  height: 3px;
-  background: hsla(220,18%,100%,.06);
+  height: 2px;
+  background: hsla(220, 18%, 100%, .06);
 }
 
 .rcard-bar-track-fill {
   height: 100%;
-  border-radius: 3px;
-  transition: width .6s cubic-bezier(.4,0,.2,1);
+  transition: width .6s cubic-bezier(.4, 0, .2, 1);
 }
+
 .rcard--completed .rcard-bar-track-fill {
   background: var(--blue);
   box-shadow: 0 0 5px var(--blue);
 }
+
 .rcard--partial .rcard-bar-track-fill {
-  background: hsl(45,80%,58%);
-  box-shadow: 0 0 5px hsla(45,80%,58%,.6);
+  background: hsl(45, 80%, 58%);
+  box-shadow: 0 0 5px hsla(45, 80%, 58%, .6);
 }
+
 .rcard--pending .rcard-bar-track-fill {
   width: 0 !important;
 }
@@ -206,7 +209,7 @@
 
 .rcard-items {
   border-top: 1px solid var(--rule);
-  padding: 5px 22px;
+  padding: 8px 22px 28px;
   display: flex;
   flex-direction: column;
 }
