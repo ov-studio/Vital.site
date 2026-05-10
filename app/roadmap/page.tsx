@@ -16,7 +16,7 @@ function toAnchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-const roadmapLinks = Roadmap_Section.map(s => ({
+const Roadmap_Link = Roadmap_Section.map(s => ({
   label: s.name,
   href: `#${toAnchor(s.name)}`,
 }));
@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <ClientShell>
       <Overlay />
-      <Navbar links={roadmapLinks} />
+      <Navbar links={Roadmap_Link} />
       <RoadmapGrid sections={Roadmap_Section} />
       <Footer />
     </ClientShell>
