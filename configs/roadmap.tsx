@@ -73,7 +73,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
 
   // ── SANDBOX RUNTIME ────────────────────────────────────────────────────────
   {
-    name: 'Sandbox Runtime',
+    name: 'Runtime',
     cards: [
       {
         label: 'Thread',
@@ -174,7 +174,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
 
   // ── UTILITIES ─────────────────────────────────────────────────────────────
   {
-    name: 'Utilities',
+    name: 'Utility',
     cards: [
       {
         label: 'String',
@@ -482,7 +482,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
 
   // ── 3D WORLD ──────────────────────────────────────────────────────────────
   {
-    name: '3D World',
+    name: '3D',
     cards: [
       {
         label: 'Model',
