@@ -70,11 +70,112 @@ const ICON = {
 };
 
 export const Roadmap_Section: RoadmapSection[] = build([
-
-  // ── SANDBOX RUNTIME ────────────────────────────────────────────────────────
   {
-    name: 'Runtime',
+    name: 'Sandbox',
     cards: [
+      {
+        label: 'Engine Core',
+        desc: 'Top-level engine singleton access: quit, pause, version, and main loop control',
+        icon: ICON.cpu,
+        items: [
+          { label: 'Engine.get_version_info', status: 'completed' },
+          { label: 'Engine.quit', status: 'partial' },
+          { label: 'Engine.set_time_scale', status: 'pending' },
+          { label: 'Engine.get_frames_per_second', status: 'pending' },
+          { label: 'Engine.is_editor_hint', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Scene & Node Tree',
+        desc: 'SceneTree access, scene switching, additive loading, node queries, and groups',
+        icon: ICON.scene,
+        priority: 'Must have',
+        items: [
+          { label: 'SceneTree singleton access', status: 'partial' },
+          { label: 'change_scene_to_file', status: 'pending' },
+          { label: 'Additive scene load / unload', status: 'pending' },
+          { label: 'get_node / find_child', status: 'pending' },
+          { label: 'Node groups (add / remove / call)', status: 'pending' },
+          { label: 'SceneTree.paused', status: 'pending' },
+          { label: 'Node signals (connect / disconnect)', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Resource System',
+        desc: 'Runtime resource loading, caching, and unloading via ResourceLoader',
+        icon: ICON.file,
+        items: [
+          { label: 'ResourceLoader.load (blocking)', status: 'partial' },
+          { label: 'ResourceLoader.load_threaded_request', status: 'pending' },
+          { label: 'ResourceLoader.load_threaded_get', status: 'pending' },
+          { label: 'Resource caching control', status: 'pending' },
+          { label: 'Custom resource types', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Console',
+        desc: 'Built-in runtime console for commands, debug output, and structured logging',
+        icon: ICON.display,
+        items: [
+          { label: 'engine.print / warn / error', status: 'completed' },
+          { label: 'Log levels (info / warn / error)', status: 'completed' },
+          { label: 'Inspect (table pretty-print)', status: 'completed' },
+          { label: 'Runtime command execution', status: 'completed' },
+        ],
+      },
+      {
+        label: 'Performance Monitor',
+        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
+        icon: ICON.perf,
+        items: [
+          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
+          { label: 'Draw calls & vertices', status: 'pending' },
+          { label: 'Static / dynamic memory', status: 'pending' },
+          { label: 'Physics step time', status: 'pending' },
+          { label: 'Object / node count', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Database',
+        desc: 'Embedded database interface for persistent structured data storage and retrieval',
+        icon: ICON.db,
+        items: [
+          { label: 'db.connect / disconnect', status: 'completed' },
+          { label: 'db.exec (raw query)', status: 'completed' },
+          { label: 'Prepared statements', status: 'completed' },
+          { label: 'Transaction support', status: 'completed' },
+        ],
+      },
+      {
+        label: 'Database Query',
+        desc: 'Fluent query builder API — select, insert, update, delete, and filtering',
+        icon: ICON.db,
+        items: [
+          { label: 'query.select / from / where', status: 'completed' },
+          { label: 'query.insert / update / delete', status: 'completed' },
+          { label: 'query.orderBy / limit / offset', status: 'completed' },
+          { label: 'query.join (inner / left)', status: 'completed' },
+          { label: 'Async query execution', status: 'completed' },
+        ],
+      },
+    ],
+  },
+
+  // ── UTILITIES ─────────────────────────────────────────────────────────────
+  {
+    name: 'Utility',
+    cards: [
+      {
+        label: 'Inspect',
+        desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
+        icon: ICON.inspect,
+        items: [
+          { label: 'CPU info (cores, arch)', status: 'completed' },
+          { label: 'OS platform detection', status: 'completed' },
+          { label: 'Memory usage query', status: 'completed' },
+          { label: 'Device fingerprint generation', status: 'completed' },
+        ],
+      },
       {
         label: 'Thread',
         desc: 'Low-level thread management, pooling, and lifecycle control from Lua',
@@ -159,59 +260,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'Console',
-        desc: 'Built-in runtime console for commands, debug output, and structured logging',
-        icon: ICON.display,
-        items: [
-          { label: 'engine.print / warn / error', status: 'completed' },
-          { label: 'Log levels (info / warn / error)', status: 'completed' },
-          { label: 'Inspect (table pretty-print)', status: 'completed' },
-          { label: 'Runtime command execution', status: 'completed' },
-        ],
-      },
-    ],
-  },
-
-  // ── UTILITIES ─────────────────────────────────────────────────────────────
-  {
-    name: 'Utility',
-    cards: [
-      {
-        label: 'String',
-        desc: 'Extended string manipulation utilities beyond the Lua standard library',
-        icon: ICON.string,
-        items: [
-          { label: 'string.split / trim / pad', status: 'completed' },
-          { label: 'string.startsWith / endsWith', status: 'completed' },
-          { label: 'string.contains / replace', status: 'completed' },
-          { label: 'string.format extensions', status: 'completed' },
-          { label: 'UTF-8 aware operations', status: 'partial' },
-        ],
-      },
-      {
-        label: 'Table',
-        desc: 'Extended table and array utilities for deep operations, sorting, and serialization',
-        icon: ICON.table,
-        items: [
-          { label: 'table.deepCopy / deepMerge', status: 'completed' },
-          { label: 'table.contains / indexOf', status: 'completed' },
-          { label: 'table.filter / map / reduce', status: 'completed' },
-          { label: 'table.serialize / deserialize', status: 'completed' },
-          { label: 'table.keys / values / count', status: 'completed' },
-        ],
-      },
-      {
-        label: 'Inspect',
-        desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
-        icon: ICON.inspect,
-        items: [
-          { label: 'CPU info (cores, arch)', status: 'completed' },
-          { label: 'OS platform detection', status: 'completed' },
-          { label: 'Memory usage query', status: 'completed' },
-          { label: 'Device fingerprint generation', status: 'completed' },
-        ],
-      },
-      {
         label: 'Event System',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: ICON.event,
@@ -223,92 +271,20 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Priority-ordered listeners', status: 'partial' },
         ],
       },
-    ],
-  },
-
-  // ── ENGINE BRIDGE ─────────────────────────────────────────────────────────
-  {
-    name: 'Engine Bridge',
-    cards: [
       {
-        label: 'Engine Core',
-        desc: 'Top-level engine singleton access: quit, pause, version, and main loop control',
-        icon: ICON.cpu,
-        items: [
-          { label: 'Engine.get_version_info', status: 'completed' },
-          { label: 'Engine.quit', status: 'partial' },
-          { label: 'Engine.set_time_scale', status: 'pending' },
-          { label: 'Engine.get_frames_per_second', status: 'pending' },
-          { label: 'Engine.is_editor_hint', status: 'pending' },
-        ],
-      },
-      {
-        label: 'Scene & Node Tree',
-        desc: 'SceneTree access, scene switching, additive loading, node queries, and groups',
-        icon: ICON.scene,
+        label: 'Input',
+        desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
+        icon: ICON.input,
         priority: 'Must have',
         items: [
-          { label: 'SceneTree singleton access', status: 'partial' },
-          { label: 'change_scene_to_file', status: 'pending' },
-          { label: 'Additive scene load / unload', status: 'pending' },
-          { label: 'get_node / find_child', status: 'pending' },
-          { label: 'Node groups (add / remove / call)', status: 'pending' },
-          { label: 'SceneTree.paused', status: 'pending' },
-          { label: 'Node signals (connect / disconnect)', status: 'pending' },
-        ],
-      },
-      {
-        label: 'Resource System',
-        desc: 'Runtime resource loading, caching, and unloading via ResourceLoader',
-        icon: ICON.file,
-        items: [
-          { label: 'ResourceLoader.load (blocking)', status: 'partial' },
-          { label: 'ResourceLoader.load_threaded_request', status: 'pending' },
-          { label: 'ResourceLoader.load_threaded_get', status: 'pending' },
-          { label: 'Resource caching control', status: 'pending' },
-          { label: 'Custom resource types', status: 'pending' },
-        ],
-      },
-      {
-        label: 'Performance Monitor',
-        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
-        icon: ICON.perf,
-        items: [
-          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
-          { label: 'Draw calls & vertices', status: 'pending' },
-          { label: 'Static / dynamic memory', status: 'pending' },
-          { label: 'Physics step time', status: 'pending' },
-          { label: 'Object / node count', status: 'pending' },
-        ],
-      },
-    ],
-  },
-
-  // ── DATABASE ──────────────────────────────────────────────────────────────
-  {
-    name: 'Database',
-    cards: [
-      {
-        label: 'Database',
-        desc: 'Embedded database interface for persistent structured data storage and retrieval',
-        icon: ICON.db,
-        items: [
-          { label: 'db.connect / disconnect', status: 'completed' },
-          { label: 'db.exec (raw query)', status: 'completed' },
-          { label: 'Prepared statements', status: 'completed' },
-          { label: 'Transaction support', status: 'completed' },
-        ],
-      },
-      {
-        label: 'Database Query',
-        desc: 'Fluent query builder API — select, insert, update, delete, and filtering',
-        icon: ICON.db,
-        items: [
-          { label: 'query.select / from / where', status: 'completed' },
-          { label: 'query.insert / update / delete', status: 'completed' },
-          { label: 'query.orderBy / limit / offset', status: 'completed' },
-          { label: 'query.join (inner / left)', status: 'completed' },
-          { label: 'Async query execution', status: 'completed' },
+          { label: 'Input singleton access', status: 'pending' },
+          { label: 'is_key_pressed / just_pressed / just_released', status: 'pending' },
+          { label: 'Mouse position & relative motion', status: 'pending' },
+          { label: 'Mouse button state & scroll delta', status: 'pending' },
+          { label: 'Mouse capture / visibility mode', status: 'pending' },
+          { label: 'Gamepad / joystick axis & buttons', status: 'pending' },
+          { label: 'InputMap action queries', status: 'pending' },
+          { label: 'InputEvent pass-through (process_event)', status: 'pending' },
         ],
       },
     ],
@@ -318,6 +294,45 @@ export const Roadmap_Section: RoadmapSection[] = build([
   {
     name: 'UI',
     cards: [
+      {
+        label: 'Main Menu',
+        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
+        icon: ICON.ui,
+        items: [
+          { label: 'Main menu scene & layout', status: 'pending' },
+          { label: 'Play / browse servers flow', status: 'pending' },
+          { label: 'Settings screen', status: 'pending' },
+          { label: 'Credits screen', status: 'pending' },
+          { label: 'Version & build info display', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Game Browser',
+        desc: 'In-client server list — query, filter, sort, and join available game servers',
+        icon: ICON.network,
+        items: [
+          { label: 'Server list fetch & display', status: 'pending' },
+          { label: 'Filter by name / gamemode / region', status: 'pending' },
+          { label: 'Sort by player count / ping / name', status: 'pending' },
+          { label: 'Direct connect by IP & port', status: 'pending' },
+          { label: 'Refresh & auto-refresh interval', status: 'pending' },
+          { label: 'Favorite servers list', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Display & Window',
+        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
+        icon: ICON.display,
+        items: [
+          { label: 'window_get / set_size', status: 'pending' },
+          { label: 'Fullscreen / borderless / maximized', status: 'pending' },
+          { label: 'Window title & icon', status: 'pending' },
+          { label: 'Clipboard get / set', status: 'pending' },
+          { label: 'Cursor mode (visible / hidden / captured)', status: 'pending' },
+          { label: 'DPI / scale factor query', status: 'pending' },
+          { label: 'Multi-monitor screen info', status: 'pending' },
+        ],
+      },
       {
         label: 'Webview',
         desc: 'HTML/CSS/JS renderer bridged into a SubViewport with bidirectional Lua ↔ JS messaging',
@@ -397,7 +412,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Save to PNG / JPG', status: 'pending' },
           { label: 'Region capture (partial frame)', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -580,29 +595,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     ],
   },
 
-  // ── INPUT ─────────────────────────────────────────────────────────────────
-  {
-    name: 'Input',
-    cards: [
-      {
-        label: 'Input',
-        desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
-        icon: ICON.input,
-        priority: 'Must have',
-        items: [
-          { label: 'Input singleton access', status: 'pending' },
-          { label: 'is_key_pressed / just_pressed / just_released', status: 'pending' },
-          { label: 'Mouse position & relative motion', status: 'pending' },
-          { label: 'Mouse button state & scroll delta', status: 'pending' },
-          { label: 'Mouse capture / visibility mode', status: 'pending' },
-          { label: 'Gamepad / joystick axis & buttons', status: 'pending' },
-          { label: 'InputMap action queries', status: 'pending' },
-          { label: 'InputEvent pass-through (process_event)', status: 'pending' },
-        ],
-      },
-    ],
-  },
-
   // ── AUDIO ─────────────────────────────────────────────────────────────────
   {
     name: 'Audio',
@@ -686,58 +678,5 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
     ],
-  },
-
-  // ── SYSTEM ────────────────────────────────────────────────────────────────
-  {
-    name: 'System',
-    cards: [
-      {
-        label: 'Display & Window',
-        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
-        icon: ICON.display,
-        items: [
-          { label: 'window_get / set_size', status: 'pending' },
-          { label: 'Fullscreen / borderless / maximized', status: 'pending' },
-          { label: 'Window title & icon', status: 'pending' },
-          { label: 'Clipboard get / set', status: 'pending' },
-          { label: 'Cursor mode (visible / hidden / captured)', status: 'pending' },
-          { label: 'DPI / scale factor query', status: 'pending' },
-          { label: 'Multi-monitor screen info', status: 'pending' },
-        ],
-      },
-    ],
-  },
-
-  // ── CLIENT ────────────────────────────────────────────────────────────────
-  {
-    name: 'Client',
-    cards: [
-      {
-        label: 'Main Menu',
-        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
-        icon: ICON.ui,
-        items: [
-          { label: 'Main menu scene & layout', status: 'pending' },
-          { label: 'Play / browse servers flow', status: 'pending' },
-          { label: 'Settings screen', status: 'pending' },
-          { label: 'Credits screen', status: 'pending' },
-          { label: 'Version & build info display', status: 'pending' },
-        ],
-      },
-      {
-        label: 'Game Browser',
-        desc: 'In-client server list — query, filter, sort, and join available game servers',
-        icon: ICON.network,
-        items: [
-          { label: 'Server list fetch & display', status: 'pending' },
-          { label: 'Filter by name / gamemode / region', status: 'pending' },
-          { label: 'Sort by player count / ping / name', status: 'pending' },
-          { label: 'Direct connect by IP & port', status: 'pending' },
-          { label: 'Refresh & auto-refresh interval', status: 'pending' },
-          { label: 'Favorite servers list', status: 'pending' },
-        ],
-      }
-    ],
-  },
+  }
 ]);
