@@ -105,7 +105,7 @@ function SectionBlock({ section, index }: { section: RoadmapSection; index: numb
   return (
     <div id={toAnchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <span className="rcategory-label"># {section.name}</span>
+        <a className="rcategory-label" href={`#${toAnchor(section.name)}`}># {section.name}</a>
       </div>
 
       <div className="rcategory-cols">
