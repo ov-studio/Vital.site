@@ -5,27 +5,28 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { RoadmapGrid } from '@/components/roadmap';
 import { ClientShell } from '@/components/clientshell';
+import { Roadmap_Section } from '@/configs/roadmap';
 
 export const metadata: Metadata = {
   title: 'Roadmap - Vital.sandbox',
   description: 'Track the development progress of every Vital.sandbox module.',
 };
 
+function toAnchor(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+const roadmapLinks = Roadmap_Section.map(s => ({
+  label: s.name,
+  href: `#${toAnchor(s.name)}`,
+}));
+
 export default function HomePage() {
   return (
     <ClientShell>
       <Overlay />
-      <Navbar links={[
-        { label: 'Foundation', href: '#foundation' },
-        { label: 'UI', href: '#ui' },
-        { label: 'Rendering', href: '#rendering' },
-        { label: '3D World', href: '#3d-world' },
-        { label: 'Physics', href: '#physics' },
-        { label: 'Input', href: '#input' },
-        { label: 'Audio', href: '#audio' },
-        { label: 'Networking', href: '#networking' },
-      ]} />
-      <RoadmapGrid />
+      <Navbar links={roadmapLinks} />
+      <RoadmapGrid sections={Roadmap_Section} />
       <Footer />
     </ClientShell>
   );

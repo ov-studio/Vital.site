@@ -1,7 +1,7 @@
 'use client';
 import './index.css';
 import { useState, useRef, useEffect } from 'react';
-import { Roadmap_Sections, type FeatureStatus, type RoadmapCard, type RoadmapSection } from '@/configs/roadmap';
+import { Roadmap_Section, type FeatureStatus, type RoadmapCard, type RoadmapSection } from '@/configs/roadmap';
 
 const STATUS_WEIGHT: Record<FeatureStatus, number> = {
   completed: 1,
@@ -133,7 +133,7 @@ export function RoadmapGrid() {
         </div>
 
         <div className="roadmap-body">
-          {Roadmap_Sections.map((section, i) => (
+          {Roadmap_Section.map((section, i) => (
             <SectionBlock key={section.name} section={section} index={i}/>
           ))}
         </div>
