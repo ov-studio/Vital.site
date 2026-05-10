@@ -237,22 +237,22 @@
 .ritem--pending   .ritem-dot { background: transparent;      border: 1px solid var(--text-faint); opacity: .4; }
 
 .ritem-label {
-  font-family: 'Barlow', sans-serif;
-  font-size: .78rem;
-  font-weight: 400;
+  font-family: 'Geist', sans-serif;
+  font-size: .76rem;
+  font-weight: 500;
   line-height: 1.5;
+  color: var(--dim);
 }
 .ritem--completed .ritem-label { color: var(--text-soft); }
 .ritem--partial   .ritem-label { color: var(--text-soft); }
 .ritem--pending   .ritem-label { color: var(--text-faint); }
 
 .ritem-tag {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
   flex-shrink: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: .76rem;
+  font-weight: 600;
+  color: var(--dim);
 }
 .ritem--completed .ritem-tag { color: var(--blue); }
 .ritem--partial   .ritem-tag { color: hsl(45,80%,58%); }
