@@ -128,12 +128,10 @@
 }
 
 .rcard-name {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: 'Geist', sans-serif;
+  font-size: .78rem;
+  font-weight: 800;
   color: var(--dim);
-  line-height: 1.15;
-  letter-spacing: .01rem;
   transition: color .25s;
 }
 .rcard:hover .rcard-name,
