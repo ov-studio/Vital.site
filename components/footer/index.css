@@ -14,23 +14,24 @@ footer {
 }
 
 .footer-brand-lock {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   --brand-color: hsl(220, 20%, 60%);
 }
 
 .footer-tagline {
-  font-family: 'Barlow', sans-serif;
-  font-size: .875rem;
-  color: var(--text-mid);
-  line-height: 1.7;
+  margin-bottom: 4px;
   max-width: 340px;
-  margin-bottom: 10px;
+  font-family: 'Geist', sans-serif;
+  font-size: .87rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--text-desc);
 }
 
 .footer-flags {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .footer-flag {
@@ -72,8 +73,8 @@ footer {
 .footer-nav-col ul li a {
   font-family: 'Geist', sans-serif;
   font-size: .85rem;
-  font-weight: 400;
-  color: var(--text-mid);
+  font-weight: 500;
+  color: var(--text-desc);
   text-decoration: none;
   transition: color .2s;
   letter-spacing: .01em;
