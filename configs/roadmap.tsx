@@ -40,25 +40,25 @@ function build(sections: SectionInput[]): RoadmapSection[] {
 
 // ── SVG icon paths (24×24 viewBox) ──────────────────────────────────────────
 const ICON = {
-  cpu:       'M9 3H7a2 2 0 00-2 2v2M9 3h6M9 3v2m6-2h2a2 2 0 012 2v2m-4-4v2M3 9v6m18-6v6M9 21H7a2 2 0 01-2-2v-2m4 4h6m-6 0v-2m6 2h2a2 2 0 002-2v-2m-4 4v-2M9 9h6v6H9z',
-  audio:     'M9 18V5l12-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-2a3 3 0 11-6 0 3 3 0 016 0z',
-  input:     'M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z',
-  physics:   'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
-  scene:     'M3 7a2 2 0 012-2h4l2 3h8a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z',
-  render:    'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
-  gfx:       'M7 4v16M17 4v16M3 8h4m10 0h4M3 16h4m10 0h4M4 12h16',
-  model:     'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
-  network:   'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
-  ui:        'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  light:     'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z',
-  camera:    'M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z',
-  shader:    'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-  tween:     'M13 10V3L4 14h7v7l9-11h-7z',
+  cpu: 'M9 3H7a2 2 0 00-2 2v2M9 3h6M9 3v2m6-2h2a2 2 0 012 2v2m-4-4v2M3 9v6m18-6v6M9 21H7a2 2 0 01-2-2v-2m4 4h6m-6 0v-2m6 2h2a2 2 0 002-2v-2m-4 4v-2M9 9h6v6H9z',
+  audio: 'M9 18V5l12-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-2a3 3 0 11-6 0 3 3 0 016 0z',
+  input: 'M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z',
+  physics: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
+  scene: 'M3 7a2 2 0 012-2h4l2 3h8a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z',
+  render: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
+  gfx: 'M7 4v16M17 4v16M3 8h4m10 0h4M3 16h4m10 0h4M4 12h16',
+  model: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+  network: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+  ui: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  light: 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z',
+  camera: 'M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z',
+  shader: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  tween: 'M13 10V3L4 14h7v7l9-11h-7z',
   particles: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
-  display:   'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-  perf:      'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-  nav:       'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
-  decal:     'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14',
+  display: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  perf: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+  nav: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+  decal: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14',
 };
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -73,14 +73,14 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'Threading, timers, crypto, promises, I/O utilities',
         icon: ICON.cpu,
         items: [
-          { label: 'Thread',             status: 'completed' },
-          { label: 'Timer',              status: 'completed' },
-          { label: 'File I/O',           status: 'completed' },
-          { label: 'HTTP client',        status: 'completed' },
-          { label: 'Crypto',             status: 'completed' },
-          { label: 'Promise',            status: 'completed' },
-          { label: 'Shrinker (minifier)',status: 'completed' },
-          { label: 'Console / Inspect',  status: 'completed' },
+          { label: 'Thread', status: 'completed' },
+          { label: 'Timer', status: 'completed' },
+          { label: 'File I/O', status: 'completed' },
+          { label: 'HTTP client', status: 'completed' },
+          { label: 'Crypto', status: 'completed' },
+          { label: 'Promise', status: 'completed' },
+          { label: 'Shrinker (minifier)', status: 'completed' },
+          { label: 'Console / Inspect', status: 'completed' },
         ],
       },
       {
@@ -89,11 +89,11 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.scene,
         priority: 'Must have',
         items: [
-          { label: 'SceneTree access',      status: 'partial'  },
-          { label: 'Change / reload scene', status: 'pending'  },
-          { label: 'Additive scene load',   status: 'pending'  },
-          { label: 'get_node / find_child', status: 'pending'  },
-          { label: 'Node groups',           status: 'pending'  },
+          { label: 'SceneTree access', status: 'partial' },
+          { label: 'Change / reload scene', status: 'pending' },
+          { label: 'Additive scene load', status: 'pending' },
+          { label: 'get_node / find_child', status: 'pending' },
+          { label: 'Node groups', status: 'pending' },
         ],
       },
       {
@@ -102,8 +102,8 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.perf,
         items: [
           { label: 'Performance singleton', status: 'pending' },
-          { label: 'FPS / frame time',      status: 'pending' },
-          { label: 'Draw calls & memory',   status: 'pending' },
+          { label: 'FPS / frame time', status: 'pending' },
+          { label: 'Draw calls & memory', status: 'pending' },
         ],
       },
       {
@@ -140,7 +140,7 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: '2D drawing API into viewports',
         icon: ICON.render,
         items: [
-          { label: '2D Canvas API',      status: 'completed' },
+          { label: '2D Canvas API', status: 'completed' },
         ],
       },
       {
@@ -148,8 +148,8 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'Font loading and rendering',
         icon: ICON.render,
         items: [
-          { label: 'Format: TTF',        status: 'completed' },
-          { label: 'Format: OTF',        status: 'completed' },
+          { label: 'Format: TTF', status: 'completed' },
+          { label: 'Format: OTF', status: 'completed' },
         ],
       },
       {
@@ -157,10 +157,10 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'Image texture loading and management',
         icon: ICON.render,
         items: [
-          { label: 'Format: JPG',        status: 'completed' },
-          { label: 'Format: PNG',        status: 'completed' },
-          { label: 'Format: WEBP',       status: 'completed' },
-          { label: 'Format: SVG',        status: 'completed' },
+          { label: 'Format: JPG', status: 'completed' },
+          { label: 'Format: PNG', status: 'completed' },
+          { label: 'Format: WEBP', status: 'completed' },
+          { label: 'Format: SVG', status: 'completed' },
         ],
       },
       {
@@ -183,14 +183,14 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'SSAO, SSIL, SSR, SDFGI, fog, volumetric, adjustment',
         icon: ICON.gfx,
         items: [
-          { label: 'Adjustment',         status: 'completed' },
-          { label: 'Emissive',           status: 'completed' },
-          { label: 'SSR',                status: 'completed' },
-          { label: 'SSIL',               status: 'completed' },
-          { label: 'SDFGI',              status: 'completed' },
-          { label: 'SSAO',               status: 'completed' },
-          { label: 'Fog',                status: 'completed' },
-          { label: 'Volumetric Fog',     status: 'completed' },
+          { label: 'Adjustment', status: 'completed' },
+          { label: 'Emissive', status: 'completed' },
+          { label: 'SSR', status: 'completed' },
+          { label: 'SSIL', status: 'completed' },
+          { label: 'SDFGI', status: 'completed' },
+          { label: 'SSAO', status: 'completed' },
+          { label: 'Fog', status: 'completed' },
+          { label: 'Volumetric Fog', status: 'completed' },
         ],
       },
       {
@@ -199,8 +199,8 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.light,
         items: [
           { label: 'DirectionalLight3D', status: 'pending' },
-          { label: 'OmniLight3D',        status: 'pending' },
-          { label: 'SpotLight3D',        status: 'pending' },
+          { label: 'OmniLight3D', status: 'pending' },
+          { label: 'SpotLight3D', status: 'pending' },
         ],
       },
       {
@@ -209,7 +209,7 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.shader,
         items: [
           { label: 'ShaderMaterial.set_shader_parameter', status: 'pending' },
-          { label: 'Texture uniform binding',             status: 'pending' },
+          { label: 'Texture uniform binding', status: 'pending' },
         ],
       },
       {
@@ -226,8 +226,8 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'GPUParticles3D control, emission, restart from Lua',
         icon: ICON.particles,
         items: [
-          { label: 'GPUParticles3D',          status: 'pending' },
-          { label: 'Emit / restart',          status: 'pending' },
+          { label: 'GPUParticles3D', status: 'pending' },
+          { label: 'Emit / restart', status: 'pending' },
           { label: 'Process material params', status: 'pending' },
         ],
       },
@@ -243,12 +243,12 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'Load/unload, transform, animation, blend shapes',
         icon: ICON.model,
         items: [
-          { label: 'Format: GLB',      status: 'completed' },
-          { label: 'Load / unload',    status: 'completed' },
-          { label: 'Transformations',  status: 'completed' },
-          { label: 'Blendshapes',      status: 'completed' },
-          { label: 'Components',       status: 'completed' },
-          { label: 'Materials',        status: 'completed' },
+          { label: 'Format: GLB', status: 'completed' },
+          { label: 'Load / unload', status: 'completed' },
+          { label: 'Transformations', status: 'completed' },
+          { label: 'Blendshapes', status: 'completed' },
+          { label: 'Components', status: 'completed' },
+          { label: 'Materials', status: 'completed' },
           { label: 'Animation player', status: 'completed' },
         ],
       },
@@ -258,7 +258,7 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.camera,
         items: [
           { label: 'Camera3D transform', status: 'pending' },
-          { label: 'FOV / projection',   status: 'pending' },
+          { label: 'FOV / projection', status: 'pending' },
           { label: 'Set current camera', status: 'pending' },
         ],
       },
@@ -269,8 +269,8 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         priority: 'Must have',
         items: [
           { label: 'Tween.tween_property', status: 'pending' },
-          { label: 'Easing functions',     status: 'pending' },
-          { label: 'Sequence / parallel',  status: 'pending' },
+          { label: 'Easing functions', status: 'pending' },
+          { label: 'Sequence / parallel', status: 'pending' },
         ],
       },
     ],
@@ -286,10 +286,10 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.physics,
         priority: 'Must have',
         items: [
-          { label: 'PhysicsServer3D',          status: 'pending' },
-          { label: 'RigidBody3D control',      status: 'pending' },
-          { label: 'Raycast / shapecast',      status: 'pending' },
-          { label: 'Collision layer queries',  status: 'pending' },
+          { label: 'PhysicsServer3D', status: 'pending' },
+          { label: 'RigidBody3D control', status: 'pending' },
+          { label: 'Raycast / shapecast', status: 'pending' },
+          { label: 'Collision layer queries', status: 'pending' },
           { label: 'PhysicsDirectBodyState3D', status: 'pending' },
         ],
       },
@@ -299,17 +299,18 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.nav,
         priority: 'Must have',
         items: [
-          { label: 'NavigationServer3D',    status: 'pending' },
-          { label: 'NavigationAgent3D',     status: 'pending' },
-          { label: 'Navmesh region queries',status: 'pending' },
+          { label: 'NavigationServer3D', status: 'pending' },
+          { label: 'NavigationAgent3D', status: 'pending' },
+          { label: 'Navmesh region queries', status: 'pending' },
         ],
       },
     ],
   },
 
   // ── INPUT & AUDIO ──────────────────────────────────────────────────────────
+  // ── INPUT ──────────────────────────────────────────────────────────────────
   {
-    name: 'Input & Audio',
+    name: 'Input',
     cards: [
       {
         label: 'Input',
@@ -317,13 +318,20 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.input,
         priority: 'Must have',
         items: [
-          { label: 'Input singleton',          status: 'pending' },
-          { label: 'InputEvent',               status: 'pending' },
-          { label: 'InputMap',                 status: 'pending' },
-          { label: 'Gamepad / joy axis',       status: 'pending' },
+          { label: 'Input singleton', status: 'pending' },
+          { label: 'InputEvent', status: 'pending' },
+          { label: 'InputMap', status: 'pending' },
+          { label: 'Gamepad / joy axis', status: 'pending' },
           { label: 'Mouse position & buttons', status: 'pending' },
         ],
       },
+    ],
+  },
+
+  // ── AUDIO ──────────────────────────────────────────────────────────────────
+  {
+    name: 'Audio',
+    cards: [
       {
         label: 'Audio',
         desc: 'Play/stop/pause/seek streams. 2D flat audio and 3D positional sound with distance attenuation',
@@ -331,9 +339,9 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         priority: 'Must have',
         items: [
           { label: 'AudioStreamPlayer (2D)', status: 'pending' },
-          { label: 'AudioStreamPlayer3D',    status: 'pending' },
-          { label: 'AudioServer',            status: 'pending' },
-          { label: 'Bus effects (reverb/EQ)',status: 'pending' },
+          { label: 'AudioStreamPlayer3D', status: 'pending' },
+          { label: 'AudioServer', status: 'pending' },
+          { label: 'Bus effects (reverb/EQ)', status: 'pending' },
         ],
       },
     ],
@@ -348,12 +356,12 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         desc: 'HTTP, ENet low-level UDP, WebSocket, multiplayer API',
         icon: ICON.network,
         items: [
-          { label: 'HTTP (requests)',           status: 'completed' },
-          { label: 'ENet (UDP peer)',           status: 'completed' },
-          { label: 'WebSocket (WebSocketPeer)', status: 'pending'   },
-          { label: 'MultiplayerAPI',            status: 'pending'   },
-          { label: 'MultiplayerSpawner',        status: 'pending'   },
-          { label: 'MultiplayerSynchronizer',   status: 'pending'   },
+          { label: 'HTTP (requests)', status: 'completed' },
+          { label: 'ENet (UDP peer)', status: 'completed' },
+          { label: 'WebSocket (WebSocketPeer)', status: 'pending' },
+          { label: 'MultiplayerAPI', status: 'pending' },
+          { label: 'MultiplayerSpawner', status: 'pending' },
+          { label: 'MultiplayerSynchronizer', status: 'pending' },
         ],
       },
       // event system — add here when ready
@@ -370,8 +378,8 @@ export const Roadmap_Sections: RoadmapSection[] = build([
         icon: ICON.display,
         items: [
           { label: 'DisplayServer.window_*', status: 'pending' },
-          { label: 'Fullscreen / borderless',status: 'pending' },
-          { label: 'Clipboard get/set',      status: 'pending' },
+          { label: 'Fullscreen / borderless', status: 'pending' },
+          { label: 'Clipboard get/set', status: 'pending' },
         ],
       },
     ],
