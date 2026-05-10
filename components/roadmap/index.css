@@ -203,7 +203,7 @@
 .rcard-items-wrap {
   overflow: hidden;
   max-height: 0;
-  transition: max-height .25s cubic-bezier(.4,0,.2,1);
+  transition: max-height .25s cubic-bezier(.4, 0, .2, 1);
 }
 
 .rcard-items {
