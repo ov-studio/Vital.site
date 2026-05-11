@@ -42,6 +42,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Sandbox',
     cards: [
       {
+        // TODO: WIP
         label: 'Engine Core',
         desc: 'Top-level engine singleton access: quit, pause, version, and main loop control',
         icon: <Icons.Cpu {...IC} />,
@@ -54,6 +55,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Scene & Node Tree',
         desc: 'SceneTree access, scene switching, additive loading, node queries, and groups',
         icon: <Icons.GitBranch {...IC} />,
@@ -66,19 +68,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Node groups (add / remove / call)', status: 'pending' },
           { label: 'SceneTree.paused', status: 'pending' },
           { label: 'Node signals (connect / disconnect)', status: 'pending' },
-        ],
-      },
-      {
-        label: 'Resource System',
-        desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
-        icon: <Icons.FolderOpen {...IC} />,
-        items: [
-          { label: '[Server] Resource scannner', status: 'completed' },
-          { label: '[Shared] Resource loader', status: 'partial' },
-          { label: '[Shared] Resource unloader', status: 'completed' },
-          { label: '[Shared] Resource cache', status: 'completed' },
-          { label: '[Shared] Resource compression', status: 'completed' },
-          { label: '[Shared] Resource streaming via HTTP', status: 'completed' }
         ],
       },
       {
@@ -109,6 +98,20 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        label: 'Resource System',
+        desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
+        icon: <Icons.FolderOpen {...IC} />,
+        items: [
+          { label: '[Server] Resource scannner', status: 'completed' },
+          { label: '[Shared] Resource loader', status: 'partial' },
+          { label: '[Shared] Resource unloader', status: 'completed' },
+          { label: '[Shared] Resource cache', status: 'completed' },
+          { label: '[Shared] Resource compression', status: 'completed' },
+          { label: '[Shared] Resource streaming via HTTP', status: 'completed' }
+        ],
+      },
+      {
+        // TODO: WIP
         label: 'Performance Monitor',
         desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
         icon: <Icons.Activity {...IC} />,
@@ -152,17 +155,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
   {
     name: 'Utility',
     cards: [
-      {
-        label: 'Inspect',
-        desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
-        icon: <Icons.ScanSearch {...IC} />,
-        items: [
-          { label: 'CPU info (cores, arch)', status: 'completed' },
-          { label: 'OS platform detection', status: 'completed' },
-          { label: 'Memory usage query', status: 'completed' },
-          { label: 'Device fingerprint generation', status: 'completed' },
-        ],
-      },
       {
         label: 'Timer',
         desc: 'Precise one-shot and repeating timer scheduling with millisecond accuracy',
@@ -257,6 +249,18 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
+        label: 'Inspect',
+        desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
+        icon: <Icons.ScanSearch {...IC} />,
+        items: [
+          { label: 'CPU info (cores, arch)', status: 'completed' },
+          { label: 'OS platform detection', status: 'completed' },
+          { label: 'Memory usage query', status: 'completed' },
+          { label: 'Device fingerprint generation', status: 'completed' },
+        ],
+      },
+      {
         label: 'Event',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: <Icons.Zap {...IC} />,
@@ -269,6 +273,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Input',
         desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
         icon: <Icons.Gamepad2 {...IC} />,
@@ -291,6 +296,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'UI',
     cards: [
       {
+        // TODO: WIP
         label: 'Main Menu',
         desc: 'Default client entry point — play, settings, credits, and server browser navigation',
         icon: <Icons.LayoutDashboard {...IC} />,
@@ -303,6 +309,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Game Browser',
         desc: 'In-client server list — query, filter, sort, and join available game servers',
         icon: <Icons.Server {...IC} />,
@@ -316,6 +323,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Display & Window',
         desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
         icon: <Icons.Monitor {...IC} />,
@@ -331,12 +339,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Webview',
-        desc: 'HTML/CSS/JS renderer bridged into a SubViewport with bidirectional Lua ↔ JS messaging',
+        desc: 'HTML/CSS/JS renderer with bidirectional Lua <-> JS messaging',
         icon: <Icons.Code2 {...IC} />,
         items: [
-          { label: 'SubViewport bridge', status: 'completed' },
           { label: 'HTML / CSS rendering', status: 'completed' },
-          { label: 'JS ↔ Lua messaging', status: 'completed' },
+          { label: 'Lua <-> JS messaging', status: 'completed' },
           { label: 'loadURL / loadHTML', status: 'completed' },
           { label: 'executeScript from Lua', status: 'completed' },
         ],
