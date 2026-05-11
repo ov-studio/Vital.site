@@ -189,11 +189,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Low-level thread management, pooling, and lifecycle control from Lua',
         icon: <Icons.Layers {...IC} />,
         items: [
-          { label: 'Thread.create', status: 'completed' },
-          { label: 'Thread.destroy', status: 'completed' },
-          { label: 'Thread.sleep', status: 'completed' },
-          { label: 'Thread pool management', status: 'completed' },
-          { label: 'Thread lifecycle hooks', status: 'completed' },
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'API: thread.create', status: 'completed' },
+          { label: 'API: thread.current', status: 'completed' },
+          { label: 'API: self<thread>:resume', status: 'completed' },
+          { label: 'API: self<thread>:pause', status: 'completed' },
+          { label: 'API: self<thread>:sleep', status: 'completed' },
+          { label: 'API: self<thread>:await', status: 'completed' }
         ],
       },
       {
@@ -215,10 +217,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Full async HTTP layer for communicating with external REST APIs and asset servers',
         icon: <Icons.Globe {...IC} />,
         items: [
-          { label: 'Request: GET', status: 'completed' },
-          { label: 'Request: POST', status: 'completed' },
-          { label: 'Custom headers', status: 'completed' },
-          { label: 'Custom Timeout', status: 'completed' },
+          { label: 'API: http.get', status: 'completed' },
+          { label: 'API: http.post', status: 'completed' }
         ],
       },
       {
