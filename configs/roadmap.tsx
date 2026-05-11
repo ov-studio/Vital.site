@@ -408,8 +408,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Support format: PNG', status: 'completed' },
           { label: 'Support format: WEBP', status: 'completed' },
           { label: 'Support format: KTX / DDS (compressed)', status: 'pending' },
-          { label: 'Texture cache', status: 'partial' },
           { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Texture cache', status: 'completed' },
           { label: 'API: texture.create', status: 'completed' }
         ],
       },
@@ -419,8 +419,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.FileCode {...IC} />,
         items: [
           { label: 'Support format: SVG', status: 'completed' },
-          { label: 'SVG instantiation/mutation from a raw string', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'SVG instantiation/mutation from a raw string', status: 'completed' },
           { label: 'API: svg.create', status: 'completed' },
           { label: 'API: svg.create_from_raw', status: 'completed' },
           { label: 'API: self<svg>:update', status: 'completed' }
