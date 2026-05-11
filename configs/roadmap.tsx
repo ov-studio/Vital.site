@@ -686,19 +686,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'TLS / WSS support', status: 'pending' },
         ],
       },
-      {
-        // TODO: WIP
-        label: 'Multiplayer API',
-        desc: 'High-level multiplayer with RPC, spawning, and state synchronization from Lua',
-        icon: <Icons.Users {...IC} />,
-        items: [
-          { label: 'MultiplayerAPI setup', status: 'pending' },
-          { label: 'RPC (reliable / unreliable)', status: 'pending' },
-          { label: 'MultiplayerSpawner', status: 'pending' },
-          { label: 'MultiplayerSynchronizer', status: 'pending' },
-          { label: 'Authority / peer ID management', status: 'pending' },
-        ],
-      },
     ],
   },
 
