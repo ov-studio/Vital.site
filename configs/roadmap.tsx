@@ -255,11 +255,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: <Icons.Zap {...IC} />,
         items: [
-          { label: 'event.on / off', status: 'completed' },
-          { label: 'event.emit', status: 'completed' },
-          { label: 'event.once (auto-unsubscribe)', status: 'completed' },
-          { label: 'Heartbeat (recurring tick)', status: 'completed' },
-          { label: 'Priority-ordered listeners', status: 'partial' },
+          { label: 'event.on / off', status: 'pending' },
+          { label: 'event.emit', status: 'pending' },
+          { label: 'event.once (auto-unsubscribe)', status: 'pending' },
+          { label: 'Heartbeat (recurring tick)', status: 'pending' },
+          { label: 'Priority-ordered listeners', status: 'pending' },
         ],
       },
       {
