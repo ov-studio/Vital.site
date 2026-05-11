@@ -539,7 +539,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'Camera 3D',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
         icon: <Icons.Video {...IC} />,
@@ -554,7 +553,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'Tween',
         desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
         icon: <Icons.TrendingUp {...IC} />,
@@ -569,7 +567,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
         icon: <Icons.Shapes {...IC} />,
@@ -587,7 +584,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Physics',
     cards: [
       {
-        // TODO: WIP
         label: 'Physics 3D',
         desc: 'Raycast, shapecast, apply forces and impulses to rigid bodies, and query collision layers from Lua',
         icon: <Icons.Atom {...IC} />,
@@ -606,7 +602,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Navigation',
-        desc: 'Agent pathfinding, steering avoidance, and navmesh queries — essential for NPC and AI movement',
+        desc: 'Navmesh pathfinding, agent steering, and RVO2 avoidance for NPC and AI movement from Lua',
         icon: <Icons.Navigation {...IC} />,
         priority: 'Must have',
         items: [
