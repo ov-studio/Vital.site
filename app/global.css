@@ -131,10 +131,7 @@ h2 span {
 .btn-secondary {
     transition: background .2s, color .2s;
 }
-
-.btn-secondary:hover {
-    color: var(--blue);
-}
+.btn-secondary:hover { color: var(--blue); }
 
 .btn-primary,
 .btn-secondary {
@@ -176,25 +173,13 @@ h2 span {
 .pu { color: var(--syn-pu) }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(16px)
-    }
-    to {
-        opacity: 1;
-        transform: none
-    }
+    from { opacity: 0; transform: translateY(16px) }
+    to { opacity: 1; transform: none }
 }
 
 @keyframes slideLeft {
-    from {
-        opacity: 0;
-        transform: translateX(30px)
-    }
-    to {
-        opacity: 1;
-        transform: none
-    }
+    from { opacity: 0; transform: translateX(30px) }
+    to { opacity: 1; transform: none }
 }
 
 @media(max-width:960px) {
