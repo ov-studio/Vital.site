@@ -1,5 +1,5 @@
 #roadmap {
-  padding: calc(100px + var(--nav-h)*0.5) 0;
+  padding: calc(100px + var(--nav-h)*1) 0;
 }
 
 .roadmap-head {
@@ -11,7 +11,7 @@
 }
 
 .roadmap-intro {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   font-family: 'Barlow', sans-serif;
   font-weight: 500;
   line-height: 1.75;
