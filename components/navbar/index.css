@@ -68,10 +68,7 @@ nav.s::after {
 .nl li {
   border-right: 1px solid var(--rule)
 }
-
-.nl li:first-child {
-  border-left: 1px solid var(--rule)
-}
+.nl li:first-child { border-left: 1px solid var(--rule) }
 
 .ncta {
   font-family: 'Geist', sans-serif;
@@ -87,27 +84,14 @@ nav.s::after {
   clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
   transition: background .2s, opacity .2s
 }
-
-.ncta:hover {
-  opacity: .8
-}
+.ncta:hover { opacity: .8 }
 
 @media(max-width:960px) {
-  .nl {
-    display: none
-  }
-
-  .ni {
-    padding: 0 24px
-  }
+  .nl { display: none }
+  .ni { padding: 0 24px }
 }
 
 @media(max-width:640px) {
-  .ncta {
-    display: none
-  }
-
-  .ni {
-    padding: 0 20px
-  }
+  .ncta { display: none }
+  .ni { padding: 0 20px }
 }
