@@ -165,7 +165,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Timer',
-        desc: 'Precise one-shot and repeating timers with pause, resume, and destroy support',
+        desc: 'Precise one-shot and repeating timer scheduling with millisecond accuracy',
         icon: <Icons.Timer {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
