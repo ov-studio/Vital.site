@@ -201,11 +201,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Read, write, and manage files on disk from within Lua scripts',
         icon: <Icons.FileText {...IC} />,
         items: [
-          { label: 'File.read', status: 'completed' },
-          { label: 'File.write', status: 'completed' },
-          { label: 'File.append', status: 'completed' },
-          { label: 'File.exists / delete', status: 'completed' },
-          { label: 'Directory listing', status: 'completed' },
+          { label: 'API: file.exists', status: 'completed' },
+          { label: 'API: file.size', status: 'completed' },
+          { label: 'API: file.hash', status: 'completed' },
+          { label: 'API: file.delete', status: 'completed' },
+          { label: 'API: file.read', status: 'completed' },
+          { label: 'API: file.write', status: 'completed' },
+          { label: 'API: file.contents', status: 'completed' }
         ],
       },
       {
