@@ -372,6 +372,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Canvas',
         desc: '2D drawing API — shapes, images, gradients, and text composited into viewports each frame',
         icon: <Icons.PenTool {...IC} />,
@@ -385,7 +386,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Font',
-        desc: 'Runtime font loading and text metrics for canvas-level text rendering',
+        desc: 'Runtime font loading for canvas-level text rendering',
         icon: <Icons.Type {...IC} />,
         items: [
           { label: 'Format: TTF', status: 'completed' },
@@ -425,6 +426,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Rendertarget',
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
         icon: <Icons.Tv2 {...IC} />,
@@ -437,6 +439,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Screenshot Capture',
         desc: 'Grab the current viewport frame as a raw image or save directly to disk',
         icon: <Icons.Camera {...IC} />,
@@ -453,6 +456,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Graphics',
     cards: [
       {
+        // TODO: WIP
         label: 'GFX',
         desc: 'Post-process and global illumination effects — SSAO, SSIL, SSR, SDFGI, fog, volumetric, adjustment',
         icon: <Icons.Sparkles {...IC} />,
@@ -468,6 +472,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Lighting',
         desc: 'Create and configure DirectionalLight, OmniLight, and SpotLight — color, energy, shadows, and range from Lua',
         icon: <Icons.Sun {...IC} />,
@@ -480,6 +485,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Environment',
         desc: 'World environment overrides — sky, ambient light, tonemap, and background from Lua',
         icon: <Icons.Cloud {...IC} />,
@@ -492,6 +498,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Shader Uniforms',
         desc: 'Set ShaderMaterial parameters and texture uniforms at runtime from Lua',
         icon: <Icons.Sliders {...IC} />,
@@ -503,6 +510,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Decals',
         desc: 'Project textures onto surfaces at runtime — bullet holes, footprints, and damage overlays',
         icon: <Icons.Stamp {...IC} />,
@@ -513,6 +521,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'GPU Particles',
         desc: 'GPUParticles3D control — emission, restart, and process material parameters from Lua',
         icon: <Icons.Wind {...IC} />,
@@ -531,6 +540,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: '3D',
     cards: [
       {
+        // TODO: WIP
         label: 'Model',
         desc: 'Load, instantiate, transform, animate, and manage 3D model assets at runtime',
         icon: <Icons.Box {...IC} />,
@@ -548,6 +558,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Camera 3D',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
         icon: <Icons.Video {...IC} />,
@@ -562,6 +573,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Tween',
         desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
         icon: <Icons.TrendingUp {...IC} />,
@@ -576,6 +588,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
         icon: <Icons.Shapes {...IC} />,
@@ -593,6 +606,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Physics',
     cards: [
       {
+        // TODO: WIP
         label: 'Physics 3D',
         desc: 'Raycast, shapecast, apply forces and impulses to rigid bodies, and query collision layers from Lua',
         icon: <Icons.Atom {...IC} />,
@@ -609,6 +623,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Navigation',
         desc: 'Agent pathfinding, steering avoidance, and navmesh queries — essential for NPC and AI movement',
         icon: <Icons.Navigation {...IC} />,
@@ -629,6 +644,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Audio',
     cards: [
       {
+        // TODO: WIP
         label: 'Audio',
         desc: 'Play, stop, pause, and seek streams. Flat 2D audio and 3D positional sound with attenuation from Lua',
         icon: <Icons.Volume2 {...IC} />,
@@ -652,6 +668,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Network',
     cards: [
       {
+        // TODO: WIP
         label: 'ENet Transport',
         desc: 'High-performance UDP peer — reliable, sequenced, and unreliable channels for multiplayer',
         icon: <Icons.Network {...IC} />,
@@ -664,6 +681,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'WebSocket',
         desc: 'Full-duplex WebSocket client and server for real-time browser and service communication',
         icon: <Icons.Wifi {...IC} />,
@@ -675,6 +693,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Multiplayer API',
         desc: 'High-level multiplayer with RPC, spawning, and state synchronization from Lua',
         icon: <Icons.Users {...IC} />,
@@ -693,6 +712,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Integrations',
     cards: [
       {
+        // TODO: WIP
         label: 'Discord SDK',
         desc: 'Native Discord Rich Presence — dynamic state, player count, images, and invite links',
         icon: <Icons.MessageCircle {...IC} />,
