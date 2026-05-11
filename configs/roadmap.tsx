@@ -227,11 +227,15 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Cryptographic primitives for hashing, signing, and securing sensitive payloads',
         icon: <Icons.Lock {...IC} />,
         items: [
-          { label: 'SHA-256 / SHA-512 hashing', status: 'completed' },
-          { label: 'MD5 hashing', status: 'completed' },
-          { label: 'Base64 encode / decode', status: 'completed' },
-          { label: 'HMAC signing', status: 'completed' },
-          { label: 'Random token generation', status: 'completed' },
+          { label: 'Hash: SHA1', status: 'completed' },
+          { label: 'Hash: SHA224', status: 'completed' },
+          { label: 'Hash: SHA256', status: 'completed' },
+          { label: 'Hash: SHA384', status: 'completed' },
+          { label: 'Hash: SHA512', status: 'completed' },
+          { label: 'Encode / Decode: Base64', status: 'completed' },
+          { label: 'Encrypt / Decrypt: AES128', status: 'completed' },
+          { label: 'Encrypt / Decrypt: AES192', status: 'completed' },
+          { label: 'Encrypt / Decrypt: AES256', status: 'completed' }
         ],
       },
       {
