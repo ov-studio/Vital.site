@@ -43,11 +43,6 @@
     pointer-events: none !important;
 }
 
-[data-sidebar-panel] {
-    display: none !important;
-    pointer-events: none !important;
-}
-
 [data-search-full] {
     margin-top: 0.85rem;
     margin-bottom: 1rem;
