@@ -8,8 +8,8 @@ import { ClientShell } from '@/components/clientshell';
 import { Roadmap_Section } from '@/configs/roadmap';
 
 export const metadata: Metadata = {
-  title: 'Roadmap - Vital.sandbox',
-  description: 'Track the development progress of every Vital.sandbox module.',
+  title: 'Roadmap',
+  description: 'Complete breakdown of every feature in the sandbox; shipped, in-progress and planned',
 };
 
 function toAnchor(name: string): string {
