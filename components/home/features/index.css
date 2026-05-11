@@ -62,16 +62,13 @@
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
   font-weight: 600;
-  letter-spacing: .1em;
+  letter-spacing: .05em;
   text-transform: uppercase;
   color: var(--dim);
   flex: 1;
   transition: color .25s;
 }
-
-.fcluster.is-active .fcluster-label {
-  color: var(--white);
-}
+.fcluster.is-active .fcluster-label { color: var(--white); }
 
 .fcluster-desc {
   z-index: 1;
