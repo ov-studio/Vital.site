@@ -389,8 +389,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime font loading for canvas-level text rendering',
         icon: <Icons.Type {...IC} />,
         items: [
-          { label: 'Format: TTF', status: 'completed' },
-          { label: 'Format: OTF', status: 'completed' },
+          { label: 'Support format: TTF', status: 'completed' },
+          { label: 'Support format: OTF', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: font.create', status: 'completed' },
           { label: 'API: self<font>:get_antialiasing', status: 'completed' },
@@ -404,11 +404,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime image texture loading, unloading, and sampler configuration',
         icon: <Icons.Image {...IC} />,
         items: [
-          { label: 'Format: JPG', status: 'completed' },
-          { label: 'Format: PNG', status: 'completed' },
-          { label: 'Format: WEBP', status: 'completed' },
-          { label: 'Format: SVG', status: 'completed' },
-          { label: 'Format: KTX / DDS (compressed)', status: 'pending' },
+          { label: 'Support format: JPG', status: 'completed' },
+          { label: 'Support format: PNG', status: 'completed' },
+          { label: 'Support format: WEBP', status: 'completed' },
+          { label: 'Support format: SVG', status: 'completed' },
+          { label: 'Support format: KTX / DDS (compressed)', status: 'pending' },
           { label: 'Texture cache', status: 'partial' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: texture.create', status: 'completed' }
@@ -545,7 +545,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Load, instantiate, transform, animate, and manage 3D model assets at runtime',
         icon: <Icons.Box {...IC} />,
         items: [
-          { label: 'Format: GLB / GLTF', status: 'completed' },
+          { label: 'Support format: GLB / GLTF', status: 'completed' },
           { label: 'Load / unload by name', status: 'completed' },
           { label: 'Instantiate / destroy instances', status: 'completed' },
           { label: 'Transform (position / rotation / scale)', status: 'completed' },
