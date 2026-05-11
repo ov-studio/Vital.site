@@ -418,7 +418,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'Rendertarget',
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
         icon: <Icons.Tv2 {...IC} />,
