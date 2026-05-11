@@ -424,10 +424,14 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.Tv2 {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'SubViewport creation / destruction', status: 'completed' },
-          { label: 'Render-to-texture binding', status: 'completed' },
-          { label: 'Viewport texture sampling', status: 'completed' },
-          { label: 'MSAA on rendertarget', status: 'pending' },
+          { label: 'Alpha-transparent render surface', status: 'completed' },
+          { label: 'Immediate-mode per-frame updates', status: 'completed' },
+          { label: 'API: rendertarget.create', status: 'completed' },
+          { label: 'API: rendertarget.get_active', status: 'completed' },
+          { label: 'API: rendertarget.set_active', status: 'completed' },
+          { label: 'API: self<rendertarget>:is_active', status: 'completed' },
+          { label: 'API: self<rendertarget>:get_size', status: 'completed' },
+          { label: 'API: self<rendertarget>:set_active', status: 'completed' }
         ],
       },
       {
