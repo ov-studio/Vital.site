@@ -243,7 +243,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Asset and data compression / decompression to reduce memory footprint and transfer overhead',
         icon: <Icons.Package {...IC} />,
         items: [
-          { label: 'Data compression via zstd', status: 'completed' },
+          { label: 'Data compression via zstd library', status: 'completed' },
           { label: 'API: shrinker.compress', status: 'completed' },
           { label: 'API: shrinker.decompress', status: 'completed' }
         ],
@@ -339,12 +339,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Webview',
-        desc: 'HTML/CSS/JS renderer with bidirectional Lua <-> JS messaging',
+        desc: 'HTML/CSS/JS renderer with bidirectional Lua - JS messaging',
         icon: <Icons.Code2 {...IC} />,
         items: [
-          { label: 'HTML / CSS rendering', status: 'completed' },
-          { label: 'Bidirectional Lua <-> JS messaging', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
+          { label: 'Serve files over HTTP instead of file://', status: 'pending' },
           { label: 'API: webview.create', status: 'completed' },
           { label: 'API: self<webview>:is_visible', status: 'completed' },
           { label: 'API: self<webview>:is_fullscreen', status: 'completed' },
