@@ -242,10 +242,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Asset and data compression / decompression to reduce memory footprint and transfer overhead',
         icon: <Icons.Package {...IC} />,
         items: [
-          { label: 'String minification', status: 'completed' },
-          { label: 'Lua source shrinker', status: 'completed' },
-          { label: 'Data compression (zlib)', status: 'completed' },
-          { label: 'Decompression', status: 'completed' },
+          { label: 'Data compression via zstd', status: 'completed' },
+          { label: 'API: shrinker.compress', status: 'completed' },
+          { label: 'API: shrinker.decompress', status: 'completed' }
         ],
       },
       {
