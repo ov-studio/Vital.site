@@ -125,10 +125,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
         icon: <Icons.Database {...IC} />,
         items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'MySQL support', status: 'completed' },
           { label: 'ORM-style query with chainable methods', status: 'completed' },
           { label: 'Async query execution', status: 'completed' },
+          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: database.create', status: 'completed' },
           { label: 'API: self<database>:is_connected', status: 'completed' },
           { label: 'API: self<database>:define', status: 'completed' },
@@ -358,10 +358,14 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime font loading and text metrics for canvas-level text rendering',
         icon: <Icons.Type {...IC} />,
         items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: TTF', status: 'completed' },
           { label: 'Format: OTF', status: 'completed' },
-          { label: 'Font size / style variants', status: 'completed' },
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'API: font.create', status: 'completed' },
+          { label: 'API: self<font>:get_antialiasing', status: 'completed' },
+          { label: 'API: self<font>:get_oversampling', status: 'completed' },
+          { label: 'API: self<font>:set_antialiasing', status: 'completed' },
+          { label: 'API: self<font>:set_oversampling', status: 'completed' }
         ],
       },
       {
