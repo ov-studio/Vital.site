@@ -127,7 +127,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'MySQL support', status: 'completed' },
-          { label: 'ORM inspired easy to use queries', status: 'completed' },
+          { label: 'ORM-style query with chainable methods', status: 'completed' },
           { label: 'API: database.create', status: 'completed' }
         ],
       },
