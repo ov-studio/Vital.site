@@ -481,11 +481,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
-        label: 'Shader Uniforms',
-        desc: 'Set ShaderMaterial parameters and texture uniforms at runtime from Lua',
+        label: 'Shader',
+        desc: 'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
         icon: <Icons.Sliders {...IC} />,
         items: [
+          { label: 'Runtime shader authoring and compilation', status: 'pending' },
           { label: 'ShaderMaterial.set_shader_parameter', status: 'pending' },
           { label: 'Texture uniform binding', status: 'pending' },
           { label: 'Float / vec2 / vec3 / color uniforms', status: 'pending' },
