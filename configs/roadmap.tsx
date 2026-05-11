@@ -73,14 +73,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
         icon: <Icons.FolderOpen {...IC} />,
         items: [
-          { label: 'ResourceLoader.load (blocking)', status: 'partial' },
-          { label: 'ResourceLoader.load_threaded_request', status: 'pending' },
-          { label: 'ResourceLoader.load_threaded_get', status: 'pending' },
-          { label: 'Resource caching control', status: 'pending' },
-          { label: 'Custom resource types', status: 'pending' },
-          { label: 'Resource downloader (HTTP fetch to disk)', status: 'pending' },
-          { label: 'Download progress callbacks', status: 'pending' },
-          { label: 'Checksum validation on download', status: 'pending' },
+          { label: '[Server] Resource scannner', status: 'completed' },
+          { label: '[Shared] Resource loader', status: 'partial' },
+          { label: '[Shared] Resource unloader', status: 'completed' },
+          { label: '[Shared] Resource cache', status: 'completed' },
+          { label: '[Shared] Resource compression', status: 'completed' },
+          { label: '[Shared] Resource streaming via HTTP', status: 'completed' }
         ],
       },
       {
