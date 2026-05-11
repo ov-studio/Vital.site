@@ -88,7 +88,7 @@
   font-size: clamp(.9rem, 1.4vw, 1.0rem);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .16em;
+  letter-spacing: .12em;
   margin-bottom: 34px;
   opacity: 0;
   animation: fadeIn .7s .35s forwards;

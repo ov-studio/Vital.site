@@ -55,7 +55,7 @@ export default async function OGImage() {
                         fontSize: '1.0rem',
                         fontFamily: 'Rajdhani, sans-serif',
                         fontWeight: 600,
-                        letterSpacing: '0.16em',
+                        letterSpacing: '0.12em',
                         textTransform: 'uppercase',
                     }}>
                         <span style={{ color: 'hsl(220, 10%, 55%)' }}>Script It.</span>
