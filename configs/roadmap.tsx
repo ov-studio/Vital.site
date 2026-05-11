@@ -413,7 +413,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Support format: SVG', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'SVG instantiation/mutation from a raw string', status: 'completed' },
+          { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
           { label: 'API: svg.create', status: 'completed' },
           { label: 'API: svg.create_from_raw', status: 'completed' },
           { label: 'API: self<svg>:update', status: 'completed' }
@@ -425,8 +425,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.Tv2 {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Alpha-transparent render surface', status: 'completed' },
-          { label: 'Immediate-mode per-frame updates', status: 'completed' },
+          { label: 'Optional alpha-transparent render surface', status: 'completed' },
+          { label: 'Optional immediate-mode per-frame updates', status: 'completed' },
           { label: 'API: rendertarget.create', status: 'completed' },
           { label: 'API: rendertarget.get_active', status: 'completed' },
           { label: 'API: rendertarget.set_active', status: 'completed' },
@@ -491,7 +491,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
         icon: <Icons.Sliders {...IC} />,
         items: [
-          { label: 'Runtime shader authoring and compilation', status: 'pending' },
+          { label: 'Custom shader authoring and compilation from Lua', status: 'pending' },
           { label: 'ShaderMaterial.set_shader_parameter', status: 'pending' },
           { label: 'Texture uniform binding', status: 'pending' },
           { label: 'Float / vec2 / vec3 / color uniforms', status: 'pending' },
