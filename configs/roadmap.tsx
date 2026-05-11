@@ -401,13 +401,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Texture',
-        desc: 'Runtime image texture loading, unloading, and sampler configuration',
+        desc: 'Runtime image texture loading, unloading, and rendering',
         icon: <Icons.Image {...IC} />,
         items: [
           { label: 'Support format: JPG', status: 'completed' },
           { label: 'Support format: PNG', status: 'completed' },
           { label: 'Support format: WEBP', status: 'completed' },
-          { label: 'Support format: SVG', status: 'completed' },
           { label: 'Support format: KTX / DDS (compressed)', status: 'pending' },
           { label: 'Texture cache', status: 'partial' },
           { label: 'Lifecycle hooks', status: 'completed' },
@@ -416,9 +415,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'SVG',
-        desc: 'Vector SVG asset loading and rendering into canvas or viewport surfaces',
+        desc: 'Runtime vector svg loading, unloading, and rendering',
         icon: <Icons.FileCode {...IC} />,
         items: [
+          { label: 'Support format: SVG', status: 'completed' },
+          { label: 'SVG loading/updating from a raw string buffer', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: svg.create', status: 'completed' },
           { label: 'API: svg.create_from_raw', status: 'completed' },
