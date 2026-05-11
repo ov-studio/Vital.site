@@ -410,6 +410,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Format: KTX / DDS (compressed)', status: 'pending' },
           { label: 'Texture cache', status: 'partial' },
           { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Rendering support via engine.draw_image', status: 'completed' },
           { label: 'API: texture.create', status: 'completed' }
         ],
       },
@@ -419,6 +420,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.FileCode {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Rendering support via engine.draw_image', status: 'completed' },
           { label: 'API: svg.create', status: 'completed' },
           { label: 'API: svg.create_from_raw', status: 'completed' },
           { label: 'API: self<svg>:update', status: 'completed' }
