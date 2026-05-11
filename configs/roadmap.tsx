@@ -47,17 +47,16 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <Icons.Cpu {...IC} />,
         items: [
-          { label: 'Engine.get_version_info', status: 'completed' },
-          { label: 'Engine.quit', status: 'partial' },
-          { label: 'Engine.set_time_scale', status: 'pending' },
-          { label: 'Engine.get_frames_per_second', status: 'pending' },
-          { label: 'SceneTree singleton access', status: 'partial' },
-          { label: 'change_scene_to_file', status: 'pending' },
-          { label: 'Additive scene load / unload', status: 'pending' },
-          { label: 'get_node / find_child', status: 'pending' },
-          { label: 'Node groups (add / remove / call)', status: 'pending' },
-          { label: 'SceneTree.paused', status: 'pending' },
-          { label: 'Node signals (connect / disconnect)', status: 'pending' },
+          { label: 'API: engine.quit', status: 'pending' },
+          { label: 'API: engine.print', status: 'completed' },
+          { label: 'API: engine.iprint', status: 'completed' },
+          { label: 'API: engine.inspect', status: 'completed' },
+          { label: 'API: engine.compile_string', status: 'completed' },
+          { label: 'API: engine.load_string', status: 'completed' },
+          { label: 'API: engine.get_tick', status: 'completed' },
+          { label: 'API: engine.get_version', status: 'completed' },
+          { label: 'API: engine.get_serial', status: 'completed' },
+          { label: 'API: engine.get_resolution', status: 'completed' }
         ],
       },
       {
@@ -362,16 +361,18 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'Canvas',
-        desc: '2D drawing API — shapes, images, gradients, and text composited into viewports each frame',
+        desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
         icon: <Icons.PenTool {...IC} />,
         items: [
-          { label: '2D Canvas API (draw_rect / circle / line)', status: 'completed' },
-          { label: 'Image blitting', status: 'completed' },
-          { label: 'Text rendering on canvas', status: 'completed' },
-          { label: 'Gradient fills', status: 'partial' },
-          { label: 'Clipping regions', status: 'pending' },
+          { label: 'API: engine.world_to_screen', status: 'completed' },
+          { label: 'API: engine.screen_to_world', status: 'completed' },
+          { label: 'API: engine.draw_line', status: 'completed' },
+          { label: 'API: engine.draw_polygon', status: 'completed' },
+          { label: 'API: engine.draw_rectangle', status: 'completed' },
+          { label: 'API: engine.draw_circle', status: 'completed' },
+          { label: 'API: engine.draw_image', status: 'completed' },
+          { label: 'API: engine.draw_text', status: 'completed' }
         ],
       },
       {
