@@ -126,11 +126,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.Database {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-
-          { label: 'db.connect / disconnect', status: 'completed' },
-          { label: 'db.exec (raw query)', status: 'completed' },
-          { label: 'Prepared statements', status: 'completed' },
-          { label: 'Transaction support', status: 'completed' },
+          { label: 'MySQL support', status: 'completed' },
+          { label: 'ORM inspired easy to use queries', status: 'completed' },
+          { label: 'API: database.create', status: 'completed' }
         ],
       },
       {
