@@ -47,10 +47,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <Icons.Cpu {...IC} />,
         items: [
-          { label: 'API: engine.quit', status: 'pending' },
           { label: 'API: engine.print', status: 'completed' },
           { label: 'API: engine.iprint', status: 'completed' },
           { label: 'API: engine.inspect', status: 'completed' },
+          { label: 'API: engine.quit', status: 'pending' },
           { label: 'API: engine.compile_string', status: 'completed' },
           { label: 'API: engine.load_string', status: 'completed' },
           { label: 'API: engine.get_tick', status: 'completed' },
@@ -451,7 +451,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Graphics',
     cards: [
       {
-        // TODO: WIP
         label: 'Environment',
         desc: 'Post-process, global illumination, and world environment control from Lua',
         icon: <Icons.Sparkles {...IC} />,
@@ -464,11 +463,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'SSAO (Screen-Space Ambient Occlusion)', status: 'completed' },
           { label: 'Fog (height & depth)', status: 'completed' },
           { label: 'Volumetric fog', status: 'completed' },
-          { label: 'WorldEnvironment access', status: 'pending' },
           { label: 'Sky / panorama background', status: 'pending' },
           { label: 'Ambient light color & energy', status: 'pending' },
-          { label: 'Tonemap mode (ACES / Filmic)', status: 'pending' },
           { label: 'Exposure & white balance', status: 'pending' },
+          { label: 'Environment reset', status: 'pending' }
         ],
       },
       {
