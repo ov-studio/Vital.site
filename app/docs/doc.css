@@ -114,6 +114,7 @@ h1 {
 }
 
 h2 {
+#nd-docs-layout h2,
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.25rem, 2vw, 1.3rem);
     font-weight: 600;
@@ -121,14 +122,16 @@ h2 {
     color: var(--blue);
 }
 
-h3 {
+#nd-docs-layout h3,
+#nd-page h3 {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.25rem, 2vw, 1.2rem);
     font-weight: 600;
     letter-spacing: .01em;
 }
 
-h4 {
+#nd-docs-layout h4,
+#nd-page h4 {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.1rem, 2vw, 1.15rem);
     font-weight: 600;
