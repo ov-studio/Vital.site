@@ -95,7 +95,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Resource unloader', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
           { label: '[Shared] Resource compression', status: 'completed' },
-          { label: '[Shared] Resource streaming via HTTP', status: 'completed' }
+          { label: '[Shared] Resource streaming via HTTP', status: 'completed' },
+          { label: '[Shared] Resource-scoped entity lifetime', status: 'completed' }
         ],
       },
       {
