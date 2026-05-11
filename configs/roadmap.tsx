@@ -125,6 +125,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
         icon: <Icons.Database {...IC} />,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+
           { label: 'db.connect / disconnect', status: 'completed' },
           { label: 'db.exec (raw query)', status: 'completed' },
           { label: 'Prepared statements', status: 'completed' },
@@ -136,6 +138,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Fluent query builder API — select, insert, update, delete, and filtering',
         icon: <Icons.Table2 {...IC} />,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+
           { label: 'query.select / from / where', status: 'completed' },
           { label: 'query.insert / update / delete', status: 'completed' },
           { label: 'query.orderBy / limit / offset', status: 'completed' },
@@ -355,11 +359,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime font loading and text metrics for canvas-level text rendering',
         icon: <Icons.Type {...IC} />,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: TTF', status: 'completed' },
           { label: 'Format: OTF', status: 'completed' },
           { label: 'Font size / style variants', status: 'completed' },
-          { label: 'Text metrics (width / height)', status: 'partial' },
-          { label: 'Bitmap font support', status: 'pending' },
         ],
       },
       {
@@ -367,12 +370,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime image texture loading, unloading, and sampler configuration',
         icon: <Icons.Image {...IC} />,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: JPG', status: 'completed' },
           { label: 'Format: PNG', status: 'completed' },
           { label: 'Format: WEBP', status: 'completed' },
           { label: 'Format: SVG', status: 'completed' },
           { label: 'Format: KTX / DDS (compressed)', status: 'pending' },
-          { label: 'Texture unload / cache eviction', status: 'partial' },
+          { label: 'Texture cache', status: 'partial' },
         ],
       },
       {
@@ -380,6 +384,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Vector SVG asset loading and rendering into canvas or viewport surfaces',
         icon: <Icons.FileCode {...IC} />,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'SVG load from file / string', status: 'completed' },
           { label: 'Render to texture', status: 'completed' },
           { label: 'Resize / scale on render', status: 'completed' },
@@ -390,6 +395,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
         icon: <Icons.Tv2 {...IC} />,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'SubViewport creation / destruction', status: 'completed' },
           { label: 'Render-to-texture binding', status: 'completed' },
           { label: 'Viewport texture sampling', status: 'completed' },
