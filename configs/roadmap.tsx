@@ -217,8 +217,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Full async HTTP layer for communicating with external REST APIs and asset servers',
         icon: <Icons.Globe {...IC} />,
         items: [
+          { label: 'Customizable headers', status: 'completed' },
+          { label: 'Customizable timeout', status: 'completed' },
           { label: 'API: http.get', status: 'completed' },
-          { label: 'API: http.post', status: 'completed' }
+          { label: 'API: http.post', status: 'completed' },
         ],
       },
       {
