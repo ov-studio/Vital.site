@@ -537,7 +537,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Instantiate / destroy instances', status: 'completed' },
           { label: 'Transform (position / rotation / scale)', status: 'completed' },
           { label: 'Animation player (play / stop / seek)', status: 'completed' },
-          { label: 'Blend shapes (morph targets)', status: 'completed' },
+          { label: 'Blendshapes (morph targets)', status: 'completed' },
           { label: 'Component / mesh visibility', status: 'completed' },
           { label: 'Material override per component', status: 'completed' },
           { label: 'Skeleton & bone transforms', status: 'pending' },
