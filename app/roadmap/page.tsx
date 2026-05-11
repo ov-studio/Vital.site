@@ -8,8 +8,7 @@ import { ClientShell } from '@/components/clientshell';
 import { Roadmap_Section } from '@/configs/roadmap';
 
 export const metadata: Metadata = {
-  title: 'Roadmap',
-  description: 'Complete breakdown of every feature in the sandbox; shipped, in-progress and planned',
+  title: 'Roadmap'
 };
 
 function toAnchor(name: string): string {
