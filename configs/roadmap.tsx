@@ -621,7 +621,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Audio',
     cards: [
       {
-        // TODO: WIP
         label: 'Audio',
         desc: 'Play, stop, pause, and seek streams. Flat 2D audio and 3D positional sound with attenuation from Lua',
         icon: <Icons.Volume2 {...IC} />,
