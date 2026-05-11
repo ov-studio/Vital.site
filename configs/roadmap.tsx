@@ -421,7 +421,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: svg.create', status: 'completed' },
           { label: 'API: svg.create_from_raw', status: 'completed' },
-          { label: 'API: self<svg>:create_from_raw', status: 'completed' }
+          { label: 'API: self<svg>:update', status: 'completed' }
         ],
       },
       {
