@@ -93,7 +93,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Server] Command: info', status: 'pending' },
           { label: '[Shared] Command: version', status: 'completed' },
           { label: '[Shared] Command: clear', status: 'completed' },
-          { label: '[Shared] Command: crun/srun <code>', status: 'completed' },
+          { label: '[Server] Command: srun <code>', status: 'completed' },
           { label: '[Server] Command: kick <id>', status: 'pending' },
           { label: '[Server] Command: players', status: 'pending' },
           { label: '[Server] Command: refresh', status: 'completed' },
@@ -103,7 +103,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Server] Command: start_all', status: 'completed' },
           { label: '[Server] Command: stop_all', status: 'completed' },
           { label: '[Server] Command: restart_all', status: 'completed' },
-          { label: '[Server] Command: shutdown', status: 'completed' }
+          { label: '[Server] Command: shutdown', status: 'completed' },
+          { label: '[Client] Command: crun <code>', status: 'completed' },
+          { label: '[Client] Command: connect <ip> <port>', status: 'pending' },
+          { label: '[Client] Command: disconnect', status: 'pending' },
+          { label: '[Client] Command: status', status: 'pending' }
         ],
       },
       {
