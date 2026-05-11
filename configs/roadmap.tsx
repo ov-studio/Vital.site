@@ -90,7 +90,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
         icon: <Icons.FolderOpen {...IC} />,
         items: [
-          { label: '[Server] Resource scannner', status: 'completed' },
+          { label: '[Server] Resource scanner', status: 'completed' },
           { label: '[Shared] Resource loader', status: 'partial' },
           { label: '[Shared] Resource unloader', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
