@@ -9,19 +9,19 @@
 }
 
 @theme {
-    --color-fd-primary: hsl(220, 95%, 30%);
+    --color-fd-primary: var(--blue);
     --font-sans: var(--font-geist);
     --font-mono: var(--font-geist-mono);
     --breakpoint-md: 2000px;
 }
 
 .dark {
-    --color-fd-primary: hsl(220, 95%, 76%);
-    --color-fd-background: hsl(250, 25%, 2%);
+    --color-fd-primary: var(--blue);
+    --color-fd-background: var(--bg);
 }
 
 .dark #nd-sidebar {
-    background-color: hsl(250, 25%, 2%);
+    background-color: var(--bg);
 }
 
 .prose a {
