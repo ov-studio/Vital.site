@@ -43,24 +43,14 @@ export const Roadmap_Section: RoadmapSection[] = build([
     cards: [
       {
         // TODO: WIP
-        label: 'Engine Core',
-        desc: 'Top-level engine singleton access: quit, pause, version, and main loop control',
+        label: 'Engine',
+        desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <Icons.Cpu {...IC} />,
         items: [
           { label: 'Engine.get_version_info', status: 'completed' },
           { label: 'Engine.quit', status: 'partial' },
           { label: 'Engine.set_time_scale', status: 'pending' },
           { label: 'Engine.get_frames_per_second', status: 'pending' },
-          { label: 'Engine.is_editor_hint', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Scene & Node Tree',
-        desc: 'SceneTree access, scene switching, additive loading, node queries, and groups',
-        icon: <Icons.GitBranch {...IC} />,
-        priority: 'Must have',
-        items: [
           { label: 'SceneTree singleton access', status: 'partial' },
           { label: 'change_scene_to_file', status: 'pending' },
           { label: 'Additive scene load / unload', status: 'pending' },
