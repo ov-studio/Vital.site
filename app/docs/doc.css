@@ -94,13 +94,15 @@ aside#nd-sidebar[data-collapsed="true"] {
     margin: 0 auto;
 }
 
-#nd-toc, [class*="border-fd-foreground"] a {
-    font-family: 'Rajdhani', sans-serif; 
+#nd-toc,
+[class*="border-fd-foreground"] a {
+    font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     letter-spacing: .01em;
 }
 
-h1 {
+#nd-docs-layout h1,
+#nd-page h1 {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.25rem, 2vw, 1.35rem);
     font-weight: 600;
@@ -108,8 +110,8 @@ h1 {
     color: var(--blue);
 }
 
-h2 {
 #nd-docs-layout h2,
+#nd-page h2 {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1.25rem, 2vw, 1.3rem);
     font-weight: 600;
@@ -155,11 +157,19 @@ h2 {
 }
 
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
-    margin-top: 10px !important
+    margin-top: 10px !important;
 }
- 
+
 @media (max-width: 2000px) {
-    #nd-toc { display: none !important; }
-    .sidebar-header-row { display: none; }
-    .sidebar-expand-btn--fixed { display: none; }
+    #nd-toc {
+        display: none !important;
+    }
+
+    .sidebar-header-row {
+        display: none;
+    }
+
+    .sidebar-expand-btn--fixed {
+        display: none;
+    }
 }
