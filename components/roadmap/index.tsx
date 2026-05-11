@@ -43,7 +43,7 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
       >
         <div className="rcard-header">
           <div className="rcard-icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <svg width="18" viewBox="0 0 18 18" fill="none">
               {card.icon}
             </svg>
             <span className="rcard-icon-ring"/>
