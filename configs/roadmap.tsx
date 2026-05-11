@@ -419,7 +419,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.FileCode {...IC} />,
         items: [
           { label: 'Support format: SVG', status: 'completed' },
-          { label: 'SVG loading/updating from a raw string buffer', status: 'completed' },
+          { label: 'SVG instantiation/mutation from a raw string', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: svg.create', status: 'completed' },
           { label: 'API: svg.create_from_raw', status: 'completed' },
