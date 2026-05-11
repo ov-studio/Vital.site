@@ -165,11 +165,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Precise one-shot and repeating timers with pause, resume, and destroy support',
         icon: <Icons.Timer {...IC} />,
         items: [
-          { label: 'Timer.create (one-shot)', status: 'completed' },
-          { label: 'Timer.create (repeating)', status: 'completed' },
-          { label: 'Timer.pause / resume', status: 'completed' },
-          { label: 'Timer.destroy', status: 'completed' },
-          { label: 'Timer.getElapsed', status: 'completed' },
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Customizable interval', status: 'completed' },
+          { label: 'Customizable executions', status: 'completed' },
+          { label: 'API: timer.create', status: 'completed' }
         ],
       },
       {
