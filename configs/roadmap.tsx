@@ -238,14 +238,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'Inspect',
         desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
         icon: <Icons.ScanSearch {...IC} />,
         items: [
-          { label: 'CPU info (cores, arch)', status: 'completed' },
-          { label: 'OS platform detection', status: 'completed' },
-          { label: 'Memory usage query', status: 'completed' },
+          { label: 'CPU info (cores, arch)', status: 'pending' },
+          { label: 'OS platform detection', status: 'pending' },
+          { label: 'Memory usage query', status: 'pending' },
           { label: 'Device fingerprint generation', status: 'completed' },
         ],
       },
@@ -470,14 +469,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
         label: 'Lighting',
-        desc: 'Create and configure DirectionalLight, OmniLight, and SpotLight — color, energy, shadows, and range from Lua',
+        desc: 'Runtime creation and configuration of Directional, Omni, and Spot lights from Lua',
         icon: <Icons.Sun {...IC} />,
         items: [
-          { label: 'DirectionalLight3D (create / config)', status: 'pending' },
-          { label: 'OmniLight3D (create / config)', status: 'pending' },
-          { label: 'SpotLight3D (create / config)', status: 'pending' },
+          { label: 'DirectionalLight3D', status: 'pending' },
+          { label: 'OmniLight3D', status: 'pending' },
+          { label: 'SpotLight3D', status: 'pending' },
           { label: 'Shadow mode & bias control', status: 'pending' },
           { label: 'Light bake mode', status: 'pending' },
         ],
