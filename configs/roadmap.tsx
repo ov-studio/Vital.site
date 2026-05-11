@@ -177,11 +177,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Deferred values with full chaining, resolution, rejection, and async/await support',
         icon: <Icons.CheckCircle {...IC} />,
         items: [
-          { label: 'Promise.new', status: 'completed' },
-          { label: 'Promise:andThen / catch / finally', status: 'completed' },
-          { label: 'Promise.all / race', status: 'completed' },
-          { label: 'async / await sugar', status: 'completed' },
-          { label: 'Promise cancellation', status: 'completed' },
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'API: promise.create', status: 'completed' },
+          { label: 'API: self<promise>:is_pending', status: 'completed' },
+          { label: 'API: self<promise>:resolve', status: 'completed' },
+          { label: 'API: self<promise>:reject', status: 'completed' }
         ],
       },
       {
