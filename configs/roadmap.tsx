@@ -42,7 +42,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Sandbox',
     cards: [
       {
-        // TODO: WIP
         label: 'Engine',
         desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <Icons.Cpu {...IC} />,
@@ -238,6 +237,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Inspect',
         desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
         icon: <Icons.ScanSearch {...IC} />,
@@ -249,6 +249,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Event',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: <Icons.Zap {...IC} />,
@@ -450,6 +451,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Graphics',
     cards: [
       {
+        // TODO: WIP
         label: 'Environment',
         desc: 'Post-process, global illumination, and world environment control from Lua',
         icon: <Icons.Sparkles {...IC} />,
@@ -469,6 +471,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Lighting',
         desc: 'Runtime creation and configuration of Directional, Omni, and Spot lights from Lua',
         icon: <Icons.Sun {...IC} />,
@@ -481,6 +484,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Shader',
         desc: 'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
         icon: <Icons.Sliders {...IC} />,
@@ -493,6 +497,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Decals',
         desc: 'Project textures onto surfaces at runtime — bullet holes, footprints, and damage overlays',
         icon: <Icons.Stamp {...IC} />,
@@ -503,6 +508,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'GPU Particles',
         desc: 'GPUParticles3D control — emission, restart, and process material parameters from Lua',
         icon: <Icons.Wind {...IC} />,
@@ -539,6 +545,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Camera 3D',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
         icon: <Icons.Video {...IC} />,
@@ -553,6 +560,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'Tween',
         desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
         icon: <Icons.TrendingUp {...IC} />,
@@ -567,6 +575,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
         icon: <Icons.Shapes {...IC} />,
@@ -584,6 +593,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Physics',
     cards: [
       {
+        // TODO: WIP
         label: 'Physics 3D',
         desc: 'Raycast, shapecast, apply forces and impulses to rigid bodies, and query collision layers from Lua',
         icon: <Icons.Atom {...IC} />,
