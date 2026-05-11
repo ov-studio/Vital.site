@@ -458,18 +458,23 @@ export const Roadmap_Section: RoadmapSection[] = build([
     cards: [
       {
         // TODO: WIP
-        label: 'GFX',
-        desc: 'Post-process and global illumination effects — SSAO, SSIL, SSR, SDFGI, fog, volumetric, adjustment',
+        label: 'Environment',
+        desc: 'Post-process, global illumination, and world environment control from Lua',
         icon: <Icons.Sparkles {...IC} />,
         items: [
-          { label: 'Adjustment (brightness / contrast / saturation)', status: 'completed' },
-          { label: 'Emissive glow', status: 'completed' },
+          { label: 'Adjustment (brightness / contrast / saturation / LUT)', status: 'completed' },
+          { label: 'Emissive', status: 'completed' },
           { label: 'SSR (Screen-Space Reflections)', status: 'completed' },
           { label: 'SSIL (Screen-Space Indirect Lighting)', status: 'completed' },
           { label: 'SDFGI (Signed Distance Field GI)', status: 'completed' },
           { label: 'SSAO (Screen-Space Ambient Occlusion)', status: 'completed' },
           { label: 'Fog (height & depth)', status: 'completed' },
-          { label: 'Volumetric Fog', status: 'completed' },
+          { label: 'Volumetric fog', status: 'completed' },
+          { label: 'WorldEnvironment access', status: 'pending' },
+          { label: 'Sky / panorama background', status: 'pending' },
+          { label: 'Ambient light color & energy', status: 'pending' },
+          { label: 'Tonemap mode (ACES / Filmic)', status: 'pending' },
+          { label: 'Exposure & white balance', status: 'pending' },
         ],
       },
       {
@@ -483,19 +488,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'SpotLight3D (create / config)', status: 'pending' },
           { label: 'Shadow mode & bias control', status: 'pending' },
           { label: 'Light bake mode', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Environment',
-        desc: 'World environment overrides — sky, ambient light, tonemap, and background from Lua',
-        icon: <Icons.Cloud {...IC} />,
-        items: [
-          { label: 'WorldEnvironment access', status: 'pending' },
-          { label: 'Sky / panorama background', status: 'pending' },
-          { label: 'Ambient light color & energy', status: 'pending' },
-          { label: 'Tonemap mode (ACES / Filmic)', status: 'pending' },
-          { label: 'Exposure & white balance', status: 'pending' },
         ],
       },
       {
