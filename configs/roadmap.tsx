@@ -665,7 +665,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'ENet Transport',
-        desc: 'High-performance UDP peer — reliable, sequenced, and unreliable channels for multiplayer',
+        desc: 'Low-level ENet UDP transport — reliable, sequenced, and unreliable packet delivery',
         icon: <Icons.Network {...site.lucide} />,
         items: [
           { label: 'ENet client connect / disconnect', status: 'completed' },
