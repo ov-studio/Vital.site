@@ -160,8 +160,8 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 article#nd-page {
-    max-width: 100%;
-    margin-inline: auto;
+    min-width: 960px;
+    justify-self: center;
 }
 
 @media (max-width: 2000px) { 
