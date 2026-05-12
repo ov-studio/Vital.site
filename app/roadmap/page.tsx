@@ -23,10 +23,10 @@ const Roadmap_Link = Roadmap_Section.map(s => ({
 export default function HomePage() {
   return (
     <ClientShell>
-      <Overlay />
-      <Navbar links={Roadmap_Link} />
-      <RoadmapGrid sections={Roadmap_Section} />
-      <Footer />
+      <Overlay/>
+      <Navbar links={Roadmap_Link}/>
+      <RoadmapGrid sections={Roadmap_Section}/>
+      <Footer/>
     </ClientShell>
   );
 }

@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
 
   return (
     <ClientShell>
-      <Overlay vignette={false} />
+      <Overlay vignette={false}/>
       <DocsLayout
         {...base}
         nav={{
@@ -22,8 +22,8 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
           mode: 'top',
           children: (
             <div className="nav-social">
-              <Social />
-              <SidebarToggle />
+              <Social/>
+              <SidebarToggle/>
           </div>
           )
         }}

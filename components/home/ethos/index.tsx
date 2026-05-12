@@ -23,7 +23,7 @@ export function Ethos() {
 
               <div className="ecard-ico">
                 {icon}
-                <span className="ecard-ico-ring" />
+                <span className="ecard-ico-ring"/>
               </div>
 
               <h3 className="ecard-title">{title}</h3>

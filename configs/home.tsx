@@ -12,10 +12,10 @@ export const Features_Content = [
 ];
 
 export const Ethos_Content = [
-  { title: 'Open Source', desc: 'Fully open-source, no licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.', icon: <Icons.Star {...site.lucide} /> },
-  { title: 'Zero Monetization Limits', desc: 'No platform cuts, no revenue gates, no forced monetization systems. Ship free, charge what you want, keep everything.', icon: <Icons.BadgeCheck {...site.lucide} /> },
-  { title: 'No Bloat', desc: 'Lean by design. No unnecessary abstractions, no forced frameworks. Nothing stands between your scripts and the engine.', icon: <Icons.Puzzle {...site.lucide} /> },
-  { title: 'Full Runtime Scripting', desc: 'Script everything at runtime — rendering, networking, threading, models, GFX — one unified Lua API, top to bottom.', icon: <Icons.Terminal {...site.lucide} /> },
-  { title: 'Modding & Plugin Ready', desc: 'Built for user scripting, modding, and plugin systems from day one. Full sandboxed Lua isolation — safe, powerful, extensible.', icon: <Icons.Cable {...site.lucide} /> },
-  { title: 'Performance First', desc: 'Built on Godot, engineered in C++17 with a Lua scripting layer that runs 10–50x faster than GDScript — no interpreter bottlenecks, maximum throughput at every layer.', icon: <Icons.CircleGauge {...site.lucide} /> },
+  { title: 'Open Source', desc: 'Fully open-source, no licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.', icon: <Icons.Star {...site.lucide}/> },
+  { title: 'Zero Monetization Limits', desc: 'No platform cuts, no revenue gates, no forced monetization systems. Ship free, charge what you want, keep everything.', icon: <Icons.BadgeCheck {...site.lucide}/> },
+  { title: 'No Bloat', desc: 'Lean by design. No unnecessary abstractions, no forced frameworks. Nothing stands between your scripts and the engine.', icon: <Icons.Puzzle {...site.lucide}/> },
+  { title: 'Full Runtime Scripting', desc: 'Script everything at runtime — rendering, networking, threading, models, GFX — one unified Lua API, top to bottom.', icon: <Icons.Terminal {...site.lucide}/> },
+  { title: 'Modding & Plugin Ready', desc: 'Built for user scripting, modding, and plugin systems from day one. Full sandboxed Lua isolation — safe, powerful, extensible.', icon: <Icons.Cable {...site.lucide}/> },
+  { title: 'Performance First', desc: 'Built on Godot, engineered in C++17 with a Lua scripting layer that runs 10–50x faster than GDScript — no interpreter bottlenecks, maximum throughput at every layer.', icon: <Icons.CircleGauge {...site.lucide}/> },
 ];

@@ -43,7 +43,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Engine',
         desc: 'Top-level engine singleton access for runtime and scene control',
-        icon: <Icons.Cpu {...site.lucide} />,
+        icon: <Icons.Cpu {...site.lucide}/>,
         items: [
           { label: 'API: engine.print', status: 'completed' },
           { label: 'API: engine.iprint', status: 'completed' },
@@ -60,7 +60,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Console',
         desc: 'Built-in runtime console for commands, debug output, and structured logging',
-        icon: <Icons.Terminal {...site.lucide} />,
+        icon: <Icons.Terminal {...site.lucide}/>,
         items: [
           { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
           { label: '[Shared] Command: help', status: 'completed' },
@@ -87,7 +87,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Resources',
         desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
-        icon: <Icons.FolderOpen {...site.lucide} />,
+        icon: <Icons.FolderOpen {...site.lucide}/>,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
           { label: '[Shared] Resource loader', status: 'partial' },
@@ -104,7 +104,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Performance Monitor',
         desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
-        icon: <Icons.Activity {...site.lucide} />,
+        icon: <Icons.Activity {...site.lucide}/>,
         items: [
           { label: 'Performance.get (FPS / frame time)', status: 'pending' },
           { label: 'Draw calls & vertices', status: 'pending' },
@@ -116,7 +116,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
-        icon: <Icons.Database {...site.lucide} />,
+        icon: <Icons.Database {...site.lucide}/>,
         items: [
           { label: 'MySQL support', status: 'completed' },
           { label: 'ORM-style query with chainable methods', status: 'completed' },
@@ -148,7 +148,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Timer',
         desc: 'Precise one-shot and repeating timer scheduling with millisecond accuracy',
-        icon: <Icons.Timer {...site.lucide} />,
+        icon: <Icons.Timer {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Customizable interval', status: 'completed' },
@@ -159,7 +159,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Promise',
         desc: 'Deferred values with full chaining, resolution, rejection, and async/await support',
-        icon: <Icons.CheckCircle {...site.lucide} />,
+        icon: <Icons.CheckCircle {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: promise.create', status: 'completed' },
@@ -171,7 +171,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Thread',
         desc: 'Low-level thread management, pooling, and lifecycle control from Lua',
-        icon: <Icons.Blocks {...site.lucide} />,
+        icon: <Icons.Blocks {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: thread.create', status: 'completed' },
@@ -185,7 +185,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'File I/O',
         desc: 'Read, write, and manage files on disk from within Lua scripts',
-        icon: <Icons.FileText {...site.lucide} />,
+        icon: <Icons.FileText {...site.lucide}/>,
         items: [
           { label: 'API: file.exists', status: 'completed' },
           { label: 'API: file.size', status: 'completed' },
@@ -199,7 +199,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'HTTP',
         desc: 'Full async HTTP layer for communicating with external REST APIs and asset servers',
-        icon: <Icons.Globe {...site.lucide} />,
+        icon: <Icons.Globe {...site.lucide}/>,
         items: [
           { label: 'Customizable headers', status: 'completed' },
           { label: 'Customizable timeout', status: 'completed' },
@@ -210,7 +210,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Crypto',
         desc: 'Cryptographic primitives for hashing, signing, and securing sensitive payloads',
-        icon: <Icons.Lock {...site.lucide} />,
+        icon: <Icons.Lock {...site.lucide}/>,
         items: [
           { label: 'SHA1 hashing', status: 'completed' },
           { label: 'SHA224 hashing', status: 'completed' },
@@ -231,7 +231,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Shrinker',
         desc: 'Asset and data compression / decompression to reduce memory footprint and transfer overhead',
-        icon: <Icons.Package {...site.lucide} />,
+        icon: <Icons.Package {...site.lucide}/>,
         items: [
           { label: 'Data compression via zstd library', status: 'completed' },
           { label: 'API: shrinker.compress', status: 'completed' },
@@ -242,7 +242,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Inspect',
         desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
-        icon: <Icons.FingerprintPattern {...site.lucide} />,
+        icon: <Icons.FingerprintPattern {...site.lucide}/>,
         items: [
           { label: 'CPU info (cores, arch)', status: 'pending' },
           { label: 'OS platform detection', status: 'pending' },
@@ -254,7 +254,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Event',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
-        icon: <Icons.Zap {...site.lucide} />,
+        icon: <Icons.Zap {...site.lucide}/>,
         items: [
           { label: 'event.on / off', status: 'pending' },
           { label: 'event.emit', status: 'pending' },
@@ -267,7 +267,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Input',
         desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
-        icon: <Icons.Gamepad2 {...site.lucide} />,
+        icon: <Icons.Gamepad2 {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'Input singleton access', status: 'pending' },
@@ -290,7 +290,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Main Menu',
         desc: 'Default client entry point — play, settings, credits, and server browser navigation',
-        icon: <Icons.LayoutDashboard {...site.lucide} />,
+        icon: <Icons.LayoutDashboard {...site.lucide}/>,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
           { label: 'Play / browse servers flow', status: 'pending' },
@@ -303,7 +303,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Game Browser',
         desc: 'In-client server list — query, filter, sort, and join available game servers',
-        icon: <Icons.Server {...site.lucide} />,
+        icon: <Icons.Server {...site.lucide}/>,
         items: [
           { label: 'Server list fetch & display', status: 'pending' },
           { label: 'Filter by name / gamemode / region', status: 'pending' },
@@ -317,7 +317,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Display & Window',
         desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
-        icon: <Icons.Monitor {...site.lucide} />,
+        icon: <Icons.Monitor {...site.lucide}/>,
         items: [
           { label: 'window_get / set_size', status: 'pending' },
           { label: 'Fullscreen / borderless / maximized', status: 'pending' },
@@ -331,7 +331,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Webview',
         desc: 'HTML/CSS/JS renderer with bidirectional Lua - JS messaging',
-        icon: <Icons.Code2 {...site.lucide} />,
+        icon: <Icons.Code2 {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
@@ -366,7 +366,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Canvas',
         desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
-        icon: <Icons.PenTool {...site.lucide} />,
+        icon: <Icons.PenTool {...site.lucide}/>,
         items: [
           { label: 'API: engine.world_to_screen', status: 'completed' },
           { label: 'API: engine.screen_to_world', status: 'completed' },
@@ -381,7 +381,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Font',
         desc: 'Runtime font loading for canvas-level text rendering',
-        icon: <Icons.Type {...site.lucide} />,
+        icon: <Icons.Type {...site.lucide}/>,
         items: [
           { label: 'Support format: TTF', status: 'completed' },
           { label: 'Support format: OTF', status: 'completed' },
@@ -396,7 +396,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Texture',
         desc: 'Runtime image texture loading, unloading, and rendering',
-        icon: <Icons.Image {...site.lucide} />,
+        icon: <Icons.Image {...site.lucide}/>,
         items: [
           { label: 'Support format: JPG', status: 'completed' },
           { label: 'Support format: PNG', status: 'completed' },
@@ -410,7 +410,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'SVG',
         desc: 'Runtime vector svg loading, unloading, and rendering',
-        icon: <Icons.FileCode {...site.lucide} />,
+        icon: <Icons.FileCode {...site.lucide}/>,
         items: [
           { label: 'Support format: SVG', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
@@ -423,7 +423,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Rendertarget',
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
-        icon: <Icons.Layers {...site.lucide} />,
+        icon: <Icons.Layers {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Optional alpha-transparent render surface', status: 'completed' },
@@ -440,7 +440,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Screenshot Capture',
         desc: 'Grab the current viewport frame as a raw image or save directly to disk',
-        icon: <Icons.Camera {...site.lucide} />,
+        icon: <Icons.Camera {...site.lucide}/>,
         items: [
           { label: 'Viewport.get_texture snapshot', status: 'pending' },
           { label: 'Save to PNG / JPG', status: 'pending' },
@@ -457,7 +457,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Environment',
         desc: 'Post-process, global illumination, and world environment control from Lua',
-        icon: <Icons.Sparkles {...site.lucide} />,
+        icon: <Icons.Sparkles {...site.lucide}/>,
         items: [
           { label: 'Adjustment (brightness / contrast / saturation / LUT)', status: 'completed' },
           { label: 'Emissive', status: 'completed' },
@@ -477,7 +477,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Lighting',
         desc: 'Runtime creation and configuration of Directional, Omni, and Spot lights from Lua',
-        icon: <Icons.Sun {...site.lucide} />,
+        icon: <Icons.Sun {...site.lucide}/>,
         items: [
           { label: 'DirectionalLight3D', status: 'pending' },
           { label: 'OmniLight3D', status: 'pending' },
@@ -490,7 +490,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Shader',
         desc: 'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
-        icon: <Icons.Sliders {...site.lucide} />,
+        icon: <Icons.Sliders {...site.lucide}/>,
         items: [
           { label: 'Custom shader authoring and compilation from Lua', status: 'pending' },
           { label: 'ShaderMaterial.set_shader_parameter', status: 'pending' },
@@ -503,7 +503,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Decals',
         desc: 'Project textures onto surfaces at runtime — bullet holes, footprints, and damage overlays',
-        icon: <Icons.Stamp {...site.lucide} />,
+        icon: <Icons.Stamp {...site.lucide}/>,
         items: [
           { label: 'Decal node creation / placement', status: 'pending' },
           { label: 'Texture assignment per channel', status: 'pending' },
@@ -514,7 +514,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'GPU Particles',
         desc: 'GPUParticles3D control — emission, restart, and process material parameters from Lua',
-        icon: <Icons.Wind {...site.lucide} />,
+        icon: <Icons.Wind {...site.lucide}/>,
         items: [
           { label: 'GPUParticles3D node access', status: 'pending' },
           { label: 'Emit / restart / one-shot', status: 'pending' },
@@ -533,7 +533,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Model',
         desc: 'Load, instantiate, transform, animate, and manage 3D model assets at runtime',
-        icon: <Icons.Box {...site.lucide} />,
+        icon: <Icons.Box {...site.lucide}/>,
         items: [
           { label: 'Support format: GLB / GLTF', status: 'completed' },
           { label: 'Load / unload by name', status: 'completed' },
@@ -557,7 +557,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Camera 3D',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
-        icon: <Icons.Video {...site.lucide} />,
+        icon: <Icons.Video {...site.lucide}/>,
         items: [
           { label: 'Camera3D transform (position / rotation)', status: 'pending' },
           { label: 'FOV / orthographic size', status: 'pending' },
@@ -572,7 +572,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Tween',
         desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
-        icon: <Icons.TrendingUp {...site.lucide} />,
+        icon: <Icons.TrendingUp {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'Tween.tween_property', status: 'pending' },
@@ -587,7 +587,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
-        icon: <Icons.Shapes {...site.lucide} />,
+        icon: <Icons.Shapes {...site.lucide}/>,
         items: [
           { label: 'BoxMesh / SphereMesh / CapsuleMesh', status: 'pending' },
           { label: 'CylinderMesh / PlaneMesh', status: 'pending' },
@@ -605,7 +605,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Physics 3D',
         desc: 'Raycast, shapecast, apply forces and impulses to rigid bodies, and query collision layers from Lua',
-        icon: <Icons.Atom {...site.lucide} />,
+        icon: <Icons.Atom {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'PhysicsServer3D singleton access', status: 'pending' },
@@ -622,7 +622,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Navigation',
         desc: 'Navmesh pathfinding, agent steering, and RVO2 avoidance for NPC and AI movement from Lua',
-        icon: <Icons.Navigation {...site.lucide} />,
+        icon: <Icons.Navigation {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'NavigationServer3D singleton access', status: 'pending' },
@@ -643,7 +643,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Audio 2D',
         desc: 'Flat stereo playback, bus routing, and bus effects from Lua',
-        icon: <Icons.Volume2 {...site.lucide} />,
+        icon: <Icons.Volume2 {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'AudioStreamPlayer (2D flat)', status: 'pending' },
@@ -659,7 +659,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Audio 3D',
         desc: 'Positional playback with attenuation and panning from Lua',
-        icon: <Icons.Headphones {...site.lucide} />,
+        icon: <Icons.Headphones {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
@@ -681,7 +681,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'ENet Transport',
         desc: 'Low-level ENet UDP transport — reliable, sequenced, and unreliable packet delivery',
-        icon: <Icons.Network {...site.lucide} />,
+        icon: <Icons.Network {...site.lucide}/>,
         items: [
           { label: 'ENet client connect / disconnect', status: 'completed' },
           { label: 'ENet server host / close', status: 'completed' },
@@ -700,7 +700,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Multiplayer API',
         desc: 'High-level RPC, entity spawning, and state synchronization from Lua',
-        icon: <Icons.Users {...site.lucide} />,
+        icon: <Icons.Users {...site.lucide}/>,
         items: [
           { label: 'MultiplayerAPI setup', status: 'completed' },
           { label: 'MultiplayerSpawner with custom spawn delegate', status: 'completed' },
@@ -714,7 +714,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'WebSocket',
         desc: 'Full-duplex WebSocket client and server for real-time browser and service communication',
-        icon: <Icons.Wifi {...site.lucide} />,
+        icon: <Icons.Wifi {...site.lucide}/>,
         items: [
           { label: 'WebSocketPeer.connect_to_url', status: 'pending' },
           { label: 'send / receive (text & binary)', status: 'pending' },
@@ -726,7 +726,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'VoIP',
         desc: 'In-game voice communication — capture, encode, transmit, and decode player audio in real time',
-        icon: <Icons.Mic {...site.lucide} />,
+        icon: <Icons.Mic {...site.lucide}/>,
         items: [
           { label: 'Microphone capture via AudioEffectCapture', status: 'pending' },
           { label: 'Opus encoding / decoding', status: 'pending' },
@@ -747,7 +747,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Discord SDK',
         desc: 'Native Discord Rich Presence — dynamic state, player count, images, and invite links',
-        icon: <Icons.Gamepad2 {...site.lucide} />,
+        icon: <Icons.Gamepad2 {...site.lucide}/>,
         items: [
           { label: 'Rich Presence state & details', status: 'completed' },
           { label: 'Large / small image keys', status: 'completed' },
