@@ -29,12 +29,15 @@
 }
 
 #nd-sidebar {
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: var(--sidebar-width) !important;
     min-width: var(--sidebar-width) !important;
     transition: width 0.2s ease, min-width 0.2s ease !important;
+    mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
 }
 
-#nd-sidebar>* {
+#nd-sidebar > * {
     width: var(--sidebar-width) !important;
 }
 
