@@ -242,7 +242,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Inspect',
         desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
-        icon: <Icons.ScanSearch {...IC} />,
+        icon: <Icons.FingerprintPattern {...IC} />,
         items: [
           { label: 'CPU info (cores, arch)', status: 'pending' },
           { label: 'OS platform detection', status: 'pending' },
