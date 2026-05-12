@@ -6,6 +6,9 @@ import { Overlay } from '@/components/overlay';
 import { Social } from '@/components/social';
 import { ClientShell } from '@/components/clientshell';
 
+import { SidebarToggle } from '@/components/sidebar';
+
+
 export default function Layout({ children }: LayoutProps<'/docs'>) {
   const { nav, ...base } = baseOptions();
 
@@ -20,18 +23,15 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
           children: (
             <div className="nav-social">
               <Social />
+              <SidebarToggle />
           </div>
           )
         }}
         tree={source.getPageTree()}
         sidebar={{
           collapsible: true,
-          footer: (
-            <div style={{ justifyContent: 'flex-end', display: 'flex' }}>
-              <Social />
-            </div>
-          ),
-      }}>
+        }}
+      >
         {children}
       </DocsLayout>
     </ClientShell>
