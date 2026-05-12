@@ -1,3 +1,7 @@
+import * as Icons from 'lucide-react';
+
+const IC = { size: 18, strokeWidth: 2 };
+
 export const Features_Content = [
   { id: 'core', label: 'Core', angle: 0, desc: 'Cryptography, compression, hardware inspection, and a full runtime console — the foundation everything runs on.', items: ['Crypto', 'Shrinker', 'Stack', 'Inspect', 'Console'] },
   { id: 'rendering', label: 'Rendering', angle: 51, desc: 'Full programmatic control over 2D canvas, textures, fonts, rendertargets, and embedded web content.', items: ['Canvas', 'Rendertarget', 'Texture', 'Font', 'Webview'] },
@@ -5,14 +9,14 @@ export const Features_Content = [
   { id: 'threading', label: 'Threading', angle: 180, desc: 'Async/await, promises, heartbeats, and low-level thread pooling — modern concurrency without sacrificing control.', items: ['Async / Await', 'Promises', 'Heartbeats', 'Threader'] },
   { id: 'networking', label: 'Networking', angle: 231, desc: 'HTTP, high-performance transport, and precise task scheduling for time-sensitive execution.', items: ['HTTP', 'Robust Transport', 'Scheduling'] },
   { id: 'sandbox', label: 'Sandboxing', angle: 282, desc: 'Full Lua isolation with no access to host internals — safe, extensible, built for user scripting and plugins.', items: ['Lua Isolation', 'User Scripting', 'Plugin Systems'] },
-  { id: 'integrations', label: 'Integrations', angle: 333, desc: 'Native Discord Rich Presence and a pub/sub event system for clean decoupled module communication.', items: ['Discord SDK', 'Event System'] }
+  { id: 'integrations', label: 'Integrations', angle: 333, desc: 'Native Discord Rich Presence and a pub/sub event system for clean decoupled module communication.', items: ['Discord SDK', 'Event System'] },
 ];
 
 export const Ethos_Content = [
-  { title: 'Open Source',              desc: 'Fully open-source, no licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.',     icon: <path d="M10 2l2.4 5 5.6.8-4 4 .9 5.5L10 14.5l-4.9 2.8.9-5.5-4-4 5.6-.8z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/> },
-  { title: 'Zero Monetization Limits', desc: 'No platform cuts, no revenue gates, no forced monetization systems. Ship free, charge what you want, keep everything.',                        icon: <><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" strokeWidth="1.4"/><path d="M7 10l2 2 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></> },
-  { title: 'No Bloat',                 desc: 'Lean by design. No unnecessary abstractions, no forced frameworks. Nothing stands between your scripts and the engine.',                        icon: <><path d="M10 2v16M2 10h16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/><circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1.4"/></> },
-  { title: 'Full Runtime Scripting',   desc: 'Script everything at runtime — rendering, networking, threading, models, GFX — one unified Lua API, top to bottom.',                          icon: <><path d="M4 4h12v8H4zM8 16h4M10 12v4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></> },
-  { title: 'Modding & Plugin Ready',   desc: 'Built for user scripting, modding, and plugin systems from day one. Full sandboxed Lua isolation — safe, powerful, extensible.',               icon: <><path d="M10 2a8 8 0 100 16A8 8 0 0010 2z" stroke="currentColor" strokeWidth="1.4"/><path d="M7 10l2 2 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></> },
-  { title: 'Performance First', desc: 'Built on Godot, engineered in C++17 with a Lua scripting layer that runs 10–50x faster than GDScript — no interpreter bottlenecks, maximum throughput at every layer.', icon: <path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /> }
+  { title: 'Open Source', desc: 'Fully open-source, no licensing fees, no royalties, no strings attached. What you build belongs to you — completely and unconditionally.', icon: <Icons.Star {...IC} /> },
+  { title: 'Zero Monetization Limits', desc: 'No platform cuts, no revenue gates, no forced monetization systems. Ship free, charge what you want, keep everything.', icon: <Icons.BadgeCheck {...IC} /> },
+  { title: 'No Bloat', desc: 'Lean by design. No unnecessary abstractions, no forced frameworks. Nothing stands between your scripts and the engine.', icon: <Icons.Puzzle {...IC} /> },
+  { title: 'Full Runtime Scripting', desc: 'Script everything at runtime — rendering, networking, threading, models, GFX — one unified Lua API, top to bottom.', icon: <Icons.Terminal {...IC} /> },
+  { title: 'Modding & Plugin Ready', desc: 'Built for user scripting, modding, and plugin systems from day one. Full sandboxed Lua isolation — safe, powerful, extensible.', icon: <Icons.Cable {...IC} /> },
+  { title: 'Performance First', desc: 'Built on Godot, engineered in C++17 with a Lua scripting layer that runs 10–50x faster than GDScript — no interpreter bottlenecks, maximum throughput at every layer.', icon: <Icons.CircleGauge {...IC} /> },
 ];
