@@ -160,7 +160,7 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 article#nd-page {
-    min-width: clamp(100px, 100%, 960px);
+    width: clamp(100px, 100%, 960px);
     justify-self: center;
 }
 
