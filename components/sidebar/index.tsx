@@ -15,23 +15,8 @@ export function SidebarToggle() {
     };
 
     return (
-        <>
-            {!collapsed && (
-                <div className="sidebar-header-row">
-                    <button className="sidebar-toggle-btn" onClick={toggle}>
-                        <PanelLeft size={15} />
-                    </button>
-                </div>
-            )}
-
-            {collapsed && (
-                <button
-                    className="sidebar-expand-btn sidebar-expand-btn--fixed"
-                    onClick={toggle}
-                >
-                    <PanelLeft size={15} />
-                </button>
-            )}
-        </>
+        <button className="sidebar-toggle-btn" onClick={toggle}>
+            <PanelLeft size={18}/>
+        </button>
     );
 }

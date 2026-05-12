@@ -1,27 +1,15 @@
-.sidebar-header-row {
-    padding-right: 0px;
-}
-
-.sidebar-expand-btn--fixed {
-    position: fixed;
-    top: 1.5rem;
-    left: 1.5rem;
-    z-index: 9999;
-    width: 28px;
-    height: 28px;
+.sidebar-toggle-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    border: 1px solid hsl(220, 18%, 12%);
-    background: hsl(250, 25%, 6%);
-    color: hsl(220, 10%, 60%);
+    border: none;
+    background: transparent;
+    color: var(--color-fd-muted-foreground);
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.2s;
 }
 
-.sidebar-expand-btn--fixed:hover {
-    background: hsl(250, 20%, 12%);
-    color: hsl(220, 10%, 90%);
-    border-color: hsl(220, 18%, 22%);
+.sidebar-toggle-btn:hover {
+    color: var(--color-fd-foreground);
 }
