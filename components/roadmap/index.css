@@ -136,8 +136,9 @@
 
 .rcard-name {
   font-family: 'Geist', sans-serif;
-  font-size: .82rem;
+  font-size: 0.78rem;
   font-weight: 800;
+  text-transform: uppercase;
   color: var(--dim);
   transition: color .25s;
 }
