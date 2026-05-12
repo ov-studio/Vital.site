@@ -718,7 +718,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Discord SDK',
         desc: 'Native Discord Rich Presence — dynamic state, player count, images, and invite links',
-        icon: <Icons.MessageCircle {...IC} />,
+        icon: <Icons.Gamepad2 {...IC} />,
         items: [
           { label: 'Rich Presence state & details', status: 'completed' },
           { label: 'Large / small image keys', status: 'completed' },

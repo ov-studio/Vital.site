@@ -1,6 +1,6 @@
 {
     "title": "Engine",
-    "icon": "Cog",
+    "icon": "Cpu",
     "pages": [
         "---Base---",
         "print",

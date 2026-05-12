@@ -1,11 +1,16 @@
 import { docs } from 'fumadocs-mdx:collections/server';
 import { type InferPageType, loader } from 'fumadocs-core/source';
-import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
+import * as LucideIcons from 'lucide-react';
+import { createElement } from 'react';
 
 export const source = loader({
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
-  plugins: [lucideIconsPlugin()],
+  icon(name) {
+    if (name && name in LucideIcons) {
+      return createElement(LucideIcons[name as keyof typeof LucideIcons] as any, { size: 18 });
+    }
+  },
   slugs(file) {
     const parts = file.path.replace(/\.mdx?$/, '').split('/');
     const last = parts[parts.length - 1];
