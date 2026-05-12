@@ -1,6 +1,6 @@
 {
     "title": "Timer",
-    "icon": "Clock",
+    "icon": "Timer",
     "pages": [
         "---Base---",
         "create",

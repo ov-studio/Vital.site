@@ -171,7 +171,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Thread',
         desc: 'Low-level thread management, pooling, and lifecycle control from Lua',
-        icon: <Icons.Layers {...IC} />,
+        icon: <Icons.Blocks {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: thread.create', status: 'completed' },
@@ -423,7 +423,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Rendertarget',
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
-        icon: <Icons.Tv2 {...IC} />,
+        icon: <Icons.Layers {...IC} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Optional alpha-transparent render surface', status: 'completed' },
