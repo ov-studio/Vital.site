@@ -1,6 +1,6 @@
 {
     "title": "Shrinker",
-    "icon": "Archive",
+    "icon": "Package",
     "pages": [
         "---Base---",
         "compress",
