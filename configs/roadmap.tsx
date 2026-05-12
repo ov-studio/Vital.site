@@ -640,25 +640,40 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Audio',
     cards: [
       {
-        label: 'Audio',
-        desc: 'Play, stop, pause, and seek streams. Flat 2D audio and 3D positional sound with attenuation from Lua',
+        // TODO: WIP
+        label: 'Audio 2D',
+        desc: 'Flat stereo playback, bus routing, and bus effects from Lua',
         icon: <Icons.Volume2 {...site.lucide} />,
         priority: 'Must have',
         items: [
           { label: 'AudioStreamPlayer (2D flat)', status: 'pending' },
+          { label: 'Play / stop / pause / seek', status: 'pending' },
+          { label: 'Volume (linear & dB) control', status: 'pending' },
+          { label: 'Pitch scale control', status: 'pending' },
+          { label: 'AudioServer bus routing', status: 'pending' },
+          { label: 'Bus effects (Reverb / EQ / Limiter)', status: 'pending' },
+          { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Audio 3D',
+        desc: 'Positional playback with attenuation and panning from Lua',
+        icon: <Icons.Headphones {...site.lucide} />,
+        priority: 'Must have',
+        items: [
           { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
           { label: 'Play / stop / pause / seek', status: 'pending' },
           { label: 'Volume (linear & dB) control', status: 'pending' },
           { label: 'Pitch scale control', status: 'pending' },
           { label: 'Attenuation model & max distance', status: 'pending' },
           { label: 'AudioServer bus routing', status: 'pending' },
-          { label: 'Bus effects (Reverb / EQ / Limiter)', status: 'pending' },
           { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
         ],
       },
     ],
   },
-
+  
   {
     name: 'Network',
     cards: [
