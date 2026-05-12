@@ -707,6 +707,21 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'TLS / WSS support', status: 'pending' },
         ],
       },
+      {
+        // TODO: WIP
+        label: 'VoIP',
+        desc: 'In-game voice communication — capture, encode, transmit, and decode player audio in real time',
+        icon: <Icons.Mic {...site.lucide} />,
+        items: [
+          { label: 'Microphone capture via AudioEffectCapture', status: 'pending' },
+          { label: 'Opus encoding / decoding', status: 'pending' },
+          { label: 'Voice packet send / receive over ENet', status: 'pending' },
+          { label: 'Per-peer 3D positional playback', status: 'pending' },
+          { label: 'Mute / unmute (local & remote)', status: 'pending' },
+          { label: 'Voice activity detection (VAD)', status: 'pending' },
+          { label: 'Volume per speaker', status: 'pending' },
+        ],
+      },
     ],
   },
 
