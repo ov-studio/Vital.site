@@ -138,6 +138,7 @@
   font-family: 'Geist', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: .05em;
   text-transform: uppercase;
   color: var(--dim);
   transition: color .25s;
