@@ -7,18 +7,18 @@
         "method__get_type",
         "method__destroy",
 
-        "---::API---",
-        "method__fetch",
-        "method__alter",
-        "method__drop",
-        "method__truncate",
-        "method__execute",
-
         "---::Builder---",
         "method__select",
         "method__where",
         "method__insert",
         "method__delete",
-        "method__update"
+        "method__update",
+
+        "---::API---",
+        "method__fetch",
+        "method__alter",
+        "method__drop",
+        "method__truncate",
+        "method__execute"
     ]
 }
