@@ -1,9 +1,8 @@
 import * as Icons from 'lucide-react';
 
-const IC = { size: 18, strokeWidth: 2 };
-
 type CardInput = Omit<RoadmapCard, 'id'>;
 type SectionInput = { name: string; cards: CardInput[] };
+const IC = { size: 18, strokeWidth: 2 };
 
 function toId(label: string): string {
   return label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

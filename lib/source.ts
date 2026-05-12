@@ -8,7 +8,7 @@ export const source = loader({
   source: docs.toFumadocsSource(),
   icon(name) {
     if (name && name in LucideIcons) {
-      return createElement(LucideIcons[name as keyof typeof LucideIcons] as any, { size: 18 });
+      return createElement(LucideIcons[name as keyof typeof LucideIcons] as any, { size: 18, strokeWidth: 2 });
     }
   },
   slugs(file) {
