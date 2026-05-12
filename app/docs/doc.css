@@ -154,18 +154,16 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 .nav-social {
-  position: absolute;
-  right: 1rem;
-  display: flex;
+    position: absolute;
+    right: 1rem;
+    display: flex;
 }
 
 article#nd-page {
-    min-width: 960px;
+    min-width: clamp(100px, 100%, 960px);
     justify-self: center;
 }
 
 @media (max-width: 2000px) { 
-  .nav-social {
-    display: none; 
-  }
+    .nav-social { display: none; }
 }
