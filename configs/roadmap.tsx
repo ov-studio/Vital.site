@@ -98,8 +98,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Resource asset streaming via HTTP server', status: 'completed' },
           { label: '[Shared] Resource-scoped entity lifetime', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
-          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' },
-          { label: '[Shared] Asset spawn queue — model spawn on download complete', status: 'completed' },
+          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
         ],
       },
       {
