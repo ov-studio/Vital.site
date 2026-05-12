@@ -85,7 +85,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'Resource System',
+        label: 'Resources',
         desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
         icon: <Icons.FolderOpen {...site.lucide} />,
         items: [
