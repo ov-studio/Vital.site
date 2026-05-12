@@ -154,9 +154,9 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 .nav-social {
-    position: absolute;
-    right: 1rem;
     display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 article#nd-page {
