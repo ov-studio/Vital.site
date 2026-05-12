@@ -38,16 +38,6 @@
     width: var(--sidebar-width) !important;
 }
 
-[data-sidebar-panel] {
-    display: none !important;
-    pointer-events: none !important;
-}
-
-[data-search-full] {
-    margin-top: 0.85rem;
-    margin-bottom: 1rem;
-}
-
 button[aria-label="Collapse Sidebar"] {
     display: none !important;
 }
@@ -160,16 +150,19 @@ aside#nd-sidebar[data-collapsed="true"] {
     margin-top: 10px !important;
 }
 
-@media (max-width: 2000px) {
-    #nd-toc {
-        display: none !important;
-    }
+.nav-social {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+}
 
-    .sidebar-header-row {
-        display: none;
-    }
+article#nd-page {
+    max-width: 100%;
+    margin-inline: auto;
+}
 
-    .sidebar-expand-btn--fixed {
-        display: none;
-    }
+@media (max-width: 2000px) { 
+  .nav-social {
+    display: none; 
+  }
 }
