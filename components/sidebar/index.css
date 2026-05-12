@@ -13,3 +13,12 @@
 .sidebar-toggle-btn:hover {
     color: var(--color-fd-foreground);
 }
+
+.sidebar-toggle-btn::before {
+    content: '';
+    position: absolute;
+    margin-right: 50px;
+    width: 1px;
+    height: 18px;
+    background: var(--color-fd-border);
+}

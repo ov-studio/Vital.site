@@ -4,9 +4,8 @@ import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 import { baseOptions } from '@/lib/layout.shared';
 import { Overlay } from '@/components/overlay';
 import { Social } from '@/components/social';
-import { ClientShell } from '@/components/clientshell';
-
 import { SidebarToggle } from '@/components/sidebar';
+import { ClientShell } from '@/components/clientshell';
 
 
 export default function Layout({ children }: LayoutProps<'/docs'>) {
