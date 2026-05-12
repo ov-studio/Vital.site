@@ -98,7 +98,7 @@ h2 span {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: .015em;
+    letter-spacing: .025em;
     text-transform: uppercase;
     background: var(--blue);
     color: var(--bg);
