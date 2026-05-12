@@ -129,11 +129,18 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 [class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(1.025rem, 2vw, 1.025rem);
+    font-family: 'Geist', sans-serif;
+    font-size: .72rem;
     font-weight: 600;
-    letter-spacing: .01em;
-    color: var(--blue) !important;
+    text-transform: uppercase;
+    color: var(--blue);
+}
+
+[class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"]::before, [class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"]::after {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--blue)
 }
 
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
