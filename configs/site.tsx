@@ -13,5 +13,9 @@ export const site = {
       github: { label: 'GitHub', href: 'https://github.com/ov-studio' },
       discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW' },
       youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community' }
+    },
+
+    lucide: { 
+      size: 18, strokeWidth: 2 
     }
 };
