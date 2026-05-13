@@ -1,6 +1,6 @@
 ---
 title: font.create
-description: Creates a new font instance
+description: Creates a new font instance from a file path
 badge: Client
 ---
 
@@ -16,7 +16,7 @@ local instance = font.create(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | path | Path to the font file relative to the resource directory |
+| `string` | path | File path to a supported font asset<br/>Refer [**Formats**](#formats) section |
 
 ### Returns
 
@@ -26,10 +26,27 @@ local instance = font.create(
 
 <hr/>
 
+### Formats
+
+| Format | Extension | Description |
+|--------|-----------|-------------|
+| TrueType | `.ttf` | Standard scalable font format |
+| OpenType | `.otf` | Extended scalable font format |
+| Web Open Font | `.woff` | Compressed web font format |
+| Web Open Font 2 | `.woff2` | Modern compressed web font format |
+
+<hr/>
+
 ### Examples
 
-```lua lineNumbers title="Create a font instance from a file"
-local ft = font.create("fonts/Roboto-Regular.ttf")
+```lua lineNumbers title="Create a font instance from a TTF file"
+local fnt = font.create("assets/font.ttf")
+```
 
-engine.print("info", ft:get_type()) --'font'
+```lua lineNumbers title="Create a font instance from an OTF file"
+local fnt = font.create("assets/font.otf")
+```
+
+```lua lineNumbers title="Create a font instance from a WOFF2 file"
+local fnt = font.create("assets/font.woff2")
 ```
