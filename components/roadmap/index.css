@@ -196,10 +196,6 @@
   box-shadow: 0 0 5px hsla(45, 80%, 58%, .6);
 }
 
-.rcard--pending .rcard-bar-track-fill {
-  width: 0 !important;
-}
-
 .rcard-pct {
   font-family: 'Rajdhani', sans-serif;
   font-size: .82rem;
