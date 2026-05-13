@@ -385,6 +385,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Support format: TTF', status: 'completed' },
           { label: 'Support format: OTF', status: 'completed' },
+          { label: 'Support format: WOFF', status: 'completed' },
+          { label: 'Support format: WOFF2', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'API: font.create', status: 'completed' },
           { label: 'API: self<font>:get_antialiasing', status: 'completed' },
