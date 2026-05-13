@@ -5,8 +5,8 @@ import { Roadmap_Section, type FeatureStatus, type RoadmapCard, type RoadmapSect
 
 const STATUS_WEIGHT: Record<FeatureStatus, number> = {
   completed: 1,
-  partial:   0.5,
-  pending:   0,
+  partial: 0.5,
+  pending: 0
 };
 
 function cardPct(card: RoadmapCard): number {
