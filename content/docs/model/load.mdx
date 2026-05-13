@@ -18,13 +18,21 @@ local status = model.load(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name to register the model under |
-| `string` | path | File path of the model to load |
+| `string` | path | File path to a supported model asset<br/>Refer [**Formats**](#formats) section |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | status | `true` on successful execution, or `false` on failure |
+
+<hr/>
+
+### Formats
+
+| Format | Extension | Description |
+|--------|-----------|-------------|
+| GLB | `.glb` | Self contained binary GLTF asset |
 
 <hr/>
 
