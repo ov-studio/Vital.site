@@ -16,7 +16,7 @@ local instance = texture.create(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | path | File path to the texture asset |
+| `string` | path | File path to the texture asset in either of the supported formats<br/>Refer [**Formats**](#formats) section |
 
 ### Returns
 
@@ -26,8 +26,26 @@ local instance = texture.create(
 
 <hr/>
 
+### Formats
+
+| Format | Extension | Description |
+|--------|-----------|-------------|
+| JPEG | `.jpg` \| `.jpeg` | Lossy compressed image, best for photos |
+| PNG | `.png` | Lossless compressed image, supports transparency |
+| WebP | `.webp` | Modern format, supports both lossy and lossless |
+
+<hr/>
+
 ### Examples
 
-```lua lineNumbers title="Create a texture instance from a file"
+```lua lineNumbers title="Create a texture instance from a JPEG file"
+local tex = texture.create("assets/photo.jpg")
+```
+
+```lua lineNumbers title="Create a texture instance from a PNG file"
 local tex = texture.create("assets/sprite.png")
+```
+
+```lua lineNumbers title="Create a texture instance from a WebP file"
+local tex = texture.create("assets/image.webp")
 ```

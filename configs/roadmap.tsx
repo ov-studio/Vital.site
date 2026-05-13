@@ -398,9 +398,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Runtime image texture loading, unloading, and rendering',
         icon: <Icons.Image {...site.lucide}/>,
         items: [
-          { label: 'Support format: JPG', status: 'completed' },
+          { label: 'Support format: JPEG', status: 'completed' },
           { label: 'Support format: PNG', status: 'completed' },
-          { label: 'Support format: WEBP', status: 'completed' },
+          { label: 'Support format: WebP', status: 'completed' },
           { label: 'Support format: KTX / DDS (compressed)', status: 'pending' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Texture cache', status: 'completed' },
