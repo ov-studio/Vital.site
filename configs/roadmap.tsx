@@ -118,7 +118,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
         icon: <Icons.Database {...site.lucide}/>,
         items: [
-          { label: 'MySQL support', status: 'completed' },
+          { label: 'Support database: MySQL', status: 'completed' },
           { label: 'ORM-style query with chainable methods', status: 'completed' },
           { label: 'Async query execution', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
