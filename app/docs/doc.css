@@ -81,15 +81,6 @@ aside#nd-sidebar[data-collapsed="true"] {
     background: hsl(250, 25%, 9%);
 }
 
-#nd-docs-layout:has(#nd-sidebar[data-collapsed="true"]) {
-    --fd-sidebar-width: 0px !important;
-}
-
-#nd-docs-layout:has(#nd-sidebar[data-collapsed="true"]) #nd-page {
-    max-width: 860px;
-    margin: 0 auto;
-}
-
 #nd-toc,
 [class*="border-fd-foreground"] a {
     font-family: 'Rajdhani', sans-serif;
