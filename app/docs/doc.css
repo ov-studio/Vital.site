@@ -5,14 +5,13 @@
 
 :root {
     --fd-layout-width: 100vw;
-    --sidebar-width: 365px;
+    --sidebar-width: 340px;
 }
 
 @theme {
     --color-fd-primary: var(--blue);
     --font-sans: var(--font-geist);
     --font-mono: var(--font-geist-mono);
-    --breakpoint-md: 2000px;
 }
 
 .dark {
