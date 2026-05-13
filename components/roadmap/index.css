@@ -178,6 +178,7 @@
   flex: 1;
   height: 3px;
   background: hsla(220, 18%, 100%, .06);
+  border-radius: 3px;
 }
 
 .rcard-bar-track-fill {
