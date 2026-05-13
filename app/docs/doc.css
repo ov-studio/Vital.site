@@ -34,13 +34,13 @@
     mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
 }
 
-@media (min-width: 1700px) {
+@media (min-width: 1600px) {
     #nd-sidebar {
         width: var(--sidebar-width) !important;
     }
 
-    #nd-sidebar>* {
-        width: var(--sidebar-width) !important;
+    #nd-sidebar > * {
+        width: 100% !important;
     }
 }
 
