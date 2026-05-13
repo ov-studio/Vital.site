@@ -12,10 +12,8 @@
 
 .roadmap-intro {
   margin-bottom: 80px;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 500;
   line-height: 1.75;
-  color: var(--text-mid);
+  color: var(--text-muted);
 }
 
 .roadmap-body {
