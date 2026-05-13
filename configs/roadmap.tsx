@@ -335,7 +335,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
-          { label: 'Serve files over HTTP instead of file://', status: 'pending' },
           { label: 'Serve webview files over HTTP instead of file://', status: 'pending' },
           { label: 'API: webview.create', status: 'completed' },
           { label: 'API: self<webview>:is_visible', status: 'completed' },
