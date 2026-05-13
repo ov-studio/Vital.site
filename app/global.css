@@ -42,7 +42,7 @@ h2 span {
 }
 
 .sw {
-    max-width: 1400px;
+    max-width: var(--section-width);
     margin: 0 auto;
     padding: 0 48px
 }

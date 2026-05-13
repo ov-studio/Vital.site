@@ -26,7 +26,7 @@ nav.s::after {
 }
 
 .ni {
-  max-width: 1400px;
+  max-width: var(--section-width);
   margin: 0 auto;
   width: 100%;
   padding: 0 48px;

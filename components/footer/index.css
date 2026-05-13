@@ -4,7 +4,7 @@ footer {
 }
 
 .footer-main {
-  max-width: 1400px;
+  max-width: var(--section-width);
   margin: 0 auto;
   padding: 64px 48px 56px;
   display: grid;
