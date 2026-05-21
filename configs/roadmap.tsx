@@ -498,6 +498,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Texture uniform binding', status: 'pending' },
           { label: 'Float / vec2 / vec3 / color uniforms', status: 'pending' },
           { label: 'Per-instance uniform override', status: 'pending' },
+          { label: 'Auto-bind model textures to shader uniforms (albedo / normal / ORM)', status: 'pending' },
+          { label: 'ShaderMaterial — replace BaseMaterial3D on surface while preserving original textures', status: 'pending' },
         ],
       },
       {
