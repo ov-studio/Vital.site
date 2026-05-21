@@ -64,7 +64,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
           { label: '[Shared] Command: help', status: 'completed' },
-          { label: '[Server] Command: info', status: 'pending' },
+          { label: '[Server] Command: info', status: 'completed' },
           { label: '[Shared] Command: version', status: 'completed' },
           { label: '[Shared] Command: clear', status: 'completed' },
           { label: '[Server] Command: srun <code>', status: 'completed' },
