@@ -99,6 +99,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Per-resource isolated Lua environments', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
           { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
+          { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' }
         ],
       },
       {
