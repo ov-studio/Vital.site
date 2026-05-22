@@ -96,6 +96,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Resource compression', status: 'completed' },
           { label: '[Shared] Resource asset streaming via HTTP server', status: 'completed' },
           { label: '[Shared] Resource-scoped entity lifetime', status: 'completed' },
+          { label: '[Shared] Per-resource isolated Lua environments', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
           { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
         ],
