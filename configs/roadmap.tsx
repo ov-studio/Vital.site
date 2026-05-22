@@ -155,7 +155,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Customizable interval', status: 'completed' },
           { label: 'Customizable executions', status: 'completed' },
-          { label: 'API: timer.create', status: 'completed' }
+          { label: '[Shared] API: timer.create', status: 'completed' }
         ],
       },
       {
@@ -164,10 +164,10 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.CheckCircle {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'API: promise.create', status: 'completed' },
-          { label: 'API: self<promise>:is_pending', status: 'completed' },
-          { label: 'API: self<promise>:resolve', status: 'completed' },
-          { label: 'API: self<promise>:reject', status: 'completed' }
+          { label: '[Shared] API: promise.create', status: 'completed' },
+          { label: '[Shared] API: self<promise>:is_pending', status: 'completed' },
+          { label: '[Shared] API: self<promise>:resolve', status: 'completed' },
+          { label: '[Shared] API: self<promise>:reject', status: 'completed' }
         ],
       },
       {
@@ -176,12 +176,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.Blocks {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'API: thread.create', status: 'completed' },
-          { label: 'API: thread.current', status: 'completed' },
-          { label: 'API: self<thread>:resume', status: 'completed' },
-          { label: 'API: self<thread>:pause', status: 'completed' },
-          { label: 'API: self<thread>:sleep', status: 'completed' },
-          { label: 'API: self<thread>:await', status: 'completed' }
+          { label: '[Shared] API: thread.create', status: 'completed' },
+          { label: '[Shared] API: thread.current', status: 'completed' },
+          { label: '[Shared] API: self<thread>:resume', status: 'completed' },
+          { label: '[Shared] API: self<thread>:pause', status: 'completed' },
+          { label: '[Shared] API: self<thread>:sleep', status: 'completed' },
+          { label: '[Shared] API: self<thread>:await', status: 'completed' }
         ],
       },
       {
@@ -189,13 +189,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Read, write, and manage files on disk from within Lua scripts',
         icon: <Icons.FileText {...site.lucide}/>,
         items: [
-          { label: 'API: file.exists', status: 'completed' },
-          { label: 'API: file.size', status: 'completed' },
-          { label: 'API: file.hash', status: 'completed' },
-          { label: 'API: file.delete', status: 'completed' },
-          { label: 'API: file.read', status: 'completed' },
-          { label: 'API: file.write', status: 'completed' },
-          { label: 'API: file.contents', status: 'completed' }
+          { label: '[Shared] API: file.exists', status: 'completed' },
+          { label: '[Shared] API: file.size', status: 'completed' },
+          { label: '[Shared] API: file.hash', status: 'completed' },
+          { label: '[Shared] API: file.delete', status: 'completed' },
+          { label: '[Shared] API: file.read', status: 'completed' },
+          { label: '[Shared] API: file.write', status: 'completed' },
+          { label: '[Shared] API: file.contents', status: 'completed' }
         ],
       },
       {
@@ -205,8 +205,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Customizable headers', status: 'completed' },
           { label: 'Customizable timeout', status: 'completed' },
-          { label: 'API: http.get', status: 'completed' },
-          { label: 'API: http.post', status: 'completed' },
+          { label: '[Shared] API: http.get', status: 'completed' },
+          { label: '[Shared] API: http.post', status: 'completed' },
         ],
       },
       {
@@ -214,7 +214,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Cryptographic primitives for hashing, signing, and securing sensitive payloads',
         icon: <Icons.Lock {...site.lucide}/>,
         items: [
-          { label: 'SHA1 hashing', status: 'completed' },
           { label: 'SHA224 hashing', status: 'completed' },
           { label: 'SHA256 hashing', status: 'completed' },
           { label: 'SHA384 hashing', status: 'completed' },
@@ -223,11 +222,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'AES128 encryption / decryption', status: 'completed' },
           { label: 'AES192 encryption / decryption', status: 'completed' },
           { label: 'AES256 encryption / decryption', status: 'completed' },
-          { label: 'API: crypto.hash', status: 'completed' },
-          { label: 'API: crypto.encode', status: 'completed' },
-          { label: 'API: crypto.decode', status: 'completed' },
-          { label: 'API: crypto.encrypt', status: 'completed' },
-          { label: 'API: crypto.decrypt', status: 'completed' }
+          { label: '[Shared] API: crypto.hash', status: 'completed' },
+          { label: '[Shared] API: crypto.encode', status: 'completed' },
+          { label: '[Shared] API: crypto.decode', status: 'completed' },
+          { label: '[Shared] API: crypto.encrypt', status: 'completed' },
+          { label: '[Shared] API: crypto.decrypt', status: 'completed' }
         ],
       },
       {
@@ -236,8 +235,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.Package {...site.lucide}/>,
         items: [
           { label: 'Data compression via zstd library', status: 'completed' },
-          { label: 'API: shrinker.compress', status: 'completed' },
-          { label: 'API: shrinker.decompress', status: 'completed' }
+          { label: '[Shared] API: shrinker.compress', status: 'completed' },
+          { label: '[Shared] API: shrinker.decompress', status: 'completed' }
         ],
       },
       {
@@ -338,30 +337,30 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
           { label: 'Serve webview files over HTTP instead of file://', status: 'pending' },
-          { label: 'API: webview.create', status: 'completed' },
-          { label: 'API: self<webview>:is_visible', status: 'completed' },
-          { label: 'API: self<webview>:is_fullscreen', status: 'completed' },
-          { label: 'API: self<webview>:is_transparent', status: 'completed' },
-          { label: 'API: self<webview>:is_incognito', status: 'completed' },
-          { label: 'API: self<webview>:is_autoplay', status: 'completed' },
-          { label: 'API: self<webview>:is_zoomable', status: 'completed' },
-          { label: 'API: self<webview>:is_devtools_visible', status: 'completed' },
-          { label: 'API: self<webview>:get_position', status: 'completed' },
-          { label: 'API: self<webview>:get_size', status: 'completed' },
-          { label: 'API: self<webview>:set_position', status: 'completed' },
-          { label: 'API: self<webview>:set_size', status: 'completed' },
-          { label: 'API: self<webview>:set_visible', status: 'completed' },
-          { label: 'API: self<webview>:set_devtools_visible', status: 'completed' },
-          { label: 'API: self<webview>:set_message_handler', status: 'completed' },
-          { label: 'API: self<webview>:load_url', status: 'completed' },
-          { label: 'API: self<webview>:load_html', status: 'completed' },
-          { label: 'API: self<webview>:clear_history', status: 'completed' },
-          { label: 'API: self<webview>:focus', status: 'completed' },
-          { label: 'API: self<webview>:reload', status: 'completed' },
-          { label: 'API: self<webview>:zoom', status: 'completed' },
-          { label: 'API: self<webview>:update', status: 'completed' },
-          { label: 'API: self<webview>:eval', status: 'completed' },
-          { label: 'API: self<webview>:emit', status: 'completed' }
+          { label: '[Client] API: webview.create', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_fullscreen', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_transparent', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_incognito', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_autoplay', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_zoomable', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_devtools_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:get_position', status: 'completed' },
+          { label: '[Client] API: self<webview>:get_size', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_position', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_size', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_devtools_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_message_handler', status: 'completed' },
+          { label: '[Client] API: self<webview>:load_url', status: 'completed' },
+          { label: '[Client] API: self<webview>:load_html', status: 'completed' },
+          { label: '[Client] API: self<webview>:clear_history', status: 'completed' },
+          { label: '[Client] API: self<webview>:focus', status: 'completed' },
+          { label: '[Client] API: self<webview>:reload', status: 'completed' },
+          { label: '[Client] API: self<webview>:zoom', status: 'completed' },
+          { label: '[Client] API: self<webview>:update', status: 'completed' },
+          { label: '[Client] API: self<webview>:eval', status: 'completed' },
+          { label: '[Client] API: self<webview>:emit', status: 'completed' }
         ],
       },
       {
@@ -369,14 +368,14 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
         icon: <Icons.PenTool {...site.lucide}/>,
         items: [
-          { label: 'API: engine.world_to_screen', status: 'completed' },
-          { label: 'API: engine.screen_to_world', status: 'completed' },
-          { label: 'API: engine.draw_line', status: 'completed' },
-          { label: 'API: engine.draw_polygon', status: 'completed' },
-          { label: 'API: engine.draw_rectangle', status: 'completed' },
-          { label: 'API: engine.draw_circle', status: 'completed' },
-          { label: 'API: engine.draw_image', status: 'completed' },
-          { label: 'API: engine.draw_text', status: 'completed' }
+          { label: '[Client] API: engine.world_to_screen', status: 'completed' },
+          { label: '[Client] API: engine.screen_to_world', status: 'completed' },
+          { label: '[Client] API: engine.draw_line', status: 'completed' },
+          { label: '[Client] API: engine.draw_polygon', status: 'completed' },
+          { label: '[Client] API: engine.draw_rectangle', status: 'completed' },
+          { label: '[Client] API: engine.draw_circle', status: 'completed' },
+          { label: '[Client] API: engine.draw_image', status: 'completed' },
+          { label: '[Client] API: engine.draw_text', status: 'completed' }
         ],
       },
       {
@@ -389,11 +388,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Format: OTF', status: 'completed' },
           { label: 'Format: WOFF', status: 'completed' },
           { label: 'Format: WOFF2', status: 'completed' },
-          { label: 'API: font.create', status: 'completed' },
-          { label: 'API: self<font>:get_antialiasing', status: 'completed' },
-          { label: 'API: self<font>:get_oversampling', status: 'completed' },
-          { label: 'API: self<font>:set_antialiasing', status: 'completed' },
-          { label: 'API: self<font>:set_oversampling', status: 'completed' }
+          { label: '[Client] API: font.create', status: 'completed' },
+          { label: '[Client] API: self<font>:get_antialiasing', status: 'completed' },
+          { label: '[Client] API: self<font>:get_oversampling', status: 'completed' },
+          { label: '[Client] API: self<font>:set_antialiasing', status: 'completed' },
+          { label: '[Client] API: self<font>:set_oversampling', status: 'completed' }
         ],
       },
       {
@@ -407,7 +406,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Format: WEBP', status: 'completed' },
           { label: 'Format: KTX | DDS (compressed)', status: 'pending' },
           { label: 'Texture cache', status: 'completed' },
-          { label: 'API: texture.create', status: 'completed' }
+          { label: '[Client] API: texture.create', status: 'completed' }
         ],
       },
       {
@@ -418,9 +417,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: SVG', status: 'completed' },
           { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
-          { label: 'API: svg.create', status: 'completed' },
-          { label: 'API: svg.create_from_raw', status: 'completed' },
-          { label: 'API: self<svg>:update', status: 'completed' }
+          { label: '[Client] API: svg.create', status: 'completed' },
+          { label: '[Client] API: svg.create_from_raw', status: 'completed' },
+          { label: '[Client] API: self<svg>:update', status: 'completed' }
         ],
       },
       {
@@ -431,12 +430,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Optional alpha-transparent render surface', status: 'completed' },
           { label: 'Optional immediate-mode per-frame updates', status: 'completed' },
-          { label: 'API: rendertarget.create', status: 'completed' },
-          { label: 'API: rendertarget.get_active', status: 'completed' },
-          { label: 'API: rendertarget.set_active', status: 'completed' },
-          { label: 'API: self<rendertarget>:is_active', status: 'completed' },
-          { label: 'API: self<rendertarget>:get_size', status: 'completed' },
-          { label: 'API: self<rendertarget>:set_active', status: 'completed' }
+          { label: '[Client] API: rendertarget.create', status: 'completed' },
+          { label: '[Client] API: rendertarget.get_active', status: 'completed' },
+          { label: '[Client] API: rendertarget.set_active', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:is_active', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:get_size', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:set_active', status: 'completed' }
         ],
       },
       {
