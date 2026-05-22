@@ -214,6 +214,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Cryptographic primitives for hashing, signing, and securing sensitive payloads',
         icon: <Icons.Lock {...site.lucide}/>,
         items: [
+          { label: 'Hash algorithm: SHA1', status: 'completed' },
           { label: 'Hash algorithm: SHA224', status: 'completed' },
           { label: 'Hash algorithm: SHA256', status: 'completed' },
           { label: 'Hash algorithm: SHA384', status: 'completed' },
