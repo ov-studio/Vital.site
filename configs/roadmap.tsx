@@ -427,7 +427,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Format: PNG', status: 'completed' },
           { label: 'Format: WEBP', status: 'completed' },
           { label: 'Format: KTX | DDS (compressed)', status: 'pending' },
-          { label: 'Texture cache', status: 'completed' },
+          { label: 'Implicit texture cache for draw calls', status: 'completed' },
           { label: '[Client] API: texture.create', status: 'completed' },
           { label: '[Client] API: self<texture>:is_type', status: 'completed' },
           { label: '[Client] API: self<texture>:get_type', status: 'completed' },
