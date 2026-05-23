@@ -573,7 +573,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Support format: GLB', status: 'completed' },
           { label: 'Model loader / unloader', status: 'completed' },
           { label: 'Server spawn replication with per-peer authority', status: 'completed' },
-          { label: 'Server transform replication (position / rotation)', status: 'pending' },
+          { label: 'Server transform replication', status: 'pending' },
           { label: 'Server blendshape replication', status: 'pending' },
           { label: 'Server material override replication', status: 'pending' },
           { label: 'Server material flag replication', status: 'pending' },
