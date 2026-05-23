@@ -125,10 +125,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'ORM-style query with chainable methods', status: 'completed' },
           { label: 'Asynchronous query execution', status: 'completed' },
           { label: '[Server] API: database.create', status: 'completed' },
+          { label: '[Shared] API: self<database>:destroy', status: 'completed' },
           { label: '[Server] API: self<database>:is_connected', status: 'completed' },
           { label: '[Server] API: self<database>:define', status: 'completed' },
           { label: '[Server] API: self<database>:sync', status: 'completed' },
           { label: '[Server] API: self<database>:table', status: 'completed' },
+          { label: '[Shared] API: self<db_query>:destroy', status: 'completed' },
           { label: '[Server] API: self<db_query>:fetch', status: 'completed' },
           { label: '[Server] API: self<db_query>:alter', status: 'completed' },
           { label: '[Server] API: self<db_query>:drop', status: 'completed' },
@@ -155,7 +157,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Customizable interval', status: 'completed' },
           { label: 'Customizable executions', status: 'completed' },
-          { label: '[Shared] API: timer.create', status: 'completed' }
+          { label: '[Shared] API: timer.create', status: 'completed' },
+          { label: '[Shared] API: self<timer>:destroy', status: 'completed' }
         ],
       },
       {
@@ -165,6 +168,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: '[Shared] API: promise.create', status: 'completed' },
+          { label: '[Shared] API: self<promise>:destroy', status: 'completed' },
           { label: '[Shared] API: self<promise>:is_pending', status: 'completed' },
           { label: '[Shared] API: self<promise>:resolve', status: 'completed' },
           { label: '[Shared] API: self<promise>:reject', status: 'completed' }
@@ -178,6 +182,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: '[Shared] API: thread.create', status: 'completed' },
           { label: '[Shared] API: thread.current', status: 'completed' },
+          { label: '[Shared] API: self<thread>:destroy', status: 'completed' },
           { label: '[Shared] API: self<thread>:resume', status: 'completed' },
           { label: '[Shared] API: self<thread>:pause', status: 'completed' },
           { label: '[Shared] API: self<thread>:sleep', status: 'completed' },
@@ -339,6 +344,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
           { label: 'Serve webview files over HTTP instead of file://', status: 'pending' },
           { label: '[Client] API: webview.create', status: 'completed' },
+          { label: '[Shared] API: self<webview>:destroy', status: 'completed' },
           { label: '[Client] API: self<webview>:is_visible', status: 'completed' },
           { label: '[Client] API: self<webview>:is_fullscreen', status: 'completed' },
           { label: '[Client] API: self<webview>:is_transparent', status: 'completed' },
@@ -390,6 +396,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Format: WOFF', status: 'completed' },
           { label: 'Format: WOFF2', status: 'completed' },
           { label: '[Client] API: font.create', status: 'completed' },
+          { label: '[Shared] API: self<font>:destroy', status: 'completed' },
           { label: '[Client] API: self<font>:get_antialiasing', status: 'completed' },
           { label: '[Client] API: self<font>:get_oversampling', status: 'completed' },
           { label: '[Client] API: self<font>:set_antialiasing', status: 'completed' },
@@ -407,7 +414,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Format: WEBP', status: 'completed' },
           { label: 'Format: KTX | DDS (compressed)', status: 'pending' },
           { label: 'Texture cache', status: 'completed' },
-          { label: '[Client] API: texture.create', status: 'completed' }
+          { label: '[Client] API: texture.create', status: 'completed' },
+          { label: '[Shared] API: self<texture>:destroy', status: 'completed' }
         ],
       },
       {
@@ -420,6 +428,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
           { label: '[Client] API: svg.create', status: 'completed' },
           { label: '[Client] API: svg.create_from_raw', status: 'completed' },
+          { label: '[Shared] API: self<svg>:destroy', status: 'completed' },
           { label: '[Client] API: self<svg>:update', status: 'completed' }
         ],
       },
@@ -434,6 +443,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: rendertarget.create', status: 'completed' },
           { label: '[Client] API: rendertarget.get_active', status: 'completed' },
           { label: '[Client] API: rendertarget.set_active', status: 'completed' },
+          { label: '[Shared] API: self<rendertarget>:destroy', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:is_active', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:get_size', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:set_active', status: 'completed' }
