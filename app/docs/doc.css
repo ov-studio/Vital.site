@@ -35,8 +35,12 @@
 }
 
 @media (min-width: 1600px) {
-    #nd-sidebar { width: var(--sidebar-width) !important; }
-    #nd-sidebar > * { width: 100% !important; }
+    #nd-sidebar { width: var(--sidebar-width); }
+    #nd-sidebar > * {
+        width: var(--sidebar-width);
+        min-width: var(--sidebar-width);
+        overflow: visible;
+    }
 }
 
 button[aria-label="Collapse Sidebar"] {
