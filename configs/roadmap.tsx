@@ -578,7 +578,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Server material override replication', status: 'pending' },
           { label: 'Server material flag replication', status: 'pending' },
           { label: 'Server animation state replication', status: 'pending' },
-          { label: 'Transform (position / rotation) control', status: 'completed' },
+          { label: 'Transform (position / rotation / scale) control', status: 'partial' },
           { label: 'Animation playback (play / stop / pause / resume)', status: 'completed' },
           { label: 'Animation speed scale', status: 'completed' },
           { label: 'Blendshape (morph target) control', status: 'completed' },
@@ -587,8 +587,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Material feature & flag overrides', status: 'completed' },
           { label: 'Wildcard component / material targeting', status: 'completed' },
           { label: 'Skeleton & bone transforms', status: 'partial' },
-          { label: 'Scale control', status: 'pending' },
-          { label: 'LOD (Level of Detail) control', status: 'pending' },
+          { label: 'LOD (Level of Detail) control', status: 'pending' }
         ],
       },
       {
