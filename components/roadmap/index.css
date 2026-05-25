@@ -268,21 +268,6 @@
   }
 
   .rcategory-cols {
-    flex-wrap: wrap;
-  }
-
-  .rcategory-col {
-    flex: 1 1 calc(50% - 1px);
-    min-width: calc(50% - 1px);
-  }
-}
-
-@media (max-width: 640px) {
-  #roadmap {
-    padding: calc(100px + var(--nav-h)*0.25) 0;
-  }
-
-  .rcategory-cols {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 14px;
