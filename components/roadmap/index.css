@@ -283,12 +283,19 @@
   }
 
   .rcategory-cols {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
   }
 
   .rcategory-col {
-    flex: none;
+    display: contents;
+  }
+
+  .rcard {
+    order: var(--mobile-order, 0);
     width: 100%;
+    flex-shrink: 0;
   }
 
   .rcard-body {

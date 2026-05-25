@@ -21,11 +21,11 @@ function cardStatus(card: RoadmapCard): FeatureStatus {
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
 
-function FeatureCard({ card }: { card: RoadmapCard }) {
-  const [open, setOpen]     = useState(false);
-  const innerRef            = useRef<HTMLDivElement>(null);
+function FeatureCard({ card, mobileOrder = 0 }: { card: RoadmapCard; mobileOrder?: number }) {
+  const [open, setOpen] = useState(false);
+  const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
-  const pct    = cardPct(card);
+  const pct = cardPct(card);
   const status = cardStatus(card);
 
   useEffect(() => {
@@ -33,7 +33,10 @@ function FeatureCard({ card }: { card: RoadmapCard }) {
   }, [card.items]);
 
   return (
-    <div className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}>
+    <div
+      className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}
+      style={{ '--mobile-order': mobileOrder } as React.CSSProperties}
+    >
       <div
         className="rcard-body"
         onClick={() => setOpen(o => !o)}
@@ -109,8 +112,12 @@ function SectionBlock({ section, index }: { section: RoadmapSection; index: numb
       <div className="rcategory-cols">
         {columns.map((col, ci) => (
           <div key={ci} className="rcategory-col">
-            {col.map(card => (
-              <FeatureCard key={card.id} card={card}/>
+            {col.map((card, ri) => (
+              <FeatureCard
+                key={card.id}
+                card={card}
+                mobileOrder={ri*COLS + ci}
+              />
             ))}
           </div>
         ))}
