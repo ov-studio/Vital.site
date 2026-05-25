@@ -21,7 +21,7 @@ function cardStatus(card: RoadmapCard): FeatureStatus {
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
 
-function FeatureCard({ card, mobileOrder = 0 }: { card: RoadmapCard; mobileOrder?: number }) {
+function FeatureCard({ card, mobile_order = 0 }: { card: RoadmapCard; mobile_order?: number }) {
   const [open, setOpen] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -35,7 +35,7 @@ function FeatureCard({ card, mobileOrder = 0 }: { card: RoadmapCard; mobileOrder
   return (
     <div
       className={`rcard rcard--${status}${open ? ' rcard--open' : ''}`}
-      style={{ '--mobile-order': mobileOrder } as React.CSSProperties}
+      style={{ '--mobile-order': mobile_order } as React.CSSProperties}
     >
       <div
         className="rcard-body"
@@ -116,7 +116,7 @@ function SectionBlock({ section, index }: { section: RoadmapSection; index: numb
               <FeatureCard
                 key={card.id}
                 card={card}
-                mobileOrder={ri*COLS + ci}
+                mobile_order={ri*COLS + ci}
               />
             ))}
           </div>
