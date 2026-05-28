@@ -54,6 +54,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: engine.get_tick', status: 'completed' },
           { label: '[Shared] API: engine.get_version', status: 'completed' },
           { label: '[Shared] API: engine.get_serial', status: 'completed' },
+          { label: '[Shared] API: engine.get_entities', status: 'completed' },
           { label: '[Shared] API: engine.get_resolution', status: 'completed' }
         ],
       },
