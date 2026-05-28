@@ -15,6 +15,7 @@
         "get_platform",
         "get_timestamp",
         "get_serial",
+        "get_entities",
         "get_resolution",
 
 

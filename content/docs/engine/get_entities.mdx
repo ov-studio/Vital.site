@@ -1,0 +1,33 @@
+---
+title: engine.get_entities
+description: Retrieves pool of currently active entities
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = engine.get_entities(
+    type
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | type | Type of entity to query against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Pool containing the entities of specified type |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Print currently active webview entities"
+engine.iprint(engine.get_entities("webview"))
+```
