@@ -21,7 +21,6 @@
 }
 
 .tos-section {
-  scroll-margin-top: calc(var(--nav-h) + 24px);
   padding: 40px 0;
   border-bottom: 1px solid var(--rule);
 }
