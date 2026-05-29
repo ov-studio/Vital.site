@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = engine.get_entities(
-    type, 
+    entity_type, 
     streamed = false
 )
 ```
@@ -17,7 +17,7 @@ local result = engine.get_entities(
 
 | Type | Name | Default | Description |
 |------|------|---------|-------------|
-| `string` | type | | The entity type to query |
+| `string` | entity_type | | The entity type to query |
 | `boolean` | streamed | `false` | When `true`, returns only entities currently streamed into the camera frustum. Only applicable on the client for entities that support streaming |
 
 ### Returns
