@@ -1,4 +1,5 @@
 import './index.css';
+import { site } from '@/configs/site';
 import { TOS_Section } from '@/configs/tos';
 
 export function TOS() {
@@ -10,7 +11,7 @@ export function TOS() {
             <h2>Terms of <span>Service</span></h2>
           </div>
           <div className="tos-intro">
-            Terms and conditions governing your use of Vital.sandbox and its associated services
+            Terms and conditions governing your use of {site.name} and its associated services
           </div>
         </div>
 
