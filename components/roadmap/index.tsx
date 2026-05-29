@@ -135,7 +135,7 @@ export function RoadmapGrid({ sections }: { sections: RoadmapSection[] }) {
             <h2>What's built,<br/>What's <span>coming?</span></h2>
           </div>
           <div className="roadmap-intro">
-           — Complete breakdown of every feature in the sandbox; shipped, in-progress and planned —
+            Complete breakdown of every feature in the sandbox; shipped, in-progress and planned
           </div>
         </div>
 
