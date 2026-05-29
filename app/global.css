@@ -30,7 +30,7 @@ h1 {
 
 h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(2.4rem, 3vw, 3.0rem);
+    font-size: clamp(2.4rem, 3vw, 2.8rem);
     font-weight: 700;
     text-transform: uppercase;
     line-height: .95;
