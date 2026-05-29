@@ -91,7 +91,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.FolderOpen {...site.lucide}/>,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
-          { label: '[Shared] Resource loader', status: 'partial' },
+          { label: '[Shared] Resource loader', status: 'completed' },
           { label: '[Shared] Resource unloader', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
           { label: '[Shared] Resource compression', status: 'completed' },
@@ -99,6 +99,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Resource-scoped entity lifetime', status: 'completed' },
           { label: '[Shared] Per-resource isolated Lua environments', status: 'completed' },
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
+          { label: '[Shared] Cross-resource exports (expose and consume APIs across resource boundaries)', status: 'pending' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
           { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
         ],
