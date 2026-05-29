@@ -57,6 +57,8 @@ export function Download() {
 
   return (
     <div className="hbtns">
+      {info.tag && <span className="hero-release-tag">{info.tag}</span>}
+
       <a href={info.clientUrl ?? `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}/releases`} className="btn-primary" target="_blank" rel="noreferrer">
         <DownloadIcon/>
         Download Client{info.clientSize ? ` · ${info.clientSize}` : ''}
@@ -68,8 +70,10 @@ export function Download() {
           Download Server{info.serverSize ? ` · ${info.serverSize}` : ''}
         </a>
       )}
-
-      {info.tag && <span className="hero-release-tag">{info.tag}</span>}
+      
+      <p className="hero-tos-note">
+        By downloading, you agree to our <a href="/tos" className="hero-tos-link">Terms of Service</a> and its conditions
+      </p>
     </div>
   );
 }
