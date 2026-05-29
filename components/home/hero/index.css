@@ -82,7 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
   font-family: 'Rajdhani', sans-serif;
   font-size: clamp(.9rem, 1.4vw, 1.0rem);

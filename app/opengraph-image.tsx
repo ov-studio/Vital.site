@@ -50,19 +50,19 @@ export default async function OGImage() {
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '20px',
-                        marginTop: '40px',
+                        gap: '25px',
+                        marginTop: '49px',
                         fontSize: '1.0rem',
                         fontFamily: 'Rajdhani, sans-serif',
                         fontWeight: 600,
                         letterSpacing: '0.12em',
                         textTransform: 'uppercase',
                     }}>
-                        <span style={{ color: 'hsl(220, 10%, 55%)' }}>Script It.</span>
+                        <span style={{ color: 'hsl(220, 10%, 55%)' }}>Script It</span>
                         <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
-                        <span style={{ color: 'hsl(0, 0%, 97%)' }}>Ship It.</span>
+                        <span style={{ color: 'hsl(0, 0%, 97%)' }}>Ship It</span>
                         <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
-                        <span style={{ color: 'hsl(220, 10%, 55%)' }}>Limitless.</span>
+                        <span style={{ color: 'hsl(220, 10%, 55%)' }}>Limitless</span>
                     </div>
                 </div>
             </div>

@@ -59,11 +59,11 @@ export async function Hero() {
         </div>
 
         <div className="hero-motto">
-          <span className="hm-word">Script It.</span>
+          <span className="hm-word">Script It</span>
           <span className="hm-sep">—</span>
-          <span className="hm-word hm-blue">Ship It.</span>
+          <span className="hm-word hm-blue">Ship It</span>
           <span className="hm-sep">—</span>
-          <span className="hm-word">Limitless.</span>
+          <span className="hm-word">Limitless</span>
         </div>
 
         <p className="hero-sub">
