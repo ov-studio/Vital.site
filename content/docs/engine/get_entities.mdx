@@ -18,7 +18,7 @@ local result = engine.get_entities(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | category | The entity category to query |
-| `boolean` | streamed | When `true`, returns only entities currently streamed into the camera frustum. Only applicable on the client for entities that support streaming |
+| `boolean` | streamed | Determines which entities to include:<br/>• When `true` - returns only entities currently streamed into the camera frustum<br/>• When `false` - returns all entities regardless of streaming state |
 
 ### Returns
 
