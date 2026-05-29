@@ -19,7 +19,7 @@ footer {
 }
 
 .footer-tagline {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   font-family: 'Barlow', sans-serif;
   font-size: .84rem;
   font-weight: 500;
@@ -30,7 +30,7 @@ footer {
 .footer-flags {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .footer-flag {
