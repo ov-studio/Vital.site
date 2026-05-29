@@ -107,19 +107,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
-        label: 'Performance Monitor',
-        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
-        icon: <Icons.Activity {...site.lucide}/>,
-        items: [
-          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
-          { label: 'Draw calls & vertices', status: 'pending' },
-          { label: 'Static / dynamic memory', status: 'pending' },
-          { label: 'Physics step time', status: 'pending' },
-          { label: 'Object / node count', status: 'pending' },
-        ],
-      },
-      {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
         icon: <Icons.Database {...site.lucide}/>,
@@ -151,6 +138,19 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Server] API: self<db_query>:update', status: 'completed' }
         ],
       },
+      {
+        // TODO: WIP
+        label: 'Performance Monitor',
+        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
+        icon: <Icons.Activity {...site.lucide} />,
+        items: [
+          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
+          { label: 'Draw calls & vertices', status: 'pending' },
+          { label: 'Static / dynamic memory', status: 'pending' },
+          { label: 'Physics step time', status: 'pending' },
+          { label: 'Object / node count', status: 'pending' },
+        ],
+      }
     ],
   },
 
@@ -300,7 +300,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'InputMap action queries', status: 'pending' },
           { label: 'InputEvent pass-through (process_event)', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -483,7 +483,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Save to PNG / JPG', status: 'pending' },
           { label: 'Region capture (partial frame)', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -561,7 +561,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Process material param overrides', status: 'pending' },
           { label: 'Trail & sub-emitters', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -635,7 +635,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'MeshInstance3D creation', status: 'pending' },
           { label: 'Surface material assignment', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -673,7 +673,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Avoidance (RVO2)', status: 'pending' },
           { label: 'Navigation layers', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -711,7 +711,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'AudioServer bus routing', status: 'pending' },
           { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
         ],
-      },
+      }
     ],
   },
   
@@ -777,7 +777,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Voice activity detection (VAD)', status: 'pending' },
           { label: 'Volume per speaker', status: 'pending' },
         ],
-      },
+      }
     ],
   },
 
@@ -796,7 +796,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Discord invite link integration', status: 'completed' },
           { label: 'Dynamic updates at runtime', status: 'completed' },
         ],
-      },
+      }
     ],
   }
 ]);
