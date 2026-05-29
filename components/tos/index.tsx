@@ -111,30 +111,19 @@ export function TOS() {
             <h2>Terms of <span>Service</span></h2>
           </div>
           <div className="tos-intro">
-            — Terms governing your use of Vital.sandbox, its associated tools, APIs, and services —
+            — Terms governing your use of Vital.sandbox, its associated tools and services —
           </div>
         </div>
 
-        <div className="tos-layout">
-          <nav className="tos-nav">
-            <div className="tos-nav-label">Contents</div>
-            {sections.map(s => (
-              <a key={s.id} href={`#${s.id}`} className="tos-nav-link">
-                {s.title}
-              </a>
-            ))}
-          </nav>
-
-          <div className="tos-body">
-            {sections.map(s => (
-              <div key={s.id} id={s.id} className="tos-section">
-                <h2 className="tos-section-title">{s.title}</h2>
-                {s.content.map((p, i) => (
-                  <p key={i} className="tos-section-p">{p}</p>
-                ))}
-              </div>
-            ))}
-          </div>
+        <div className="tos-body">
+          {sections.map(s => (
+            <div key={s.id} id={s.id} className="tos-section">
+              <h2 className="tos-section-title">{s.title}</h2>
+              {s.content.map((p, i) => (
+                <p key={i} className="tos-section-p">{p}</p>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
