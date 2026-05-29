@@ -1,33 +1,35 @@
 ---
 title: engine.get_entities
-description: Retrieves pool of currently active entities
+description: Retrieves all registered entities of a specified type
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local result = engine.get_entities(
-    type
-)
+local result = engine.get_entities(type)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | type | Type of entity to query against |
+| `string` | type | The entity type to query |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | result | Pool containing the entities of specified type |
+| `table` | result | A table containing all registered entities of the specified type |
 
 <hr/>
 
 ### Examples
 
-```lua lineNumbers title="Print currently active webview entities"
-engine.iprint(engine.get_entities("webview"))
+```lua lineNumbers title="Prints all entities of a given type"
+engine.iprint(engine.get_entities("model"))
+```
+
+```lua lineNumbers title="Counts entities of a given type"
+engine.print("info", "Total webviews:", #engine.get_entities("webview"))
 ```
