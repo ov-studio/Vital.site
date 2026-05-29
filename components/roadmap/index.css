@@ -271,6 +271,10 @@
     margin-bottom: 0px;
   }
 
+  .roadmap-body {
+    gap: 60px;
+  }
+  
   .rcategory-cols {
     flex-direction: row;
     flex-wrap: wrap;
