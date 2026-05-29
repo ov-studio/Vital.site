@@ -60,4 +60,8 @@
   #tos {
     padding: calc(60px + var(--nav-h)*0.5) 0 80px;
   }
+
+  .tos-intro {
+    margin-bottom: 0px;
+  }
 }

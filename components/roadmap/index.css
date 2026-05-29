@@ -267,6 +267,10 @@
     padding: calc(100px + var(--nav-h)*0.25) 0;
   }
 
+  .roadmap-intro {
+    margin-bottom: 0px;
+  }
+
   .rcategory-cols {
     flex-direction: row;
     flex-wrap: wrap;
