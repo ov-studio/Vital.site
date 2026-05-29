@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local status = engine.print(
-    type,
+    mode,
     ...
 )
 ```
@@ -25,7 +25,7 @@ local status = engine.print(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | type | Log level: <br/>• `"sbox"` - engine & runtime messages <br/>• `"info"` - general information <br/>• `"warn"` - non-critical warnings <br/>• `"error"` - errors and failures |
+| `string` | mode | Log level: <br/>• `"sbox"` - engine & runtime messages <br/>• `"info"` - general information <br/>• `"warn"` - non-critical warnings <br/>• `"error"` - errors and failures |
 | `...` | ... | Values to print on console |
 
 ### Returns

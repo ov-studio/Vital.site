@@ -127,15 +127,6 @@ local str2 = string.unpack("z", packed, pos)
 engine.print("info", str1, str2) --'first'  'second'
 ```
 
-```lua lineNumbers title="Unpack a network protocol header"
-local header = string.pack(">I2I2I4", 1, 2, 1024)
-local version, type, length = string.unpack(">I2I2I4", header)
-
-engine.print("info", "Version:", version)
-engine.print("info", "Type:", type)
-engine.print("info", "Length:", length)
-```
-
 ```lua lineNumbers title="Unpack a boolean stored as a byte"
 local packed = string.pack("b", 1)
 local value = string.unpack("b", packed)
