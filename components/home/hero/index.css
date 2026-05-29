@@ -73,7 +73,7 @@
 }
 
 .hero-brand {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   opacity: 0;
   animation: fadeIn .6s .2s forwards;
 }
@@ -103,7 +103,7 @@
   font-size: .97rem;
   color: var(--text-muted);
   line-height: 1.85;
-  margin-bottom: 28px;
+  margin-bottom: 35px;
   opacity: 0;
   animation: fadeIn .7s .45s forwards;
 }
@@ -112,7 +112,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 80px;
   opacity: 0;
   animation: fadeIn .7s .55s forwards;
@@ -184,29 +184,50 @@
 }
 
 .hero-release-tag {
-  font-family: 'Geist Mono', monospace;
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .12em;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--text-muted);
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 10px;
 }
 
 .hero-release-tag::before {
   content: '';
-  width: 18px;
+  width: 25px;
   height: 1px;
   background: var(--text-faint);
 }
 
 .hero-release-tag::after {
   content: '';
-  width: 18px;
+  width: 25px;
   height: 1px;
   background: var(--text-faint);
+}
+
+.hero-tos-note {
+  margin-top: 5px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: .015em;
+  color: var(--text-mid);
+  opacity: 0;
+  animation: fadeIn .7s .35s forwards;
+}
+
+.hero-tos-link {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: opacity .2s;
+}
+
+.hero-tos-link:hover {
+  opacity: .7;
 }
 
 @media (max-width: 960px) {
