@@ -3,20 +3,11 @@
 }
 
 .tos-head {
-  max-width: 720px;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
-.tos-meta {
-  font-family: 'Geist Mono', monospace;
-  font-size: .78rem;
-  font-weight: 500;
-  color: var(--text-soft);
-  letter-spacing: .06em;
-  margin-bottom: 22px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.tos-head .sec-head {
+  margin-bottom: 30px;
 }
 
 .tos-intro {

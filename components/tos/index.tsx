@@ -1,7 +1,5 @@
 import './index.css';
 
-const EFFECTIVE_DATE = 'May 29, 2025';
-
 interface TOSSection {
   id: string;
   title: string;
@@ -112,7 +110,6 @@ export function TOS() {
           <div className="sec-head">
             <h2>Terms of <span>Service</span></h2>
           </div>
-          <div className="tos-meta">Effective date: {EFFECTIVE_DATE}</div>
           <div className="tos-intro">
             — Terms governing your use of Vital.sandbox, its associated tools, APIs, and services —
           </div>
