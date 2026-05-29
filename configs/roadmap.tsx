@@ -45,6 +45,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <Icons.Cpu {...site.lucide}/>,
         items: [
+          { label: 'Platform: Windows support', status: 'completed' },
+          { label: 'Platform: Linux support', status: 'pending' },
           { label: '[Shared] API: engine.print', status: 'completed' },
           { label: '[Shared] API: engine.iprint', status: 'completed' },
           { label: '[Shared] API: engine.inspect', status: 'completed' },
