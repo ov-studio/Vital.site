@@ -1,6 +1,6 @@
 ---
 title: engine.get_entities
-description: Retrieves all registered entities of a specified type
+description: Retrieves all registered entities of a specified category
 badge: Shared
 ---
 
@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = engine.get_entities(
-    entity, 
+    category, 
     streamed = false
 )
 ```
@@ -17,14 +17,14 @@ local result = engine.get_entities(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | entity | The entity type to query |
+| `string` | category | The entity category to query |
 | `boolean` | streamed | When `true`, returns only entities currently streamed into the camera frustum. Only applicable on the client for entities that support streaming |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | result | A table containing all matching entities of the specified type |
+| `table` | result | A table containing all matching entities of the specified category |
 
 <hr/>
 
@@ -48,11 +48,11 @@ local result = engine.get_entities(
 
 ### Examples
 
-```lua lineNumbers title="Prints all entities of a given type"
+```lua lineNumbers title="Prints all entities of a given category"
 engine.iprint(engine.get_entities("texture"))
 ```
 
-```lua lineNumbers title="Counts entities of a given type"
+```lua lineNumbers title="Counts entities of a given category"
 engine.print("info", "Total webviews:", #engine.get_entities("webview"))
 ```
 
