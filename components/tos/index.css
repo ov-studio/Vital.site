@@ -11,6 +11,7 @@
 }
 
 .tos-intro {
+  margin-bottom: 80px;
   line-height: 1.75;
   color: var(--text-muted);
 }
