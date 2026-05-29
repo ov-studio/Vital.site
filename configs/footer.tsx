@@ -7,8 +7,8 @@ export const Footer_Content = [
     links: [
       { label: 'Documentations', href: '/docs' },
       { label: 'Roadmap', href: '/roadmap' },
-      { label: 'Changelog', href: '#' },
       { label: 'Contributing', href: '/docs/building' },
+      { label: 'Terms of Service', href: '/tos' }
     ],
   },
   {
@@ -16,7 +16,7 @@ export const Footer_Content = [
     links: [
       { label: `${site.git.site.repo}`, href: `https://github.com/${site.git.site.user}/${site.git.site.repo}` },
       { label: `${site.git.kit.repo}`, href: `https://github.com/${site.git.kit.user}/${site.git.kit.repo}` },
-      { label: `${site.git.sandbox.repo}`, href: `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}` },
+      { label: `${site.git.sandbox.repo}`, href: `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}` }
     ],
   },
   {
