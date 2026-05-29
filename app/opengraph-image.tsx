@@ -51,7 +51,7 @@ export default async function OGImage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '20px',
-                        marginTop: '49px',
+                        marginTop: '40px',
                         fontSize: '1.0rem',
                         fontFamily: 'Rajdhani, sans-serif',
                         fontWeight: 600,
