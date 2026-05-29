@@ -58,7 +58,7 @@
 
 @media (max-width: 640px) {
   #tos {
-    padding: calc(60px + var(--nav-h)*0.5) 0 80px;
+    padding: calc(100px + var(--nav-h)*0.25) 0;
   }
 
   .tos-intro {
