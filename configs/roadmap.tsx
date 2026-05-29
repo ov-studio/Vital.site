@@ -798,5 +798,5 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
     ],
-  },
+  }
 ]);
