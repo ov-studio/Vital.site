@@ -10,7 +10,7 @@ export function TOS() {
             <h2>Terms of <span>Service</span></h2>
           </div>
           <div className="tos-intro">
-            Terms governing your use of Vital.sandbox, its associated tools and services
+            Terms and conditions governing your use of Vital.sandbox and its associated services
           </div>
         </div>
 
