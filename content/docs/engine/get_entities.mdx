@@ -7,47 +7,52 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = engine.get_entities(type)
+local result = engine.get_entities(type, streamed)
 ```
 
 ### Parameters
 
-| Type | Name | Description |
-|------|------|-------------|
-| `string` | type | The entity type to query |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `string` | type | | The entity type to query |
+| `boolean` | streamed | `false` | When `true`, returns only entities currently streamed into the camera frustum. Only applicable on the client for entities that support streaming |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | result | A table containing all registered entities of the specified type |
+| `table` | result | A table containing all matching entities of the specified type |
 
 <hr/>
 
 ### Entities
 
-| Entity Type | Availability |
-|-------------|--------------|
-| `"database"` | `Server` |
-| `"database_query"` | `Server` |
-| `"model"` | `Client` \| `Server` |
-| `"webview"` | `Client` |
-| `"font"` | `Client` |
-| `"texture"` | `Client` |
-| `"svg"` | `Client` |
-| `"rendertarget"` | `Client` |
-| `"timer"` | `Client` \| `Server` |
-| `"promise"` | `Client` \| `Server` |
-| `"thread"` | `Client` \| `Server` |
+| Entity Type | Availability | Streamable |
+|-------------|--------------|------------|
+| `"database"` | `Server` | `false` |
+| `"database_query"` | `Server` | `false` |
+| `"model"` | `Client` \| `Server` | `true` |
+| `"webview"` | `Client` | `false` |
+| `"font"` | `Client` | `false` |
+| `"texture"` | `Client` | `false` |
+| `"svg"` | `Client` | `false` |
+| `"rendertarget"` | `Client` | `false` |
+| `"timer"` | `Client` \| `Server` | `false` |
+| `"promise"` | `Client` \| `Server` | `false` |
+| `"thread"` | `Client` \| `Server` | `false` |
 
 <hr/>
 
 ### Examples
 
 ```lua lineNumbers title="Prints all entities of a given type"
-engine.iprint(engine.get_entities("model"))
+engine.iprint(engine.get_entities("texture"))
 ```
 
 ```lua lineNumbers title="Counts entities of a given type"
 engine.print("info", "Total webviews:", #engine.get_entities("webview"))
+```
+
+```lua lineNumbers title="Counts only streamed-in models"
+engine.print("info", "Streamed models:", #engine.get_entities("model", true))
 ```
