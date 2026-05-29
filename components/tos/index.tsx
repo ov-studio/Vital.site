@@ -118,7 +118,7 @@ export function TOS() {
         <div className="tos-body">
           {sections.map(s => (
             <div key={s.id} id={s.id} className="tos-section">
-              <h2 className="tos-section-title">{s.title}</h2>
+              <div className="tos-section-title">{s.title}</div>
               {s.content.map((p, i) => (
                 <p key={i} className="tos-section-p">{p}</p>
               ))}

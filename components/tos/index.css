@@ -39,8 +39,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  letter-spacing: .01em;
   color: var(--dim);
   margin-bottom: 18px;
 }
