@@ -1,5 +1,5 @@
 #tos {
-  padding: calc(80px + var(--nav-h)*1) 0 120px;
+  padding: calc(100px + var(--nav-h)*1) 0;
 }
 
 .tos-head {
