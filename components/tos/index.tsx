@@ -1,6 +1,6 @@
 import './index.css';
 import { site } from '@/configs/site';
-import { TOS_Section } from '@/configs/tos';
+import { TOS_Effective, TOS_Section } from '@/configs/tos';
 
 export function TOS() {
   return (
@@ -12,6 +12,9 @@ export function TOS() {
           </div>
           <div className="tos-intro">
             Terms and conditions governing your use of {site.name} and its associated services
+          </div>
+          <div className="tos-effective">
+            Effective Date: {TOS_Effective}*
           </div>
         </div>
 

@@ -11,8 +11,14 @@
 }
 
 .tos-intro {
-  margin-bottom: 80px;
+  margin-bottom: 10px;
   line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.tos-effective {
+  margin-bottom: 80px;
+  font-size: .9rem;
   color: var(--text-muted);
 }
 
