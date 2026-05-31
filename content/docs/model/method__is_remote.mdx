@@ -1,0 +1,33 @@
+---
+title: self:is_remote
+description: Checks whether the instance is remotely owned
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_remote()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance is remotely owned, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Check whether a model instance is remote"
+local entity = model.create("character")
+
+engine.print("info", entity:is_remote())
+
+```

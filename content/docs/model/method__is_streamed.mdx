@@ -1,0 +1,32 @@
+---
+title: self:is_streamed
+description: Checks whether the instance is currently within the streaming range of the local camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_streamed()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance is currently streamed, `false` otherwise |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Check whether a model instance is streamed"
+local entity = model.create("character")
+
+engine.print("info", entity:is_streamed())
+```

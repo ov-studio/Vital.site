@@ -13,6 +13,8 @@
     
        "---::Lifecycle---",
         "method__is_type",
+        "method__is_remote",
+        "method__is_streamed",
         "method__get_type",
         "method__destroy",
 
