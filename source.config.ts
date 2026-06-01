@@ -4,10 +4,14 @@ import { z } from 'zod';
 // Production-only fix to prevent compilers from stripping indentation before an ellipsis (...)
 function remarkEllipsisFix() {
   return (tree: any) => {
+    // Keeps development environment completely unaltered
     if (process.env.NODE_ENV !== 'production') return;
     const traverse = (node: any) => {
       if (!node) return;
-      if (node.type === 'code' && node.value && node.value.includes('...')) node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
+      if (node.type === 'code' && node.value && node.value.includes('...')) {
+        node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
+        node.value = node.value.replace(/(\w+)[ \t]+\.\.\./g, '$1 ...');
+      }
       if (node.children && Array.isArray(node.children)) node.children.forEach(traverse);
     };
     traverse(tree);
