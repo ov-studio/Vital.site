@@ -1,0 +1,59 @@
+---
+title: exports.call
+description: Calls an exported function from another resource
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ... = exports.call(
+    resource,
+    name,
+    ...
+)
+```
+
+<Callout type="warn">
+  **The target resource must be running before calling its exports.**
+
+  - **Resource state** — throws an error if the specified resource is not currently running
+  - **Export existence** — throws an error if the named export does not exist on that resource
+  - **Error propagation** — if the exported function itself throws, the error is re-raised at the call site in the calling resource
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | resource | Name of the resource that owns the export |
+| `string` | name | Name of the export to invoke |
+| `...` | ... | Arguments forwarded to the exported function |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `...` | ... | All values returned by the exported function, forwarded as-is |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Call a basic export from another resource"
+local count = exports.call("my_resource", "get_player_count")
+
+engine.print("info", "Player count:", count)
+```
+
+```lua lineNumbers title="Pass arguments to an export"
+local result = exports.call("math_resource", "add", 10, 25)
+
+engine.print("info", "Sum:", result) --35
+```
+
+```lua lineNumbers title="Capture multiple return values"
+local x, y, z = exports.call("world_resource", "get_spawn_position")
+
+engine.print("info", "Spawn:", x, y, z)
+```
