@@ -5,22 +5,11 @@ import { z } from 'zod';
 function remarkEllipsisFix() {
   return (tree: any) => {
     if (process.env.NODE_ENV !== 'production') return;
-
-    // Helper function to safely traverse all nested nodes in the MDX tree
     const traverse = (node: any) => {
       if (!node) return;
-      // Targets all markdown code blocks containing an ellipsis
-      if (node.type === 'code' && node.value && node.value.includes('...')) {
-        // Captures leading spaces/tabs on any line and pads the ellipsis for production alignment
-        node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
-      }
-
-      // Continue traversing down if children exist
-      if (node.children && Array.isArray(node.children)) {
-        node.children.forEach(traverse);
-      }
+      if (node.type === 'code' && node.value && node.value.includes('...')) node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
+      if (node.children && Array.isArray(node.children)) node.children.forEach(traverse);
     };
-
     traverse(tree);
   };
 }
