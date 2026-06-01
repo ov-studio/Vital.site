@@ -12,7 +12,7 @@ function remarkEllipsisFix() {
       // Targets all markdown code blocks containing an ellipsis
       if (node.type === 'code' && node.value && node.value.includes('...')) {
         // Captures leading spaces/tabs on any line and pads the ellipsis for production alignment
-        node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1    ...');
+        node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
       }
 
       // Continue traversing down if children exist
