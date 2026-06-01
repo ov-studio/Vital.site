@@ -8,10 +8,7 @@ function remarkEllipsisFix() {
     const traverse = (node: any) => {
       if (!node) return;
       if (node.type === 'code' && node.value && node.value.includes('...')) {
-        // Fix 1: Restores indentation for standalone block ellipses (e.g., "    ...")
         node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
-        // Fix 2: Matches a word directly followed by an ellipsis (with 0 or more spaces)
-        node.value = node.value.replace(/(\w+)[ \t]*\.{2,3}/g, '$1 ...');
       }
       if (node.children && Array.isArray(node.children)) node.children.forEach(traverse);
     };
@@ -19,8 +16,35 @@ function remarkEllipsisFix() {
   };
 }
 
+// Production HTML-level fix that forces the text values inside code blocks to be spaced correctly
+function rehypeEllipsisFix() {
+  return (tree: any) => {
+    if (process.env.NODE_ENV !== 'production') return;
+    const traverse = (node: any) => {
+      if (!node) return;
+
+      // Targets the literal text values inside HTML elements within code blocks
+      if (node.type === 'text' && node.value) {
+        // Automatically converts any broken "local.." or "local..." text blocks into "local ..."
+        if (node.value.includes('local.')) {
+          node.value = node.value.replace(/local\s*\.{2,3}/g, 'local ...');
+        }
+        // Cleans up standalone dots that might be grouped inside a broken text node span
+        if (node.value === '..' || node.value === '...') {
+          node.value = ' ...';
+        }
+      }
+
+      if (node.children && Array.isArray(node.children)) {
+        node.children.forEach(traverse);
+      }
+    };
+    traverse(tree);
+  };
+}
+
 // You can customise Zod schemas for frontmatter and `meta.json` here
-// see https://fumadocs.dev/docs/mdx/collections
+// see https://fumadocs.dev
 export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
@@ -39,5 +63,7 @@ export const docs = defineDocs({
 export default defineConfig({
   mdxOptions: {
     remarkPlugins: [remarkEllipsisFix],
+    // Injected the HTML-level token post-processor
+    rehypePlugins: [rehypeEllipsisFix],
   },
 });
