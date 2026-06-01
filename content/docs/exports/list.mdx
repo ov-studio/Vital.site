@@ -1,0 +1,58 @@
+---
+title: exports.list
+description: Returns all export names registered by a resource
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = exports.list(
+    resource
+)
+```
+
+<Callout type="warn">
+  **The target resource must be running before listing its exports.**
+
+  Throws an error if the specified resource is not currently running. Use this function to inspect or validate available exports before calling them.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | resource | Name of the resource whose exports to list |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Array of export name strings registered by the resource; empty table if none are registered |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="List all exports from a resource"
+engine.iprint(exports.list("my_resource"))
+```
+
+```lua lineNumbers title="Check whether a specific export exists before calling it"
+local list = exports.list("inventory_resource")
+
+local has_export = false
+for _, name in ipairs(list) do
+    if name == "get_items" then
+        has_export = true
+        break
+    end
+end
+
+if has_export then
+    local items = exports.call("inventory_resource", "get_items", player_id)
+    engine.iprint(items)
+else
+    engine.print("warn", "Export 'get_items' not found on inventory_resource")
+end
+```

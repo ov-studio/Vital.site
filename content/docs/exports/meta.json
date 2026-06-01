@@ -1,0 +1,11 @@
+{
+    "title": "Exports",
+    "icon": "Blocks",
+    "pages": [
+        "---Base---",
+        "register",
+        "call",
+        "list",
+        "..."
+    ]
+}
