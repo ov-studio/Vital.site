@@ -65,7 +65,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Built-in runtime console for commands, debug output, and structured logging',
         icon: <Icons.Terminal {...site.lucide}/>,
         items: [
-          { label: 'Log levels (info / warn / error)', status: 'completed' },
+          { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
           { label: '[Shared] Command: help', status: 'completed' },
           { label: '[Server] Command: info', status: 'completed' },
           { label: '[Shared] Command: version', status: 'completed' },
