@@ -4,8 +4,8 @@
     "pages": [
         "---Base---",
         "register",
-        "call",
         "list",
+        "call",
         "..."
     ]
 }
