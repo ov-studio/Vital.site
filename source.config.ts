@@ -10,8 +10,8 @@ function remarkEllipsisFix() {
       if (node.type === 'code' && node.value && node.value.includes('...')) {
         // Fix 1: Restores indentation for standalone block ellipses (e.g., "    ...")
         node.value = node.value.replace(/^([ \t]*)\.\.\./gm, '$1  ...');
-        // Fix 2: Prevents word-bound inline ellipses from collapsing (e.g., "local  ..." -> "local...")
-        node.value = node.value.replace(/(\w+)[ \t]+\.\.\./g, '$1 ...');
+        // Fix 2: Matches a word directly followed by an ellipsis (with 0 or more spaces)
+        node.value = node.value.replace(/(\w+)[ \t]*\.{2,3}/g, '$1 ...');
       }
       if (node.children && Array.isArray(node.children)) node.children.forEach(traverse);
     };
