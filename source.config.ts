@@ -4,7 +4,6 @@ import { z } from 'zod';
 // Universal production fix that auto-spaces code-block ellipses globally
 function remarkEllipsisFix() {
   return (tree: any) => {
-    if (process.env.NODE_ENV !== 'production') return;
     const traverse = (node: any) => {
       if (!node) return;
       if (node.type === 'code' && node.value && node.value.includes('...')) {
