@@ -8,7 +8,10 @@ export const docs = defineDocs({
   docs: {
     schema: frontmatterSchema.extend({
       badge: z.string().optional()
-    })
+    }),
+    postprocess: {
+      includeProcessedMarkdown: true,
+    },
   },
   meta: {
     schema: metaSchema,
