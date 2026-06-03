@@ -286,11 +286,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: <Icons.Zap {...site.lucide}/>,
         items: [
-          { label: 'event.on / off', status: 'pending' },
-          { label: 'event.emit', status: 'pending' },
-          { label: 'event.once (auto-unsubscribe)', status: 'pending' },
-          { label: 'Heartbeat (recurring tick)', status: 'pending' },
           { label: 'Priority-ordered listeners', status: 'pending' },
+          { label: 'Auto-unsubscribe listeners', status: 'pending' },
+          { label: '[Shared] API: event.on', status: 'partial' },
+          { label: '[Shared] API: event.off', status: 'pending' },
+          { label: '[Shared] API: event.emit', status: 'pending' },
+          { label: '[Shared] API: event.emit_callback', status: 'pending' }
         ],
       },
       {
