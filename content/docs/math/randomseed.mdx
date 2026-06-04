@@ -1,0 +1,73 @@
+---
+title: math.randomseed
+description: Sets the seed for the pseudo-random number generator
+badge: Shared
+---
+
+### Syntax
+
+```lua
+math.randomseed(
+    x,
+    y = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | x | Primary seed value |
+| `int` | y | Optional secondary seed value for a wider seed range |
+
+### Returns
+
+This function does not return any values.
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Seed with a fixed value for reproducibility"
+math.randomseed(42)
+
+engine.print("info", math.random(100)) --always the same value
+```
+
+```lua lineNumbers title="Seed with the current time for unique sequences"
+math.randomseed(os.time())
+
+engine.print("info", math.random(100)) --varies per run
+```
+
+```lua lineNumbers title="Two seeds with the same value produce the same sequence"
+math.randomseed(1234)
+local a = math.random(1000)
+
+math.randomseed(1234)
+local b = math.random(1000)
+
+engine.print("info", a == b) --true
+```
+
+```lua lineNumbers title="Seed before generating a reproducible shuffle"
+math.randomseed(7)
+
+local deck = {}
+for i = 1, 10 do deck[i] = i end
+
+for i = #deck, 2, -1 do
+    local j = math.random(i)
+    deck[i], deck[j] = deck[j], deck[i]
+end
+
+for _, v in ipairs(deck) do
+    engine.print("info", v)
+end
+```
+
+```lua lineNumbers title="Use two seed components for a broader range"
+math.randomseed(os.time(), os.clock() * 1e9)
+
+engine.print("info", math.random()) --0.74392... (varies)
+```

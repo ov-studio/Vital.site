@@ -1,0 +1,77 @@
+---
+title: math.atan
+description: Returns the arc tangent of y/x in radians, using both components to determine the correct quadrant
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.atan(
+    y,
+    x = 1
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | y | Vertical component (or the sole value when x is omitted) |
+| `number` | x | Horizontal component - used for two-argument atan2 behavior |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Arc tangent of y/x in radians, in the range [-pi, pi] |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Arc tangent of 1 is pi/4"
+local result = math.atan(1)
+
+engine.print("info", result) --0.78539816339745
+```
+
+```lua lineNumbers title="Arc tangent of 0 is 0"
+local result = math.atan(0)
+
+engine.print("info", result) --0.0
+```
+
+```lua lineNumbers title="Two-argument atan for a 45 degree angle"
+local result = math.deg(math.atan(1, 1))
+
+engine.print("info", result) --45.0
+```
+
+```lua lineNumbers title="Angle pointing left (negative x axis)"
+local result = math.deg(math.atan(0, -1))
+
+engine.print("info", result) --180.0
+```
+
+```lua lineNumbers title="Compute heading angle from a direction vector"
+local dx, dy = 3, -3
+local angle = math.deg(math.atan(dy, dx))
+
+engine.print("info", angle) ---45.0
+```
+
+```lua lineNumbers title="Get angle from one point to another"
+local x1, y1 = 0, 0
+local x2, y2 = 5, 5
+local angle = math.deg(math.atan(y2 - y1, x2 - x1))
+
+engine.print("info", angle) --45.0
+```
+
+```lua lineNumbers title="Verify atan and tan are inverses in range"
+local angle = math.pi / 4
+local result = math.atan(math.tan(angle))
+
+engine.print("info", result) --0.78539816339745
+```

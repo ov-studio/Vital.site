@@ -1,0 +1,76 @@
+---
+title: math.modf
+description: Returns the integer and fractional parts of a number
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local integer, fraction = math.modf(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Number to split into integer and fractional parts |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | integer | Integer part of x |
+| `number` | fraction | Fractional part of x (same sign as x) |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Split a positive float"
+local i, f = math.modf(4.75)
+
+engine.print("info", i, f) --4  0.75
+```
+
+```lua lineNumbers title="Split a negative float"
+local i, f = math.modf(-3.25)
+
+engine.print("info", i, f) ---3  -0.25
+```
+
+```lua lineNumbers title="Split an exact integer"
+local i, f = math.modf(10.0)
+
+engine.print("info", i, f) --10  0.0
+```
+
+```lua lineNumbers title="Get only the integer part"
+local i = math.modf(9.99)
+
+engine.print("info", i) --9
+```
+
+```lua lineNumbers title="Get only the fractional part"
+local _, f = math.modf(9.99)
+
+engine.print("info", f) --0.99
+```
+
+```lua lineNumbers title="Separate seconds and milliseconds"
+local elapsed = 3.456
+local secs, ms = math.modf(elapsed)
+
+engine.print("info", secs, math.floor(ms * 1000)) --3  456
+```
+
+```lua lineNumbers title="Check if a number is a whole integer"
+local n = 5.0
+local _, frac = math.modf(n)
+
+if frac == 0 then
+    engine.print("info", "Whole number")
+end
+```

@@ -1,0 +1,67 @@
+---
+title: math.asin
+description: Returns the arc sine of a number in radians
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.asin(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Value in the range [-1, 1] |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Arc sine of x in radians, in the range [-pi/2, pi/2] |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Arc sine of 0"
+local result = math.asin(0)
+
+engine.print("info", result) --0.0
+```
+
+```lua lineNumbers title="Arc sine of 1 is pi/2"
+local result = math.asin(1)
+
+engine.print("info", result) --1.5707963267949
+```
+
+```lua lineNumbers title="Arc sine of 0.5 is 30 degrees"
+local result = math.deg(math.asin(0.5))
+
+engine.print("info", result) --30.0
+```
+
+```lua lineNumbers title="Arc sine of -1 is -pi/2"
+local result = math.asin(-1)
+
+engine.print("info", result) ---1.5707963267949
+```
+
+```lua lineNumbers title="Recover angle from vertical component"
+local vy = 0.866 -- sin(60 degrees)
+local angleDeg = math.deg(math.asin(vy))
+
+engine.print("info", angleDeg) --59.999...
+```
+
+```lua lineNumbers title="Verify asin and sin are inverses"
+local angle = math.pi / 6
+local result = math.asin(math.sin(angle))
+
+engine.print("info", result) --0.5235987755983
+```

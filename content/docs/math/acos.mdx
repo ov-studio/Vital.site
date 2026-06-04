@@ -1,0 +1,67 @@
+---
+title: math.acos
+description: Returns the arc cosine of a number in radians
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.acos(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Value in the range [-1, 1] |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Arc cosine of x in radians, in the range [0, pi] |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Arc cosine of 1 is 0"
+local result = math.acos(1)
+
+engine.print("info", result) --0.0
+```
+
+```lua lineNumbers title="Arc cosine of 0 is pi/2"
+local result = math.acos(0)
+
+engine.print("info", result) --1.5707963267949
+```
+
+```lua lineNumbers title="Arc cosine of -1 is pi"
+local result = math.acos(-1)
+
+engine.print("info", result) --3.1415926535898
+```
+
+```lua lineNumbers title="Arc cosine of 0.5 is 60 degrees"
+local result = math.deg(math.acos(0.5))
+
+engine.print("info", result) --60.0
+```
+
+```lua lineNumbers title="Compute angle between two normalized vectors"
+local dot = 0.5 -- dot product of two unit vectors
+local angle = math.deg(math.acos(dot))
+
+engine.print("info", angle) --60.0
+```
+
+```lua lineNumbers title="Verify acos and cos are inverses"
+local angle = math.pi / 3
+local result = math.acos(math.cos(angle))
+
+engine.print("info", result) --1.0471975511966
+```

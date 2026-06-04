@@ -1,0 +1,80 @@
+---
+title: math.max
+description: Returns the largest value among the given arguments
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.max(
+    x,
+    ...
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | First number |
+| `number` | ... | Additional numbers to compare |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | The largest of all given values |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Max of two numbers"
+local result = math.max(3, 7)
+
+engine.print("info", result) --7
+```
+
+```lua lineNumbers title="Max of multiple numbers"
+local result = math.max(1, 5, 3, 9, 2)
+
+engine.print("info", result) --9
+```
+
+```lua lineNumbers title="Max with negative numbers"
+local result = math.max(-10, -3, -7)
+
+engine.print("info", result) ---3
+```
+
+```lua lineNumbers title="Max of a single value returns itself"
+local result = math.max(42)
+
+engine.print("info", result) --42
+```
+
+```lua lineNumbers title="Clamp a value to a minimum"
+local speed = -5
+local clamped = math.max(speed, 0)
+
+engine.print("info", clamped) --0
+```
+
+```lua lineNumbers title="Find the highest score in a table"
+local scores = {42, 88, 17, 95, 63}
+local best = scores[1]
+
+for _, v in ipairs(scores) do
+    best = math.max(best, v)
+end
+
+engine.print("info", best) --95
+```
+
+```lua lineNumbers title="Ensure a health value does not drop below zero"
+local hp = -10
+local safeHp = math.max(hp, 0)
+
+engine.print("info", safeHp) --0
+```

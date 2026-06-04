@@ -1,0 +1,69 @@
+---
+title: math.tan
+description: Returns the tangent of an angle given in radians
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.tan(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Angle in radians |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Tangent of x |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Tangent of 0"
+local result = math.tan(0)
+
+engine.print("info", result) --0.0
+```
+
+```lua lineNumbers title="Tangent of 45 degrees is 1"
+local result = math.tan(math.rad(45))
+
+engine.print("info", result) --1.0
+```
+
+```lua lineNumbers title="Tangent of a negative angle"
+local result = math.tan(math.rad(-45))
+
+engine.print("info", result) ---1.0
+```
+
+```lua lineNumbers title="Calculate slope from an angle"
+local angleDeg = 30
+local slope = math.tan(math.rad(angleDeg))
+
+engine.print("info", slope) --0.57735...
+```
+
+```lua lineNumbers title="Compute height from distance and elevation angle"
+local distance = 100
+local elevationDeg = 30
+local height = distance * math.tan(math.rad(elevationDeg))
+
+engine.print("info", height) --57.735...
+```
+
+```lua lineNumbers title="Verify tan equals sin over cos"
+local angle = math.rad(60)
+local result = math.sin(angle) / math.cos(angle)
+
+engine.print("info", result, math.tan(angle)) --1.7320...  1.7320...
+```

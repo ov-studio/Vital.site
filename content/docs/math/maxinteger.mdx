@@ -1,0 +1,51 @@
+---
+title: math.maxinteger
+description: The maximum value a Lua integer can hold
+badge: Shared
+---
+
+### Value
+
+```lua
+math.maxinteger -- 9223372036854775807
+```
+
+A constant — not a function. Represents the largest integer value representable by Lua's 64-bit signed integer type (2^63 - 1).
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Print the maximum integer value"
+engine.print("info", math.maxinteger) --9223372036854775807
+```
+
+```lua lineNumbers title="maxinteger plus 1 wraps around to mininteger"
+local result = math.maxinteger + 1
+
+engine.print("info", result) ---9223372036854775808
+```
+
+```lua lineNumbers title="Use as an upper sentinel for minimum searching"
+local values = {100, 200, 50, 400}
+local smallest = math.maxinteger
+
+for _, v in ipairs(values) do
+    if v < smallest then smallest = v end
+end
+
+engine.print("info", smallest) --50
+```
+
+```lua lineNumbers title="Check if a value equals the integer ceiling"
+local x = math.maxinteger
+
+engine.print("info", math.type(x) == "integer") --true
+engine.print("info", x == math.maxinteger)       --true
+```
+
+```lua lineNumbers title="Bit width of the integer type"
+local bits = math.floor(math.log(math.maxinteger, 2)) + 1
+
+engine.print("info", bits) --63
+```

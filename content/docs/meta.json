@@ -22,6 +22,7 @@
         "rendertarget",
 
         "---Utility---",
+        "math",
         "string",
         "table",
         "timer",

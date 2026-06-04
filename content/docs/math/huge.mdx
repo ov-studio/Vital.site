@@ -1,0 +1,70 @@
+---
+title: math.huge
+description: A constant representing positive infinity
+badge: Shared
+---
+
+### Value
+
+```lua
+math.huge -- inf
+```
+
+A constant — not a function. Represents positive infinity. Useful as a sentinel initial value for minimum-finding loops, or for comparisons involving unbounded ranges.
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Print the value of huge"
+engine.print("info", math.huge) --inf
+```
+
+```lua lineNumbers title="huge is greater than any number"
+engine.print("info", math.huge > 1e308) --true
+```
+
+```lua lineNumbers title="Negative huge is less than any number"
+engine.print("info", -math.huge < -1e308) --true
+```
+
+```lua lineNumbers title="Use as initial value in a minimum search"
+local values = {42, 7, 99, 3, 56}
+local smallest = math.huge
+
+for _, v in ipairs(values) do
+    if v < smallest then
+        smallest = v
+    end
+end
+
+engine.print("info", smallest) --3
+```
+
+```lua lineNumbers title="Use as initial value in a maximum search"
+local values = {42, 7, 99, 3, 56}
+local largest = -math.huge
+
+for _, v in ipairs(values) do
+    if v > largest then
+        largest = v
+    end
+end
+
+engine.print("info", largest) --99
+```
+
+```lua lineNumbers title="Check if a number is finite"
+local function isFinite(x)
+    return x > -math.huge and x < math.huge
+end
+
+engine.print("info", isFinite(42))        --true
+engine.print("info", isFinite(math.huge)) --false
+```
+
+```lua lineNumbers title="Division by zero produces huge"
+local result = 1 / 0
+
+engine.print("info", result == math.huge) --true
+```

@@ -1,0 +1,48 @@
+---
+title: math.mininteger
+description: The minimum value a Lua integer can hold
+badge: Shared
+---
+
+### Value
+
+```lua
+math.mininteger -- -9223372036854775808
+```
+
+A constant — not a function. Represents the smallest (most negative) integer value representable by Lua's 64-bit signed integer type (-2^63).
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Print the minimum integer value"
+engine.print("info", math.mininteger) ---9223372036854775808
+```
+
+```lua lineNumbers title="mininteger minus 1 wraps around to maxinteger"
+local result = math.mininteger - 1
+
+engine.print("info", result) --9223372036854775807
+```
+
+```lua lineNumbers title="Use as a lower sentinel for maximum searching"
+local values = {100, 200, 50, 400}
+local largest = math.mininteger
+
+for _, v in ipairs(values) do
+    if v > largest then largest = v end
+end
+
+engine.print("info", largest) --400
+```
+
+```lua lineNumbers title="mininteger is less than any other integer"
+engine.print("info", math.mininteger < -1000000000) --true
+```
+
+```lua lineNumbers title="Absolute value of mininteger overflows"
+-- math.abs(math.mininteger) is undefined behavior due to overflow
+local safe = math.mininteger + 1
+engine.print("info", math.abs(safe)) --9223372036854775807
+```

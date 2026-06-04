@@ -1,0 +1,73 @@
+---
+title: math.tointeger
+description: Converts a number to an integer if it has no fractional part, otherwise returns nil
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.tointeger(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Number to attempt converting to an integer |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` \| `nil` | result | Integer representation of x, or `nil` if x has a fractional part or is not a number |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Convert a whole float to integer"
+local result = math.tointeger(5.0)
+
+engine.print("info", result) --5
+```
+
+```lua lineNumbers title="Returns nil for a float with a fraction"
+local result = math.tointeger(5.5)
+
+engine.print("info", result) --nil
+```
+
+```lua lineNumbers title="Convert a negative whole float"
+local result = math.tointeger(-3.0)
+
+engine.print("info", result) ---3
+```
+
+```lua lineNumbers title="Returns nil for a non-number"
+local result = math.tointeger("hello")
+
+engine.print("info", result) --nil
+```
+
+```lua lineNumbers title="Safely convert a computation result to integer"
+local val = 2 ^ 10
+local i = math.tointeger(val)
+
+if i then
+    engine.print("info", "Integer:", i) --Integer: 1024
+else
+    engine.print("info", "Not an exact integer")
+end
+```
+
+```lua lineNumbers title="Validate that a computed index is a whole number"
+local index = 9 / 3
+local i = math.tointeger(index)
+
+if i then
+    engine.print("info", "Valid index:", i) --Valid index: 3
+end
+```

@@ -1,0 +1,78 @@
+---
+title: math.ult
+description: Compares two integers as unsigned values
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.ult(
+    m,
+    n
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | m | First integer to compare |
+| `int` | n | Second integer to compare |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if m is less than n when both are treated as unsigned integers |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Unsigned comparison of two positive integers"
+local result = math.ult(3, 5)
+
+engine.print("info", result) --true
+```
+
+```lua lineNumbers title="Equal values return false"
+local result = math.ult(5, 5)
+
+engine.print("info", result) --false
+```
+
+```lua lineNumbers title="Larger left side returns false"
+local result = math.ult(9, 4)
+
+engine.print("info", result) --false
+```
+
+```lua lineNumbers title="Negative numbers are treated as large unsigned values"
+local result = math.ult(1, -1)
+
+engine.print("info", result) --true
+```
+
+```lua lineNumbers title="maxinteger is less than -1 in unsigned comparison"
+local result = math.ult(math.maxinteger, -1)
+
+engine.print("info", result) --true
+```
+
+```lua lineNumbers title="Compare two bitmask values as unsigned"
+local a = 0x7FFFFFFF
+local b = 0x80000000
+
+engine.print("info", math.ult(a, b)) --true
+```
+
+```lua lineNumbers title="Use ult to implement unsigned sort order"
+local values = {-1, 0, 1, math.maxinteger, math.mininteger}
+
+table.sort(values, math.ult)
+
+for _, v in ipairs(values) do
+    engine.print("info", v)
+end
+```

@@ -1,0 +1,77 @@
+---
+title: math.sin
+description: Returns the sine of an angle given in radians
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.sin(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Angle in radians |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Sine of x, in the range [-1, 1] |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Sine of 0"
+local result = math.sin(0)
+
+engine.print("info", result) --0.0
+```
+
+```lua lineNumbers title="Sine of pi/2 is 1"
+local result = math.sin(math.pi / 2)
+
+engine.print("info", result) --1.0
+```
+
+```lua lineNumbers title="Sine of pi is approximately 0"
+local result = math.sin(math.pi)
+
+engine.print("info", result) --1.2246e-16
+```
+
+```lua lineNumbers title="Sine of a 30 degree angle"
+local result = math.sin(math.rad(30))
+
+engine.print("info", result) --0.5
+```
+
+```lua lineNumbers title="Animate vertical position with a sine wave"
+local t = 0.5
+local amplitude = 10
+local frequency = 2
+local y = amplitude * math.sin(frequency * t)
+
+engine.print("info", y) --8.4147...
+```
+
+```lua lineNumbers title="Generate a circular X position"
+local angle = math.pi / 4
+local radius = 5
+local x = radius * math.cos(angle)
+local y = radius * math.sin(angle)
+
+engine.print("info", x, y) --3.5355...  3.5355...
+```
+
+```lua lineNumbers title="Compute sine for each cardinal angle"
+for _, deg in ipairs({0, 90, 180, 270, 360}) do
+    engine.print("info", deg, math.sin(math.rad(deg)))
+end
+```

@@ -1,0 +1,74 @@
+---
+title: math.cos
+description: Returns the cosine of an angle given in radians
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = math.cos(
+    x
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | x | Angle in radians |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Cosine of x, in the range [-1, 1] |
+
+<hr/>
+
+### Examples
+
+```lua lineNumbers title="Cosine of 0 is 1"
+local result = math.cos(0)
+
+engine.print("info", result) --1.0
+```
+
+```lua lineNumbers title="Cosine of pi is -1"
+local result = math.cos(math.pi)
+
+engine.print("info", result) ---1.0
+```
+
+```lua lineNumbers title="Cosine of pi/2 is approximately 0"
+local result = math.cos(math.pi / 2)
+
+engine.print("info", result) --6.1232e-17
+```
+
+```lua lineNumbers title="Cosine of a 60 degree angle"
+local result = math.cos(math.rad(60))
+
+engine.print("info", result) --0.5
+```
+
+```lua lineNumbers title="Generate a point on a unit circle"
+local angle = math.rad(45)
+local x = math.cos(angle)
+local y = math.sin(angle)
+
+engine.print("info", x, y) --0.70711...  0.70711...
+```
+
+```lua lineNumbers title="Oscillate a value back and forth"
+local t = 1.0
+local value = math.cos(t * math.pi)
+
+engine.print("info", value) ---1.0
+```
+
+```lua lineNumbers title="Compute cosine for each cardinal angle"
+for _, deg in ipairs({0, 90, 180, 270, 360}) do
+    engine.print("info", deg, math.cos(math.rad(deg)))
+end
+```
