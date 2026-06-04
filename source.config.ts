@@ -20,7 +20,7 @@ function remarkLuaCommentFix() {
     const traverse = (node: any) => {
       if (!node) return;
       if (node.type === 'code' && (node.lang === 'lua' || node.lang === null) && node.value) {
-        node.value = node.value.replace(/[ \t]*--(?!-)/g, '  --');
+        node.value = node.value.replace(/(\S)[ \t]*--(?![-\[])/g, '$1  --');
       }
       if (node.children && Array.isArray(node.children)) node.children.forEach(traverse);
     };
