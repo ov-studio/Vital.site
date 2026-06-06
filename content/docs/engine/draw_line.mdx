@@ -42,13 +42,13 @@ local status = engine.draw_line(
 
 ```lua lineNumbers title="Draw lines with various styles"
 network:fetch("vital.sandbox:draw", true):on(function()
-    --Draw a simple horizontal line
+    -- Draw a simple horizontal line
     engine.draw_line({{0, 100}, {400, 100}}, 2)
 
-    --Draw a colored diagonal line
+    -- Draw a colored diagonal line
     engine.draw_line({{0, 0}, {200, 200}}, 4, {1, 0, 0, 1})
 
-    --Draw a multi-segment polyline
+    -- Draw a multi-segment polyline
     engine.draw_line({{0, 0}, {100, 100}, {200, 0}, {300, 100}}, 2, {0, 1, 0, 1})
 end)
 ```

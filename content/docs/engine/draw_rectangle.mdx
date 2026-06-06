@@ -50,13 +50,13 @@ local status = engine.draw_rectangle(
 
 ```lua lineNumbers title="Draw rectangles with various styles"
 network:fetch("vital.sandbox:draw", true):on(function()
-    --Draw a plain white rectangle
+    -- Draw a plain white rectangle
     engine.draw_rectangle({100, 100}, {200, 150})
 
-    --Draw a filled green rectangle with a black outline
+    -- Draw a filled green rectangle with a black outline
     engine.draw_rectangle({100, 100}, {200, 150}, {0, 1, 0, 1}, 2, {0, 0, 0, 1})
 
-    --Draw a rotated rectangle around its center
+    -- Draw a rotated rectangle around its center
     engine.draw_rectangle({100, 100}, {200, 150}, {1, 0.5, 0, 1}, 0, {1, 1, 1, 1}, math.pi/6, {100, 75})
 end)
 ```

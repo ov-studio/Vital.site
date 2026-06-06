@@ -35,12 +35,12 @@ local status = rendertarget.set_active(
 ```lua lineNumbers title="Set a rendertarget as active with various clear options"
 local rt = rendertarget.create(1920, 1080, false)
 
---Bind the rendertarget with a clear
+-- Bind the rendertarget with a clear
 rendertarget.set_active(rt, true)
 
---Bind the rendertarget with an immediate clear
+-- Bind the rendertarget with an immediate clear
 rendertarget.set_active(rt, true, true)
 
---Unset the active rendertarget
+-- Unset the active rendertarget
 rendertarget.set_active()
 ```

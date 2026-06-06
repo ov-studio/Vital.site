@@ -66,7 +66,7 @@ engine.print("info", #t) -- 3
 ```lua lineNumbers title="table.len is reliable with nil holes"
 local args = table.pack("a", nil, "b", nil, "c")
 
-engine.print("info", #args) --May be incorrect with nil holes
+engine.print("info", #args) -- May be incorrect with nil holes
 engine.print("info", table.len(args)) -- 5 (always correct)
 ```
 

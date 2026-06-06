@@ -31,9 +31,9 @@ local status = self:eval(
 ```lua lineNumbers title="Evaluate JavaScript expressions inside a webview"
 local wv = webview.create()
 
---Change the page background color
+-- Change the page background color
 wv:eval("document.body.style.background = 'red'")
 
---Post a message back to Lua
+-- Post a message back to Lua
 wv:eval("window.ipc.postMessage('hello from JS')")
 ```

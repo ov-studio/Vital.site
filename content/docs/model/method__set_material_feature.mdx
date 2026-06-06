@@ -57,12 +57,12 @@ local status = self:set_material_feature(
 ```lua lineNumbers title="Toggle various material's features on a model"
 local entity = model.create("character")
 
---Enable emission on a specific material
+-- Enable emission on a specific material
 entity:set_material_feature("Skeleton3D/Body", "skin", 0, true)
 
---Disable subsurface scattering
+-- Disable subsurface scattering
 entity:set_material_feature("Skeleton3D/Head", "face", 7, false)
 
---Toggle rim lighting on all head materials using a wildcard
+-- Toggle rim lighting on all head materials using a wildcard
 entity:set_material_feature("Skeleton3D/Head", "*", 2, true)
 ```

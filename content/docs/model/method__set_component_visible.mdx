@@ -33,15 +33,15 @@ local status = self:set_component_visible(
 ```lua lineNumbers title="Toggle various component's visibility on a model"
 local entity = model.create("character")
 
---Show the hat
+-- Show the hat
 entity:set_component_visible("Skeleton3D/Hat", true)
 
---Hide the hat
+-- Hide the hat
 entity:set_component_visible("Skeleton3D/Hat", false)
 
---Hide all hats at once using a wildcard
+-- Hide all hats at once using a wildcard
 entity:set_component_visible("Skeleton3D/Hat_*", false)
 
---Show only Hat_1
+-- Show only Hat_1
 entity:set_component_visible("Skeleton3D/Hat_1", true)
 ```

@@ -35,9 +35,9 @@ local status = self:play_animation(
 ```lua lineNumbers title="Play various animations value on a model"
 local entity = model.create("character")
 
---Play looping idle animation at default speed
+-- Play looping idle animation at default speed
 entity:play_animation("idle")
 
---Play walk animation once at half speed
+-- Play walk animation once at half speed
 entity:play_animation("walk", false, 0.5)
 ```

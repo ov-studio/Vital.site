@@ -69,15 +69,15 @@ local status = self:set_material_flag(
 ```lua lineNumbers title="Toggle various material's flags on a model"
 local entity = model.create("character")
 
---Disable depth test so the material always renders on top
+-- Disable depth test so the material always renders on top
 entity:set_material_flag("Skeleton3D/Body", "outline", 0, true)
 
---Disable shadow receiving on a material
+-- Disable shadow receiving on a material
 entity:set_material_flag("Skeleton3D/Head", "face", 13, false)
 
---Enable ambient occlusion from UV2 on all body materials using a wildcard
+-- Enable ambient occlusion from UV2 on all body materials using a wildcard
 entity:set_material_flag("Skeleton3D/Body", "*", 10, true)
 
---Restore depth test on the outline material
+-- Restore depth test on the outline material
 entity:set_material_flag("Skeleton3D/Body", "outline", 0, false)
 ```

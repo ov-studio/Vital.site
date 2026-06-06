@@ -35,12 +35,12 @@ local status = self:set_blendshape_value(
 ```lua lineNumbers title="Set various blendshape's value on a model"
 local entity = model.create("character")
 
---Set a single blendshape value
+-- Set a single blendshape value
 entity:set_blendshape_value("Skeleton3D/Head", "smile", 1.0)
 
---Set blendshape values using a wildcard
+-- Set blendshape values using a wildcard
 entity:set_blendshape_value("Skeleton3D/Head", "eye_*", 0.5)
 
---Reset a blendshape to default
+-- Reset a blendshape to default
 entity:set_blendshape_value("Skeleton3D/Head", "sad", 0.0)
 ```

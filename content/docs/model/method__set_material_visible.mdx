@@ -35,15 +35,15 @@ local status = self:set_material_visible(
 ```lua lineNumbers title="Toggle various material's visibility"
 local entity = model.create("character")
 
---Hide a material
+-- Hide a material
 entity:set_material_visible("Skeleton3D/Head", "eyelash_style_1_material", false)
 
---Show it again
+-- Show it again
 entity:set_material_visible("Skeleton3D/Head", "eyelash_style_1_material", true)
 
---Hide all eyelashes at once using a wildcard
+-- Hide all eyelashes at once using a wildcard
 entity:set_material_visible("Skeleton3D/Head", "eyelash_*", false)
 
---Show only eyelash_style_1_material
+-- Show only eyelash_style_1_material
 entity:set_material_visible("Skeleton3D/Head", "eyelash_style_1_material", true)
 ```

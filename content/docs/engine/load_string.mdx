@@ -47,7 +47,7 @@ local exec = engine.load_string([[
 ]], nil, false)
 
 if exec then
-    exec() --Execute the loaded function manually
+    exec() -- Execute the loaded function manually
 end
 ```
 
@@ -55,7 +55,7 @@ end
 local result = engine.load_string(
     "local x =", 
     "scripts/init.lua"
-) --Error: scripts/init.lua:2: unexpected symbol near '<eof>'
+) -- Error: scripts/init.lua:2: unexpected symbol near '<eof>'
 ```
 
 ```lua lineNumbers title="Persistent environment across multiple load_string calls"
