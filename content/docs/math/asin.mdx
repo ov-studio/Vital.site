@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.asin(
-    x
+    value
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.asin(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Value in the range [-1, 1] |
+| `number` | value | Sine value in the range [-1, 1] |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | Arc sine of x in radians, in the range [-pi/2, pi/2] |
+| `number` | result | Arc sine in radians, in the range [-pi/2, pi/2] |
 
 <hr/>
 
@@ -52,11 +52,11 @@ local result = math.asin(-1)
 engine.print("info", result) ---1.5707963267949
 ```
 
-```lua lineNumbers title="Recover angle from vertical component"
-local vy = 0.866 -- sin(60 degrees)
-local angleDeg = math.deg(math.asin(vy))
+```lua lineNumbers title="Recover angle from a vertical direction component"
+local dir_y = 0.866 --sin(60 degrees)
+local angle_deg = math.deg(math.asin(dir_y))
 
-engine.print("info", angleDeg) --59.999...
+engine.print("info", angle_deg) --59.999...
 ```
 
 ```lua lineNumbers title="Verify asin and sin are inverses"

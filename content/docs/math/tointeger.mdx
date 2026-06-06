@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.tointeger(
-    x
+    value
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.tointeger(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Number to attempt converting to an integer |
+| `number` | value | Number to attempt converting to an integer |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` \| `nil` | result | Integer representation of x, or `nil` if x has a fractional part or is not a number |
+| `int` \| `nil` | result | Converted result: <br/>• `int` — exact integer representation of value <br/>• `nil` — value has a fractional part or is not a number |
 
 <hr/>
 
@@ -40,6 +40,12 @@ local result = math.tointeger(5.5)
 engine.print("info", result) --nil
 ```
 
+```lua lineNumbers title="Convert a negative whole float"
+local result = math.tointeger(-3.0)
+
+engine.print("info", result) ---3
+```
+
 ```lua lineNumbers title="Returns nil for a non-number"
 local result = math.tointeger("hello")
 
@@ -48,10 +54,10 @@ engine.print("info", result) --nil
 
 ```lua lineNumbers title="Safely convert a computation result to integer"
 local val = 2 ^ 10
-local i = math.tointeger(val)
+local int_val = math.tointeger(val)
 
-if i then
-    engine.print("info", "Integer:", i) --Integer: 1024
+if int_val then
+    engine.print("info", "Integer:", int_val) --Integer: 1024
 else
     engine.print("info", "Not an exact integer")
 end
@@ -59,9 +65,9 @@ end
 
 ```lua lineNumbers title="Validate that a computed index is a whole number"
 local index = 9 / 3
-local i = math.tointeger(index)
+local int_index = math.tointeger(index)
 
-if i then
-    engine.print("info", "Valid index:", i) --Valid index: 3
+if int_index then
+    engine.print("info", "Valid index:", int_index) --Valid index: 3
 end
 ```

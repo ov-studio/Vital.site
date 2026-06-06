@@ -1,6 +1,6 @@
 ---
 title: math.type
-description: Returns the subtype of a number as a string, or false if the value is not a number
+description: Returns the numeric subtype of a value as a string, or false if the value is not a number
 badge: Shared
 ---
 
@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.type(
-    x
+    value
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.type(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `any` | x | Value to check the numeric subtype of |
+| `any` | value | Value to check the numeric subtype of |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` \| `bool` | result | `"integer"` if x is an integer, `"float"` if x is a float, or `false` if x is not a number |
+| `string` \| `bool` | result | Numeric subtype of value: <br/>• `"integer"` — value is an integer <br/>• `"float"` — value is a float <br/>• `false` — value is not a number |
 
 <hr/>
 
@@ -58,7 +58,7 @@ local result = math.type(10 / 3)
 engine.print("info", result) --'float'
 ```
 
-```lua lineNumbers title="Distinguish integer from float with same value"
+```lua lineNumbers title="Distinguish integer from float with the same value"
 engine.print("info", math.type(1))   --'integer'
 engine.print("info", math.type(1.0)) --'float'
 ```
@@ -67,10 +67,10 @@ engine.print("info", math.type(1.0)) --'float'
 local values = {1, 2.5, 3, 4.0, "hi"}
 
 for _, v in ipairs(values) do
-    local t = math.type(v)
-    if t == "integer" then
+    local subtype = math.type(v)
+    if subtype == "integer" then
         engine.print("info", v, "is an integer")
-    elseif t == "float" then
+    elseif subtype == "float" then
         engine.print("info", v, "is a float")
     else
         engine.print("info", v, "is not a number")

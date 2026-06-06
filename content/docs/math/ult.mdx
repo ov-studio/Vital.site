@@ -8,8 +8,8 @@ badge: Shared
 
 ```lua
 local result = math.ult(
-    m,
-    n
+    left,
+    right
 )
 ```
 
@@ -17,14 +17,14 @@ local result = math.ult(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | m | First integer to compare |
-| `int` | n | Second integer to compare |
+| `int` | left | First integer to compare |
+| `int` | right | Second integer to compare |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | `true` if m is less than n when both are treated as unsigned integers |
+| `bool` | result | `true` if left is less than right when both are treated as unsigned integers |
 
 <hr/>
 
@@ -61,10 +61,10 @@ engine.print("info", result) --true
 ```
 
 ```lua lineNumbers title="Compare two bitmask values as unsigned"
-local a = 0x7FFFFFFF
-local b = 0x80000000
+local mask_a = 0x7FFFFFFF
+local mask_b = 0x80000000
 
-engine.print("info", math.ult(a, b)) --true
+engine.print("info", math.ult(mask_a, mask_b)) --true
 ```
 
 ```lua lineNumbers title="Use ult to implement unsigned sort order"

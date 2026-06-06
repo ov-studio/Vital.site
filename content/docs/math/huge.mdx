@@ -55,12 +55,12 @@ engine.print("info", largest) --99
 ```
 
 ```lua lineNumbers title="Check if a number is finite"
-local function isFinite(x)
-    return x > -math.huge and x < math.huge
+local function is_finite(value)
+    return value > -math.huge and value < math.huge
 end
 
-engine.print("info", isFinite(42))        --true
-engine.print("info", isFinite(math.huge)) --false
+engine.print("info", is_finite(42))        --true
+engine.print("info", is_finite(math.huge)) --false
 ```
 
 ```lua lineNumbers title="Division by zero produces huge"

@@ -1,6 +1,6 @@
 ---
 title: math.exp
-description: Returns e raised to the power of x
+description: Returns e raised to the power of a number
 badge: Shared
 ---
 
@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.exp(
-    x
+    exponent
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.exp(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Exponent to raise e to |
+| `number` | exponent | Power to raise e to |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | e^x (approximately 2.71828^x) |
+| `number` | result | e raised to the given exponent (approximately 2.71828^exponent) |
 
 <hr/>
 
@@ -62,8 +62,8 @@ engine.print("info", remaining) --60.653065971263
 ```
 
 ```lua lineNumbers title="Verify exp and log are inverses"
-local x = 3.5
-local result = math.exp(math.log(x))
+local value = 3.5
+local result = math.exp(math.log(value))
 
 engine.print("info", result) --3.5
 ```

@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.deg(
-    x
+    angle
 )
 ```
 
@@ -16,7 +16,7 @@ local result = math.deg(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Angle in radians |
+| `number` | angle | Angle in radians to convert |
 
 ### Returns
 
@@ -52,14 +52,14 @@ local result = math.deg(2 * math.pi)
 engine.print("info", result) --360.0
 ```
 
-```lua lineNumbers title="Convert atan2 result to readable degrees"
+```lua lineNumbers title="Convert an atan2 result to readable degrees"
 local angle = math.atan(1, 0)
 local degrees = math.deg(angle)
 
 engine.print("info", degrees) --90.0
 ```
 
-```lua lineNumbers title="Print trig results in human-readable degrees"
+```lua lineNumbers title="Print common radian values in degrees"
 for _, rad in ipairs({0, math.pi/6, math.pi/4, math.pi/3, math.pi/2}) do
     engine.print("info", math.deg(rad))
 end

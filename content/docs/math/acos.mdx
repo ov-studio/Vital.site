@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.acos(
-    x
+    value
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.acos(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Value in the range [-1, 1] |
+| `number` | value | Cosine value in the range [-1, 1] |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | Arc cosine of x in radians, in the range [0, pi] |
+| `number` | result | Arc cosine in radians, in the range [0, pi] |
 
 <hr/>
 
@@ -53,10 +53,10 @@ engine.print("info", result) --60.0
 ```
 
 ```lua lineNumbers title="Compute angle between two normalized vectors"
-local dot = 0.5 -- dot product of two unit vectors
-local angle = math.deg(math.acos(dot))
+local dot_product = 0.5
+local angle_deg = math.deg(math.acos(dot_product))
 
-engine.print("info", angle) --60.0
+engine.print("info", angle_deg) --60.0
 ```
 
 ```lua lineNumbers title="Verify acos and cos are inverses"

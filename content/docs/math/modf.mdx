@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local integer, fraction = math.modf(
-    x
+    value
 )
 ```
 
@@ -16,47 +16,47 @@ local integer, fraction = math.modf(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Number to split into integer and fractional parts |
+| `number` | value | Number to split into integer and fractional parts |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | integer | Integer part of x |
-| `number` | fraction | Fractional part of x (same sign as x) |
+| `int` | integer | Integer part of value |
+| `number` | fraction | Fractional part of value (same sign as value) |
 
 <hr/>
 
 ### Examples
 
 ```lua lineNumbers title="Split a positive float"
-local i, f = math.modf(4.75)
+local integer, fraction = math.modf(4.75)
 
-engine.print("info", i, f) --4  0.75
+engine.print("info", integer, fraction) --4  0.75
 ```
 
 ```lua lineNumbers title="Split a negative float"
-local i, f = math.modf(-3.25)
+local integer, fraction = math.modf(-3.25)
 
-engine.print("info", i, f) ---3  -0.25
+engine.print("info", integer, fraction) ---3  -0.25
 ```
 
 ```lua lineNumbers title="Split an exact integer"
-local i, f = math.modf(10.0)
+local integer, fraction = math.modf(10.0)
 
-engine.print("info", i, f) --10  0.0
+engine.print("info", integer, fraction) --10  0.0
 ```
 
 ```lua lineNumbers title="Get only the integer part"
-local i = math.modf(9.99)
+local integer = math.modf(9.99)
 
-engine.print("info", i) --9
+engine.print("info", integer) --9
 ```
 
 ```lua lineNumbers title="Get only the fractional part"
-local _, f = math.modf(9.99)
+local _, fraction = math.modf(9.99)
 
-engine.print("info", f) --0.99
+engine.print("info", fraction) --0.99
 ```
 
 ```lua lineNumbers title="Separate seconds and milliseconds"
@@ -68,9 +68,9 @@ engine.print("info", secs, math.floor(ms * 1000)) --3  456
 
 ```lua lineNumbers title="Check if a number is a whole integer"
 local n = 5.0
-local _, frac = math.modf(n)
+local _, fraction = math.modf(n)
 
-if frac == 0 then
+if fraction == 0 then
     engine.print("info", "Whole number")
 end
 ```

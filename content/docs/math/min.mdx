@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.min(
-    x,
+    value,
     ...
 )
 ```
@@ -17,7 +17,7 @@ local result = math.min(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | First number |
+| `number` | value | First number |
 | `number` | ... | Additional numbers to compare |
 
 ### Returns
@@ -54,7 +54,7 @@ local result = math.min(99)
 engine.print("info", result) --99
 ```
 
-```lua lineNumbers title="Clamp a value to a maximum"
+```lua lineNumbers title="Clamp a value to a maximum ceiling"
 local speed = 150
 local clamped = math.min(speed, 100)
 
@@ -69,9 +69,9 @@ engine.print("info", clamped) --100
 ```
 
 ```lua lineNumbers title="Cap items rendered to available slots"
-local items = 25
-local slots = 10
-local render = math.min(items, slots)
+local item_count = 25
+local slot_count = 10
+local render_count = math.min(item_count, slot_count)
 
-engine.print("info", render) --10
+engine.print("info", render_count) --10
 ```

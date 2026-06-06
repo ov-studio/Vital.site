@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.tan(
-    x
+    angle
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.tan(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Angle in radians |
+| `number` | angle | Angle in radians |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | Tangent of x |
+| `number` | result | Tangent of angle |
 
 <hr/>
 
@@ -47,16 +47,16 @@ engine.print("info", result) ---1.0
 ```
 
 ```lua lineNumbers title="Calculate slope from an angle"
-local angleDeg = 30
-local slope = math.tan(math.rad(angleDeg))
+local angle_deg = 30
+local slope = math.tan(math.rad(angle_deg))
 
 engine.print("info", slope) --0.57735...
 ```
 
 ```lua lineNumbers title="Compute height from distance and elevation angle"
 local distance = 100
-local elevationDeg = 30
-local height = distance * math.tan(math.rad(elevationDeg))
+local elevation_deg = 30
+local height = distance * math.tan(math.rad(elevation_deg))
 
 engine.print("info", height) --57.735...
 ```

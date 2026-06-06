@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.sin(
-    x
+    angle
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.sin(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Angle in radians |
+| `number` | angle | Angle in radians |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | Sine of x, in the range [-1, 1] |
+| `number` | result | Sine of angle, in the range [-1, 1] |
 
 <hr/>
 
@@ -40,34 +40,34 @@ local result = math.sin(math.pi / 2)
 engine.print("info", result) --1.0
 ```
 
-```lua lineNumbers title="Sine of pi is approximately 0"
-local result = math.sin(math.pi)
-
-engine.print("info", result) --1.2246e-16
-```
-
 ```lua lineNumbers title="Sine of a 30 degree angle"
 local result = math.sin(math.rad(30))
 
 engine.print("info", result) --0.5
 ```
 
-```lua lineNumbers title="Animate vertical position with a sine wave"
-local t = 0.5
-local amplitude = 10
-local frequency = 2
-local y = amplitude * math.sin(frequency * t)
+```lua lineNumbers title="Sine of a 90 degree angle"
+local result = math.sin(math.rad(90))
 
-engine.print("info", y) --8.4147...
+engine.print("info", result) --1.0
 ```
 
-```lua lineNumbers title="Generate a circular X position"
+```lua lineNumbers title="Animate vertical position with a sine wave"
+local elapsed = 0.5
+local amplitude = 10
+local frequency = 2
+local pos_y = amplitude * math.sin(frequency * elapsed)
+
+engine.print("info", pos_y) --8.4147...
+```
+
+```lua lineNumbers title="Generate a circular position"
 local angle = math.pi / 4
 local radius = 5
-local x = radius * math.cos(angle)
-local y = radius * math.sin(angle)
+local pos_x = radius * math.cos(angle)
+local pos_y = radius * math.sin(angle)
 
-engine.print("info", x, y) --3.5355...  3.5355...
+engine.print("info", pos_x, pos_y) --3.5355...  3.5355...
 ```
 
 ```lua lineNumbers title="Compute sine for each cardinal angle"

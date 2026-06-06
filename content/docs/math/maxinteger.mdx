@@ -38,13 +38,13 @@ engine.print("info", smallest) --50
 ```
 
 ```lua lineNumbers title="Check if a value equals the integer ceiling"
-local x = math.maxinteger
+local value = math.maxinteger
 
-engine.print("info", math.type(x) == "integer") --true
-engine.print("info", x == math.maxinteger)       --true
+engine.print("info", math.type(value) == "integer") --true
+engine.print("info", value == math.maxinteger)      --true
 ```
 
-```lua lineNumbers title="Bit width of the integer type"
+```lua lineNumbers title="Compute the usable bit width of the integer type"
 local bits = math.floor(math.log(math.maxinteger, 2)) + 1
 
 engine.print("info", bits) --63

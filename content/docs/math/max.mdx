@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.max(
-    x,
+    value,
     ...
 )
 ```
@@ -17,7 +17,7 @@ local result = math.max(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | First number |
+| `number` | value | First number |
 | `number` | ... | Additional numbers to compare |
 
 ### Returns
@@ -54,7 +54,7 @@ local result = math.max(42)
 engine.print("info", result) --42
 ```
 
-```lua lineNumbers title="Clamp a value to a minimum"
+```lua lineNumbers title="Clamp a value to a minimum floor"
 local speed = -5
 local clamped = math.max(speed, 0)
 
@@ -65,16 +65,16 @@ engine.print("info", clamped) --0
 local scores = {42, 88, 17, 95, 63}
 local best = scores[1]
 
-for _, v in ipairs(scores) do
-    best = math.max(best, v)
+for _, score in ipairs(scores) do
+    best = math.max(best, score)
 end
 
 engine.print("info", best) --95
 ```
 
-```lua lineNumbers title="Ensure a health value does not drop below zero"
+```lua lineNumbers title="Ensure health does not drop below zero"
 local hp = -10
-local safeHp = math.max(hp, 0)
+local safe_hp = math.max(hp, 0)
 
-engine.print("info", safeHp) --0
+engine.print("info", safe_hp) --0
 ```

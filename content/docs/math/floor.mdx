@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.floor(
-    x
+    value
 )
 ```
 
@@ -16,13 +16,13 @@ local result = math.floor(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Number to round down |
+| `number` | value | Number to round down |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | result | Largest integer less than or equal to x |
+| `int` | result | Largest integer less than or equal to value |
 
 <hr/>
 
@@ -59,9 +59,9 @@ engine.print("info", result) --3
 ```
 
 ```lua lineNumbers title="Snap position to grid"
-local x = 137.6
-local gridSize = 32
-local snapped = math.floor(x / gridSize) * gridSize
+local pos_x = 137.6
+local grid_size = 32
+local snapped = math.floor(pos_x / grid_size) * grid_size
 
 engine.print("info", snapped) --128
 ```

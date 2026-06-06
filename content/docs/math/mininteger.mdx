@@ -41,8 +41,8 @@ engine.print("info", largest) --400
 engine.print("info", math.mininteger < -1000000000) --true
 ```
 
-```lua lineNumbers title="Absolute value of mininteger overflows"
--- math.abs(math.mininteger) is undefined behavior due to overflow
+```lua lineNumbers title="Safely take absolute value near the boundary"
 local safe = math.mininteger + 1
+
 engine.print("info", math.abs(safe)) --9223372036854775807
 ```

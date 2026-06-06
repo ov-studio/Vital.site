@@ -10,15 +10,15 @@ badge: Shared
 -- Random float in [0, 1)
 local result = math.random()
 
--- Random integer in [1, m]
+-- Random integer in [1, max]
 local result = math.random(
-    m
+    max
 )
 
--- Random integer in [m, n]
+-- Random integer in [min, max]
 local result = math.random(
-    m,
-    n
+    min,
+    max
 )
 ```
 
@@ -26,14 +26,15 @@ local result = math.random(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | m | Upper bound when called with one argument, or lower bound when called with two |
-| `int` | n | Upper bound when called with two arguments |
+| `int` | max | Upper bound when called with one argument |
+| `int` | min | Lower bound when called with two arguments |
+| `int` | max | Upper bound when called with two arguments |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | A pseudo-random number:<br/>• `float` in [0, 1) when called with no arguments<br/>• `int` in [1, m] when called with one argument<br/>• `int` in [m, n] when called with two arguments |
+| `number` | result | Generated pseudo-random number: <br/>• `float` in [0, 1) — when called with no arguments <br/>• `int` in [1, max] — when called with one argument <br/>• `int` in [min, max] — when called with two arguments |
 
 <hr/>
 
@@ -75,8 +76,8 @@ engine.print("info", picked) --'potion' (varies)
 ```
 
 ```lua lineNumbers title="Generate a random float in a custom range"
-local min, max = 1.5, 4.5
-local result = min + math.random() * (max - min)
+local range_min, range_max = 1.5, 4.5
+local result = range_min + math.random() * (range_max - range_min)
 
 engine.print("info", result) --2.87... (varies)
 ```

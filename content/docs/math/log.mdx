@@ -8,7 +8,7 @@ badge: Shared
 
 ```lua
 local result = math.log(
-    x,
+    value,
     base = math.exp(1)
 )
 ```
@@ -17,14 +17,14 @@ local result = math.log(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | x | Positive number to compute the logarithm of |
+| `number` | value | Positive number to compute the logarithm of |
 | `number` | base | Logarithm base - defaults to e (natural log) |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | result | Logarithm of x in the given base |
+| `number` | result | Logarithm of value in the given base |
 
 <hr/>
 
@@ -70,8 +70,8 @@ engine.print("info", doublings) --10
 ```
 
 ```lua lineNumbers title="Verify log and exp are inverses"
-local x = 5.0
-local result = math.log(math.exp(x))
+local value = 5.0
+local result = math.log(math.exp(value))
 
 engine.print("info", result) --5.0
 ```
