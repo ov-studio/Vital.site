@@ -49,6 +49,7 @@
 }
 
 html {
+    font-variant-ligatures: none;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
