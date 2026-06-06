@@ -38,12 +38,6 @@ local result = string.rep("ab", 3)
 engine.print("info", result) -- 'ababab'
 ```
 
-```lua lineNumbers title="Repeat a single character to form a line"
-local line = string.rep("-", 40)
-
-engine.print("info", #line) --40
-```
-
 ```lua lineNumbers title="Repeat a string with a separator"
 local result = string.rep("hi", 3, "-")
 
