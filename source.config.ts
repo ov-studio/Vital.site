@@ -22,7 +22,10 @@ function remarkLuaCommentFix() {
       if (node.type === 'code' && (node.lang === 'lua' || node.lang === null) && node.value) {
         node.value = node.value.split('\n').map((line: string) => {
           if (/^[ \t]*--(?![-\[])/.test(line)) return ' ' + line;
-          return line.replace(/(\S)[ \t]*--(?![-\[])/g, '$1  --');
+          return line.replace(/(\S)[ \t]*--(?![-\[])(.*)/g, (_, pre, body) => {
+            const safeBody = body.match(/^['"\-\.]/) ? ' ' + body : body;
+            return pre + '  --' + safeBody;
+          });
         }).join('\n');
       }
       if (node.children && Array.isArray(node.children)) node.children.forEach(traverse);
