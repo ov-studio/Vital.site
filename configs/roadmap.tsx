@@ -284,7 +284,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'File I/O',
+        label: 'File',
         desc: 'Read, write, and manage files on disk from within Lua scripts',
         icon: <Icons.FileText {...site.lucide}/>,
         items: [
