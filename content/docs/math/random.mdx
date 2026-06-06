@@ -43,7 +43,7 @@ local result = math.random(
 ```lua lineNumbers title="Generate a random float between 0 and 1"
 local result = math.random()
 
-engine.print("info", result) -- 0.12345... (varies)
+engine.print("info", result) -- 0.12345 (varies)
 ```
 
 ```lua lineNumbers title="Generate a random integer between 1 and 10"
@@ -79,7 +79,7 @@ engine.print("info", picked) -- 'potion' (varies)
 local range_min, range_max = 1.5, 4.5
 local result = range_min + math.random() * (range_max - range_min)
 
-engine.print("info", result) -- 2.87... (varies)
+engine.print("info", result) -- 2.87 (varies)
 ```
 
 ```lua lineNumbers title="Roll a six-sided die"
