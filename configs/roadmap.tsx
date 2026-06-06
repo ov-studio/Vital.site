@@ -158,7 +158,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     cards: [
       {
         label: 'Math',
-        desc: 'Standard Lua math library — arithmetic, trigonometry, rounding, random, and bitwise utilities',
+        desc: 'Standard Lua math library, extended with additional sandbox utilities',
         icon: <Icons.Calculator {...site.lucide} />,
         items: [
           { label: '[Shared] API: math.abs', status: 'completed' },
@@ -192,7 +192,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'String',
-        desc: 'Standard Lua string library — parsing, searching, formatting, transformation, and binary packing',
+        desc: 'Standard Lua string library, extended with additional sandbox utilities',
         icon: <Icons.Regex {...site.lucide} />,
         items: [
           { label: '[Shared] API: string.void', status: 'completed' },
@@ -217,6 +217,24 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: string.pack', status: 'completed' },
           { label: '[Shared] API: string.packsize', status: 'completed' },
           { label: '[Shared] API: string.unpack', status: 'completed' },
+        ],
+      },
+      {
+        label: 'Table',
+        desc: 'Standard Lua table library, extended with additional sandbox utilities',
+        icon: <Icons.Table {...site.lucide} />,
+        items: [
+          { label: '[Shared] API: table.len', status: 'completed' },
+          { label: '[Shared] API: table.pack', status: 'completed' },
+          { label: '[Shared] API: table.unpack', status: 'completed' },
+          { label: '[Shared] API: table.insert', status: 'completed' },
+          { label: '[Shared] API: table.remove', status: 'completed' },
+          { label: '[Shared] API: table.move', status: 'completed' },
+          { label: '[Shared] API: table.sort', status: 'completed' },
+          { label: '[Shared] API: table.clone', status: 'completed' },
+          { label: '[Shared] API: table.concat', status: 'completed' },
+          { label: '[Shared] API: table.encode', status: 'completed' },
+          { label: '[Shared] API: table.decode', status: 'completed' },
         ],
       },
       {
