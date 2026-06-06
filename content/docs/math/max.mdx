@@ -33,32 +33,32 @@ local result = math.max(
 ```lua lineNumbers title="Max of two numbers"
 local result = math.max(3, 7)
 
-engine.print("info", result) --7
+engine.print("info", result) -- 7
 ```
 
 ```lua lineNumbers title="Max of multiple numbers"
 local result = math.max(1, 5, 3, 9, 2)
 
-engine.print("info", result) --9
+engine.print("info", result) -- 9
 ```
 
 ```lua lineNumbers title="Max with negative numbers"
 local result = math.max(-10, -3, -7)
 
-engine.print("info", result) ---3
+engine.print("info", result) -- -3
 ```
 
 ```lua lineNumbers title="Max of a single value returns itself"
 local result = math.max(42)
 
-engine.print("info", result) --42
+engine.print("info", result) -- 42
 ```
 
 ```lua lineNumbers title="Clamp a value to a minimum floor"
 local speed = -5
 local clamped = math.max(speed, 0)
 
-engine.print("info", clamped) --0
+engine.print("info", clamped) -- 0
 ```
 
 ```lua lineNumbers title="Find the highest score in a table"
@@ -69,12 +69,12 @@ for _, score in ipairs(scores) do
     best = math.max(best, score)
 end
 
-engine.print("info", best) --95
+engine.print("info", best) -- 95
 ```
 
 ```lua lineNumbers title="Ensure health does not drop below zero"
 local hp = -10
 local safe_hp = math.max(hp, 0)
 
-engine.print("info", safe_hp) --0
+engine.print("info", safe_hp) -- 0
 ```

@@ -30,47 +30,47 @@ local result = string.parse(
 ```lua lineNumbers title="Parse a nil string"
 local result = string.parse("nil")
 
-engine.print("info", result) --nil
+engine.print("info", result) -- nil
 ```
 
 ```lua lineNumbers title="Parse a boolean true string"
 local result = string.parse("true")
 
-engine.print("info", result) --true
+engine.print("info", result) -- true
 ```
 
 ```lua lineNumbers title="Parse a boolean false string"
 local result = string.parse("false")
 
-engine.print("info", result) --false
+engine.print("info", result) -- false
 ```
 
 ```lua lineNumbers title="Parse an integer string"
 local result = string.parse("42")
 
-engine.print("info", result) --42
+engine.print("info", result) -- 42
 ```
 
 ```lua lineNumbers title="Parse a float string"
 local result = string.parse("3.14")
 
-engine.print("info", result) --3.14
+engine.print("info", result) -- 3.14
 ```
 
 ```lua lineNumbers title="Parse a negative number string"
 local result = string.parse("-10")
 
-engine.print("info", result) ---10
+engine.print("info", result) -- -10
 ```
 
 ```lua lineNumbers title="Return unchanged string when no conversion applies"
 local result = string.parse("hello")
 
-engine.print("info", result) --'hello'
+engine.print("info", result) -- 'hello'
 ```
 
 ```lua lineNumbers title="Return false when input is nil"
 local result = string.parse(nil)
 
-engine.print("info", result) --false
+engine.print("info", result) -- false
 ```

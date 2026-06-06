@@ -33,32 +33,32 @@ local result = math.atan(
 ```lua lineNumbers title="Arc tangent of 1 is pi/4"
 local result = math.atan(1)
 
-engine.print("info", result) --0.78539816339745
+engine.print("info", result) -- 0.78539816339745
 ```
 
 ```lua lineNumbers title="Arc tangent of 0 is 0"
 local result = math.atan(0)
 
-engine.print("info", result) --0.0
+engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Two-argument atan for a 45 degree angle"
 local result = math.deg(math.atan(1, 1))
 
-engine.print("info", result) --45.0
+engine.print("info", result) -- 45.0
 ```
 
 ```lua lineNumbers title="Angle pointing left along the negative x axis"
 local result = math.deg(math.atan(0, -1))
 
-engine.print("info", result) --180.0
+engine.print("info", result) -- 180.0
 ```
 
 ```lua lineNumbers title="Compute heading angle from a direction vector"
 local dir_x, dir_y = 3, -3
 local angle_deg = math.deg(math.atan(dir_y, dir_x))
 
-engine.print("info", angle_deg) ---45.0
+engine.print("info", angle_deg) -- -45.0
 ```
 
 ```lua lineNumbers title="Get angle from one point to another"
@@ -66,12 +66,12 @@ local x1, y1 = 0, 0
 local x2, y2 = 5, 5
 local angle_deg = math.deg(math.atan(y2 - y1, x2 - x1))
 
-engine.print("info", angle_deg) --45.0
+engine.print("info", angle_deg) -- 45.0
 ```
 
 ```lua lineNumbers title="Verify atan and tan are inverses in range"
 local angle = math.pi / 4
 local result = math.atan(math.tan(angle))
 
-engine.print("info", result) --0.78539816339745
+engine.print("info", result) -- 0.78539816339745
 ```

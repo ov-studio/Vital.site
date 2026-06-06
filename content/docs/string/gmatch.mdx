@@ -98,7 +98,7 @@ for word in string.gmatch("one two three", "%S+") do
     table.insert(words, word)
 end
 
-engine.print("info", table.concat(words, " | ")) --'one | two | three'
+engine.print("info", table.concat(words, " | ")) -- 'one | two | three'
 ```
 
 ```lua lineNumbers title="Match quoted strings"
@@ -134,5 +134,5 @@ for _ in string.gmatch("the cat sat on the mat", "the") do
     count = count + 1
 end
 
-engine.print("info", count) --2
+engine.print("info", count) -- 2
 ```

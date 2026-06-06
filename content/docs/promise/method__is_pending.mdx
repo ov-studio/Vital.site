@@ -28,8 +28,8 @@ local result = self:is_pending()
 ```lua lineNumbers title="Check whether a promise is still pending"
 local p = promise.create()
 
-engine.print("info", p:is_pending()) --true
+engine.print("info", p:is_pending()) -- true
 
 p:resolve(true)
-engine.print("info", p:is_pending()) --false
+engine.print("info", p:is_pending()) -- false
 ```

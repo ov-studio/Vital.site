@@ -31,25 +31,25 @@ local result = math.sin(
 ```lua lineNumbers title="Sine of 0"
 local result = math.sin(0)
 
-engine.print("info", result) --0.0
+engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Sine of pi/2 is 1"
 local result = math.sin(math.pi / 2)
 
-engine.print("info", result) --1.0
+engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Sine of a 30 degree angle"
 local result = math.sin(math.rad(30))
 
-engine.print("info", result) --0.5
+engine.print("info", result) -- 0.5
 ```
 
 ```lua lineNumbers title="Sine of a 90 degree angle"
 local result = math.sin(math.rad(90))
 
-engine.print("info", result) --1.0
+engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Animate vertical position with a sine wave"
@@ -58,7 +58,7 @@ local amplitude = 10
 local frequency = 2
 local pos_y = amplitude * math.sin(frequency * elapsed)
 
-engine.print("info", pos_y) --8.4147...
+engine.print("info", pos_y) -- 8.4147...
 ```
 
 ```lua lineNumbers title="Generate a circular position"
@@ -67,7 +67,7 @@ local radius = 5
 local pos_x = radius * math.cos(angle)
 local pos_y = radius * math.sin(angle)
 
-engine.print("info", pos_x, pos_y) --3.5355...  3.5355...
+engine.print("info", pos_x, pos_y) -- 3.5355...  3.5355...
 ```
 
 ```lua lineNumbers title="Compute sine for each cardinal angle"

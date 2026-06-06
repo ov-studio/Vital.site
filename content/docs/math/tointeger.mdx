@@ -31,25 +31,25 @@ local result = math.tointeger(
 ```lua lineNumbers title="Convert a whole float to integer"
 local result = math.tointeger(5.0)
 
-engine.print("info", result) --5
+engine.print("info", result) -- 5
 ```
 
 ```lua lineNumbers title="Returns nil for a float with a fraction"
 local result = math.tointeger(5.5)
 
-engine.print("info", result) --nil
+engine.print("info", result) -- nil
 ```
 
 ```lua lineNumbers title="Convert a negative whole float"
 local result = math.tointeger(-3.0)
 
-engine.print("info", result) ---3
+engine.print("info", result) -- -3
 ```
 
 ```lua lineNumbers title="Returns nil for a non-number"
 local result = math.tointeger("hello")
 
-engine.print("info", result) --nil
+engine.print("info", result) -- nil
 ```
 
 ```lua lineNumbers title="Safely convert a computation result to integer"

@@ -19,15 +19,15 @@ Represents positive infinity. Useful as a sentinel initial value for minimum-fin
 ### Examples
 
 ```lua lineNumbers title="Print the value of huge"
-engine.print("info", math.huge) --inf
+engine.print("info", math.huge) -- inf
 ```
 
 ```lua lineNumbers title="huge is greater than any number"
-engine.print("info", math.huge > 1e308) --true
+engine.print("info", math.huge > 1e308) -- true
 ```
 
 ```lua lineNumbers title="Negative huge is less than any number"
-engine.print("info", -math.huge < -1e308) --true
+engine.print("info", -math.huge < -1e308) -- true
 ```
 
 ```lua lineNumbers title="Use as initial value in a minimum search"
@@ -40,7 +40,7 @@ for _, v in ipairs(values) do
     end
 end
 
-engine.print("info", smallest) --3
+engine.print("info", smallest) -- 3
 ```
 
 ```lua lineNumbers title="Use as initial value in a maximum search"
@@ -53,7 +53,7 @@ for _, v in ipairs(values) do
     end
 end
 
-engine.print("info", largest) --99
+engine.print("info", largest) -- 99
 ```
 
 ```lua lineNumbers title="Check if a number is finite"
@@ -61,12 +61,12 @@ local function is_finite(value)
     return value > -math.huge and value < math.huge
 end
 
-engine.print("info", is_finite(42))        --true
-engine.print("info", is_finite(math.huge)) --false
+engine.print("info", is_finite(42))        -- true
+engine.print("info", is_finite(math.huge)) -- false
 ```
 
 ```lua lineNumbers title="Division by zero produces huge"
 local result = 1 / 0
 
-engine.print("info", result == math.huge) --true
+engine.print("info", result == math.huge) -- true
 ```

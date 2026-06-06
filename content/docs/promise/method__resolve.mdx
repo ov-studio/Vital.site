@@ -48,7 +48,7 @@ p:resolve("hello", "world")
 
 thread.create(function(self)
     local a, b = self:await(p)
-    engine.print("info", a, b) --'hello'  'world'
+    engine.print("info", a, b) -- 'hello'  'world'
 end):resume()
 ```
 
@@ -56,5 +56,5 @@ end):resume()
 local p = promise.create()
 
 p:resolve(true)
-engine.print("info", p:resolve(false)) --false
+engine.print("info", p:resolve(false)) -- false
 ```

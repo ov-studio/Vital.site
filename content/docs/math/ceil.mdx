@@ -31,25 +31,25 @@ local result = math.ceil(
 ```lua lineNumbers title="Ceil a positive float"
 local result = math.ceil(4.2)
 
-engine.print("info", result) --5
+engine.print("info", result) -- 5
 ```
 
 ```lua lineNumbers title="Ceil a negative float"
 local result = math.ceil(-4.2)
 
-engine.print("info", result) ---4
+engine.print("info", result) -- -4
 ```
 
 ```lua lineNumbers title="Ceil an exact integer returns itself"
 local result = math.ceil(7.0)
 
-engine.print("info", result) --7
+engine.print("info", result) -- 7
 ```
 
 ```lua lineNumbers title="Ceil a value just below an integer"
 local result = math.ceil(2.0001)
 
-engine.print("info", result) --3
+engine.print("info", result) -- 3
 ```
 
 ```lua lineNumbers title="Calculate number of pages needed for items"
@@ -57,19 +57,19 @@ local itemCount = 17
 local perPage = 5
 local pages = math.ceil(itemCount / perPage)
 
-engine.print("info", pages) --4
+engine.print("info", pages) -- 4
 ```
 
 ```lua lineNumbers title="Round up to the next whole unit"
 local bytes = 1500
 local kb = math.ceil(bytes / 1024)
 
-engine.print("info", kb) --2
+engine.print("info", kb) -- 2
 ```
 
 ```lua lineNumbers title="Ensure minimum allocation size"
 local required = 3.1
 local allocated = math.ceil(required)
 
-engine.print("info", allocated) --4
+engine.print("info", allocated) -- 4
 ```

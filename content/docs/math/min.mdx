@@ -33,39 +33,39 @@ local result = math.min(
 ```lua lineNumbers title="Min of two numbers"
 local result = math.min(3, 7)
 
-engine.print("info", result) --3
+engine.print("info", result) -- 3
 ```
 
 ```lua lineNumbers title="Min of multiple numbers"
 local result = math.min(10, 5, 8, 1, 6)
 
-engine.print("info", result) --1
+engine.print("info", result) -- 1
 ```
 
 ```lua lineNumbers title="Min with negative numbers"
 local result = math.min(-1, -5, -3)
 
-engine.print("info", result) ---5
+engine.print("info", result) -- -5
 ```
 
 ```lua lineNumbers title="Min of a single value returns itself"
 local result = math.min(99)
 
-engine.print("info", result) --99
+engine.print("info", result) -- 99
 ```
 
 ```lua lineNumbers title="Clamp a value to a maximum ceiling"
 local speed = 150
 local clamped = math.min(speed, 100)
 
-engine.print("info", clamped) --100
+engine.print("info", clamped) -- 100
 ```
 
 ```lua lineNumbers title="Clamp a value between a min and max"
 local value = 120
 local clamped = math.max(0, math.min(value, 100))
 
-engine.print("info", clamped) --100
+engine.print("info", clamped) -- 100
 ```
 
 ```lua lineNumbers title="Cap items rendered to available slots"
@@ -73,5 +73,5 @@ local item_count = 25
 local slot_count = 10
 local render_count = math.min(item_count, slot_count)
 
-engine.print("info", render_count) --10
+engine.print("info", render_count) -- 10
 ```

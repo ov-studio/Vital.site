@@ -33,6 +33,6 @@ local ctx = timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 1000, 1)
 
-engine.print("info", ctx:is_type("timer")) --true
-engine.print("info", ctx:is_type("texture")) --false
+engine.print("info", ctx:is_type("timer")) -- true
+engine.print("info", ctx:is_type("texture")) -- false
 ```

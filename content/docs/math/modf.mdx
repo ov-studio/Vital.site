@@ -32,38 +32,38 @@ local integer, fraction = math.modf(
 ```lua lineNumbers title="Split a positive float"
 local integer, fraction = math.modf(4.75)
 
-engine.print("info", integer, fraction) --4  0.75
+engine.print("info", integer, fraction) -- 4  0.75
 ```
 
 ```lua lineNumbers title="Split a negative float"
 local integer, fraction = math.modf(-3.25)
 
-engine.print("info", integer, fraction) ---3  -0.25
+engine.print("info", integer, fraction) -- -3  -0.25
 ```
 
 ```lua lineNumbers title="Split an exact integer"
 local integer, fraction = math.modf(10.0)
 
-engine.print("info", integer, fraction) --10  0.0
+engine.print("info", integer, fraction) -- 10  0.0
 ```
 
 ```lua lineNumbers title="Get only the integer part"
 local integer = math.modf(9.99)
 
-engine.print("info", integer) --9
+engine.print("info", integer) -- 9
 ```
 
 ```lua lineNumbers title="Get only the fractional part"
 local _, fraction = math.modf(9.99)
 
-engine.print("info", fraction) --0.99
+engine.print("info", fraction) -- 0.99
 ```
 
 ```lua lineNumbers title="Separate seconds and milliseconds"
 local elapsed = 3.456
 local secs, ms = math.modf(elapsed)
 
-engine.print("info", secs, math.floor(ms * 1000)) --3  456
+engine.print("info", secs, math.floor(ms * 1000)) -- 3  456
 ```
 
 ```lua lineNumbers title="Check if a number is a whole integer"

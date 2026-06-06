@@ -42,7 +42,7 @@ end
 ```lua lineNumbers title="Use chunk_name to get readable error locations"
 local result, err = engine.compile_string("local x =", "scripts/init.lua")
 if not result then
-    engine.print("error", err) --scripts/init.lua:1: unexpected symbol near '<eof>'
+    engine.print("error", err) -- scripts/init.lua:1: unexpected symbol near '<eof>'
 end
 ```
 

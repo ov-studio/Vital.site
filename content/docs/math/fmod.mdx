@@ -33,32 +33,32 @@ local result = math.fmod(
 ```lua lineNumbers title="Remainder of integer division"
 local result = math.fmod(10, 3)
 
-engine.print("info", result) --1.0
+engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Remainder of float division"
 local result = math.fmod(5.5, 2.0)
 
-engine.print("info", result) --1.5
+engine.print("info", result) -- 1.5
 ```
 
 ```lua lineNumbers title="Remainder with a negative dividend"
 local result = math.fmod(-10, 3)
 
-engine.print("info", result) ---1.0
+engine.print("info", result) -- -1.0
 ```
 
 ```lua lineNumbers title="Remainder of division by itself is zero"
 local result = math.fmod(7, 7)
 
-engine.print("info", result) --0.0
+engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Wrap an angle to the range -360 to 360"
 local angle = 450.0
 local wrapped = math.fmod(angle, 360)
 
-engine.print("info", wrapped) --90.0
+engine.print("info", wrapped) -- 90.0
 ```
 
 ```lua lineNumbers title="Keep a timer looping within a period"
@@ -66,11 +66,11 @@ local elapsed = 7.3
 local period = 2.0
 local phase = math.fmod(elapsed, period)
 
-engine.print("info", phase) --1.3
+engine.print("info", phase) -- 1.3
 ```
 
 ```lua lineNumbers title="Difference from the % operator on floats"
 local a, b = 7.5, 2.5
 
-engine.print("info", math.fmod(a, b)) --0.0
+engine.print("info", math.fmod(a, b)) -- 0.0
 ```

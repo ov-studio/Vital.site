@@ -31,13 +31,13 @@ This function does not return any values.
 ```lua lineNumbers title="Seed with a fixed value for reproducibility"
 math.randomseed(42)
 
-engine.print("info", math.random(100)) --always the same value
+engine.print("info", math.random(100)) -- always the same value
 ```
 
 ```lua lineNumbers title="Seed with the current time for unique sequences"
 math.randomseed(os.time())
 
-engine.print("info", math.random(100)) --varies per run
+engine.print("info", math.random(100)) -- varies per run
 ```
 
 ```lua lineNumbers title="Two seeds with the same value produce the same sequence"
@@ -47,7 +47,7 @@ local a = math.random(1000)
 math.randomseed(1234)
 local b = math.random(1000)
 
-engine.print("info", a == b) --true
+engine.print("info", a == b) -- true
 ```
 
 ```lua lineNumbers title="Seed before generating a reproducible shuffle"
@@ -69,5 +69,5 @@ end
 ```lua lineNumbers title="Use two seed components for a broader range"
 math.randomseed(os.time(), os.clock() * 1e9)
 
-engine.print("info", math.random()) --0.74392... (varies)
+engine.print("info", math.random()) -- 0.74392... (varies)
 ```

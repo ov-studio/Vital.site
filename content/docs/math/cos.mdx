@@ -31,25 +31,25 @@ local result = math.cos(
 ```lua lineNumbers title="Cosine of 0 is 1"
 local result = math.cos(0)
 
-engine.print("info", result) --1.0
+engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Cosine of pi is -1"
 local result = math.cos(math.pi)
 
-engine.print("info", result) ---1.0
+engine.print("info", result) -- -1.0
 ```
 
 ```lua lineNumbers title="Cosine of a 60 degree angle"
 local result = math.cos(math.rad(60))
 
-engine.print("info", result) --0.5
+engine.print("info", result) -- 0.5
 ```
 
 ```lua lineNumbers title="Cosine of a 90 degree angle"
 local result = math.cos(math.rad(90))
 
-engine.print("info", result) --0.0
+engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Generate a point on a unit circle"
@@ -57,14 +57,14 @@ local angle = math.rad(45)
 local pos_x = math.cos(angle)
 local pos_y = math.sin(angle)
 
-engine.print("info", pos_x, pos_y) --0.70711...  0.70711...
+engine.print("info", pos_x, pos_y) -- 0.70711...  0.70711...
 ```
 
 ```lua lineNumbers title="Oscillate a value back and forth"
 local elapsed = 1.0
 local value = math.cos(elapsed * math.pi)
 
-engine.print("info", value) ---1.0
+engine.print("info", value) -- -1.0
 ```
 
 ```lua lineNumbers title="Compute cosine for each cardinal angle"

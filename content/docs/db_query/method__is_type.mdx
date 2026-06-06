@@ -32,6 +32,6 @@ local result = self:is_type(
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 local query = db:table("players")
 
-engine.print("info", query:is_type("db_query")) --true
-engine.print("info", query:is_type("database")) --false
+engine.print("info", query:is_type("db_query")) -- true
+engine.print("info", query:is_type("database")) -- false
 ```

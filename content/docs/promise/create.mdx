@@ -43,7 +43,7 @@ local p = promise.create()
 
 thread.create(function(self)
     local value = self:await(p)
-    engine.print("info", value) --42
+    engine.print("info", value) -- 42
 end):resume()
 
 timer.create(function()

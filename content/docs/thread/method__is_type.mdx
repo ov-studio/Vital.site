@@ -34,6 +34,6 @@ local ctx = thread.create(function(self)
 end)
 
 ctx:resume()
-engine.print("info", self:is_type("thread")) --true
-engine.print("info", self:is_type("database")) --false
+engine.print("info", self:is_type("thread")) -- true
+engine.print("info", self:is_type("database")) -- false
 ```
