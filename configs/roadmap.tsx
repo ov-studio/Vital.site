@@ -158,7 +158,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     cards: [
       {
         label: 'Math',
-        desc: 'Standard Lua math library, extended with additional sandbox utilities',
+        desc: 'Lua math library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Calculator {...site.lucide} />,
         items: [
           { label: '[Shared] API: math.abs', status: 'completed' },
@@ -192,7 +192,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'String',
-        desc: 'Standard Lua string library, extended with additional sandbox utilities',
+        desc: 'Lua string library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Regex {...site.lucide} />,
         items: [
           { label: '[Shared] API: string.void', status: 'completed' },
@@ -221,7 +221,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Table',
-        desc: 'Standard Lua table library, extended with additional sandbox utilities',
+        desc: 'Lua table library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Table {...site.lucide} />,
         items: [
           { label: '[Shared] API: table.len', status: 'completed' },
