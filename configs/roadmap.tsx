@@ -79,7 +79,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Settings Menu',
-        desc: 'Client settings panel — window, resolution, keybinds, audio, and display configuration',
+        desc: 'Settings panel — window, resolution, keybinds, audio, and display configuration',
         icon: <Icons.SlidersHorizontal {...site.lucide} />,
         items: [
           { label: 'Window mode (fullscreen / borderless / windowed)', status: 'pending' },
