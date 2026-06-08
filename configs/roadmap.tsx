@@ -52,7 +52,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Main Menu',
-        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
+        desc: 'Default client entry point — play, credits, quit, and navigation to settings and server browser',
         icon: <Icons.LayoutDashboard {...site.lucide} />,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
@@ -74,6 +74,22 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Direct connect by IP & port', status: 'pending' },
           { label: 'Refresh & auto-refresh interval', status: 'pending' },
           { label: 'Favorite servers list', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Settings',
+        desc: 'Client settings panel — display, window, controls, audio, and keybind configuration',
+        icon: <Icons.SlidersHorizontal {...site.lucide} />,
+        items: [
+          { label: 'Window mode (fullscreen / borderless / windowed)', status: 'pending' },
+          { label: 'Resolution & DPI / scale factor', status: 'pending' },
+          { label: 'Window title & icon', status: 'pending' },
+          { label: 'Clipboard get / set', status: 'pending' },
+          { label: 'Cursor mode (visible / hidden / captured)', status: 'pending' },
+          { label: 'Multi-monitor screen info', status: 'pending' },
+          { label: 'Keybind configuration', status: 'pending' },
+          { label: 'Audio output device & volume', status: 'pending' },
         ],
       },
       {
@@ -119,21 +135,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
           { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Display & Window',
-        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor',
-        icon: <Icons.Monitor {...site.lucide} />,
-        items: [
-          { label: 'window_get / set_size', status: 'pending' },
-          { label: 'Fullscreen / borderless / maximized', status: 'pending' },
-          { label: 'Window title & icon', status: 'pending' },
-          { label: 'Clipboard get / set', status: 'pending' },
-          { label: 'Cursor mode (visible / hidden / captured)', status: 'pending' },
-          { label: 'DPI / scale factor query', status: 'pending' },
-          { label: 'Multi-monitor screen info', status: 'pending' },
         ],
       },
       {
