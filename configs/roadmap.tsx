@@ -105,7 +105,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Resource System',
-        desc: 'Runtime resource loading, caching, unloading, and remote downloading via ResourceLoader',
+        desc: 'Runtime resource loading, caching, unloading, and remote downloading',
         icon: <Icons.FolderOpen {...site.lucide}/>,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
