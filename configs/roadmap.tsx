@@ -52,7 +52,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Main Menu',
-        desc: 'Default client entry point — play, credits, quit, and navigation to settings and server browser',
+        desc: 'Default client entry point — play, game browser, settings, credits, quit',
         icon: <Icons.LayoutDashboard {...site.lucide} />,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
@@ -65,7 +65,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Game Browser',
-        desc: 'In-client server list — query, filter, sort, and join available game servers',
+        desc: 'Server list — query, filter, sort, favorite, and join available game servers',
         icon: <Icons.Server {...site.lucide} />,
         items: [
           { label: 'Server list fetch & display', status: 'pending' },
@@ -78,8 +78,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         // TODO: WIP
-        label: 'Settings',
-        desc: 'Client settings panel — display, window, controls, audio, and keybind configuration',
+        label: 'Settings Menu',
+        desc: 'Client settings panel — window, resolution, keybinds, audio, and display configuration',
         icon: <Icons.SlidersHorizontal {...site.lucide} />,
         items: [
           { label: 'Window mode (fullscreen / borderless / windowed)', status: 'pending' },
@@ -94,8 +94,8 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Console',
-        desc: 'Built-in runtime console for commands, debug output, and structured logging',
-        icon: <Icons.Terminal {...site.lucide}/>,
+        desc: 'Built-in runtime console — commands, structured logging, and debug output across both sides',
+        icon: <Icons.Terminal {...site.lucide} />,
         items: [
           { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
           { label: '[Shared] Command: help', status: 'completed' },
@@ -116,13 +116,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] Command: crun <code>', status: 'completed' },
           { label: '[Client] Command: connect <ip> <port>', status: 'pending' },
           { label: '[Client] Command: disconnect', status: 'pending' },
-          { label: '[Client] Command: status', status: 'pending' }
+          { label: '[Client] Command: status', status: 'pending' },
         ],
       },
       {
         label: 'Resource System',
-        desc: 'Runtime resource loading, caching, unloading, and remote downloading',
-        icon: <Icons.FolderOpen {...site.lucide}/>,
+        desc: 'Runtime resource loading, caching, unloading, and client-side remote asset downloading',
+        icon: <Icons.FolderOpen {...site.lucide} />,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
@@ -134,7 +134,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
-          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
+          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' },
         ],
       },
       {
