@@ -106,12 +106,73 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        // TODO: WIP
+        label: 'Main Menu',
+        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
+        icon: <Icons.LayoutDashboard {...site.lucide} />,
+        items: [
+          { label: 'Main menu scene & layout', status: 'pending' },
+          { label: 'Play / browse servers flow', status: 'pending' },
+          { label: 'Settings screen', status: 'pending' },
+          { label: 'Credits screen', status: 'pending' },
+          { label: 'Version & build info display', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Game Browser',
+        desc: 'In-client server list — query, filter, sort, and join available game servers',
+        icon: <Icons.Server {...site.lucide} />,
+        items: [
+          { label: 'Server list fetch & display', status: 'pending' },
+          { label: 'Filter by name / gamemode / region', status: 'pending' },
+          { label: 'Sort by player count / ping / name', status: 'pending' },
+          { label: 'Direct connect by IP & port', status: 'pending' },
+          { label: 'Refresh & auto-refresh interval', status: 'pending' },
+          { label: 'Favorite servers list', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Display & Window',
+        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
+        icon: <Icons.Monitor {...site.lucide} />,
+        items: [
+          { label: 'window_get / set_size', status: 'pending' },
+          { label: 'Fullscreen / borderless / maximized', status: 'pending' },
+          { label: 'Window title & icon', status: 'pending' },
+          { label: 'Clipboard get / set', status: 'pending' },
+          { label: 'Cursor mode (visible / hidden / captured)', status: 'pending' },
+          { label: 'DPI / scale factor query', status: 'pending' },
+          { label: 'Multi-monitor screen info', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Performance Monitor',
+        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
+        icon: <Icons.Activity {...site.lucide} />,
+        items: [
+          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
+          { label: 'Draw calls & vertices', status: 'pending' },
+          { label: 'Static / dynamic memory', status: 'pending' },
+          { label: 'Physics step time', status: 'pending' },
+          { label: 'Object / node count', status: 'pending' },
+        ],
+      }
+    ],
+  },
+
+  {
+    name: 'Core',
+    cards: [
+      {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
-        icon: <Icons.Database {...site.lucide}/>,
+        icon: <Icons.Database {...site.lucide} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'MySQL database', status: 'completed' },
+          { label: 'Database Backend: MySQL', status: 'completed' },
           { label: 'ORM-style query with chainable methods', status: 'completed' },
           { label: 'Asynchronous query execution', status: 'completed' },
           { label: '[Server] API: database.create', status: 'completed' },
@@ -138,16 +199,206 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        // TODO: WIP
-        label: 'Performance Monitor',
-        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
-        icon: <Icons.Activity {...site.lucide} />,
+        label: 'Model',
+        desc: 'Load, instantiate, transform, animate, and manage 3D model assets at runtime',
+        icon: <Icons.Box {...site.lucide} />,
         items: [
-          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
-          { label: 'Draw calls & vertices', status: 'pending' },
-          { label: 'Static / dynamic memory', status: 'pending' },
-          { label: 'Physics step time', status: 'pending' },
-          { label: 'Object / node count', status: 'pending' },
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Support format: GLB', status: 'completed' },
+          { label: 'Model loader / unloader', status: 'completed' },
+          { label: 'Server spawn replication with per-peer authority', status: 'completed' },
+          { label: 'Server transform replication', status: 'pending' },
+          { label: 'Server blendshape replication', status: 'pending' },
+          { label: 'Server material override replication', status: 'pending' },
+          { label: 'Server material flag replication', status: 'pending' },
+          { label: 'Server animation state replication', status: 'pending' },
+          { label: 'Transform (position / rotation / scale) control', status: 'partial' },
+          { label: 'Animation playback (play / stop / pause / resume)', status: 'completed' },
+          { label: 'Animation speed scale', status: 'completed' },
+          { label: 'Blendshape (morph target) control', status: 'completed' },
+          { label: 'Component visibility override per mesh', status: 'completed' },
+          { label: 'Material visibility override per component', status: 'completed' },
+          { label: 'Material feature & flag overrides', status: 'completed' },
+          { label: 'Wildcard component / material targeting', status: 'completed' },
+          { label: 'Skeleton & bone transforms', status: 'partial' },
+          { label: 'LOD (Level of Detail) control', status: 'pending' }
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Camera 3D',
+        desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
+        icon: <Icons.Video {...site.lucide} />,
+        items: [
+          { label: 'Camera3D transform (position / rotation)', status: 'pending' },
+          { label: 'FOV / orthographic size', status: 'pending' },
+          { label: 'Near / far clip plane', status: 'pending' },
+          { label: 'Projection mode (perspective / ortho)', status: 'pending' },
+          { label: 'set_current (make active)', status: 'pending' },
+          { label: 'Per-camera environment override', status: 'pending' },
+          { label: 'Frustum culling mask', status: 'pending' },
+        ],
+      },
+      {
+        label: 'Webview',
+        desc: 'HTML/CSS/JS renderer with bidirectional Lua - JS messaging',
+        icon: <Icons.Code2 {...site.lucide} />,
+        items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
+          { label: 'Serve webview files over HTTP instead of file://', status: 'pending' },
+          { label: '[Client] API: webview.create', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_type', status: 'completed' },
+          { label: '[Client] API: self<webview>:get_type', status: 'completed' },
+          { label: '[Client] API: self<webview>:destroy', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_fullscreen', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_transparent', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_incognito', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_autoplay', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_zoomable', status: 'completed' },
+          { label: '[Client] API: self<webview>:is_devtools_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:get_position', status: 'completed' },
+          { label: '[Client] API: self<webview>:get_size', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_position', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_size', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_devtools_visible', status: 'completed' },
+          { label: '[Client] API: self<webview>:set_message_handler', status: 'completed' },
+          { label: '[Client] API: self<webview>:load_url', status: 'completed' },
+          { label: '[Client] API: self<webview>:load_html', status: 'completed' },
+          { label: '[Client] API: self<webview>:clear_history', status: 'completed' },
+          { label: '[Client] API: self<webview>:focus', status: 'completed' },
+          { label: '[Client] API: self<webview>:reload', status: 'completed' },
+          { label: '[Client] API: self<webview>:zoom', status: 'completed' },
+          { label: '[Client] API: self<webview>:update', status: 'completed' },
+          { label: '[Client] API: self<webview>:eval', status: 'completed' },
+          { label: '[Client] API: self<webview>:emit', status: 'completed' }
+        ],
+      },
+      {
+        label: 'Canvas',
+        desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
+        icon: <Icons.PenTool {...site.lucide} />,
+        items: [
+          { label: '[Client] API: engine.world_to_screen', status: 'completed' },
+          { label: '[Client] API: engine.screen_to_world', status: 'completed' },
+          { label: '[Client] API: engine.draw_line', status: 'completed' },
+          { label: '[Client] API: engine.draw_polygon', status: 'completed' },
+          { label: '[Client] API: engine.draw_rectangle', status: 'completed' },
+          { label: '[Client] API: engine.draw_circle', status: 'completed' },
+          { label: '[Client] API: engine.draw_image', status: 'completed' },
+          { label: '[Client] API: engine.draw_text', status: 'completed' }
+        ],
+      },
+      {
+        label: 'Font',
+        desc: 'Runtime font loading for canvas-level text rendering',
+        icon: <Icons.Type {...site.lucide} />,
+        items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Format: TTF', status: 'completed' },
+          { label: 'Format: OTF', status: 'completed' },
+          { label: 'Format: WOFF', status: 'completed' },
+          { label: 'Format: WOFF2', status: 'completed' },
+          { label: '[Client] API: font.create', status: 'completed' },
+          { label: '[Client] API: self<font>:is_type', status: 'completed' },
+          { label: '[Client] API: self<font>:get_type', status: 'completed' },
+          { label: '[Client] API: self<font>:destroy', status: 'completed' },
+          { label: '[Client] API: self<font>:get_antialiasing', status: 'completed' },
+          { label: '[Client] API: self<font>:get_oversampling', status: 'completed' },
+          { label: '[Client] API: self<font>:set_antialiasing', status: 'completed' },
+          { label: '[Client] API: self<font>:set_oversampling', status: 'completed' }
+        ],
+      },
+      {
+        label: 'Texture',
+        desc: 'Runtime image texture loading, unloading, and rendering',
+        icon: <Icons.Image {...site.lucide} />,
+        items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Format: JPG | JPEG', status: 'completed' },
+          { label: 'Format: PNG', status: 'completed' },
+          { label: 'Format: WEBP', status: 'completed' },
+          { label: 'Format: KTX | DDS (compressed)', status: 'pending' },
+          { label: 'Implicit texture cache for draw calls', status: 'completed' },
+          { label: '[Client] API: texture.create', status: 'completed' },
+          { label: '[Client] API: self<texture>:is_type', status: 'completed' },
+          { label: '[Client] API: self<texture>:get_type', status: 'completed' },
+          { label: '[Client] API: self<texture>:destroy', status: 'completed' }
+        ],
+      },
+      {
+        label: 'SVG',
+        desc: 'Runtime vector svg loading, unloading, and rendering',
+        icon: <Icons.FileCode {...site.lucide} />,
+        items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Format: SVG', status: 'completed' },
+          { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
+          { label: '[Client] API: svg.create', status: 'completed' },
+          { label: '[Client] API: svg.create_from_raw', status: 'completed' },
+          { label: '[Client] API: self<svg>:is_type', status: 'completed' },
+          { label: '[Client] API: self<svg>:get_type', status: 'completed' },
+          { label: '[Client] API: self<svg>:destroy', status: 'completed' },
+          { label: '[Client] API: self<svg>:update', status: 'completed' }
+        ],
+      },
+      {
+        label: 'Rendertarget',
+        desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
+        icon: <Icons.Layers {...site.lucide} />,
+        items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Optional alpha-transparent render surface', status: 'completed' },
+          { label: 'Optional immediate-mode per-frame updates', status: 'completed' },
+          { label: '[Client] API: rendertarget.create', status: 'completed' },
+          { label: '[Client] API: rendertarget.get_active', status: 'completed' },
+          { label: '[Client] API: rendertarget.set_active', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:is_type', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:get_type', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:destroy', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:is_active', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:get_size', status: 'completed' },
+          { label: '[Client] API: self<rendertarget>:set_active', status: 'completed' }
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Screenshot Capture',
+        desc: 'Grab the current viewport frame as a raw image or save directly to disk',
+        icon: <Icons.Camera {...site.lucide} />,
+        items: [
+          { label: 'Viewport.get_texture snapshot', status: 'pending' },
+          { label: 'Save to PNG / JPG', status: 'pending' },
+          { label: 'Region capture (partial frame)', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'MeshInstance & Primitives',
+        desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
+        icon: <Icons.Shapes {...site.lucide} />,
+        items: [
+          { label: 'BoxMesh / SphereMesh / CapsuleMesh', status: 'pending' },
+          { label: 'CylinderMesh / PlaneMesh', status: 'pending' },
+          { label: 'MeshInstance3D creation', status: 'pending' },
+          { label: 'Surface material assignment', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Tween',
+        desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
+        icon: <Icons.TrendingUp {...site.lucide} />,
+        priority: 'Must have',
+        items: [
+          { label: 'Tween.tween_property', status: 'pending' },
+          { label: 'Tween.tween_callback', status: 'pending' },
+          { label: 'Tween.tween_interval', status: 'pending' },
+          { label: 'Easing & transition types', status: 'pending' },
+          { label: 'Sequence / parallel / chained', status: 'pending' },
+          { label: 'Pause / resume / kill', status: 'pending' },
         ],
       }
     ],
@@ -396,189 +647,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
   },
 
   {
-    name: 'UI',
-    cards: [
-      {
-        // TODO: WIP
-        label: 'Main Menu',
-        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
-        icon: <Icons.LayoutDashboard {...site.lucide}/>,
-        items: [
-          { label: 'Main menu scene & layout', status: 'pending' },
-          { label: 'Play / browse servers flow', status: 'pending' },
-          { label: 'Settings screen', status: 'pending' },
-          { label: 'Credits screen', status: 'pending' },
-          { label: 'Version & build info display', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Game Browser',
-        desc: 'In-client server list — query, filter, sort, and join available game servers',
-        icon: <Icons.Server {...site.lucide}/>,
-        items: [
-          { label: 'Server list fetch & display', status: 'pending' },
-          { label: 'Filter by name / gamemode / region', status: 'pending' },
-          { label: 'Sort by player count / ping / name', status: 'pending' },
-          { label: 'Direct connect by IP & port', status: 'pending' },
-          { label: 'Refresh & auto-refresh interval', status: 'pending' },
-          { label: 'Favorite servers list', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Display & Window',
-        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
-        icon: <Icons.Monitor {...site.lucide}/>,
-        items: [
-          { label: 'window_get / set_size', status: 'pending' },
-          { label: 'Fullscreen / borderless / maximized', status: 'pending' },
-          { label: 'Window title & icon', status: 'pending' },
-          { label: 'Clipboard get / set', status: 'pending' },
-          { label: 'Cursor mode (visible / hidden / captured)', status: 'pending' },
-          { label: 'DPI / scale factor query', status: 'pending' },
-          { label: 'Multi-monitor screen info', status: 'pending' },
-        ],
-      },
-      {
-        label: 'Webview',
-        desc: 'HTML/CSS/JS renderer with bidirectional Lua - JS messaging',
-        icon: <Icons.Code2 {...site.lucide}/>,
-        items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
-          { label: 'Serve webview files over HTTP instead of file://', status: 'pending' },
-          { label: '[Client] API: webview.create', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_type', status: 'completed' },
-          { label: '[Client] API: self<webview>:get_type', status: 'completed' },
-          { label: '[Client] API: self<webview>:destroy', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_visible', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_fullscreen', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_transparent', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_incognito', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_autoplay', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_zoomable', status: 'completed' },
-          { label: '[Client] API: self<webview>:is_devtools_visible', status: 'completed' },
-          { label: '[Client] API: self<webview>:get_position', status: 'completed' },
-          { label: '[Client] API: self<webview>:get_size', status: 'completed' },
-          { label: '[Client] API: self<webview>:set_position', status: 'completed' },
-          { label: '[Client] API: self<webview>:set_size', status: 'completed' },
-          { label: '[Client] API: self<webview>:set_visible', status: 'completed' },
-          { label: '[Client] API: self<webview>:set_devtools_visible', status: 'completed' },
-          { label: '[Client] API: self<webview>:set_message_handler', status: 'completed' },
-          { label: '[Client] API: self<webview>:load_url', status: 'completed' },
-          { label: '[Client] API: self<webview>:load_html', status: 'completed' },
-          { label: '[Client] API: self<webview>:clear_history', status: 'completed' },
-          { label: '[Client] API: self<webview>:focus', status: 'completed' },
-          { label: '[Client] API: self<webview>:reload', status: 'completed' },
-          { label: '[Client] API: self<webview>:zoom', status: 'completed' },
-          { label: '[Client] API: self<webview>:update', status: 'completed' },
-          { label: '[Client] API: self<webview>:eval', status: 'completed' },
-          { label: '[Client] API: self<webview>:emit', status: 'completed' }
-        ],
-      },
-      {
-        label: 'Canvas',
-        desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
-        icon: <Icons.PenTool {...site.lucide}/>,
-        items: [
-          { label: '[Client] API: engine.world_to_screen', status: 'completed' },
-          { label: '[Client] API: engine.screen_to_world', status: 'completed' },
-          { label: '[Client] API: engine.draw_line', status: 'completed' },
-          { label: '[Client] API: engine.draw_polygon', status: 'completed' },
-          { label: '[Client] API: engine.draw_rectangle', status: 'completed' },
-          { label: '[Client] API: engine.draw_circle', status: 'completed' },
-          { label: '[Client] API: engine.draw_image', status: 'completed' },
-          { label: '[Client] API: engine.draw_text', status: 'completed' }
-        ],
-      },
-      {
-        label: 'Font',
-        desc: 'Runtime font loading for canvas-level text rendering',
-        icon: <Icons.Type {...site.lucide}/>,
-        items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Format: TTF', status: 'completed' },
-          { label: 'Format: OTF', status: 'completed' },
-          { label: 'Format: WOFF', status: 'completed' },
-          { label: 'Format: WOFF2', status: 'completed' },
-          { label: '[Client] API: font.create', status: 'completed' },
-          { label: '[Client] API: self<font>:is_type', status: 'completed' },
-          { label: '[Client] API: self<font>:get_type', status: 'completed' },
-          { label: '[Client] API: self<font>:destroy', status: 'completed' },
-          { label: '[Client] API: self<font>:get_antialiasing', status: 'completed' },
-          { label: '[Client] API: self<font>:get_oversampling', status: 'completed' },
-          { label: '[Client] API: self<font>:set_antialiasing', status: 'completed' },
-          { label: '[Client] API: self<font>:set_oversampling', status: 'completed' }
-        ],
-      },
-      {
-        label: 'Texture',
-        desc: 'Runtime image texture loading, unloading, and rendering',
-        icon: <Icons.Image {...site.lucide}/>,
-        items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Format: JPG | JPEG', status: 'completed' },
-          { label: 'Format: PNG', status: 'completed' },
-          { label: 'Format: WEBP', status: 'completed' },
-          { label: 'Format: KTX | DDS (compressed)', status: 'pending' },
-          { label: 'Implicit texture cache for draw calls', status: 'completed' },
-          { label: '[Client] API: texture.create', status: 'completed' },
-          { label: '[Client] API: self<texture>:is_type', status: 'completed' },
-          { label: '[Client] API: self<texture>:get_type', status: 'completed' },
-          { label: '[Client] API: self<texture>:destroy', status: 'completed' }
-        ],
-      },
-      {
-        label: 'SVG',
-        desc: 'Runtime vector svg loading, unloading, and rendering',
-        icon: <Icons.FileCode {...site.lucide}/>,
-        items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Format: SVG', status: 'completed' },
-          { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
-          { label: '[Client] API: svg.create', status: 'completed' },
-          { label: '[Client] API: svg.create_from_raw', status: 'completed' },
-          { label: '[Client] API: self<svg>:is_type', status: 'completed' },
-          { label: '[Client] API: self<svg>:get_type', status: 'completed' },
-          { label: '[Client] API: self<svg>:destroy', status: 'completed' },
-          { label: '[Client] API: self<svg>:update', status: 'completed' }
-        ],
-      },
-      {
-        label: 'Rendertarget',
-        desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
-        icon: <Icons.Layers {...site.lucide}/>,
-        items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Optional alpha-transparent render surface', status: 'completed' },
-          { label: 'Optional immediate-mode per-frame updates', status: 'completed' },
-          { label: '[Client] API: rendertarget.create', status: 'completed' },
-          { label: '[Client] API: rendertarget.get_active', status: 'completed' },
-          { label: '[Client] API: rendertarget.set_active', status: 'completed' },
-          { label: '[Client] API: self<rendertarget>:is_type', status: 'completed' },
-          { label: '[Client] API: self<rendertarget>:get_type', status: 'completed' },
-          { label: '[Client] API: self<rendertarget>:destroy', status: 'completed' },
-          { label: '[Client] API: self<rendertarget>:is_active', status: 'completed' },
-          { label: '[Client] API: self<rendertarget>:get_size', status: 'completed' },
-          { label: '[Client] API: self<rendertarget>:set_active', status: 'completed' }
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Screenshot Capture',
-        desc: 'Grab the current viewport frame as a raw image or save directly to disk',
-        icon: <Icons.Camera {...site.lucide}/>,
-        items: [
-          { label: 'Viewport.get_texture snapshot', status: 'pending' },
-          { label: 'Save to PNG / JPG', status: 'pending' },
-          { label: 'Region capture (partial frame)', status: 'pending' },
-        ],
-      }
-    ],
-  },
-
-  {
     name: 'Graphics',
     cards: [
       {
@@ -651,80 +719,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Amount, lifetime, speed scale', status: 'pending' },
           { label: 'Process material param overrides', status: 'pending' },
           { label: 'Trail & sub-emitters', status: 'pending' },
-        ],
-      }
-    ],
-  },
-
-  {
-    name: '3D',
-    cards: [
-      {
-        label: 'Model',
-        desc: 'Load, instantiate, transform, animate, and manage 3D model assets at runtime',
-        icon: <Icons.Box {...site.lucide}/>,
-        items: [
-          { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Support format: GLB', status: 'completed' },
-          { label: 'Model loader / unloader', status: 'completed' },
-          { label: 'Server spawn replication with per-peer authority', status: 'completed' },
-          { label: 'Server transform replication', status: 'pending' },
-          { label: 'Server blendshape replication', status: 'pending' },
-          { label: 'Server material override replication', status: 'pending' },
-          { label: 'Server material flag replication', status: 'pending' },
-          { label: 'Server animation state replication', status: 'pending' },
-          { label: 'Transform (position / rotation / scale) control', status: 'partial' },
-          { label: 'Animation playback (play / stop / pause / resume)', status: 'completed' },
-          { label: 'Animation speed scale', status: 'completed' },
-          { label: 'Blendshape (morph target) control', status: 'completed' },
-          { label: 'Component visibility override per mesh', status: 'completed' },
-          { label: 'Material visibility override per component', status: 'completed' },
-          { label: 'Material feature & flag overrides', status: 'completed' },
-          { label: 'Wildcard component / material targeting', status: 'completed' },
-          { label: 'Skeleton & bone transforms', status: 'partial' },
-          { label: 'LOD (Level of Detail) control', status: 'pending' }
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Camera 3D',
-        desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
-        icon: <Icons.Video {...site.lucide}/>,
-        items: [
-          { label: 'Camera3D transform (position / rotation)', status: 'pending' },
-          { label: 'FOV / orthographic size', status: 'pending' },
-          { label: 'Near / far clip plane', status: 'pending' },
-          { label: 'Projection mode (perspective / ortho)', status: 'pending' },
-          { label: 'set_current (make active)', status: 'pending' },
-          { label: 'Per-camera environment override', status: 'pending' },
-          { label: 'Frustum culling mask', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Tween',
-        desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
-        icon: <Icons.TrendingUp {...site.lucide}/>,
-        priority: 'Must have',
-        items: [
-          { label: 'Tween.tween_property', status: 'pending' },
-          { label: 'Tween.tween_callback', status: 'pending' },
-          { label: 'Tween.tween_interval', status: 'pending' },
-          { label: 'Easing & transition types', status: 'pending' },
-          { label: 'Sequence / parallel / chained', status: 'pending' },
-          { label: 'Pause / resume / kill', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'MeshInstance & Primitives',
-        desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
-        icon: <Icons.Shapes {...site.lucide}/>,
-        items: [
-          { label: 'BoxMesh / SphereMesh / CapsuleMesh', status: 'pending' },
-          { label: 'CylinderMesh / PlaneMesh', status: 'pending' },
-          { label: 'MeshInstance3D creation', status: 'pending' },
-          { label: 'Surface material assignment', status: 'pending' },
         ],
       }
     ],
