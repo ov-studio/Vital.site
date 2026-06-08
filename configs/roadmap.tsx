@@ -42,7 +42,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
     cards: [
       {
         label: 'Framework',
-        desc: 'Core framework layer — platform targets, build configuration, and Godot-backed engine internals',
+        desc: 'Godot-backed framework — platform targets, build configuration, and low-level engine internals',
         icon: <Icons.Puzzle {...site.lucide} />,
         items: [
           { label: 'Platform: Windows support', status: 'completed' },
@@ -52,7 +52,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Main Menu',
-        desc: 'Default client entry point — play, game browser, settings, credits, and quit',
+        desc: 'Client entry point — play, game browser, settings, credits, and quit',
         icon: <Icons.LayoutDashboard {...site.lucide} />,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
@@ -65,7 +65,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Game Browser',
-        desc: 'Server list — query, filter, sort, favorite, and join available game servers',
+        desc: 'Client server browser — query, filter, sort, favorite, and join available game servers',
         icon: <Icons.Server {...site.lucide} />,
         items: [
           { label: 'Server list fetch & display', status: 'pending' },
@@ -79,7 +79,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Settings Menu',
-        desc: 'Settings panel — window, resolution, keybinds, audio, and display configuration',
+        desc: 'Client settings menu — window mode, resolution, keybinds, audio, and display configuration',
         icon: <Icons.SlidersHorizontal {...site.lucide} />,
         items: [
           { label: 'Window mode (fullscreen / borderless / windowed)', status: 'pending' },
@@ -94,7 +94,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Console',
-        desc: 'Built-in runtime console for commands, debug output, and structured logging',
+        desc: 'Runtime console — commands, debug output, and structured logging across both sides',
         icon: <Icons.Terminal {...site.lucide} />,
         items: [
           { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
@@ -121,7 +121,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Resource System',
-        desc: 'Runtime resource loading, caching, unloading, and remote downloading',
+        desc: 'Runtime resource manager — loading, caching, unloading, and client-side asset sync and download',
         icon: <Icons.FolderOpen {...site.lucide} />,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
@@ -140,7 +140,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Performance Monitor',
-        desc: 'Read FPS, draw calls, memory, physics step time, and object counts',
+        desc: 'Runtime performance monitor — FPS, frame time, draw calls, memory usage, and object counts',
         icon: <Icons.Activity {...site.lucide} />,
         items: [
           { label: 'Performance.get (FPS / frame time)', status: 'pending' },
