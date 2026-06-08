@@ -94,7 +94,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Console',
-        desc: 'Built-in runtime console — commands, structured logging, and debug output across both sides',
+        desc: 'Built-in runtime console for commands, debug output, and structured logging',
         icon: <Icons.Terminal {...site.lucide} />,
         items: [
           { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
@@ -121,7 +121,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Resource System',
-        desc: 'Runtime resource loading, caching, unloading, and client-side remote asset downloading',
+        desc: 'Runtime resource loading, caching, unloading, and remote downloading',
         icon: <Icons.FolderOpen {...site.lucide} />,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
