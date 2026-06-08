@@ -41,15 +41,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Sandbox',
     cards: [
       {
-        label: 'Framework',
-        desc: 'Godot-backed framework — platform targets, build configuration, and low-level engine internals',
-        icon: <Icons.Puzzle {...site.lucide} />,
-        items: [
-          { label: 'Platform: Windows support', status: 'completed' },
-          { label: 'Platform: Linux support', status: 'pending' }
-        ],
-      },
-      {
         // TODO: WIP
         label: 'Main Menu',
         desc: 'Client entry point — play, game browser, settings, credits, and quit',
