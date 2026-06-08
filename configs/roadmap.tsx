@@ -52,7 +52,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Main Menu',
-        desc: 'Default client entry point — play, game browser, settings, credits, quit',
+        desc: 'Default client entry point — play, game browser, settings, credits, and quit',
         icon: <Icons.LayoutDashboard {...site.lucide} />,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
