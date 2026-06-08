@@ -41,9 +41,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Sandbox',
     cards: [
       {
-        label: 'Sandbox',
-        desc: 'Top-level engine singleton access for runtime and scene control',
-        icon: <Icons.Cpu {...site.lucide} />,
+        label: 'Framework',
+        desc: 'Core framework layer — platform targets, build configuration, and Godot-backed engine internals',
+        icon: <Icons.Puzzle {...site.lucide} />,
         items: [
           { label: 'Platform: Windows support', status: 'completed' },
           { label: 'Platform: Linux support', status: 'pending' }
@@ -124,7 +124,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Display & Window',
-        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
+        desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor',
         icon: <Icons.Monitor {...site.lucide} />,
         items: [
           { label: 'window_get / set_size', status: 'pending' },
@@ -139,7 +139,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Performance Monitor',
-        desc: 'Read FPS, draw calls, memory, physics step time, and object counts from Lua',
+        desc: 'Read FPS, draw calls, memory, physics step time, and object counts',
         icon: <Icons.Activity {...site.lucide} />,
         items: [
           { label: 'Performance.get (FPS / frame time)', status: 'pending' },
