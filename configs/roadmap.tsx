@@ -300,7 +300,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Font',
-        desc: 'Runtime font loading for canvas-level text rendering',
+        desc: 'Runtime font loading, unloading, and rendering for canvas-level text with antialiasing control',
         icon: <Icons.Type {...site.lucide} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
@@ -320,7 +320,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'Texture',
-        desc: 'Runtime image texture loading, unloading, and rendering',
+        desc: 'Runtime image texture loading, unloading, and rendering with implicit cache for draw calls',
         icon: <Icons.Image {...site.lucide} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
@@ -337,7 +337,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         label: 'SVG',
-        desc: 'Runtime vector svg loading, unloading, and rendering',
+        desc: 'Runtime vector SVG loading, unloading, rendering, and mutation from raw string buffers',
         icon: <Icons.FileCode {...site.lucide} />,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
