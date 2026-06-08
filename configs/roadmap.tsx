@@ -41,23 +41,39 @@ export const Roadmap_Section: RoadmapSection[] = build([
     name: 'Sandbox',
     cards: [
       {
-        label: 'Engine',
+        label: 'Sandbox',
         desc: 'Top-level engine singleton access for runtime and scene control',
-        icon: <Icons.Cpu {...site.lucide}/>,
+        icon: <Icons.Cpu {...site.lucide} />,
         items: [
           { label: 'Platform: Windows support', status: 'completed' },
-          { label: 'Platform: Linux support', status: 'pending' },
-          { label: '[Shared] API: engine.print', status: 'completed' },
-          { label: '[Shared] API: engine.iprint', status: 'completed' },
-          { label: '[Shared] API: engine.inspect', status: 'completed' },
-          { label: '[Client] API: engine.quit', status: 'pending' },
-          { label: '[Shared] API: engine.compile_string', status: 'completed' },
-          { label: '[Shared] API: engine.load_string', status: 'completed' },
-          { label: '[Shared] API: engine.get_tick', status: 'completed' },
-          { label: '[Shared] API: engine.get_version', status: 'completed' },
-          { label: '[Shared] API: engine.get_serial', status: 'completed' },
-          { label: '[Shared] API: engine.get_entities', status: 'completed' },
-          { label: '[Shared] API: engine.get_resolution', status: 'completed' }
+          { label: 'Platform: Linux support', status: 'pending' }
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Main Menu',
+        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
+        icon: <Icons.LayoutDashboard {...site.lucide} />,
+        items: [
+          { label: 'Main menu scene & layout', status: 'pending' },
+          { label: 'Play / browse servers flow', status: 'pending' },
+          { label: 'Settings screen', status: 'pending' },
+          { label: 'Credits screen', status: 'pending' },
+          { label: 'Version & build info display', status: 'pending' },
+        ],
+      },
+      {
+        // TODO: WIP
+        label: 'Game Browser',
+        desc: 'In-client server list — query, filter, sort, and join available game servers',
+        icon: <Icons.Server {...site.lucide} />,
+        items: [
+          { label: 'Server list fetch & display', status: 'pending' },
+          { label: 'Filter by name / gamemode / region', status: 'pending' },
+          { label: 'Sort by player count / ping / name', status: 'pending' },
+          { label: 'Direct connect by IP & port', status: 'pending' },
+          { label: 'Refresh & auto-refresh interval', status: 'pending' },
+          { label: 'Favorite servers list', status: 'pending' },
         ],
       },
       {
@@ -107,33 +123,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
       },
       {
         // TODO: WIP
-        label: 'Main Menu',
-        desc: 'Default client entry point — play, settings, credits, and server browser navigation',
-        icon: <Icons.LayoutDashboard {...site.lucide} />,
-        items: [
-          { label: 'Main menu scene & layout', status: 'pending' },
-          { label: 'Play / browse servers flow', status: 'pending' },
-          { label: 'Settings screen', status: 'pending' },
-          { label: 'Credits screen', status: 'pending' },
-          { label: 'Version & build info display', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
-        label: 'Game Browser',
-        desc: 'In-client server list — query, filter, sort, and join available game servers',
-        icon: <Icons.Server {...site.lucide} />,
-        items: [
-          { label: 'Server list fetch & display', status: 'pending' },
-          { label: 'Filter by name / gamemode / region', status: 'pending' },
-          { label: 'Sort by player count / ping / name', status: 'pending' },
-          { label: 'Direct connect by IP & port', status: 'pending' },
-          { label: 'Refresh & auto-refresh interval', status: 'pending' },
-          { label: 'Favorite servers list', status: 'pending' },
-        ],
-      },
-      {
-        // TODO: WIP
         label: 'Display & Window',
         desc: 'DisplayServer — resolution, fullscreen, borderless, DPI, clipboard, and cursor from Lua',
         icon: <Icons.Monitor {...site.lucide} />,
@@ -166,6 +155,24 @@ export const Roadmap_Section: RoadmapSection[] = build([
   {
     name: 'Core',
     cards: [
+      {
+        label: 'Engine',
+        desc: 'Top-level engine singleton access for runtime and scene control',
+        icon: <Icons.Cpu {...site.lucide} />,
+        items: [
+          { label: '[Shared] API: engine.print', status: 'completed' },
+          { label: '[Shared] API: engine.iprint', status: 'completed' },
+          { label: '[Shared] API: engine.inspect', status: 'completed' },
+          { label: '[Client] API: engine.quit', status: 'pending' },
+          { label: '[Shared] API: engine.compile_string', status: 'completed' },
+          { label: '[Shared] API: engine.load_string', status: 'completed' },
+          { label: '[Shared] API: engine.get_tick', status: 'completed' },
+          { label: '[Shared] API: engine.get_version', status: 'completed' },
+          { label: '[Shared] API: engine.get_serial', status: 'completed' },
+          { label: '[Shared] API: engine.get_entities', status: 'completed' },
+          { label: '[Shared] API: engine.get_resolution', status: 'completed' }
+        ],
+      },
       {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
