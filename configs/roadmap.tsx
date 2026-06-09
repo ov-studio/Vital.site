@@ -635,6 +635,17 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        label: 'Resource',
+        desc: 'Introspect the running resource and control start, stop, and restart of server-managed resources',
+        icon: <Icons.PackageOpen {...site.lucide} />,
+        items: [
+          { label: '[Shared] API: resource.current', status: 'completed' },
+          { label: '[Server] API: resource.start', status: 'pending' },
+          { label: '[Server] API: resource.stop', status: 'pending' },
+          { label: '[Server] API: resource.restart', status: 'pending' },
+        ],
+      },
+      {
         // TODO: WIP
         label: 'Input',
         desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
