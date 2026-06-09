@@ -43,7 +43,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Framework',
         desc: 'Godot-backed framework — platform targets, build configuration, and low-level engine internals',
-        icon: <Icons.Puzzle {...site.lucide} />,
+        icon: <Icons.Puzzle {...site.lucide}/>,
         items: [
           { label: 'Platform: Windows support', status: 'completed' },
           { label: 'Platform: Linux support', status: 'pending' }
@@ -53,7 +53,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Main Menu',
         desc: 'Client entry point — play, game browser, settings, credits, and quit',
-        icon: <Icons.LayoutDashboard {...site.lucide} />,
+        icon: <Icons.LayoutDashboard {...site.lucide}/>,
         items: [
           { label: 'Main menu scene & layout', status: 'pending' },
           { label: 'Play / browse servers flow', status: 'pending' },
@@ -66,7 +66,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Game Browser',
         desc: 'Client server browser — query, filter, sort, favorite, and join available game servers',
-        icon: <Icons.Server {...site.lucide} />,
+        icon: <Icons.Server {...site.lucide}/>,
         items: [
           { label: 'Server list fetch & display', status: 'pending' },
           { label: 'Filter by name / gamemode / region', status: 'pending' },
@@ -80,7 +80,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Settings Menu',
         desc: 'Client settings menu — window mode, resolution, keybinds, audio, and display configuration',
-        icon: <Icons.SlidersHorizontal {...site.lucide} />,
+        icon: <Icons.SlidersHorizontal {...site.lucide}/>,
         items: [
           { label: 'Window mode (fullscreen / borderless / windowed)', status: 'pending' },
           { label: 'Resolution & DPI / scale factor', status: 'pending' },
@@ -95,7 +95,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Console',
         desc: 'Runtime console — commands, debug output, and structured logging across both sides',
-        icon: <Icons.Terminal {...site.lucide} />,
+        icon: <Icons.Terminal {...site.lucide}/>,
         items: [
           { label: 'Log levels (sbox / info / warn / error)', status: 'completed' },
           { label: '[Shared] Command: help', status: 'completed' },
@@ -122,7 +122,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Resource System',
         desc: 'Runtime resource manager — loading, caching, unloading, and client-side asset sync and download',
-        icon: <Icons.FolderOpen {...site.lucide} />,
+        icon: <Icons.FolderOpen {...site.lucide}/>,
         items: [
           { label: '[Server] Resource scanner', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
@@ -141,7 +141,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Performance Monitor',
         desc: 'Runtime performance monitor — FPS, frame time, draw calls, memory usage, and object counts',
-        icon: <Icons.Activity {...site.lucide} />,
+        icon: <Icons.Activity {...site.lucide}/>,
         items: [
           { label: 'Performance.get (FPS / frame time)', status: 'pending' },
           { label: 'Draw calls & vertices', status: 'pending' },
@@ -159,7 +159,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Engine',
         desc: 'Top-level engine singleton access for runtime and scene control',
-        icon: <Icons.Cpu {...site.lucide} />,
+        icon: <Icons.Cpu {...site.lucide}/>,
         items: [
           { label: '[Shared] API: engine.print', status: 'completed' },
           { label: '[Shared] API: engine.iprint', status: 'completed' },
@@ -177,7 +177,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
-        icon: <Icons.Database {...site.lucide} />,
+        icon: <Icons.Database {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Database Backend: MySQL', status: 'completed' },
@@ -209,7 +209,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Model',
         desc: 'Load, instantiate, transform, animate, and manage 3D model assets at runtime',
-        icon: <Icons.Box {...site.lucide} />,
+        icon: <Icons.Box {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Support format: GLB', status: 'completed' },
@@ -236,7 +236,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Camera 3D',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
-        icon: <Icons.Video {...site.lucide} />,
+        icon: <Icons.Video {...site.lucide}/>,
         items: [
           { label: 'Camera3D transform (position / rotation)', status: 'pending' },
           { label: 'FOV / orthographic size', status: 'pending' },
@@ -250,7 +250,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Webview',
         desc: 'HTML/CSS/JS renderer with bidirectional Lua - JS messaging',
-        icon: <Icons.Code2 {...site.lucide} />,
+        icon: <Icons.Code2 {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
@@ -287,7 +287,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Canvas',
         desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
-        icon: <Icons.PenTool {...site.lucide} />,
+        icon: <Icons.PenTool {...site.lucide}/>,
         items: [
           { label: '[Client] API: engine.world_to_screen', status: 'completed' },
           { label: '[Client] API: engine.screen_to_world', status: 'completed' },
@@ -302,7 +302,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Font',
         desc: 'Runtime font loading, unloading, and rendering for canvas-level text with antialiasing control',
-        icon: <Icons.Type {...site.lucide} />,
+        icon: <Icons.Type {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: TTF', status: 'completed' },
@@ -322,7 +322,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Texture',
         desc: 'Runtime image texture loading, unloading, and rendering with implicit cache for draw calls',
-        icon: <Icons.Image {...site.lucide} />,
+        icon: <Icons.Image {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: JPG | JPEG', status: 'completed' },
@@ -339,7 +339,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'SVG',
         desc: 'Runtime vector SVG loading, unloading, rendering, and mutation from raw string buffers',
-        icon: <Icons.FileCode {...site.lucide} />,
+        icon: <Icons.FileCode {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: SVG', status: 'completed' },
@@ -355,7 +355,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Rendertarget',
         desc: 'Off-screen render surfaces — create, bind, and sample as textures in the scene',
-        icon: <Icons.Layers {...site.lucide} />,
+        icon: <Icons.Layers {...site.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Optional alpha-transparent render surface', status: 'completed' },
@@ -375,7 +375,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Screenshot Capture',
         desc: 'Grab the current viewport frame as a raw image or save directly to disk',
-        icon: <Icons.Camera {...site.lucide} />,
+        icon: <Icons.Camera {...site.lucide}/>,
         items: [
           { label: 'Viewport.get_texture snapshot', status: 'pending' },
           { label: 'Save to PNG / JPG', status: 'pending' },
@@ -386,7 +386,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
-        icon: <Icons.Shapes {...site.lucide} />,
+        icon: <Icons.Shapes {...site.lucide}/>,
         items: [
           { label: 'BoxMesh / SphereMesh / CapsuleMesh', status: 'pending' },
           { label: 'CylinderMesh / PlaneMesh', status: 'pending' },
@@ -398,7 +398,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Tween',
         desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
-        icon: <Icons.TrendingUp {...site.lucide} />,
+        icon: <Icons.TrendingUp {...site.lucide}/>,
         priority: 'Must have',
         items: [
           { label: 'Tween.tween_property', status: 'pending' },
@@ -418,7 +418,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Math',
         desc: 'Lua math library, enriched with sandbox-native utilities and helpers',
-        icon: <Icons.Calculator {...site.lucide} />,
+        icon: <Icons.Calculator {...site.lucide}/>,
         items: [
           { label: '[Shared] API: math.abs', status: 'completed' },
           { label: '[Shared] API: math.ceil', status: 'completed' },
@@ -452,7 +452,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'String',
         desc: 'Lua string library, enriched with sandbox-native utilities and helpers',
-        icon: <Icons.Regex {...site.lucide} />,
+        icon: <Icons.Regex {...site.lucide}/>,
         items: [
           { label: '[Shared] API: string.void', status: 'completed' },
           { label: '[Shared] API: string.parse', status: 'completed' },
@@ -481,7 +481,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Table',
         desc: 'Lua table library, enriched with sandbox-native utilities and helpers',
-        icon: <Icons.Table {...site.lucide} />,
+        icon: <Icons.Table {...site.lucide}/>,
         items: [
           { label: '[Shared] API: table.len', status: 'completed' },
           { label: '[Shared] API: table.pack', status: 'completed' },
@@ -637,7 +637,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
       {
         label: 'Resource',
         desc: 'Introspect the running resource and control start, stop, and restart of server-managed resources',
-        icon: <Icons.PackageOpen {...site.lucide} />,
+        icon: <Icons.PackageOpen {...site.lucide}/>,
         items: [
           { label: '[Shared] API: resource.current', status: 'completed' },
           { label: '[Server] API: resource.start', status: 'pending' },
