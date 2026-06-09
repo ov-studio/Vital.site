@@ -599,6 +599,17 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
+        label: 'Resource',
+        desc: 'Introspect the running resource and control start, stop, and restart of server-managed resources',
+        icon: <Icons.PackageOpen {...site.lucide} />,
+        items: [
+          { label: '[Shared] API: resource.current', status: 'completed' },
+          { label: '[Server] API: resource.start', status: 'pending' },
+          { label: '[Server] API: resource.stop', status: 'pending' },
+          { label: '[Server] API: resource.restart', status: 'pending' },
+        ],
+      },
+      {
         label: 'Exports',
         desc: 'Cross-resource function registry — expose and consume APIs across resource boundaries',
         icon: <Icons.Blocks {...site.lucide}/>,
@@ -632,17 +643,6 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: event.off', status: 'pending' },
           { label: '[Shared] API: event.emit', status: 'pending' },
           { label: '[Shared] API: event.emit_callback', status: 'pending' }
-        ],
-      },
-      {
-        label: 'Resource',
-        desc: 'Introspect the running resource and control start, stop, and restart of server-managed resources',
-        icon: <Icons.PackageOpen {...site.lucide}/>,
-        items: [
-          { label: '[Shared] API: resource.current', status: 'completed' },
-          { label: '[Server] API: resource.start', status: 'pending' },
-          { label: '[Server] API: resource.stop', status: 'pending' },
-          { label: '[Server] API: resource.restart', status: 'pending' },
         ],
       },
       {
