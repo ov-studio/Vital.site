@@ -875,7 +875,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
   },
 
   {
-    name: 'Integration',
+    name: 'Integrations',
     cards: [
       {
         // TODO: WIP
