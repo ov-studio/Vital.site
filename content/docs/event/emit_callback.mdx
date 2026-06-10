@@ -50,7 +50,7 @@ local result = event.emit_callback(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `promise` \| `table` | result | • **When `remote = true`:**<br/>&nbsp;&nbsp;◦ Always a single `promise` — resolves with the return values of the first handler on the remote side<br/>• **When `remote = false`:**<br/>&nbsp;&nbsp;◦ A single `promise` when one handler is registered<br/>&nbsp;&nbsp;◦ A `table` of `promise` instances — one per handler — when multiple are registered<br/>&nbsp;&nbsp;◦ An already-resolved empty `promise` when no handlers are registered |
+| `promise` \| `table` | result | • **When `remote = true`:**<br/>&nbsp;&nbsp;◦ Always a single `promise` - resolves with the return values of the first handler on the remote side<br/>• **When `remote = false`:**<br/>&nbsp;&nbsp;◦ A single `promise` when one handler is registered<br/>&nbsp;&nbsp;◦ A `table` of `promise` instances - one per handler (when multiples are registered)<br/>&nbsp;&nbsp;◦ An already-resolved empty `promise` when no handlers are registered |
 
 ---
 
