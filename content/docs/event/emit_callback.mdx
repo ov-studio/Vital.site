@@ -50,14 +50,7 @@ local result = event.emit_callback(
 
 ---
 
-### Options
-
-| Type | Key | Default | Side | Description |
-|------|-----|---------|------|-------------|
-| `bool` | remote | `false` | Shared | • When `true` — transmits the event to the remote side; client sends to server, server broadcasts to all peers<br/>• When `false` — fires handlers on the current side only |
-| `number` | peer | `0` | Server | Target peer ID for directed server-side remote dispatch<br/>• `0` — broadcasts to all connected peers<br/>• `> 0` — sends to that specific peer only<br/>Ignored on client |
-
----
+<include>./emit.mdx#options</include>
 
 ### Examples
 
