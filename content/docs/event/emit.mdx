@@ -14,6 +14,14 @@ local status = event.emit(
 )
 ```
 
+<Callout type="info">
+  **`options` is positional — it is only read when passed as the second argument.** If no routing options are needed, omit it and pass arguments directly after `name`.
+</Callout>
+
+<Callout type="warn">
+  Only serializable values (`nil`, `bool`, `number`, `string`, `table`) are transmitted when firing remotely. Functions, userdatas etc are silently dropped.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -21,10 +29,6 @@ local status = event.emit(
 | `string` | name | Name of the event to fire |
 | `table` | options | Routing options table (see [Options](#options)) |
 | `any` | ... | Arguments forwarded to every handler |
-
-<Callout type="warn">
-  Only serializable values (`nil`, `bool`, `number`, `string`, `table`) are transmitted when firing remotely. Functions, userdatas etc are silently dropped.
-</Callout>
 
 ### Returns
 
@@ -35,10 +39,6 @@ local status = event.emit(
 ---
 
 ### Options
-
-<Callout type="info">
-  **`options` is positional — it is only read when passed as the second argument.** If no routing options are needed, omit it and pass arguments directly after `name`.
-</Callout>
 
 | Type | Key | Default | Side | Description |
 |------|-----|---------|------|-------------|
