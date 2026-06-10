@@ -14,6 +14,13 @@ local status = event.on(
 )
 ```
 
+<Callout type="info">
+  **The `thread` global is only available inside async handlers.**
+
+  - **When `async = true`** — handler runs inside a dedicated coroutine; `thread` is available as a global within the callback scope
+  - **When `async = false`** — handler runs inline on the calling thread; no `thread` global is injected
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
