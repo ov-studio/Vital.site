@@ -22,7 +22,7 @@ local status = engine.draw_polygon(
 
   - **Inside the event** — executes as expected, rendering the filled polygon to the canvas each frame
   - **Outside the event** — the call will be silently ignored and nothing will be drawn
-  - **Recommended usage** — register a handler via `network:fetch("vital.sandbox:draw", true):on(...)` and place all canvas draw calls inside it
+  - **Recommended usage** — register a handler via `network:fetch("sandbox:draw", true):on(...)` and place all canvas draw calls inside it
 </Callout>
 
 ### Parameters
@@ -47,7 +47,7 @@ local status = engine.draw_polygon(
 ### Examples
 
 ```lua lineNumbers title="Draw polygons with various styles"
-network:fetch("vital.sandbox:draw", true):on(function()
+network:fetch("sandbox:draw", true):on(function()
     -- Draw a simple triangle
     engine.draw_polygon({{100, 0}, {200, 200}, {0, 200}})
 
