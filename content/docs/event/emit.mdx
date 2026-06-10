@@ -17,9 +17,8 @@ local status = event.emit(
 <Callout type="info">
   **`options` is positional — pass `nil` or omit it entirely when no routing is needed.**
 
-  - **When routing options are needed** — pass a table as the second argument: `event.emit(name, { remote = true }, ...)`
-  - **When no routing options are needed** — omit `options` and pass arguments directly after `name`: `event.emit(name, arg1, ...)`
-  - **`nil` is also valid** as an explicit placeholder: `event.emit(name, nil, arg1, ...)` — treated identically to omitting it
+  - **When routing options are needed** — pass the options table as the second argument
+  - **When no routing options are needed** — omit `options` and pass arguments directly after `name`
 </Callout>
 
 <Callout type="warn">
