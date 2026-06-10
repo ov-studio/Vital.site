@@ -66,7 +66,7 @@ event.emit("on_damage", 50)
 ```
 
 ```lua lineNumbers title="Client: emit an event to the server"
-event.emit("on_client_ready", { remote = true }, localPlayer)
+event.emit("on_client_ready", { remote = true }, 1963414407)
 ```
 
 ```lua lineNumbers title="Server: broadcast an event to all peers"
@@ -74,5 +74,5 @@ event.emit("on_server_broadcast", { remote = true }, "Hello everyone")
 ```
 
 ```lua lineNumbers title="Server: send an event to a specific peer"
-event.emit("on_server_message", { remote = true, peer = targetPeerId }, "Hello")
+event.emit("on_server_message", { remote = true, peer = 1963414407 }, "Hello")
 ```
