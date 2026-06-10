@@ -31,24 +31,21 @@ local status = event.off(
 ### Examples
 
 ```lua lineNumbers title="Remove a previously registered handler"
-local function onPlayerJoin(player)
+local function on_player_join(player)
     engine.print("info", "Player joined:", player)
 end
 
-event.on("onPlayerJoin", onPlayerJoin)
-
--- Later, remove it
-local removed = event.off("onPlayerJoin", onPlayerJoin)
-engine.print("info", "Handler removed:", removed)
+event.on("on_player_join", on_player_join)
+engine.print("info", "Handler removed:", event.off("on_player_join", on_player_join))
 ```
 
 ```lua lineNumbers title="Conditionally unsubscribe based on state"
-local handler
+local handler = nil
 handler = function(value)
     if value == "done" then
-        event.off("onSignal", handler)
+        event.off("on_signal", handler)
     end
 end
 
-event.on("onSignal", handler)
+event.on("on_signal", handler)
 ```
