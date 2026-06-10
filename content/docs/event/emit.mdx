@@ -1,0 +1,66 @@
+---
+title: event.emit
+description: Fires an event, invoking all registered handlers with the supplied arguments
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = event.emit(
+    name,
+    options,
+    ...
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the event to fire |
+| `table` | options | Optional routing options table (see [Options](#options)). Omit for same-side dispatch |
+| `any` | ... | Arguments forwarded to every handler. Only serializable values are transmitted over the network |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution |
+
+---
+
+### Options
+
+<Callout type="info">
+  The `options` table is only read when it is the second argument. If no routing options are needed, pass arguments directly after `name`.
+</Callout>
+
+| Type | Key | Side | Description |
+|------|-----|------|-------------|
+| `bool` | remote | Shared | When `true`, the event is transmitted to the remote side instead of firing locally. Client sends to server; server broadcasts to all peers. Defaults to `false` |
+| `number` | peer | Server | Target peer ID for directed remote dispatch. `0` (default) broadcasts to all connected peers. Ignored on client |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Fire a local event with arguments"
+event.on("onDamage", function(amount)
+    engine.print("info", "Damage received:", amount)
+end)
+
+event.emit("onDamage", 50)
+```
+
+```lua lineNumbers title="Emit an event to the remote side (client → server)"
+event.emit("onClientReady", { remote = true }, localPlayer)
+```
+
+```lua lineNumbers title="Server: broadcast an event to all peers"
+event.emit("onServerBroadcast", { remote = true }, "Hello everyone")
+```
+
+```lua lineNumbers title="Server: send an event to a specific peer"
+event.emit("onServerMessage", { remote = true, peer = targetPeerId }, "Hello")
+```

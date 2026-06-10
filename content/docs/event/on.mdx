@@ -1,0 +1,75 @@
+---
+title: event.on
+description: Registers a handler function for the specified event
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = event.on(
+    name,
+    exec,
+    config
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the event to subscribe to |
+| `function` | exec | Handler function to invoke when the event fires |
+| `table` | config | Optional configuration table (see [Config](#config)) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful registration |
+
+---
+
+### Config
+
+| Type | Key | Description |
+|------|-----|-------------|
+| `bool` | async | When `true`, the handler runs inside a dedicated coroutine, allowing use of `thread.current():sleep()` and `thread.current():await()` inside the callback. Defaults to `false` |
+| `number` | subscriptionLimit | Maximum number of times this handler will fire before being automatically removed. Must be `>= 1` if set. Omit for unlimited invocations |
+
+---
+
+### Callback: `exec`
+
+```lua
+exec(...)
+```
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | ... | Arguments forwarded from the emitting call |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Register a basic event handler"
+event.on("onPlayerJoin", function(player)
+    engine.print("info", "Player joined:", player)
+end)
+```
+
+```lua lineNumbers title="Register a handler with a subscription limit"
+event.on("onPickupCollected", function(pickup)
+    engine.print("info", "Collected:", pickup)
+end, { subscriptionLimit = 1 })
+```
+
+```lua lineNumbers title="Register an async handler that sleeps"
+event.on("onRoundStart", function()
+    local self = thread.current()
+    engine.print("info", "Round started, waiting 5 seconds...")
+    self:sleep(5000)
+    engine.print("info", "5 seconds elapsed")
+end, { async = true })
+```

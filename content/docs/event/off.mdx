@@ -1,0 +1,54 @@
+---
+title: event.off
+description: Unregisters a previously registered handler from the specified event
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = event.off(
+    name,
+    exec
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the event to unsubscribe from |
+| `function` | exec | Handler function reference to remove. Must be the same function value passed to [`event.on`](/docs/event/on) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if the handler was found and removed, `false` if no matching handler was registered |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove a previously registered handler"
+local function onPlayerJoin(player)
+    engine.print("info", "Player joined:", player)
+end
+
+event.on("onPlayerJoin", onPlayerJoin)
+
+-- Later, remove it
+local removed = event.off("onPlayerJoin", onPlayerJoin)
+engine.print("info", "Handler removed:", removed)
+```
+
+```lua lineNumbers title="Conditionally unsubscribe based on state"
+local handler
+handler = function(value)
+    if value == "done" then
+        event.off("onSignal", handler)
+    end
+end
+
+event.on("onSignal", handler)
+```

@@ -33,6 +33,7 @@
         "crypto",
         "shrinker",
         "exports",
+        "event",
 
         "---GFX---",
         "adjustment",

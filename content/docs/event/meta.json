@@ -1,0 +1,11 @@
+{
+    "title": "Event",
+    "icon": "Radio",
+    "pages": [
+        "---Base---",
+        "on",
+        "off",
+        "emit",
+        "emit_callback"
+    ]
+}

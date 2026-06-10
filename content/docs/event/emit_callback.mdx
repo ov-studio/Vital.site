@@ -1,0 +1,105 @@
+---
+title: event.emit_callback
+description: Fires an event and returns a promise that resolves with the first handler's return values
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = event.emit_callback(
+    name,
+    options,
+    ...
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the event to fire |
+| `table` | options | Optional routing options table (see [Options](#options)). Omit for same-side dispatch |
+| `any` | ... | Arguments forwarded to every handler. Only serializable values are transmitted over the network |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` \| `table` | result | A single `promise` when one handler is registered, or a `table` of `promise` instances — one per handler — when multiple are registered. Returns an already-resolved empty `promise` when no handlers are registered |
+
+<Callout type="info">
+  For **remote** calls, only a single `promise` is returned regardless of how many handlers exist on the remote side. It resolves with the return values of the **first** handler that fires on the remote side.
+</Callout>
+
+---
+
+### Options
+
+<Callout type="info">
+  The `options` table is only read when it is the second argument. If no routing options are needed, pass arguments directly after `name`.
+</Callout>
+
+| Type | Key | Side | Description |
+|------|-----|------|-------------|
+| `bool` | remote | Shared | When `true`, the event is transmitted to the remote side instead of firing locally. Client sends to server; server broadcasts to all peers. Defaults to `false` |
+| `number` | peer | Server | Target peer ID for directed remote dispatch. `0` (default) broadcasts to all connected peers. Ignored on client |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Await a local event handler's return value"
+event.on("onGetScore", function()
+    return 42
+end)
+
+local ctx = thread.create(function(self)
+    local p = event.emit_callback("onGetScore")
+    local ok, score = self:await(p)
+    engine.print("info", "Score:", score)
+end)
+
+ctx:resume()
+```
+
+```lua lineNumbers title="Await the result of a remote call (client → server)"
+local ctx = thread.create(function(self)
+    local p = event.emit_callback("onFetchData", { remote = true }, "inventory")
+    local ok, data = self:await(p)
+
+    if ok then
+        engine.print("info", "Received data:", data)
+    else
+        engine.print("error", "Remote call failed")
+    end
+end)
+
+ctx:resume()
+```
+
+```lua lineNumbers title="Collect results from multiple local handlers"
+event.on("onQuery", function() return "a" end)
+event.on("onQuery", function() return "b" end)
+
+local ctx = thread.create(function(self)
+    local promises = event.emit_callback("onQuery")
+
+    for i, p in ipairs(promises) do
+        local ok, value = self:await(p)
+        engine.print("info", "Handler", i, "returned:", value)
+    end
+end)
+
+ctx:resume()
+```
+
+```lua lineNumbers title="Server: send emit_callback to a specific peer and await reply"
+local ctx = thread.create(function(self)
+    local p = event.emit_callback("onRequestInfo", { remote = true, peer = targetPeerId })
+    local ok, info = self:await(p)
+    engine.print("info", "Peer replied:", info)
+end)
+
+ctx:resume()
+```
