@@ -14,6 +14,22 @@ local result = event.emit_callback(
 )
 ```
 
+<Callout type="info">
+  **`options` is positional — pass `nil` or omit it entirely when no routing is needed.**
+
+  - **When routing options are needed** — pass the options table as the second argument
+  - **When no routing options are needed** — omit `options` and pass arguments directly after `name`
+</Callout>
+
+<Callout type="warn">
+  **Only serializable values survive remote transmission. Non-serializable values are silently dropped.**
+
+  - **Safe to send** — `nil`, `bool`, `number`, `string`, `table` (including nested tables)
+  - **Silently dropped** — functions, userdata, threads, and any other non-serializable Lua values
+  - **Local-only emit** (`remote = false`) — no serialization occurs; all Lua values are forwarded as-is
+  - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -36,14 +52,10 @@ local result = event.emit_callback(
 
 ### Options
 
-<Callout type="info">
-  The `options` table is only read when it is the second argument. If no routing options are needed, pass arguments directly after `name`.
-</Callout>
-
-| Type | Key | Side | Description |
-|------|-----|------|-------------|
-| `bool` | remote | Shared | When `true`, the event is transmitted to the remote side instead of firing locally. Client sends to server; server broadcasts to all peers. Defaults to `false` |
-| `number` | peer | Server | Target peer ID for directed remote dispatch. `0` (default) broadcasts to all connected peers. Ignored on client |
+| Type | Key | Default | Side | Description |
+|------|-----|---------|------|-------------|
+| `bool` | remote | `false` | Shared | • When `true` — transmits the event to the remote side; client sends to server, server broadcasts to all peers<br/>• When `false` — fires handlers on the current side only |
+| `number` | peer | `0` | Server | Target peer ID for directed server-side remote dispatch<br/>• `0` — broadcasts to all connected peers<br/>• `> 0` — sends to that specific peer only<br/>Ignored on client |
 
 ---
 
