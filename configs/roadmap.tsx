@@ -637,7 +637,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: <Icons.Zap {...site.lucide}/>,
         items: [
-          { label: 'Priority-ordered listeners', status: 'pending' },
+          { label: 'Priority-ordered listeners', status: 'completed' },
           { label: 'Auto-unsubscribe listeners', status: 'completed' },
           { label: '[Shared] API: event.on', status: 'completed' },
           { label: '[Shared] API: event.off', status: 'completed' },
