@@ -9,7 +9,7 @@ badge: Shared
 ```lua
 local result = event.emit_callback(
     name,
-    options,
+    options = nil,
     ...
 )
 ```
@@ -30,13 +30,21 @@ local result = event.emit_callback(
   - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost
 </Callout>
 
+<Callout type="info">
+  **For remote calls, only a single `promise` is returned regardless of how many handlers exist on the remote side.**
+
+  - **Local dispatch** — returns a single `promise` when one handler is registered, or a `table` of `promise` instances when multiple handlers are registered
+  - **Remote dispatch** — always returns a single `promise` that resolves with the return values of the **first** handler that fires on the remote side
+  - **No handlers registered** — returns an already-resolved empty `promise`
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name of the event to fire |
-| `table` | options | Optional routing options table (see [Options](#options)). Omit for same-side dispatch |
-| `any` | ... | Arguments forwarded to every handler. Only serializable values are transmitted over the network |
+| `table` | options | Routing options table (see [Options](#options)) |
+| `any` | ... | Arguments forwarded to every handler |
 
 ### Returns
 
@@ -44,67 +52,66 @@ local result = event.emit_callback(
 |------|------|-------------|
 | `promise` \| `table` | result | A single `promise` when one handler is registered, or a `table` of `promise` instances — one per handler — when multiple are registered. Returns an already-resolved empty `promise` when no handlers are registered |
 
-<Callout type="info">
-  For **remote** calls, only a single `promise` is returned regardless of how many handlers exist on the remote side. It resolves with the return values of the **first** handler that fires on the remote side.
-</Callout>
-
 ---
 
 <include>./emit.mdx#options</include>
 
 ### Examples
 
-```lua lineNumbers title="Await a local event handler's return value"
-event.on("onGetScore", function()
+```lua lineNumbers title="Await a return value from a local handler"
+event.on("on_get_score", function()
     return 42
 end)
 
-local ctx = thread.create(function(self)
-    local p = event.emit_callback("onGetScore")
-    local ok, score = self:await(p)
+thread.create(function(self)
+    local ok, score = self:await(event.emit_callback("on_get_score"))
     engine.print("info", "Score:", score)
-end)
-
-ctx:resume()
+end):resume()
 ```
 
-```lua lineNumbers title="Await the result of a remote call (client → server)"
-local ctx = thread.create(function(self)
-    local p = event.emit_callback("onFetchData", { remote = true }, "inventory")
-    local ok, data = self:await(p)
-
-    if ok then
-        engine.print("info", "Received data:", data)
-    else
-        engine.print("error", "Remote call failed")
-    end
-end)
-
-ctx:resume()
+```lua lineNumbers title="Send a callback from client to server and await the reply"
+if engine.get_platform() == "client" then
+    thread.create(function(self)
+        local ok, result, data = self:await(event.emit_callback("on_fetch_inventory", { remote = true }, "weapons"))
+        engine.print("info", "Server replied:", result)
+        engine.iprint(data)
+    end):resume()
+else
+    event.on("on_fetch_inventory", function(category)
+        if eventthread then
+            eventthread:sleep(2000)
+        end
+        return "ok", { category = category, items = { "sword", "bow" } }
+    end, { async = true })
+end
 ```
 
-```lua lineNumbers title="Collect results from multiple local handlers"
-event.on("onQuery", function() return "a" end)
-event.on("onQuery", function() return "b" end)
+```lua lineNumbers title="Send a callback from server to a specific client and await the reply"
+if engine.get_platform() == "client" then
+    event.on("on_request_position", function()
+        if eventthread then
+            eventthread:sleep(500)
+        end
+        return 12.5, 0.0, 87.3
+    end, { async = true })
+else
+    thread.create(function(self)
+        local ok, x, y, z = self:await(event.emit_callback("on_request_position", { remote = true, peer = targetPeerId }))
+        engine.print("info", "Client position:", x, y, z)
+    end):resume()
+end
+```
 
-local ctx = thread.create(function(self)
-    local promises = event.emit_callback("onQuery")
+```lua lineNumbers title="Collect return values from multiple local handlers"
+event.on("on_query", function() return "handler_a" end)
+event.on("on_query", function() return "handler_b" end)
 
-    for i, p in ipairs(promises) do
-        local ok, value = self:await(p)
+thread.create(function(self)
+    local promises = event.emit_callback("on_query")
+
+    for i, j in ipairs(promises) do
+        local ok, value = self:await(j)
         engine.print("info", "Handler", i, "returned:", value)
     end
-end)
-
-ctx:resume()
-```
-
-```lua lineNumbers title="Server: send emit_callback to a specific peer and await reply"
-local ctx = thread.create(function(self)
-    local p = event.emit_callback("onRequestInfo", { remote = true, peer = 1963414407 })
-    local ok, info = self:await(p)
-    engine.print("info", "Peer replied:", info)
-end)
-
-ctx:resume()
+end):resume()
 ```
