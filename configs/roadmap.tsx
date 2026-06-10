@@ -638,11 +638,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.Zap {...site.lucide}/>,
         items: [
           { label: 'Priority-ordered listeners', status: 'pending' },
-          { label: 'Auto-unsubscribe listeners', status: 'pending' },
-          { label: '[Shared] API: event.on', status: 'partial' },
-          { label: '[Shared] API: event.off', status: 'pending' },
-          { label: '[Shared] API: event.emit', status: 'pending' },
-          { label: '[Shared] API: event.emit_callback', status: 'pending' }
+          { label: 'Auto-unsubscribe listeners', status: 'completed' },
+          { label: '[Shared] API: event.on', status: 'completed' },
+          { label: '[Shared] API: event.off', status: 'completed' },
+          { label: '[Shared] API: event.emit', status: 'completed' },
+          { label: '[Shared] API: event.emit_callback', status: 'completed' }
         ],
       },
       {
