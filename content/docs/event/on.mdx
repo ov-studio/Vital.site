@@ -35,7 +35,7 @@ local status = event.on(
 | Type | Key | Description |
 |------|-----|-------------|
 | `bool` | async | When `true`, the handler runs inside a dedicated coroutine, allowing use of `thread.current():sleep()` and `thread.current():await()` inside the callback. Defaults to `false` |
-| `number` | subscriptionLimit | Maximum number of times this handler will fire before being automatically removed. Must be `>= 1` if set. Omit for unlimited invocations |
+| `number` | subscription_limit | Maximum number of times this handler will fire before being automatically removed. Must be `>= 1` if set. Omit for unlimited invocations |
 
 ---
 
@@ -62,7 +62,7 @@ end)
 ```lua lineNumbers title="Register a handler with a subscription limit"
 event.on("onPickupCollected", function(pickup)
     engine.print("info", "Collected:", pickup)
-end, { subscriptionLimit = 1 })
+end, { subscription_limit = 1 })
 ```
 
 ```lua lineNumbers title="Register an async handler that sleeps"
