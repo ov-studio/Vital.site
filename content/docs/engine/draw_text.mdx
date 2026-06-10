@@ -29,7 +29,7 @@ local status = engine.draw_text(
 
   - **Inside the event** — executes as expected, rendering text to the canvas each frame
   - **Outside the event** — the call will be silently ignored and nothing will be drawn
-  - **Recommended usage** — register a handler via `network:fetch("sandbox:draw", true):on(...)` and place all canvas draw calls inside it
+  - **Recommended usage** — register a handler via `event.on("sandbox:draw", ...)` and place all canvas draw calls inside it
 </Callout>
 
 ### Parameters
@@ -63,7 +63,7 @@ local status = engine.draw_text(
 ```lua lineNumbers title="Draw text with various styles"
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
-network:fetch("sandbox:draw", true):on(function()
+event.on("sandbox:draw", function()
     -- Draw simple text
     engine.draw_text("Hello World", {100, 100}, {400, 150}, my_font, 24)
 

@@ -23,7 +23,7 @@ local status = engine.draw_circle(
 
   - **Inside the event** — executes as expected, rendering the filled circle to the canvas each frame
   - **Outside the event** — the call will be silently ignored and nothing will be drawn
-  - **Recommended usage** — register a handler via `network:fetch("sandbox:draw", true):on(...)` and place all canvas draw calls inside it
+  - **Recommended usage** — register a handler via `event.on("sandbox:draw", ...)` and place all canvas draw calls inside it
 </Callout>
 
 ### Parameters
@@ -49,7 +49,7 @@ local status = engine.draw_circle(
 ### Examples
 
 ```lua lineNumbers title="Draw circles with various styles"
-network:fetch("sandbox:draw", true):on(function()
+event.on("sandbox:draw", function()
     -- Draw a plain white circle
     engine.draw_circle({200, 200}, 50)
 

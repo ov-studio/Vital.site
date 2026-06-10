@@ -39,7 +39,7 @@ engine.print("info", "Bone position:", position[1], position[2], position[3])
 local entity = model.create("character")
 local bone = "Head"
 
-network:fetch("sandbox:draw", true):on(function()
+event.on("sandbox:draw", function()
     local position = entity:get_bone_position(bone)
     local screen, distance = engine.world_to_screen(position)
     if screen[1] ~= -1 then

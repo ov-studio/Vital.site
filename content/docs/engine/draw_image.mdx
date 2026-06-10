@@ -22,7 +22,7 @@ local status = engine.draw_image(
 
   - **Inside the event** — executes as expected, rendering the image to the canvas each frame
   - **Outside the event** — the call will be silently ignored and nothing will be drawn
-  - **Recommended usage** — register a handler via `network:fetch("sandbox:draw", true):on(...)` and place all canvas draw calls inside it
+  - **Recommended usage** — register a handler via `event.on("sandbox:draw", ...)` and place all canvas draw calls inside it
 </Callout>
 
 ### Parameters
@@ -50,7 +50,7 @@ local my_texture = texture.create("assets/logo.png")
 local my_svg = svg.create("assets/icon.svg")
 local my_rt = rendertarget.create(1920, 1080)
 
-network:fetch("sandbox:draw", true):on(function()
+event.on("sandbox:draw", function()
     -- Draw an image from a file path
     engine.draw_image({0, 0}, {256, 256}, "assets/logo.png")
 

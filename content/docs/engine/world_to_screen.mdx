@@ -35,7 +35,7 @@ local position, distance = engine.world_to_screen(
 local position, distance = engine.world_to_screen({0, 0, 0})
 local size = {10, 10}
 
-network:fetch("sandbox:draw", true):on(function()
+event.on("sandbox:draw", function()
     local position, distance = engine.world_to_screen({0, 0, 0}, size*2)
     if position[1] == -1 then return false end
 
