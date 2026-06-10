@@ -65,7 +65,7 @@ end)
 event.emit("on_damage", 50)
 ```
 
-```lua lineNumbers title="Client: send an event to the server"
+```lua lineNumbers title="Send an event from client to server"
 if engine.get_platform() == "client" then
     event.emit("on_player_ready", { remote = true }, "Tron", currentMap)
 else
@@ -75,7 +75,7 @@ else
 end
 ```
 
-```lua lineNumbers title="Server: broadcast an event to all clients"
+```lua lineNumbers title="Broadcast an event from server to all clients"
 if engine.get_platform() == "client" then
     event.on("on_round_start", function(roundIndex, mapName)
         engine.print("info", "Round started:", roundIndex, mapName)
@@ -85,17 +85,17 @@ else
 end
 ```
 
-```lua lineNumbers title="Server: send an event to a specific client"
+```lua lineNumbers title="Send an event from server to a specific client"
 if engine.get_platform() == "client" then
     event.on("on_kick_notice", function(reason)
         engine.print("warn", "Kicked:", reason)
     end)
 else
-    event.emit("on_kick_notice", { remote = true, peer = 1963414407 }, "You were kicked")
+    event.emit("on_kick_notice", { remote = true, peer = targetPeerId }, "You were kicked")
 end
 ```
 
-```lua lineNumbers title="Pass a table payload over the network"
+```lua lineNumbers title="Pass a table payload from client to server"
 if engine.get_platform() == "client" then
     event.emit("on_player_spawn", { remote = true }, {
         name = "Tron",
