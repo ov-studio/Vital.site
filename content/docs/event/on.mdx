@@ -54,19 +54,19 @@ exec(...)
 ### Examples
 
 ```lua lineNumbers title="Register a basic event handler"
-event.on("onPlayerJoin", function(player)
+event.on("on_player_join", function(player)
     engine.print("info", "Player joined:", player)
 end)
 ```
 
 ```lua lineNumbers title="Register a handler with a subscription limit"
-event.on("onPickupCollected", function(pickup)
+event.on("on_pickup_collected", function(pickup)
     engine.print("info", "Collected:", pickup)
 end, { subscription_limit = 1 })
 ```
 
 ```lua lineNumbers title="Register an async handler that sleeps"
-event.on("onRoundStart", function()
+event.on("on_round_start", function()
     local self = thread.current()
     engine.print("info", "Round started, waiting 5 seconds...")
     self:sleep(5000)
