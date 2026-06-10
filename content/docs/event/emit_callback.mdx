@@ -108,7 +108,7 @@ ctx:resume()
 
 ```lua lineNumbers title="Server: send emit_callback to a specific peer and await reply"
 local ctx = thread.create(function(self)
-    local p = event.emit_callback("onRequestInfo", { remote = true, peer = targetPeerId })
+    local p = event.emit_callback("onRequestInfo", { remote = true, peer = 1963414407 })
     local ok, info = self:await(p)
     engine.print("info", "Peer replied:", info)
 end)
