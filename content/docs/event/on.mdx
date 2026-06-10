@@ -34,8 +34,8 @@ local status = event.on(
 
 | Type | Key | Default | Description |
 |------|-----|---------|-------------|
-| `bool` | async | `false` | When `true`, the handler runs inside a dedicated coroutine, allowing use of `thread.current():sleep()` and `thread.current():await()` inside the callback |
-| `number` | subscription_limit | `nil` | Maximum number of times this handler will fire before being automatically removed. Must be `>= 1` if set. Omit for unlimited invocations |
+| `bool` | async | `false` | • When `true` - runs the handler inside a dedicated thread<br/>• When `false` - runs the handler inline on the calling thread |
+| `number` | subscription_limit | `nil` | Maximum number of times this handler will fire before being automatically removed<br/>• Must be `>= 1` if set<br/>• Omit for unlimited invocations |
 
 ---
 
