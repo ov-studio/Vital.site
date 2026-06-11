@@ -116,7 +116,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] Command: crun <code>', status: 'completed' },
           { label: '[Client] Command: connect <ip> <port>', status: 'pending' },
           { label: '[Client] Command: disconnect', status: 'pending' },
-          { label: '[Client] Command: status', status: 'pending' },
+          { label: '[Client] Command: status', status: 'pending' }
         ],
       },
       {
@@ -134,7 +134,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
-          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' },
+          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
         ],
       },
       {
@@ -446,7 +446,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Constant: math.pi', status: 'completed' },
           { label: '[Shared] Constant: math.huge', status: 'completed' },
           { label: '[Shared] Constant: math.maxinteger', status: 'completed' },
-          { label: '[Shared] Constant: math.mininteger', status: 'completed' },
+          { label: '[Shared] Constant: math.mininteger', status: 'completed' }
         ],
       },
       {
@@ -475,7 +475,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: string.split', status: 'completed' },
           { label: '[Shared] API: string.pack', status: 'completed' },
           { label: '[Shared] API: string.packsize', status: 'completed' },
-          { label: '[Shared] API: string.unpack', status: 'completed' },
+          { label: '[Shared] API: string.unpack', status: 'completed' }
         ],
       },
       {
@@ -493,7 +493,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: table.clone', status: 'completed' },
           { label: '[Shared] API: table.concat', status: 'completed' },
           { label: '[Shared] API: table.encode', status: 'completed' },
-          { label: '[Shared] API: table.decode', status: 'completed' },
+          { label: '[Shared] API: table.decode', status: 'completed' }
         ],
       },
       {
@@ -564,7 +564,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Customizable headers', status: 'completed' },
           { label: 'Customizable timeout', status: 'completed' },
           { label: '[Shared] API: http.get', status: 'completed' },
-          { label: '[Shared] API: http.post', status: 'completed' },
+          { label: '[Shared] API: http.post', status: 'completed' }
         ],
       },
       {
@@ -604,9 +604,11 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.PackageOpen {...site.lucide} />,
         items: [
           { label: '[Shared] API: resource.current', status: 'completed' },
-          { label: '[Server] API: resource.start', status: 'pending' },
-          { label: '[Server] API: resource.stop', status: 'pending' },
-          { label: '[Server] API: resource.restart', status: 'pending' },
+          { label: '[Server] API: resource.is_loaded', status: 'completed' },
+          { label: '[Server] API: resource.is_running', status: 'completed' },
+          { label: '[Server] API: resource.start', status: 'completed' },
+          { label: '[Server] API: resource.stop', status: 'completed' },
+          { label: '[Server] API: resource.restart', status: 'completed' }
         ],
       },
       {
@@ -616,7 +618,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: '[Shared] API: export.register', status: 'completed' },
           { label: '[Shared] API: export.call', status: 'completed' },
-          { label: '[Shared] API: export.list', status: 'completed' },
+          { label: '[Shared] API: export.list', status: 'completed' }
         ],
       },
       {
@@ -659,7 +661,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Mouse capture / visibility mode', status: 'pending' },
           { label: 'Gamepad / joystick axis & buttons', status: 'pending' },
           { label: 'InputMap action queries', status: 'pending' },
-          { label: 'InputEvent pass-through (process_event)', status: 'pending' },
+          { label: 'InputEvent pass-through (process_event)', status: 'pending' }
         ],
       }
     ],
