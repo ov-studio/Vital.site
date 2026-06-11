@@ -78,9 +78,8 @@ if engine.get_platform() == "client" then
     end):resume()
 else
     event.on("on_fetch_inventory", function(category)
-        if eventthread then
-            eventthread:sleep(2000)
-        end
+        local thread = thread.current()
+        thread:sleep(2000)
         return "ok", { category = category, items = { "sword", "bow" } }
     end, { async = true })
 end
@@ -89,9 +88,8 @@ end
 ```lua lineNumbers title="Send a callback from server to a specific client and await the reply"
 if engine.get_platform() == "client" then
     event.on("on_request_position", function()
-        if eventthread then
-            eventthread:sleep(500)
-        end
+        local thread = thread.current()
+        thread:sleep(500)
         return 12.5, 0.0, 87.3
     end, { async = true })
 else

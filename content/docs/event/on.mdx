@@ -74,6 +74,7 @@ end, { subscription_limit = 1 })
 
 ```lua lineNumbers title="Register an async handler that sleeps"
 event.on("on_round_start", function()
+    local thread = thread.current()
     engine.print("info", "Round started, waiting 5 seconds...")
     thread:sleep(5000)
     engine.print("info", "5 seconds elapsed")
