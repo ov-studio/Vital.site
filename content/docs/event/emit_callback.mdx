@@ -115,7 +115,6 @@ if engine.get_platform() == "client" then
     end, { async = true })
 else
     thread.create(function(self)
-        -- Single handler on client: resolves unpacked
         local ok, x, y, z = self:await(event.emit_callback("on_request_position", { remote = true, peer = targetPeerId }))
         engine.print("info", "Client position:", x, y, z)
     end):resume()
