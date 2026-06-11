@@ -1,0 +1,39 @@
+---
+title: resource.current
+description: Returns the name of the resource the calling script belongs to
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = resource.current()
+```
+
+### Parameters
+
+_None_
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Name of the calling resource, or `false` if called outside a resource environment |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current resource name"
+local name = resource.current()
+
+engine.print("info", "Running in:", name) -- 'my_resource'
+```
+
+```lua lineNumbers title="Use the current resource name dynamically"
+local name = resource.current()
+
+export.register("get_resource_name", function()
+    return name
+end)
+```

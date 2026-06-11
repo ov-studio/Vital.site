@@ -1,0 +1,45 @@
+---
+title: resource.is_running
+description: Checks whether a resource is currently running
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = resource.is_running(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the resource to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the resource is currently running, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a resource is running"
+if resource.is_running("my_resource") then
+    engine.print("info", "Resource is running")
+end
+```
+
+```lua lineNumbers title="Guard an export call based on running state"
+if not resource.is_running("inventory_resource") then
+    engine.print("warn", "inventory_resource is not running")
+    return
+end
+
+local items = export.call("inventory_resource", "get_items")
+engine.iprint(items)
+```

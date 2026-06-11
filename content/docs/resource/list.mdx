@@ -1,0 +1,54 @@
+---
+title: resource.list
+description: Returns a list of all loaded resources
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = resource.list()
+```
+
+### Parameters
+
+_None_
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Array of resource name strings for all loaded resources; empty table if none are loaded |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print all loaded resources"
+engine.iprint(resource.list())
+--[[
+Output:
+{
+    1: 'core'
+    2: 'inventory_resource'
+    3: 'my_resource'
+}
+]]
+```
+
+```lua lineNumbers title="Count loaded resources"
+local list = resource.list()
+
+engine.print("info", "Loaded resources:", #list) -- 3
+```
+
+```lua lineNumbers title="Check whether a specific resource is in the list"
+local list = resource.list()
+
+for _, name in ipairs(list) do
+    if name == "my_resource" then
+        engine.print("info", "my_resource is loaded")
+        break
+    end
+end
+```

@@ -1,0 +1,47 @@
+---
+title: resource.stop
+description: Stops a running resource
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = resource.stop(
+    name
+)
+```
+
+<Callout type="warn">
+  **The resource must be running before it can be stopped.**
+
+  - **Not running** — returns `false` if the resource is not currently running
+  - **Cleanup** — stopping a resource cleans up all its entities, threads, promises, timers, events, and exports automatically
+  - **Async** — the stop is enqueued and executes on the next main thread tick; the resource will not be stopped immediately after this call returns
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the resource to stop |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the stop was enqueued successfully, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Stop a resource"
+resource.stop("my_resource")
+```
+
+```lua lineNumbers title="Guard stop with a running check"
+if resource.is_running("my_resource") then
+    resource.stop("my_resource")
+end
+```

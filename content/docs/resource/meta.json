@@ -1,0 +1,15 @@
+{
+    "title": "Resource",
+    "icon": "Box",
+    "pages": [
+        "---Base---",
+        "current",
+        "list",
+        "is_loaded",
+        "is_running",
+        "start",
+        "stop",
+        "restart",
+        "..."
+    ]
+}

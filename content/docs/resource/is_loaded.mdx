@@ -1,0 +1,51 @@
+---
+title: resource.is_loaded
+description: Checks whether a resource is loaded
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = resource.is_loaded(
+    name
+)
+```
+
+<Callout type="info">
+  **A loaded resource is not necessarily running.**
+
+  A resource is considered loaded once its manifest has been parsed and registered. It may not have been started yet. Use `resource.is_running` to check whether it is actively executing.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the resource to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the resource is loaded, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a resource is loaded"
+if resource.is_loaded("my_resource") then
+    engine.print("info", "Resource is loaded")
+end
+```
+
+```lua lineNumbers title="Guard a call based on load state"
+if not resource.is_loaded("inventory_resource") then
+    engine.print("warn", "inventory_resource is not loaded")
+    return
+end
+
+local items = export.call("inventory_resource", "get_items")
+engine.iprint(items)
+```

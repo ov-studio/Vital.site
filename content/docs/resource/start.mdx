@@ -1,0 +1,47 @@
+---
+title: resource.start
+description: Starts a loaded resource
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = resource.start(
+    name
+)
+```
+
+<Callout type="warn">
+  **The resource must be loaded before it can be started.**
+
+  - **Already running** — returns `false` if the resource is already running
+  - **Not loaded** — returns `false` if the resource has not been loaded
+  - **Async** — the start is enqueued and executes on the next main thread tick; the resource will not be running immediately after this call returns
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the resource to start |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the start was enqueued successfully, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Start a resource"
+resource.start("my_resource")
+```
+
+```lua lineNumbers title="Guard start with a running check"
+if not resource.is_running("my_resource") then
+    resource.start("my_resource")
+end
+```

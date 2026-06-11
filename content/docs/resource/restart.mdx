@@ -1,0 +1,48 @@
+---
+title: resource.restart
+description: Restarts a running resource
+badge: Server
+---
+
+### Syntax
+
+```lua
+local result = resource.restart(
+    name
+)
+```
+
+<Callout type="warn">
+  **The resource must be running before it can be restarted.**
+
+  - **Not running** — returns `false` if the resource is not currently running
+  - **Manifest reload** — the manifest is re-read and re-parsed on restart; any changes to scripts or files are picked up automatically
+  - **Cleanup** — the stop phase cleans up all entities, threads, promises, timers, events, and exports before the resource is started again
+  - **Async** — the restart is enqueued; stop executes immediately on the main thread, then start is re-enqueued after
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the resource to restart |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the restart was enqueued successfully, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Restart a resource"
+resource.restart("my_resource")
+```
+
+```lua lineNumbers title="Guard restart with a running check"
+if resource.is_running("my_resource") then
+    resource.restart("my_resource")
+end
+```
