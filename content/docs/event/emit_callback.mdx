@@ -40,9 +40,16 @@ local result = event.emit_callback(
 
 ### Returns
 
-| Type | Name | Description |
-|------|------|-------------|
-| `promise` \| `table` | result | • **When `remote = true`:**<br/>&nbsp;&nbsp;◦ Always a single `promise` - resolves with the return values of the first handler on the remote side<br/>• **When `remote = false`:**<br/>&nbsp;&nbsp;◦ A single `promise` when one handler is registered<br/>&nbsp;&nbsp;◦ A `table` of `promise` instances - one per handler (when multiples are registered)<br/>&nbsp;&nbsp;◦ An already-resolved empty `promise` when no handlers are registered |
+Always returns a **single** `promise` regardless of how many handlers are registered or whether the call is local or remote.<br/>
+For remote calls, the remote side aggregates all of its handlers using the same rules before sending a single reply — so the caller's promise resolves with the same structure described below.
+
+How that promise resolves depends on the number of registered handlers:
+
+| Handlers | Resolved value |
+|----------|----------------|
+| None | Resolves immediately with no values |
+| One | Resolves directly with that handler's return value(s), unpacked |
+| Multiple | Resolves with `{[1]={...}, [2]={...}, ...}` — each slot is always a table of that handler's return values, even if only one value was returned |
 
 ---
 
@@ -50,20 +57,34 @@ local result = event.emit_callback(
 
 ### Examples
 
-```lua lineNumbers title="Await a return value from a local handler"
+```lua lineNumbers title="Await a return value from a single local handler"
 event.on("on_get_score", function()
     return 42
 end)
 
+-- Single handler: resolves unpacked → ok=true, score=42
 thread.create(function(self)
     local ok, score = self:await(event.emit_callback("on_get_score"))
     engine.print("info", "Score:", score)
 end):resume()
 ```
 
+```lua lineNumbers title="Collect return values from multiple local handlers"
+event.on("on_query", function() return "handler_a" end)
+event.on("on_query", function() return "handler_b" end)
+
+-- Multiple handlers: resolves with {[1]={"handler_a"}, [2]={"handler_b"}}
+thread.create(function(self)
+    local ok, results = self:await(event.emit_callback("on_query"))
+    engine.print("info", "Handler 1 returned:", results[1][1])
+    engine.print("info", "Handler 2 returned:", results[2][1])
+end):resume()
+```
+
 ```lua lineNumbers title="Send a callback from client to server and await the reply"
 if engine.get_platform() == "client" then
     thread.create(function(self)
+        -- Single handler on server: resolves unpacked
         local ok, result, data = self:await(event.emit_callback("on_fetch_inventory", { remote = true }, "weapons"))
         engine.print("info", "Server replied:", result)
         engine.iprint(data)
@@ -86,22 +107,23 @@ if engine.get_platform() == "client" then
     end, { async = true })
 else
     thread.create(function(self)
+        -- Single handler on client: resolves unpacked
         local ok, x, y, z = self:await(event.emit_callback("on_request_position", { remote = true, peer = targetPeerId }))
         engine.print("info", "Client position:", x, y, z)
     end):resume()
 end
 ```
 
-```lua lineNumbers title="Collect return values from multiple local handlers"
-event.on("on_query", function() return "handler_a" end)
-event.on("on_query", function() return "handler_b" end)
-
-thread.create(function(self)
-    local promises = event.emit_callback("on_query")
-
-    for i, j in ipairs(promises) do
-        local ok, value = self:await(j)
-        engine.print("info", "Handler", i, "returned:", value)
-    end
-end):resume()
+```lua lineNumbers title="Await aggregated results from multiple remote handlers"
+if engine.get_platform() == "server" then
+    event.on("on_status", function() return "ok" end)
+    event.on("on_status", function() return "ok", { detail = "extra" } end)
+else
+    thread.create(function(self)
+        -- Multiple handlers on server: resolves with {[1]={"ok"}, [2]={"ok", {detail="extra"}}}
+        local ok, results = self:await(event.emit_callback("on_status", { remote = true }))
+        engine.print("info", "Handler 1:", results[1][1])
+        engine.print("info", "Handler 2:", results[2][1], results[2][2])
+    end):resume()
+end
 ```
