@@ -1,6 +1,6 @@
 {
     "title": "Resource",
-    "icon": "Box",
+    "icon": "PackageOpen",
     "pages": [
         "---Base---",
         "current",
