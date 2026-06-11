@@ -604,6 +604,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         icon: <Icons.PackageOpen {...site.lucide} />,
         items: [
           { label: '[Shared] API: resource.current', status: 'completed' },
+          { label: '[Shared] API: resource.list', status: 'completed' },
           { label: '[Server] API: resource.is_loaded', status: 'completed' },
           { label: '[Server] API: resource.is_running', status: 'completed' },
           { label: '[Server] API: resource.start', status: 'completed' },
