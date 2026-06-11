@@ -5,6 +5,8 @@
         "---Base---",
         "current",
         "list",
+        
+        "---Lifecycle---",
         "is_loaded",
         "is_running",
         "start",
