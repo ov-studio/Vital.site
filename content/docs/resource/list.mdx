@@ -33,14 +33,3 @@ local list = resource.list()
 
 engine.print("info", "Loaded resources:", #list)
 ```
-
-```lua lineNumbers title="Check whether a specific resource is in the list"
-local list = resource.list()
-
-for _, name in ipairs(list) do
-    if name == "my_resource" then
-        engine.print("info", "my_resource is loaded")
-        break
-    end
-end
-```
