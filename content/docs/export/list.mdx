@@ -1,5 +1,5 @@
 ---
-title: exports.list
+title: export.list
 description: Returns all export names registered by a resource
 badge: Shared
 ---
@@ -7,22 +7,22 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = exports.list(
+local result = export.list(
     resource
 )
 ```
 
 <Callout type="warn">
-  **The target resource must be running before listing its exports.**
+  **The target resource must be running before listing its export.**
 
-  Throws an error if the specified resource is not currently running. Use this function to inspect or validate available exports before calling them.
+  Throws an error if the specified resource is not currently running. Use this function to inspect or validate available export before calling them.
 </Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | resource | Name of the resource whose exports to list |
+| `string` | resource | Name of the resource whose export to list |
 
 ### Returns
 
@@ -34,12 +34,12 @@ local result = exports.list(
 
 ### Examples
 
-```lua lineNumbers title="List all exports from a resource"
-engine.iprint(exports.list("my_resource"))
+```lua lineNumbers title="List all export from a resource"
+engine.iprint(export.list("my_resource"))
 ```
 
 ```lua lineNumbers title="Check whether a specific export exists before calling it"
-local list = exports.list("inventory_resource")
+local list = export.list("inventory_resource")
 
 local has_export = false
 for _, name in ipairs(list) do
@@ -50,7 +50,7 @@ for _, name in ipairs(list) do
 end
 
 if has_export then
-    local items = exports.call("inventory_resource", "get_items", player_id)
+    local items = export.call("inventory_resource", "get_items", player_id)
     engine.iprint(items)
 else
     engine.print("warn", "Export 'get_items' not found on inventory_resource")

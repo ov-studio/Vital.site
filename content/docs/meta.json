@@ -32,7 +32,7 @@
         "http",
         "crypto",
         "shrinker",
-        "exports",
+        "export",
         "event",
 
         "---GFX---",

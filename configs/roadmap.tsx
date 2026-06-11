@@ -610,13 +610,13 @@ export const Roadmap_Section: RoadmapSection[] = build([
         ],
       },
       {
-        label: 'Exports',
+        label: 'Export',
         desc: 'Cross-resource function registry — expose and consume APIs across resource boundaries',
         icon: <Icons.Blocks {...site.lucide}/>,
         items: [
-          { label: '[Shared] API: exports.register', status: 'completed' },
-          { label: '[Shared] API: exports.call', status: 'completed' },
-          { label: '[Shared] API: exports.list', status: 'completed' },
+          { label: '[Shared] API: export.register', status: 'completed' },
+          { label: '[Shared] API: export.call', status: 'completed' },
+          { label: '[Shared] API: export.list', status: 'completed' },
         ],
       },
       {

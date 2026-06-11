@@ -1,5 +1,5 @@
 ---
-title: exports.register
+title: export.register
 description: Registers an exported function for the calling resource
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = exports.register(
+local status = export.register(
     name,
     exec
 )
@@ -16,9 +16,9 @@ local status = exports.register(
 <Callout type="idea">
   **Exports allow resources to expose functions to other resources.**
 
-  - **Scoped to the resource** — the export is automatically tied to the resource that calls `exports.register`; it cannot be registered from outside a resource environment
+  - **Scoped to the resource** — the export is automatically tied to the resource that calls `export.register`; it cannot be registered from outside a resource environment
   - **Overwrite behaviour** — registering an export under a name that already exists will silently replace the previous function
-  - **Lifecycle** — all exports registered by a resource are automatically cleaned up when that resource stops
+  - **Lifecycle** — all export registered by a resource are automatically cleaned up when that resource stops
 </Callout>
 
 ### Parameters
@@ -26,7 +26,7 @@ local status = exports.register(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Unique name to identify this export within the resource |
-| `function` | exec | Function to expose; called when another resource invokes `exports.call` with this name |
+| `function` | exec | Function to expose; called when another resource invokes `export.call` with this name |
 
 ### Returns
 
@@ -39,34 +39,34 @@ local status = exports.register(
 ### Examples
 
 ```lua lineNumbers title="Register a simple export"
-exports.register("get_player_count", function()
+export.register("get_player_count", function()
     return 42
 end)
 ```
 
 ```lua lineNumbers title="Register an export that accepts arguments"
-exports.register("add", function(a, b)
+export.register("add", function(a, b)
     return a + b
 end)
 ```
 
-```lua lineNumbers title="Register multiple exports from the same resource"
-exports.register("greet", function(name)
+```lua lineNumbers title="Register multiple export from the same resource"
+export.register("greet", function(name)
     return "Hello, " .. name .. "!"
 end)
 
-exports.register("farewell", function(name)
+export.register("farewell", function(name)
     return "Goodbye, " .. name .. "!"
 end)
 ```
 
 ```lua lineNumbers title="Overwrite an existing export"
-exports.register("get_status", function()
+export.register("get_status", function()
     return "initialising"
 end)
 
 -- Later in the same resource, replace it with a live value:
-exports.register("get_status", function()
+export.register("get_status", function()
     return "running"
 end)
 ```
