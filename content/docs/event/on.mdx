@@ -17,8 +17,8 @@ local status = event.on(
 <Callout type="info">
   **The `thread` global is only available inside async handlers.**
 
-  - **When `async = true`** — handler runs inside a dedicated thread; `thread` is available as a global within the callback scope
-  - **When `async = false`** — handler runs inline on the calling thread; no `thread` global is injected
+  - **When `async = true`** — handler runs inside a dedicated thread; thread can be accessed via [`thread.current()`](/docs/thread/current)
+  - **When `async = false`** — handler runs inline on the calling thread
 </Callout>
 
 ### Parameters
