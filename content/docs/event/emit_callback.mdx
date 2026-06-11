@@ -127,7 +127,6 @@ if engine.get_platform() == "server" then
     event.on("on_status", function() return "ok", { detail = "extra" } end)
 else
     thread.create(function(self)
-        -- Multiple handlers on server: resolves with {[1]={"ok"}, [2]={"ok", {detail="extra"}}}
         local ok, results = self:await(event.emit_callback("on_status", { remote = true }))
         engine.print("info", "Handler 1:", results[1][1])
         engine.print("info", "Handler 2:", results[2][1], results[2][2])
