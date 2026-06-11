@@ -29,11 +29,3 @@ local name = resource.current()
 
 engine.print("info", "Running in:", name) -- 'my_resource'
 ```
-
-```lua lineNumbers title="Use the current resource name dynamically"
-local name = resource.current()
-
-export.register("get_resource_name", function()
-    return name
-end)
-```
