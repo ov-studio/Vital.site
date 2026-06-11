@@ -30,14 +30,6 @@ local result = event.emit_callback(
   - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost
 </Callout>
 
-<Callout type="info">
-  **For remote calls, only a single `promise` is returned regardless of how many handlers exist on the remote side.**
-
-  - **Local dispatch** — returns a single `promise` when one handler is registered, or a `table` of `promise` instances when multiple handlers are registered
-  - **Remote dispatch** — always returns a single `promise` that resolves with the return values of the **first** handler that fires on the remote side
-  - **No handlers registered** — returns an already-resolved empty `promise`
-</Callout>
-
 ### Parameters
 
 | Type | Name | Description |
