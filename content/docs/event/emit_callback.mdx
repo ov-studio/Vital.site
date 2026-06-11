@@ -72,11 +72,11 @@ end):resume()
 event.on("on_query", function() return "handler_a" end)
 event.on("on_query", function() return "handler_b" end)
 
--- Multiple handlers: resolves with {[1]={"handler_a"}, [2]={"handler_b"}}
 thread.create(function(self)
     local ok, results = self:await(event.emit_callback("on_query"))
     engine.print("info", "Handler 1 returned:", results[1][1])
     engine.print("info", "Handler 2 returned:", results[2][1])
+event.on("on_status", function() return "ok", 100 end)
 end):resume()
 ```
 
