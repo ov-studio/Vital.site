@@ -93,9 +93,8 @@ end):resume()
 ```lua lineNumbers title="Send a callback from client to server and await the reply"
 if engine.get_platform() == "client" then
     thread.create(function(self)
-        -- Single handler on server: resolves unpacked
         local ok, result, data = self:await(event.emit_callback("on_fetch_inventory", { remote = true }, "weapons"))
-        engine.print("info", "Server replied:", result)
+        engine.print("info", "Server replied:", result) -- 'ok'
         engine.iprint(data)
     end):resume()
 else
