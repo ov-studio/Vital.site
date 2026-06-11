@@ -74,9 +74,19 @@ event.on("on_query", function() return "handler_b" end)
 
 thread.create(function(self)
     local ok, results = self:await(event.emit_callback("on_query"))
-    engine.print("info", "Handler 1 returned:", results[1][1])
-    engine.print("info", "Handler 2 returned:", results[2][1])
+    engine.print("info", "Handler 1 returned:", results[1][1]) -- 'handler_a'
+    engine.print("info", "Handler 2 returned:", results[2][1]) -- 'handler_b'
+end):resume()
+```
+
+```lua lineNumbers title="Multiple handlers each returning multiple values"
 event.on("on_status", function() return "ok", 100 end)
+event.on("on_status", function() return "ok", 200 end)
+
+thread.create(function(self)
+    local ok, results = self:await(event.emit_callback("on_status"))
+    engine.print("info", results[1][1], results[1][2]) -- 'ok'  100
+    engine.print("info", results[2][1], results[2][2]) -- 'ok'  200
 end):resume()
 ```
 
