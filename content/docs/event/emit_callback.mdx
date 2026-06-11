@@ -62,10 +62,9 @@ event.on("on_get_score", function()
     return 42
 end)
 
--- Single handler: resolves unpacked → ok=true, score=42
 thread.create(function(self)
     local ok, score = self:await(event.emit_callback("on_get_score"))
-    engine.print("info", "Score:", score)
+    engine.print("info", "Score:", score) -- 42
 end):resume()
 ```
 
