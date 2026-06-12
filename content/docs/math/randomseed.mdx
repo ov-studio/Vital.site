@@ -64,9 +64,7 @@ for i = #deck, 2, -1 do
     deck[i], deck[j] = deck[j], deck[i]
 end
 
-for _, v in ipairs(deck) do
-    engine.print("info", v)
-end
+engine.iprint(deck)
 ```
 
 ```lua lineNumbers title="Use two seed components for a broader range"
