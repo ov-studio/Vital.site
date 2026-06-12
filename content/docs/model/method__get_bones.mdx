@@ -29,7 +29,5 @@ local bones = self:get_bones()
 local entity = model.create("character")
 local bones = entity:get_bones()
 
-for i = 1, #bones do
-    engine.print("info", bones[i])
-end
+engine.iprint(bones)
 ```
