@@ -32,7 +32,5 @@ local blendshapes = self:get_blendshapes(
 local entity = model.create("character")
 local blendshapes = entity:get_blendshapes("Skeleton3D/Head")
 
-for i = 1, #blendshapes do
-    engine.print("info", blendshapes[i])
-end
+engine.iprint(blendshapes)
 ```

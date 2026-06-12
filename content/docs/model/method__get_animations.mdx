@@ -29,7 +29,5 @@ local animations = self:get_animations()
 local entity = model.create("character")
 local animations = entity:get_animations()
 
-for i = 1, #animations do
-    engine.print("info", animations[i])
-end
+engine.iprint(animations)
 ```
