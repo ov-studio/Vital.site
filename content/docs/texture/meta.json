@@ -6,9 +6,15 @@
         "create",
         "...",
 
-       "---::Lifecycle---",
+        "---::Lifecycle---",
         "method__is_type",
         "method__get_type",
-        "method__destroy"
+        "method__destroy",
+
+        "---::Getter---",
+        "method__get_size",
+
+        "---::API---",
+        "method__convert"
     ]
 }
