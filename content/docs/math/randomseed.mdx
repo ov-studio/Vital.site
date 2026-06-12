@@ -54,7 +54,10 @@ engine.print("info", a == b) -- true
 math.randomseed(7)
 
 local deck = {}
-for i = 1, 10 do deck[i] = i end
+
+for i = 1, 10 do
+    deck[i] = i
+end
 
 for i = #deck, 2, -1 do
     local j = math.random(i)
