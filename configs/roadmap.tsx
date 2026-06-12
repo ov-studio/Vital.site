@@ -335,7 +335,9 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: texture.create', status: 'completed' },
           { label: '[Client] API: self<texture>:is_type', status: 'completed' },
           { label: '[Client] API: self<texture>:get_type', status: 'completed' },
-          { label: '[Client] API: self<texture>:destroy', status: 'completed' }
+          { label: '[Client] API: self<texture>:destroy', status: 'completed' },
+          { label: '[Client] API: self<texture>:get_size', status: 'completed' },
+          { label: '[Client] API: self<texture>:convert', status: 'completed' }
         ],
       },
       {
@@ -351,6 +353,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: self<svg>:is_type', status: 'completed' },
           { label: '[Client] API: self<svg>:get_type', status: 'completed' },
           { label: '[Client] API: self<svg>:destroy', status: 'completed' },
+          { label: '[Client] API: self<svg>:get_size', status: 'completed' },
           { label: '[Client] API: self<svg>:update', status: 'completed' }
         ],
       },
