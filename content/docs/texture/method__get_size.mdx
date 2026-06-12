@@ -1,0 +1,33 @@
+---
+title: self:get_size
+description: Retrieves the current size of the texture
+badge: Client
+---
+
+### Syntax
+
+```lua
+local size = self:get_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | size | Size of the texture as `{width, height}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the size of a texture instance"
+local tex = texture.create("assets/sprite.png")
+local size = tex:get_size()
+
+engine.print("info", "Texture size:", size[1], size[2])
+```
