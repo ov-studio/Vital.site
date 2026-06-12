@@ -1,0 +1,60 @@
+---
+title: self:convert
+description: Converts the texture to a different pixel format, freeing VRAM used by the original
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:convert(
+    format
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | format | Target pixel format<br/>Refer [**Formats**](#formats) section |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Formats
+
+| Constant | Description |
+|----------|-------------|
+| `texture.texel_format.L8` | 8-bit grayscale, no alpha — lightest option |
+| `texture.texel_format.LA8` | 8-bit grayscale with alpha |
+| `texture.texel_format.RGB8` | 24-bit full color, no alpha — 25% less VRAM than RGBA8 |
+| `texture.texel_format.RGBA8` | 32-bit full color with alpha — standard default |
+| `texture.texel_format.RGBA4444` | 16-bit color with alpha — half the VRAM of RGBA8, lower quality |
+| `texture.texel_format.RGB565` | 16-bit color, no alpha — best VRAM savings without alpha |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reduce VRAM by converting to RGB565"
+local tex = texture.create("assets/background.png")
+
+tex:convert(texture.texel_format.RGB565)
+```
+
+```lua lineNumbers title="Convert to RGBA4444 for a low-quality mode"
+local tex = texture.create("assets/sprite.png")
+
+tex:convert(texture.texel_format.RGBA4444)
+```
+
+```lua lineNumbers title="Convert a grayscale mask to L8"
+local tex = texture.create("assets/mask.png")
+
+tex:convert(texture.texel_format.L8)
+```
