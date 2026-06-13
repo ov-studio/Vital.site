@@ -47,7 +47,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
         items: [
           { label: 'Platform: Windows support', status: 'completed' },
           { label: 'Platform: Linux support', status: 'pending' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -60,7 +60,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Settings screen', status: 'pending' },
           { label: 'Credits screen', status: 'pending' },
           { label: 'Version & build info display', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -74,7 +74,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Direct connect by IP & port', status: 'pending' },
           { label: 'Refresh & auto-refresh interval', status: 'pending' },
           { label: 'Favorite servers list', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -90,7 +90,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Multi-monitor screen info', status: 'pending' },
           { label: 'Keybind configuration', status: 'pending' },
           { label: 'Audio output device & volume', status: 'pending' },
-        ],
+        ]
       },
       {
         label: 'Console',
@@ -117,7 +117,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] Command: connect <ip> <port>', status: 'pending' },
           { label: '[Client] Command: disconnect', status: 'pending' },
           { label: '[Client] Command: status', status: 'pending' }
-        ],
+        ]
       },
       {
         label: 'Resource System',
@@ -131,11 +131,12 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Resource asset streaming via HTTP server', status: 'completed' },
           { label: '[Shared] Resource-scoped entity lifetime', status: 'completed' },
           { label: '[Shared] Per-resource isolated Lua environments', status: 'completed' },
+          { label: '[Shared] Resource start-order persistence for late-joining clients', status: 'completed' },
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
           { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -172,7 +173,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: engine.get_serial', status: 'completed' },
           { label: '[Shared] API: engine.get_entities', status: 'completed' },
           { label: '[Shared] API: engine.get_resolution', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Database',
@@ -204,7 +205,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Server] API: self<db_query>:insert', status: 'completed' },
           { label: '[Server] API: self<db_query>:delete', status: 'completed' },
           { label: '[Server] API: self<db_query>:update', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Model',
@@ -230,7 +231,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Wildcard component / material targeting', status: 'completed' },
           { label: 'Skeleton & bone transforms', status: 'partial' },
           { label: 'LOD (Level of Detail) control', status: 'pending' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -245,7 +246,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'set_current (make active)', status: 'pending' },
           { label: 'Per-camera environment override', status: 'pending' },
           { label: 'Frustum culling mask', status: 'pending' },
-        ],
+        ]
       },
       {
         label: 'Webview',
@@ -282,7 +283,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: self<webview>:update', status: 'completed' },
           { label: '[Client] API: self<webview>:eval', status: 'completed' },
           { label: '[Client] API: self<webview>:emit', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Canvas',
@@ -297,7 +298,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: engine.draw_circle', status: 'completed' },
           { label: '[Client] API: engine.draw_image', status: 'completed' },
           { label: '[Client] API: engine.draw_text', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Font',
@@ -317,7 +318,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: self<font>:get_oversampling', status: 'completed' },
           { label: '[Client] API: self<font>:set_antialiasing', status: 'completed' },
           { label: '[Client] API: self<font>:set_oversampling', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Texture',
@@ -338,7 +339,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: self<texture>:destroy', status: 'completed' },
           { label: '[Client] API: self<texture>:get_size', status: 'completed' },
           { label: '[Client] API: self<texture>:convert', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'SVG',
@@ -355,7 +356,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: self<svg>:destroy', status: 'completed' },
           { label: '[Client] API: self<svg>:get_size', status: 'completed' },
           { label: '[Client] API: self<svg>:update', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Rendertarget',
@@ -374,7 +375,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Client] API: self<rendertarget>:is_active', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:get_size', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:set_active', status: 'completed' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -385,7 +386,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Viewport.get_texture snapshot', status: 'pending' },
           { label: 'Save to PNG / JPG', status: 'pending' },
           { label: 'Region capture (partial frame)', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -397,7 +398,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'CylinderMesh / PlaneMesh', status: 'pending' },
           { label: 'MeshInstance3D creation', status: 'pending' },
           { label: 'Surface material assignment', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -452,7 +453,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] Constant: math.huge', status: 'completed' },
           { label: '[Shared] Constant: math.maxinteger', status: 'completed' },
           { label: '[Shared] Constant: math.mininteger', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'String',
@@ -481,7 +482,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: string.pack', status: 'completed' },
           { label: '[Shared] API: string.packsize', status: 'completed' },
           { label: '[Shared] API: string.unpack', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Table',
@@ -499,7 +500,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: table.concat', status: 'completed' },
           { label: '[Shared] API: table.encode', status: 'completed' },
           { label: '[Shared] API: table.decode', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Timer',
@@ -513,7 +514,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: self<timer>:is_type', status: 'completed' },
           { label: '[Shared] API: self<timer>:get_type', status: 'completed' },
           { label: '[Shared] API: self<timer>:destroy', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Promise',
@@ -528,7 +529,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: self<promise>:is_pending', status: 'completed' },
           { label: '[Shared] API: self<promise>:resolve', status: 'completed' },
           { label: '[Shared] API: self<promise>:reject', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Thread',
@@ -545,7 +546,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: self<thread>:pause', status: 'completed' },
           { label: '[Shared] API: self<thread>:sleep', status: 'completed' },
           { label: '[Shared] API: self<thread>:await', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'File',
@@ -559,7 +560,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: file.read', status: 'completed' },
           { label: '[Shared] API: file.write', status: 'completed' },
           { label: '[Shared] API: file.contents', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'HTTP',
@@ -570,7 +571,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Customizable timeout', status: 'completed' },
           { label: '[Shared] API: http.get', status: 'completed' },
           { label: '[Shared] API: http.post', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Crypto',
@@ -591,7 +592,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: crypto.decode', status: 'completed' },
           { label: '[Shared] API: crypto.encrypt', status: 'completed' },
           { label: '[Shared] API: crypto.decrypt', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Shrinker',
@@ -601,7 +602,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Data compression via zstd library', status: 'completed' },
           { label: '[Shared] API: shrinker.compress', status: 'completed' },
           { label: '[Shared] API: shrinker.decompress', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Resource',
@@ -615,7 +616,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Server] API: resource.start', status: 'completed' },
           { label: '[Server] API: resource.stop', status: 'completed' },
           { label: '[Server] API: resource.restart', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Export',
@@ -625,7 +626,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: export.register', status: 'completed' },
           { label: '[Shared] API: export.call', status: 'completed' },
           { label: '[Shared] API: export.list', status: 'completed' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -637,7 +638,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'OS platform detection', status: 'pending' },
           { label: 'Memory usage query', status: 'pending' },
           { label: 'Device fingerprint generation', status: 'completed' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -651,7 +652,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: '[Shared] API: event.off', status: 'completed' },
           { label: '[Shared] API: event.emit', status: 'completed' },
           { label: '[Shared] API: event.emit_callback', status: 'completed' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -694,7 +695,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Ambient light color & energy', status: 'pending' },
           { label: 'Exposure & white balance', status: 'pending' },
           { label: 'Environment reset', status: 'pending' }
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -707,7 +708,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'SpotLight3D', status: 'pending' },
           { label: 'Shadow mode & bias control', status: 'pending' },
           { label: 'Light bake mode', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -722,7 +723,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Per-instance uniform override', status: 'pending' },
           { label: 'Auto-bind model textures to shader uniforms (albedo / normal / ORM)', status: 'pending' },
           { label: 'ShaderMaterial — replace BaseMaterial3D on surface while preserving original textures', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -733,7 +734,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Decal node creation / placement', status: 'pending' },
           { label: 'Texture assignment per channel', status: 'pending' },
           { label: 'Size, fade distance, modulate', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -769,7 +770,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Collision layer / mask queries', status: 'pending' },
           { label: 'PhysicsDirectBodyState3D access', status: 'pending' },
           { label: 'StaticBody3D / CharacterBody3D', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -806,7 +807,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'AudioServer bus routing', status: 'pending' },
           { label: 'Bus effects (Reverb / EQ / Limiter)', status: 'pending' },
           { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -847,7 +848,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'send / broadcast API', status: 'completed' },
           { label: 'Peer handshake on connect', status: 'completed' },
           { label: 'Ping & round-trip time', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -861,7 +862,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Synced model spawn with per-peer authority assignment', status: 'completed' },
           { label: 'Spawn queue — deferred spawn until asset is ready', status: 'completed' },
           { label: 'Lua RPC bindings', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
@@ -873,7 +874,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'send / receive (text & binary)', status: 'pending' },
           { label: 'WebSocketServer (listen / accept)', status: 'pending' },
           { label: 'TLS / WSS support', status: 'pending' },
-        ],
+        ]
       },
       {
         // TODO: WIP
