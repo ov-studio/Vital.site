@@ -24,7 +24,6 @@
 .fcluster {
   position: relative;
   overflow: hidden;
-  background: var(--bg2);
   border-left: 2px solid var(--rule);
   transition: border-color .3s, background .3s;
 }
