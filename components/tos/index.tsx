@@ -1,4 +1,4 @@
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 import * as config_tos from '@/configs/tos';
 import './index.css';
 
@@ -11,7 +11,7 @@ export function TOS() {
             <h2>Terms of <span>Service</span></h2>
           </div>
           <div className="tos-intro">
-            Terms and conditions governing your use of {site.name} and its associated services
+            Terms and conditions governing your use of {config_site.info.name} and its associated services
           </div>
           <div className="tos-effective">
             Effective Date: {config_tos.TOS_Effective}*

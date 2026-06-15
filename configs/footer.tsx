@@ -1,4 +1,4 @@
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 
 export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
 
@@ -15,14 +15,14 @@ export const Footer = [
   {
     heading: 'Resource',
     links: [
-      { label: `${site.git.site.repo}`, href: `https://github.com/${site.git.site.user}/${site.git.site.repo}` },
-      { label: `${site.git.kit.repo}`, href: `https://github.com/${site.git.kit.user}/${site.git.kit.repo}` },
-      { label: `${site.git.sandbox.repo}`, href: `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}` }
+      { label: `${config_site.info.git.site.repo}`, href: `https://github.com/${config_site.info.git.site.user}/${config_site.info.git.site.repo}` },
+      { label: `${config_site.info.git.kit.repo}`, href: `https://github.com/${config_site.info.git.kit.user}/${config_site.info.git.kit.repo}` },
+      { label: `${config_site.info.git.sandbox.repo}`, href: `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}` }
     ]
   },
   {
     heading: 'Social',
-    links: Object.entries(site.social).map(([key, item]) => ({
+    links: Object.entries(config_site.info.social).map(([key, item]) => ({
       label: item.label,
       href: item.href,
       icon: key

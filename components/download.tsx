@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 
 interface ReleaseInfo {
   tag: string;
@@ -22,7 +22,7 @@ export function Download() {
   const [info, setInfo] = useState<ReleaseInfo | null>(null);
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${site.git.sandbox.user}/${site.git.sandbox.repo}/releases?per_page=1`, {
+    fetch(`https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`, {
       headers: { Accept: 'application/vnd.github+json' },
     })
       .then((r) => r.json())
@@ -59,7 +59,7 @@ export function Download() {
     <div className="hbtns">
       {info.tag && <span className="hero-release-tag">{info.tag}</span>}
 
-      <a href={info.clientUrl ?? `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}/releases`} className="btn-primary" target="_blank" rel="noreferrer">
+      <a href={info.clientUrl ?? `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases`} className="btn-primary" target="_blank" rel="noreferrer">
         <DownloadIcon/>
         Download Client{info.clientSize ? ` · ${info.clientSize}` : ''}
       </a>

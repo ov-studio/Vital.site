@@ -4,7 +4,7 @@ import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layo
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 import { DocAI } from '@/components/docai';
 import { Badge } from '@/components/badge';
 
@@ -23,7 +23,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
             {page.data.badge && <Badge type={page.data.badge}/>}
             <DocAI
               markdownUrl={`${page.url}.mdx`}
-              githubUrl={`https://github.com/${site.git.site.user}/${site.git.site.repo}/blob/${site.git.site.branch}/content/docs/${page.path}`}
+              githubUrl={`https://github.com/${config_site.info.git.site.user}/${config_site.info.git.site.repo}/blob/${config_site.info.git.site.branch}/content/docs/${page.path}`}
             />
           </div>
         </div>

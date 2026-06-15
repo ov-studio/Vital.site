@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -23,15 +23,15 @@ const rajdhani = Rajdhani({
 
 export const metadata: Metadata = {
   title: {
-    template: `%s - ${site.name}`,
-    default: site.name,
+    template: `%s - ${config_site.info.name}`,
+    default: config_site.info.name,
   },
-  description: site.description,
+  description: config_site.info.description,
 
   openGraph: {
-    title: site.name,
-    description: site.description,
-    siteName: site.name,
+    title: config_site.info.name,
+    description: config_site.info.description,
+    siteName: config_site.info.name,
     type: 'website'
   }
 };

@@ -1,5 +1,5 @@
 import * as Icons from 'lucide-react';
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 
 export const Features = [
   {
@@ -50,31 +50,31 @@ export const Ethos = [
   {
     title: 'Open Source',
     desc: 'No licensing fees, no royalties, no strings. What you build belongs to you — completely and unconditionally.',
-    icon: <Icons.Star {...site.lucide}/>
+    icon: <Icons.Star {...config_site.info.lucide}/>
   },
   {
     title: 'Zero Monetization Limits',
     desc: 'No platform cuts, no revenue gates, no forced systems. Ship free or charge — keep everything either way.',
-    icon: <Icons.BadgeCheck {...site.lucide}/>
+    icon: <Icons.BadgeCheck {...config_site.info.lucide}/>
   },
   {
     title: 'Full Runtime Scripting',
     desc: 'Models, physics, graphics, networking, audio — one unified Lua API controlling every layer of the engine at runtime.',
-    icon: <Icons.Terminal {...site.lucide}/>
+    icon: <Icons.Terminal {...config_site.info.lucide}/>
   },
   {
     title: 'Isolated Lua Sandbox',
     desc: 'Per-resource Lua environments with zero access to host internals. Safe for user scripting, modding, and untrusted plugins.',
-    icon: <Icons.Puzzle {...site.lucide}/>
+    icon: <Icons.Puzzle {...config_site.info.lucide}/>
   },
   {
     title: 'Multiplayer Native',
     desc: 'ENet transport, Godot MultiplayerAPI, entity replication, and a Lua-level network event system — multiplayer is a first-class citizen, not an afterthought.',
-    icon: <Icons.Cable {...site.lucide}/>
+    icon: <Icons.Cable {...config_site.info.lucide}/>
   },
   {
     title: 'Performance First',
     desc: 'C++17 core with a Lua scripting layer running 10–50× faster than GDScript. No interpreter bottlenecks, no bloat — maximum throughput at every layer.',
-    icon: <Icons.CircleGauge {...site.lucide}/>
+    icon: <Icons.CircleGauge {...config_site.info.lucide}/>
   }
 ];

@@ -1,5 +1,5 @@
 'use client';
-import { site } from '@/configs/site';
+import * as config_site from '@/configs/site';
 import './index.css';
 
 type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -30,7 +30,7 @@ export function Brand({
         </div>
       )}
       {variant !== 'logo-only' && (
-        <span className="brand_wordmark">{site.name}</span>
+        <span className="brand_wordmark">{config_site.info.name}</span>
       )}
     </>
   );

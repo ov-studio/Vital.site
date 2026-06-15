@@ -1,4 +1,4 @@
-export const site = {
+export const info = {
     name: "Vital.sandbox",
     author: "ov-studio",
     description: "An open-source, high-performance sandbox built on Godot and powered by C++17 and Lua.",
