@@ -9,19 +9,19 @@ const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   pending: 0
 };
 
-function cardPct(card: config_home.RoadmapCard): number {
+function cardPct(card: config_roadmap.RoadmapCard): number {
   if (!card.items.length) return 0;
   return Math.round(
     (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / card.items.length) * 100
   );
 }
 
-function cardStatus(card: config_home.RoadmapCard): FeatureStatus {
+function cardStatus(card: config_roadmap.RoadmapCard): FeatureStatus {
   const pct = cardPct(card);
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
 
-function FeatureCard({ card, mobile_order = 0 }: { card: config_home.RoadmapCard; mobile_order?: number }) {
+function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapCard; mobile_order?: number }) {
   const [open, setOpen] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
