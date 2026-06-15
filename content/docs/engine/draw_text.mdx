@@ -61,22 +61,74 @@ local status = engine.draw_text(
 ### Examples
 
 ```lua lineNumbers title="Draw text with various styles"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
 event.on("sandbox:draw", function()
-    -- Draw simple text
-    engine.draw_text("Hello World", {100, 100}, {400, 150}, my_font, 24)
+    -- Draw simple left-aligned text at the top-center
+    engine.draw_text(
+        "Hello World",
+        {center[1] - 150, center[2] - 250},
+        {center[1] + 150, center[2] - 200},
+        my_font,
+        24
+    )
 
-    -- Draw centered text with a custom color
-    engine.draw_text("Centered", {100, 100}, {500, 200}, my_font, 32, {1, 1, 0, 1}, {"center", "center"})
+    -- Draw centered yellow text in the upper-middle area
+    engine.draw_text(
+        "Centered",
+        {center[1] - 200, center[2] - 150},
+        {center[1] + 200, center[2] - 90},
+        my_font,
+        32,
+        {1, 1, 0, 1},
+        {"center", "center"}
+    )
 
-    -- Draw word-wrapped text clipped to its box
-    engine.draw_text("This is a long string that will wrap.", {50, 50}, {300, 300}, my_font, 18, {1, 1, 1, 1}, {"left", "top"}, true, true)
+    -- Draw word-wrapped text clipped to a box on the left side
+    engine.draw_text(
+        "This is a long string that will wrap inside its bounding box.",
+        {center[1] - 400, center[2] - 20},
+        {center[1] - 150, center[2] + 180},
+        my_font,
+        18,
+        {1, 1, 1, 1},
+        {"left", "top"},
+        true,
+        true
+    )
 
-    -- Draw text with an outline
-    engine.draw_text("Outlined", {100, 100}, {400, 160}, my_font, 28, {1, 1, 1, 1}, {"center", "center"}, false, false, 2, {0, 0, 0, 1})
+    -- Draw outlined text on the right side
+    engine.draw_text(
+        "Outlined",
+        {center[1] + 100, center[2] - 20},
+        {center[1] + 400, center[2] + 60},
+        my_font,
+        28,
+        {1, 1, 1, 1},
+        {"center", "center"},
+        false,
+        false,
+        2,
+        {0, 0, 0, 1}
+    )
 
-    -- Draw rotated text
-    engine.draw_text("Rotated", {200, 200}, {400, 250}, my_font, 20, {1, 1, 1, 1}, {"left", "top"}, false, false, 0, {1, 1, 1, 1}, math.pi/6, {0, 0})
+    -- Draw text rotated 15 degrees around its top-left corner
+    engine.draw_text(
+        "Rotated",
+        {center[1] - 100, center[2] + 120},
+        {center[1] + 100, center[2] + 170},
+        my_font,
+        20,
+        {1, 1, 1, 1},
+        {"left", "top"},
+        false,
+        false,
+        0,
+        {1, 1, 1, 1},
+        15,
+        {0, 0}
+    )
 end)
 ```
