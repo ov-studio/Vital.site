@@ -36,7 +36,7 @@ export const Features_Content = [
     id: 'audio',
     label: 'Audio',
     angle: 282,
-    desc: 'Stereo and positional 3D playback, bus routing, effect chains, multi-format streaming — complete audio control via one Lua API.'
+    desc: 'Stereo and positional 3D playback, bus routing, effect chains, multi-format streaming — complete audio control from Lua.'
   },
   {
     id: 'network',
