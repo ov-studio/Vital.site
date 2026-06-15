@@ -40,31 +40,42 @@ local status = engine.draw_line(
 
 ### Examples
 
-```lua lineNumbers title="Draw lines with various styles"
+```lua lineNumbers title="Draw a simple horizontal line"
 local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 event.on("sandbox:draw", function()
-    -- Draw a simple horizontal line across the center of the screen
     engine.draw_line(
         {
-            {center[1] - 200, center[2] - 100}, 
+            {center[1] - 200, center[2] - 100},
             {center[1] + 200, center[2] - 100}
         },
         2
     )
+end)
+```
 
-    -- Draw a thick red diagonal line below it
+```lua lineNumbers title="Draw a thick colored diagonal line"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
+event.on("sandbox:draw", function()
     engine.draw_line(
         {
-            {center[1] - 100, center[2]}, 
+            {center[1] - 100, center[2]},
             {center[1] + 100, center[2] + 100}
         },
         4,
         {1, 0, 0, 1}
     )
+end)
+```
 
-    -- Draw a green multi-segment polyline at the bottom section
+```lua lineNumbers title="Draw a multi-segment polyline"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
+event.on("sandbox:draw", function()
     engine.draw_line(
         {
             {center[1] - 150, center[2] + 150},

@@ -48,18 +48,23 @@ local status = engine.draw_circle(
 
 ### Examples
 
-```lua lineNumbers title="Draw circles with various styles"
+```lua lineNumbers title="Draw a plain circle at the center"
 local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 event.on("sandbox:draw", function()
-    -- Draw a plain white circle at the center
     engine.draw_circle(
         {center[1], center[2]},
         50
     )
+end)
+```
 
-    -- Draw a filled red circle with a dark outline, offset to the right
+```lua lineNumbers title="Draw a filled circle with an outline"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
+event.on("sandbox:draw", function()
     engine.draw_circle(
         {center[1] + 150, center[2]},
         50,
@@ -67,8 +72,14 @@ event.on("sandbox:draw", function()
         3,
         {0.2, 0, 0, 1}
     )
+end)
+```
 
-    -- Draw a semi-transparent blue circle, offset to the left
+```lua lineNumbers title="Draw a semi-transparent circle"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
+event.on("sandbox:draw", function()
     engine.draw_circle(
         {center[1] - 150, center[2]},
         50,

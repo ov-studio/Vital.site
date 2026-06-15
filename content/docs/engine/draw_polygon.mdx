@@ -46,33 +46,44 @@ local status = engine.draw_polygon(
 
 ### Examples
 
-```lua lineNumbers title="Draw polygons with various styles"
+```lua lineNumbers title="Draw a plain white triangle"
 local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 event.on("sandbox:draw", function()
-    -- Draw a plain white triangle at the top-center
     engine.draw_polygon(
         {
-            {center[1], center[2] - 220},
-            {center[1] + 80, center[2] - 80},
-            {center[1] - 80, center[2] - 80}
+            {center[1],       center[2] - 220},
+            {center[1] + 80,  center[2] - 80},
+            {center[1] - 80,  center[2] - 80}
         }
     )
+end)
+```
 
-    -- Draw a filled blue triangle with a red outline, centered in the middle
+```lua lineNumbers title="Draw a filled triangle with a colored outline"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
+event.on("sandbox:draw", function()
     engine.draw_polygon(
         {
-            {center[1], center[2] - 80},
-            {center[1] + 80, center[2] + 60},
-            {center[1] - 80, center[2] + 60}
+            {center[1],       center[2] - 80},
+            {center[1] + 80,  center[2] + 60},
+            {center[1] - 80,  center[2] + 60}
         },
         {0, 0, 1, 1},
         3,
         {1, 0, 0, 1}
     )
+end)
+```
 
-    -- Draw a yellow square rotated 45 degrees around its center, below the previous
+```lua lineNumbers title="Draw a polygon rotated around a pivot point"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
+event.on("sandbox:draw", function()
     engine.draw_polygon(
         {
             {center[1] - 50, center[2] + 100},

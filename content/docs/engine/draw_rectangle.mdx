@@ -48,19 +48,25 @@ local status = engine.draw_rectangle(
 
 ### Examples
 
-```lua lineNumbers title="Draw rectangles with various styles"
+```lua lineNumbers title="Draw a plain white rectangle"
 local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local size = {200, 100}
 
 event.on("sandbox:draw", function()
-    -- Draw a plain white rectangle, centered at the top section
     engine.draw_rectangle(
         {center[1] - size[1] * 0.5, center[2] - 200},
         size
     )
+end)
+```
 
-    -- Draw a filled green rectangle with a black outline, centered in the middle
+```lua lineNumbers title="Draw a filled rectangle with an outline"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local size = {200, 100}
+
+event.on("sandbox:draw", function()
     engine.draw_rectangle(
         {center[1] - size[1] * 0.5, center[2] - size[2] * 0.5},
         size,
@@ -68,8 +74,15 @@ event.on("sandbox:draw", function()
         2,
         {0, 0, 0, 1}
     )
+end)
+```
 
-    -- Draw a rectangle rotated 30 degrees around its center, below the previous
+```lua lineNumbers title="Draw a rectangle rotated around its center"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local size = {200, 100}
+
+event.on("sandbox:draw", function()
     engine.draw_rectangle(
         {center[1] - size[1] * 0.5, center[2] + 120},
         size,
