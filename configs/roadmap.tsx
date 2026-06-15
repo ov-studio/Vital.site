@@ -511,6 +511,7 @@ export const Roadmap_Section: RoadmapSection[] = build([
           { label: 'Customizable interval', status: 'completed' },
           { label: 'Customizable executions', status: 'completed' },
           { label: '[Shared] API: timer.create', status: 'completed' },
+          { label: '[Shared] API: timer.next_tick', status: 'completed' },
           { label: '[Shared] API: self<timer>:is_type', status: 'completed' },
           { label: '[Shared] API: self<timer>:get_type', status: 'completed' },
           { label: '[Shared] API: self<timer>:destroy', status: 'completed' }
