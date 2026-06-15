@@ -49,14 +49,35 @@ local status = engine.draw_rectangle(
 ### Examples
 
 ```lua lineNumbers title="Draw rectangles with various styles"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local size = {200, 100}
+
 event.on("sandbox:draw", function()
-    -- Draw a plain white rectangle
-    engine.draw_rectangle({100, 100}, {200, 150})
+    -- Draw a plain white rectangle, centered at the top section
+    engine.draw_rectangle(
+        {center[1] - size[1] * 0.5, center[2] - 200},
+        size
+    )
 
-    -- Draw a filled green rectangle with a black outline
-    engine.draw_rectangle({100, 100}, {200, 150}, {0, 1, 0, 1}, 2, {0, 0, 0, 1})
+    -- Draw a filled green rectangle with a black outline, centered in the middle
+    engine.draw_rectangle(
+        {center[1] - size[1] * 0.5, center[2] - size[2] * 0.5},
+        size,
+        {0, 1, 0, 1},
+        2,
+        {0, 0, 0, 1}
+    )
 
-    -- Draw a rotated rectangle around its center
-    engine.draw_rectangle({100, 100}, {200, 150}, {1, 0.5, 0, 1}, 0, {1, 1, 1, 1}, math.pi/6, {100, 75})
+    -- Draw a rectangle rotated 30 degrees around its center, below the previous
+    engine.draw_rectangle(
+        {center[1] - size[1] * 0.5, center[2] + 120},
+        size,
+        {1, 0.5, 0, 1},
+        0,
+        {1, 1, 1, 1},
+        30,
+        {size[1] * 0.5, size[2] * 0.5}
+    )
 end)
 ```
