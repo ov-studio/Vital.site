@@ -41,14 +41,29 @@ local status = engine.draw_line(
 ### Examples
 
 ```lua lineNumbers title="Draw lines with various styles"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+
 event.on("sandbox:draw", function()
-    -- Draw a simple horizontal line
-    engine.draw_line({{0, 100}, {400, 100}}, 2)
+    -- Draw a simple horizontal line across the center of the screen
+    engine.draw_line(
+        {
+            {center[1] - 200, center[2] - 100}, 
+            {center[1] + 200, center[2] - 100}
+        },
+        2
+    )
 
-    -- Draw a colored diagonal line
-    engine.draw_line({{0, 0}, {200, 200}}, 4, {1, 0, 0, 1})
-
-    -- Draw a multi-segment polyline
-    engine.draw_line({{0, 0}, {100, 100}, {200, 0}, {300, 100}}, 2, {0, 1, 0, 1})
+    -- Draw a green multi-segment polyline at the bottom section
+    engine.draw_line(
+        {
+            {center[1] - 150, center[2] + 150},
+            {center[1] - 50,  center[2] + 80},
+            {center[1] + 50,  center[2] + 150},
+            {center[1] + 150, center[2] + 80}
+        },
+        2,
+        {0, 1, 0, 1}
+    )
 end)
 ```
