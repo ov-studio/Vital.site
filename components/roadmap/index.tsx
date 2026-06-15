@@ -16,7 +16,7 @@ function cardPct(card: config_roadmap.RoadmapCard): number {
   );
 }
 
-function cardStatus(card: config_roadmap.RoadmapCard): FeatureStatus {
+function cardStatus(card: config_roadmap.RoadmapCard): config_roadmap.FeatureStatus {
   const pct = cardPct(card);
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
