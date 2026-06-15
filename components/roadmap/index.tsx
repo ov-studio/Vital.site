@@ -98,9 +98,9 @@ function toAnchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-function SectionBlock({ section, index }: { section: config_home.RoadmapSection; index: number }) {
+function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSection; index: number }) {
   const COLS = 3;
-  const columns: config_home.RoadmapCard[][] = Array.from({ length: COLS }, () => []);
+  const columns: config_roadmap.RoadmapCard[][] = Array.from({ length: COLS }, () => []);
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
 
   return (
@@ -126,7 +126,7 @@ function SectionBlock({ section, index }: { section: config_home.RoadmapSection;
   );
 }
 
-export function RoadmapGrid({ sections }: { sections: config_home.RoadmapSection[] }) {
+export function RoadmapGrid({ sections }: { sections: config_roadmap.RoadmapSection[] }) {
   return (
     <section id="roadmap">
       <div className="sw">
