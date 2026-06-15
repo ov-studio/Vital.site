@@ -1,6 +1,6 @@
 import './index.css';
 import { site } from '@/configs/site';
-import { TOS_Effective, TOS_Section } from '@/configs/tos';
+import * as config_tos from '@/configs/tos';
 
 export function TOS() {
   return (
@@ -14,12 +14,12 @@ export function TOS() {
             Terms and conditions governing your use of {site.name} and its associated services
           </div>
           <div className="tos-effective">
-            Effective Date: {TOS_Effective}*
+            Effective Date: {config_tos.TOS_Effective}*
           </div>
         </div>
 
         <div className="tos-body">
-          {TOS_Section.map((s, i) => (
+          {config_tos.TOS.map((s, i) => (
             <div key={s.id} id={s.id} className="tos-section">
               <div className="tos-section-title">{i + 1}. {s.title}</div>
               {s.content.map((p, j) => (

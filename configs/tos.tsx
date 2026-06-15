@@ -8,7 +8,7 @@ export interface TOSSection {
 
 export const TOS_Effective: string = "January 1, 2025"
 
-export const TOS_Section: TOSSection[] = [
+export const TOS: TOSSection[] = [
   {
     id: 'acceptance',
     title: 'Acceptance of Terms',
