@@ -10,7 +10,7 @@ export function Footer() {
         <div className="footer-brand">
           <Brand size="xs" className="footer-brand-lock"/>
           <p className="footer-tagline">
-            Next-generation open-source sandbox<br/>Script It. Ship It. Limitless.
+            An open-source, high-performance sandbox built on Godot.<br/>Script It. Ship It. Limitless.
           </p>
           <div className="footer-flags">
             {Footer_Flags.map((code) => (
