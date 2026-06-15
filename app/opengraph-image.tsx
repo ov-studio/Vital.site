@@ -1,5 +1,4 @@
 import { ImageResponse } from 'next/og';
-import { site } from '@/configs/site';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
