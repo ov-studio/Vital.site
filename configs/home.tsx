@@ -1,7 +1,7 @@
 import * as Icons from 'lucide-react';
 import { site } from '@/configs/site';
 
-export const Features_Content = [
+export const Features = [
   {
     id: 'sandbox',
     label: 'Sandbox',
@@ -46,7 +46,7 @@ export const Features_Content = [
   }
 ];
 
-export const Ethos_Content = [
+export const Ethos = [
   {
     title: 'Open Source',
     desc: 'No licensing fees, no royalties, no strings. What you build belongs to you — completely and unconditionally.',

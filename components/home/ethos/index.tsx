@@ -1,5 +1,5 @@
 'use client';
-import { Ethos_Content } from '@/configs/home';
+import * as config_home from '@/configs/home';
 import './index.css';
 
 export function Ethos() {
@@ -12,7 +12,7 @@ export function Ethos() {
         </div>
 
         <div className="ethos-grid">
-          {Ethos_Content.map(({ title, desc, icon }, i) => (
+          {config_home.Ethos.map(({ title, desc, icon }, i) => (
             <div
               className="ecard rev"
               key={title}

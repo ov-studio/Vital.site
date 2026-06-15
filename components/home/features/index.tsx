@@ -2,7 +2,7 @@
 import './index.css';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { icons } from '@/components/atoms/icons';
-import { Features_Content } from '@/configs/home';
+import * as config_home from '@/configs/home';
 
 interface NodeRef { el: HTMLDivElement | null }
 interface NodeState {
@@ -113,7 +113,7 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
 
 export function Features() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const nodeRefs = useRef<NodeRef[]>(Features_Content.map(() => ({ el: null })));
+  const nodeRefs = useRef<NodeRef[]>(config_home.Features.map(() => ({ el: null })));
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   const handleEnter = useCallback((id: string) => setHoveredId(id), []);
@@ -122,7 +122,7 @@ export function Features() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const nodeEls = nodeRefs.current.map(r => r.el).filter(Boolean) as HTMLDivElement[];
-    if (!canvas || nodeEls.length !== Features_Content.length) return;
+    if (!canvas || nodeEls.length !== config_home.Features.length) return;
     return startDiagram(canvas, nodeEls);
   }, []);
 
@@ -141,7 +141,7 @@ export function Features() {
 
         <div className="feat-body">
           <div className="feat-clusters rev-l">
-            {Features_Content.map((c, ci) => (
+            {config_home.Features.map((c, ci) => (
               <div
                 key={c.id}
                 className={`fcluster${hoveredId === c.id ? ' is-active' : ''}`}
@@ -170,7 +170,7 @@ export function Features() {
                 </div>
               </div>
 
-              {Features_Content.map((c, i) => (
+              {config_home.Features.map((c, i) => (
                 <div
                   key={c.id}
                   className={`fnode-group${hoveredId === c.id ? ' is-active' : ''}`}
