@@ -1,7 +1,7 @@
 'use client';
-import './index.css';
-import { useState, useRef, useEffect } from 'react';
 import * as config_roadmap from '@/configs/roadmap';
+import { useState, useRef, useEffect } from 'react';
+import './index.css';
 
 const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   completed: 1,

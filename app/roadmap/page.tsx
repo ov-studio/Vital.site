@@ -1,11 +1,11 @@
 import '../global.css';
 import type { Metadata } from 'next';
+import * as config_roadmap from '@/configs/roadmap';
 import { Overlay } from '@/components/overlay';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { RoadmapGrid } from '@/components/roadmap';
 import { ClientShell } from '@/components/clientshell';
-import * as config_roadmap from '@/configs/roadmap';
 
 export const metadata: Metadata = {
   title: 'Roadmap'

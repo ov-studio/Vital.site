@@ -1,6 +1,6 @@
 'use client';
-import { Brand } from '@/components/brand';
 import * as config_footer from '@/configs/footer';
+import { Brand } from '@/components/brand';
 import './index.css';
 
 export function Footer() {

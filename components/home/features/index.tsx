@@ -1,8 +1,8 @@
 'use client';
-import './index.css';
+import * as config_home from '@/configs/home';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { icons } from '@/components/atoms/icons';
-import * as config_home from '@/configs/home';
+import './index.css';
 
 interface NodeRef { el: HTMLDivElement | null }
 interface NodeState {

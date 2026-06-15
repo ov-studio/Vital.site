@@ -1,7 +1,7 @@
-import './index.css';
 import { site } from '@/configs/site';
 import { Brand } from '@/components/brand';
 import { Download } from '@/components/download';
+import './index.css';
 
 async function getGitHubStats() {
   try {
