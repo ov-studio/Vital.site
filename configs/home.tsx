@@ -6,43 +6,43 @@ export const Features_Content = [
     id: 'sandbox',
     label: 'Sandbox',
     angle: 0,
-    desc: 'Resource lifecycle, isolated Lua environments, asset streaming, and cross-resource exports — the runtime backbone of server and client.'
+    desc: 'Resource lifecycle, isolated Lua environments, asset streaming, cross-resource exports — runtime backbone of server and client.'
   },
   {
     id: 'core',
     label: 'Core',
     angle: 51,
-    desc: 'Models, webviews, canvas, fonts, textures, SVGs, and render targets — programmatic control over every scene entity and surface.'
+    desc: 'Models, webviews, canvas, fonts, textures, svgs, rendertargets — programmatic control of every scene entity and surface.'
   },
   {
     id: 'utility',
     label: 'Utility',
     angle: 102,
-    desc: 'Crypto, timers, threads, promises, HTTP, file I/O, compression, and event bus — every primitive a runtime script needs.'
+    desc: 'Crypto, timers, threads, promises, http, file, shrinker, event bus — all primitives a runtime script needs.'
   },
   {
     id: 'graphics',
     label: 'Graphics',
     angle: 180,
-    desc: 'Post-processing, global illumination, lighting rigs, runtime shaders, decals, and GPU particles — full visual pipeline control from Lua.'
+    desc: 'Post-processing, global illumination, lighting rigs, runtime shaders, decals, GPU particles — full visual pipeline control from Lua.'
   },
   {
     id: 'physics',
     label: 'Physics',
     angle: 231,
-    desc: 'Raycasts, shapecasts, rigid body forces, collision queries, navmesh pathfinding, and RVO2 avoidance — full Godot physics surface from Lua.'
+    desc: 'Raycasts, shapecasts, rigid body forces, collision queries, navmesh pathfinding, RVO2 avoidance — full Godot physics surface from Lua.'
   },
   {
     id: 'audio',
     label: 'Audio',
     angle: 282,
-    desc: 'Stereo and positional 3D playback, bus routing, effect chains, and multi-format streaming — complete audio control via a single Lua API.'
+    desc: 'Stereo and positional 3D playback, bus routing, effect chains, multi-format streaming — complete audio control via one Lua API.'
   },
   {
     id: 'network',
     label: 'Network',
     angle: 333,
-    desc: 'ENet UDP transport, high-level multiplayer replication, WebSocket, Lua network events, and VoIP — the full multiplayer stack.'
+    desc: 'ENet UDP transport, high-level multiplayer replication, WebSocket, Lua network events, VoIP — the full multiplayer stack.'
   }
 ];
 
