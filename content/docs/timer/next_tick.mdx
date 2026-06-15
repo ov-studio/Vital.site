@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = timer.next_tick(exec)
+local status = timer.next_tick(exec)
 ```
 
 ### Parameters
@@ -20,7 +20,7 @@ local result = timer.next_tick(exec)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | `true` if the callback was successfully scheduled, `false` otherwise |
+| `bool` | status | `true` if the callback was successfully scheduled, `false` otherwise |
 
 ---
 
