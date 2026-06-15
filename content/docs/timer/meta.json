@@ -4,6 +4,7 @@
     "pages": [
         "---Base---",
         "create",
+        "next_tick",
         "...",
 
         "---::Lifecycle---",
