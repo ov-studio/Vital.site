@@ -1,27 +1,27 @@
 'use client';
 import './index.css';
 import { useState, useRef, useEffect } from 'react';
-import { Roadmap_Section, type FeatureStatus, type RoadmapCard, type RoadmapSection } from '@/configs/roadmap';
+import * as config_roadmap from '@/configs/roadmap';
 
-const STATUS_WEIGHT: Record<FeatureStatus, number> = {
+const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   completed: 1,
   partial: 0.5,
   pending: 0
 };
 
-function cardPct(card: RoadmapCard): number {
+function cardPct(card: config_home.RoadmapCard): number {
   if (!card.items.length) return 0;
   return Math.round(
     (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / card.items.length) * 100
   );
 }
 
-function cardStatus(card: RoadmapCard): FeatureStatus {
+function cardStatus(card: config_home.RoadmapCard): FeatureStatus {
   const pct = cardPct(card);
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
 
-function FeatureCard({ card, mobile_order = 0 }: { card: RoadmapCard; mobile_order?: number }) {
+function FeatureCard({ card, mobile_order = 0 }: { card: config_home.RoadmapCard; mobile_order?: number }) {
   const [open, setOpen] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -98,9 +98,9 @@ function toAnchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-function SectionBlock({ section, index }: { section: RoadmapSection; index: number }) {
+function SectionBlock({ section, index }: { section: config_home.RoadmapSection; index: number }) {
   const COLS = 3;
-  const columns: RoadmapCard[][] = Array.from({ length: COLS }, () => []);
+  const columns: config_home.RoadmapCard[][] = Array.from({ length: COLS }, () => []);
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
 
   return (
@@ -126,7 +126,7 @@ function SectionBlock({ section, index }: { section: RoadmapSection; index: numb
   );
 }
 
-export function RoadmapGrid({ sections }: { sections: RoadmapSection[] }) {
+export function RoadmapGrid({ sections }: { sections: config_home.RoadmapSection[] }) {
   return (
     <section id="roadmap">
       <div className="sw">
@@ -140,7 +140,7 @@ export function RoadmapGrid({ sections }: { sections: RoadmapSection[] }) {
         </div>
 
         <div className="roadmap-body">
-          {Roadmap_Section.map((section, i) => (
+          {config_roadmap.Roadmap.map((section, i) => (
             <SectionBlock key={section.name} section={section} index={i}/>
           ))}
         </div>

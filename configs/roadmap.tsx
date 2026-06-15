@@ -4,14 +4,11 @@ import { site } from '@/configs/site';
 type CardInput = Omit<RoadmapCard, 'id'>;
 type SectionInput = { name: string; cards: CardInput[] };
 
-function toId(label: string): string {
-  return label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
-
+function to_id(label: string): string { return label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
 function build(sections: SectionInput[]): RoadmapSection[] {
   return sections.map(s => ({
     name: s.name,
-    cards: s.cards.map(c => ({ ...c, id: toId(c.label) })),
+    cards: s.cards.map(c => ({ ...c, id: to_id(c.label) })),
   }));
 }
 
@@ -36,7 +33,7 @@ export interface RoadmapSection {
   cards: RoadmapCard[];
 }
 
-export const Roadmap_Section: RoadmapSection[] = build([
+export const Roadmap: RoadmapSection[] = build([
   {
     name: 'Sandbox',
     cards: [
