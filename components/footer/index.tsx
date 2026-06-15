@@ -1,6 +1,6 @@
 'use client';
 import { Brand } from '@/components/brand';
-import { Footer_Flags, Footer_Content } from '@/configs/footer';
+import * as config_footer from '@/configs/footer';
 import './index.css';
 
 export function Footer() {
@@ -13,7 +13,7 @@ export function Footer() {
             An open-source, high-performance sandbox built on Godot.<br/>Script It. Ship It. Limitless.
           </p>
           <div className="footer-flags">
-            {Footer_Flags.map((code) => (
+            {config_footer.Footer_Flags.map((code) => (
               <img
                 key={code}
                 src={`https://flagsapi.com/${code}/flat/64.png`}
@@ -24,7 +24,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-nav">
-          {Footer_Content.map(({ heading, links }) => (
+          {config_footer.Footer.map(({ heading, links }) => (
             <div className="footer-nav-col" key={heading}>
               <h4>{heading}</h4>
               <ul>

@@ -2,7 +2,7 @@ import { site } from '@/configs/site';
 
 export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
 
-export const Footer_Content = [
+export const Footer = [
   {
     heading: 'Sandbox',
     links: [
