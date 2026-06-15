@@ -148,7 +148,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Object / node count', status: 'pending' },
         ],
       }
-    ],
+    ]
   },
 
   {
@@ -412,7 +412,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Pause / resume / kill', status: 'pending' },
         ],
       }
-    ],
+    ]
   },
 
   {
@@ -669,7 +669,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'InputEvent pass-through (process_event)', status: 'pending' }
         ],
       }
-    ],
+    ]
   },
 
   {
@@ -747,7 +747,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Trail & sub-emitters', status: 'pending' },
         ],
       }
-    ],
+    ]
   },
 
   {
@@ -785,7 +785,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Navigation layers', status: 'pending' },
         ],
       }
-    ],
+    ]
   },
 
   {
@@ -823,7 +823,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
         ],
       }
-    ],
+    ]
   },
   
   {
@@ -889,7 +889,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Volume per speaker', status: 'pending' },
         ],
       }
-    ],
+    ]
   },
 
   {

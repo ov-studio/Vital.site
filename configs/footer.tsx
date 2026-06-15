@@ -1,6 +1,7 @@
 import { site } from '@/configs/site';
 
 export const Footer_Flags = ['BH', 'TR', 'US', 'LT', 'NL', 'RU', 'GB', 'IE'];
+
 export const Footer_Content = [
   {
     heading: 'Sandbox',
@@ -9,7 +10,7 @@ export const Footer_Content = [
       { label: 'Roadmap', href: '/roadmap' },
       { label: 'Contributing', href: '/docs/building' },
       { label: 'Terms of Service', href: '/tos' }
-    ],
+    ]
   },
   {
     heading: 'Resource',
@@ -17,7 +18,7 @@ export const Footer_Content = [
       { label: `${site.git.site.repo}`, href: `https://github.com/${site.git.site.user}/${site.git.site.repo}` },
       { label: `${site.git.kit.repo}`, href: `https://github.com/${site.git.kit.user}/${site.git.kit.repo}` },
       { label: `${site.git.sandbox.repo}`, href: `https://github.com/${site.git.sandbox.user}/${site.git.sandbox.repo}` }
-    ],
+    ]
   },
   {
     heading: 'Social',
