@@ -47,27 +47,58 @@ local status = engine.draw_image(
 ### Examples
 
 ```lua lineNumbers title="Draw images from various sources"
+local resolution = engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_texture = texture.create("assets/logo.png")
 local my_svg = svg.create("assets/icon.svg")
 local my_rt = rendertarget.create(1920, 1080)
 
 event.on("sandbox:draw", function()
-    -- Draw an image from a file path
-    engine.draw_image({0, 0}, {256, 256}, "assets/logo.png")
+    -- Draw an image from a file path at the top-left region
+    engine.draw_image(
+        {center[1] - 400, center[2] - 300},
+        {256, 256},
+        "assets/logo.png"
+    )
 
-    -- Draw a tinted image
-    engine.draw_image({100, 100}, {128, 128}, "assets/icon.png", 0, {0, 0}, {1, 0.5, 0.5, 1})
+    -- Draw a tinted image next to it
+    engine.draw_image(
+        {center[1] + 150, center[2] - 300},
+        {256, 256},
+        "assets/icon.png",
+        0,
+        {0, 0},
+        {1, 0.5, 0.5, 1}
+    )
 
-    -- Draw a rotated image around its center
-    engine.draw_image({100, 100}, {128, 128}, "assets/arrow.png", math.pi/2, {64, 64})
+    -- Draw an image rotated 90 degrees around its center
+    engine.draw_image(
+        {center[1] - 64, center[2] - 64},
+        {128, 128},
+        "assets/arrow.png",
+        90,
+        {64, 64}
+    )
 
-    -- Draw from a texture instance
-    engine.draw_image({0, 0}, {512, 512}, my_texture)
+    -- Draw from a texture instance below the previous row
+    engine.draw_image(
+        {center[1] - 400, center[2] + 50},
+        {256, 256},
+        my_texture
+    )
 
-    -- Draw from an svg instance
-    engine.draw_image({0, 0}, {256, 256}, my_svg)
+    -- Draw from an svg instance next to it
+    engine.draw_image(
+        {center[1] - 100, center[2] + 50},
+        {256, 256},
+        my_svg
+    )
 
-    -- Draw from a rendertarget instance
-    engine.draw_image({0, 0}, {1920, 1080}, my_rt)
+    -- Draw from a rendertarget instance spanning the lower portion
+    engine.draw_image(
+        {center[1] - 200, center[2] + 320},
+        {400, 225},
+        my_rt
+    )
 end)
 ```
