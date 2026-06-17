@@ -1,5 +1,5 @@
 ---
-title: math.randomseed
+title: util.math.randomseed
 description: Sets the seed for the pseudo-random number generator
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-math.randomseed(
+util.math.randomseed(
     seed,
     seed_extra = nil
 )
@@ -29,29 +29,29 @@ This function does not return any values.
 ### Examples
 
 ```lua lineNumbers title="Seed with a fixed value for reproducibility"
-math.randomseed(42)
+util.math.randomseed(42)
 
-core.engine.print("info", math.random(100)) -- always the same value
+core.engine.print("info", util.math.random(100)) -- always the same value
 ```
 
 ```lua lineNumbers title="Seed with the current time for unique sequences"
-math.randomseed(os.time())
+util.math.randomseed(os.time())
 
-core.engine.print("info", math.random(100)) -- varies per run
+core.engine.print("info", util.math.random(100)) -- varies per run
 ```
 
 ```lua lineNumbers title="Two seeds with the same value produce the same sequence"
-math.randomseed(1234)
-local a = math.random(1000)
+util.math.randomseed(1234)
+local a = util.math.random(1000)
 
-math.randomseed(1234)
-local b = math.random(1000)
+util.math.randomseed(1234)
+local b = util.math.random(1000)
 
 core.engine.print("info", a == b) -- true
 ```
 
 ```lua lineNumbers title="Seed before generating a reproducible shuffle"
-math.randomseed(7)
+util.math.randomseed(7)
 
 local deck = {}
 
@@ -60,7 +60,7 @@ for i = 1, 10 do
 end
 
 for i = #deck, 2, -1 do
-    local j = math.random(i)
+    local j = util.math.random(i)
     deck[i], deck[j] = deck[j], deck[i]
 end
 
@@ -68,7 +68,7 @@ core.engine.iprint(deck)
 ```
 
 ```lua lineNumbers title="Use two seed components for a broader range"
-math.randomseed(os.time(), os.clock() * 1e9)
+util.math.randomseed(os.time(), os.clock() * 1e9)
 
-core.engine.print("info", math.random()) -- 0.74392 (varies)
+core.engine.print("info", util.math.random()) -- 0.74392 (varies)
 ```

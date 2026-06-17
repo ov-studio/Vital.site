@@ -1,5 +1,5 @@
 ---
-title: string.len
+title: util.string.len
 description: Retrieves the length of a string in bytes
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local length = string.len(
+local length = util.string.len(
     input
 )
 ```
@@ -29,37 +29,37 @@ local length = string.len(
 ### Examples
 
 ```lua lineNumbers title="Get the length of a string"
-local len = string.len("hello")
+local len = util.string.len("hello")
 
 core.engine.print("info", len) -- 5
 ```
 
 ```lua lineNumbers title="Get the length of an empty string"
-local len = string.len("")
+local len = util.string.len("")
 
 core.engine.print("info", len) -- 0
 ```
 
 ```lua lineNumbers title="Length includes spaces"
-local len = string.len("hello world")
+local len = util.string.len("hello world")
 
 core.engine.print("info", len) -- 11
 ```
 
 ```lua lineNumbers title="Length includes special characters"
-local len = string.len("hello\nworld")
+local len = util.string.len("hello\nworld")
 
 core.engine.print("info", len) -- 11
 ```
 
 ```lua lineNumbers title="Length includes null bytes"
-local len = string.len("hello\0world")
+local len = util.string.len("hello\0world")
 
 core.engine.print("info", len) -- 11
 ```
 
 ```lua lineNumbers title="Get the length of a numeric string"
-local len = string.len("12345")
+local len = util.string.len("12345")
 
 core.engine.print("info", len) -- 5
 ```
@@ -70,31 +70,31 @@ local len = #"hello"
 core.engine.print("info", len) -- 5
 ```
 
-```lua lineNumbers title="Compare string.len and # operator"
+```lua lineNumbers title="Compare util.string.len and # operator"
 local str = "Lua programming"
 
-core.engine.print("info", string.len(str)) -- 15
+core.engine.print("info", util.string.len(str)) -- 15
 core.engine.print("info", #str) -- 15
-core.engine.print("info", string.len(len)) -- 15
+core.engine.print("info", util.string.len(len)) -- 15
 ```
 
 ```lua lineNumbers title="Multi-byte UTF-8 characters count as multiple bytes"
 local str = "hello™"
 
-core.engine.print("info", string.len(str)) -- 8
+core.engine.print("info", util.string.len(str)) -- 8
 ```
 
 ```lua lineNumbers title="Use length in a conditional check"
-if string.len("test") > 0 then
+if util.string.len("test") > 0 then
     core.engine.print("info", "String is not empty")
 end
 ```
 
 ```lua lineNumbers title="Compare length before and after trimming"
 local str = "  hello  "
-local trimmed = string.gsub(str, "^%s+", "")
-trimmed = string.gsub(trimmed, "%s+$", "")
+local trimmed = util.string.gsub(str, "^%s+", "")
+trimmed = util.string.gsub(trimmed, "%s+$", "")
 
-core.engine.print("info", string.len(str)) -- 9
-core.engine.print("info", string.len(trimmed)) -- 5
+core.engine.print("info", util.string.len(str)) -- 9
+core.engine.print("info", util.string.len(trimmed)) -- 5
 ```

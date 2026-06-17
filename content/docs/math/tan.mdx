@@ -1,5 +1,5 @@
 ---
-title: math.tan
+title: util.math.tan
 description: Returns the tangent of an angle given in radians
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.tan(
+local result = util.math.tan(
     angle
 )
 ```
@@ -29,26 +29,26 @@ local result = math.tan(
 ### Examples
 
 ```lua lineNumbers title="Tangent of 0"
-local result = math.tan(0)
+local result = util.math.tan(0)
 
 core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Tangent of 45 degrees is 1"
-local result = math.tan(math.rad(45))
+local result = util.math.tan(util.math.rad(45))
 
 core.engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Tangent of a negative angle"
-local result = math.tan(math.rad(-45))
+local result = util.math.tan(util.math.rad(-45))
 
 core.engine.print("info", result) -- -1.0
 ```
 
 ```lua lineNumbers title="Calculate slope from an angle"
 local angle_deg = 30
-local slope = math.tan(math.rad(angle_deg))
+local slope = util.math.tan(util.math.rad(angle_deg))
 
 core.engine.print("info", slope) -- 0.57735
 ```
@@ -56,14 +56,14 @@ core.engine.print("info", slope) -- 0.57735
 ```lua lineNumbers title="Compute height from distance and elevation angle"
 local distance = 100
 local elevation_deg = 30
-local height = distance * math.tan(math.rad(elevation_deg))
+local height = distance * util.math.tan(util.math.rad(elevation_deg))
 
 core.engine.print("info", height) -- 57.735
 ```
 
 ```lua lineNumbers title="Verify tan equals sin over cos"
-local angle = math.rad(60)
-local result = math.sin(angle) / math.cos(angle)
+local angle = util.math.rad(60)
+local result = util.math.sin(angle) / util.math.cos(angle)
 
-core.engine.print("info", result, math.tan(angle)) -- 1.7320  1.7320
+core.engine.print("info", result, util.math.tan(angle)) -- 1.7320  1.7320
 ```

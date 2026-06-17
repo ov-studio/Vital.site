@@ -1,5 +1,5 @@
 ---
-title: table.decode
+title: util.table.decode
 description: Decodes an encoded string into equivalent table
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = table.decode(
+local result = util.table.decode(
     input,
     mode = "JSON"
 )
@@ -32,7 +32,7 @@ local result = table.decode(
 
 ```lua lineNumbers title="Decode a JSON object string into a table"
 local json = '{"name":"John","age":25}'
-local data = table.decode(json)
+local data = util.table.decode(json)
 
 core.engine.print("info", data.name) -- 'John'
 core.engine.print("info", data.age) -- 25
@@ -40,7 +40,7 @@ core.engine.print("info", data.age) -- 25
 
 ```lua lineNumbers title="Decode a JSON array string into a table"
 local json = '["red","green","blue"]'
-local colors = table.decode(json)
+local colors = util.table.decode(json)
 
 core.engine.print("info", colors[1]) -- 'red'
 core.engine.print("info", colors[2]) -- 'green'
@@ -48,14 +48,14 @@ core.engine.print("info", colors[2]) -- 'green'
 
 ```lua lineNumbers title="Decode a JSON number array"
 local json = '[100,200,300]'
-local values = table.decode(json)
+local values = util.table.decode(json)
 
 core.engine.print("info", values[1], values[2], values[3]) -- 100  200  300
 ```
 
 ```lua lineNumbers title="Decode JSON boolean values"
 local json = '{"enabled":true,"debug":false}'
-local settings = table.decode(json)
+local settings = util.table.decode(json)
 
 core.engine.print("info", settings.enabled) -- true
 core.engine.print("info", settings.debug) -- false

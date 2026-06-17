@@ -1,5 +1,5 @@
 ---
-title: string.parse
+title: util.string.parse
 description: Converts a string to its appropriate primitive type
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = string.parse(
+local result = util.string.parse(
     input
 )
 ```
@@ -28,49 +28,49 @@ local result = string.parse(
 
 ### Examples
 ```lua lineNumbers title="Parse a nil string"
-local result = string.parse("nil")
+local result = util.string.parse("nil")
 
 core.engine.print("info", result) -- nil
 ```
 
 ```lua lineNumbers title="Parse a boolean true string"
-local result = string.parse("true")
+local result = util.string.parse("true")
 
 core.engine.print("info", result) -- true
 ```
 
 ```lua lineNumbers title="Parse a boolean false string"
-local result = string.parse("false")
+local result = util.string.parse("false")
 
 core.engine.print("info", result) -- false
 ```
 
 ```lua lineNumbers title="Parse an integer string"
-local result = string.parse("42")
+local result = util.string.parse("42")
 
 core.engine.print("info", result) -- 42
 ```
 
 ```lua lineNumbers title="Parse a float string"
-local result = string.parse("3.14")
+local result = util.string.parse("3.14")
 
 core.engine.print("info", result) -- 3.14
 ```
 
 ```lua lineNumbers title="Parse a negative number string"
-local result = string.parse("-10")
+local result = util.string.parse("-10")
 
 core.engine.print("info", result) -- -10
 ```
 
 ```lua lineNumbers title="Return unchanged string when no conversion applies"
-local result = string.parse("hello")
+local result = util.string.parse("hello")
 
 core.engine.print("info", result) -- 'hello'
 ```
 
 ```lua lineNumbers title="Return false when input is nil"
-local result = string.parse(nil)
+local result = util.string.parse(nil)
 
 core.engine.print("info", result) -- false
 ```

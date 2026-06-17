@@ -1,5 +1,5 @@
 ---
-title: string.gmatch
+title: util.string.gmatch
 description: Returns an iterator function for pattern matching
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local iterator = string.gmatch(
+local iterator = util.string.gmatch(
     input,
     pattern
 )
@@ -33,7 +33,7 @@ local iterator = string.gmatch(
 ```lua lineNumbers title="Iterate over all words in a string"
 local text = "hello world from Lua"
 
-for word in string.gmatch(text, "%a+") do
+for word in util.string.gmatch(text, "%a+") do
     core.engine.print("info", word)
 end
 
@@ -49,7 +49,7 @@ Output:
 ```lua lineNumbers title="Extract all numbers from a string"
 local data = "x=10, y=20, z=30"
 
-for num in string.gmatch(data, "%d+") do
+for num in util.string.gmatch(data, "%d+") do
     core.engine.print("info", num)
 end
 
@@ -64,7 +64,7 @@ Output:
 ```lua lineNumbers title="Extract key-value pairs"
 local coords = "x=5 y=10 x=15 y=20"
 
-for key, value in string.gmatch(coords, "(%a+)=(%d+)") do
+for key, value in util.string.gmatch(coords, "(%a+)=(%d+)") do
     core.engine.print("info", key, value)
 end
 
@@ -80,7 +80,7 @@ Output:
 ```lua lineNumbers title="Split a string by delimiter"
 local csv = "apple,banana,orange"
 
-for item in string.gmatch(csv, "[^,]+") do
+for item in util.string.gmatch(csv, "[^,]+") do
     core.engine.print("info", item)
 end
 
@@ -94,16 +94,16 @@ Output:
 
 ```lua lineNumbers title="Collect all matches into a table"
 local words = {}
-for word in string.gmatch("one two three", "%S+") do
-    table.insert(words, word)
+for word in util.string.gmatch("one two three", "%S+") do
+    util.table.insert(words, word)
 end
 
-core.engine.print("info", table.concat(words, " | ")) -- 'one | two | three'
+core.engine.print("info", util.table.concat(words, " | ")) -- 'one | two | three'
 ```
 
 ```lua lineNumbers title="Match quoted strings"
 local text = 'name="John" age="25" city="NYC"'
-for value in string.gmatch(text, '"(.-)"') do
+for value in util.string.gmatch(text, '"(.-)"') do
     core.engine.print("info", value)
 end
 
@@ -117,7 +117,7 @@ Output:
 
 ```lua lineNumbers title="Extract email addresses"
 local text = "Contact: john@example.com or jane@example.com"
-for email in string.gmatch(text, "%S+@%S+") do
+for email in util.string.gmatch(text, "%S+@%S+") do
     core.engine.print("info", email)
 end
 
@@ -130,7 +130,7 @@ Output:
 
 ```lua lineNumbers title="Count pattern matches"
 local count = 0
-for _ in string.gmatch("the cat sat on the mat", "the") do
+for _ in util.string.gmatch("the cat sat on the mat", "the") do
     count = count + 1
 end
 

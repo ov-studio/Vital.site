@@ -1,5 +1,5 @@
 ---
-title: math.max
+title: util.math.max
 description: Returns the largest value among the given arguments
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.max(
+local result = util.math.max(
     value,
     ...
 )
@@ -31,32 +31,32 @@ local result = math.max(
 ### Examples
 
 ```lua lineNumbers title="Max of two numbers"
-local result = math.max(3, 7)
+local result = util.math.max(3, 7)
 
 core.engine.print("info", result) -- 7
 ```
 
 ```lua lineNumbers title="Max of multiple numbers"
-local result = math.max(1, 5, 3, 9, 2)
+local result = util.math.max(1, 5, 3, 9, 2)
 
 core.engine.print("info", result) -- 9
 ```
 
 ```lua lineNumbers title="Max with negative numbers"
-local result = math.max(-10, -3, -7)
+local result = util.math.max(-10, -3, -7)
 
 core.engine.print("info", result) -- -3
 ```
 
 ```lua lineNumbers title="Max of a single value returns itself"
-local result = math.max(42)
+local result = util.math.max(42)
 
 core.engine.print("info", result) -- 42
 ```
 
 ```lua lineNumbers title="Clamp a value to a minimum floor"
 local speed = -5
-local clamped = math.max(speed, 0)
+local clamped = util.math.max(speed, 0)
 
 core.engine.print("info", clamped) -- 0
 ```
@@ -66,7 +66,7 @@ local scores = {42, 88, 17, 95, 63}
 local best = scores[1]
 
 for _, score in ipairs(scores) do
-    best = math.max(best, score)
+    best = util.math.max(best, score)
 end
 
 core.engine.print("info", best) -- 95
@@ -74,7 +74,7 @@ core.engine.print("info", best) -- 95
 
 ```lua lineNumbers title="Ensure health does not drop below zero"
 local hp = -10
-local safe_hp = math.max(hp, 0)
+local safe_hp = util.math.max(hp, 0)
 
 core.engine.print("info", safe_hp) -- 0
 ```

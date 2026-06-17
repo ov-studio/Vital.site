@@ -1,5 +1,5 @@
 ---
-title: string.detab
+title: util.string.detab
 description: Converts tab characters to spaces in a string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = string.detab(
+local result = util.string.detab(
     input
 )
 ```
@@ -28,20 +28,20 @@ local result = string.detab(
 
 ### Examples
 ```lua lineNumbers title="Convert a single tab to spaces"
-local result = string.detab("Hello\tWorld")
+local result = util.string.detab("Hello\tWorld")
 
 core.engine.print("info", result) -- 'Hello    World'
 ```
 
 ```lua lineNumbers title="Convert multiple tabs to spaces"
-local result = string.detab("A\tB\tC")
+local result = util.string.detab("A\tB\tC")
 
 core.engine.print("info", result) -- 'A    B    C'
 ```
 
 ```lua lineNumbers title="Format tab-separated values"
 local tsv = "Name\tAge\tCity"
-local formatted = string.detab(tsv)
+local formatted = util.string.detab(tsv)
 
 core.engine.print("info", formatted) -- 'Name    Age    City'
 ```

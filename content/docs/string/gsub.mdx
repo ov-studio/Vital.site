@@ -1,5 +1,5 @@
 ---
-title: string.gsub
+title: util.string.gsub
 description: Replaces occurrences of a pattern with a replacement
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result, count = string.gsub(
+local result, count = util.string.gsub(
     input,
     pattern,
     replacement,
@@ -36,57 +36,57 @@ local result, count = string.gsub(
 ### Examples
 
 ```lua lineNumbers title="Simple text replacement"
-local result, count = string.gsub("hello world", "world", "Lua")
+local result, count = util.string.gsub("hello world", "world", "Lua")
 
 core.engine.print("info", result) -- 'hello Lua'
 core.engine.print("info", count) -- 1
 ```
 
 ```lua lineNumbers title="Replace all occurrences"
-local result = string.gsub("aaa", "a", "b")
+local result = util.string.gsub("aaa", "a", "b")
 
 core.engine.print("info", result) -- 'bbb'
 ```
 
 ```lua lineNumbers title="Limit the number of replacements"
-local result, count = string.gsub("aaa", "a", "b", 2)
+local result, count = util.string.gsub("aaa", "a", "b", 2)
 
 core.engine.print("info", result) -- 'bba'
 core.engine.print("info", count) -- 2
 ```
 
 ```lua lineNumbers title="Replace using a pattern"
-local result = string.gsub("hello world", "%a+", "word")
+local result = util.string.gsub("hello world", "%a+", "word")
 
 core.engine.print("info", result) -- 'word word'
 ```
 
 ```lua lineNumbers title="Remove all spaces from a string"
-local result = string.gsub("h e l l o", " ", "")
+local result = util.string.gsub("h e l l o", " ", "")
 
 core.engine.print("info", result) -- 'hello'
 ```
 
 ```lua lineNumbers title="Replace all digits with a placeholder"
-local result = string.gsub("call 555-1234", "%d", "X")
+local result = util.string.gsub("call 555-1234", "%d", "X")
 
 core.engine.print("info", result) -- 'call XXX-XXXX'
 ```
 
 ```lua lineNumbers title="Capture and reuse groups in replacement"
-local result = string.gsub("hello world", "(%a+)", "<%1>")
+local result = util.string.gsub("hello world", "(%a+)", "<%1>")
 
 core.engine.print("info", result) -- '<hello> <world>'
 ```
 
 ```lua lineNumbers title="Swap two words using captures"
-local result = string.gsub("first second", "(%a+) (%a+)", "%2 %1")
+local result = util.string.gsub("first second", "(%a+) (%a+)", "%2 %1")
 
 core.engine.print("info", result) -- 'second first'
 ```
 
 ```lua lineNumbers title="Use a function to transform matches"
-local result = string.gsub("I have 2 apples and 3 oranges", "%d+", function(n)
+local result = util.string.gsub("I have 2 apples and 3 oranges", "%d+", function(n)
     return tonumber(n)*2
 end)
 
@@ -98,14 +98,14 @@ local replacements = {
     hello = "goodbye",
     world = "moon"
 }
-local result = string.gsub("hello world", "%a+", replacements)
+local result = util.string.gsub("hello world", "%a+", replacements)
 
 core.engine.print("info", result) -- 'goodbye moon'
 ```
 
 ```lua lineNumbers title="Capitalize the first letter of each word"
-local result = string.gsub("hello world from lua", "%a+", function(word)
-    return string.upper(string.sub(word, 1, 1))..string.sub(word, 2)
+local result = util.string.gsub("hello world from lua", "%a+", function(word)
+    return util.string.upper(util.string.sub(word, 1, 1))..util.string.sub(word, 2)
 end)
 
 core.engine.print("info", result) -- 'Hello World From Lua'
@@ -113,27 +113,27 @@ core.engine.print("info", result) -- 'Hello World From Lua'
 
 ```lua lineNumbers title="Strip HTML tags from a string"
 local html = "<p>Hello <b>world</b></p>"
-local result = string.gsub(html, "<[^>]+>", "")
+local result = util.string.gsub(html, "<[^>]+>", "")
 
 core.engine.print("info", result) -- 'Hello world'
 ```
 
 ```lua lineNumbers title="Escape special characters"
-local result = string.gsub("cost: $5.00", "%$", "USD ")
+local result = util.string.gsub("cost: $5.00", "%$", "USD ")
 
 core.engine.print("info", result) -- 'cost: USD 5.00'
 ```
 
 ```lua lineNumbers title="Convert snake_case to camelCase"
-local result = string.gsub("my_variable_name", "_(%a)", function(letter)
-    return string.upper(letter)
+local result = util.string.gsub("my_variable_name", "_(%a)", function(letter)
+    return util.string.upper(letter)
 end)
 
 core.engine.print("info", result) -- 'myVariableName'
 ```
 
 ```lua lineNumbers title="Return original string when pattern is not found"
-local result, count = string.gsub("hello", "xyz", "abc")
+local result, count = util.string.gsub("hello", "xyz", "abc")
 
 core.engine.print("info", result) -- 'hello'
 core.engine.print("info", count) -- 0

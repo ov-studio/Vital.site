@@ -1,5 +1,5 @@
 ---
-title: string.unpack
+title: util.string.unpack
 description: Unpacks values from a binary string according to a format
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local ..., next_pos = string.unpack(
+local ..., next_pos = util.string.unpack(
     format,
     input,
     start_at = 1
@@ -18,7 +18,7 @@ local ..., next_pos = string.unpack(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | format | Format string - same format as used in [`string.pack`](/docs/string/pack) |
+| `string` | format | Format string - same format as used in [`util.string.pack`](/docs/string/pack) |
 | `string` | input | Binary string containing packed data |
 | `int` | start_at | Starting position in the string |
 
@@ -34,111 +34,111 @@ local ..., next_pos = string.unpack(
 ### Examples
 
 ```lua lineNumbers title="Pack and unpack integers"
-local packed = string.pack("iii", 10, 20, 30)
-local a, b, c = string.unpack("iii", packed)
+local packed = util.string.pack("iii", 10, 20, 30)
+local a, b, c = util.string.unpack("iii", packed)
 
 core.engine.print("info", a, b, c) -- 10  20  30
 ```
 
 ```lua lineNumbers title="Unpack values using position tracking"
-local packed = string.pack("ii", 100, 200)
-local val1, pos = string.unpack("i", packed)
-local val2 = string.unpack("i", packed, pos)
+local packed = util.string.pack("ii", 100, 200)
+local val1, pos = util.string.unpack("i", packed)
+local val2 = util.string.unpack("i", packed, pos)
 
 core.engine.print("info", val1, val2) -- 100  200
 ```
 
 ```lua lineNumbers title="Unpack a fixed-size string"
-local packed = string.pack("c5", "hello")
-local str = string.unpack("c5", packed)
+local packed = util.string.pack("c5", "hello")
+local str = util.string.unpack("c5", packed)
 
 core.engine.print("info", str) -- 'hello'
 ```
 
 ```lua lineNumbers title="Unpack a zero-terminated string"
-local packed = string.pack("z", "world")
-local str, nextPos = string.unpack("z", packed)
+local packed = util.string.pack("z", "world")
+local str, nextPos = util.string.unpack("z", packed)
 
 core.engine.print("info", str) -- 'world'
 core.engine.print("info", nextPos) -- 7
 ```
 
 ```lua lineNumbers title="Unpack mixed types from a binary string"
-local packed = string.pack("ifd", 42, 3.14, 2.718)
-local i, f, d = string.unpack("ifd", packed)
+local packed = util.string.pack("ifd", 42, 3.14, 2.718)
+local i, f, d = util.string.unpack("ifd", packed)
 
 core.engine.print("info", i, f, d) -- 42  3.14  2.718
 ```
 
 ```lua lineNumbers title="Unpack from a specific position"
-local packed = string.pack("iii", 1, 2, 3)
-local value = string.unpack("i", packed, 5)
+local packed = util.string.pack("iii", 1, 2, 3)
+local value = util.string.unpack("i", packed, 5)
 
 core.engine.print("info", value) -- 2
 ```
 
 ```lua lineNumbers title="Unpack a little endian value"
-local packed = string.pack("<I4", 0x12345678)
-local value = string.unpack("<I4", packed)
+local packed = util.string.pack("<I4", 0x12345678)
+local value = util.string.unpack("<I4", packed)
 
-core.engine.print("info", string.format("0x%X", value)) -- '0x12345678'
+core.engine.print("info", util.string.format("0x%X", value)) -- '0x12345678'
 ```
 
 ```lua lineNumbers title="Unpack a big endian value"
-local packed = string.pack(">I4", 0xABCDEF00)
-local value = string.unpack(">I4", packed)
+local packed = util.string.pack(">I4", 0xABCDEF00)
+local value = util.string.unpack(">I4", packed)
 
-core.engine.print("info", string.format("0x%X", value)) -- '0xABCDEF00'
+core.engine.print("info", util.string.format("0x%X", value)) -- '0xABCDEF00'
 ```
 
 ```lua lineNumbers title="Unpack raw bytes into characters"
-local packed = string.pack("BBB", 65, 66, 67)
-local b1, b2, b3 = string.unpack("BBB", packed)
+local packed = util.string.pack("BBB", 65, 66, 67)
+local b1, b2, b3 = util.string.unpack("BBB", packed)
 
-core.engine.print("info", string.char(b1, b2, b3)) -- 'ABC'
+core.engine.print("info", util.string.char(b1, b2, b3)) -- 'ABC'
 ```
 
 ```lua lineNumbers title="Unpack a double precision float"
-local packed = string.pack("d", math.pi)
-local value = string.unpack("d", packed)
+local packed = util.string.pack("d", util.math.pi)
+local value = util.string.unpack("d", packed)
 
 core.engine.print("info", value) -- 3.14159...
 ```
 
 ```lua lineNumbers title="Unpack struct-like player data"
-local packed = string.pack("c10i4f", "PlayerName", 100, 99.5)
-local name, health, score = string.unpack("c10i4f", packed)
+local packed = util.string.pack("c10i4f", "PlayerName", 100, 99.5)
+local name, health, score = util.string.unpack("c10i4f", packed)
 
 core.engine.print("info", name, health, score)
 ```
 
 ```lua lineNumbers title="Unpack a string with a length prefix"
-local packed = string.pack("s1", "hello")
-local str = string.unpack("s1", packed)
+local packed = util.string.pack("s1", "hello")
+local str = util.string.unpack("s1", packed)
 
 core.engine.print("info", str) -- 'hello'
 ```
 
 ```lua lineNumbers title="Unpack multiple strings sequentially"
-local packed = string.pack("zz", "first", "second")
-local str1, pos = string.unpack("z", packed)
-local str2 = string.unpack("z", packed, pos)
+local packed = util.string.pack("zz", "first", "second")
+local str1, pos = util.string.unpack("z", packed)
+local str2 = util.string.unpack("z", packed, pos)
 
 core.engine.print("info", str1, str2) -- 'first'  'second'
 ```
 
 ```lua lineNumbers title="Unpack a boolean stored as a byte"
-local packed = string.pack("b", 1)
-local value = string.unpack("b", packed)
+local packed = util.string.pack("b", 1)
+local value = util.string.unpack("b", packed)
 local bool = value ~= 0
 
 core.engine.print("info", bool) -- true
 ```
 
 ```lua lineNumbers title="Partially unpack a binary string in two passes"
-local packed = string.pack("i4i4i4i4", 1, 2, 3, 4)
-local a, b, pos = string.unpack("i4i4", packed)
-local c, d = string.unpack("i4i4", packed, pos)
+local packed = util.string.pack("i4i4i4i4", 1, 2, 3, 4)
+local a, b, pos = util.string.unpack("i4i4", packed)
+local c, d = util.string.unpack("i4i4", packed, pos)
 
 core.engine.print("info", a, b) -- 1  2
 core.engine.print("info", c, d) -- 3  4

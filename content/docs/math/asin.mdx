@@ -1,5 +1,5 @@
 ---
-title: math.asin
+title: util.math.asin
 description: Returns the arc sine of a number in radians
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.asin(
+local result = util.math.asin(
     value
 )
 ```
@@ -29,39 +29,39 @@ local result = math.asin(
 ### Examples
 
 ```lua lineNumbers title="Arc sine of 0"
-local result = math.asin(0)
+local result = util.math.asin(0)
 
 core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Arc sine of 1 is pi/2"
-local result = math.asin(1)
+local result = util.math.asin(1)
 
 core.engine.print("info", result) -- 1.5707963267949
 ```
 
 ```lua lineNumbers title="Arc sine of 0.5 is 30 degrees"
-local result = math.deg(math.asin(0.5))
+local result = util.math.deg(util.math.asin(0.5))
 
 core.engine.print("info", result) -- 30.0
 ```
 
 ```lua lineNumbers title="Arc sine of -1 is -pi/2"
-local result = math.asin(-1)
+local result = util.math.asin(-1)
 
 core.engine.print("info", result) -- -1.5707963267949
 ```
 
 ```lua lineNumbers title="Recover angle from a vertical direction component"
 local dir_y = 0.866 -- sin(60 degrees)
-local angle_deg = math.deg(math.asin(dir_y))
+local angle_deg = util.math.deg(util.math.asin(dir_y))
 
 core.engine.print("info", angle_deg) -- 59.999
 ```
 
 ```lua lineNumbers title="Verify asin and sin are inverses"
-local angle = math.pi / 6
-local result = math.asin(math.sin(angle))
+local angle = util.math.pi / 6
+local result = util.math.asin(util.math.sin(angle))
 
 core.engine.print("info", result) -- 0.5235987755983
 ```

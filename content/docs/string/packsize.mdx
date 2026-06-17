@@ -1,13 +1,13 @@
 ---
-title: string.packsize
-description: Retrieves the size of a string resulting from `string.pack`
+title: util.string.packsize
+description: Retrieves the size of a string resulting from `util.string.pack`
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local size = string.packsize(
+local size = util.string.packsize(
     format
 )
 ```
@@ -22,7 +22,7 @@ local size = string.packsize(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | size | The size in bytes of the packed string that would result from [`string.pack`](/docs/string/pack) |
+| `int` | size | The size in bytes of the packed string that would result from [`util.string.pack`](/docs/string/pack) |
 
 ---
 
@@ -31,95 +31,95 @@ local size = string.packsize(
 ### Examples
 
 ```lua lineNumbers title="Get the size of three packed integers"
-local size = string.packsize("iii")
+local size = util.string.packsize("iii")
 
 core.engine.print("info", size) -- 12
 ```
 
 ```lua lineNumbers title="Get the size of a packed double"
-local size = string.packsize("d")
+local size = util.string.packsize("d")
 
 core.engine.print("info", size) -- 8
 ```
 
 ```lua lineNumbers title="Get the size of a fixed-length string"
-local size = string.packsize("c10")
+local size = util.string.packsize("c10")
 
 core.engine.print("info", size) -- 10
 ```
 
 ```lua lineNumbers title="Get the size of multiple packed types"
-local size = string.packsize("ifd")
+local size = util.string.packsize("ifd")
 
 core.engine.print("info", size) -- 16
 ```
 
 ```lua lineNumbers title="Get the size with a little endian specifier"
-local size = string.packsize("<I4")
+local size = util.string.packsize("<I4")
 
 core.engine.print("info", size) -- 4
 ```
 
 ```lua lineNumbers title="Get the size of a packed byte"
-local size = string.packsize("b")
+local size = util.string.packsize("b")
 
 core.engine.print("info", size) -- 1
 ```
 
 ```lua lineNumbers title="Get the size of a packed short"
-local size = string.packsize("h")
+local size = util.string.packsize("h")
 
 core.engine.print("info", size) -- 2
 ```
 
 ```lua lineNumbers title="Get the size of a packed long"
-local size = string.packsize("l")
+local size = util.string.packsize("l")
 
 core.engine.print("info", size) -- 8
 ```
 
 ```lua lineNumbers title="Get the size of a format with padding"
-local size = string.packsize("ixxi")
+local size = util.string.packsize("ixxi")
 
 core.engine.print("info", size) -- 12
 ```
 
 ```lua lineNumbers title="Compare sizes of different integer widths"
-core.engine.print("info", "i4:", string.packsize("i4")) -- 4
-core.engine.print("info", "i8:", string.packsize("i8")) -- 8
+core.engine.print("info", "i4:", util.string.packsize("i4")) -- 4
+core.engine.print("info", "i8:", util.string.packsize("i8")) -- 8
 ```
 
 ```lua lineNumbers title="Calculate the buffer size needed for a format"
 local fmt = "i4i4f"
-local bufferSize = string.packsize(fmt)
+local bufferSize = util.string.packsize(fmt)
 
 core.engine.print("info", "Need", bufferSize, "bytes") -- 'Need 12 bytes'
 ```
 
 ```lua lineNumbers title="Get the size of multiple fixed strings"
-local size = string.packsize("c5c5c5")
+local size = util.string.packsize("c5c5c5")
 
 core.engine.print("info", size) -- 15
 ```
 
 ```lua lineNumbers title="Verify packsize matches the actual packed length"
 local fmt = "ifd"
-local size = string.packsize(fmt)
-local packed = string.pack(fmt, 1, 2.5, 3.14)
+local size = util.string.packsize(fmt)
+local packed = util.string.pack(fmt, 1, 2.5, 3.14)
 
 core.engine.print("info", #packed == size) -- true
 ```
 
 ```lua lineNumbers title="Pre-calculate record size for file buffers"
 local recordFormat = "c32i4i4"
-local recordSize = string.packsize(recordFormat)
+local recordSize = util.string.packsize(recordFormat)
 
 core.engine.print("info", "Each record:", recordSize, "bytes")
 ```
 
 ```lua lineNumbers title="Calculate a network protocol header size"
 local headerFormat = ">I2I2I4"
-local headerSize = string.packsize(headerFormat)
+local headerSize = util.string.packsize(headerFormat)
 
 core.engine.print("info", "Header size:", headerSize) -- 8
 ```

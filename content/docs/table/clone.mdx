@@ -1,5 +1,5 @@
 ---
-title: table.clone
+title: util.table.clone
 description: Retrieves a cloned copy of a table
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = table.clone(
+local result = util.table.clone(
     input,
     recursive = false
 )
@@ -32,7 +32,7 @@ local result = table.clone(
 
 ```lua lineNumbers title="Shallow clone a table"
 local original = {1, 2, 3, 4}
-local copy = table.clone(original)
+local copy = util.table.clone(original)
 copy[1] = 99
 
 core.engine.print("info", original[1]) -- 1 (unchanged)
@@ -41,7 +41,7 @@ core.engine.print("info", copy[1]) -- 99
 
 ```lua lineNumbers title="Shallow clone shares nested table references"
 local original = {a = 1, nested = {b = 2}}
-local copy = table.clone(original)
+local copy = util.table.clone(original)
 copy.nested.b = 99
 
 core.engine.print("info", original.nested.b) -- 99 (changed! shallow copy)
@@ -49,7 +49,7 @@ core.engine.print("info", original.nested.b) -- 99 (changed! shallow copy)
 
 ```lua lineNumbers title="Deep clone breaks nested references"
 local original = {a = 1, nested = {b = 2}}
-local copy = table.clone(original, true)
+local copy = util.table.clone(original, true)
 copy.nested.b = 99
 
 core.engine.print("info", original.nested.b) -- 2 (unchanged)
@@ -58,8 +58,8 @@ core.engine.print("info", copy.nested.b) -- 99
 
 ```lua lineNumbers title="Clone an array and modify independently"
 local colors = {"red", "green", "blue"}
-local copy = table.clone(colors)
-table.insert(copy, "yellow")
+local copy = util.table.clone(colors)
+util.table.insert(copy, "yellow")
 
 core.engine.print("info", #colors) -- 3
 core.engine.print("info", #copy) -- 4
@@ -68,7 +68,7 @@ core.engine.print("info", #copy) -- 4
 ```lua lineNumbers title="Shallow clone preserves shared references"
 local shared = {x = 10}
 local t1 = {data = shared}
-local t2 = table.clone(t1)
+local t2 = util.table.clone(t1)
 t2.data.x = 20
 
 core.engine.print("info", t1.data.x) -- 20 (both reference same table)
@@ -77,7 +77,7 @@ core.engine.print("info", t1.data.x) -- 20 (both reference same table)
 ```lua lineNumbers title="Deep clone creates fully independent copies"
 local shared = {x = 10}
 local t1 = {data = shared}
-local t2 = table.clone(t1, true)
+local t2 = util.table.clone(t1, true)
 t2.data.x = 20
 
 core.engine.print("info", t1.data.x) -- 10 (independent copies)
@@ -85,8 +85,8 @@ core.engine.print("info", t1.data.x) -- 10 (independent copies)
 
 ```lua lineNumbers title="Use a clone as a reusable template"
 local template = {name = "", age = 0, active = true}
-local user1 = table.clone(template)
-local user2 = table.clone(template)
+local user1 = util.table.clone(template)
+local user2 = util.table.clone(template)
 user1.name = "Alice"
 user2.name = "Bob"
 

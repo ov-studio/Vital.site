@@ -1,5 +1,5 @@
 ---
-title: math.ceil
+title: util.math.ceil
 description: Rounds a number up to the nearest integer
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.ceil(
+local result = util.math.ceil(
     value
 )
 ```
@@ -29,25 +29,25 @@ local result = math.ceil(
 ### Examples
 
 ```lua lineNumbers title="Ceil a positive float"
-local result = math.ceil(4.2)
+local result = util.math.ceil(4.2)
 
 core.engine.print("info", result) -- 5
 ```
 
 ```lua lineNumbers title="Ceil a negative float"
-local result = math.ceil(-4.2)
+local result = util.math.ceil(-4.2)
 
 core.engine.print("info", result) -- -4
 ```
 
 ```lua lineNumbers title="Ceil an exact integer returns itself"
-local result = math.ceil(7.0)
+local result = util.math.ceil(7.0)
 
 core.engine.print("info", result) -- 7
 ```
 
 ```lua lineNumbers title="Ceil a value just below an integer"
-local result = math.ceil(2.0001)
+local result = util.math.ceil(2.0001)
 
 core.engine.print("info", result) -- 3
 ```
@@ -55,21 +55,21 @@ core.engine.print("info", result) -- 3
 ```lua lineNumbers title="Calculate number of pages needed for items"
 local itemCount = 17
 local perPage = 5
-local pages = math.ceil(itemCount / perPage)
+local pages = util.math.ceil(itemCount / perPage)
 
 core.engine.print("info", pages) -- 4
 ```
 
 ```lua lineNumbers title="Round up to the next whole unit"
 local bytes = 1500
-local kb = math.ceil(bytes / 1024)
+local kb = util.math.ceil(bytes / 1024)
 
 core.engine.print("info", kb) -- 2
 ```
 
 ```lua lineNumbers title="Ensure minimum allocation size"
 local required = 3.1
-local allocated = math.ceil(required)
+local allocated = util.math.ceil(required)
 
 core.engine.print("info", allocated) -- 4
 ```

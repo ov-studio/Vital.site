@@ -1,5 +1,5 @@
 ---
-title: math.cos
+title: util.math.cos
 description: Returns the cosine of an angle given in radians
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.cos(
+local result = util.math.cos(
     angle
 )
 ```
@@ -29,46 +29,46 @@ local result = math.cos(
 ### Examples
 
 ```lua lineNumbers title="Cosine of 0 is 1"
-local result = math.cos(0)
+local result = util.math.cos(0)
 
 core.engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Cosine of pi is -1"
-local result = math.cos(math.pi)
+local result = util.math.cos(util.math.pi)
 
 core.engine.print("info", result) -- -1.0
 ```
 
 ```lua lineNumbers title="Cosine of a 60 degree angle"
-local result = math.cos(math.rad(60))
+local result = util.math.cos(util.math.rad(60))
 
 core.engine.print("info", result) -- 0.5
 ```
 
 ```lua lineNumbers title="Cosine of a 90 degree angle"
-local result = math.cos(math.rad(90))
+local result = util.math.cos(util.math.rad(90))
 
 core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Generate a point on a unit circle"
-local angle = math.rad(45)
-local pos_x = math.cos(angle)
-local pos_y = math.sin(angle)
+local angle = util.math.rad(45)
+local pos_x = util.math.cos(angle)
+local pos_y = util.math.sin(angle)
 
 core.engine.print("info", pos_x, pos_y) -- 0.70711  0.70711
 ```
 
 ```lua lineNumbers title="Oscillate a value back and forth"
 local elapsed = 1.0
-local value = math.cos(elapsed * math.pi)
+local value = util.math.cos(elapsed * util.math.pi)
 
 core.engine.print("info", value) -- -1.0
 ```
 
 ```lua lineNumbers title="Compute cosine for each cardinal angle"
 for _, deg in ipairs({0, 90, 180, 270, 360}) do
-    core.engine.print("info", deg, math.cos(math.rad(deg)))
+    core.engine.print("info", deg, util.math.cos(util.math.rad(deg)))
 end
 ```

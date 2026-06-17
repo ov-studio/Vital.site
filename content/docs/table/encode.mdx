@@ -1,5 +1,5 @@
 ---
-title: table.encode
+title: util.table.encode
 description: Encodes a table into string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = table.encode(
+local result = util.table.encode(
     input,
     mode = "JSON"
 )
@@ -32,28 +32,28 @@ local result = table.encode(
 
 ```lua lineNumbers title="Encode a simple table to JSON"
 local data = {name = "John", age = 25}
-local json = table.encode(data, "JSON")
+local json = util.table.encode(data, "JSON")
 
 core.engine.print("info", json) -- '{"name":"John","age":25}'
 ```
 
 ```lua lineNumbers title="Encode an array to JSON"
 local colors = {"red", "green", "blue"}
-local json = table.encode(colors, "JSON")
+local json = util.table.encode(colors, "JSON")
 
 core.engine.print("info", json) -- '["red","green","blue"]'
 ```
 
 ```lua lineNumbers title="Encode a numeric array to JSON"
 local coords = {100, 200, 300}
-local json = table.encode(coords, "JSON")
+local json = util.table.encode(coords, "JSON")
 
 core.engine.print("info", json) -- '[100,200,300]'
 ```
 
 ```lua lineNumbers title="Encode boolean values to JSON"
 local settings = {enabled = true, debug = false}
-local json = table.encode(settings, "JSON")
+local json = util.table.encode(settings, "JSON")
 
 core.engine.print("info", json) -- '{"enabled":true,"debug":false}'
 ```

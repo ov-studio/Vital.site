@@ -1,5 +1,5 @@
 ---
-title: math.exp
+title: util.math.exp
 description: Returns e raised to the power of a number
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.exp(
+local result = util.math.exp(
     exponent
 )
 ```
@@ -29,25 +29,25 @@ local result = math.exp(
 ### Examples
 
 ```lua lineNumbers title="e to the power of 1"
-local result = math.exp(1)
+local result = util.math.exp(1)
 
 core.engine.print("info", result) -- 2.718281828459
 ```
 
 ```lua lineNumbers title="e to the power of 0"
-local result = math.exp(0)
+local result = util.math.exp(0)
 
 core.engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="e to the power of 2"
-local result = math.exp(2)
+local result = util.math.exp(2)
 
 core.engine.print("info", result) -- 7.3890560989307
 ```
 
 ```lua lineNumbers title="e to a negative power"
-local result = math.exp(-1)
+local result = util.math.exp(-1)
 
 core.engine.print("info", result) -- 0.36787944117144
 ```
@@ -56,14 +56,14 @@ core.engine.print("info", result) -- 0.36787944117144
 local initial = 100
 local rate = 0.05
 local time = 10
-local remaining = initial * math.exp(-rate * time)
+local remaining = initial * util.math.exp(-rate * time)
 
 core.engine.print("info", remaining) -- 60.653065971263
 ```
 
 ```lua lineNumbers title="Verify exp and log are inverses"
 local value = 3.5
-local result = math.exp(math.log(value))
+local result = util.math.exp(util.math.log(value))
 
 core.engine.print("info", result) -- 3.5
 ```

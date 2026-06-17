@@ -1,5 +1,5 @@
 ---
-title: string.kern
+title: util.string.kern
 description: Inserts spacing between each character in a string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = string.kern(
+local result = util.string.kern(
     input,
     kerner = " "
 )
@@ -30,25 +30,25 @@ local result = string.kern(
 
 ### Examples
 ```lua lineNumbers title="Apply default single-space kerning"
-local result = string.kern("HELLO")
+local result = util.string.kern("HELLO")
 
 core.engine.print("info", result) -- 'H E L L O'
 ```
 
 ```lua lineNumbers title="Apply custom dash kerning"
-local result = string.kern("ABC", "-")
+local result = util.string.kern("ABC", "-")
 
 core.engine.print("info", result) -- 'A-B-C'
 ```
 
 ```lua lineNumbers title="Apply double-space kerning"
-local result = string.kern("LUA", "  ")
+local result = util.string.kern("LUA", "  ")
 
 core.engine.print("info", result) -- 'L  U  A'
 ```
 
 ```lua lineNumbers title="Apply dot kerning"
-local result = string.kern("123", ".")
+local result = util.string.kern("123", ".")
 
 core.engine.print("info", result) -- '1.2.3'
 ```

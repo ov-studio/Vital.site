@@ -1,5 +1,5 @@
 ---
-title: math.mininteger
+title: util.math.mininteger
 description: The minimum value a Lua integer can hold
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Constant
 
 ```lua
-math.mininteger -- -9223372036854775808
+util.math.mininteger -- -9223372036854775808
 ```
 
 <Callout type="info">
@@ -19,18 +19,18 @@ Represents the smallest (most negative) integer value representable by Lua's 64-
 ### Examples
 
 ```lua lineNumbers title="Print the minimum integer value"
-core.engine.print("info", math.mininteger) -- -9223372036854775808
+core.engine.print("info", util.math.mininteger) -- -9223372036854775808
 ```
 
 ```lua lineNumbers title="mininteger minus 1 wraps around to maxinteger"
-local result = math.mininteger - 1
+local result = util.math.mininteger - 1
 
 core.engine.print("info", result) -- 9223372036854775807
 ```
 
 ```lua lineNumbers title="Use as a lower sentinel for maximum searching"
 local values = {100, 200, 50, 400}
-local largest = math.mininteger
+local largest = util.math.mininteger
 
 for _, v in ipairs(values) do
     if v > largest then largest = v end
@@ -40,11 +40,11 @@ core.engine.print("info", largest) -- 400
 ```
 
 ```lua lineNumbers title="mininteger is less than any other integer"
-core.engine.print("info", math.mininteger < -1000000000) -- true
+core.engine.print("info", util.math.mininteger < -1000000000) -- true
 ```
 
 ```lua lineNumbers title="Safely take absolute value near the boundary"
-local safe = math.mininteger + 1
+local safe = util.math.mininteger + 1
 
-core.engine.print("info", math.abs(safe)) -- 9223372036854775807
+core.engine.print("info", util.math.abs(safe)) -- 9223372036854775807
 ```

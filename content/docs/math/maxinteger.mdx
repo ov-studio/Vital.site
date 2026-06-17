@@ -1,5 +1,5 @@
 ---
-title: math.maxinteger
+title: util.math.maxinteger
 description: The maximum value a Lua integer can hold
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Constant
 
 ```lua
-math.maxinteger -- 9223372036854775807
+util.math.maxinteger -- 9223372036854775807
 ```
 
 <Callout type="info">
@@ -19,18 +19,18 @@ Represents the largest integer value representable by Lua's 64-bit signed intege
 ### Examples
 
 ```lua lineNumbers title="Print the maximum integer value"
-core.engine.print("info", math.maxinteger) -- 9223372036854775807
+core.engine.print("info", util.math.maxinteger) -- 9223372036854775807
 ```
 
 ```lua lineNumbers title="maxinteger plus 1 wraps around to mininteger"
-local result = math.maxinteger + 1
+local result = util.math.maxinteger + 1
 
 core.engine.print("info", result) -- -9223372036854775808
 ```
 
 ```lua lineNumbers title="Use as an upper sentinel for minimum searching"
 local values = {100, 200, 50, 400}
-local smallest = math.maxinteger
+local smallest = util.math.maxinteger
 
 for _, v in ipairs(values) do
     if v < smallest then smallest = v end
@@ -40,14 +40,14 @@ core.engine.print("info", smallest) -- 50
 ```
 
 ```lua lineNumbers title="Check if a value equals the integer ceiling"
-local value = math.maxinteger
+local value = util.math.maxinteger
 
-core.engine.print("info", math.type(value) == "integer") -- true
-core.engine.print("info", value == math.maxinteger)      -- true
+core.engine.print("info", util.math.type(value) == "integer") -- true
+core.engine.print("info", value == util.math.maxinteger)      -- true
 ```
 
 ```lua lineNumbers title="Compute the usable bit width of the integer type"
-local bits = math.floor(math.log(math.maxinteger, 2)) + 1
+local bits = util.math.floor(util.math.log(util.math.maxinteger, 2)) + 1
 
 core.engine.print("info", bits) -- 63
 ```

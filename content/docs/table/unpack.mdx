@@ -1,5 +1,5 @@
 ---
-title: table.unpack
+title: util.table.unpack
 description: Unpacks table elements into individual values
 badge: Shared
 ---
@@ -7,10 +7,10 @@ badge: Shared
 ### Syntax
 
 ```lua
-local ... = table.unpack(
+local ... = util.table.unpack(
     input,
     start_at = 1,
-    end_at = table.len(input)
+    end_at = util.table.len(input)
 )
 ```
 
@@ -34,7 +34,7 @@ local ... = table.unpack(
 
 ```lua lineNumbers title="Unpack all elements into variables"
 local t = {10, 20, 30}
-local a, b, c = table.unpack(t)
+local a, b, c = util.table.unpack(t)
 
 core.engine.print("info", a, b, c) -- 10  20  30
 ```
@@ -42,68 +42,68 @@ core.engine.print("info", a, b, c) -- 10  20  30
 ```lua lineNumbers title="Unpack a table directly into function arguments"
 local coords = {100, 200, 50}
 
-core.engine.print("info", table.unpack(coords)) -- Same as core.engine.print("info", 100, 200, 50)
+core.engine.print("info", util.table.unpack(coords)) -- Same as core.engine.print("info", 100, 200, 50)
 ```
 
 ```lua lineNumbers title="Unpack a subset of a table"
 local t = {1, 2, 3, 4, 5}
-local a, b = table.unpack(t, 2, 3)
+local a, b = util.table.unpack(t, 2, 3)
 
 core.engine.print("info", a, b) -- 2  3
 ```
 
 ```lua lineNumbers title="Unpack from a specific start position"
 local t = {"a", "b", "c", "d"}
-local x, y, z = table.unpack(t, 2)
+local x, y, z = util.table.unpack(t, 2)
 
 core.engine.print("info", x, y, z) -- 'b'  'c'  'd'
 ```
 
 ```lua lineNumbers title="Unpack a single element"
 local t = {42}
-local value = table.unpack(t)
+local value = util.table.unpack(t)
 
 core.engine.print("info", value) -- 42
 ```
 
 ```lua lineNumbers title="Unpack a table containing nil values"
 local t = {1, nil, 3}
-local a, b, c = table.unpack(t)
+local a, b, c = util.table.unpack(t)
 
 core.engine.print("info", a, b, c) -- 1  nil  3
 ```
 
 ```lua lineNumbers title="Swap two variables using pack and unpack"
 local a, b = 10, 20
-a, b = table.unpack({b, a})
+a, b = util.table.unpack({b, a})
 
 core.engine.print("info", a, b) -- 20  10
 ```
 
 ```lua lineNumbers title="Unpack color components into separate arguments"
 local color = {255, 128, 0}
-local r, g, b = table.unpack(color)
+local r, g, b = util.table.unpack(color)
 
 setColor(r, g, b)
 ```
 
 ```lua lineNumbers title="Unpack into multiple named variables"
 local data = {true, "success", 100}
-local status, message, code = table.unpack(data)
+local status, message, code = util.table.unpack(data)
 
 core.engine.print("info", status, message, code) -- true  "success"  100
 ```
 
 ```lua lineNumbers title="Extra variables are nil when unpacking past the end"
 local t = {1, 2}
-local a, b, c, d = table.unpack(t)
+local a, b, c, d = util.table.unpack(t)
 
 core.engine.print("info", a, b, c, d) -- 1  2  nil  nil
 ```
 
 ```lua lineNumbers title="Unpack a specific range from a table"
 local week = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}
-local first, second, third = table.unpack(week, 1, 3)
+local first, second, third = util.table.unpack(week, 1, 3)
 
 core.engine.print("info", first, second, third) -- 'Mon'  'Tue'  'Wed'
 ```

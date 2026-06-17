@@ -1,5 +1,5 @@
 ---
-title: math.deg
+title: util.math.deg
 description: Converts an angle from radians to degrees
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.deg(
+local result = util.math.deg(
     angle
 )
 ```
@@ -29,39 +29,39 @@ local result = math.deg(
 ### Examples
 
 ```lua lineNumbers title="Convert pi radians to degrees"
-local result = math.deg(math.pi)
+local result = util.math.deg(util.math.pi)
 
 core.engine.print("info", result) -- 180.0
 ```
 
 ```lua lineNumbers title="Convert pi/2 to degrees"
-local result = math.deg(math.pi / 2)
+local result = util.math.deg(util.math.pi / 2)
 
 core.engine.print("info", result) -- 90.0
 ```
 
 ```lua lineNumbers title="Convert 0 radians to degrees"
-local result = math.deg(0)
+local result = util.math.deg(0)
 
 core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Convert 2*pi to degrees"
-local result = math.deg(2 * math.pi)
+local result = util.math.deg(2 * util.math.pi)
 
 core.engine.print("info", result) -- 360.0
 ```
 
 ```lua lineNumbers title="Convert an atan2 result to readable degrees"
-local angle = math.atan(1, 0)
-local degrees = math.deg(angle)
+local angle = util.math.atan(1, 0)
+local degrees = util.math.deg(angle)
 
 core.engine.print("info", degrees) -- 90.0
 ```
 
 ```lua lineNumbers title="Print common radian values in degrees"
-for _, rad in ipairs({0, math.pi/6, math.pi/4, math.pi/3, math.pi/2}) do
-    core.engine.print("info", math.deg(rad))
+for _, rad in ipairs({0, util.math.pi/6, util.math.pi/4, util.math.pi/3, util.math.pi/2}) do
+    core.engine.print("info", util.math.deg(rad))
 end
 
 --[[
@@ -76,7 +76,7 @@ Output:
 
 ```lua lineNumbers title="Verify deg and rad are inverses"
 local original = 135
-local result = math.deg(math.rad(original))
+local result = util.math.deg(util.math.rad(original))
 
 core.engine.print("info", result) -- 135.0
 ```

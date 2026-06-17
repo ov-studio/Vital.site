@@ -1,5 +1,5 @@
 ---
-title: math.huge
+title: util.math.huge
 description: A constant representing positive infinity
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Constant
 
 ```lua
-math.huge -- inf
+util.math.huge -- inf
 ```
 
 <Callout type="info">
@@ -19,20 +19,20 @@ Represents positive infinity. Useful as a sentinel initial value for minimum-fin
 ### Examples
 
 ```lua lineNumbers title="Print the value of huge"
-core.engine.print("info", math.huge) -- inf
+core.engine.print("info", util.math.huge) -- inf
 ```
 
 ```lua lineNumbers title="huge is greater than any number"
-core.engine.print("info", math.huge > 1e308) -- true
+core.engine.print("info", util.math.huge > 1e308) -- true
 ```
 
 ```lua lineNumbers title="Negative huge is less than any number"
-core.engine.print("info", -math.huge < -1e308) -- true
+core.engine.print("info", -util.math.huge < -1e308) -- true
 ```
 
 ```lua lineNumbers title="Use as initial value in a minimum search"
 local values = {42, 7, 99, 3, 56}
-local smallest = math.huge
+local smallest = util.math.huge
 
 for _, v in ipairs(values) do
     if v < smallest then
@@ -45,7 +45,7 @@ core.engine.print("info", smallest) -- 3
 
 ```lua lineNumbers title="Use as initial value in a maximum search"
 local values = {42, 7, 99, 3, 56}
-local largest = -math.huge
+local largest = -util.math.huge
 
 for _, v in ipairs(values) do
     if v > largest then
@@ -58,15 +58,15 @@ core.engine.print("info", largest) -- 99
 
 ```lua lineNumbers title="Check if a number is finite"
 local function is_finite(value)
-    return value > -math.huge and value < math.huge
+    return value > -util.math.huge and value < util.math.huge
 end
 
 core.engine.print("info", is_finite(42))        -- true
-core.engine.print("info", is_finite(math.huge)) -- false
+core.engine.print("info", is_finite(util.math.huge)) -- false
 ```
 
 ```lua lineNumbers title="Division by zero produces huge"
 local result = 1 / 0
 
-core.engine.print("info", result == math.huge) -- true
+core.engine.print("info", result == util.math.huge) -- true
 ```

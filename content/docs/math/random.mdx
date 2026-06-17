@@ -1,5 +1,5 @@
 ---
-title: math.random
+title: util.math.random
 description: Generates a pseudo-random number
 badge: Shared
 ---
@@ -8,19 +8,19 @@ badge: Shared
 
 ```lua
 -- Random float in [0, 1)
-local result = math.random()
+local result = util.math.random()
 ```
 
 ```lua
 -- Random integer in [1, max]
-local result = math.random(
+local result = util.math.random(
     max
 )
 ```
 
 ```lua
 -- Random integer in [min, max]
-local result = math.random(
+local result = util.math.random(
     min,
     max
 )
@@ -45,25 +45,25 @@ local result = math.random(
 ### Examples
 
 ```lua lineNumbers title="Generate a random float between 0 and 1"
-local result = math.random()
+local result = util.math.random()
 
 core.engine.print("info", result) -- 0.12345 (varies)
 ```
 
 ```lua lineNumbers title="Generate a random integer between 1 and 10"
-local result = math.random(10)
+local result = util.math.random(10)
 
 core.engine.print("info", result) -- 7 (varies)
 ```
 
 ```lua lineNumbers title="Generate a random integer in a custom range"
-local result = math.random(5, 15)
+local result = util.math.random(5, 15)
 
 core.engine.print("info", result) -- 11 (varies)
 ```
 
 ```lua lineNumbers title="Simulate a coin flip"
-local flip = math.random(0, 1)
+local flip = util.math.random(0, 1)
 
 if flip == 0 then
     core.engine.print("info", "Heads")
@@ -74,20 +74,20 @@ end
 
 ```lua lineNumbers title="Pick a random element from a table"
 local items = {"sword", "shield", "potion", "arrow"}
-local picked = items[math.random(#items)]
+local picked = items[util.math.random(#items)]
 
 core.engine.print("info", picked) -- 'potion' (varies)
 ```
 
 ```lua lineNumbers title="Generate a random float in a custom range"
 local range_min, range_max = 1.5, 4.5
-local result = range_min + math.random() * (range_max - range_min)
+local result = range_min + util.math.random() * (range_max - range_min)
 
 core.engine.print("info", result) -- 2.87 (varies)
 ```
 
 ```lua lineNumbers title="Roll a six-sided die"
-local roll = math.random(1, 6)
+local roll = util.math.random(1, 6)
 
 core.engine.print("info", "Rolled:", roll)
 ```
@@ -96,7 +96,7 @@ core.engine.print("info", "Rolled:", roll)
 local t = {1, 2, 3, 4, 5}
 
 for i = #t, 2, -1 do
-    local j = math.random(i)
+    local j = util.math.random(i)
     t[i], t[j] = t[j], t[i]
 end
 

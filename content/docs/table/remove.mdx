@@ -1,5 +1,5 @@
 ---
-title: table.remove
+title: util.table.remove
 description: Removes and returns an element from a table
 badge: Shared
 ---
@@ -7,9 +7,9 @@ badge: Shared
 ### Syntax
 
 ```lua
-local value = table.remove(
+local value = util.table.remove(
     input,
-    position = table.len(input)
+    position = util.table.len(input)
 )
 ```
 
@@ -32,31 +32,31 @@ local value = table.remove(
 
 ```lua lineNumbers title="Remove the last element"
 local t = {1, 2, 3, 4}
-local removed = table.remove(t)
+local removed = util.table.remove(t)
 
 core.engine.print("info", removed) -- 4
-core.engine.print("info", table.concat(t, ", ")) -- 1, 2, 3
+core.engine.print("info", util.table.concat(t, ", ")) -- 1, 2, 3
 ```
 
 ```lua lineNumbers title="Remove an element at a specific position"
 local t = {"a", "b", "c", "d"}
-local removed = table.remove(t, 2)
+local removed = util.table.remove(t, 2)
 
 core.engine.print("info", removed) -- b
-core.engine.print("info", table.concat(t, ", ")) -- 'a, c, d'
+core.engine.print("info", util.table.concat(t, ", ")) -- 'a, c, d'
 ```
 
 ```lua lineNumbers title="Remove the first element"
 local t = {10, 20, 30}
-local removed = table.remove(t, 1)
+local removed = util.table.remove(t, 1)
 
 core.engine.print("info", removed) -- 10
-core.engine.print("info", table.concat(t, ", ")) -- '20, 30'
+core.engine.print("info", util.table.concat(t, ", ")) -- '20, 30'
 ```
 
 ```lua lineNumbers title="Pop the top element off a stack"
 local stack = {"first", "second", "third"}
-local top = table.remove(stack)
+local top = util.table.remove(stack)
 
 core.engine.print("info", top) -- 'third'
 core.engine.print("info", #stack) -- 2
@@ -64,18 +64,18 @@ core.engine.print("info", #stack) -- 2
 
 ```lua lineNumbers title="Dequeue the first element from a queue"
 local queue = {"task1", "task2", "task3"}
-local next = table.remove(queue, 1)
+local next = util.table.remove(queue, 1)
 
 core.engine.print("info", next) -- 'task1'
-core.engine.print("info", table.concat(queue, ", ")) -- 'task2, task3'
+core.engine.print("info", util.table.concat(queue, ", ")) -- 'task2, task3'
 ```
 
 ```lua lineNumbers title="Remove all elements one by one"
 -- Remove all elements
 local t = {1, 2, 3}
 
-while table.len(t) > 0 do
-    local value = table.remove(t)
+while util.table.len(t) > 0 do
+    local value = util.table.remove(t)
     core.engine.print("info", value)
 end
 
@@ -89,23 +89,23 @@ Output:
 
 ```lua lineNumbers title="Return nil when removing from an empty table"
 local t = {}
-local removed = table.remove(t)
+local removed = util.table.remove(t)
 
 core.engine.print("info", removed) -- nil
 ```
 
 ```lua lineNumbers title="Remove a middle element"
 local colors = {"red", "green", "blue", "yellow"}
-table.remove(colors, 3)
+util.table.remove(colors, 3)
 
-core.engine.print("info", table.concat(colors, ", ")) -- 'red, green, yellow'
+core.engine.print("info", util.table.concat(colors, ", ")) -- 'red, green, yellow'
 ```
 
 ```lua lineNumbers title="Process and remove elements in order"
 local tasks = {"a", "b", "c"}
 
 while #tasks > 0 do
-    local task = table.remove(tasks, 1)
+    local task = util.table.remove(tasks, 1)
     core.engine.print("info", "Processing:", task)
 end
 ```

@@ -1,5 +1,5 @@
 ---
-title: math.floor
+title: util.math.floor
 description: Rounds a number down to the nearest integer
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.floor(
+local result = util.math.floor(
     value
 )
 ```
@@ -29,31 +29,31 @@ local result = math.floor(
 ### Examples
 
 ```lua lineNumbers title="Floor a positive float"
-local result = math.floor(4.9)
+local result = util.math.floor(4.9)
 
 core.engine.print("info", result) -- 4
 ```
 
 ```lua lineNumbers title="Floor a negative float"
-local result = math.floor(-4.2)
+local result = util.math.floor(-4.2)
 
 core.engine.print("info", result) -- -5
 ```
 
 ```lua lineNumbers title="Floor an exact integer returns itself"
-local result = math.floor(3.0)
+local result = util.math.floor(3.0)
 
 core.engine.print("info", result) -- 3
 ```
 
 ```lua lineNumbers title="Truncate a float to integer"
-local result = math.floor(9.99)
+local result = util.math.floor(9.99)
 
 core.engine.print("info", result) -- 9
 ```
 
 ```lua lineNumbers title="Compute integer division"
-local result = math.floor(17 / 5)
+local result = util.math.floor(17 / 5)
 
 core.engine.print("info", result) -- 3
 ```
@@ -61,14 +61,14 @@ core.engine.print("info", result) -- 3
 ```lua lineNumbers title="Snap position to grid"
 local pos_x = 137.6
 local grid_size = 32
-local snapped = math.floor(pos_x / grid_size) * grid_size
+local snapped = util.math.floor(pos_x / grid_size) * grid_size
 
 core.engine.print("info", snapped) -- 128
 ```
 
 ```lua lineNumbers title="Convert seconds to whole minutes"
 local seconds = 185
-local minutes = math.floor(seconds / 60)
+local minutes = util.math.floor(seconds / 60)
 
 core.engine.print("info", minutes) -- 3
 ```

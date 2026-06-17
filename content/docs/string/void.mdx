@@ -1,5 +1,5 @@
 ---
-title: string.void
+title: util.string.void
 description: Verifies whether the string is empty or contains only whitespaces
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local void = string.void(
+local void = util.string.void(
     input
 )
 ```
@@ -29,19 +29,19 @@ local void = string.void(
 ### Examples
 
 ```lua lineNumbers title="Return true for an empty string"
-local void = string.void("")
+local void = util.string.void("")
 
 core.engine.print("info", void) -- true
 ```
 
 ```lua lineNumbers title="Return true for a whitespace-only string"
-local void = string.void("      ")
+local void = util.string.void("      ")
 
 core.engine.print("info", void) -- true
 ```
 
 ```lua lineNumbers title="Return false for a non-empty string"
-local void = string.void("Hello")
+local void = util.string.void("Hello")
 
 core.engine.print("info", void) -- false
 ```

@@ -1,5 +1,5 @@
 ---
-title: math.modf
+title: util.math.modf
 description: Returns the integer and fractional parts of a number
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local integer, fraction = math.modf(
+local integer, fraction = util.math.modf(
     value
 )
 ```
@@ -30,45 +30,45 @@ local integer, fraction = math.modf(
 ### Examples
 
 ```lua lineNumbers title="Split a positive float"
-local integer, fraction = math.modf(4.75)
+local integer, fraction = util.math.modf(4.75)
 
 core.engine.print("info", integer, fraction) -- 4  0.75
 ```
 
 ```lua lineNumbers title="Split a negative float"
-local integer, fraction = math.modf(-3.25)
+local integer, fraction = util.math.modf(-3.25)
 
 core.engine.print("info", integer, fraction) -- -3  -0.25
 ```
 
 ```lua lineNumbers title="Split an exact integer"
-local integer, fraction = math.modf(10.0)
+local integer, fraction = util.math.modf(10.0)
 
 core.engine.print("info", integer, fraction) -- 10  0.0
 ```
 
 ```lua lineNumbers title="Get only the integer part"
-local integer = math.modf(9.99)
+local integer = util.math.modf(9.99)
 
 core.engine.print("info", integer) -- 9
 ```
 
 ```lua lineNumbers title="Get only the fractional part"
-local _, fraction = math.modf(9.99)
+local _, fraction = util.math.modf(9.99)
 
 core.engine.print("info", fraction) -- 0.99
 ```
 
 ```lua lineNumbers title="Separate seconds and milliseconds"
 local elapsed = 3.456
-local secs, ms = math.modf(elapsed)
+local secs, ms = util.math.modf(elapsed)
 
-core.engine.print("info", secs, math.floor(ms * 1000)) -- 3  456
+core.engine.print("info", secs, util.math.floor(ms * 1000)) -- 3  456
 ```
 
 ```lua lineNumbers title="Check if a number is a whole integer"
 local n = 5.0
-local _, fraction = math.modf(n)
+local _, fraction = util.math.modf(n)
 
 if fraction == 0 then
     core.engine.print("info", "Whole number")

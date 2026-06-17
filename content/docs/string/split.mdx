@@ -1,5 +1,5 @@
 ---
-title: string.split
+title: util.string.split
 description: Splits a string into a table of substrings using a separator
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local parts = string.split(
+local parts = util.string.split(
     input,
     separator
 )
@@ -30,7 +30,7 @@ local parts = string.split(
 
 ### Examples
 ```lua lineNumbers title="Split a string by comma"
-local parts = string.split("apple,banana,orange", ",")
+local parts = util.string.split("apple,banana,orange", ",")
 
 core.engine.print("info", parts[1]) -- 'apple'
 core.engine.print("info", parts[2]) -- 'banana'
@@ -38,7 +38,7 @@ core.engine.print("info", parts[3]) -- 'orange'
 ```
 
 ```lua lineNumbers title="Split a string by a multi-character delimiter"
-local parts = string.split("one::two::three", "::")
+local parts = util.string.split("one::two::three", "::")
 
 core.engine.print("info", parts[1]) -- 'one'
 core.engine.print("info", parts[2]) -- 'two'
@@ -46,7 +46,7 @@ core.engine.print("info", parts[3]) -- 'three'
 ```
 
 ```lua lineNumbers title="Split a string by space"
-local words = string.split("hello world lua", " ")
+local words = util.string.split("hello world lua", " ")
 
 for i, word in ipairs(words) do
     core.engine.print("info", word)

@@ -1,5 +1,5 @@
 ---
-title: math.pi
+title: util.math.pi
 description: The mathematical constant pi (π ≈ 3.14159)
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Constant
 
 ```lua
-math.pi -- 3.1415926535898
+util.math.pi -- 3.1415926535898
 ```
 
 <Callout type="info">
@@ -19,19 +19,19 @@ Represents the ratio of a circle's circumference to its diameter.
 ### Examples
 
 ```lua lineNumbers title="Print the value of pi"
-core.engine.print("info", math.pi) -- 3.1415926535898
+core.engine.print("info", util.math.pi) -- 3.1415926535898
 ```
 
 ```lua lineNumbers title="Compute the circumference of a circle"
 local radius = 5
-local circumference = 2 * math.pi * radius
+local circumference = 2 * util.math.pi * radius
 
 core.engine.print("info", circumference) -- 31.415926535898
 ```
 
 ```lua lineNumbers title="Compute the area of a circle"
 local radius = 3
-local area = math.pi * radius * radius
+local area = util.math.pi * radius * radius
 
 core.engine.print("info", area) -- 28.274333882308
 ```
@@ -40,22 +40,22 @@ core.engine.print("info", area) -- 28.274333882308
 local point_count = 8
 
 for i = 0, point_count - 1 do
-    local angle = 2 * math.pi * i / point_count
-    local pos_x = math.cos(angle)
-    local pos_y = math.sin(angle)
+    local angle = 2 * util.math.pi * i / point_count
+    local pos_x = util.math.cos(angle)
+    local pos_y = util.math.sin(angle)
     core.engine.print("info", pos_x, pos_y)
 end
 ```
 
 ```lua lineNumbers title="Compute the volume of a sphere"
 local radius = 4
-local volume = (4 / 3) * math.pi * radius * radius * radius
+local volume = (4 / 3) * util.math.pi * radius * radius * radius
 
 core.engine.print("info", volume) -- 268.08257310942
 ```
 
 ```lua lineNumbers title="Convert 180 degrees to radians using pi directly"
-local radians = math.pi
+local radians = util.math.pi
 
 core.engine.print("info", radians) -- 3.1415926535898
 ```

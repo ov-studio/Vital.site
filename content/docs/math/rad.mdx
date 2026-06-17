@@ -1,5 +1,5 @@
 ---
-title: math.rad
+title: util.math.rad
 description: Converts an angle from degrees to radians
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = math.rad(
+local result = util.math.rad(
     angle
 )
 ```
@@ -29,31 +29,31 @@ local result = math.rad(
 ### Examples
 
 ```lua lineNumbers title="Convert 180 degrees to radians"
-local result = math.rad(180)
+local result = util.math.rad(180)
 
 core.engine.print("info", result) -- 3.1415926535898
 ```
 
 ```lua lineNumbers title="Convert 90 degrees to radians"
-local result = math.rad(90)
+local result = util.math.rad(90)
 
 core.engine.print("info", result) -- 1.5707963267949
 ```
 
 ```lua lineNumbers title="Convert 0 degrees to radians"
-local result = math.rad(0)
+local result = util.math.rad(0)
 
 core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Convert 360 degrees to 2*pi"
-local result = math.rad(360)
+local result = util.math.rad(360)
 
 core.engine.print("info", result) -- 6.2831853071796
 ```
 
 ```lua lineNumbers title="Pass a degree value directly to sin"
-local result = math.sin(math.rad(30))
+local result = util.math.sin(util.math.rad(30))
 
 core.engine.print("info", result) -- 0.5
 ```
@@ -61,14 +61,14 @@ core.engine.print("info", result) -- 0.5
 ```lua lineNumbers title="Rotate through 8 cardinal directions"
 for i = 0, 7 do
     local deg = i * 45
-    local rad = math.rad(deg)
+    local rad = util.math.rad(deg)
     core.engine.print("info", deg, rad)
 end
 ```
 
 ```lua lineNumbers title="Verify rad and deg are inverses"
-local original = math.pi / 3
-local result = math.rad(math.deg(original))
+local original = util.math.pi / 3
+local result = util.math.rad(util.math.deg(original))
 
 core.engine.print("info", result) -- 1.0471975511966
 ```

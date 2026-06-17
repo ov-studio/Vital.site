@@ -1,5 +1,5 @@
 ---
-title: string.upper
+title: util.string.upper
 description: Converts all lowercase letters to uppercase
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = string.upper(
+local result = util.string.upper(
     input
 )
 ```
@@ -29,25 +29,25 @@ local result = string.upper(
 ### Examples
 
 ```lua lineNumbers title="Convert a lowercase string to uppercase"
-local result = string.upper("hello")
+local result = util.string.upper("hello")
 
 core.engine.print("info", result) -- 'HELLO'
 ```
 
 ```lua lineNumbers title="Convert a mixed-case string to uppercase"
-local result = string.upper("Hello World")
+local result = util.string.upper("Hello World")
 
 core.engine.print("info", result) -- 'HELLO WORLD'
 ```
 
 ```lua lineNumbers title="Already-uppercase strings are unchanged"
-local result = string.upper("ALREADY UPPERCASE")
+local result = util.string.upper("ALREADY UPPERCASE")
 
 core.engine.print("info", result) -- 'ALREADY UPPERCASE'
 ```
 
 ```lua lineNumbers title="Numbers and special characters are unchanged"
-local result = string.upper("abc123!@#")
+local result = util.string.upper("abc123!@#")
 
 core.engine.print("info", result) -- 'ABC123!@#'
 ```
@@ -56,7 +56,7 @@ core.engine.print("info", result) -- 'ABC123!@#'
 local str1 = "Hello"
 local str2 = "hello"
 
-if string.upper(str1) == string.upper(str2) then
+if util.string.upper(str1) == util.string.upper(str2) then
     core.engine.print("info", "Strings are equal (case-insensitive)")
 end
 ```
@@ -64,47 +64,47 @@ end
 ```lua lineNumbers title="Normalize user input for comparison"
 local input = "yes"
 
-if string.upper(input) == "YES" then
+if util.string.upper(input) == "YES" then
     core.engine.print("info", "User confirmed")
 end
 ```
 
 ```lua lineNumbers title="Create a constant name from a variable name"
 local varName = "max_value"
-local constant = string.upper(varName)
+local constant = util.string.upper(varName)
 
 core.engine.print("info", constant) -- 'MAX_VALUE'
 ```
 
 ```lua lineNumbers title="Emphasize text with uppercase"
 local text = "warning"
-local emphasized = string.upper(text)
+local emphasized = util.string.upper(text)
 
 core.engine.print("info", emphasized) -- 'WARNING'
 ```
 
 ```lua lineNumbers title="Convert a status string to an enum value"
 local status = "active"
-local enum = string.upper(status)
+local enum = util.string.upper(status)
 
 core.engine.print("info", enum) -- 'ACTIVE'
 ```
 
 ```lua lineNumbers title="Strings with only numbers are unchanged"
-local result = string.upper("123456")
+local result = util.string.upper("123456")
 
 core.engine.print("info", result) -- '123456'
 ```
 
 ```lua lineNumbers title="Uppercase an empty string"
-local result = string.upper("")
+local result = util.string.upper("")
 
 core.engine.print("info", result) -- ''
 ```
 
 ```lua lineNumbers title="Convert a title to an uppercase header"
 local title = "my document title"
-local header = string.upper(title)
+local header = util.string.upper(title)
 
 core.engine.print("info", header) -- 'MY DOCUMENT TITLE'
 ```
@@ -112,12 +112,12 @@ core.engine.print("info", header) -- 'MY DOCUMENT TITLE'
 ```lua lineNumbers title="Convert a column name to SQL-style uppercase"
 local column = "user_id"
 
-core.engine.print("info", string.upper(column)) -- 'USER_ID'
+core.engine.print("info", util.string.upper(column)) -- 'USER_ID'
 ```
 
 ```lua lineNumbers title="Compare two strings ignoring case"
 local function equalsIgnoreCase(a, b)
-    return string.upper(a) == string.upper(b)
+    return util.string.upper(a) == util.string.upper(b)
 end
 
 core.engine.print("info", equalsIgnoreCase("Test", "test")) -- true
@@ -126,14 +126,14 @@ core.engine.print("info", equalsIgnoreCase("Test", "test")) -- true
 ```lua lineNumbers title="Format a command string in uppercase"
 local cmd = "help"
 
-core.engine.print("info", "Command: "..string.upper(cmd)) -- 'Command: HELP'
+core.engine.print("info", "Command: "..util.string.upper(cmd)) -- 'Command: HELP'
 ```
 
 ```lua lineNumbers title="Build an acronym from a phrase"
 local text = "hypertext markup language"
 local acronym = ""
-for word in string.gmatch(text, "%S+") do
-    acronym = acronym..string.upper(string.sub(word, 1, 1))
+for word in util.string.gmatch(text, "%S+") do
+    acronym = acronym..util.string.upper(util.string.sub(word, 1, 1))
 end
 
 core.engine.print("info", acronym) -- 'HML'
@@ -141,7 +141,7 @@ core.engine.print("info", acronym) -- 'HML'
 
 ```lua lineNumbers title="Convert to shouty snake case"
 local name = "my_variable_name"
-local shouty = string.upper(name)
+local shouty = util.string.upper(name)
 
 core.engine.print("info", shouty) -- 'MY_VARIABLE_NAME'
 ```
