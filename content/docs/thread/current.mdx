@@ -27,17 +27,14 @@ local result = thread.current()
 
 ```lua lineNumbers title="Retrieve the currently running thread from within a thread"
 local entity = thread.create(function(self)
-    local running = thread.current()
-    engine.print("info", "Running thread:", running)
+    engine.print("info", "Running thread:", thread.current())
 end)
 
 entity:resume()
 ```
 
 ```lua lineNumbers title="Check whether code is running inside a thread"
-local running = thread.current()
-
-if not running then
+if not thread.current() then
     engine.print("info", "Not inside a thread")
 end
 ```
