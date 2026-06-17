@@ -26,10 +26,10 @@ local result = self:get_type()
 ### Examples
 
 ```lua lineNumbers title="Get the type of a thread instance"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     self:sleep(2000)
 end)
 
-ctx:resume()
+entity:resume()
 engine.print("info", self:get_type()) -- 'thread'
 ```

@@ -34,12 +34,12 @@ local status = self:pause()
 ### Examples
 
 ```lua lineNumbers title="Pause a thread then resume it manually"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     engine.print("info", "Before pause")
     self:pause()
     engine.print("info", "After resume")
 end)
 
-ctx:resume()
-ctx:resume()
+entity:resume()
+entity:resume()
 ```
