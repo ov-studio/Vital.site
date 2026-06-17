@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local ctx = thread.create(
+local instance = thread.create(
     exec
 )
 ```
@@ -22,7 +22,7 @@ local ctx = thread.create(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `thread` \| `bool` | ctx | Created `thread` instance on successful execution, `false` otherwise |
+| `thread` \| `bool` | instance | Created `thread` instance on successful execution, `false` otherwise |
 
 ---
 
@@ -41,19 +41,19 @@ exec(self)
 ### Examples
 
 ```lua lineNumbers title="Create and resume a basic thread"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     engine.print("info", "Hello from thread")
 end)
 
-ctx:resume()
+entity:resume()
 ```
 
 ```lua lineNumbers title="Create a thread and sleep inside it"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     engine.print("info", "Sleeping for 2 seconds")
     self:sleep(2000)
     engine.print("info", "Awake now")
 end)
 
-ctx:resume()
+entity:resume()
 ```
