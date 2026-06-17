@@ -34,7 +34,9 @@ entity:resume()
 ```
 
 ```lua lineNumbers title="Check whether code is running inside a thread"
-if not thread.current() then
+local running = thread.current()
+
+if not running then
     engine.print("info", "Not inside a thread")
 end
 ```
