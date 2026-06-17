@@ -40,19 +40,19 @@ local bool, ... = self:await(
 ```lua lineNumbers title="Await a promise and print the resolved values"
 local p = promise.create()
 
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     local ok, result = self:await(p)
     engine.print("info", "Resolved:", ok, result)
 end)
 
-ctx:resume()
+entity:resume()
 p:resolve("done")
 ```
 
 ```lua lineNumbers title="Handle both resolve and reject outcomes"
 local p = promise.create()
 
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     local ok, value = self:await(p)
 
     if ok then
@@ -62,6 +62,6 @@ local ctx = thread.create(function(self)
     end
 end)
 
-ctx:resume()
+entity:resume()
 p:reject("something went wrong")
 ```
