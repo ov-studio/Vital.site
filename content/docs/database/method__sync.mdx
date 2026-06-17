@@ -51,7 +51,7 @@ db:define("players", {
     score = { type = "INT", nullable = true }
 })
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:sync())
 
     if not ok then

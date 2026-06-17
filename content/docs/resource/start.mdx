@@ -1,5 +1,5 @@
 ---
-title: resource.start
+title: util.resource.start
 description: Starts a loaded resource
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local result = resource.start(
+local result = util.resource.start(
     name
 )
 ```
@@ -37,11 +37,11 @@ local result = resource.start(
 ### Examples
 
 ```lua lineNumbers title="Start a resource"
-resource.start("my_resource")
+util.resource.start("my_resource")
 ```
 
 ```lua lineNumbers title="Guard start with a running check"
-if not resource.is_running("my_resource") then
-    resource.start("my_resource")
+if not util.resource.is_running("my_resource") then
+    util.resource.start("my_resource")
 end
 ```

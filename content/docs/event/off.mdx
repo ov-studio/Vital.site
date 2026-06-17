@@ -1,5 +1,5 @@
 ---
-title: event.off
+title: util.event.off
 description: Unregisters a previously registered handler from the specified event
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = event.off(
+local status = util.event.off(
     name,
     exec
 )
@@ -18,7 +18,7 @@ local status = event.off(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name of the event to unsubscribe from |
-| `function` | exec | Handler function reference to remove<br/>Must be the same function value passed to [`event.on`](/docs/event/on) |
+| `function` | exec | Handler function reference to remove<br/>Must be the same function value passed to [`util.event.on`](/docs/event/on) |
 
 ### Returns
 
@@ -35,17 +35,17 @@ local function on_player_join(player)
     engine.print("info", "Player joined:", player)
 end
 
-event.on("on_player_join", on_player_join)
-engine.print("info", "Handler removed:", event.off("on_player_join", on_player_join))
+util.event.on("on_player_join", on_player_join)
+engine.print("info", "Handler removed:", util.event.off("on_player_join", on_player_join))
 ```
 
 ```lua lineNumbers title="Conditionally unsubscribe based on state"
 local handler = nil
 handler = function(value)
     if value == "done" then
-        event.off("on_signal", handler)
+        util.event.off("on_signal", handler)
     end
 end
 
-event.on("on_signal", handler)
+util.event.on("on_signal", handler)
 ```

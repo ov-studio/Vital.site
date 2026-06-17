@@ -1,5 +1,5 @@
 ---
-title: crypto.decrypt
+title: util.crypto.decrypt
 description: Decodes a cryptographically encrypted string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = crypto.decrypt(
+local result = util.crypto.decrypt(
     mode,
     input,
     key,
@@ -38,8 +38,8 @@ local result = crypto.decrypt(
 
 ```lua lineNumbers title="Decrypts an input string"
 local key = "MySecretKey12345"
-local input, iv = crypto.encrypt("AES256", "Hello World", key)
+local input, iv = util.crypto.encrypt("AES256", "Hello World", key)
 
 engine.print("info", "Input:", input)
-engine.print("info", "Decrypted:", crypto.decrypt("AES256", input, key, iv))
+engine.print("info", "Decrypted:", util.crypto.decrypt("AES256", input, key, iv))
 ```

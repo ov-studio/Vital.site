@@ -1,5 +1,5 @@
 ---
-title: export.call
+title: util.export.call
 description: Calls an exported function from another resource
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local ... = export.call(
+local ... = util.export.call(
     resource,
     name,
     ...
@@ -15,7 +15,7 @@ local ... = export.call(
 ```
 
 <Callout type="warn">
-  **The target resource must be running before calling its export.**
+  **The target resource must be running before calling its util.export.**
 
   - **Resource state** — throws an error if the specified resource is not currently running
   - **Export existence** — throws an error if the named export does not exist on that resource
@@ -41,19 +41,19 @@ local ... = export.call(
 ### Examples
 
 ```lua lineNumbers title="Call a basic export from another resource"
-local count = export.call("my_resource", "get_player_count")
+local count = util.export.call("my_resource", "get_player_count")
 
 engine.print("info", "Player count:", count)
 ```
 
 ```lua lineNumbers title="Pass arguments to an export"
-local result = export.call("math_resource", "add", 10, 25)
+local result = util.export.call("math_resource", "add", 10, 25)
 
 engine.print("info", "Sum:", result) -- 35
 ```
 
 ```lua lineNumbers title="Capture multiple return values"
-local x, y, z = export.call("world_resource", "get_spawn_position")
+local x, y, z = util.export.call("world_resource", "get_spawn_position")
 
 engine.print("info", "Spawn:", x, y, z)
 ```

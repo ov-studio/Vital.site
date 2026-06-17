@@ -1,5 +1,5 @@
 ---
-title: event.emit
+title: util.event.emit
 description: Fires an event, invoking all registered handlers with the supplied arguments
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = event.emit(
+local status = util.event.emit(
     name,
     options = nil,
     ...
@@ -58,18 +58,18 @@ local status = event.emit(
 ### Examples
 
 ```lua lineNumbers title="Fire a local event with arguments"
-event.on("on_damage", function(amount)
+util.event.on("on_damage", function(amount)
     engine.print("info", "Damage received:", amount)
 end)
 
-event.emit("on_damage", 50)
+util.event.emit("on_damage", 50)
 ```
 
 ```lua lineNumbers title="Emit an event from client to server"
 if engine.get_platform() == "client" then
-    event.emit("on_player_ready", { remote = true }, "Tron", currentMap)
+    util.event.emit("on_player_ready", { remote = true }, "Tron", currentMap)
 else
-    event.on("on_player_ready", function(name, map)
+    util.event.on("on_player_ready", function(name, map)
         engine.print("info", "Player ready:", name, map)
     end)
 end
@@ -77,33 +77,33 @@ end
 
 ```lua lineNumbers title="Broadcast an event from server to all clients"
 if engine.get_platform() == "client" then
-    event.on("on_round_start", function(roundIndex, mapName)
+    util.event.on("on_round_start", function(roundIndex, mapName)
         engine.print("info", "Round started:", roundIndex, mapName)
     end)
 else
-    event.emit("on_round_start", { remote = true }, 1, "sandstorm")
+    util.event.emit("on_round_start", { remote = true }, 1, "sandstorm")
 end
 ```
 
 ```lua lineNumbers title="Emit an event from server to a specific client"
 if engine.get_platform() == "client" then
-    event.on("on_kick_notice", function(reason)
+    util.event.on("on_kick_notice", function(reason)
         engine.print("warn", "Kicked:", reason)
     end)
 else
-    event.emit("on_kick_notice", { remote = true, peer = 1963414407 }, "You were kicked")
+    util.event.emit("on_kick_notice", { remote = true, peer = 1963414407 }, "You were kicked")
 end
 ```
 
 ```lua lineNumbers title="Emit a event from client to server and pass a table payload"
 if engine.get_platform() == "client" then
-    event.emit("on_player_spawn", { remote = true }, {
+    util.event.emit("on_player_spawn", { remote = true }, {
         name = "Tron",
         pos  = { x = 0, y = 0, z = 0 },
         team = "blue",
     })
 else
-    event.on("on_player_spawn", function(data)
+    util.event.on("on_player_spawn", function(data)
         engine.print("info", "Player spawned:", data.name, data.team)
         engine.iprint(data)
     end)

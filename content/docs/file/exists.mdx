@@ -1,5 +1,5 @@
 ---
-title: file.exists
+title: util.file.exists
 description: Retrieves the existence of a specified file
 badge: Shared
 ---
@@ -7,13 +7,13 @@ badge: Shared
 ### Syntax
 
 ```lua
-local valid = file.exists(
+local valid = util.file.exists(
     path
 )
 ```
 
 <Callout type="idea">
-  **Prefix the path with `:resourcename` to access files from another running resource.**
+  **Prefix the path with `:resourcename` to access files from another running util.resource.**
 
   - **Local path** — resolves relative to the current resource's directory
   - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
@@ -37,9 +37,9 @@ local valid = file.exists(
 ### Examples
 
 ```lua lineNumbers title="Check if a file exists within the current resource"
-engine.print("info", "File exists:", file.exists("files/images/test.png"))
+engine.print("info", "File exists:", util.file.exists("files/images/test.png"))
 ```
 
 ```lua lineNumbers title="Check if a file exists from another running resource"
-engine.print("info", "File exists:", file.exists(":resource_a/files/images/test.png"))
+engine.print("info", "File exists:", util.file.exists(":resource_a/files/images/test.png"))
 ```

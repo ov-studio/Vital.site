@@ -1,5 +1,5 @@
 ---
-title: resource.stop
+title: util.resource.stop
 description: Stops a running resource
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local result = resource.stop(
+local result = util.resource.stop(
     name
 )
 ```
@@ -37,11 +37,11 @@ local result = resource.stop(
 ### Examples
 
 ```lua lineNumbers title="Stop a resource"
-resource.stop("my_resource")
+util.resource.stop("my_resource")
 ```
 
 ```lua lineNumbers title="Guard stop with a running check"
-if resource.is_running("my_resource") then
-    resource.stop("my_resource")
+if util.resource.is_running("my_resource") then
+    util.resource.stop("my_resource")
 end
 ```

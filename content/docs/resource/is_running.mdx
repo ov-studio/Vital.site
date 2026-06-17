@@ -1,5 +1,5 @@
 ---
-title: resource.is_running
+title: util.resource.is_running
 description: Checks whether a resource is currently running
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = resource.is_running(
+local result = util.resource.is_running(
     name
 )
 ```
@@ -29,17 +29,17 @@ local result = resource.is_running(
 ### Examples
 
 ```lua lineNumbers title="Check if a resource is running"
-if resource.is_running("my_resource") then
+if util.resource.is_running("my_resource") then
     engine.print("info", "Resource is running")
 end
 ```
 
 ```lua lineNumbers title="Guard an export call based on running state"
-if not resource.is_running("inventory_resource") then
+if not util.resource.is_running("inventory_resource") then
     engine.print("warn", "inventory_resource is not running")
     return
 end
 
-local items = export.call("inventory_resource", "get_items")
+local items = util.export.call("inventory_resource", "get_items")
 engine.iprint(items)
 ```

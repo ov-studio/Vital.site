@@ -1,5 +1,5 @@
 ---
-title: resource.current
+title: util.resource.current
 description: Returns the name of the resource the calling script belongs to
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = resource.current()
+local result = util.resource.current()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = resource.current()
 ### Examples
 
 ```lua lineNumbers title="Get the current resource name"
-engine.print("info", "Running resource:", resource.current())
+engine.print("info", "Running resource:", util.resource.current())
 ```

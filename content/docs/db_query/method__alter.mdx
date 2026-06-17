@@ -70,7 +70,7 @@ local promise = self:alter(
 ```lua lineNumbers title="Add new columns to the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :alter({
             add = {
@@ -88,7 +88,7 @@ end):resume()
 ```lua lineNumbers title="Expand the name column and make score non-nullable"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :alter({
             modify = {
@@ -106,7 +106,7 @@ end):resume()
 ```lua lineNumbers title="Drop legacy columns from the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :alter({
             drop = { "legacy_col1", "legacy_col2" }
@@ -121,7 +121,7 @@ end):resume()
 ```lua lineNumbers title="Add, modify, and drop columns in one atomic operation"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :alter({
             add = {

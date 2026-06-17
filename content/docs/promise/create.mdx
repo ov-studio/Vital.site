@@ -1,5 +1,5 @@
 ---
-title: promise.create
+title: util.promise.create
 description: Creates a new promise instance in pending state
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local instance = promise.create()
+local instance = util.promise.create()
 ```
 
 <Callout type="info">
@@ -33,20 +33,20 @@ local instance = promise.create()
 ### Examples
 
 ```lua lineNumbers title="Create and resolve a promise"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:resolve(true, "done")
+entity:resolve(true, "done")
 ```
 
 ```lua lineNumbers title="Create a promise and await it inside a thread"
-local p = promise.create()
+local entity = util.promise.create()
 
-thread.create(function(self)
-    local value = self:await(p)
+util.thread.create(function(self)
+    local value = self:await(entity)
     engine.print("info", value) -- 42
 end):resume()
 
-timer.create(function()
-    p:resolve(42)
+util.timer.create(function()
+    entity:resolve(42)
 end, 1000, 1)
 ```

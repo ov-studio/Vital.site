@@ -1,5 +1,5 @@
 ---
-title: file.contents
+title: util.file.contents
 description: Retrieves the contents of a specified directory path
 badge: Shared
 ---
@@ -7,14 +7,14 @@ badge: Shared
 ### Syntax
 
 ```lua
-local contents = file.contents(
+local contents = util.file.contents(
     path,
     directory_search = false
 )
 ```
 
 <Callout type="idea">
-  **Prefix the path with `:resourcename` to access directories from another running resource.**
+  **Prefix the path with `:resourcename` to access directories from another running util.resource.**
 
   - **Local path** — resolves relative to the current resource's directory
   - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
@@ -40,10 +40,10 @@ local contents = file.contents(
 
 ```lua lineNumbers title="List the contents of a directory within the current resource"
 engine.print("info", "File contents:")
-engine.iprint(file.contents("files/images"))
+engine.iprint(util.file.contents("files/images"))
 ```
 
 ```lua lineNumbers title="List the contents of a directory from another running resource"
 engine.print("info", "File contents:")
-engine.iprint(file.contents(":resource_a/files/images"))
+engine.iprint(util.file.contents(":resource_a/files/images"))
 ```

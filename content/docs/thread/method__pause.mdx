@@ -11,7 +11,7 @@ local status = self:pause()
 ```
 
 <Callout type="info">
-  **This function must be called from within a running thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a promise.
+  **This function must be called from within a running util.thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a util.promise.
 
   - **Available** — execution is suspended at the call site and resumes from that point when [`self:resume`](/docs/thread/method/resume) is called
   - **Outside a thread** — the call is a no-op and returns `false`
@@ -34,7 +34,7 @@ local status = self:pause()
 ### Examples
 
 ```lua lineNumbers title="Pause a thread then resume it manually"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     engine.print("info", "Before pause")
     self:pause()
     engine.print("info", "After resume")

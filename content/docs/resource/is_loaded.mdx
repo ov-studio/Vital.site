@@ -1,5 +1,5 @@
 ---
-title: resource.is_loaded
+title: util.resource.is_loaded
 description: Checks whether a resource is loaded
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = resource.is_loaded(
+local result = util.resource.is_loaded(
     name
 )
 ```
@@ -15,7 +15,7 @@ local result = resource.is_loaded(
 <Callout type="info">
   **A loaded resource is not necessarily running.**
 
-  A resource is considered loaded once its manifest has been parsed and registered. It may not have been started yet. Use `resource.is_running` to check whether it is actively executing.
+  A resource is considered loaded once its manifest has been parsed and registered. It may not have been started yet. Use `util.resource.is_running` to check whether it is actively executing.
 </Callout>
 
 ### Parameters
@@ -35,17 +35,17 @@ local result = resource.is_loaded(
 ### Examples
 
 ```lua lineNumbers title="Check if a resource is loaded"
-if resource.is_loaded("my_resource") then
+if util.resource.is_loaded("my_resource") then
     engine.print("info", "Resource is loaded")
 end
 ```
 
 ```lua lineNumbers title="Guard a call based on load state"
-if not resource.is_loaded("inventory_resource") then
+if not util.resource.is_loaded("inventory_resource") then
     engine.print("warn", "inventory_resource is not loaded")
     return
 end
 
-local items = export.call("inventory_resource", "get_items")
+local items = util.export.call("inventory_resource", "get_items")
 engine.iprint(items)
 ```

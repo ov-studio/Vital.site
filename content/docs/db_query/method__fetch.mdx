@@ -48,7 +48,7 @@ local promise = self:fetch(
 ```lua lineNumbers title="Fetch all players with a score greater than 100"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
         :select("id", "name", "score")
         :where("score", ">", 100)
@@ -65,7 +65,7 @@ end):resume()
 ```lua lineNumbers title="Fetch only the top 5 players"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
         :select("id", "name", "score")
         :where("score", ">", 100)

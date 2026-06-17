@@ -55,7 +55,7 @@ local query = self:where(
 ```lua lineNumbers title="Filter rows with a single condition"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
         :select("id", "name", "score")
         :where("score", ">", 100)
@@ -72,7 +72,7 @@ end):resume()
 ```lua lineNumbers title="Chain multiple conditions to filter rows"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
         :select("id", "name", "score")
         :where("name", "=", "aviril")
@@ -90,7 +90,7 @@ end):resume()
 ```lua lineNumbers title="Update rows with a single condition"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :update({ score = 500 })
         :where("name", "=", "aviril")
@@ -105,7 +105,7 @@ end):resume()
 ```lua lineNumbers title="Chain multiple conditions to update rows"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :update({ score = 0 })
         :where("status", "=", "active")

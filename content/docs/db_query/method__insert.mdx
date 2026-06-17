@@ -37,7 +37,7 @@ local query = self:insert(
 ```lua lineNumbers title="Insert a new player record"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :insert({ name = "aviril", score = 0 })
         :execute())
@@ -51,7 +51,7 @@ end):resume()
 ```lua lineNumbers title="Chain multiple row insertions in a single execution"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :insert({ name = "aviril", score = 0 })
         :insert({ name = "xaero", score = 100 })

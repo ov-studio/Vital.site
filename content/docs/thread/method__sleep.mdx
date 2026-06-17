@@ -13,7 +13,7 @@ local status = self:sleep(
 ```
 
 <Callout type="info">
-  **This function must be called from within a running thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a promise.
+  **This function must be called from within a running util.thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a util.promise.
 
   - **Available** — the thread yields for the given duration and resumes automatically when the timer expires
   - **Outside a thread** — the call is a no-op and returns `false`
@@ -37,7 +37,7 @@ local status = self:sleep(
 ### Examples
 
 ```lua lineNumbers title="Sleep a thread for 5 seconds then continue"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     engine.print("info", "Sleeping for 5 seconds")
     self:sleep(5000)
     engine.print("info", "Awake now")
@@ -47,7 +47,7 @@ entity:resume()
 ```
 
 ```lua lineNumbers title="Sleep repeatedly inside a loop"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     for i = 1, 3 do
         engine.print("info", "Tick", i)
         self:sleep(1000)

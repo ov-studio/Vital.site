@@ -1,5 +1,5 @@
 ---
-title: timer.create
+title: util.timer.create
 description: Creates a new timer instance that executes specified function on a given interval
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local instance = timer.create(
+local instance = util.timer.create(
     exec,
     interval,
     executions
@@ -43,19 +43,19 @@ exec(count)
 ---
 
 ```lua lineNumbers title="Create a one-shot timer"
-local entity = timer.create(function(count)
+local entity = util.timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 1000, 1)
 ```
 
 ```lua lineNumbers title="Create a repeating timer"
-local entity = timer.create(function(count)
+local entity = util.timer.create(function(count)
     engine.print("info", "Counter:", count)
 end, 500, 0)
 ```
 
 ```lua lineNumbers title="Create a timer that fires 3 times then auto-destroys"
-local entity = timer.create(function(count)
+local entity = util.timer.create(function(count)
     engine.print("info", count.."/3")
 end, 1000, 3)
 ```

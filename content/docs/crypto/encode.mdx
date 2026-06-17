@@ -1,5 +1,5 @@
 ---
-title: crypto.encode
+title: util.crypto.encode
 description: Encodes a string into equivalent base64 string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = crypto.encode(
+local result = util.crypto.encode(
     input
 )
 ```
@@ -32,5 +32,5 @@ local result = crypto.encode(
 local input = "Hello World"
 
 engine.print("info", "Input:", input)
-engine.print("info", "Encoded:", crypto.encode(input))
+engine.print("info", "Encoded:", util.crypto.encode(input))
 ```

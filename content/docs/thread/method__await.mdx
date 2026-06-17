@@ -13,7 +13,7 @@ local bool, ... = self:await(
 ```
 
 <Callout type="info">
-  **This function must be called from within a running thread.** It cannot be used outside a thread context, while the thread is sleeping, or while it is already awaiting another promise.
+  **This function must be called from within a running util.thread.** It cannot be used outside a thread context, while the thread is sleeping, or while it is already awaiting another util.promise.
 
   - **Resolved** — resumes the thread with `true` followed by the resolved values
   - **Rejected** — resumes the thread with `false` followed by the rejection values
@@ -38,22 +38,22 @@ local bool, ... = self:await(
 ### Examples
 
 ```lua lineNumbers title="Await a promise and print the resolved values"
-local p = promise.create()
+local promise = util.promise.create()
 
-local entity = thread.create(function(self)
-    local ok, result = self:await(p)
+local entity = util.thread.create(function(self)
+    local ok, result = self:await(promise)
     engine.print("info", "Resolved:", ok, result)
 end)
 
 entity:resume()
-p:resolve("done")
+promise:resolve("done")
 ```
 
 ```lua lineNumbers title="Handle both resolve and reject outcomes"
-local p = promise.create()
+local promise = util.promise.create()
 
-local entity = thread.create(function(self)
-    local ok, value = self:await(p)
+local entity = util.thread.create(function(self)
+    local ok, value = self:await(promise)
 
     if ok then
         engine.print("info", "Success:", value)
@@ -63,5 +63,5 @@ local entity = thread.create(function(self)
 end)
 
 entity:resume()
-p:reject("something went wrong")
+promise:reject("something went wrong")
 ```

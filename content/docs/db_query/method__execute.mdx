@@ -45,7 +45,7 @@ local promise = self:execute()
 ```lua lineNumbers title="Insert a new player record"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :insert({ name = "aviril", score = 0 })
         :execute())
@@ -59,7 +59,7 @@ end):resume()
 ```lua lineNumbers title="Update the score for a specific player"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :update({ score = 500 })
         :where("name", "=", "aviril")
@@ -74,7 +74,7 @@ end):resume()
 ```lua lineNumbers title="Delete a specific player record"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :delete()
         :where("name", "=", "aviril")

@@ -1,5 +1,5 @@
 ---
-title: file.size
+title: util.file.size
 description: Retrieves the size of a specified file
 badge: Shared
 ---
@@ -7,13 +7,13 @@ badge: Shared
 ### Syntax
 
 ```lua
-local size = file.size(
+local size = util.file.size(
     path
 )
 ```
 
 <Callout type="idea">
-  **Prefix the path with `:resourcename` to access files from another running resource.**
+  **Prefix the path with `:resourcename` to access files from another running util.resource.**
 
   - **Local path** — resolves relative to the current resource's directory
   - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
@@ -37,9 +37,9 @@ local size = file.size(
 ### Examples
 
 ```lua lineNumbers title="Get the size of a file within the current resource"
-engine.print("info", "File size:", file.size("files/images/test.png"))
+engine.print("info", "File size:", util.file.size("files/images/test.png"))
 ```
 
 ```lua lineNumbers title="Get the size of a file from another running resource"
-engine.print("info", "File size:", file.size(":resource_a/files/images/test.png"))
+engine.print("info", "File size:", util.file.size(":resource_a/files/images/test.png"))
 ```

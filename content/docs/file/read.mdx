@@ -1,5 +1,5 @@
 ---
-title: file.read
+title: util.file.read
 description: Reads the content of a specified file
 badge: Shared
 ---
@@ -7,13 +7,13 @@ badge: Shared
 ### Syntax
 
 ```lua
-local content = file.read(
+local content = util.file.read(
     path
 )
 ```
 
 <Callout type="idea">
-  **Prefix the path with `:resourcename` to access files from another running resource.**
+  **Prefix the path with `:resourcename` to access files from another running util.resource.**
 
   - **Local path** — resolves relative to the current resource's directory
   - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
@@ -37,9 +37,9 @@ local content = file.read(
 ### Examples
 
 ```lua lineNumbers title="Read a file within the current resource"
-engine.print("info", "File content:", file.read("files/data.json"))
+engine.print("info", "File content:", util.file.read("files/data.json"))
 ```
 
 ```lua lineNumbers title="Read a file from another running resource"
-engine.print("info", "File content:", file.read(":resource_a/files/data.json"))
+engine.print("info", "File content:", util.file.read(":resource_a/files/data.json"))
 ```

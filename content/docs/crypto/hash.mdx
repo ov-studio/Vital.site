@@ -1,5 +1,5 @@
 ---
-title: crypto.hash
+title: util.crypto.hash
 description: Retrieves computed cryptographic hash of a string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local hash = crypto.hash(
+local hash = util.crypto.hash(
     mode,
     input
 )
@@ -46,5 +46,5 @@ local hash = crypto.hash(
 local input = "Hello World"
 
 engine.print("info", "Input:", input)
-engine.print("info", "Hash:", crypto.hash("SHA256", input))
+engine.print("info", "Hash:", util.crypto.hash("SHA256", input))
 ```

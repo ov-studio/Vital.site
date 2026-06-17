@@ -1,5 +1,5 @@
 ---
-title: resource.list
+title: util.resource.list
 description: Returns a list of all loaded resources
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = resource.list()
+local result = util.resource.list()
 ```
 
 ### Parameters
@@ -26,11 +26,11 @@ local result = resource.list()
 ### Examples
 
 ```lua lineNumbers title="Print all loaded resources"
-engine.iprint(resource.list())
+engine.iprint(util.resource.list())
 ```
 
 ```lua lineNumbers title="Count loaded resources"
-local list = resource.list()
+local list = util.resource.list()
 
 engine.print("info", "Loaded resources:", #list)
 ```

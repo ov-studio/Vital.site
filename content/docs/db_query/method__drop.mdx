@@ -45,7 +45,7 @@ local promise = self:drop()
 ```lua lineNumbers title="Drop the 'players' table from the database"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :drop())
 

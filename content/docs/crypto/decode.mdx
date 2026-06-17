@@ -1,5 +1,5 @@
 ---
-title: crypto.decode
+title: util.crypto.decode
 description: Decodes a base64 string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = crypto.decode(
+local result = util.crypto.decode(
     input
 )
 ```
@@ -32,5 +32,5 @@ local result = crypto.decode(
 local input = "SGVsbG8gV29ybGQ="
 
 engine.print("info", "Input:", input)
-engine.print("info", "Decoded:", crypto.decode(input))
+engine.print("info", "Decoded:", util.crypto.decode(input))
 ```

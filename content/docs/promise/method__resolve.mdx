@@ -36,25 +36,25 @@ local status = self:resolve(
 ### Examples
 
 ```lua lineNumbers title="Resolve a promise with a single value"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:resolve(true)
+entity:resolve(true)
 ```
 
 ```lua lineNumbers title="Resolve a promise and retrieve the value from a thread"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:resolve("hello", "world")
+entity:resolve("hello", "world")
 
-thread.create(function(self)
-    local a, b = self:await(p)
+util.thread.create(function(self)
+    local a, b = self:await(entity)
     engine.print("info", a, b) -- 'hello'  'world'
 end):resume()
 ```
 
 ```lua lineNumbers title="Attempt to resolve an already-settled promise"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:resolve(true)
-engine.print("info", p:resolve(false)) -- false
+entity:resolve(true)
+engine.print("info", entity:resolve(false)) -- false
 ```

@@ -1,5 +1,5 @@
 ---
-title: shrinker.decompress
+title: util.shrinker.decompress
 description: Decompresses a compressed string using zstd library
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = shrinker.decompress(
+local result = util.shrinker.decompress(
     input
 )
 ```
@@ -29,8 +29,8 @@ local result = shrinker.decompress(
 ### Examples
 
 ```lua lineNumbers title="Decompresses an input string"
-local input = shrinker.compress("Hello World")
+local input = util.shrinker.compress("Hello World")
 
 engine.print("info", "Input:", input)
-engine.print("info", "Decompressed:", shrinker.decompress(input))
+engine.print("info", "Decompressed:", util.shrinker.decompress(input))
 ```

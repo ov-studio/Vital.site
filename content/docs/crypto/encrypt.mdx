@@ -1,5 +1,5 @@
 ---
-title: crypto.encrypt
+title: util.crypto.encrypt
 description: Encrypts a string into a cryptographically encrypted string
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result, iv = crypto.encrypt(
+local result, iv = util.crypto.encrypt(
     mode,
     input,
     key
@@ -46,7 +46,7 @@ local result, iv = crypto.encrypt(
 ```lua lineNumbers title="Encrypts an input string"
 local input = "Hello World"
 local key = "MySecretKey12345"
-local output, iv = crypto.encrypt("AES256", input, key)
+local output, iv = util.crypto.encrypt("AES256", input, key)
 
 engine.print("info", "Input:", input)
 engine.print("info", "Encrypted:", output, "IV:", iv)

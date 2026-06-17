@@ -37,7 +37,7 @@ local query = self:delete()
 ```lua lineNumbers title="Delete a specific player record"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :delete()
         :where("name", "=", "aviril")
@@ -52,7 +52,7 @@ end):resume()
 ```lua lineNumbers title="Delete all rows in the 'players' table"
 local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-thread.create(function(self)
+util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :delete()
         :execute())

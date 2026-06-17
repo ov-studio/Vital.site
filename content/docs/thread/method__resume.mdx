@@ -11,7 +11,7 @@ local status = self:resume()
 ```
 
 <Callout type="info">
-  **A thread cannot be resumed while it is sleeping or awaiting a promise.** Both states must be cleared before `self:resume` can run successfully.
+  **A thread cannot be resumed while it is sleeping or awaiting a util.promise.** Both states must be cleared before `self:resume` can run successfully.
 
   - **Sleeping** — the thread is currently inside a [`self:sleep`](/docs/thread/method/sleep) call and has not yet woken up
   - **Awaiting** — the thread is currently suspended inside a [`self:await`](/docs/thread/method/await) call waiting for a promise to settle
@@ -33,7 +33,7 @@ local status = self:resume()
 ### Examples
 
 ```lua lineNumbers title="Create and resume a basic thread"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     engine.print("info", "Hello from thread")
 end)
 
@@ -41,7 +41,7 @@ entity:resume()
 ```
 
 ```lua lineNumbers title="Attempt to resume a sleeping thread"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     self:sleep(5000)
 end)
 

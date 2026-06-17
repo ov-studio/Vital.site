@@ -36,18 +36,18 @@ local status = self:reject(
 ### Examples
 
 ```lua lineNumbers title="Reject a promise with an error message"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:reject("something went wrong")
+entity:reject("something went wrong")
 ```
 
 ```lua lineNumbers title="Reject a promise and handle the error from a thread"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:reject("connection timed out")
+entity:reject("connection timed out")
 
-thread.create(function(self)
-    local ok, err = self:await(p)
+util.thread.create(function(self)
+    local ok, err = self:await(entity)
 
     if not ok then
         engine.print("error", err) -- 'connection timed out'
@@ -56,8 +56,8 @@ end):resume()
 ```
 
 ```lua lineNumbers title="Attempt to reject an already-settled promise"
-local p = promise.create()
+local entity = util.promise.create()
 
-p:resolve(true)
-engine.print("info", p:reject("too late")) -- false
+entity:resolve(true)
+engine.print("info", entity:reject("too late")) -- false
 ```

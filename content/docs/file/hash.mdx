@@ -1,5 +1,5 @@
 ---
-title: file.hash
+title: util.file.hash
 description: Retrieves the hash of a specified file
 badge: Shared
 ---
@@ -7,14 +7,14 @@ badge: Shared
 ### Syntax
 
 ```lua
-local hash = file.hash(
+local hash = util.file.hash(
     path,
     mode
 )
 ```
 
 <Callout type="idea">
-  **Prefix the path with `:resourcename` to access files from another running resource.**
+  **Prefix the path with `:resourcename` to access files from another running util.resource.**
 
   - **Local path** — resolves relative to the current resource's directory
   - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
@@ -26,7 +26,7 @@ local hash = file.hash(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | path | File path to hash |
-| `string` | mode | Hashing algorithm to use - same modes as used in [`crypto.hash`](/docs/crypto/hash) |
+| `string` | mode | Hashing algorithm to use - same modes as used in [`util.crypto.hash`](/docs/crypto/hash) |
 
 ### Returns
 
@@ -39,9 +39,9 @@ local hash = file.hash(
 ### Examples
 
 ```lua lineNumbers title="Hash a file within the current resource"
-engine.print("info", "File hash:", file.hash("files/images/test.png", "SHA256"))
+engine.print("info", "File hash:", util.file.hash("files/images/test.png", "SHA256"))
 ```
 
 ```lua lineNumbers title="Hash a file from another running resource"
-engine.print("info", "File hash:", file.hash(":resource_a/files/images/test.png", "SHA256"))
+engine.print("info", "File hash:", util.file.hash(":resource_a/files/images/test.png", "SHA256"))
 ```

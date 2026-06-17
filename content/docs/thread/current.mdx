@@ -1,5 +1,5 @@
 ---
-title: thread.current
+title: util.thread.current
 description: Retrieves the currently running thread instance
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = thread.current()
+local result = util.thread.current()
 ```
 
 ### Parameters
@@ -26,15 +26,15 @@ local result = thread.current()
 ### Examples
 
 ```lua lineNumbers title="Retrieve the currently running thread from within a thread"
-local entity = thread.create(function(self)
-    engine.print("info", "Running thread:", thread.current())
+local entity = util.thread.create(function(self)
+    engine.print("info", "Running thread:", util.thread.current())
 end)
 
 entity:resume()
 ```
 
 ```lua lineNumbers title="Check whether code is running inside a thread"
-local running = thread.current()
+local running = util.thread.current()
 
 if not running then
     engine.print("info", "Not inside a thread")

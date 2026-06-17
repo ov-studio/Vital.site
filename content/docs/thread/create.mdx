@@ -1,5 +1,5 @@
 ---
-title: thread.create
+title: util.thread.create
 description: Creates a new thread instance with specified function in suspended state
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local instance = thread.create(
+local instance = util.thread.create(
     exec
 )
 ```
@@ -41,7 +41,7 @@ exec(self)
 ### Examples
 
 ```lua lineNumbers title="Create and resume a basic thread"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     engine.print("info", "Hello from thread")
 end)
 
@@ -49,7 +49,7 @@ entity:resume()
 ```
 
 ```lua lineNumbers title="Create a thread and sleep inside it"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     engine.print("info", "Sleeping for 2 seconds")
     self:sleep(2000)
     engine.print("info", "Awake now")

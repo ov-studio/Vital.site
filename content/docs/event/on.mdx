@@ -1,5 +1,5 @@
 ---
-title: event.on
+title: util.event.on
 description: Registers a handler function for the specified event
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = event.on(
+local status = util.event.on(
     name,
     exec,
     config = nil
@@ -17,7 +17,7 @@ local status = event.on(
 <Callout type="info">
   **The `thread` global is only available inside async handlers.**
 
-  - **When `async = true`** — handler runs inside a dedicated thread; thread can be accessed via [`thread.current()`](/docs/thread/current)
+  - **When `async = true`** — handler runs inside a dedicated thread; thread can be accessed via [`util.thread.current()`](/docs/thread/current)
   - **When `async = false`** — handler runs inline on the calling thread
 </Callout>
 
@@ -61,20 +61,20 @@ exec(...)
 ### Examples
 
 ```lua lineNumbers title="Register a basic event handler"
-event.on("on_player_join", function(player)
+util.event.on("on_player_join", function(player)
     engine.print("info", "Player joined:", player)
 end)
 ```
 
 ```lua lineNumbers title="Register a handler with a subscription limit"
-event.on("on_pickup_collected", function(pickup)
+util.event.on("on_pickup_collected", function(pickup)
     engine.print("info", "Collected:", pickup)
 end, { subscription_limit = 1 })
 ```
 
 ```lua lineNumbers title="Register an async handler that sleeps"
-event.on("on_round_start", function()
-    local thread = thread.current()
+util.event.on("on_round_start", function()
+    local thread = util.thread.current()
     engine.print("info", "Round started, waiting 5 seconds...")
     thread:sleep(5000)
     engine.print("info", "5 seconds elapsed")

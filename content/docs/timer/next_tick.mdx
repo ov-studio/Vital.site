@@ -1,5 +1,5 @@
 ---
-title: timer.next_tick
+title: util.timer.next_tick
 description: Schedules a function to execute on the next engine tick
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = timer.next_tick(exec)
+local status = util.timer.next_tick(exec)
 ```
 
 ### Parameters
@@ -25,9 +25,9 @@ local status = timer.next_tick(exec)
 ---
 
 ```lua lineNumbers title="Execute after resource starts"
-resource.start("my_resource")
+util.resource.start("my_resource")
 
-timer.next_tick(function()
-    engine.print("info", "Resource running?:", resource.is_running("my_resource"))
+util.timer.next_tick(function()
+    engine.print("info", "Resource running?:", util.resource.is_running("my_resource"))
 end)
 ```

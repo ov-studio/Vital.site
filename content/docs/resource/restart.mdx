@@ -1,5 +1,5 @@
 ---
-title: resource.restart
+title: util.resource.restart
 description: Restarts a running resource
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local result = resource.restart(
+local result = util.resource.restart(
     name
 )
 ```
@@ -38,11 +38,11 @@ local result = resource.restart(
 ### Examples
 
 ```lua lineNumbers title="Restart a resource"
-resource.restart("my_resource")
+util.resource.restart("my_resource")
 ```
 
 ```lua lineNumbers title="Guard restart with a running check"
-if resource.is_running("my_resource") then
-    resource.restart("my_resource")
+if util.resource.is_running("my_resource") then
+    util.resource.restart("my_resource")
 end
 ```

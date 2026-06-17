@@ -29,7 +29,7 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of a thread instance"
-local entity = thread.create(function(self)
+local entity = util.thread.create(function(self)
     self:sleep(2000)
 end)
 

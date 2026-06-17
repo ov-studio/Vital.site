@@ -25,11 +25,11 @@ local status = engine.draw_text(
 ```
 
 <Callout type="warn">
-  **Must be called within the `"sandbox:draw"` event.** Invoking this function outside of that event will have no effect.
+  **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
 
   - **Inside the event** — executes as expected, rendering text to the canvas each frame
   - **Outside the event** — the call will be silently ignored and nothing will be drawn
-  - **Recommended usage** — register a handler via `event.on("sandbox:draw", ...)` and place all canvas draw calls inside it
+  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all canvas draw calls inside it
 </Callout>
 
 ### Parameters
@@ -65,7 +65,7 @@ local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
-event.on("sandbox:draw", function()
+util.event.on("sandbox:draw", function()
     engine.draw_text(
         "Hello World",
         {center[1] - 150, center[2] - 250},
@@ -81,7 +81,7 @@ local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
-event.on("sandbox:draw", function()
+util.event.on("sandbox:draw", function()
     engine.draw_text(
         "Centered",
         {center[1] - 200, center[2] - 150},
@@ -99,7 +99,7 @@ local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
-event.on("sandbox:draw", function()
+util.event.on("sandbox:draw", function()
     engine.draw_text(
         "This is a long string that will wrap inside its bounding box.",
         {center[1] - 400, center[2] - 20},
@@ -119,7 +119,7 @@ local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
-event.on("sandbox:draw", function()
+util.event.on("sandbox:draw", function()
     engine.draw_text(
         "Outlined",
         {center[1] + 100, center[2] - 20},
@@ -141,7 +141,7 @@ local resolution = engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local my_font = font.create("fonts/Roboto-Regular.ttf")
 
-event.on("sandbox:draw", function()
+util.event.on("sandbox:draw", function()
     engine.draw_text(
         "Rotated",
         {center[1] - 100, center[2] + 120},

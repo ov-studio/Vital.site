@@ -1,5 +1,5 @@
 ---
-title: shrinker.compress
+title: util.shrinker.compress
 description: Compresses a string using zstd library
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = shrinker.compress(
+local result = util.shrinker.compress(
     input
 )
 ```
@@ -32,5 +32,5 @@ local result = shrinker.compress(
 local input = "Hello World"
 
 engine.print("info", "Input:", input)
-engine.print("info", "Compressed:", shrinker.compress(input))
+engine.print("info", "Compressed:", util.shrinker.compress(input))
 ```
