@@ -1,5 +1,5 @@
 ---
-title: volumetric_fog.set_temporal_reprojection_enabled
+title: vol_fog.set_temporal_reprojection_enabled
 description: Toggles temporal reprojection for the volumetric fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = volumetric_fog.set_temporal_reprojection_enabled(
+local status = vol_fog.set_temporal_reprojection_enabled(
     state
 )
 ```
@@ -29,5 +29,5 @@ local status = volumetric_fog.set_temporal_reprojection_enabled(
 ### Examples
 
 ```lua lineNumbers title="Enable temporal reprojection for smoother fog at lower cost"
-volumetric_fog.set_temporal_reprojection_enabled(true)
+vol_fog.set_temporal_reprojection_enabled(true)
 ```
