@@ -44,19 +44,19 @@ Formats are ordered highest to lowest quality — or equivalently, lowest to hig
 ### Examples
 
 ```lua lineNumbers title="Reduce VRAM by converting to RGB565"
-local tex = texture.create("assets/background.png")
+local entity = texture.create("assets/background.png")
 
-tex:convert(texture.texel_format.RGB565)
+entity:convert(texture.texel_format.RGB565)
 ```
 
 ```lua lineNumbers title="Convert to RGBA4444 for a low-quality mode"
-local tex = texture.create("assets/sprite.png")
+local entity = texture.create("assets/sprite.png")
 
-tex:convert(texture.texel_format.RGBA4444)
+entity:convert(texture.texel_format.RGBA4444)
 ```
 
 ```lua lineNumbers title="Convert a grayscale mask to L8"
-local tex = texture.create("assets/mask.png")
+local entity = texture.create("assets/mask.png")
 
-tex:convert(texture.texel_format.L8)
+entity:convert(texture.texel_format.L8)
 ```
