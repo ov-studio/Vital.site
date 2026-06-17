@@ -1,5 +1,5 @@
 ---
-title: fog.set_depth_end
+title: gfx.fog.set_depth_end
 description: The depth end distance to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,13 +7,13 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_depth_end(
+local status = gfx.fog.set_depth_end(
     value
 )
 ```
 
 <Callout type="warn">
-  **Only available when the fog mode is set to depth mode.** Refer [`fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
+  **Only available when the fog mode is set to depth mode.** Refer [`gfx.fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
 
   - **Depth mode required** — calling this function in any other fog mode will have no effect
   - **Recommended usage** — set `depth_end` greater than `depth_begin` to define a valid and visible fog transition range
@@ -36,5 +36,5 @@ local status = fog.set_depth_end(
 ### Examples
 
 ```lua lineNumbers title="Fully obscure geometry beyond 200 units"
-fog.set_depth_end(200.0)
+gfx.fog.set_depth_end(200.0)
 ```

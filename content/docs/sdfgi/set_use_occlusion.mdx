@@ -1,5 +1,5 @@
 ---
-title: sdfgi.set_use_occlusion
+title: gfx.sdfgi.set_use_occlusion
 description: Toggles occlusion for the SDFGI post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = sdfgi.set_use_occlusion(
+local status = gfx.sdfgi.set_use_occlusion(
     state
 )
 ```
@@ -29,5 +29,5 @@ local status = sdfgi.set_use_occlusion(
 ### Examples
 
 ```lua lineNumbers title="Enable occlusion for more accurate GI shadowing"
-sdfgi.set_use_occlusion(true)
+gfx.sdfgi.set_use_occlusion(true)
 ```

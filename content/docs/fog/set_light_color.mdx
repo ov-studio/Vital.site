@@ -1,5 +1,5 @@
 ---
-title: fog.set_light_color
+title: gfx.fog.set_light_color
 description: The light color to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,13 +7,13 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_light_color(
+local status = gfx.fog.set_light_color(
     color
 )
 ```
 
 ```lua
-local status = fog.set_light_color(
+local status = gfx.fog.set_light_color(
     hex
 )
 ```
@@ -36,9 +36,9 @@ local status = fog.set_light_color(
 ### Examples
 
 ```lua lineNumbers title="Set fog light color using a color table"
-fog.set_light_color({0.5, 0.6, 0.7, 1.0})
+gfx.fog.set_light_color({0.5, 0.6, 0.7, 1.0})
 ```
 
 ```lua lineNumbers title="Set fog light color using a hex string"
-fog.set_light_color("#8fa3b1")
+gfx.fog.set_light_color("#8fa3b1")
 ```

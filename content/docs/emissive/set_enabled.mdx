@@ -1,5 +1,5 @@
 ---
-title: emissive.set_enabled
+title: gfx.emissive.set_enabled
 description: Toggles the emissive glow post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = emissive.set_enabled(
+local status = gfx.emissive.set_enabled(
     state
 )
 ```
@@ -30,8 +30,8 @@ local status = emissive.set_enabled(
 
 ```lua lineNumbers title="Toggle emissive"
 -- Enable emissive glow
-emissive.set_enabled(true)
+gfx.emissive.set_enabled(true)
 
 -- Disable emissive glow
-emissive.set_enabled(false)
+gfx.emissive.set_enabled(false)
 ```

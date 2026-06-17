@@ -1,5 +1,5 @@
 ---
-title: ssao.set_power
+title: gfx.ssao.set_power
 description: Sets the power curve of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = ssao.set_power(
+local status = gfx.ssao.set_power(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = ssao.set_power(
 ### Examples
 
 ```lua lineNumbers title="Increase occlusion contrast"
-ssao.set_power(2.0)
+gfx.ssao.set_power(2.0)
 ```

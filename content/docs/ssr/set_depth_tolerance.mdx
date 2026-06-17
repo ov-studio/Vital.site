@@ -1,5 +1,5 @@
 ---
-title: ssr.set_depth_tolerance
+title: gfx.ssr.set_depth_tolerance
 description: Sets the depth tolerance of the SSR post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = ssr.set_depth_tolerance(
+local status = gfx.ssr.set_depth_tolerance(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = ssr.set_depth_tolerance(
 ### Examples
 
 ```lua lineNumbers title="Set a lenient depth tolerance for smoother reflections"
-ssr.set_depth_tolerance(0.2)
+gfx.ssr.set_depth_tolerance(0.2)
 ```

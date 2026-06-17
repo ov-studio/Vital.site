@@ -1,5 +1,5 @@
 ---
-title: fog.set_density
+title: gfx.fog.set_density
 description: The density to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_density(
+local status = gfx.fog.set_density(
     value
 )
 ```
@@ -16,7 +16,7 @@ local status = fog.set_density(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | value | Density value to be applied<br/>Controls the overall thickness of the fog. Higher values produce denser, more opaque fog that obscures the scene more quickly with distance |
+| `float` | value | Density value to be applied<br/>Controls the overall thickness of the gfx.fog. Higher values produce denser, more opaque fog that obscures the scene more quickly with distance |
 
 ### Returns
 
@@ -29,5 +29,5 @@ local status = fog.set_density(
 ### Examples
 
 ```lua lineNumbers title="Set a thick dense fog"
-fog.set_density(0.05)
+gfx.fog.set_density(0.05)
 ```

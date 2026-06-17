@@ -1,5 +1,5 @@
 ---
-title: fog.set_depth_curve
+title: gfx.fog.set_depth_curve
 description: The depth curve to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,16 +7,16 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_depth_curve(
+local status = gfx.fog.set_depth_curve(
     value
 )
 ```
 
 <Callout type="warn">
-  **Only available when the fog mode is set to depth mode.** Refer [`fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
+  **Only available when the fog mode is set to depth mode.** Refer [`gfx.fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
 
   - **Depth mode required** — calling this function in any other fog mode will have no effect
-  - **Recommended usage** — combine with [`fog.set_depth_begin`](/docs/fog/set_depth_begin) and [`fog.set_depth_end`](/docs/fog/set_depth_end) to fully control the fog transition shape
+  - **Recommended usage** — combine with [`gfx.fog.set_depth_begin`](/docs/fog/set_depth_begin) and [`gfx.fog.set_depth_end`](/docs/fog/set_depth_end) to fully control the fog transition shape
 </Callout>
 
 ### Parameters
@@ -36,5 +36,5 @@ local status = fog.set_depth_curve(
 ### Examples
 
 ```lua lineNumbers title="Apply an aggressive fog falloff toward the far end"
-fog.set_depth_curve(1.5)
+gfx.fog.set_depth_curve(1.5)
 ```

@@ -1,5 +1,5 @@
 ---
-title: ssao.set_sharpness
+title: gfx.ssao.set_sharpness
 description: Sets the sharpness of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = ssao.set_sharpness(
+local status = gfx.ssao.set_sharpness(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = ssao.set_sharpness(
 ### Examples
 
 ```lua lineNumbers title="Sharpen occlusion edges"
-ssao.set_sharpness(0.98)
+gfx.ssao.set_sharpness(0.98)
 ```

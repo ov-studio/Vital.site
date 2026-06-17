@@ -1,5 +1,5 @@
 ---
-title: fog.set_mode
+title: gfx.fog.set_mode
 description: The fog mode to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_mode(
+local status = gfx.fog.set_mode(
     value
 )
 ```
@@ -30,8 +30,8 @@ local status = fog.set_mode(
 
 ```lua lineNumbers title="Set exponential and depth-based fog modes"
 -- Set exponential fog mode
-fog.set_mode(0)
+gfx.fog.set_mode(0)
 
 -- Set depth-based fog mode
-fog.set_mode(1)
+gfx.fog.set_mode(1)
 ```

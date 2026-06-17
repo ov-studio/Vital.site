@@ -1,5 +1,5 @@
 ---
-title: fog.set_aerial_perspective
+title: gfx.fog.set_aerial_perspective
 description: The aerial perspective blend amount to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_aerial_perspective(
+local status = gfx.fog.set_aerial_perspective(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = fog.set_aerial_perspective(
 ### Examples
 
 ```lua lineNumbers title="Add strong atmospheric haze to distant geometry"
-fog.set_aerial_perspective(0.5)
+gfx.fog.set_aerial_perspective(0.5)
 ```

@@ -1,5 +1,5 @@
 ---
-title: vol_fog.set_gi_inject
+title: gfx.vol_fog.set_gi_inject
 description: The GI injection amount to be set for the volumetric fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = vol_fog.set_gi_inject(
+local status = gfx.vol_fog.set_gi_inject(
     value
 )
 ```
@@ -16,7 +16,7 @@ local status = vol_fog.set_gi_inject(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | value | GI inject value to be applied<br/>Controls how much global illumination light is injected into the volumetric fog. Higher values make the fog respond to and carry indirect light throughout the scene |
+| `float` | value | GI inject value to be applied<br/>Controls how much global illumination light is injected into the volumetric gfx.fog. Higher values make the fog respond to and carry indirect light throughout the scene |
 
 ### Returns
 
@@ -29,5 +29,5 @@ local status = vol_fog.set_gi_inject(
 ### Examples
 
 ```lua lineNumbers title="Allow GI to illuminate the fog volume"
-vol_fog.set_gi_inject(1.0)
+gfx.vol_fog.set_gi_inject(1.0)
 ```

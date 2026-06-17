@@ -1,5 +1,5 @@
 ---
-title: ssao.set_detail
+title: gfx.ssao.set_detail
 description: Sets the detail level of the SSAO post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = ssao.set_detail(
+local status = gfx.ssao.set_detail(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = ssao.set_detail(
 ### Examples
 
 ```lua lineNumbers title="Maximize occlusion detail"
-ssao.set_detail(1.0)
+gfx.ssao.set_detail(1.0)
 ```

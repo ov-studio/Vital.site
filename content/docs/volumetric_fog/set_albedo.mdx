@@ -1,5 +1,5 @@
 ---
-title: vol_fog.set_albedo
+title: gfx.vol_fog.set_albedo
 description: The albedo color to be set for the volumetric fog post-processing effect
 badge: Client
 ---
@@ -7,13 +7,13 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = vol_fog.set_albedo(
+local status = gfx.vol_fog.set_albedo(
     color
 )
 ```
 
 ```lua
-local status = vol_fog.set_albedo(
+local status = gfx.vol_fog.set_albedo(
     hex
 )
 ```
@@ -36,9 +36,9 @@ local status = vol_fog.set_albedo(
 ### Examples
 
 ```lua lineNumbers title="Set a cool blue-tinted fog albedo using a color table"
-vol_fog.set_albedo({0.6, 0.7, 1.0, 1.0})
+gfx.vol_fog.set_albedo({0.6, 0.7, 1.0, 1.0})
 ```
 
 ```lua lineNumbers title="Set albedo color using a hex string"
-vol_fog.set_albedo("#99b3ff")
+gfx.vol_fog.set_albedo("#99b3ff")
 ```

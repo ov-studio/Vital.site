@@ -1,5 +1,5 @@
 ---
-title: fog.set_depth_begin
+title: gfx.fog.set_depth_begin
 description: The depth begin distance to be set for the fog post-processing effect
 badge: Client
 ---
@@ -7,13 +7,13 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = fog.set_depth_begin(
+local status = gfx.fog.set_depth_begin(
     value
 )
 ```
 
 <Callout type="warn">
-  **Only available when the fog mode is set to depth mode.** Refer [`fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
+  **Only available when the fog mode is set to depth mode.** Refer [`gfx.fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
 
   - **Depth mode required** — calling this function in any other fog mode will have no effect
   - **Recommended usage** — set `depth_begin` less than `depth_end` to define a valid and visible fog transition range
@@ -36,5 +36,5 @@ local status = fog.set_depth_begin(
 ### Examples
 
 ```lua lineNumbers title="Start fog at 10 units from the camera"
-fog.set_depth_begin(10.0)
+gfx.fog.set_depth_begin(10.0)
 ```

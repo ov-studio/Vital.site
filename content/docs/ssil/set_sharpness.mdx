@@ -1,5 +1,5 @@
 ---
-title: ssil.set_sharpness
+title: gfx.ssil.set_sharpness
 description: The sharpness to be set for the SSIL post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = ssil.set_sharpness(
+local status = gfx.ssil.set_sharpness(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = ssil.set_sharpness(
 ### Examples
 
 ```lua lineNumbers title="Preserve sharp indirect light edges"
-ssil.set_sharpness(0.98)
+gfx.ssil.set_sharpness(0.98)
 ```

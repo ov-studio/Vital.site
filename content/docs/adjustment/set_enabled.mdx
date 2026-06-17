@@ -1,5 +1,5 @@
 ---
-title: adjustment.set_enabled
+title: gfx.adjustment.set_enabled
 description: Toggles the adjustment post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = adjustment.set_enabled(
+local status = gfx.adjustment.set_enabled(
     state
 )
 ```
@@ -30,8 +30,8 @@ local status = adjustment.set_enabled(
 
 ```lua lineNumbers title="Toggle adjustment"
 -- Enable adjustment
-adjustment.set_enabled(true)
+gfx.adjustment.set_enabled(true)
 
 -- Disable adjustment
-adjustment.set_enabled(false)
+gfx.adjustment.set_enabled(false)
 ```

@@ -1,5 +1,5 @@
 ---
-title: vol_fog.get_temporal_reprojection_amount
+title: gfx.vol_fog.get_temporal_reprojection_amount
 description: Retrieves the current temporal reprojection blend amount of the volumetric fog post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = vol_fog.get_temporal_reprojection_amount()
+local result = gfx.vol_fog.get_temporal_reprojection_amount()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = vol_fog.get_temporal_reprojection_amount()
 ### Examples
 
 ```lua lineNumbers title="Print current temporal reprojection blend amount"
-engine.print("info", "Temporal reprojection amount:", vol_fog.get_temporal_reprojection_amount())
+engine.print("info", "Temporal reprojection amount:", gfx.vol_fog.get_temporal_reprojection_amount())
 ```

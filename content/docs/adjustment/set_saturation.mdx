@@ -1,5 +1,5 @@
 ---
-title: adjustment.set_saturation
+title: gfx.adjustment.set_saturation
 description: Sets the saturation level of the adjustment post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = adjustment.set_saturation(
+local status = gfx.adjustment.set_saturation(
     value
 )
 ```
@@ -30,8 +30,8 @@ local status = adjustment.set_saturation(
 
 ```lua lineNumbers title="Set adjustment saturation"
 -- Set saturation to default
-adjustment.set_saturation(1.0)
+gfx.adjustment.set_saturation(1.0)
 
 -- Desaturate (greyscale)
-adjustment.set_saturation(0.0)
+gfx.adjustment.set_saturation(0.0)
 ```

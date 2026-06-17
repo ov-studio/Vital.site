@@ -1,5 +1,5 @@
 ---
-title: ssil.set_normal_rejection
+title: gfx.ssil.set_normal_rejection
 description: The normal rejection strength to be set for the SSIL post-processing effect
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = ssil.set_normal_rejection(
+local status = gfx.ssil.set_normal_rejection(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = ssil.set_normal_rejection(
 ### Examples
 
 ```lua lineNumbers title="Reduce light leaking at sharp geometry transitions"
-ssil.set_normal_rejection(1.0)
+gfx.ssil.set_normal_rejection(1.0)
 ```
