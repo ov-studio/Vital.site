@@ -33,18 +33,18 @@ local status = self:resume()
 ### Examples
 
 ```lua lineNumbers title="Create and resume a basic thread"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     engine.print("info", "Hello from thread")
 end)
 
-ctx:resume()
+entity:resume()
 ```
 
 ```lua lineNumbers title="Attempt to resume a sleeping thread"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     self:sleep(5000)
 end)
 
-ctx:resume()
-engine.print("info", ctx:resume()) -- false
+entity:resume()
+engine.print("info", entity:resume()) -- false
 ```
