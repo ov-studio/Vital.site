@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local ctx = thread.current()
+local result = thread.current()
 ```
 
 ### Parameters
@@ -19,19 +19,19 @@ local ctx = thread.current()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `thread` \| `bool` | ctx | Currently running `thread` instance, `false` if no thread is active |
+| `thread` \| `bool` | result | Currently running `thread` instance, `false` if no thread is active |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Retrieve the currently running thread from within a thread"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     local running = thread.current()
     engine.print("info", "Running thread:", running)
 end)
 
-ctx:resume()
+entity:resume()
 ```
 
 ```lua lineNumbers title="Check whether code is running inside a thread"
