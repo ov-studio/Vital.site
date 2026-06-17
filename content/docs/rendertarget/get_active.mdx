@@ -26,9 +26,9 @@ local result = rendertarget.get_active()
 ### Examples
 
 ```lua lineNumbers title="Get the currently active rendertarget"
-local rt = rendertarget.get_active()
+local entity = rendertarget.get_active()
 
-if rt then
-    engine.print("info", "Active rendertarget size:", rt:get_size())
+if entity then
+    engine.print("info", "Active rendertarget size:", entity:get_size())
 end
 ```

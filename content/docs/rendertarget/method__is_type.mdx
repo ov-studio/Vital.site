@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of a rendertarget instance"
-local rt = rendertarget.create(1920, 1080, false)
+local entity = rendertarget.create(1920, 1080, false)
 
-engine.print("info", rt:is_type("rendertarget")) -- true
-engine.print("info", rt:is_type("webview")) -- false
+engine.print("info", entity:is_type("rendertarget")) -- true
+engine.print("info", entity:is_type("webview")) -- false
 ```

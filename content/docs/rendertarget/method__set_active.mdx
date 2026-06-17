@@ -31,8 +31,8 @@ local status = self:set_active(
 ### Examples
 
 ```lua lineNumbers title="Set a rendertarget as active and verify its state"
-local rt = rendertarget.create(1920, 1080, false)
+local entity = rendertarget.create(1920, 1080, false)
 
-rt:set_active(true)
-engine.print("info", "Is rendertarget active:", rt:is_active()) -- true
+entity:set_active(true)
+engine.print("info", "Is rendertarget active:", entity:is_active()) -- true
 ```

@@ -33,13 +33,13 @@ local status = rendertarget.set_active(
 ### Examples
 
 ```lua lineNumbers title="Set a rendertarget as active with various clear options"
-local rt = rendertarget.create(1920, 1080, false)
+local entity = rendertarget.create(1920, 1080, false)
 
 -- Bind the rendertarget with a clear
-rendertarget.set_active(rt, true)
+rendertarget.set_active(entity, true)
 
 -- Bind the rendertarget with an immediate clear
-rendertarget.set_active(rt, true, true)
+rendertarget.set_active(entity, true, true)
 
 -- Unset the active rendertarget
 rendertarget.set_active()
