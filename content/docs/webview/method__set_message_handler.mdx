@@ -29,9 +29,9 @@ local status = self:set_message_handler(
 ### Examples
 
 ```lua lineNumbers title="Register a message handler on a webview"
-local wv = webview.create()
+local entity = webview.create()
 
-wv:set_message_handler(function(message)
+entity:set_message_handler(function(message)
     engine.print("info", "Received message:", message)
 end)
 ```

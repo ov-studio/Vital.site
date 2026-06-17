@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of a webview instance"
-local wv = webview.create()
+local entity = webview.create()
 
-engine.print("info", wv:is_type("webview")) -- true
-engine.print("info", wv:is_type("rendertarget")) -- false
+engine.print("info", entity:is_type("webview")) -- true
+engine.print("info", entity:is_type("rendertarget")) -- false
 ```

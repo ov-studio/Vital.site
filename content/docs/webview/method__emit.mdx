@@ -29,8 +29,8 @@ local status = self:emit(
 ### Examples
 
 ```lua lineNumbers title="Send a message from Lua to the webview"
-local wv = webview.create()
+local entity = webview.create()
 
 -- Send a JSON payload to the webview
-wv:emit('{"event":"ready","data":{"user":"aviril"}}')
+entity:emit('{"event":"ready","data":{"user":"aviril"}}')
 ```
