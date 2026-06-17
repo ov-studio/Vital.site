@@ -26,10 +26,10 @@ local status = self:destroy()
 ### Examples
 
 ```lua lineNumbers title="Destroy a thread instance"
-local ctx = thread.create(function(self)
+local entity = thread.create(function(self)
     engine.print("info", "Hello from thread")
 end)
 
-ctx:resume()
-ctx:destroy()
+entity:resume()
+entity:destroy()
 ```
