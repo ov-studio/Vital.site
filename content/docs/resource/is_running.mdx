@@ -30,16 +30,16 @@ local result = util.resource.is_running(
 
 ```lua lineNumbers title="Check if a resource is running"
 if util.resource.is_running("my_resource") then
-    engine.print("info", "Resource is running")
+    core.engine.print("info", "Resource is running")
 end
 ```
 
 ```lua lineNumbers title="Guard an export call based on running state"
 if not util.resource.is_running("inventory_resource") then
-    engine.print("warn", "inventory_resource is not running")
+    core.engine.print("warn", "inventory_resource is not running")
     return
 end
 
 local items = util.export.call("inventory_resource", "get_items")
-engine.iprint(items)
+core.engine.iprint(items)
 ```

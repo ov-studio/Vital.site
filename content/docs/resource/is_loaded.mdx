@@ -36,16 +36,16 @@ local result = util.resource.is_loaded(
 
 ```lua lineNumbers title="Check if a resource is loaded"
 if util.resource.is_loaded("my_resource") then
-    engine.print("info", "Resource is loaded")
+    core.engine.print("info", "Resource is loaded")
 end
 ```
 
 ```lua lineNumbers title="Guard a call based on load state"
 if not util.resource.is_loaded("inventory_resource") then
-    engine.print("warn", "inventory_resource is not loaded")
+    core.engine.print("warn", "inventory_resource is not loaded")
     return
 end
 
 local items = util.export.call("inventory_resource", "get_items")
-engine.iprint(items)
+core.engine.iprint(items)
 ```

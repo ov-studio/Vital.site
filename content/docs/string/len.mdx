@@ -31,62 +31,62 @@ local length = string.len(
 ```lua lineNumbers title="Get the length of a string"
 local len = string.len("hello")
 
-engine.print("info", len) -- 5
+core.engine.print("info", len) -- 5
 ```
 
 ```lua lineNumbers title="Get the length of an empty string"
 local len = string.len("")
 
-engine.print("info", len) -- 0
+core.engine.print("info", len) -- 0
 ```
 
 ```lua lineNumbers title="Length includes spaces"
 local len = string.len("hello world")
 
-engine.print("info", len) -- 11
+core.engine.print("info", len) -- 11
 ```
 
 ```lua lineNumbers title="Length includes special characters"
 local len = string.len("hello\nworld")
 
-engine.print("info", len) -- 11
+core.engine.print("info", len) -- 11
 ```
 
 ```lua lineNumbers title="Length includes null bytes"
 local len = string.len("hello\0world")
 
-engine.print("info", len) -- 11
+core.engine.print("info", len) -- 11
 ```
 
 ```lua lineNumbers title="Get the length of a numeric string"
 local len = string.len("12345")
 
-engine.print("info", len) -- 5
+core.engine.print("info", len) -- 5
 ```
 
 ```lua lineNumbers title="Use the # operator as an alternative"
 local len = #"hello"
 
-engine.print("info", len) -- 5
+core.engine.print("info", len) -- 5
 ```
 
 ```lua lineNumbers title="Compare string.len and # operator"
 local str = "Lua programming"
 
-engine.print("info", string.len(str)) -- 15
-engine.print("info", #str) -- 15
-engine.print("info", string.len(len)) -- 15
+core.engine.print("info", string.len(str)) -- 15
+core.engine.print("info", #str) -- 15
+core.engine.print("info", string.len(len)) -- 15
 ```
 
 ```lua lineNumbers title="Multi-byte UTF-8 characters count as multiple bytes"
 local str = "hello™"
 
-engine.print("info", string.len(str)) -- 8
+core.engine.print("info", string.len(str)) -- 8
 ```
 
 ```lua lineNumbers title="Use length in a conditional check"
 if string.len("test") > 0 then
-    engine.print("info", "String is not empty")
+    core.engine.print("info", "String is not empty")
 end
 ```
 
@@ -95,6 +95,6 @@ local str = "  hello  "
 local trimmed = string.gsub(str, "^%s+", "")
 trimmed = string.gsub(trimmed, "%s+$", "")
 
-engine.print("info", string.len(str)) -- 9
-engine.print("info", string.len(trimmed)) -- 5
+core.engine.print("info", string.len(str)) -- 9
+core.engine.print("info", string.len(trimmed)) -- 5
 ```

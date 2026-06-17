@@ -26,8 +26,8 @@ local result = self:is_active()
 ### Examples
 
 ```lua lineNumbers title="Check if a rendertarget is currently active"
-local entity = rendertarget.create(1920, 1080, false)
+local entity = core.rendertarget.create(1920, 1080, false)
 
 entity:set_active()
-engine.print("info", "Is rendertarget active:", entity:is_active()) -- true
+core.engine.print("info", "Is rendertarget active:", entity:is_active()) -- true
 ```

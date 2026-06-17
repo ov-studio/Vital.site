@@ -27,7 +27,7 @@ local status = self:destroy()
 
 ```lua lineNumbers title="Destroy a thread instance"
 local entity = util.thread.create(function(self)
-    engine.print("info", "Hello from thread")
+    core.engine.print("info", "Hello from thread")
 end)
 
 entity:resume()

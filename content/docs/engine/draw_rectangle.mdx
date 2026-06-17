@@ -1,5 +1,5 @@
 ---
-title: engine.draw_rectangle
+title: core.engine.draw_rectangle
 description: Draws a filled rectangle on the canvas
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = engine.draw_rectangle(
+local status = core.engine.draw_rectangle(
     position, 
     size, 
     color = {1, 1, 1, 1}, 
@@ -49,12 +49,12 @@ local status = engine.draw_rectangle(
 ### Examples
 
 ```lua lineNumbers title="Draw a plain white rectangle"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_rectangle(
+    core.engine.draw_rectangle(
         {center[1] - size[1] * 0.5, center[2] - 200},
         size
     )
@@ -62,12 +62,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a filled rectangle with an outline"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_rectangle(
+    core.engine.draw_rectangle(
         {center[1] - size[1] * 0.5, center[2] - size[2] * 0.5},
         size,
         {0, 1, 0, 1},
@@ -78,12 +78,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a rectangle rotated around its center"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_rectangle(
+    core.engine.draw_rectangle(
         {center[1] - size[1] * 0.5, center[2] + 120},
         size,
         {1, 0.5, 0, 1},

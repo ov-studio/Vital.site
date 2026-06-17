@@ -29,21 +29,21 @@ local position = self:get_bone_position(
 ### Examples
 
 ```lua lineNumbers title="Get the world-space position of a bone"
-local entity = model.create("character")
+local entity = core.model.create("character")
 local position = entity:get_bone_position("Head")
 
-engine.print("info", "Bone position:", position[1], position[2], position[3])
+core.engine.print("info", "Bone position:", position[1], position[2], position[3])
 ```
 
 ```lua lineNumbers title="Draw a screen-space marker at a bone's world position"
-local entity = model.create("character")
+local entity = core.model.create("character")
 local bone = "Head"
 
 util.event.on("sandbox:draw", function()
     local position = entity:get_bone_position(bone)
-    local screen, distance = engine.world_to_screen(position)
+    local screen, distance = core.engine.world_to_screen(position)
     if screen[1] ~= -1 then
-        engine.draw_circle(screen, 5, {1, 0, 0, 1})
+        core.engine.draw_circle(screen, 5, {1, 0, 0, 1})
     end
 end)
 ```

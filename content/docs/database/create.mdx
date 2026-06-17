@@ -1,5 +1,5 @@
 ---
-title: database.create
+title: core.database.create
 description: Creates a new database instance and establishes a MySQL connection
 badge: Server
 ---
@@ -7,7 +7,7 @@ badge: Server
 ### Syntax
 
 ```lua
-local instance = database.create(
+local instance = core.database.create(
     host,
     user,
     password,
@@ -44,9 +44,9 @@ local instance = database.create(
 ### Examples
 
 ```lua lineNumbers title="Connect to a local database without a password"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 ```
 
 ```lua lineNumbers title="Connect with a password and custom port"
-local db = database.create("127.0.0.1", "root", "secret", "vital_sandbox", 3307)
+local db = core.database.create("127.0.0.1", "root", "secret", "vital_sandbox", 3307)
 ```

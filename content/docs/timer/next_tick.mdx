@@ -28,6 +28,6 @@ local status = util.timer.next_tick(exec)
 util.resource.start("my_resource")
 
 util.timer.next_tick(function()
-    engine.print("info", "Resource running?:", util.resource.is_running("my_resource"))
+    core.engine.print("info", "Resource running?:", util.resource.is_running("my_resource"))
 end)
 ```

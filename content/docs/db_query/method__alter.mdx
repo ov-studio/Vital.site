@@ -68,7 +68,7 @@ local promise = self:alter(
 ### Examples
 
 ```lua lineNumbers title="Add new columns to the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -80,13 +80,13 @@ util.thread.create(function(self)
         }))
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Expand the name column and make score non-nullable"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -98,13 +98,13 @@ util.thread.create(function(self)
         }))
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Drop legacy columns from the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -113,13 +113,13 @@ util.thread.create(function(self)
         }))
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Add, modify, and drop columns in one atomic operation"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -138,7 +138,7 @@ util.thread.create(function(self)
         }))
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of an SVG instance"
-local entity = svg.create("assets/icon.svg")
+local entity = core.svg.create("assets/icon.svg")
 
-engine.print("info", entity:is_type("svg")) -- true
-engine.print("info", entity:is_type("texture")) -- false
+core.engine.print("info", entity:is_type("svg")) -- true
+core.engine.print("info", entity:is_type("texture")) -- false
 ```

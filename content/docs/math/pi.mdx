@@ -19,21 +19,21 @@ Represents the ratio of a circle's circumference to its diameter.
 ### Examples
 
 ```lua lineNumbers title="Print the value of pi"
-engine.print("info", math.pi) -- 3.1415926535898
+core.engine.print("info", math.pi) -- 3.1415926535898
 ```
 
 ```lua lineNumbers title="Compute the circumference of a circle"
 local radius = 5
 local circumference = 2 * math.pi * radius
 
-engine.print("info", circumference) -- 31.415926535898
+core.engine.print("info", circumference) -- 31.415926535898
 ```
 
 ```lua lineNumbers title="Compute the area of a circle"
 local radius = 3
 local area = math.pi * radius * radius
 
-engine.print("info", area) -- 28.274333882308
+core.engine.print("info", area) -- 28.274333882308
 ```
 
 ```lua lineNumbers title="Generate a full circle of evenly spaced points"
@@ -43,7 +43,7 @@ for i = 0, point_count - 1 do
     local angle = 2 * math.pi * i / point_count
     local pos_x = math.cos(angle)
     local pos_y = math.sin(angle)
-    engine.print("info", pos_x, pos_y)
+    core.engine.print("info", pos_x, pos_y)
 end
 ```
 
@@ -51,11 +51,11 @@ end
 local radius = 4
 local volume = (4 / 3) * math.pi * radius * radius * radius
 
-engine.print("info", volume) -- 268.08257310942
+core.engine.print("info", volume) -- 268.08257310942
 ```
 
 ```lua lineNumbers title="Convert 180 degrees to radians using pi directly"
 local radians = math.pi
 
-engine.print("info", radians) -- 3.1415926535898
+core.engine.print("info", radians) -- 3.1415926535898
 ```

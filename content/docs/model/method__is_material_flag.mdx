@@ -35,11 +35,11 @@ local result = self:is_material_flag(
 ### Examples
 
 ```lua lineNumbers title="Check if certain flags are enabled on a material"
-local entity = model.create("character")
+local entity = core.model.create("character")
 
 -- Check if depth test is disabled on a material
-engine.print("info", "Depth test disabled:", entity:is_material_flag("Skeleton3D/Body", "outline", 0))
+core.engine.print("info", "Depth test disabled:", entity:is_material_flag("Skeleton3D/Body", "outline", 0))
 
 -- Check if the material ignores shadows
-engine.print("info", "Shadows disabled:", entity:is_material_flag("Skeleton3D/Head", "face", 13))
+core.engine.print("info", "Shadows disabled:", entity:is_material_flag("Skeleton3D/Head", "face", 13))
 ```

@@ -31,25 +31,25 @@ local result = math.exp(
 ```lua lineNumbers title="e to the power of 1"
 local result = math.exp(1)
 
-engine.print("info", result) -- 2.718281828459
+core.engine.print("info", result) -- 2.718281828459
 ```
 
 ```lua lineNumbers title="e to the power of 0"
 local result = math.exp(0)
 
-engine.print("info", result) -- 1.0
+core.engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="e to the power of 2"
 local result = math.exp(2)
 
-engine.print("info", result) -- 7.3890560989307
+core.engine.print("info", result) -- 7.3890560989307
 ```
 
 ```lua lineNumbers title="e to a negative power"
 local result = math.exp(-1)
 
-engine.print("info", result) -- 0.36787944117144
+core.engine.print("info", result) -- 0.36787944117144
 ```
 
 ```lua lineNumbers title="Exponential decay formula"
@@ -58,12 +58,12 @@ local rate = 0.05
 local time = 10
 local remaining = initial * math.exp(-rate * time)
 
-engine.print("info", remaining) -- 60.653065971263
+core.engine.print("info", remaining) -- 60.653065971263
 ```
 
 ```lua lineNumbers title="Verify exp and log are inverses"
 local value = 3.5
 local result = math.exp(math.log(value))
 
-engine.print("info", result) -- 3.5
+core.engine.print("info", result) -- 3.5
 ```

@@ -38,7 +38,7 @@ local query = self:select(
 ### Examples
 
 ```lua lineNumbers title="Fetch specific columns from the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
@@ -47,14 +47,14 @@ util.thread.create(function(self)
 
     if ok then
         for i = 1, #rows do
-            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+            core.engine.print("info", rows[i].id, rows[i].name, rows[i].score)
         end
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Fetch all columns from the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
@@ -62,7 +62,7 @@ util.thread.create(function(self)
 
     if ok then
         for i = 1, #rows do
-            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+            core.engine.print("info", rows[i].id, rows[i].name, rows[i].score)
         end
     end
 end):resume()

@@ -35,7 +35,7 @@ local result = util.export.list(
 ### Examples
 
 ```lua lineNumbers title="List all export from a resource"
-engine.iprint(util.export.list("my_resource"))
+core.engine.iprint(util.export.list("my_resource"))
 ```
 
 ```lua lineNumbers title="Check whether a specific export exists before calling it"
@@ -51,8 +51,8 @@ end
 
 if has_export then
     local items = util.export.call("inventory_resource", "get_items", player_id)
-    engine.iprint(items)
+    core.engine.iprint(items)
 else
-    engine.print("warn", "Export 'get_items' not found on inventory_resource")
+    core.engine.print("warn", "Export 'get_items' not found on inventory_resource")
 end
 ```

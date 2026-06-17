@@ -26,8 +26,8 @@ local name = self:get_current_animation()
 ### Examples
 
 ```lua lineNumbers title="Get the name of the currently playing animation"
-local entity = model.create("character")
+local entity = core.model.create("character")
 
 entity:play_animation("idle")
-engine.print("info", "Current animation:", entity:get_current_animation())
+core.engine.print("info", "Current animation:", entity:get_current_animation())
 ```

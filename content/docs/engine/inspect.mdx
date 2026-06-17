@@ -1,5 +1,5 @@
 ---
-title: engine.inspect
+title: core.engine.inspect
 description: Returns a human-readable string representation of any value
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = engine.inspect(
+local result = core.engine.inspect(
     input,
     show_hidden = false,
     depth_limit = 0
@@ -34,9 +34,9 @@ local result = engine.inspect(
 
 ```lua lineNumbers title="Inspect a simple table"
 local t = {a = 1, b = 2, c = 3}
-local output = engine.inspect(t)
+local output = core.engine.inspect(t)
 
-engine.print(output)
+core.engine.print(output)
 
 --[[
 Output:
@@ -50,9 +50,9 @@ Output:
 
 ```lua lineNumbers title="Inspect an array"
 local arr = {10, 20, 30}
-local output = engine.inspect(arr)
+local output = core.engine.inspect(arr)
 
-engine.print(output)
+core.engine.print(output)
 
 --[[
 Output:
@@ -72,9 +72,9 @@ local data = {
         zip = 10001
     }
 }
-local output = engine.inspect(data)
+local output = core.engine.inspect(data)
 
-engine.print(output)
+core.engine.print(output)
 
 --[[
 Output:
@@ -90,34 +90,34 @@ Output:
 
 ```lua lineNumbers title="Inspect with a depth limit"
 local deep = {a = {b = {c = {d = {e = 5}}}}}
-local output = engine.inspect(deep, false, 2)
+local output = core.engine.inspect(deep, false, 2)
 
-engine.print(output) -- Shows up to 2 levels, then {...}
+core.engine.print(output) -- Shows up to 2 levels, then {...}
 ```
 
 ```lua lineNumbers title="Inspect primitive values"
 -- Inspect string
 local str = "hello world"
-local output = engine.inspect(str)
-engine.print(output) -- 'hello world'
+local output = core.engine.inspect(str)
+core.engine.print(output) -- 'hello world'
 
 -- Inspect number
 local num = 42
-local output = engine.inspect(num)
-engine.print(output) -- 42
+local output = core.engine.inspect(num)
+core.engine.print(output) -- 42
 
 -- Inspect boolean
 local bool = true
-local output = engine.inspect(bool)
-engine.print(output) -- true
+local output = core.engine.inspect(bool)
+core.engine.print(output) -- true
 
 -- Inspect nil
 local value = nil
-local output = engine.inspect(value)
-engine.print(output) -- nil
+local output = core.engine.inspect(value)
+core.engine.print(output) -- nil
 
 -- Inspect function
 local func = function() return 42 end
-local output = engine.inspect(func)
-engine.print(output) -- '<function: 0x...>'
+local output = core.engine.inspect(func)
+core.engine.print(output) -- '<function: 0x...>'
 ```

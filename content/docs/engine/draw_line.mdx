@@ -1,5 +1,5 @@
 ---
-title: engine.draw_line
+title: core.engine.draw_line
 description: Draws a polyline through a series of 2D points on the canvas
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = engine.draw_line(
+local status = core.engine.draw_line(
     points, 
     stroke = 0, 
     color = {1, 1, 1, 1}
@@ -41,11 +41,11 @@ local status = engine.draw_line(
 ### Examples
 
 ```lua lineNumbers title="Draw a simple horizontal line"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_line(
+    core.engine.draw_line(
         {
             {center[1] - 200, center[2] - 100},
             {center[1] + 200, center[2] - 100}
@@ -56,11 +56,11 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a thick colored diagonal line"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_line(
+    core.engine.draw_line(
         {
             {center[1] - 100, center[2]},
             {center[1] + 100, center[2] + 100}
@@ -72,11 +72,11 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a multi-segment polyline"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_line(
+    core.engine.draw_line(
         {
             {center[1] - 150, center[2] + 150},
             {center[1] - 50,  center[2] + 80},

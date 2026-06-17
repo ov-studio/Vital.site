@@ -31,25 +31,25 @@ local result = string.lower(
 ```lua lineNumbers title="Convert an uppercase string to lowercase"
 local result = string.lower("HELLO")
 
-engine.print("info", result) -- 'hello'
+core.engine.print("info", result) -- 'hello'
 ```
 
 ```lua lineNumbers title="Convert a mixed-case string to lowercase"
 local result = string.lower("Hello World")
 
-engine.print("info", result) -- 'hello world'
+core.engine.print("info", result) -- 'hello world'
 ```
 
 ```lua lineNumbers title="Already-lowercase strings are unchanged"
 local result = string.lower("already lowercase")
 
-engine.print("info", result) -- 'already lowercase'
+core.engine.print("info", result) -- 'already lowercase'
 ```
 
 ```lua lineNumbers title="Numbers and special characters are unchanged"
 local result = string.lower("ABC123!@#")
 
-engine.print("info", result) -- 'abc123!@#'
+core.engine.print("info", result) -- 'abc123!@#'
 ```
 
 ```lua lineNumbers title="Perform a case-insensitive comparison"
@@ -57,7 +57,7 @@ local str1 = "Hello"
 local str2 = "HELLO"
 
 if string.lower(str1) == string.lower(str2) then
-    engine.print("info", "Strings are equal (case-insensitive)")
+    core.engine.print("info", "Strings are equal (case-insensitive)")
 end
 ```
 
@@ -65,7 +65,7 @@ end
 local input = "YES"
 
 if string.lower(input) == "yes" then
-    engine.print("info", "User confirmed")
+    core.engine.print("info", "User confirmed")
 end
 ```
 
@@ -77,7 +77,7 @@ local data = {
 }
 
 for key, value in pairs(data) do
-    engine.print("info", string.lower(key), value)
+    core.engine.print("info", string.lower(key), value)
 end
 
 --[[
@@ -92,23 +92,23 @@ Output:
 local email = "User@Example.COM"
 local normalized = string.lower(email)
 
-engine.print("info", normalized) -- 'user@example.com'
+core.engine.print("info", normalized) -- 'user@example.com'
 ```
 
 ```lua lineNumbers title="Strings with only numbers are unchanged"
 local result = string.lower("123456")
 
-engine.print("info", result) -- '123456'
+core.engine.print("info", result) -- '123456'
 ```
 
 ```lua lineNumbers title="Lowercase an empty string"
 local result = string.lower("")
 
-engine.print("info", result) -- ''
+core.engine.print("info", result) -- ''
 ```
 
 ```lua lineNumbers title="Chain lowercase with other string functions"
 local result = string.lower("HELLO WORLD"):gsub(" ", "_")
 
-engine.print("info", result) -- 'hello_world'
+core.engine.print("info", result) -- 'hello_world'
 ```

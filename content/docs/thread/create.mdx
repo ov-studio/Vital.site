@@ -42,7 +42,7 @@ exec(self)
 
 ```lua lineNumbers title="Create and resume a basic thread"
 local entity = util.thread.create(function(self)
-    engine.print("info", "Hello from thread")
+    core.engine.print("info", "Hello from thread")
 end)
 
 entity:resume()
@@ -50,9 +50,9 @@ entity:resume()
 
 ```lua lineNumbers title="Create a thread and sleep inside it"
 local entity = util.thread.create(function(self)
-    engine.print("info", "Sleeping for 2 seconds")
+    core.engine.print("info", "Sleeping for 2 seconds")
     self:sleep(2000)
-    engine.print("info", "Awake now")
+    core.engine.print("info", "Awake now")
 end)
 
 entity:resume()

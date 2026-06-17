@@ -1,5 +1,5 @@
 ---
-title: engine.get_resolution
+title: core.engine.get_resolution
 description: Retrieves the current screen resolution in absolute pixels
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 ```
 
 
@@ -26,11 +26,11 @@ local resolution = engine.get_resolution()
 
 ### Examples
 ```lua lineNumbers title="Draw a rectangle centered on the screen"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_rectangle(
+    core.engine.draw_rectangle(
         {(resolution[1] - size[1])*0.5, (resolution[2] - size[2])*0.5},
         {size[1], size[2]},
         {1, 1, 1, 1}

@@ -1,5 +1,5 @@
 ---
-title: discord.is_connected
+title: core.discord.is_connected
 description: Retrieves whether the Discord client is currently authenticated and connected
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = discord.is_connected()
+local result = core.discord.is_connected()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local result = discord.is_connected()
 ### Examples
 
 ```lua lineNumbers title="Check if the discord client is currently connected"
-engine.print("info", "Discord connected:", discord.is_connected())
+core.engine.print("info", "Discord connected:", core.discord.is_connected())
 ```

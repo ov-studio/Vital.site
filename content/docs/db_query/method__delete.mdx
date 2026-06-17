@@ -11,7 +11,7 @@ local query = self:delete()
 ```
 
 <Callout type="info">
-  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the database.
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the core.database.
 
   - **Chaining** — compatible with `:where` to target specific rows for deletion
   - **Multiple deletions** — chain multiple `:delete` calls to append additional row deletions
@@ -35,7 +35,7 @@ local query = self:delete()
 ### Examples
 
 ```lua lineNumbers title="Delete a specific player record"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -44,13 +44,13 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Delete all rows in the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -58,7 +58,7 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

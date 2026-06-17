@@ -31,25 +31,25 @@ local result = string.upper(
 ```lua lineNumbers title="Convert a lowercase string to uppercase"
 local result = string.upper("hello")
 
-engine.print("info", result) -- 'HELLO'
+core.engine.print("info", result) -- 'HELLO'
 ```
 
 ```lua lineNumbers title="Convert a mixed-case string to uppercase"
 local result = string.upper("Hello World")
 
-engine.print("info", result) -- 'HELLO WORLD'
+core.engine.print("info", result) -- 'HELLO WORLD'
 ```
 
 ```lua lineNumbers title="Already-uppercase strings are unchanged"
 local result = string.upper("ALREADY UPPERCASE")
 
-engine.print("info", result) -- 'ALREADY UPPERCASE'
+core.engine.print("info", result) -- 'ALREADY UPPERCASE'
 ```
 
 ```lua lineNumbers title="Numbers and special characters are unchanged"
 local result = string.upper("abc123!@#")
 
-engine.print("info", result) -- 'ABC123!@#'
+core.engine.print("info", result) -- 'ABC123!@#'
 ```
 
 ```lua lineNumbers title="Perform a case-insensitive comparison"
@@ -57,7 +57,7 @@ local str1 = "Hello"
 local str2 = "hello"
 
 if string.upper(str1) == string.upper(str2) then
-    engine.print("info", "Strings are equal (case-insensitive)")
+    core.engine.print("info", "Strings are equal (case-insensitive)")
 end
 ```
 
@@ -65,7 +65,7 @@ end
 local input = "yes"
 
 if string.upper(input) == "YES" then
-    engine.print("info", "User confirmed")
+    core.engine.print("info", "User confirmed")
 end
 ```
 
@@ -73,46 +73,46 @@ end
 local varName = "max_value"
 local constant = string.upper(varName)
 
-engine.print("info", constant) -- 'MAX_VALUE'
+core.engine.print("info", constant) -- 'MAX_VALUE'
 ```
 
 ```lua lineNumbers title="Emphasize text with uppercase"
 local text = "warning"
 local emphasized = string.upper(text)
 
-engine.print("info", emphasized) -- 'WARNING'
+core.engine.print("info", emphasized) -- 'WARNING'
 ```
 
 ```lua lineNumbers title="Convert a status string to an enum value"
 local status = "active"
 local enum = string.upper(status)
 
-engine.print("info", enum) -- 'ACTIVE'
+core.engine.print("info", enum) -- 'ACTIVE'
 ```
 
 ```lua lineNumbers title="Strings with only numbers are unchanged"
 local result = string.upper("123456")
 
-engine.print("info", result) -- '123456'
+core.engine.print("info", result) -- '123456'
 ```
 
 ```lua lineNumbers title="Uppercase an empty string"
 local result = string.upper("")
 
-engine.print("info", result) -- ''
+core.engine.print("info", result) -- ''
 ```
 
 ```lua lineNumbers title="Convert a title to an uppercase header"
 local title = "my document title"
 local header = string.upper(title)
 
-engine.print("info", header) -- 'MY DOCUMENT TITLE'
+core.engine.print("info", header) -- 'MY DOCUMENT TITLE'
 ```
 
 ```lua lineNumbers title="Convert a column name to SQL-style uppercase"
 local column = "user_id"
 
-engine.print("info", string.upper(column)) -- 'USER_ID'
+core.engine.print("info", string.upper(column)) -- 'USER_ID'
 ```
 
 ```lua lineNumbers title="Compare two strings ignoring case"
@@ -120,13 +120,13 @@ local function equalsIgnoreCase(a, b)
     return string.upper(a) == string.upper(b)
 end
 
-engine.print("info", equalsIgnoreCase("Test", "test")) -- true
+core.engine.print("info", equalsIgnoreCase("Test", "test")) -- true
 ```
 
 ```lua lineNumbers title="Format a command string in uppercase"
 local cmd = "help"
 
-engine.print("info", "Command: "..string.upper(cmd)) -- 'Command: HELP'
+core.engine.print("info", "Command: "..string.upper(cmd)) -- 'Command: HELP'
 ```
 
 ```lua lineNumbers title="Build an acronym from a phrase"
@@ -136,12 +136,12 @@ for word in string.gmatch(text, "%S+") do
     acronym = acronym..string.upper(string.sub(word, 1, 1))
 end
 
-engine.print("info", acronym) -- 'HML'
+core.engine.print("info", acronym) -- 'HML'
 ```
 
 ```lua lineNumbers title="Convert to shouty snake case"
 local name = "my_variable_name"
 local shouty = string.upper(name)
 
-engine.print("info", shouty) -- 'MY_VARIABLE_NAME'
+core.engine.print("info", shouty) -- 'MY_VARIABLE_NAME'
 ```

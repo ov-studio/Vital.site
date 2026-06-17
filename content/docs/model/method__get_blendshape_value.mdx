@@ -31,7 +31,7 @@ local value = self:get_blendshape_value(
 ### Examples
 
 ```lua lineNumbers title="Get the current value of a blendshape on a component"
-local entity = model.create("character")
+local entity = core.model.create("character")
 
-engine.print("info", "Blend shape value:", entity:get_blendshape_value("Skeleton3D/Head", "smile"))
+core.engine.print("info", "Blend shape value:", entity:get_blendshape_value("Skeleton3D/Head", "smile"))
 ```

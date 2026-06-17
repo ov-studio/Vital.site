@@ -1,5 +1,5 @@
 ---
-title: font.create
+title: core.font.create
 description: Creates a new font instance from a file path
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local instance = font.create(
+local instance = core.font.create(
     path
 )
 ```
@@ -40,13 +40,13 @@ local instance = font.create(
 ### Examples
 
 ```lua lineNumbers title="Create a font instance from a TTF file"
-local entity = font.create("assets/font.ttf")
+local entity = core.font.create("assets/core.font.ttf")
 ```
 
 ```lua lineNumbers title="Create a font instance from an OTF file"
-local entity = font.create("assets/font.otf")
+local entity = core.font.create("assets/core.font.otf")
 ```
 
 ```lua lineNumbers title="Create a font instance from a WOFF2 file"
-local entity = font.create("assets/font.woff2")
+local entity = core.font.create("assets/core.font.woff2")
 ```

@@ -1,5 +1,5 @@
 ---
-title: discord.set_large_image
+title: core.discord.set_large_image
 description: Sets the large image asset of the Discord rich presence activity
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = discord.set_large_image(
+local status = core.discord.set_large_image(
     key,
     text = "N/A"
 )
@@ -32,8 +32,8 @@ local status = discord.set_large_image(
 
 ```lua lineNumbers title="Set the large image on a rich presence activity"
 -- Set large image without tooltip
-discord.set_large_image("logo")
+core.discord.set_large_image("logo")
 
 -- Set large image with tooltip
-discord.set_large_image("logo", "Vital.server")
+core.discord.set_large_image("logo", "Vital.server")
 ```

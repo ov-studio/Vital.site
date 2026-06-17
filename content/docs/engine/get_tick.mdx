@@ -1,5 +1,5 @@
 ---
-title: engine.get_tick
+title: core.engine.get_tick
 description: Retrieves engine's current tickcount
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local tick = engine.get_tick()
+local tick = core.engine.get_tick()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local tick = engine.get_tick()
 ### Examples
 
 ```lua lineNumbers title="Prints engine's current tickcount"
-engine.print("info", "Current tickcount:", engine.get_tick())
+core.engine.print("info", "Current tickcount:", core.engine.get_tick())
 ```

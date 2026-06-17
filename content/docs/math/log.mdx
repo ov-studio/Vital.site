@@ -33,32 +33,32 @@ local result = math.log(
 ```lua lineNumbers title="Natural log of e"
 local result = math.log(math.exp(1))
 
-engine.print("info", result) -- 1.0
+core.engine.print("info", result) -- 1.0
 ```
 
 ```lua lineNumbers title="Natural log of 1 is always 0"
 local result = math.log(1)
 
-engine.print("info", result) -- 0.0
+core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Log base 10"
 local result = math.log(1000, 10)
 
-engine.print("info", result) -- 3.0
+core.engine.print("info", result) -- 3.0
 ```
 
 ```lua lineNumbers title="Log base 2"
 local result = math.log(8, 2)
 
-engine.print("info", result) -- 3.0
+core.engine.print("info", result) -- 3.0
 ```
 
 ```lua lineNumbers title="Compute number of digits in an integer"
 local n = 12345
 local digits = math.floor(math.log(n, 10)) + 1
 
-engine.print("info", digits) -- 5
+core.engine.print("info", digits) -- 5
 ```
 
 ```lua lineNumbers title="Compute how many doublings to reach a target"
@@ -66,12 +66,12 @@ local start = 1
 local target = 1024
 local doublings = math.ceil(math.log(target / start, 2))
 
-engine.print("info", doublings) -- 10
+core.engine.print("info", doublings) -- 10
 ```
 
 ```lua lineNumbers title="Verify log and exp are inverses"
 local value = 5.0
 local result = math.log(math.exp(value))
 
-engine.print("info", result) -- 5.0
+core.engine.print("info", result) -- 5.0
 ```

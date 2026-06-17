@@ -13,7 +13,7 @@ local query = self:update(
 ```
 
 <Callout type="info">
-  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the database.
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the core.database.
 
   - **Chaining** — compatible with `:where` to target specific rows for updating
   - **Multiple updates** — chain multiple `:update` calls to append additional column updates
@@ -38,7 +38,7 @@ local query = self:update(
 ### Examples
 
 ```lua lineNumbers title="Update a column for a specific row in the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -47,13 +47,13 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Update all rows in the 'players' table without a condition"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -61,13 +61,13 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Chain multiple updates and multiple conditions in a single execution"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -78,7 +78,7 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

@@ -43,14 +43,14 @@ local promise = self:drop()
 ### Examples
 
 ```lua lineNumbers title="Drop the 'players' table from the database"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
         :drop())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

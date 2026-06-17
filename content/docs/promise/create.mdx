@@ -43,7 +43,7 @@ local entity = util.promise.create()
 
 util.thread.create(function(self)
     local value = self:await(entity)
-    engine.print("info", value) -- 42
+    core.engine.print("info", value) -- 42
 end):resume()
 
 util.timer.create(function()

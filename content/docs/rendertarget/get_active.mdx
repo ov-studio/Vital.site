@@ -1,5 +1,5 @@
 ---
-title: rendertarget.get_active
+title: core.rendertarget.get_active
 description: Retrieves the currently active rendertarget
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = rendertarget.get_active()
+local result = core.rendertarget.get_active()
 ```
 
 ### Parameters
@@ -26,9 +26,9 @@ local result = rendertarget.get_active()
 ### Examples
 
 ```lua lineNumbers title="Get the currently active rendertarget"
-local entity = rendertarget.get_active()
+local entity = core.rendertarget.get_active()
 
 if entity then
-    engine.print("info", "Active rendertarget size:", entity:get_size())
+    core.engine.print("info", "Active rendertarget size:", entity:get_size())
 end
 ```

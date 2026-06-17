@@ -1,5 +1,5 @@
 ---
-title: engine.iprint
+title: core.engine.iprint
 description: Prints a human-readable representation of any value on engine's console
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = engine.iprint(
+local status = core.engine.iprint(
     value, 
     show_hidden = false, 
     depth_limit = 0
@@ -35,7 +35,7 @@ local status = engine.iprint(
 ```lua lineNumbers title="Print a simple table"
 local t = {a = 1, b = 2, c = 3}
 
-engine.iprint(t)
+core.engine.iprint(t)
 
 --[[
 Output:
@@ -50,7 +50,7 @@ Output:
 ```lua lineNumbers title="Print an array"
 local colors = {"red", "green", "blue"}
 
-engine.iprint(colors)
+core.engine.iprint(colors)
 
 --[[
 Output:
@@ -65,33 +65,33 @@ Output:
 ```lua lineNumbers title="Print with a depth limit"
 local deep = {a = {b = {c = {d = 1}}}}
 
-engine.iprint(deep, false, 2) -- Shows only 2 levels deep
+core.engine.iprint(deep, false, 2) -- Shows only 2 levels deep
 ```
 
 ```lua lineNumbers title="Debug a config table"
 local config = {width = 800, height = 600}
 
-engine.iprint(config) -- Quick way to see table contents
+core.engine.iprint(config) -- Quick way to see table contents
 ```
 
 ```lua lineNumbers title="Print primitive values"
 -- Print string
-engine.iprint("hello world") -- 'hello world'
+core.engine.iprint("hello world") -- 'hello world'
 
 -- Print number
-engine.iprint(42) -- 42
+core.engine.iprint(42) -- 42
 ```
 
 ```lua lineNumbers title="Print with metatable visible"
 local t = {x = 10}
 setmetatable(t, {__tostring = function() return "custom" end})
 
-engine.iprint(t, true) -- Shows metatable when show_hidden = true
+core.engine.iprint(t, true) -- Shows metatable when show_hidden = true
 ```
 
 ```lua lineNumbers title="iprint vs tostring for tables"
 local t = {x = 1, y = 2} -- Better than tostring for tables
 
-engine.print(tostring(t)) -- 'table: 0x...'
-engine.iprint(t) -- Readable format
+core.engine.print(tostring(t)) -- 'table: 0x...'
+core.engine.iprint(t) -- Readable format
 ```

@@ -1,5 +1,5 @@
 ---
-title: engine.compile_string
+title: core.engine.compile_string
 description: Validates whether a buffer contains valid Lua syntax
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result, error = engine.compile_string(
+local result, error = core.engine.compile_string(
     buffer,
     chunk_name = ""
 )
@@ -31,18 +31,18 @@ local result, error = engine.compile_string(
 
 ### Examples
 ```lua lineNumbers title="Check if code is valid before executing"
-local result, err = engine.compile_string("engine.print('info', 'hello')")
+local result, err = core.engine.compile_string("core.engine.print('info', 'hello')")
 if result then
-    engine.print("info", "Valid syntax")
+    core.engine.print("info", "Valid syntax")
 else
-    engine.print("error", err)
+    core.engine.print("error", err)
 end
 ```
 
 ```lua lineNumbers title="Use chunk_name to get readable error locations"
-local result, err = engine.compile_string("local x =", "scripts/init.lua")
+local result, err = core.engine.compile_string("local x =", "scripts/init.lua")
 if not result then
-    engine.print("error", err) -- scripts/init.lua:1: unexpected symbol near '<eof>'
+    core.engine.print("error", err) -- scripts/init.lua:1: unexpected symbol near '<eof>'
 end
 ```
 
@@ -51,9 +51,9 @@ local code = "x = 1 + 1"
 local try_expr = "return "..code
 
 local exec = (
-    engine.compile_string(try_expr) and 
-    engine.load_string(try_expr, nil, false)
-) or engine.load_string(code, nil, false)
+    core.engine.compile_string(try_expr) and 
+    core.engine.load_string(try_expr, nil, false)
+) or core.engine.load_string(code, nil, false)
 
 if exec then
     exec()

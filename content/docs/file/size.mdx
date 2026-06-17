@@ -37,9 +37,9 @@ local size = util.file.size(
 ### Examples
 
 ```lua lineNumbers title="Get the size of a file within the current resource"
-engine.print("info", "File size:", util.file.size("files/images/test.png"))
+core.engine.print("info", "File size:", util.file.size("files/images/test.png"))
 ```
 
 ```lua lineNumbers title="Get the size of a file from another running resource"
-engine.print("info", "File size:", util.file.size(":resource_a/files/images/test.png"))
+core.engine.print("info", "File size:", util.file.size(":resource_a/files/images/test.png"))
 ```

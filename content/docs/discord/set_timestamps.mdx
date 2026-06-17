@@ -1,5 +1,5 @@
 ---
-title: discord.set_timestamps
+title: core.discord.set_timestamps
 description: Sets the elapsed or remaining time shown on the Discord rich presence activity
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = discord.set_timestamps(
+local status = core.discord.set_timestamps(
     start_at,
     end_at = 0
 )
@@ -32,8 +32,8 @@ local status = discord.set_timestamps(
 
 ```lua lineNumbers title="Set various timestamps on a rich presence activity"
 -- Start elapsed timer from now
-discord.set_timestamps(0)
+core.discord.set_timestamps(0)
 
 -- Start timer with a 5 minute countdown
-discord.set_timestamps(0, 300)
+core.discord.set_timestamps(0, 300)
 ```

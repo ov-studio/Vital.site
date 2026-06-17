@@ -1,5 +1,5 @@
 ---
-title: rendertarget.create
+title: core.rendertarget.create
 description: Creates a new rendertarget instance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local instance = rendertarget.create(
+local instance = core.rendertarget.create(
     size,
     transparent = false
 )
@@ -31,7 +31,7 @@ local instance = rendertarget.create(
 ### Examples
 
 ```lua lineNumbers title="Create a rendertarget and set it as active"
-local entity = rendertarget.create({1920, 1080}, false)
+local entity = core.rendertarget.create({1920, 1080}, false)
 
 entity:set_active()
 ```

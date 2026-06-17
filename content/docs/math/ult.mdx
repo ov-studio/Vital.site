@@ -33,38 +33,38 @@ local result = math.ult(
 ```lua lineNumbers title="Unsigned comparison of two positive integers"
 local result = math.ult(3, 5)
 
-engine.print("info", result) -- true
+core.engine.print("info", result) -- true
 ```
 
 ```lua lineNumbers title="Equal values return false"
 local result = math.ult(5, 5)
 
-engine.print("info", result) -- false
+core.engine.print("info", result) -- false
 ```
 
 ```lua lineNumbers title="Larger left side returns false"
 local result = math.ult(9, 4)
 
-engine.print("info", result) -- false
+core.engine.print("info", result) -- false
 ```
 
 ```lua lineNumbers title="Negative numbers are treated as large unsigned values"
 local result = math.ult(1, -1)
 
-engine.print("info", result) -- true
+core.engine.print("info", result) -- true
 ```
 
 ```lua lineNumbers title="maxinteger is less than -1 in unsigned comparison"
 local result = math.ult(math.maxinteger, -1)
 
-engine.print("info", result) -- true
+core.engine.print("info", result) -- true
 ```
 
 ```lua lineNumbers title="Compare two bitmask values as unsigned"
 local mask_a = 0x7FFFFFFF
 local mask_b = 0x80000000
 
-engine.print("info", math.ult(mask_a, mask_b)) -- true
+core.engine.print("info", math.ult(mask_a, mask_b)) -- true
 ```
 
 ```lua lineNumbers title="Use ult to implement unsigned sort order"
@@ -73,6 +73,6 @@ local values = {-1, 0, 1, math.maxinteger, math.mininteger}
 table.sort(values, math.ult)
 
 for _, v in ipairs(values) do
-    engine.print("info", v)
+    core.engine.print("info", v)
 end
 ```

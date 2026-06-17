@@ -45,6 +45,6 @@ local hash = util.crypto.hash(
 ```lua lineNumbers title="Hashes an input string"
 local input = "Hello World"
 
-engine.print("info", "Input:", input)
-engine.print("info", "Hash:", util.crypto.hash("SHA256", input))
+core.engine.print("info", "Input:", input)
+core.engine.print("info", "Hash:", util.crypto.hash("SHA256", input))
 ```

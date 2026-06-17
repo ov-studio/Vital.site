@@ -56,9 +56,9 @@ util.thread.create(function(self)
     local ok, result = self:await(util.http.get("https://api.example.com/info"))
     
     if ok then
-        engine.print("info", "Response:", result)
+        core.engine.print("info", "Response:", result)
     else
-        engine.print("error", "Request failed:", result)
+        core.engine.print("error", "Request failed:", result)
     end
 end):resume()
 ```
@@ -74,9 +74,9 @@ util.thread.create(function(self)
     ))
 
     if ok then
-        engine.print("info", "Response:", result)
+        core.engine.print("info", "Response:", result)
     else
-        engine.print("error", "Request failed:", result)
+        core.engine.print("error", "Request failed:", result)
     end
 end):resume()
 ```

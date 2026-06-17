@@ -19,13 +19,13 @@ Represents the smallest (most negative) integer value representable by Lua's 64-
 ### Examples
 
 ```lua lineNumbers title="Print the minimum integer value"
-engine.print("info", math.mininteger) -- -9223372036854775808
+core.engine.print("info", math.mininteger) -- -9223372036854775808
 ```
 
 ```lua lineNumbers title="mininteger minus 1 wraps around to maxinteger"
 local result = math.mininteger - 1
 
-engine.print("info", result) -- 9223372036854775807
+core.engine.print("info", result) -- 9223372036854775807
 ```
 
 ```lua lineNumbers title="Use as a lower sentinel for maximum searching"
@@ -36,15 +36,15 @@ for _, v in ipairs(values) do
     if v > largest then largest = v end
 end
 
-engine.print("info", largest) -- 400
+core.engine.print("info", largest) -- 400
 ```
 
 ```lua lineNumbers title="mininteger is less than any other integer"
-engine.print("info", math.mininteger < -1000000000) -- true
+core.engine.print("info", math.mininteger < -1000000000) -- true
 ```
 
 ```lua lineNumbers title="Safely take absolute value near the boundary"
 local safe = math.mininteger + 1
 
-engine.print("info", math.abs(safe)) -- 9223372036854775807
+core.engine.print("info", math.abs(safe)) -- 9223372036854775807
 ```

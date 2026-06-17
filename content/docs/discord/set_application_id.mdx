@@ -1,5 +1,5 @@
 ---
-title: discord.set_application_id
+title: core.discord.set_application_id
 description: Sets the Discord application-id and reconnects the client
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = discord.set_application_id(
+local status = core.discord.set_application_id(
     id,
     authenticate = false,
     force_reauth = false
@@ -34,11 +34,11 @@ local status = discord.set_application_id(
 
 ```lua lineNumbers title="Connect with various authentication options"
 -- Connect with a specific application-id
-discord.set_application_id("1461425342722998474")
+core.discord.set_application_id("1461425342722998474")
 
 -- Connect with authentication
-discord.set_application_id("1461425342722998474", true)
+core.discord.set_application_id("1461425342722998474", true)
 
 -- Connect and force re-authentication
-discord.set_application_id("1461425342722998474", true, true)
+core.discord.set_application_id("1461425342722998474", true, true)
 ```

@@ -34,6 +34,6 @@ local entity = util.thread.create(function(self)
 end)
 
 entity:resume()
-engine.print("info", self:is_type("thread")) -- true
-engine.print("info", self:is_type("database")) -- false
+core.engine.print("info", self:is_type("thread")) -- true
+core.engine.print("info", self:is_type("database")) -- false
 ```

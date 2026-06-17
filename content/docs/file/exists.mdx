@@ -37,9 +37,9 @@ local valid = util.file.exists(
 ### Examples
 
 ```lua lineNumbers title="Check if a file exists within the current resource"
-engine.print("info", "File exists:", util.file.exists("files/images/test.png"))
+core.engine.print("info", "File exists:", util.file.exists("files/images/test.png"))
 ```
 
 ```lua lineNumbers title="Check if a file exists from another running resource"
-engine.print("info", "File exists:", util.file.exists(":resource_a/files/images/test.png"))
+core.engine.print("info", "File exists:", util.file.exists(":resource_a/files/images/test.png"))
 ```

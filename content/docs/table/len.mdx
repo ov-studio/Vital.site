@@ -32,56 +32,56 @@ local length = table.len(
 local t = {1, 2, 3, 4, 5}
 local len = table.len(t)
 
-engine.print("info", len) -- 5
+core.engine.print("info", len) -- 5
 ```
 
 ```lua lineNumbers title="Get the length of a packed table using n field"
 local packed = table.pack(1, nil, 3, nil, 5)
 local len = table.len(packed)
 
-engine.print("info", len) -- 5
+core.engine.print("info", len) -- 5
 ```
 
 ```lua lineNumbers title="Length of a table with holes may vary"
 local t = {1, 2, nil, 4}
 local len = table.len(t)
 
-engine.print("info", len) -- 4 (may vary, depends on #)
+core.engine.print("info", len) -- 4 (may vary, depends on #)
 ```
 
 ```lua lineNumbers title="Get the length of an empty table"
 local t = {}
 local len = table.len(t)
 
-engine.print("info", len) -- 0
+core.engine.print("info", len) -- 0
 ```
 
 ```lua lineNumbers title="Compare table.len with the # operator"
 local t = {1, 2, 3}
 
-engine.print("info", table.len(t)) -- 3
-engine.print("info", #t) -- 3
+core.engine.print("info", table.len(t)) -- 3
+core.engine.print("info", #t) -- 3
 ```
 
 ```lua lineNumbers title="table.len is reliable with nil holes"
 local args = table.pack("a", nil, "b", nil, "c")
 
-engine.print("info", #args) -- May be incorrect with nil holes
-engine.print("info", table.len(args)) -- 5 (always correct)
+core.engine.print("info", #args) -- May be incorrect with nil holes
+core.engine.print("info", table.len(args)) -- 5 (always correct)
 ```
 
 ```lua lineNumbers title="Use table.len for safe iteration"
 local t = table.pack(1, nil, 2, nil, 3)
 
 for i = 1, table.len(t) do
-    engine.print("info", i, t[i])
+    core.engine.print("info", i, t[i])
 end
 ```
 
 ```lua lineNumbers title="Check if a table is empty"
 local t = {}
 if table.len(t) == 0 then
-    engine.print("info", "Table is empty")
+    core.engine.print("info", "Table is empty")
 end
 ```
 
@@ -89,5 +89,5 @@ end
 local t = {10, 20, 30, key = "value"}
 local len = table.len(t)
 
-engine.print("info", len) -- 3 (only counts array part)
+core.engine.print("info", len) -- 3 (only counts array part)
 ```

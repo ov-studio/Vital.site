@@ -31,36 +31,36 @@ local result = math.type(
 ```lua lineNumbers title="Integer literal returns 'integer'"
 local result = math.type(1)
 
-engine.print("info", result) -- 'integer'
+core.engine.print("info", result) -- 'integer'
 ```
 
 ```lua lineNumbers title="Float literal returns 'float'"
 local result = math.type(1.0)
 
-engine.print("info", result) -- 'float'
+core.engine.print("info", result) -- 'float'
 ```
 
 ```lua lineNumbers title="Non-number returns false"
 local result = math.type("hello")
 
-engine.print("info", result) -- false
+core.engine.print("info", result) -- false
 ```
 
 ```lua lineNumbers title="Result of integer division is integer"
 local result = math.type(10 // 3)
 
-engine.print("info", result) -- 'integer'
+core.engine.print("info", result) -- 'integer'
 ```
 
 ```lua lineNumbers title="Result of float division is float"
 local result = math.type(10 / 3)
 
-engine.print("info", result) -- 'float'
+core.engine.print("info", result) -- 'float'
 ```
 
 ```lua lineNumbers title="Distinguish integer from float with the same value"
-engine.print("info", math.type(1))   -- 'integer'
-engine.print("info", math.type(1.0)) -- 'float'
+core.engine.print("info", math.type(1))   -- 'integer'
+core.engine.print("info", math.type(1.0)) -- 'float'
 ```
 
 ```lua lineNumbers title="Branch logic by numeric subtype"
@@ -69,11 +69,11 @@ local values = {1, 2.5, 3, 4.0, "hi"}
 for _, v in ipairs(values) do
     local subtype = math.type(v)
     if subtype == "integer" then
-        engine.print("info", v, "is an integer")
+        core.engine.print("info", v, "is an integer")
     elseif subtype == "float" then
-        engine.print("info", v, "is a float")
+        core.engine.print("info", v, "is a float")
     else
-        engine.print("info", v, "is not a number")
+        core.engine.print("info", v, "is not a number")
     end
 end
 ```

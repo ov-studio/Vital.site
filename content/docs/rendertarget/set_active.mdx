@@ -1,5 +1,5 @@
 ---
-title: rendertarget.set_active
+title: core.rendertarget.set_active
 description: Sets the active rendertarget
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = rendertarget.set_active(
+local status = core.rendertarget.set_active(
     instance = nil,
     clear = false,
     instant = false
@@ -33,14 +33,14 @@ local status = rendertarget.set_active(
 ### Examples
 
 ```lua lineNumbers title="Set a rendertarget as active with various clear options"
-local entity = rendertarget.create(1920, 1080, false)
+local entity = core.rendertarget.create(1920, 1080, false)
 
 -- Bind the rendertarget with a clear
-rendertarget.set_active(entity, true)
+core.rendertarget.set_active(entity, true)
 
 -- Bind the rendertarget with an immediate clear
-rendertarget.set_active(entity, true, true)
+core.rendertarget.set_active(entity, true, true)
 
 -- Unset the active rendertarget
-rendertarget.set_active()
+core.rendertarget.set_active()
 ```

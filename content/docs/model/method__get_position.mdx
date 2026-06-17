@@ -26,8 +26,8 @@ local position = self:get_position()
 ### Examples
 
 ```lua lineNumbers title="Get the world-space position of a model"
-local entity = model.create("character")
+local entity = core.model.create("character")
 local position = entity:get_position()
 
-engine.print("info", "Entity position:", position[1], position[2], position[3])
+core.engine.print("info", "Entity position:", position[1], position[2], position[3])
 ```

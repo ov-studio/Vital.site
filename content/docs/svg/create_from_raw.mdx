@@ -1,5 +1,5 @@
 ---
-title: svg.create_from_raw
+title: core.svg.create_from_raw
 description: Creates a new SVG instance from a raw SVG string
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local instance = svg.create_from_raw(
+local instance = core.svg.create_from_raw(
     raw
 )
 ```
@@ -29,7 +29,7 @@ local instance = svg.create_from_raw(
 ### Examples
 
 ```lua lineNumbers title="Create an SVG instance from raw markup"
-local entity = svg.create_from_raw([[
+local entity = core.svg.create_from_raw([[
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="50"/>
     </svg>

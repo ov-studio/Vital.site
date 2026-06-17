@@ -31,37 +31,37 @@ local result = math.deg(
 ```lua lineNumbers title="Convert pi radians to degrees"
 local result = math.deg(math.pi)
 
-engine.print("info", result) -- 180.0
+core.engine.print("info", result) -- 180.0
 ```
 
 ```lua lineNumbers title="Convert pi/2 to degrees"
 local result = math.deg(math.pi / 2)
 
-engine.print("info", result) -- 90.0
+core.engine.print("info", result) -- 90.0
 ```
 
 ```lua lineNumbers title="Convert 0 radians to degrees"
 local result = math.deg(0)
 
-engine.print("info", result) -- 0.0
+core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Convert 2*pi to degrees"
 local result = math.deg(2 * math.pi)
 
-engine.print("info", result) -- 360.0
+core.engine.print("info", result) -- 360.0
 ```
 
 ```lua lineNumbers title="Convert an atan2 result to readable degrees"
 local angle = math.atan(1, 0)
 local degrees = math.deg(angle)
 
-engine.print("info", degrees) -- 90.0
+core.engine.print("info", degrees) -- 90.0
 ```
 
 ```lua lineNumbers title="Print common radian values in degrees"
 for _, rad in ipairs({0, math.pi/6, math.pi/4, math.pi/3, math.pi/2}) do
-    engine.print("info", math.deg(rad))
+    core.engine.print("info", math.deg(rad))
 end
 
 --[[
@@ -78,5 +78,5 @@ Output:
 local original = 135
 local result = math.deg(math.rad(original))
 
-engine.print("info", result) -- 135.0
+core.engine.print("info", result) -- 135.0
 ```

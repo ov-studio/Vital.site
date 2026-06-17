@@ -1,5 +1,5 @@
 ---
-title: engine.draw_polygon
+title: core.engine.draw_polygon
 description: Draws a filled polygon from a series of 2D points on the canvas
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = engine.draw_polygon(
+local status = core.engine.draw_polygon(
     points, 
     color = {1, 1, 1, 1}, 
     stroke = 0, 
@@ -47,11 +47,11 @@ local status = engine.draw_polygon(
 ### Examples
 
 ```lua lineNumbers title="Draw a plain white triangle"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_polygon(
+    core.engine.draw_polygon(
         {
             {center[1],       center[2] - 220},
             {center[1] + 80,  center[2] - 80},
@@ -62,11 +62,11 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a filled triangle with a colored outline"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_polygon(
+    core.engine.draw_polygon(
         {
             {center[1],       center[2] - 80},
             {center[1] + 80,  center[2] + 60},
@@ -80,11 +80,11 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a polygon rotated around a pivot point"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_polygon(
+    core.engine.draw_polygon(
         {
             {center[1] - 50, center[2] + 100},
             {center[1] + 50, center[2] + 100},

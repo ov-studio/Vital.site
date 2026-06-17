@@ -31,37 +31,37 @@ local result = math.acos(
 ```lua lineNumbers title="Arc cosine of 1 is 0"
 local result = math.acos(1)
 
-engine.print("info", result) -- 0.0
+core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Arc cosine of 0 is pi/2"
 local result = math.acos(0)
 
-engine.print("info", result) -- 1.5707963267949
+core.engine.print("info", result) -- 1.5707963267949
 ```
 
 ```lua lineNumbers title="Arc cosine of -1 is pi"
 local result = math.acos(-1)
 
-engine.print("info", result) -- 3.1415926535898
+core.engine.print("info", result) -- 3.1415926535898
 ```
 
 ```lua lineNumbers title="Arc cosine of 0.5 is 60 degrees"
 local result = math.deg(math.acos(0.5))
 
-engine.print("info", result) -- 60.0
+core.engine.print("info", result) -- 60.0
 ```
 
 ```lua lineNumbers title="Compute angle between two normalized vectors"
 local dot_product = 0.5
 local angle_deg = math.deg(math.acos(dot_product))
 
-engine.print("info", angle_deg) -- 60.0
+core.engine.print("info", angle_deg) -- 60.0
 ```
 
 ```lua lineNumbers title="Verify acos and cos are inverses"
 local angle = math.pi / 3
 local result = math.acos(math.cos(angle))
 
-engine.print("info", result) -- 1.0471975511966
+core.engine.print("info", result) -- 1.0471975511966
 ```

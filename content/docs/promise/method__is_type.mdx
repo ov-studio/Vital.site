@@ -31,6 +31,6 @@ local result = self:is_type(
 ```lua lineNumbers title="Check the type of a promise instance"
 local entity = util.promise.create()
 
-engine.print("info", entity:is_type("promise")) -- true
-engine.print("info", entity:is_type("database")) -- false
+core.engine.print("info", entity:is_type("promise")) -- true
+core.engine.print("info", entity:is_type("database")) -- false
 ```

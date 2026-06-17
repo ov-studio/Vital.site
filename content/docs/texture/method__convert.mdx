@@ -32,31 +32,31 @@ Formats are ordered highest to lowest quality — or equivalently, lowest to hig
 
 | Constant | Description |
 |----------|-------------|
-| `texture.texel_format.RGBA8` | 32-bit full color with alpha — standard default |
-| `texture.texel_format.RGB8` | 24-bit full color, no alpha — 25% less VRAM than RGBA8 |
-| `texture.texel_format.RGBA4444` | 16-bit color with alpha — half the VRAM of RGBA8, lower quality |
-| `texture.texel_format.RGB565` | 16-bit color, no alpha — best VRAM savings without alpha |
-| `texture.texel_format.LA8` | 8-bit grayscale with alpha |
-| `texture.texel_format.L8` | 8-bit grayscale, no alpha — lightest option |
+| `core.texture.texel_format.RGBA8` | 32-bit full color with alpha — standard default |
+| `core.texture.texel_format.RGB8` | 24-bit full color, no alpha — 25% less VRAM than RGBA8 |
+| `core.texture.texel_format.RGBA4444` | 16-bit color with alpha — half the VRAM of RGBA8, lower quality |
+| `core.texture.texel_format.RGB565` | 16-bit color, no alpha — best VRAM savings without alpha |
+| `core.texture.texel_format.LA8` | 8-bit grayscale with alpha |
+| `core.texture.texel_format.L8` | 8-bit grayscale, no alpha — lightest option |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Reduce VRAM by converting to RGB565"
-local entity = texture.create("assets/background.png")
+local entity = core.texture.create("assets/background.png")
 
-entity:convert(texture.texel_format.RGB565)
+entity:convert(core.texture.texel_format.RGB565)
 ```
 
 ```lua lineNumbers title="Convert to RGBA4444 for a low-quality mode"
-local entity = texture.create("assets/sprite.png")
+local entity = core.texture.create("assets/sprite.png")
 
-entity:convert(texture.texel_format.RGBA4444)
+entity:convert(core.texture.texel_format.RGBA4444)
 ```
 
 ```lua lineNumbers title="Convert a grayscale mask to L8"
-local entity = texture.create("assets/mask.png")
+local entity = core.texture.create("assets/mask.png")
 
-entity:convert(texture.texel_format.L8)
+entity:convert(core.texture.texel_format.L8)
 ```

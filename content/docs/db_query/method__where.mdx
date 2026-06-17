@@ -53,7 +53,7 @@ local query = self:where(
 ### Examples
 
 ```lua lineNumbers title="Filter rows with a single condition"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
@@ -63,14 +63,14 @@ util.thread.create(function(self)
 
     if ok then
         for i = 1, #rows do
-            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+            core.engine.print("info", rows[i].id, rows[i].name, rows[i].score)
         end
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Chain multiple conditions to filter rows"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, rows = self:await(db:table("players")
@@ -81,14 +81,14 @@ util.thread.create(function(self)
 
     if ok then
         for i = 1, #rows do
-            engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+            core.engine.print("info", rows[i].id, rows[i].name, rows[i].score)
         end
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Update rows with a single condition"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -97,13 +97,13 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Chain multiple conditions to update rows"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -113,7 +113,7 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

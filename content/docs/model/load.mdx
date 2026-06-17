@@ -1,5 +1,5 @@
 ---
-title: model.load
+title: core.model.load
 description: Loads a model from a file path into memory under a given name
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = model.load(
+local status = core.model.load(
     name,
     path
 )
@@ -39,5 +39,5 @@ local status = model.load(
 ### Examples
 
 ```lua lineNumbers title="Load a model from a GLB file"
-model.load("character", "models/character.glb")
+core.model.load("character", "models/character.glb")
 ```

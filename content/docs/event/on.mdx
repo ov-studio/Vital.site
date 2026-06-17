@@ -62,21 +62,21 @@ exec(...)
 
 ```lua lineNumbers title="Register a basic event handler"
 util.event.on("on_player_join", function(player)
-    engine.print("info", "Player joined:", player)
+    core.engine.print("info", "Player joined:", player)
 end)
 ```
 
 ```lua lineNumbers title="Register a handler with a subscription limit"
 util.event.on("on_pickup_collected", function(pickup)
-    engine.print("info", "Collected:", pickup)
+    core.engine.print("info", "Collected:", pickup)
 end, { subscription_limit = 1 })
 ```
 
 ```lua lineNumbers title="Register an async handler that sleeps"
 util.event.on("on_round_start", function()
     local thread = util.thread.current()
-    engine.print("info", "Round started, waiting 5 seconds...")
+    core.engine.print("info", "Round started, waiting 5 seconds...")
     thread:sleep(5000)
-    engine.print("info", "5 seconds elapsed")
+    core.engine.print("info", "5 seconds elapsed")
 end, { async = true })
 ```

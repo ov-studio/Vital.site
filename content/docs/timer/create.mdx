@@ -44,18 +44,18 @@ exec(count)
 
 ```lua lineNumbers title="Create a one-shot timer"
 local entity = util.timer.create(function(count)
-    engine.print("info", "Counter:", count)
+    core.engine.print("info", "Counter:", count)
 end, 1000, 1)
 ```
 
 ```lua lineNumbers title="Create a repeating timer"
 local entity = util.timer.create(function(count)
-    engine.print("info", "Counter:", count)
+    core.engine.print("info", "Counter:", count)
 end, 500, 0)
 ```
 
 ```lua lineNumbers title="Create a timer that fires 3 times then auto-destroys"
 local entity = util.timer.create(function(count)
-    engine.print("info", count.."/3")
+    core.engine.print("info", count.."/3")
 end, 1000, 3)
 ```

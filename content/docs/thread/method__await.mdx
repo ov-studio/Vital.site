@@ -42,7 +42,7 @@ local promise = util.promise.create()
 
 local entity = util.thread.create(function(self)
     local ok, result = self:await(promise)
-    engine.print("info", "Resolved:", ok, result)
+    core.engine.print("info", "Resolved:", ok, result)
 end)
 
 entity:resume()
@@ -56,9 +56,9 @@ local entity = util.thread.create(function(self)
     local ok, value = self:await(promise)
 
     if ok then
-        engine.print("info", "Success:", value)
+        core.engine.print("info", "Success:", value)
     else
-        engine.print("error", "Failed:", value)
+        core.engine.print("error", "Failed:", value)
     end
 end)
 

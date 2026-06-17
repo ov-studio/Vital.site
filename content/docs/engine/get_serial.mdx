@@ -1,5 +1,5 @@
 ---
-title: engine.get_serial
+title: core.engine.get_serial
 description: Retrieves engine's current serial
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local serial = engine.get_serial()
+local serial = core.engine.get_serial()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local serial = engine.get_serial()
 ### Examples
 
 ```lua lineNumbers title="Prints engine's current serial"
-engine.print("info", "Current serial:", engine.get_serial())
+core.engine.print("info", "Current serial:", core.engine.get_serial())
 ```

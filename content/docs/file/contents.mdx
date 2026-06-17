@@ -39,11 +39,11 @@ local contents = util.file.contents(
 ### Examples
 
 ```lua lineNumbers title="List the contents of a directory within the current resource"
-engine.print("info", "File contents:")
-engine.iprint(util.file.contents("files/images"))
+core.engine.print("info", "File contents:")
+core.engine.iprint(util.file.contents("files/images"))
 ```
 
 ```lua lineNumbers title="List the contents of a directory from another running resource"
-engine.print("info", "File contents:")
-engine.iprint(util.file.contents(":resource_a/files/images"))
+core.engine.print("info", "File contents:")
+core.engine.iprint(util.file.contents(":resource_a/files/images"))
 ```

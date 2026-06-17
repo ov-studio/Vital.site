@@ -16,7 +16,7 @@ local status = self:set_oversampling(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | oversampling | Oversampling factor for the font. A value of `1.0` is the default with no oversampling. Higher values improve sharpness when the font is scaled or transformed at the cost of memory |
+| `float` | oversampling | Oversampling factor for the core.font. A value of `1.0` is the default with no oversampling. Higher values improve sharpness when the font is scaled or transformed at the cost of memory |
 
 ### Returns
 
@@ -29,7 +29,7 @@ local status = self:set_oversampling(
 ### Examples
 
 ```lua lineNumbers title="Set the oversampling factor of a font"
-local ft = font.create("fonts/Roboto-Regular.ttf")
+local ft = core.font.create("fonts/Roboto-Regular.ttf")
 
 -- Customize oversampling
 ft:set_oversampling(2.0)

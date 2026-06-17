@@ -1,5 +1,5 @@
 ---
-title: engine.draw_image
+title: core.engine.draw_image
 description: Draws an image on the canvas from a file path or a texture resource
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = engine.draw_image(
+local status = core.engine.draw_image(
     position, 
     size, 
     texture, 
@@ -47,11 +47,11 @@ local status = engine.draw_image(
 ### Examples
 
 ```lua lineNumbers title="Draw an image from a file path"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_image(
+    core.engine.draw_image(
         {center[1] - 128, center[2] - 128},
         {256, 256},
         "assets/logo.png"
@@ -60,11 +60,11 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a tinted image"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_image(
+    core.engine.draw_image(
         {center[1] - 128, center[2] - 128},
         {256, 256},
         "assets/icon.png",
@@ -76,11 +76,11 @@ end)
 ```
 
 ```lua lineNumbers title="Draw an image rotated around its center"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 
 util.event.on("sandbox:draw", function()
-    engine.draw_image(
+    core.engine.draw_image(
         {center[1] - 64, center[2] - 64},
         {128, 128},
         "assets/arrow.png",
@@ -91,12 +91,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw from a texture instance"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_texture = texture.create("assets/logo.png")
+local my_texture = core.texture.create("assets/logo.png")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_image(
+    core.engine.draw_image(
         {center[1] - 128, center[2] - 128},
         {256, 256},
         my_texture
@@ -105,12 +105,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw from an SVG instance"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_svg = svg.create("assets/icon.svg")
+local my_svg = core.svg.create("assets/icon.svg")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_image(
+    core.engine.draw_image(
         {center[1] - 128, center[2] - 128},
         {256, 256},
         my_svg
@@ -119,12 +119,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw from a rendertarget instance"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_rt = rendertarget.create(1920, 1080)
+local my_rt = core.rendertarget.create(1920, 1080)
 
 util.event.on("sandbox:draw", function()
-    engine.draw_image(
+    core.engine.draw_image(
         {center[1] - 200, center[2] - 113},
         {400, 225},
         my_rt

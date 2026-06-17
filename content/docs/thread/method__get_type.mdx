@@ -31,5 +31,5 @@ local entity = util.thread.create(function(self)
 end)
 
 entity:resume()
-engine.print("info", self:get_type()) -- 'thread'
+core.engine.print("info", self:get_type()) -- 'thread'
 ```

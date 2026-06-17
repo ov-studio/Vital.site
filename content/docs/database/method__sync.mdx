@@ -43,7 +43,7 @@ local promise = self:sync()
 ### Examples
 
 ```lua lineNumbers title="Define and sync the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 db:define("players", {
     id = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
@@ -55,7 +55,7 @@ util.thread.create(function(self)
     local ok, err = self:await(db:sync())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

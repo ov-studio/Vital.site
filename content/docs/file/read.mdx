@@ -37,9 +37,9 @@ local content = util.file.read(
 ### Examples
 
 ```lua lineNumbers title="Read a file within the current resource"
-engine.print("info", "File content:", util.file.read("files/data.json"))
+core.engine.print("info", "File content:", util.file.read("files/data.json"))
 ```
 
 ```lua lineNumbers title="Read a file from another running resource"
-engine.print("info", "File content:", util.file.read(":resource_a/files/data.json"))
+core.engine.print("info", "File content:", util.file.read(":resource_a/files/data.json"))
 ```

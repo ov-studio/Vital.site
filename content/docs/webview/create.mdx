@@ -1,5 +1,5 @@
 ---
-title: webview.create
+title: core.webview.create
 description: Creates a new webview instance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local instance = webview.create(
+local instance = core.webview.create(
     options = {}
 )
 ```
@@ -43,14 +43,14 @@ All fields are optional and fall back to their defaults if not specified.
 ### Examples
 
 ```lua lineNumbers title="Create a webview with default options"
-local entity = webview.create()
+local entity = core.webview.create()
 
 entity:set_visible(true)
 entity:load_url("https://google.com")
 ```
 
 ```lua lineNumbers title="Create a webview with custom options"
-local entity = webview.create({
+local entity = core.webview.create({
     fullscreen = true,
     transparent = true,
     incognito = false,

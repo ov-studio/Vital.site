@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of a database instance"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-engine.print("info", db:is_type("database")) -- true
-engine.print("info", db:is_type("font")) -- false
+core.engine.print("info", db:is_type("database")) -- true
+core.engine.print("info", db:is_type("font")) -- false
 ```

@@ -1,5 +1,5 @@
 ---
-title: model.create
+title: core.model.create
 description: Creates a model instance from a previously loaded model
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local entity = model.create(
+local entity = core.model.create(
     name
 )
 ```
@@ -29,7 +29,7 @@ local entity = model.create(
 ### Examples
 
 ```lua lineNumbers title="Create an instance from a loaded model"
-model.load("character", "models/character.glb")
+core.model.load("character", "models/character.glb")
 
-local entity = model.create("character")
+local entity = core.model.create("character")
 ```

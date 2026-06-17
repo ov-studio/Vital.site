@@ -35,9 +35,9 @@ local status = self:pause()
 
 ```lua lineNumbers title="Pause a thread then resume it manually"
 local entity = util.thread.create(function(self)
-    engine.print("info", "Before pause")
+    core.engine.print("info", "Before pause")
     self:pause()
-    engine.print("info", "After resume")
+    core.engine.print("info", "After resume")
 end)
 
 entity:resume()

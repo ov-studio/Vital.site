@@ -1,5 +1,5 @@
 ---
-title: discord.get_username
+title: core.discord.get_username
 description: Retrieves the username of the currently connected Discord account
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = discord.get_username()
+local result = core.discord.get_username()
 ```
 
 ### Parameters
@@ -26,7 +26,7 @@ local result = discord.get_username()
 ### Examples
 
 ```lua lineNumbers title="Get the username of the connected discord account"
-local username = discord.get_username()
+local username = core.discord.get_username()
 
-engine.print("info", "Discord username:", username)
+core.engine.print("info", "Discord username:", username)
 ```

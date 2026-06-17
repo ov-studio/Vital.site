@@ -59,26 +59,26 @@ local status = util.event.emit(
 
 ```lua lineNumbers title="Fire a local event with arguments"
 util.event.on("on_damage", function(amount)
-    engine.print("info", "Damage received:", amount)
+    core.engine.print("info", "Damage received:", amount)
 end)
 
 util.event.emit("on_damage", 50)
 ```
 
 ```lua lineNumbers title="Emit an event from client to server"
-if engine.get_platform() == "client" then
+if core.engine.get_platform() == "client" then
     util.event.emit("on_player_ready", { remote = true }, "Tron", currentMap)
 else
     util.event.on("on_player_ready", function(name, map)
-        engine.print("info", "Player ready:", name, map)
+        core.engine.print("info", "Player ready:", name, map)
     end)
 end
 ```
 
 ```lua lineNumbers title="Broadcast an event from server to all clients"
-if engine.get_platform() == "client" then
+if core.engine.get_platform() == "client" then
     util.event.on("on_round_start", function(roundIndex, mapName)
-        engine.print("info", "Round started:", roundIndex, mapName)
+        core.engine.print("info", "Round started:", roundIndex, mapName)
     end)
 else
     util.event.emit("on_round_start", { remote = true }, 1, "sandstorm")
@@ -86,9 +86,9 @@ end
 ```
 
 ```lua lineNumbers title="Emit an event from server to a specific client"
-if engine.get_platform() == "client" then
+if core.engine.get_platform() == "client" then
     util.event.on("on_kick_notice", function(reason)
-        engine.print("warn", "Kicked:", reason)
+        core.engine.print("warn", "Kicked:", reason)
     end)
 else
     util.event.emit("on_kick_notice", { remote = true, peer = 1963414407 }, "You were kicked")
@@ -96,7 +96,7 @@ end
 ```
 
 ```lua lineNumbers title="Emit a event from client to server and pass a table payload"
-if engine.get_platform() == "client" then
+if core.engine.get_platform() == "client" then
     util.event.emit("on_player_spawn", { remote = true }, {
         name = "Tron",
         pos  = { x = 0, y = 0, z = 0 },
@@ -104,8 +104,8 @@ if engine.get_platform() == "client" then
     })
 else
     util.event.on("on_player_spawn", function(data)
-        engine.print("info", "Player spawned:", data.name, data.team)
-        engine.iprint(data)
+        core.engine.print("info", "Player spawned:", data.name, data.team)
+        core.engine.iprint(data)
     end)
 end
 ```

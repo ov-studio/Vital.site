@@ -38,9 +38,9 @@ local status = self:sleep(
 
 ```lua lineNumbers title="Sleep a thread for 5 seconds then continue"
 local entity = util.thread.create(function(self)
-    engine.print("info", "Sleeping for 5 seconds")
+    core.engine.print("info", "Sleeping for 5 seconds")
     self:sleep(5000)
-    engine.print("info", "Awake now")
+    core.engine.print("info", "Awake now")
 end)
 
 entity:resume()
@@ -49,7 +49,7 @@ entity:resume()
 ```lua lineNumbers title="Sleep repeatedly inside a loop"
 local entity = util.thread.create(function(self)
     for i = 1, 3 do
-        engine.print("info", "Tick", i)
+        core.engine.print("info", "Tick", i)
         self:sleep(1000)
     end
 end)

@@ -31,25 +31,25 @@ local result = math.sqrt(
 ```lua lineNumbers title="Square root of a perfect square"
 local result = math.sqrt(9)
 
-engine.print("info", result) -- 3.0
+core.engine.print("info", result) -- 3.0
 ```
 
 ```lua lineNumbers title="Square root of a non-perfect square"
 local result = math.sqrt(2)
 
-engine.print("info", result) -- 1.4142135623731
+core.engine.print("info", result) -- 1.4142135623731
 ```
 
 ```lua lineNumbers title="Square root of zero"
 local result = math.sqrt(0)
 
-engine.print("info", result) -- 0.0
+core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Square root of a large number"
 local result = math.sqrt(1000000)
 
-engine.print("info", result) -- 1000.0
+core.engine.print("info", result) -- 1000.0
 ```
 
 ```lua lineNumbers title="Calculate 2D distance between two points"
@@ -57,7 +57,7 @@ local dx = 3
 local dy = 4
 local distance = math.sqrt(dx * dx + dy * dy)
 
-engine.print("info", distance) -- 5.0
+core.engine.print("info", distance) -- 5.0
 ```
 
 ```lua lineNumbers title="Normalize a 2D vector"
@@ -65,7 +65,7 @@ local vx, vy = 6, 8
 local length = math.sqrt(vx * vx + vy * vy)
 local nx, ny = vx / length, vy / length
 
-engine.print("info", nx, ny) -- 0.6  0.8
+core.engine.print("info", nx, ny) -- 0.6  0.8
 ```
 
 ```lua lineNumbers title="Check if a point is within a radius"
@@ -74,6 +74,6 @@ local radius = 5
 local dist = math.sqrt(px * px + py * py)
 
 if dist <= radius then
-    engine.print("info", "Inside radius")
+    core.engine.print("info", "Inside radius")
 end
 ```

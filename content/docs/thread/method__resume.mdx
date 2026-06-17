@@ -34,7 +34,7 @@ local status = self:resume()
 
 ```lua lineNumbers title="Create and resume a basic thread"
 local entity = util.thread.create(function(self)
-    engine.print("info", "Hello from thread")
+    core.engine.print("info", "Hello from thread")
 end)
 
 entity:resume()
@@ -46,5 +46,5 @@ local entity = util.thread.create(function(self)
 end)
 
 entity:resume()
-engine.print("info", entity:resume()) -- false
+core.engine.print("info", entity:resume()) -- false
 ```

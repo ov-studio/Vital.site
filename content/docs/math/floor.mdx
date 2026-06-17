@@ -31,31 +31,31 @@ local result = math.floor(
 ```lua lineNumbers title="Floor a positive float"
 local result = math.floor(4.9)
 
-engine.print("info", result) -- 4
+core.engine.print("info", result) -- 4
 ```
 
 ```lua lineNumbers title="Floor a negative float"
 local result = math.floor(-4.2)
 
-engine.print("info", result) -- -5
+core.engine.print("info", result) -- -5
 ```
 
 ```lua lineNumbers title="Floor an exact integer returns itself"
 local result = math.floor(3.0)
 
-engine.print("info", result) -- 3
+core.engine.print("info", result) -- 3
 ```
 
 ```lua lineNumbers title="Truncate a float to integer"
 local result = math.floor(9.99)
 
-engine.print("info", result) -- 9
+core.engine.print("info", result) -- 9
 ```
 
 ```lua lineNumbers title="Compute integer division"
 local result = math.floor(17 / 5)
 
-engine.print("info", result) -- 3
+core.engine.print("info", result) -- 3
 ```
 
 ```lua lineNumbers title="Snap position to grid"
@@ -63,12 +63,12 @@ local pos_x = 137.6
 local grid_size = 32
 local snapped = math.floor(pos_x / grid_size) * grid_size
 
-engine.print("info", snapped) -- 128
+core.engine.print("info", snapped) -- 128
 ```
 
 ```lua lineNumbers title="Convert seconds to whole minutes"
 local seconds = 185
 local minutes = math.floor(seconds / 60)
 
-engine.print("info", minutes) -- 3
+core.engine.print("info", minutes) -- 3
 ```

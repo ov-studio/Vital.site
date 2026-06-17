@@ -1,5 +1,5 @@
 ---
-title: texture.create
+title: core.texture.create
 description: Creates a new texture instance from a file path
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local instance = texture.create(
+local instance = core.texture.create(
     path
 )
 ```
@@ -42,17 +42,17 @@ local instance = texture.create(
 ### Examples
 
 ```lua lineNumbers title="Create a texture instance from a JPEG file"
-local entity = texture.create("assets/photo.jpg")
+local entity = core.texture.create("assets/photo.jpg")
 ```
 
 ```lua lineNumbers title="Create a texture instance from a PNG file"
-local entity = texture.create("assets/sprite.png")
+local entity = core.texture.create("assets/sprite.png")
 ```
 
 ```lua lineNumbers title="Create a texture instance from a WebP file"
-local entity = texture.create("assets/image.webp")
+local entity = core.texture.create("assets/image.webp")
 ```
 
 ```lua lineNumbers title="Create a texture instance from a DDS file"
-local entity = texture.create("assets/terrain.dds")
+local entity = core.texture.create("assets/terrain.dds")
 ```

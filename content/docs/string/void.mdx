@@ -31,17 +31,17 @@ local void = string.void(
 ```lua lineNumbers title="Return true for an empty string"
 local void = string.void("")
 
-engine.print("info", void) -- true
+core.engine.print("info", void) -- true
 ```
 
 ```lua lineNumbers title="Return true for a whitespace-only string"
 local void = string.void("      ")
 
-engine.print("info", void) -- true
+core.engine.print("info", void) -- true
 ```
 
 ```lua lineNumbers title="Return false for a non-empty string"
 local void = string.void("Hello")
 
-engine.print("info", void) -- false
+core.engine.print("info", void) -- false
 ```

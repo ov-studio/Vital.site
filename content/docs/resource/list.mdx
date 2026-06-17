@@ -26,11 +26,11 @@ local result = util.resource.list()
 ### Examples
 
 ```lua lineNumbers title="Print all loaded resources"
-engine.iprint(util.resource.list())
+core.engine.iprint(util.resource.list())
 ```
 
 ```lua lineNumbers title="Count loaded resources"
 local list = util.resource.list()
 
-engine.print("info", "Loaded resources:", #list)
+core.engine.print("info", "Loaded resources:", #list)
 ```

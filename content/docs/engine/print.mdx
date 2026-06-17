@@ -1,5 +1,5 @@
 ---
-title: engine.print
+title: core.engine.print
 description: Prints info on engine's console
 badge: Shared
 ---
@@ -7,18 +7,18 @@ badge: Shared
 ### Syntax
 
 ```lua
-local status = engine.print(
+local status = core.engine.print(
     mode,
     ...
 )
 ```
 
 <Callout type="idea">
-  **For a more human-readable output, consider using [`engine.iprint`](/docs/engine/iprint) instead.**
+  **For a more human-readable output, consider using [`core.engine.iprint`](/docs/engine/iprint) instead.**
 
   - **Basic output** — prints raw values to the console with minimal formatting
-  - **Structured data** — tables and nested types are not expanded; use `engine.iprint` for a fully readable representation
-  - **Recommended usage** — reserve `engine.print` for simple values such as strings and numbers; prefer `engine.iprint` when inspecting complex or nested data structures
+  - **Structured data** — tables and nested types are not expanded; use `core.engine.iprint` for a fully readable representation
+  - **Recommended usage** — reserve `core.engine.print` for simple values such as strings and numbers; prefer `core.engine.iprint` when inspecting complex or nested data structures
 </Callout>
 
 ### Parameters
@@ -43,7 +43,7 @@ local player_name = "Kivi"
 local mem_used, mem_total = 847, 1024
 local asset_path = "assets/models/Hat_01.fbx"
 
-engine.print("info", "Session started")
-engine.print("warn", "Memory usage high:", mem_used, "/", mem_total)
-engine.print("error", "Failed to load asset:", asset_path)
+core.engine.print("info", "Session started")
+core.engine.print("warn", "Memory usage high:", mem_used, "/", mem_total)
+core.engine.print("error", "Failed to load asset:", asset_path)
 ```

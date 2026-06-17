@@ -1,5 +1,5 @@
 ---
-title: engine.get_version
+title: core.engine.get_version
 description: Retrieves engine's current build version
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local version = engine.get_version()
+local version = core.engine.get_version()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local version = engine.get_version()
 ### Examples
 
 ```lua lineNumbers title="Prints engine's current build version"
-engine.print("info", "Build Version:", engine.get_version())
+core.engine.print("info", "Build Version:", core.engine.get_version())
 ```

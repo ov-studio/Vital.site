@@ -1,5 +1,5 @@
 ---
-title: engine.world_to_screen
+title: core.engine.world_to_screen
 description: Projects a 3D world position to 2D screen-space coordinates via the active viewport camera
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local position, distance = engine.world_to_screen(
+local position, distance = core.engine.world_to_screen(
     position,
     padding = 0
 )
@@ -32,14 +32,14 @@ local position, distance = engine.world_to_screen(
 ### Examples
 
 ```lua lineNumbers title="Draw a rectangle at a world position projected to screen"
-local position, distance = engine.world_to_screen({0, 0, 0})
+local position, distance = core.engine.world_to_screen({0, 0, 0})
 local size = {10, 10}
 
 util.event.on("sandbox:draw", function()
-    local position, distance = engine.world_to_screen({0, 0, 0}, size*2)
+    local position, distance = core.engine.world_to_screen({0, 0, 0}, size*2)
     if position[1] == -1 then return false end
 
-    engine.draw_rectangle(
+    core.engine.draw_rectangle(
         {position[1] - size[1]*0.5, position[2] - size[2]*0.5},
         size,
         {1, 0, 0, 1}

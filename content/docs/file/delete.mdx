@@ -37,9 +37,9 @@ local status = util.file.delete(
 ### Examples
 
 ```lua lineNumbers title="Delete a file within the current resource"
-engine.print("info", "File deleted:", util.file.delete("files/images/test.png"))
+core.engine.print("info", "File deleted:", util.file.delete("files/images/test.png"))
 ```
 
 ```lua lineNumbers title="Delete a file from another running resource"
-engine.print("info", "File deleted:", util.file.delete(":resource_a/files/images/test.png"))
+core.engine.print("info", "File deleted:", util.file.delete(":resource_a/files/images/test.png"))
 ```

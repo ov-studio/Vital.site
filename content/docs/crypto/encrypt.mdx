@@ -48,6 +48,6 @@ local input = "Hello World"
 local key = "MySecretKey12345"
 local output, iv = util.crypto.encrypt("AES256", input, key)
 
-engine.print("info", "Input:", input)
-engine.print("info", "Encrypted:", output, "IV:", iv)
+core.engine.print("info", "Input:", input)
+core.engine.print("info", "Encrypted:", output, "IV:", iv)
 ```

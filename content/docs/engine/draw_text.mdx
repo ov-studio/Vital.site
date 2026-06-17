@@ -1,5 +1,5 @@
 ---
-title: engine.draw_text
+title: core.engine.draw_text
 description: Draws text within a bounding box on the canvas
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = engine.draw_text(
+local status = core.engine.draw_text(
     text, 
     start_at, 
     end_at, 
@@ -61,12 +61,12 @@ local status = engine.draw_text(
 ### Examples
 
 ```lua lineNumbers title="Draw simple left-aligned text"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_font = font.create("fonts/Roboto-Regular.ttf")
+local my_font = core.font.create("fonts/Roboto-Regular.ttf")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_text(
+    core.engine.draw_text(
         "Hello World",
         {center[1] - 150, center[2] - 250},
         {center[1] + 150, center[2] - 200},
@@ -77,12 +77,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw centered text with a custom color"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_font = font.create("fonts/Roboto-Regular.ttf")
+local my_font = core.font.create("fonts/Roboto-Regular.ttf")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_text(
+    core.engine.draw_text(
         "Centered",
         {center[1] - 200, center[2] - 150},
         {center[1] + 200, center[2] - 90},
@@ -95,12 +95,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw word-wrapped text clipped to a bounding box"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_font = font.create("fonts/Roboto-Regular.ttf")
+local my_font = core.font.create("fonts/Roboto-Regular.ttf")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_text(
+    core.engine.draw_text(
         "This is a long string that will wrap inside its bounding box.",
         {center[1] - 400, center[2] - 20},
         {center[1] - 150, center[2] + 180},
@@ -115,12 +115,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw text with an outline stroke"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_font = font.create("fonts/Roboto-Regular.ttf")
+local my_font = core.font.create("fonts/Roboto-Regular.ttf")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_text(
+    core.engine.draw_text(
         "Outlined",
         {center[1] + 100, center[2] - 20},
         {center[1] + 400, center[2] + 60},
@@ -137,12 +137,12 @@ end)
 ```
 
 ```lua lineNumbers title="Draw rotated text around a pivot point"
-local resolution = engine.get_resolution()
+local resolution = core.engine.get_resolution()
 local center = {resolution[1] * 0.5, resolution[2] * 0.5}
-local my_font = font.create("fonts/Roboto-Regular.ttf")
+local my_font = core.font.create("fonts/Roboto-Regular.ttf")
 
 util.event.on("sandbox:draw", function()
-    engine.draw_text(
+    core.engine.draw_text(
         "Rotated",
         {center[1] - 100, center[2] + 120},
         {center[1] + 100, center[2] + 170},

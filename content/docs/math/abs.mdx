@@ -31,25 +31,25 @@ local result = math.abs(
 ```lua lineNumbers title="Absolute value of a negative number"
 local result = math.abs(-5)
 
-engine.print("info", result) -- 5
+core.engine.print("info", result) -- 5
 ```
 
 ```lua lineNumbers title="Absolute value of a positive number"
 local result = math.abs(42)
 
-engine.print("info", result) -- 42
+core.engine.print("info", result) -- 42
 ```
 
 ```lua lineNumbers title="Absolute value of zero"
 local result = math.abs(0)
 
-engine.print("info", result) -- 0
+core.engine.print("info", result) -- 0
 ```
 
 ```lua lineNumbers title="Absolute value of a negative float"
 local result = math.abs(-3.14)
 
-engine.print("info", result) -- 3.14
+core.engine.print("info", result) -- 3.14
 ```
 
 ```lua lineNumbers title="Calculate distance between two numbers"
@@ -57,14 +57,14 @@ local a = 10
 local b = 35
 local distance = math.abs(a - b)
 
-engine.print("info", distance) -- 25
+core.engine.print("info", distance) -- 25
 ```
 
 ```lua lineNumbers title="Clamp a delta to avoid overshoot"
 local delta = -0.75
 local speed = math.abs(delta) * 10
 
-engine.print("info", speed) -- 7.5
+core.engine.print("info", speed) -- 7.5
 ```
 
 ```lua lineNumbers title="Check if a value is within tolerance"
@@ -72,6 +72,6 @@ local value = -0.0001
 local tolerance = 0.001
 
 if math.abs(value) < tolerance then
-    engine.print("info", "Within tolerance")
+    core.engine.print("info", "Within tolerance")
 end
 ```

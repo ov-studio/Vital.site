@@ -14,7 +14,7 @@ local status = self:define(
 ```
 
 <Callout type="info">
-  **Defining a schema does not create the table in the database.** Call [`self:sync`](/docs/database/method/sync) after all schemas have been defined to synchronise and create any tables that do not already exist.
+  **Defining a schema does not create the table in the core.database.** Call [`self:sync`](/docs/database/method/sync) after all schemas have been defined to synchronise and create any tables that do not already exist.
 
   - **Before sync** — the schema is registered locally on the database instance only
   - **After sync** — the table is created in the database if it does not already exist
@@ -51,7 +51,7 @@ Each entry in the `columns` table is a key-value pair where the key is the colum
 ### Examples
 
 ```lua lineNumbers title="Define and sync the 'players' table"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 db:define("players", {
     id = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },

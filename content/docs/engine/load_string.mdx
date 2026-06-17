@@ -1,5 +1,5 @@
 ---
-title: engine.load_string
+title: core.engine.load_string
 description: Executes a buffer within the engine
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = engine.load_string(
+local result = core.engine.load_string(
     buffer,
     chunk_name = "",
     auto_load = true,
@@ -36,14 +36,14 @@ local result = engine.load_string(
 
 ### Examples
 ```lua lineNumbers title="Immediate execution with auto_load enabled"
-local result = engine.load_string([[
-    engine.print("info", "Immediate", "Execution")
+local result = core.engine.load_string([[
+    core.engine.print("info", "Immediate", "Execution")
 ]], nil, true)
 ```
 
 ```lua lineNumbers title="Deferred execution with auto_load disabled"
-local exec = engine.load_string([[
-    engine.print("info", "Delayed", "Execution")
+local exec = core.engine.load_string([[
+    core.engine.print("info", "Delayed", "Execution")
 ]], nil, false)
 
 if exec then
@@ -52,7 +52,7 @@ end
 ```
 
 ```lua lineNumbers title="Use chunk_name to get readable error locations"
-local result = engine.load_string(
+local result = core.engine.load_string(
     "local x =", 
     "scripts/init.lua"
 ) -- Error: scripts/init.lua:2: unexpected symbol near '<eof>'
@@ -61,11 +61,11 @@ local result = engine.load_string(
 ```lua lineNumbers title="Persistent environment across multiple load_string calls"
 local env = setmetatable({}, {__index = _G})
 
-engine.load_string([[
+core.engine.load_string([[
     foo = "hello"
 ]], nil, true, true, env)
 
-engine.load_string([[
-    engine.print("info", foo) -- prints "hello"
+core.engine.load_string([[
+    core.engine.print("info", foo) -- prints "hello"
 ]], nil, true, true, env)
 ```

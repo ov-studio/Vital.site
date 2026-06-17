@@ -31,6 +31,6 @@ local result = util.shrinker.decompress(
 ```lua lineNumbers title="Decompresses an input string"
 local input = util.shrinker.compress("Hello World")
 
-engine.print("info", "Input:", input)
-engine.print("info", "Decompressed:", util.shrinker.decompress(input))
+core.engine.print("info", "Input:", input)
+core.engine.print("info", "Decompressed:", util.shrinker.decompress(input))
 ```

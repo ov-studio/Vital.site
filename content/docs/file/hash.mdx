@@ -39,9 +39,9 @@ local hash = util.file.hash(
 ### Examples
 
 ```lua lineNumbers title="Hash a file within the current resource"
-engine.print("info", "File hash:", util.file.hash("files/images/test.png", "SHA256"))
+core.engine.print("info", "File hash:", util.file.hash("files/images/test.png", "SHA256"))
 ```
 
 ```lua lineNumbers title="Hash a file from another running resource"
-engine.print("info", "File hash:", util.file.hash(":resource_a/files/images/test.png", "SHA256"))
+core.engine.print("info", "File hash:", util.file.hash(":resource_a/files/images/test.png", "SHA256"))
 ```

@@ -31,38 +31,38 @@ local result = math.rad(
 ```lua lineNumbers title="Convert 180 degrees to radians"
 local result = math.rad(180)
 
-engine.print("info", result) -- 3.1415926535898
+core.engine.print("info", result) -- 3.1415926535898
 ```
 
 ```lua lineNumbers title="Convert 90 degrees to radians"
 local result = math.rad(90)
 
-engine.print("info", result) -- 1.5707963267949
+core.engine.print("info", result) -- 1.5707963267949
 ```
 
 ```lua lineNumbers title="Convert 0 degrees to radians"
 local result = math.rad(0)
 
-engine.print("info", result) -- 0.0
+core.engine.print("info", result) -- 0.0
 ```
 
 ```lua lineNumbers title="Convert 360 degrees to 2*pi"
 local result = math.rad(360)
 
-engine.print("info", result) -- 6.2831853071796
+core.engine.print("info", result) -- 6.2831853071796
 ```
 
 ```lua lineNumbers title="Pass a degree value directly to sin"
 local result = math.sin(math.rad(30))
 
-engine.print("info", result) -- 0.5
+core.engine.print("info", result) -- 0.5
 ```
 
 ```lua lineNumbers title="Rotate through 8 cardinal directions"
 for i = 0, 7 do
     local deg = i * 45
     local rad = math.rad(deg)
-    engine.print("info", deg, rad)
+    core.engine.print("info", deg, rad)
 end
 ```
 
@@ -70,5 +70,5 @@ end
 local original = math.pi / 3
 local result = math.rad(math.deg(original))
 
-engine.print("info", result) -- 1.0471975511966
+core.engine.print("info", result) -- 1.0471975511966
 ```

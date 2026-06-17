@@ -34,26 +34,26 @@ local result = table.encode(
 local data = {name = "John", age = 25}
 local json = table.encode(data, "JSON")
 
-engine.print("info", json) -- '{"name":"John","age":25}'
+core.engine.print("info", json) -- '{"name":"John","age":25}'
 ```
 
 ```lua lineNumbers title="Encode an array to JSON"
 local colors = {"red", "green", "blue"}
 local json = table.encode(colors, "JSON")
 
-engine.print("info", json) -- '["red","green","blue"]'
+core.engine.print("info", json) -- '["red","green","blue"]'
 ```
 
 ```lua lineNumbers title="Encode a numeric array to JSON"
 local coords = {100, 200, 300}
 local json = table.encode(coords, "JSON")
 
-engine.print("info", json) -- '[100,200,300]'
+core.engine.print("info", json) -- '[100,200,300]'
 ```
 
 ```lua lineNumbers title="Encode boolean values to JSON"
 local settings = {enabled = true, debug = false}
 local json = table.encode(settings, "JSON")
 
-engine.print("info", json) -- '{"enabled":true,"debug":false}'
+core.engine.print("info", json) -- '{"enabled":true,"debug":false}'
 ```

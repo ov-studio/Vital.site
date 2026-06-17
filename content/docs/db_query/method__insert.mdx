@@ -13,7 +13,7 @@ local query = self:insert(
 ```
 
 <Callout type="info">
-  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the database.
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the core.database.
 
   - **Multiple insertions** — chain multiple `:insert` calls to append additional row insertions
 </Callout>
@@ -35,7 +35,7 @@ local query = self:insert(
 ### Examples
 
 ```lua lineNumbers title="Insert a new player record"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -43,13 +43,13 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```
 
 ```lua lineNumbers title="Chain multiple row insertions in a single execution"
-local db = database.create("127.0.0.1", "root", "", "vital_sandbox")
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
 util.thread.create(function(self)
     local ok, err = self:await(db:table("players")
@@ -58,7 +58,7 @@ util.thread.create(function(self)
         :execute())
 
     if not ok then
-        engine.print("error", err)
+        core.engine.print("error", err)
     end
 end):resume()
 ```

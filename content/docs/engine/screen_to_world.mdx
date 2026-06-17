@@ -1,5 +1,5 @@
 ---
-title: engine.screen_to_world
+title: core.engine.screen_to_world
 description: Projects a 2D screen-space position to 3D world-space coordinates via the active viewport camera
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local position = engine.screen_to_world(
+local position = core.engine.screen_to_world(
     position,
     depth = 1
 )
@@ -31,17 +31,17 @@ local position = engine.screen_to_world(
 ### Examples
 
 ```lua lineNumbers title="Convert screen center to world position"
-local resolution = engine.get_resolution()
-local position = engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 100)
+local resolution = core.engine.get_resolution()
+local position = core.engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 100)
 
-engine.print("info", position[1], position[2], position[3])
+core.engine.print("info", position[1], position[2], position[3])
 ```
 
 ```lua lineNumbers title="Retrieve world positions at near and far depths"
-local resolution = engine.get_resolution()
-local near = engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 10)
-local far = engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 500)
+local resolution = core.engine.get_resolution()
+local near = core.engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 10)
+local far = core.engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 500)
 
-engine.print("info", "Near:", near[1], near[2], near[3])
-engine.print("info", "Far:",  far[1],  far[2],  far[3])
+core.engine.print("info", "Near:", near[1], near[2], near[3])
+core.engine.print("info", "Far:",  far[1],  far[2],  far[3])
 ```

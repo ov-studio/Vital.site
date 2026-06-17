@@ -43,17 +43,17 @@ local ... = util.export.call(
 ```lua lineNumbers title="Call a basic export from another resource"
 local count = util.export.call("my_resource", "get_player_count")
 
-engine.print("info", "Player count:", count)
+core.engine.print("info", "Player count:", count)
 ```
 
 ```lua lineNumbers title="Pass arguments to an export"
 local result = util.export.call("math_resource", "add", 10, 25)
 
-engine.print("info", "Sum:", result) -- 35
+core.engine.print("info", "Sum:", result) -- 35
 ```
 
 ```lua lineNumbers title="Capture multiple return values"
 local x, y, z = util.export.call("world_resource", "get_spawn_position")
 
-engine.print("info", "Spawn:", x, y, z)
+core.engine.print("info", "Spawn:", x, y, z)
 ```

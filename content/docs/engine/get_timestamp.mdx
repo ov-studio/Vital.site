@@ -1,5 +1,5 @@
 ---
-title: engine.get_timestamp
+title: core.engine.get_timestamp
 description: Retrieves engine's current timestamp
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local timestamp = engine.get_timestamp()
+local timestamp = core.engine.get_timestamp()
 ```
 
 ### Parameters
@@ -26,6 +26,6 @@ local timestamp = engine.get_timestamp()
 ### Examples
 
 ```lua lineNumbers title="Prints engine's current timestamp"
-engine.print("info", "current timestamp:")
-engine.iprint(engine.get_timestamp())
+core.engine.print("info", "current timestamp:")
+core.engine.iprint(core.engine.get_timestamp())
 ```

@@ -32,11 +32,11 @@ local status = util.event.off(
 
 ```lua lineNumbers title="Remove a previously registered handler"
 local function on_player_join(player)
-    engine.print("info", "Player joined:", player)
+    core.engine.print("info", "Player joined:", player)
 end
 
 util.event.on("on_player_join", on_player_join)
-engine.print("info", "Handler removed:", util.event.off("on_player_join", on_player_join))
+core.engine.print("info", "Handler removed:", util.event.off("on_player_join", on_player_join))
 ```
 
 ```lua lineNumbers title="Conditionally unsubscribe based on state"

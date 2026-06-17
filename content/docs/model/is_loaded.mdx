@@ -1,5 +1,5 @@
 ---
-title: model.is_loaded
+title: core.model.is_loaded
 description: Retrieves whether a model has been loaded into memory
 badge: Shared
 ---
@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local result = model.is_loaded(
+local result = core.model.is_loaded(
     name
 )
 ```
@@ -29,5 +29,5 @@ local result = model.is_loaded(
 ### Examples
 
 ```lua lineNumbers title="Check if a model is loaded"
-engine.print("info", "Model loaded:", model.is_loaded("character"))
+core.engine.print("info", "Model loaded:", core.model.is_loaded("character"))
 ```

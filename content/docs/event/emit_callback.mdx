@@ -64,7 +64,7 @@ end)
 
 util.thread.create(function(self)
     local ok, score = self:await(util.event.emit_callback("on_get_score"))
-    engine.print("info", "Score:", score) -- 42
+    core.engine.print("info", "Score:", score) -- 42
 end):resume()
 ```
 
@@ -74,8 +74,8 @@ util.event.on("on_query", function() return "handler_b" end)
 
 util.thread.create(function(self)
     local ok, results = self:await(util.event.emit_callback("on_query"))
-    engine.print("info", "Handler 1 returned:", results[1][1]) -- 'handler_a'
-    engine.print("info", "Handler 2 returned:", results[2][1]) -- 'handler_b'
+    core.engine.print("info", "Handler 1 returned:", results[1][1]) -- 'handler_a'
+    core.engine.print("info", "Handler 2 returned:", results[2][1]) -- 'handler_b'
 end):resume()
 ```
 
@@ -85,17 +85,17 @@ util.event.on("on_status", function() return "ok", 200 end)
 
 util.thread.create(function(self)
     local ok, results = self:await(util.event.emit_callback("on_status"))
-    engine.print("info", results[1][1], results[1][2]) -- 'ok'  100
-    engine.print("info", results[2][1], results[2][2]) -- 'ok'  200
+    core.engine.print("info", results[1][1], results[1][2]) -- 'ok'  100
+    core.engine.print("info", results[2][1], results[2][2]) -- 'ok'  200
 end):resume()
 ```
 
 ```lua lineNumbers title="Send a callback from client to server and await the reply"
-if engine.get_platform() == "client" then
+if core.engine.get_platform() == "client" then
     util.thread.create(function(self)
         local ok, result, data = self:await(util.event.emit_callback("on_fetch_inventory", { remote = true }, "weapons"))
-        engine.print("info", "Server replied:", result) -- 'ok'
-        engine.iprint(data)
+        core.engine.print("info", "Server replied:", result) -- 'ok'
+        core.engine.iprint(data)
     end):resume()
 else
     util.event.on("on_fetch_inventory", function(category)
@@ -107,7 +107,7 @@ end
 ```
 
 ```lua lineNumbers title="Send a callback from server to a specific client and await the reply"
-if engine.get_platform() == "client" then
+if core.engine.get_platform() == "client" then
     util.event.on("on_request_position", function()
         local thread = util.thread.current()
         thread:sleep(500)
@@ -116,20 +116,20 @@ if engine.get_platform() == "client" then
 else
     util.thread.create(function(self)
         local ok, x, y, z = self:await(util.event.emit_callback("on_request_position", { remote = true, peer = targetPeerId }))
-        engine.print("info", "Client position:", x, y, z)
+        core.engine.print("info", "Client position:", x, y, z)
     end):resume()
 end
 ```
 
 ```lua lineNumbers title="Await aggregated results from multiple remote handlers"
-if engine.get_platform() == "server" then
+if core.engine.get_platform() == "server" then
     util.event.on("on_status", function() return "ok" end)
     util.event.on("on_status", function() return "ok", { detail = "extra" } end)
 else
     util.thread.create(function(self)
         local ok, results = self:await(util.event.emit_callback("on_status", { remote = true }))
-        engine.print("info", "Handler 1:", results[1][1]) -- 'ok'
-        engine.print("info", "Handler 2:", results[2][1], tostring(results[2][2])) -- 'ok'  'table: 0x...'
+        core.engine.print("info", "Handler 1:", results[1][1]) -- 'ok'
+        core.engine.print("info", "Handler 2:", results[2][1], tostring(results[2][2])) -- 'ok'  'table: 0x...'
     end):resume()
 end
 ```

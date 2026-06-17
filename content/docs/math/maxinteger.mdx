@@ -19,13 +19,13 @@ Represents the largest integer value representable by Lua's 64-bit signed intege
 ### Examples
 
 ```lua lineNumbers title="Print the maximum integer value"
-engine.print("info", math.maxinteger) -- 9223372036854775807
+core.engine.print("info", math.maxinteger) -- 9223372036854775807
 ```
 
 ```lua lineNumbers title="maxinteger plus 1 wraps around to mininteger"
 local result = math.maxinteger + 1
 
-engine.print("info", result) -- -9223372036854775808
+core.engine.print("info", result) -- -9223372036854775808
 ```
 
 ```lua lineNumbers title="Use as an upper sentinel for minimum searching"
@@ -36,18 +36,18 @@ for _, v in ipairs(values) do
     if v < smallest then smallest = v end
 end
 
-engine.print("info", smallest) -- 50
+core.engine.print("info", smallest) -- 50
 ```
 
 ```lua lineNumbers title="Check if a value equals the integer ceiling"
 local value = math.maxinteger
 
-engine.print("info", math.type(value) == "integer") -- true
-engine.print("info", value == math.maxinteger)      -- true
+core.engine.print("info", math.type(value) == "integer") -- true
+core.engine.print("info", value == math.maxinteger)      -- true
 ```
 
 ```lua lineNumbers title="Compute the usable bit width of the integer type"
 local bits = math.floor(math.log(math.maxinteger, 2)) + 1
 
-engine.print("info", bits) -- 63
+core.engine.print("info", bits) -- 63
 ```

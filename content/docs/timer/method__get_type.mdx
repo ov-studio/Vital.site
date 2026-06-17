@@ -27,8 +27,8 @@ local result = self:get_type()
 
 ```lua lineNumbers title="Get the type of a timer instance"
 local entity = util.timer.create(function(count)
-    engine.print("info", "Counter:", count)
+    core.engine.print("info", "Counter:", count)
 end, 1000, 1)
 
-engine.print("info", entity:get_type()) -- 'timer'
+core.engine.print("info", entity:get_type()) -- 'timer'
 ```

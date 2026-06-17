@@ -34,7 +34,7 @@ local iterator = string.gmatch(
 local text = "hello world from Lua"
 
 for word in string.gmatch(text, "%a+") do
-    engine.print("info", word)
+    core.engine.print("info", word)
 end
 
 --[[
@@ -50,7 +50,7 @@ Output:
 local data = "x=10, y=20, z=30"
 
 for num in string.gmatch(data, "%d+") do
-    engine.print("info", num)
+    core.engine.print("info", num)
 end
 
 --[[
@@ -65,7 +65,7 @@ Output:
 local coords = "x=5 y=10 x=15 y=20"
 
 for key, value in string.gmatch(coords, "(%a+)=(%d+)") do
-    engine.print("info", key, value)
+    core.engine.print("info", key, value)
 end
 
 --[[
@@ -81,7 +81,7 @@ Output:
 local csv = "apple,banana,orange"
 
 for item in string.gmatch(csv, "[^,]+") do
-    engine.print("info", item)
+    core.engine.print("info", item)
 end
 
 --[[
@@ -98,13 +98,13 @@ for word in string.gmatch("one two three", "%S+") do
     table.insert(words, word)
 end
 
-engine.print("info", table.concat(words, " | ")) -- 'one | two | three'
+core.engine.print("info", table.concat(words, " | ")) -- 'one | two | three'
 ```
 
 ```lua lineNumbers title="Match quoted strings"
 local text = 'name="John" age="25" city="NYC"'
 for value in string.gmatch(text, '"(.-)"') do
-    engine.print("info", value)
+    core.engine.print("info", value)
 end
 
 --[[
@@ -118,7 +118,7 @@ Output:
 ```lua lineNumbers title="Extract email addresses"
 local text = "Contact: john@example.com or jane@example.com"
 for email in string.gmatch(text, "%S+@%S+") do
-    engine.print("info", email)
+    core.engine.print("info", email)
 end
 
 --[[
@@ -134,5 +134,5 @@ for _ in string.gmatch("the cat sat on the mat", "the") do
     count = count + 1
 end
 
-engine.print("info", count) -- 2
+core.engine.print("info", count) -- 2
 ```
