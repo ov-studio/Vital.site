@@ -10,7 +10,7 @@
 .feat-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -91,10 +91,9 @@
 
 .fdiagram-wrap {
   position: relative;
-  width: 100%;
   aspect-ratio: 1;
-  max-width: 480px;
-  margin: 0 auto;
+  max-width: 525px;
+  margin-left: auto;
 }
 
 .fdiagram-canvas {
@@ -213,7 +212,7 @@
 .fnode-group.is-active .fnode::before,
 .fnode-group.is-active .fnode::after { opacity: 1; }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   #features {
     padding: 72px 0;
     min-height: unset;
