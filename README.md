@@ -1,7 +1,4 @@
-<h2>
-  <img src="https://raw.githubusercontent.com/ov-studio/.github/main/profile/logo/avatar_transparent_fit.png" width="32"/>
-  Vital.site
-</h2>
+## Overview
 
 Official documentation and resource hub for [Vital.sandbox](https://github.com/ov-studio/Vital.sandbox) — covering API references, scripting guides, and everything needed to build with confidence.
 
