@@ -173,6 +173,21 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
+        label: 'Canvas',
+        desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
+        icon: <Icons.PenTool {...config_site.info.lucide} />,
+        items: [
+          { label: '[Client] API: core.engine.world_to_screen', status: 'completed' },
+          { label: '[Client] API: core.engine.screen_to_world', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_line', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_polygon', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_rectangle', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_circle', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_image', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_text', status: 'completed' }
+        ]
+      },
+      {
         label: 'Database',
         desc: 'Embedded database interface for persistent structured data storage and retrieval',
         icon: <Icons.Database {...config_site.info.lucide}/>,
@@ -280,21 +295,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<webview>:update', status: 'completed' },
           { label: '[Client] API: self<webview>:eval', status: 'completed' },
           { label: '[Client] API: self<webview>:emit', status: 'completed' }
-        ]
-      },
-      {
-        label: 'Canvas',
-        desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
-        icon: <Icons.PenTool {...config_site.info.lucide}/>,
-        items: [
-          { label: '[Client] API: core.engine.world_to_screen', status: 'completed' },
-          { label: '[Client] API: core.engine.screen_to_world', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_line', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_polygon', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_rectangle', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_circle', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_image', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_text', status: 'completed' }
         ]
       },
       {
