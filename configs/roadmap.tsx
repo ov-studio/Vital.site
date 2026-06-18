@@ -159,17 +159,17 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <Icons.Cpu {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: engine.print', status: 'completed' },
-          { label: '[Shared] API: engine.iprint', status: 'completed' },
-          { label: '[Shared] API: engine.inspect', status: 'completed' },
-          { label: '[Client] API: engine.quit', status: 'pending' },
-          { label: '[Shared] API: engine.compile_string', status: 'completed' },
-          { label: '[Shared] API: engine.load_string', status: 'completed' },
-          { label: '[Shared] API: engine.get_tick', status: 'completed' },
-          { label: '[Shared] API: engine.get_version', status: 'completed' },
-          { label: '[Shared] API: engine.get_serial', status: 'completed' },
-          { label: '[Shared] API: engine.get_entities', status: 'completed' },
-          { label: '[Shared] API: engine.get_resolution', status: 'completed' }
+          { label: '[Shared] API: core.engine.print', status: 'completed' },
+          { label: '[Shared] API: core.engine.iprint', status: 'completed' },
+          { label: '[Shared] API: core.engine.inspect', status: 'completed' },
+          { label: '[Client] API: core.engine.quit', status: 'pending' },
+          { label: '[Shared] API: core.engine.compile_string', status: 'completed' },
+          { label: '[Shared] API: core.engine.load_string', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_tick', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_version', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_serial', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_entities', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_resolution', status: 'completed' }
         ]
       },
       {
@@ -181,7 +181,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Database Backend: MySQL', status: 'completed' },
           { label: 'ORM-style query with chainable methods', status: 'completed' },
           { label: 'Asynchronous query execution', status: 'completed' },
-          { label: '[Server] API: database.create', status: 'completed' },
+          { label: '[Server] API: core.database.create', status: 'completed' },
           { label: '[Shared] API: self<database>:is_type', status: 'completed' },
           { label: '[Shared] API: self<database>:get_type', status: 'completed' },
           { label: '[Shared] API: self<database>:destroy', status: 'completed' },
@@ -253,7 +253,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
           { label: 'Serve webview files over HTTP instead of file://', status: 'pending' },
-          { label: '[Client] API: webview.create', status: 'completed' },
+          { label: '[Client] API: core.webview.create', status: 'completed' },
           { label: '[Client] API: self<webview>:is_type', status: 'completed' },
           { label: '[Client] API: self<webview>:get_type', status: 'completed' },
           { label: '[Client] API: self<webview>:destroy', status: 'completed' },
@@ -287,14 +287,14 @@ export const Roadmap: RoadmapSection[] = build([
         desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
         icon: <Icons.PenTool {...config_site.info.lucide}/>,
         items: [
-          { label: '[Client] API: engine.world_to_screen', status: 'completed' },
-          { label: '[Client] API: engine.screen_to_world', status: 'completed' },
-          { label: '[Client] API: engine.draw_line', status: 'completed' },
-          { label: '[Client] API: engine.draw_polygon', status: 'completed' },
-          { label: '[Client] API: engine.draw_rectangle', status: 'completed' },
-          { label: '[Client] API: engine.draw_circle', status: 'completed' },
-          { label: '[Client] API: engine.draw_image', status: 'completed' },
-          { label: '[Client] API: engine.draw_text', status: 'completed' }
+          { label: '[Client] API: core.engine.world_to_screen', status: 'completed' },
+          { label: '[Client] API: core.engine.screen_to_world', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_line', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_polygon', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_rectangle', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_circle', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_image', status: 'completed' },
+          { label: '[Client] API: core.engine.draw_text', status: 'completed' }
         ]
       },
       {
@@ -307,7 +307,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Format: OTF', status: 'completed' },
           { label: 'Format: WOFF', status: 'completed' },
           { label: 'Format: WOFF2', status: 'completed' },
-          { label: '[Client] API: font.create', status: 'completed' },
+          { label: '[Client] API: core.font.create', status: 'completed' },
           { label: '[Client] API: self<font>:is_type', status: 'completed' },
           { label: '[Client] API: self<font>:get_type', status: 'completed' },
           { label: '[Client] API: self<font>:destroy', status: 'completed' },
@@ -330,7 +330,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Format: DDS', status: 'completed' },
           { label: 'Format: KTX', status: 'completed' },
           { label: 'Implicit texture cache for draw calls', status: 'completed' },
-          { label: '[Client] API: texture.create', status: 'completed' },
+          { label: '[Client] API: core.texture.create', status: 'completed' },
           { label: '[Client] API: self<texture>:is_type', status: 'completed' },
           { label: '[Client] API: self<texture>:get_type', status: 'completed' },
           { label: '[Client] API: self<texture>:destroy', status: 'completed' },
@@ -346,8 +346,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: SVG', status: 'completed' },
           { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
-          { label: '[Client] API: svg.create', status: 'completed' },
-          { label: '[Client] API: svg.create_from_raw', status: 'completed' },
+          { label: '[Client] API: core.svg.create', status: 'completed' },
+          { label: '[Client] API: core.svg.create_from_raw', status: 'completed' },
           { label: '[Client] API: self<svg>:is_type', status: 'completed' },
           { label: '[Client] API: self<svg>:get_type', status: 'completed' },
           { label: '[Client] API: self<svg>:destroy', status: 'completed' },
@@ -363,9 +363,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Optional alpha-transparent render surface', status: 'completed' },
           { label: 'Optional immediate-mode per-frame updates', status: 'completed' },
-          { label: '[Client] API: rendertarget.create', status: 'completed' },
-          { label: '[Client] API: rendertarget.get_active', status: 'completed' },
-          { label: '[Client] API: rendertarget.set_active', status: 'completed' },
+          { label: '[Client] API: core.rendertarget.create', status: 'completed' },
+          { label: '[Client] API: core.rendertarget.get_active', status: 'completed' },
+          { label: '[Client] API: core.rendertarget.set_active', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:is_type', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:get_type', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:destroy', status: 'completed' },
@@ -423,33 +423,33 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Lua math library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Calculator {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: math.abs', status: 'completed' },
-          { label: '[Shared] API: math.ceil', status: 'completed' },
-          { label: '[Shared] API: math.floor', status: 'completed' },
-          { label: '[Shared] API: math.sqrt', status: 'completed' },
-          { label: '[Shared] API: math.exp', status: 'completed' },
-          { label: '[Shared] API: math.log', status: 'completed' },
-          { label: '[Shared] API: math.fmod', status: 'completed' },
-          { label: '[Shared] API: math.modf', status: 'completed' },
-          { label: '[Shared] API: math.max', status: 'completed' },
-          { label: '[Shared] API: math.min', status: 'completed' },
-          { label: '[Shared] API: math.sin', status: 'completed' },
-          { label: '[Shared] API: math.cos', status: 'completed' },
-          { label: '[Shared] API: math.tan', status: 'completed' },
-          { label: '[Shared] API: math.asin', status: 'completed' },
-          { label: '[Shared] API: math.acos', status: 'completed' },
-          { label: '[Shared] API: math.atan', status: 'completed' },
-          { label: '[Shared] API: math.deg', status: 'completed' },
-          { label: '[Shared] API: math.rad', status: 'completed' },
-          { label: '[Shared] API: math.random', status: 'completed' },
-          { label: '[Shared] API: math.randomseed', status: 'completed' },
-          { label: '[Shared] API: math.tointeger', status: 'completed' },
-          { label: '[Shared] API: math.type', status: 'completed' },
-          { label: '[Shared] API: math.ult', status: 'completed' },
-          { label: '[Shared] Constant: math.pi', status: 'completed' },
-          { label: '[Shared] Constant: math.huge', status: 'completed' },
-          { label: '[Shared] Constant: math.maxinteger', status: 'completed' },
-          { label: '[Shared] Constant: math.mininteger', status: 'completed' }
+          { label: '[Shared] API: util.math.abs', status: 'completed' },
+          { label: '[Shared] API: util.math.ceil', status: 'completed' },
+          { label: '[Shared] API: util.math.floor', status: 'completed' },
+          { label: '[Shared] API: util.math.sqrt', status: 'completed' },
+          { label: '[Shared] API: util.math.exp', status: 'completed' },
+          { label: '[Shared] API: util.math.log', status: 'completed' },
+          { label: '[Shared] API: util.math.fmod', status: 'completed' },
+          { label: '[Shared] API: util.math.modf', status: 'completed' },
+          { label: '[Shared] API: util.math.max', status: 'completed' },
+          { label: '[Shared] API: util.math.min', status: 'completed' },
+          { label: '[Shared] API: util.math.sin', status: 'completed' },
+          { label: '[Shared] API: util.math.cos', status: 'completed' },
+          { label: '[Shared] API: util.math.tan', status: 'completed' },
+          { label: '[Shared] API: util.math.asin', status: 'completed' },
+          { label: '[Shared] API: util.math.acos', status: 'completed' },
+          { label: '[Shared] API: util.math.atan', status: 'completed' },
+          { label: '[Shared] API: util.math.deg', status: 'completed' },
+          { label: '[Shared] API: util.math.rad', status: 'completed' },
+          { label: '[Shared] API: util.math.random', status: 'completed' },
+          { label: '[Shared] API: util.math.randomseed', status: 'completed' },
+          { label: '[Shared] API: util.math.tointeger', status: 'completed' },
+          { label: '[Shared] API: util.math.type', status: 'completed' },
+          { label: '[Shared] API: util.math.ult', status: 'completed' },
+          { label: '[Shared] Constant: util.math.pi', status: 'completed' },
+          { label: '[Shared] Constant: util.math.huge', status: 'completed' },
+          { label: '[Shared] Constant: util.math.maxinteger', status: 'completed' },
+          { label: '[Shared] Constant: util.math.mininteger', status: 'completed' }
         ]
       },
       {
@@ -457,28 +457,28 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Lua string library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Regex {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: string.void', status: 'completed' },
-          { label: '[Shared] API: string.parse', status: 'completed' },
-          { label: '[Shared] API: string.parse_hex', status: 'completed' },
-          { label: '[Shared] API: string.len', status: 'completed' },
-          { label: '[Shared] API: string.byte', status: 'completed' },
-          { label: '[Shared] API: string.char', status: 'completed' },
-          { label: '[Shared] API: string.find', status: 'completed' },
-          { label: '[Shared] API: string.match', status: 'completed' },
-          { label: '[Shared] API: string.gmatch', status: 'completed' },
-          { label: '[Shared] API: string.sub', status: 'completed' },
-          { label: '[Shared] API: string.gsub', status: 'completed' },
-          { label: '[Shared] API: string.format', status: 'completed' },
-          { label: '[Shared] API: string.format_time', status: 'completed' },
-          { label: '[Shared] API: string.lower', status: 'completed' },
-          { label: '[Shared] API: string.upper', status: 'completed' },
-          { label: '[Shared] API: string.reverse', status: 'completed' },
-          { label: '[Shared] API: string.rep', status: 'completed' },
-          { label: '[Shared] API: string.kern', status: 'completed' },
-          { label: '[Shared] API: string.split', status: 'completed' },
-          { label: '[Shared] API: string.pack', status: 'completed' },
-          { label: '[Shared] API: string.packsize', status: 'completed' },
-          { label: '[Shared] API: string.unpack', status: 'completed' }
+          { label: '[Shared] API: util.string.void', status: 'completed' },
+          { label: '[Shared] API: util.string.parse', status: 'completed' },
+          { label: '[Shared] API: util.string.parse_hex', status: 'completed' },
+          { label: '[Shared] API: util.string.len', status: 'completed' },
+          { label: '[Shared] API: util.string.byte', status: 'completed' },
+          { label: '[Shared] API: util.string.char', status: 'completed' },
+          { label: '[Shared] API: util.string.find', status: 'completed' },
+          { label: '[Shared] API: util.string.match', status: 'completed' },
+          { label: '[Shared] API: util.string.gmatch', status: 'completed' },
+          { label: '[Shared] API: util.string.sub', status: 'completed' },
+          { label: '[Shared] API: util.string.gsub', status: 'completed' },
+          { label: '[Shared] API: util.string.format', status: 'completed' },
+          { label: '[Shared] API: util.string.format_time', status: 'completed' },
+          { label: '[Shared] API: util.string.lower', status: 'completed' },
+          { label: '[Shared] API: util.string.upper', status: 'completed' },
+          { label: '[Shared] API: util.string.reverse', status: 'completed' },
+          { label: '[Shared] API: util.string.rep', status: 'completed' },
+          { label: '[Shared] API: util.string.kern', status: 'completed' },
+          { label: '[Shared] API: util.string.split', status: 'completed' },
+          { label: '[Shared] API: util.string.pack', status: 'completed' },
+          { label: '[Shared] API: util.string.packsize', status: 'completed' },
+          { label: '[Shared] API: util.string.unpack', status: 'completed' }
         ]
       },
       {
@@ -486,17 +486,17 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Lua table library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Table {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: table.len', status: 'completed' },
-          { label: '[Shared] API: table.pack', status: 'completed' },
-          { label: '[Shared] API: table.unpack', status: 'completed' },
-          { label: '[Shared] API: table.insert', status: 'completed' },
-          { label: '[Shared] API: table.remove', status: 'completed' },
-          { label: '[Shared] API: table.move', status: 'completed' },
-          { label: '[Shared] API: table.sort', status: 'completed' },
-          { label: '[Shared] API: table.clone', status: 'completed' },
-          { label: '[Shared] API: table.concat', status: 'completed' },
-          { label: '[Shared] API: table.encode', status: 'completed' },
-          { label: '[Shared] API: table.decode', status: 'completed' }
+          { label: '[Shared] API: util.table.len', status: 'completed' },
+          { label: '[Shared] API: util.table.pack', status: 'completed' },
+          { label: '[Shared] API: util.table.unpack', status: 'completed' },
+          { label: '[Shared] API: util.table.insert', status: 'completed' },
+          { label: '[Shared] API: util.table.remove', status: 'completed' },
+          { label: '[Shared] API: util.table.move', status: 'completed' },
+          { label: '[Shared] API: util.table.sort', status: 'completed' },
+          { label: '[Shared] API: util.table.clone', status: 'completed' },
+          { label: '[Shared] API: util.table.concat', status: 'completed' },
+          { label: '[Shared] API: util.table.encode', status: 'completed' },
+          { label: '[Shared] API: util.table.decode', status: 'completed' }
         ]
       },
       {
@@ -507,8 +507,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Customizable interval', status: 'completed' },
           { label: 'Customizable executions', status: 'completed' },
-          { label: '[Shared] API: timer.create', status: 'completed' },
-          { label: '[Shared] API: timer.next_tick', status: 'completed' },
+          { label: '[Shared] API: util.timer.create', status: 'completed' },
+          { label: '[Shared] API: util.timer.next_tick', status: 'completed' },
           { label: '[Shared] API: self<timer>:is_type', status: 'completed' },
           { label: '[Shared] API: self<timer>:get_type', status: 'completed' },
           { label: '[Shared] API: self<timer>:destroy', status: 'completed' }
@@ -520,7 +520,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <Icons.CheckCircle {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: '[Shared] API: promise.create', status: 'completed' },
+          { label: '[Shared] API: util.promise.create', status: 'completed' },
           { label: '[Shared] API: self<promise>:is_type', status: 'completed' },
           { label: '[Shared] API: self<promise>:get_type', status: 'completed' },
           { label: '[Shared] API: self<promise>:destroy', status: 'completed' },
@@ -535,8 +535,8 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <Icons.Blocks {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: '[Shared] API: thread.create', status: 'completed' },
-          { label: '[Shared] API: thread.current', status: 'completed' },
+          { label: '[Shared] API: util.thread.create', status: 'completed' },
+          { label: '[Shared] API: util.thread.current', status: 'completed' },
           { label: '[Shared] API: self<thread>:is_type', status: 'completed' },
           { label: '[Shared] API: self<thread>:get_type', status: 'completed' },
           { label: '[Shared] API: self<thread>:destroy', status: 'completed' },
@@ -551,13 +551,13 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Read, write, and manage files on disk from within Lua scripts',
         icon: <Icons.FileText {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: file.exists', status: 'completed' },
-          { label: '[Shared] API: file.size', status: 'completed' },
-          { label: '[Shared] API: file.hash', status: 'completed' },
-          { label: '[Shared] API: file.delete', status: 'completed' },
-          { label: '[Shared] API: file.read', status: 'completed' },
-          { label: '[Shared] API: file.write', status: 'completed' },
-          { label: '[Shared] API: file.contents', status: 'completed' }
+          { label: '[Shared] API: util.file.exists', status: 'completed' },
+          { label: '[Shared] API: util.file.size', status: 'completed' },
+          { label: '[Shared] API: util.file.hash', status: 'completed' },
+          { label: '[Shared] API: util.file.delete', status: 'completed' },
+          { label: '[Shared] API: util.file.read', status: 'completed' },
+          { label: '[Shared] API: util.file.write', status: 'completed' },
+          { label: '[Shared] API: util.file.contents', status: 'completed' }
         ]
       },
       {
@@ -567,8 +567,8 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Customizable headers', status: 'completed' },
           { label: 'Customizable timeout', status: 'completed' },
-          { label: '[Shared] API: http.get', status: 'completed' },
-          { label: '[Shared] API: http.post', status: 'completed' }
+          { label: '[Shared] API: util.http.get', status: 'completed' },
+          { label: '[Shared] API: util.http.post', status: 'completed' }
         ]
       },
       {
@@ -585,11 +585,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Encryption algorithm: AES128', status: 'completed' },
           { label: 'Encryption algorithm: AES192', status: 'completed' },
           { label: 'Encryption algorithm: AES256', status: 'completed' },
-          { label: '[Shared] API: crypto.hash', status: 'completed' },
-          { label: '[Shared] API: crypto.encode', status: 'completed' },
-          { label: '[Shared] API: crypto.decode', status: 'completed' },
-          { label: '[Shared] API: crypto.encrypt', status: 'completed' },
-          { label: '[Shared] API: crypto.decrypt', status: 'completed' }
+          { label: '[Shared] API: util.crypto.hash', status: 'completed' },
+          { label: '[Shared] API: util.crypto.encode', status: 'completed' },
+          { label: '[Shared] API: util.crypto.decode', status: 'completed' },
+          { label: '[Shared] API: util.crypto.encrypt', status: 'completed' },
+          { label: '[Shared] API: util.crypto.decrypt', status: 'completed' }
         ]
       },
       {
@@ -598,8 +598,8 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <Icons.Package {...config_site.info.lucide}/>,
         items: [
           { label: 'Data compression via zstd library', status: 'completed' },
-          { label: '[Shared] API: shrinker.compress', status: 'completed' },
-          { label: '[Shared] API: shrinker.decompress', status: 'completed' }
+          { label: '[Shared] API: util.shrinker.compress', status: 'completed' },
+          { label: '[Shared] API: util.shrinker.decompress', status: 'completed' }
         ]
       },
       {
@@ -607,13 +607,13 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Introspect the running resource and control start, stop, and restart of server-managed resources',
         icon: <Icons.PackageOpen {...config_site.info.lucide} />,
         items: [
-          { label: '[Shared] API: resource.current', status: 'completed' },
-          { label: '[Shared] API: resource.list', status: 'completed' },
-          { label: '[Server] API: resource.is_loaded', status: 'completed' },
-          { label: '[Server] API: resource.is_running', status: 'completed' },
-          { label: '[Server] API: resource.start', status: 'completed' },
-          { label: '[Server] API: resource.stop', status: 'completed' },
-          { label: '[Server] API: resource.restart', status: 'completed' }
+          { label: '[Shared] API: util.resource.current', status: 'completed' },
+          { label: '[Shared] API: util.resource.list', status: 'completed' },
+          { label: '[Server] API: util.resource.is_loaded', status: 'completed' },
+          { label: '[Server] API: util.resource.is_running', status: 'completed' },
+          { label: '[Server] API: util.resource.start', status: 'completed' },
+          { label: '[Server] API: util.resource.stop', status: 'completed' },
+          { label: '[Server] API: util.resource.restart', status: 'completed' }
         ]
       },
       {
@@ -621,9 +621,9 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Cross-resource function registry — expose and consume APIs across resource boundaries',
         icon: <Icons.Blocks {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: export.register', status: 'completed' },
-          { label: '[Shared] API: export.call', status: 'completed' },
-          { label: '[Shared] API: export.list', status: 'completed' }
+          { label: '[Shared] API: util.export.register', status: 'completed' },
+          { label: '[Shared] API: util.export.call', status: 'completed' },
+          { label: '[Shared] API: util.export.list', status: 'completed' }
         ]
       },
       {
@@ -646,10 +646,10 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Priority-ordered listeners', status: 'completed' },
           { label: 'Auto-unsubscribe listeners', status: 'completed' },
-          { label: '[Shared] API: event.on', status: 'completed' },
-          { label: '[Shared] API: event.off', status: 'completed' },
-          { label: '[Shared] API: event.emit', status: 'completed' },
-          { label: '[Shared] API: event.emit_callback', status: 'completed' }
+          { label: '[Shared] API: util.event.on', status: 'completed' },
+          { label: '[Shared] API: util.event.off', status: 'completed' },
+          { label: '[Shared] API: util.event.emit', status: 'completed' },
+          { label: '[Shared] API: util.event.emit_callback', status: 'completed' }
         ]
       },
       {
