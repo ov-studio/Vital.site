@@ -1,9 +1,12 @@
-# my-app
+# Vital.site
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+Official documentation and resource hub for [Vital.sandbox](https://github.com/ov-studio/Vital.sandbox) — covering API references, scripting guides, and everything needed to build with confidence.
 
-Run development server:
+Vital.site is built on Next.js and powered by Fumadocs, providing a fast, searchable, and version-aware documentation experience. All content is authored in MDX, keeping docs close to the codebase and easy to contribute to.
+
+## Getting Started
+
+Clone the repository and install dependencies, then start the development server:
 
 ```bash
 npm run dev
@@ -13,33 +16,21 @@ pnpm dev
 yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site locally. Changes to MDX files and components hot-reload automatically.
 
-## Explore
+## Structure
 
-In the project, you can see:
+| Path | Description |
+|---|---|
+| `app/(home)` | Landing page and top-level routes |
+| `app/docs` | Documentation layout and MDX pages |
+| `content/docs` | MDX source files for all documentation |
+| `components` | Shared UI components |
+| `lib` | Content source adapter and shared utilities |
+| `configs` | Site-wide configuration files |
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+## Contributing
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+Documentation improvements, corrections, and new guides are welcome. If you find an error, a missing API, or an outdated example, opening a pull request is the fastest way to get it fixed. For larger structural changes or new documentation sections, open an issue first to align on scope and approach before investing time in a draft.
 
-### Fumadocs MDX
-
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
-
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
-
-## Learn More
-
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+All content lives under `content/docs` as MDX files and follows the existing frontmatter and heading conventions. Keep examples minimal, accurate, and tied to real engine behavior.
