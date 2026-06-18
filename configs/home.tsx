@@ -49,8 +49,8 @@ export const Features = [
 export const Ethos = [
   {
     title: 'Open Source',
-    desc: 'No licensing fees, no royalties, no strings. What you build belongs to you — completely and unconditionally.',
-    icon: <Icons.Star {...config_site.info.lucide}/>
+    desc: 'No licensing fees, no royalties, no strings attached. Every line of code is yours to inspect, fork, and build on. What you create belongs to you — completely and unconditionally.',
+    icon: <Icons.Star {...config_site.info.lucide} />
   },
   {
     title: 'Zero Monetization Limits',
