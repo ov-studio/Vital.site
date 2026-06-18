@@ -8,7 +8,7 @@ badge: Client
 
 ```lua
 local status = core.rendertarget.set_active(
-    instance = nil,
+    rendertarget = nil,
     clear = false,
     instant = false
 )
@@ -18,7 +18,7 @@ local status = core.rendertarget.set_active(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `rendertarget` | instance | Rendertarget instance to set as active<br/>Omitting this argument will unset the currently active rendertarget |
+| `rendertarget` | rendertarget | Rendertarget instance to set as active<br/>Omitting this argument will unset the currently active rendertarget |
 | `bool` | clear | Determines the clear state:<br/>• When `true` - clears the rendertarget upon binding<br/>• When `false` - preserves the existing contents |
 | `bool` | instant | Determines the clear timing:<br/>• When `true` - applies the clear immediately<br/>• When `false` - defers the clear to the next frame |
 
