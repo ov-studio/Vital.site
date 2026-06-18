@@ -64,8 +64,8 @@ export const Ethos = [
   },
   {
     title: 'Isolated Lua Sandbox',
-    desc: 'Per-resource Lua environments with zero access to host internals. Safe for user scripting, modding, and untrusted plugins.',
-    icon: <Icons.Puzzle {...config_site.info.lucide}/>
+    desc: 'Per-resource Lua environments with zero access to host internals. Safe for user scripting, modding, and untrusted plugins — each resource runs fully contained.',
+    icon: <Icons.Puzzle {...config_site.info.lucide} />
   },
   {
     title: 'Multiplayer Native',
