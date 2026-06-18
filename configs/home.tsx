@@ -69,8 +69,8 @@ export const Ethos = [
   },
   {
     title: 'Multiplayer Native',
-    desc: 'ENet transport, Godot MultiplayerAPI, entity replication, and a Lua-level network event system — multiplayer is a first-class citizen, not an afterthought.',
-    icon: <Icons.Cable {...config_site.info.lucide}/>
+    desc: 'ENet transport, Godot MultiplayerAPI, entity replication, and a Lua-level network event system built in from the ground up. Multiplayer is a first-class citizen, not an afterthought.',
+    icon: <Icons.Cable {...config_site.info.lucide} />
   },
   {
     title: 'Performance First',
