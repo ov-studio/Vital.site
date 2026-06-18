@@ -54,8 +54,8 @@ export const Ethos = [
   },
   {
     title: 'Zero Monetization Limits',
-    desc: 'No platform cuts, no revenue gates, no forced systems. Ship free or charge — keep everything either way.',
-    icon: <Icons.BadgeCheck {...config_site.info.lucide}/>
+    desc: 'No platform cuts, no revenue gates, no forced subscription tiers. Ship free or charge what you want — every dollar goes to you, with no conditions attached.',
+    icon: <Icons.BadgeCheck {...config_site.info.lucide} />
   },
   {
     title: 'Full Runtime Scripting',
