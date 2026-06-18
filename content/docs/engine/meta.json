@@ -14,9 +14,9 @@
         "get_version",
         "get_platform",
         "get_timestamp",
+        "get_resolution",
         "get_serial",
         "get_entities",
-        "get_resolution",
 
 
         "---Canvas---",

@@ -167,9 +167,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.load_string', status: 'completed' },
           { label: '[Shared] API: core.engine.get_tick', status: 'completed' },
           { label: '[Shared] API: core.engine.get_version', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_platform', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_timestamp', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_resolution', status: 'completed' },
           { label: '[Shared] API: core.engine.get_serial', status: 'completed' },
-          { label: '[Shared] API: core.engine.get_entities', status: 'completed' },
-          { label: '[Shared] API: core.engine.get_resolution', status: 'completed' }
+          { label: '[Shared] API: core.engine.get_entities', status: 'completed' }
         ]
       },
       {
