@@ -59,8 +59,8 @@ export const Ethos = [
   },
   {
     title: 'Full Runtime Scripting',
-    desc: 'Models, physics, graphics, networking, audio — one unified Lua API controlling every layer of the engine at runtime.',
-    icon: <Icons.Terminal {...config_site.info.lucide}/>
+    desc: 'Core, utility, graphics, physics, audio, network — one unified Lua API controlling every layer of the engine at runtime. No recompile cycles, no editor lock-in.',
+    icon: <Icons.Terminal {...config_site.info.lucide} />
   },
   {
     title: 'Isolated Lua Sandbox',
