@@ -9,7 +9,7 @@ const geist = next_font.Geist({
   variable: '--font-geist'
 });
 
-const geistMono = next_font.Geist_Mono({
+const geist_mono = next_font.Geist_Mono({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-geist-mono'
@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable} ${rajdhani.variable}`}
+      className={`${geist.variable} ${geist_mono.variable} ${rajdhani.variable}`}
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen font-sans">
