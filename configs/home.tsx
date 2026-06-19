@@ -1,5 +1,5 @@
 import * as config_site from '@/configs/site';
-import * as icon from 'lucide-react';
+import * as lucide from 'lucide-react';
 
 export const Features = [
   {
@@ -50,31 +50,31 @@ export const Ethos = [
   {
     title: 'Open Source',
     desc: 'No licensing fees, no royalties, no strings attached. Every line of code is yours to inspect, fork, and build on. What you create belongs to you — completely and unconditionally.',
-    icon: <icon.Star {...config_site.info.lucide}/>
+    icon: <lucide.Star {...config_site.info.lucide}/>
   },
   {
     title: 'Zero Monetization Limits',
     desc: 'No platform cuts, no revenue gates, no forced subscription tiers. Ship free or charge what you want — every dollar goes to you, with no conditions attached.',
-    icon: <icon.BadgeCheck {...config_site.info.lucide}/>
+    icon: <lucide.BadgeCheck {...config_site.info.lucide}/>
   },
   {
     title: 'Full Runtime Scripting',
     desc: 'Core, utility, graphics, physics, audio, network — one unified Lua API controlling every layer of the engine at runtime. No recompile cycles, no editor lock-in.',
-    icon: <icon.Terminal {...config_site.info.lucide}/>
+    icon: <lucide.Terminal {...config_site.info.lucide}/>
   },
   {
     title: 'Isolated Lua Sandbox',
     desc: 'Per-resource Lua environments with zero access to host internals. Safe for user scripting, modding, and untrusted plugins — each resource runs fully contained.',
-    icon: <icon.Puzzle {...config_site.info.lucide}/>
+    icon: <lucide.Puzzle {...config_site.info.lucide}/>
   },
   {
     title: 'Multiplayer Native',
     desc: 'ENet transport, Godot MultiplayerAPI, entity replication, and a Lua-level network event system built in from the ground up. Multiplayer is a first-class citizen, not an afterthought.',
-    icon: <icon.Cable {...config_site.info.lucide}/>
+    icon: <lucide.Cable {...config_site.info.lucide}/>
   },
   {
     title: 'Performance First',
     desc: 'C++17 core with a Lua scripting layer running 10–50× faster than GDScript. No interpreter bottlenecks, no bloat — maximum throughput at every layer of the stack.',
-    icon: <icon.CircleGauge {...config_site.info.lucide}/>
+    icon: <lucide.CircleGauge {...config_site.info.lucide}/>
   }
 ];
