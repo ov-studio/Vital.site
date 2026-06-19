@@ -20,7 +20,7 @@ export function Brand({
   color,
   href,
 }: BrandProps) {
-  const colorStyle = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
+  const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
 
   const inner = (
     <>
@@ -38,7 +38,7 @@ export function Brand({
   return (
     <div
       className={`brand brand--${size} brand--${variant} ${className}`}
-      style={colorStyle}
+      style={color_style}
     >
       {href ? (<a href={href} className="brand_link">{inner}</a>) : inner}
     </div>
