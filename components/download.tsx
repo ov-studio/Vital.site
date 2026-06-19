@@ -1,6 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
 import * as config_site from '@/configs/site';
+import * as react from 'react';
 
 interface ReleaseInfo {
   tag: string;
@@ -19,9 +19,9 @@ const DownloadIcon = () => (
 );
 
 export function Download() {
-  const [info, setInfo] = useState<ReleaseInfo | null>(null);
+  const [info, setInfo] = react.useState<ReleaseInfo | null>(null);
 
-  useEffect(() => {
+  react.useEffect(() => {
     fetch(`https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`, {
       headers: { Accept: 'application/vnd.github+json' },
     })
