@@ -1,7 +1,7 @@
+import * as config_site from '@/configs/site';
 import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
-import * as config_site from '@/configs/site';
 
 const geist = Geist({
   subsets: ['latin'],
