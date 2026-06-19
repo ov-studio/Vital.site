@@ -1,26 +1,26 @@
 .social {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
 }
 
 .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    color: var(--dim);
-    text-decoration: none;
-    transition: color .2s;
-    border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .2s;
+  border-radius: 6px;
 }
 
 .social-link:hover {
-    color: var(--white);
+  color: var(--white);
 }
 
 .social-icon {
-    height: 18px;
+  height: 18px;
 }
