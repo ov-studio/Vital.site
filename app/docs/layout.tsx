@@ -32,7 +32,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
         }}
       >
         {children}
-      </DocsLayout>
+      </fumadocs_layout_notebook.DocsLayout>
     </component_clientshell.ClientShell>
   );
 }

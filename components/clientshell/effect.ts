@@ -1,10 +1,10 @@
 'use client';
-import { useEffect } from 'react';
+import * as react from 'react';
 
 type ActiveBest = { id: string; gap: number };
 
 export function Effect() {
-  useEffect(() => {
+  react.useEffect(() => {
     const cur = document.getElementById('cur');
     const co = document.getElementById('cur-outer');
     let mx = 0, my = 0, rx = 0, ry = 0;
