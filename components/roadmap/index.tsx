@@ -1,6 +1,7 @@
 'use client';
-import * as config_roadmap from '@/configs/roadmap';
 import { useState, useRef, useEffect } from 'react';
+import * as lib_source from '@/lib/source';
+import * as config_roadmap from '@/configs/roadmap';
 import './index.css';
 
 const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
@@ -8,10 +9,6 @@ const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   partial: 0.5,
   pending: 0
 };
-
-export function to_anchor(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
 
 function card_progress(card: config_roadmap.RoadmapCard): number {
   if (!card.items.length) return 0;
@@ -103,9 +100,9 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
 
   return (
-    <div id={to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
+    <div id={lib_source.to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <a className="rcategory-label" href={`#${to_anchor(section.name)}`}># {section.name}</a>
+        <a className="rcategory-label" href={`#${lib_source.to_anchor(section.name)}`}># {section.name}</a>
       </div>
 
       <div className="rcategory-cols">

@@ -1,11 +1,12 @@
 import '../global.css';
 import type { Metadata } from 'next';
+import * as lib_source from '@/lib/source';
 import * as config_roadmap from '@/configs/roadmap';
-import { Overlay } from '@/components/overlay';
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
-import { to_anchor, Roadmap } from '@/components/roadmap';
-import { ClientShell } from '@/components/clientshell';
+import * as component_overlay from '@/components/overlay';
+import * as component_navbar from '@/components/navbar';
+import * as component_footer from '@/components/footer';
+import * as component_roadmap from '@/components/roadmap';
+import * as component_clientshell from '@/components/clientshell';
 
 export const metadata: Metadata = {
   title: 'Roadmap'
@@ -13,16 +14,16 @@ export const metadata: Metadata = {
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
   label: s.name,
-  href: `#${to_anchor(s.name)}`,
+  href: `#${lib_source.to_anchor(s.name)}`,
 }));
 
 export default function HomePage() {
   return (
-    <ClientShell>
-      <Overlay/>
-      <Navbar links={Roadmap_Link}/>
-      <Roadmap sections={config_roadmap.Roadmap}/>
-      <Footer/>
-    </ClientShell>
+    <component_clientshell.ClientShell>
+      <component_overlay.Overlay/>
+      <component_navbar.Navbar links={Roadmap_Link}/>
+      <component_roadmap.Roadmap sections={config_roadmap.Roadmap}/>
+      <component_footer.Footer/>
+    </component_clientshell.ClientShell>
   );
 }

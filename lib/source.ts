@@ -4,6 +4,10 @@ import * as LucideIcons from 'lucide-react';
 import { createElement } from 'react';
 import * as config_site from '@/configs/site';
 
+export function to_anchor(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 export const source = loader({
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
