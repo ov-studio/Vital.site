@@ -6,7 +6,7 @@ import * as component_footer from '@/components/footer';
 import * as component_roadmap from '@/components/roadmap';
 import * as component_clientshell from '@/components/clientshell';
 import * as next from 'next';
-import '../global.css';
+import '@/app/global.css';
 
 export const metadata: next.Metadata = {
   title: 'Roadmap'

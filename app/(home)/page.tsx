@@ -5,7 +5,7 @@ import * as component_home_hero from '@/components/home/hero';
 import * as component_home_features from '@/components/home/features';
 import * as component_home_ethos from '@/components/home/ethos';
 import * as component_clientshell from '@/components/clientshell';
-import '../global.css';
+import '@/app/global.css';
 
 export default function HomePage() {
   return (

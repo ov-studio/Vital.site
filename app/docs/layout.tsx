@@ -5,7 +5,7 @@ import * as component_social from '@/components/social';
 import * as component_sidebar from '@/components/sidebar';
 import * as component_clientshell from '@/components/clientshell';
 import * as fumadocs_layout_notebook from 'fumadocs-ui/layouts/notebook';
-import './doc.css';
+import '@/app/docs/layout.css';
 
 export default function Layout({ children }: LayoutProps<'/docs'>) {
   const { nav, ...base } = lib_layout.baseOptions();
