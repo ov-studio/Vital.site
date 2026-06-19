@@ -1,16 +1,16 @@
 import * as config_site from '@/configs/site';
 import * as react from 'react';
 import * as lucide from 'lucide-react';
-import { docs } from 'fumadocs-mdx:collections/server';
-import { type InferPageType, loader } from 'fumadocs-core/source';
+import * as fumadocs_core_source from 'fumadocs-core/source';
+import * as fumadocs_mdx_server from 'fumadocs-mdx:collections/server';
 
 export function to_anchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-export const source = loader({
+export const source = fumadocs_core_source.loader({
   baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
+  source: fumadocs_mdx_server.docs.toFumadocsSource(),
   icon(name) {
     if (name && name in lucide) {
       return react.createElement(lucide[name as keyof typeof lucide] as any, config_site.info.lucide);
@@ -27,7 +27,7 @@ export const source = loader({
   },
 });
 
-export function getPageImage(page: InferPageType<typeof source>) {
+export function getPageImage(page: fumadocs_core_source.InferPageType<typeof source>) {
   const segments = [...page.slugs, 'image.png'];
   return {
     segments,
@@ -35,7 +35,7 @@ export function getPageImage(page: InferPageType<typeof source>) {
   };
 }
 
-export async function getLLMText(page: InferPageType<typeof source>) {
+export async function getLLMText(page: fumadocs_core_source.InferPageType<typeof source>) {
   const processed = await page.data.getText('processed');
   return `# ${page.data.title}\n\n${processed}`;
 }
