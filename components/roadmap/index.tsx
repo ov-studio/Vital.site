@@ -125,7 +125,6 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   );
 }
 
-export function RoadmapGrid({ sections }: { sections: config_roadmap.RoadmapSection[] }) {
   return (
     <section id="roadmap">
       <div className="sw">
