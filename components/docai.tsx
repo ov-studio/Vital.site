@@ -1,7 +1,7 @@
 'use client';
-import { useMemo } from 'react';
-import { ChevronDown, ExternalLinkIcon, MessageCircleIcon } from 'lucide-react';
-import { cn } from '@/lib/cn';
+import * as lib_cn from '@/lib/cn';
+import * as react from 'react';
+import * as lucide from 'lucide-react';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from 'fumadocs-ui/components/ui/popover';
 
@@ -46,12 +46,12 @@ const AIProviders = [
   {
     title: 'T3 Chat',
     url: (_: string, q: string) => `https://t3.chat/new?${new URLSearchParams({ q })}`,
-    icon: <MessageCircleIcon/>,
+    icon: <lucide.MessageCircleIcon/>,
   },
 ];
 
 export function DocAI({ md_url, git_url }: { md_url: string; git_url: string }) {
-  const items = useMemo(() => {
+  const items = react.useMemo(() => {
     const fullUrl = typeof window !== 'undefined' ? new URL(md_url, window.location.origin).toString() : 'loading';
     const query = `Read ${fullUrl}, I want to ask questions about it.`;
     return AIProviders.map(provider => ({ title: provider.title, href: provider.url(git_url, query), icon: provider.icon }));
@@ -59,16 +59,16 @@ export function DocAI({ md_url, git_url }: { md_url: string; git_url: string }) 
 
   return (
     <Popover>
-      <PopoverTrigger className={cn(buttonVariants({ color: 'secondary', size: 'sm', className: 'gap-2' }))}>
+      <PopoverTrigger className={lib_cn.cn(buttonVariants({ color: 'secondary', size: 'sm', className: 'gap-2' }))}>
         Open
-        <ChevronDown className="size-3.5 text-fd-muted-foreground"/>
+        <lucide.ChevronDown className="size-3.5 text-fd-muted-foreground"/>
       </PopoverTrigger>
       <PopoverContent className="flex flex-col">
         {items.map((item) => (
           <a key={item.href} href={item.href} rel="noreferrer noopener" target="_blank" className="text-sm p-2 rounded-lg inline-flex items-center gap-2 hover:text-fd-accent-foreground hover:bg-fd-accent [&_svg]:size-4">
             {item.icon}
             {item.title}
-            <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto"/>
+            <lucide.ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto"/>
           </a>
         ))}
       </PopoverContent>
