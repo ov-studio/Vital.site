@@ -102,7 +102,7 @@ h2 span {
   text-transform: uppercase;
   background: var(--blue);
   color: var(--bg);
-  padding: 8px 45px;
+  padding: 10px 45px;
   text-decoration: none;
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
   transition: opacity .2s, transform .15s;
