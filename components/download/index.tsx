@@ -2,6 +2,7 @@
 import * as config_site from '@/configs/site';
 import * as react from 'react';
 import * as lucide from 'lucide-react';
+import './index.css';
 
 interface ReleaseInfo {
   tag: string;
@@ -41,7 +42,7 @@ export function Download() {
 
   if (!info) {
     return (
-      <div className="hbtns">
+      <div className="download-buttons">
         <button className="btn-primary" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
           <lucide.Download size={14}/> Fetching release…
         </button>
@@ -50,8 +51,8 @@ export function Download() {
   }
 
   return (
-    <div className="hbtns">
-      {info.tag && <span className="hero-release-tag">{info.tag}</span>}
+    <div className="download-buttons">
+      {info.tag && <span className="download-release-tag">{info.tag}</span>}
 
       <a href={info.client_url ?? `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases`} className="btn-primary" target="_blank" rel="noreferrer">
         Download Client{info.client_size ? ` · ${info.client_size}` : ''}
@@ -64,8 +65,8 @@ export function Download() {
         </a>
       )}
 
-      <p className="hero-tos-note">
-        By downloading, you agree to our <a href="/tos" className="hero-tos-link">Terms of Service</a> and its conditions
+      <p className="download-tos-note">
+        By downloading, you agree to our <a href="/tos" className="download-tos-link">Terms of Service</a> and its conditions
       </p>
     </div>
   );
