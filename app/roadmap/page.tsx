@@ -4,7 +4,7 @@ import * as config_roadmap from '@/configs/roadmap';
 import { Overlay } from '@/components/overlay';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-import { RoadmapGrid } from '@/components/roadmap';
+import { Roadmap } from '@/components/roadmap';
 import { ClientShell } from '@/components/clientshell';
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function HomePage() {
     <ClientShell>
       <Overlay/>
       <Navbar links={Roadmap_Link}/>
-      <RoadmapGrid sections={config_roadmap.Roadmap}/>
+      <Roadmap sections={config_roadmap.Roadmap}/>
       <Footer/>
     </ClientShell>
   );
