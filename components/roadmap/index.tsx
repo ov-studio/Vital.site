@@ -11,9 +11,8 @@ const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
 
 function cardPct(card: config_roadmap.RoadmapCard): number {
   if (!card.items.length) return 0;
-  return Math.round(
-    (card.items.reduce((s, i) => s + STATUS_WEIGHT[i.status], 0) / card.items.length) * 100
-  );
+  const total = card.items.reduce((s, i) => s + (STATUS_WEIGHT[i.status] ?? 0), 0);
+  return Math.round((total / card.items.length) * 100);
 }
 
 function cardStatus(card: config_roadmap.RoadmapCard): config_roadmap.FeatureStatus {
