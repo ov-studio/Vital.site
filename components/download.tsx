@@ -54,13 +54,12 @@ export function Download() {
       {info.tag && <span className="hero-release-tag">{info.tag}</span>}
 
       <a href={info.client_url ?? `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases`} className="btn-primary" target="_blank" rel="noreferrer">
-        <lucide.Download size={14}/>
         Download Client{info.client_size ? ` · ${info.client_size}` : ''}
       </a>
 
       {info.server_url && (
         <a href={info.server_url} className="btn-secondary" target="_blank" rel="noreferrer">
-          <lucide.Download size={14}/>
+          <lucide.CloudDownload size={14}/>
           Download Server{info.server_size ? ` · ${info.server_size}` : ''}
         </a>
       )}
