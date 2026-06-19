@@ -4,7 +4,10 @@ import * as lucide from 'lucide-react';
 type CardInput = Omit<RoadmapCard, 'id'>;
 type SectionInput = { name: string; cards: CardInput[] };
 
-function to_id(label: string): string { return label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+function to_id(label: string): string {
+  return label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function build(sections: SectionInput[]): RoadmapSection[] {
   return sections.map(s => ({
     name: s.name,
