@@ -15,11 +15,10 @@ local iterator = util.string.grapheme_indices(
 ```
 
 <Callout type="warn">
-This function returns byte positions (like `util.string.codepoint`, `util.string.codes`, `util.string.offset`, `util.string.charpos` and `util.string.invalidoffset`), not character positions.
+    **This function returns byte positions not character positions.**
 
-Passing those positions into `util.string.sub` or `util.string.byte` - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
+    Passing those positions into `util.string.sub` or `util.string.byte` - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
 </Callout>
-
 
 ### Parameters
 
