@@ -1,11 +1,11 @@
 import './doc.css';
 import * as lib_source from '@/lib/source';
 import * as lib_layout from '@/lib/layout.shared';
-import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 import * as component_overlay from '@/components/overlay';
 import * as component_social from '@/components/social';
 import * as component_sidebar from '@/components/sidebar';
 import * as component_clientshell from '@/components/clientshell';
+import * as fumadocs_layout_notebook from 'fumadocs-ui/layouts/notebook';
 
 
 export default function Layout({ children }: LayoutProps<'/docs'>) {
@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
   return (
     <component_clientshell.ClientShell>
       <component_overlay.Overlay vignette={false}/>
-      <DocsLayout
+      <fumadocs_layout_notebook.DocsLayout
         {...base}
         nav={{
           ...nav,
