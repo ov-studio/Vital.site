@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
 import * as lib_source from '@/lib/source';
 import * as config_site from '@/configs/site';
-import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/notebook/page';
-import { notFound } from 'next/navigation';
-import { getMDXComponents } from '@/mdx-components';
-import { createRelativeLink } from 'fumadocs-ui/mdx';
 import * as component_docai from '@/components/docai';
 import * as component_badge from '@/components/badge';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { getMDXComponents } from '@/mdx-components';
+import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/notebook/page';
+import { createRelativeLink } from 'fumadocs-ui/mdx';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
