@@ -1,7 +1,7 @@
-import { getPageImage, source } from '@/lib/source';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
 import { generate as DefaultImage } from 'fumadocs-ui/og';
+import * as lib_source from '@/lib/source';
 import * as config_site from '@/configs/site';
 
 export const revalidate = false;
@@ -21,8 +21,8 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
 }
 
 export function generateStaticParams() {
-  return source.getPages().map((page) => ({
+  return lib_source.source.getPages().map((page) => ({
     lang: page.locale,
-    slug: getPageImage(page).segments,
+    slug: lib_source.getPageImage(page).segments,
   }));
 }

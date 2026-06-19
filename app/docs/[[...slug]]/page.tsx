@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { getPageImage, source } from '@/lib/source';
+import * as lib_source from '@/lib/source';
+import * as config_site from '@/configs/site';
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/notebook/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import * as config_site from '@/configs/site';
 import { DocAI } from '@/components/docai';
 import { Badge } from '@/components/badge';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = lib_source.source.getPage(params.slug);
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -33,7 +33,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       <DocsBody>
         <MDX
           components={getMDXComponents({
-            a: createRelativeLink(source, page),
+            a: createRelativeLink(lib_source.source, page),
           })}
         />
       </DocsBody>
@@ -42,19 +42,19 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+  return lib_source.source.generateParams();
 }
 
 export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): Promise<Metadata> {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = lib_source.source.getPage(params.slug);
   if (!page) notFound();
 
   return {
     title: `${page.data.title}`,
     description: page.data.description,
     openGraph: {
-      images: getPageImage(page).url,
+      images: lib_source.getPageImage(page).url,
     },
   };
 }

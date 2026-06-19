@@ -1,5 +1,5 @@
 import './doc.css';
-import { source } from '@/lib/source';
+import * as lib_source from '@/lib/source';
 import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 import { baseOptions } from '@/lib/layout.shared';
 import * as component_overlay from '@/components/overlay';
@@ -26,7 +26,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
           </div>
           )
         }}
-        tree={source.getPageTree()}
+        tree={lib_source.source.getPageTree()}
         sidebar={{
           collapsible: true,
         }}
