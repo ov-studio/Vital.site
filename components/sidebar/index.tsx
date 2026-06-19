@@ -1,10 +1,10 @@
 'use client';
-import { PanelLeft } from 'lucide-react';
-import { useState } from 'react';
+import * as react from 'react';
+import * as lucide from 'lucide-react';
 import './index.css';
 
 export function SidebarToggle() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = react.useState(false);
 
   const toggle = () => {
     const sidebar = document.querySelector('#nd-sidebar') as HTMLElement;
@@ -16,7 +16,7 @@ export function SidebarToggle() {
 
   return (
     <button className="sidebar-toggle-btn" onClick={toggle}>
-      <PanelLeft size={18}/>
+      <lucide.PanelLeft size={18}/>
     </button>
   );
 }
