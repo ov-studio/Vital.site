@@ -1,6 +1,7 @@
 import * as config_site from '@/configs/site';
 import * as component_brand from '@/components/brand';
 import * as component_download from '@/components/download';
+import * as lucide from 'lucide-react';
 import './index.css';
 
 function format(v: number | string) {
@@ -29,10 +30,10 @@ async function get_git_stats() {
 }
 
 const STAT_ICONS = {
-  stars: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.1-.8z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>),
-  forks: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="5" cy="3" r="1.5" stroke="currentColor" strokeWidth="1.2"/><circle cx="11" cy="3" r="1.5" stroke="currentColor" strokeWidth="1.2"/><circle cx="8" cy="13" r="1.5" stroke="currentColor" strokeWidth="1.2"/><path d="M5 4.5v2a3 3 0 003 3m3-5v2a3 3 0 01-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
-  commits: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.2"/><path d="M1 8h4.5M10.5 8H15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
-  issues: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2"/><path d="M8 5v3.5M8 11v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>),
+  stars: <lucide.Star size={14} strokeWidth={2} />,
+  forks: <lucide.GitFork size={14} strokeWidth={2} />,
+  commits: <lucide.GitCommit size={14} strokeWidth={2} />,
+  issues: <lucide.CircleDot size={14} strokeWidth={2} />,
 };
 
 export async function Hero() {
