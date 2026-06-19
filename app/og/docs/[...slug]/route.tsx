@@ -1,18 +1,18 @@
 import * as lib_source from '@/lib/source';
 import * as config_site from '@/configs/site';
-import { notFound } from 'next/navigation';
-import { ImageResponse } from 'next/og';
-import { generate as DefaultImage } from 'fumadocs-ui/og';
+import * as next_navigation from 'next/navigation';
+import * as next_og from 'next/og';
+import * as fumadocs_og from 'fumadocs-ui/og';
 
 export const revalidate = false;
 
 export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...slug]'>) {
   const { slug } = await params;
   const page = lib_source.source.getPage(slug.slice(0, -1));
-  if (!page) notFound();
+  if (!page) next_navigation.notFound();
 
-  return new ImageResponse(
-    <DefaultImage title={page.data.title} description={page.data.description} site={config_site.info.name}/>,
+  return new next_og.ImageResponse(
+    <fumadocs_og.DefaultImage title={page.data.title} description={page.data.description} site={config_site.info.name}/>,
     {
       width: 1200,
       height: 630,
