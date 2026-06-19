@@ -11,7 +11,7 @@ export function baseOptions(): fumadocs_layout_shared.BaseLayoutProps {
       )
     },
     themeSwitch: {
-      enabled: false,
+      enabled: false
     },
   };
 }
