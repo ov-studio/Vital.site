@@ -1,21 +1,21 @@
 import * as config_site from '@/configs/site';
 import * as next from 'next';
-import * as next_font from 'next/font/google';
 import * as fumadocs_provider_next from 'fumadocs-ui/provider/next';
+import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
 
-const geist = next_font.Geist({
+const geist = Geist({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-geist'
 });
 
-const geist_mono = next_font.Geist_Mono({
+const geist_mono = Geist_Mono({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-geist-mono'
 });
 
-const rajdhani = next_font.Rajdhani({
+const rajdhani = Rajdhani({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-rajdhani'
