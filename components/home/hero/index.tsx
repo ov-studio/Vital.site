@@ -24,7 +24,9 @@ async function get_git_stats() {
   }
 }
 
-const fmt = (v: number | string) => typeof v === 'number' ? v.toLocaleString() : v;
+const format = function (v: number | string) {
+  return typeof v === 'number' ? v.toLocaleString() : v;
+};
 
 const STAT_ICONS = {
   stars: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.1-.8z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>),
@@ -36,10 +38,10 @@ const STAT_ICONS = {
 export async function Hero() {
   const data = await get_git_stats();
   const stats = [
-    { key: 'stars', value: fmt(data.stars), label: 'Stars' },
-    { key: 'forks', value: fmt(data.forks), label: 'Forks' },
-    { key: 'commits', value: fmt(data.commits), label: 'Commits' },
-    { key: 'issues', value: fmt(data.issues), label: 'Issues' },
+    { key: 'stars', value: format(data.stars), label: 'Stars' },
+    { key: 'forks', value: format(data.forks), label: 'Forks' },
+    { key: 'commits', value: format(data.commits), label: 'Commits' },
+    { key: 'issues', value: format(data.issues), label: 'Issues' },
   ] as const;
 
   return (
