@@ -1,6 +1,7 @@
 'use client';
 import * as config_site from '@/configs/site';
 import * as react from 'react';
+import * as lucide from 'lucide-react';
 
 interface ReleaseInfo {
   tag: string;
@@ -11,12 +12,6 @@ interface ReleaseInfo {
 }
 
 const format_size = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-
-const DownloadIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
 
 export function Download() {
   const [info, setInfo] = react.useState<ReleaseInfo | null>(null);
@@ -48,7 +43,7 @@ export function Download() {
     return (
       <div className="hbtns">
         <button className="btn-primary" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-          <DownloadIcon/> Fetching release…
+          <lucide.Download size={14}/> Fetching release…
         </button>
       </div>
     );
@@ -59,17 +54,17 @@ export function Download() {
       {info.tag && <span className="hero-release-tag">{info.tag}</span>}
 
       <a href={info.client_url ?? `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases`} className="btn-primary" target="_blank" rel="noreferrer">
-        <DownloadIcon/>
+        <lucide.Download size={14}/>
         Download Client{info.client_size ? ` · ${info.client_size}` : ''}
       </a>
 
       {info.server_url && (
         <a href={info.server_url} className="btn-secondary" target="_blank" rel="noreferrer">
-          <DownloadIcon/>
+          <lucide.Download size={14}/>
           Download Server{info.server_size ? ` · ${info.server_size}` : ''}
         </a>
       )}
-      
+
       <p className="hero-tos-note">
         By downloading, you agree to our <a href="/tos" className="hero-tos-link">Terms of Service</a> and its conditions
       </p>
