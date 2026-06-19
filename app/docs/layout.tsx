@@ -2,18 +2,18 @@ import './doc.css';
 import { source } from '@/lib/source';
 import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 import { baseOptions } from '@/lib/layout.shared';
-import { Overlay } from '@/components/overlay';
-import { Social } from '@/components/social';
-import { SidebarToggle } from '@/components/sidebar';
-import { ClientShell } from '@/components/clientshell';
+import * as component_overlay from '@/components/overlay';
+import * as component_social from '@/components/social';
+import * as component_sidebar from '@/components/sidebar';
+import * as component_clientshell from '@/components/clientshell';
 
 
 export default function Layout({ children }: LayoutProps<'/docs'>) {
   const { nav, ...base } = baseOptions();
 
   return (
-    <ClientShell>
-      <Overlay vignette={false}/>
+    <component_clientshell.ClientShell>
+      <component_overlay.Overlay vignette={false}/>
       <DocsLayout
         {...base}
         nav={{
@@ -21,8 +21,8 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
           mode: 'top',
           children: (
             <div className="nav-social">
-              <Social/>
-              <SidebarToggle/>
+              <component_social.Social/>
+              <component_sidebar.SidebarToggle/>
           </div>
           )
         }}
@@ -33,6 +33,6 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
       >
         {children}
       </DocsLayout>
-    </ClientShell>
+    </component_clientshell.ClientShell>
   );
 }
