@@ -235,6 +235,6 @@ h2 span {
   }
 
   h2 {
-    font-size: clamp(2rem, 7vw, 2.8rem)
+    font-size: clamp(2rem, 7vw, 2.6rem)
   }
 }
