@@ -12,7 +12,7 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
   if (!page) next_navigation.notFound();
 
   return new next_og.ImageResponse(
-    <fumadocs_og.DefaultImage title={page.data.title} description={page.data.description} site={config_site.info.name}/>,
+    <fumadocs_og.default title={page.data.title} description={page.data.description} site={config_site.info.name} />,
     {
       width: 1200,
       height: 630,
