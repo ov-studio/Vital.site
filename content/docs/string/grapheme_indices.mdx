@@ -17,7 +17,7 @@ local iterator = util.string.grapheme_indices(
 <Callout type="warn">
     **This function's iterator returns byte positions not character positions.**
 
-    Passing those positions into `util.string.sub` or `util.string.byte` - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
+    Passing those positions into [`util.string.sub`](/docs/string/sub) or [`util.string.byte`](/docs/string/byte) - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
 </Callout>
 
 ### Parameters
