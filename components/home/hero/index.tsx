@@ -3,7 +3,7 @@ import * as component_brand from '@/components/brand';
 import * as component_download from '@/components/download';
 import './index.css';
 
-async function getGitHubStats() {
+async function get_git_stats() {
   try {
     const [repoRes, commitsRes] = await Promise.all([
       fetch(`https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}`, { next: { revalidate: 3600 } }),
@@ -16,9 +16,10 @@ async function getGitHubStats() {
       stars: repo.stargazers_count ?? '—',
       forks: repo.forks_count ?? '—',
       issues: repo.open_issues_count ?? '—',
-      commits: match ? parseInt(match[1]) : '—',
+      commits: match ? parseInt(match[1]) : '—'
     };
-  } catch {
+  }
+  catch {
     return { stars: '—', forks: '—', issues: '—', commits: '—' };
   }
 }
@@ -33,13 +34,12 @@ const STAT_ICONS = {
 };
 
 export async function Hero() {
-  const stats = await getGitHubStats();
-
-  const STATS = [
-    { key: 'stars', value: fmt(stats.stars), label: 'Stars' },
-    { key: 'forks', value: fmt(stats.forks), label: 'Forks' },
-    { key: 'commits', value: fmt(stats.commits), label: 'Commits' },
-    { key: 'issues', value: fmt(stats.issues), label: 'Issues' },
+  const data = await get_git_stats();
+  const stats = [
+    { key: 'stars', value: fmt(data.stars), label: 'Stars' },
+    { key: 'forks', value: fmt(data.forks), label: 'Forks' },
+    { key: 'commits', value: fmt(data.commits), label: 'Commits' },
+    { key: 'issues', value: fmt(data.issues), label: 'Issues' },
   ] as const;
 
   return (
@@ -76,7 +76,7 @@ export async function Hero() {
         <component_download.Download/>
 
         <div className="hero-stats">
-          {STATS.map(({ key, value, label }) => (
+          {stats.map(({ key, value, label }) => (
             <div key={key} className="hstat">
               <div className="hstat-top">
                 <span className="hstat-ico">{STAT_ICONS[key]}</span>
