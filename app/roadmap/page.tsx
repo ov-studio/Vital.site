@@ -4,20 +4,16 @@ import * as config_roadmap from '@/configs/roadmap';
 import { Overlay } from '@/components/overlay';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
-import { Roadmap } from '@/components/roadmap';
+import { to_anchor, Roadmap } from '@/components/roadmap';
 import { ClientShell } from '@/components/clientshell';
 
 export const metadata: Metadata = {
   title: 'Roadmap'
 };
 
-function toAnchor(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
-
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
   label: s.name,
-  href: `#${toAnchor(s.name)}`,
+  href: `#${to_anchor(s.name)}`,
 }));
 
 export default function HomePage() {

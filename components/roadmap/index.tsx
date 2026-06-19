@@ -9,7 +9,7 @@ const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   pending: 0
 };
 
-function toAnchor(name: string): string {
+export function to_anchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
@@ -103,9 +103,9 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
 
   return (
-    <div id={toAnchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
+    <div id={to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <a className="rcategory-label" href={`#${toAnchor(section.name)}`}># {section.name}</a>
+        <a className="rcategory-label" href={`#${to_anchor(section.name)}`}># {section.name}</a>
       </div>
 
       <div className="rcategory-cols">
