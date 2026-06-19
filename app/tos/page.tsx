@@ -1,12 +1,12 @@
-import '../../app/global.css';
-import type { Metadata } from 'next';
 import * as component_overlay from '@/components/overlay';
 import * as component_navbar from '@/components/navbar';
 import * as component_footer from '@/components/footer';
 import * as component_tos from '@/components/tos';
 import * as component_clientshell from '@/components/clientshell';
+import * as next from 'next';
+import '../../app/global.css';
 
-export const metadata: Metadata = {
+export const metadata: next.Metadata = {
   title: 'Terms of Service'
 };
 
