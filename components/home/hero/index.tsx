@@ -1,6 +1,6 @@
 import * as config_site from '@/configs/site';
-import { Brand } from '@/components/brand';
-import { Download } from '@/components/download';
+import * as component_brand from '@/components/brand';
+import * as component_download from '@/components/download';
 import './index.css';
 
 async function getGitHubStats() {
@@ -55,7 +55,7 @@ export async function Hero() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <Brand size="xxl" variant="logo-only" className="hero-brand--logo"/>
+          <component_brand.Brand size="xxl" variant="logo-only" className="hero-brand--logo"/>
         </div>
 
         <div className="hero-motto">
@@ -73,7 +73,7 @@ export async function Hero() {
         </p>
 
         {/* Client component — fetches release info in the browser */}
-        <Download/>
+        <component_download.Download/>
 
         <div className="hero-stats">
           {STATS.map(({ key, value, label }) => (
