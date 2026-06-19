@@ -27,6 +27,7 @@ const Badges = {
 export function Badge({ type }: { type: string }) {
   const config = Badges[type as keyof typeof Badges];
   if (!config) return null;
+  
   return (
     <span className={`${fumadocs_component_button.buttonVariants({ variant: 'outline', size: 'sm' })} inline-flex items-center gap-2 text-xs font-medium pointer-events-none ${config.styles}`}>
       {type}
