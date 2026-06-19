@@ -1,6 +1,6 @@
 'use client';
 import * as config_home from '@/configs/home';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import * as react from 'react';
 import { icons } from '@/components/atoms/icons';
 import './index.css';
 
@@ -112,14 +112,14 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
 }
 
 export function Features() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const nodeRefs = useRef<NodeRef[]>(config_home.Features.map(() => ({ el: null })));
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const canvasRef = react.useRef<HTMLCanvasElement>(null);
+  const nodeRefs = react.useRef<NodeRef[]>(config_home.Features.map(() => ({ el: null })));
+  const [hoveredId, setHoveredId] = react.useState<string | null>(null);
 
-  const handleEnter = useCallback((id: string) => setHoveredId(id), []);
-  const handleLeave = useCallback(() => setHoveredId(null), []);
+  const handleEnter = react.useCallback((id: string) => setHoveredId(id), []);
+  const handleLeave = react.useCallback(() => setHoveredId(null), []);
 
-  useEffect(() => {
+  react.useEffect(() => {
     const canvas = canvasRef.current;
     const nodeEls = nodeRefs.current.map(r => r.el).filter(Boolean) as HTMLDivElement[];
     if (!canvas || nodeEls.length !== config_home.Features.length) return;
