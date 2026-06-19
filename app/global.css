@@ -125,10 +125,6 @@ h2 span {
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: color .2s
-}
-
-.btn-secondary {
   transition: background .2s, color .2s;
 }
 
