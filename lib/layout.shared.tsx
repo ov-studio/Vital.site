@@ -1,12 +1,12 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { Brand } from '@/components/brand';
+import * as fumadocs_layout_shared from 'fumadocs-ui/layouts/shared';
+import * as component_brand from '@/components/brand';
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(): fumadocs_layout_shared.BaseLayoutProps {
   return {
     nav: {
       title: (
         <div style={{ marginTop: '12px' }}>
-          <Brand size="xs" variant="full" href="/#"/>
+          <component_brand.Brand size="xs" variant="full" href="/#"/>
         </div>
       )
     },
