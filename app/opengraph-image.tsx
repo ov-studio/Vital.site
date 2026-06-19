@@ -1,6 +1,6 @@
-import { ImageResponse } from 'next/og';
-import { readFile } from 'fs/promises';
-import { join } from 'path';
+import * as next_og from 'next/og';
+import * as fs from 'fs/promises';
+import * as path from 'path';
 
 export const runtime = 'nodejs';
 export const size = { width: 1000, height: 300 };
@@ -13,13 +13,13 @@ const rule = 'hsl(220, 18%, 9%)';
 
 export default async function OGImage() {
     const [logosvg, rajdhani] = await Promise.all([
-        readFile(join(process.cwd(), 'public/logo.svg')), 
-        readFile(join(process.cwd(), 'public/font/Rajdhani-Bold.ttf'))
+        fs.readFile(path.join(process.cwd(), 'public/logo.svg')), 
+        fs.readFile(path.join(process.cwd(), 'public/font/Rajdhani-Bold.ttf'))
     ]);
     const logo = logosvg.toString().replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
     const logosrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
 
-    return new ImageResponse(
+    return new next_og.ImageResponse(
         (
             <div style={{
                 background: bg,
