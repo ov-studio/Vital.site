@@ -1,8 +1,8 @@
+import * as config_site from '@/configs/site';
+import * as react from 'react';
+import * as lucide from 'lucide-react';
 import { docs } from 'fumadocs-mdx:collections/server';
 import { type InferPageType, loader } from 'fumadocs-core/source';
-import * as LucideIcons from 'lucide-react';
-import { createElement } from 'react';
-import * as config_site from '@/configs/site';
 
 export function to_anchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -12,8 +12,8 @@ export const source = loader({
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
   icon(name) {
-    if (name && name in LucideIcons) {
-      return createElement(LucideIcons[name as keyof typeof LucideIcons] as any, config_site.info.lucide);
+    if (name && name in lucide) {
+      return react.createElement(lucide[name as keyof typeof lucide] as any, config_site.info.lucide);
     }
   },
   slugs(file) {
