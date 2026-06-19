@@ -3,6 +3,10 @@ import * as component_brand from '@/components/brand';
 import * as component_download from '@/components/download';
 import './index.css';
 
+function format(v: number | string) {
+  return typeof v === 'number' ? v.toLocaleString() : v;
+}
+
 async function get_git_stats() {
   try {
     const [repoRes, commitsRes] = await Promise.all([
@@ -23,10 +27,6 @@ async function get_git_stats() {
     return { stars: '—', forks: '—', issues: '—', commits: '—' };
   }
 }
-
-const format = function (v: number | string) {
-  return typeof v === 'number' ? v.toLocaleString() : v;
-};
 
 const STAT_ICONS = {
   stars: (<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1-3-2.9 4.1-.8z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>),
