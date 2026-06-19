@@ -2,8 +2,8 @@
 import * as lib_cn from '@/lib/cn';
 import * as react from 'react';
 import * as lucide from 'lucide-react';
-import { buttonVariants } from 'fumadocs-ui/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from 'fumadocs-ui/components/ui/popover';
+import * as fumadocs_component_button from 'fumadocs-ui/components/ui/button';
+import * as fumadocs_component_popover from 'fumadocs-ui/components/ui/popover';
 
 const AIProviders = [
   {
@@ -58,12 +58,12 @@ export function DocAI({ md_url, git_url }: { md_url: string; git_url: string }) 
   }, [git_url, md_url]);
 
   return (
-    <Popover>
-      <PopoverTrigger className={lib_cn.cn(buttonVariants({ color: 'secondary', size: 'sm', className: 'gap-2' }))}>
+    <fumadocs_component_popover.Popover>
+      <fumadocs_component_popover.PopoverTrigger className={lib_cn.cn(fumadocs_component_button.buttonVariants({ color: 'secondary', size: 'sm', className: 'gap-2' }))}>
         Open
         <lucide.ChevronDown className="size-3.5 text-fd-muted-foreground"/>
-      </PopoverTrigger>
-      <PopoverContent className="flex flex-col">
+      </fumadocs_component_popover.PopoverTrigger>
+      <fumadocs_component_popover.PopoverContent className="flex flex-col">
         {items.map((item) => (
           <a key={item.href} href={item.href} rel="noreferrer noopener" target="_blank" className="text-sm p-2 rounded-lg inline-flex items-center gap-2 hover:text-fd-accent-foreground hover:bg-fd-accent [&_svg]:size-4">
             {item.icon}
@@ -71,7 +71,7 @@ export function DocAI({ md_url, git_url }: { md_url: string; git_url: string }) 
             <lucide.ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto"/>
           </a>
         ))}
-      </PopoverContent>
-    </Popover>
+      </fumadocs_component_popover.PopoverContent>
+    </fumadocs_component_popover.Popover>
   );
 }
