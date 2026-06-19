@@ -9,14 +9,14 @@ const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   pending: 0
 };
 
-function cardPct(card: config_roadmap.RoadmapCard): number {
+function card_progress(card: config_roadmap.RoadmapCard): number {
   if (!card.items.length) return 0;
   const total = card.items.reduce((s, i) => s + (STATUS_WEIGHT[i.status] ?? 0), 0);
   return Math.round((total / card.items.length) * 100);
 }
 
-function cardStatus(card: config_roadmap.RoadmapCard): config_roadmap.FeatureStatus {
-  const pct = cardPct(card);
+function card_status(card: config_roadmap.RoadmapCard): config_roadmap.FeatureStatus {
+  const pct = card_progress(card);
   return pct === 100 ? 'completed' : pct > 0 ? 'partial' : 'pending';
 }
 
@@ -24,8 +24,8 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
   const [open, setOpen] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
-  const pct = cardPct(card);
-  const status = cardStatus(card);
+  const pct = card_progress(card);
+  const status = card_status(card);
 
   useEffect(() => {
     if (innerRef.current) setHeight(innerRef.current.scrollHeight);
@@ -125,6 +125,7 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   );
 }
 
+export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[] }) {
   return (
     <section id="roadmap">
       <div className="sw">
