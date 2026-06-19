@@ -1,0 +1,48 @@
+---
+title: util.string.title
+description: Converts a string or codepoint to Unicode titlecase
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.title(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `int` | input | String to convert, or a single codepoint |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `int` | result | Titlecased string, or the titlecase codepoint if input was a number |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Convert a string to titlecase"
+local result = util.string.title("hello")
+
+core.engine.print("info", result) -- 'Hello'
+```
+
+```lua lineNumbers title="Titlecase differs from uppercase for some characters"
+-- Most Latin letters behave the same as upper(), but some scripts differ
+local result = util.string.title("ǳ")
+
+core.engine.print("info", result) -- 'ǲ' (titlecase form, distinct from 'Ǳ' uppercase)
+```
+
+```lua lineNumbers title="Convert a single codepoint"
+local code = util.string.title(util.string.byte("h"))
+
+core.engine.print("info", code) -- 72 ('H')
+```

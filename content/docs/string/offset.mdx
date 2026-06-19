@@ -1,0 +1,63 @@
+---
+title: util.string.offset
+description: Converts a character offset into a byte position
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local position = util.string.offset(
+    input,
+    count,
+    start_at = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to read from |
+| `int` | count | Number of characters to move - positive moves forward, negative moves backward, zero snaps to the start of the current character |
+| `int` | start_at | Byte position to move from - defaults to the start when count >= 0, or the end when count < 0 |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` \| `nil` | position | Resulting byte position, or `nil` if there is no such character |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Find the byte position of the 3rd character"
+local pos = util.string.offset("hello", 3)
+
+core.engine.print("info", pos) -- 3
+```
+
+```lua lineNumbers title="Move forward from a given byte position"
+local pos = util.string.offset("hello", 2, 2)
+
+core.engine.print("info", pos) -- 4
+```
+
+```lua lineNumbers title="Move backward from the end of the string"
+local pos = util.string.offset("hello", -1)
+
+core.engine.print("info", pos) -- 5
+```
+
+```lua lineNumbers title="Snap to the start of the character containing a byte position"
+local pos = util.string.offset("a€b", 0, 3)
+
+core.engine.print("info", pos) -- 2 (start of the multi-byte '€')
+```
+
+```lua lineNumbers title="Returns nil when there is no such character"
+local pos = util.string.offset("hi", 5)
+
+core.engine.print("info", pos) -- nil
+```

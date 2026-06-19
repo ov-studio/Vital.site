@@ -1,0 +1,60 @@
+---
+title: util.string.codepoint
+description: Retrieves the Unicode codepoints of characters starting within a byte range
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local ... = util.string.codepoint(
+    input,
+    start_at = 1,
+    end_at = start_at,
+    lax = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to read codepoints from |
+| `int` | start_at | Byte position to begin from - must be the start of a character - negative counts from end |
+| `int` | end_at | Byte position to end at (inclusive) - negative counts from end |
+| `bool` | lax | When true - skips validation and decodes even malformed sequences |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | ... | Numeric codepoint values for every character starting in the given byte range |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the codepoint of the first character"
+local code = util.string.codepoint("A")
+
+core.engine.print("info", code) -- 65
+```
+
+```lua lineNumbers title="Get the codepoint of a multi-byte character"
+local code = util.string.codepoint("€")
+
+core.engine.print("info", code) -- 8364
+```
+
+```lua lineNumbers title="Get every codepoint across a byte range"
+local a, b, c = util.string.codepoint("ABC", 1, 3)
+
+core.engine.print("info", a, b, c) -- 65  66  67
+```
+
+```lua lineNumbers title="Indices are byte positions, not character positions"
+-- "€" is 3 bytes long, so the next character starts at byte 4
+local euro, dollar = util.string.codepoint("€$", 1, 4)
+
+core.engine.print("info", euro, dollar) -- 8364  36
+```

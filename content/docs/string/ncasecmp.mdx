@@ -1,0 +1,59 @@
+---
+title: util.string.ncasecmp
+description: Compares two strings case-insensitively across full Unicode case folding
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.ncasecmp(
+    a,
+    b
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | a | First string to compare |
+| `string` | b | Second string to compare |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | `-1` if a < b - `0` if equal - `1` if a > b (after case folding) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Compare two strings that only differ by case"
+local result = util.string.ncasecmp("Hello", "HELLO")
+
+core.engine.print("info", result) -- 0
+```
+
+```lua lineNumbers title="Compare two genuinely different strings"
+local result = util.string.ncasecmp("Apple", "Banana")
+
+core.engine.print("info", result) -- -1
+```
+
+```lua lineNumbers title="Use as a case-insensitive equality check"
+if util.string.ncasecmp("YES", "yes") == 0 then
+    core.engine.print("info", "Strings match, ignoring case")
+end
+```
+
+```lua lineNumbers title="Sort a table of strings case-insensitively"
+local words = {"banana", "Apple", "cherry"}
+
+util.table.sort(words, function(a, b)
+    return util.string.ncasecmp(a, b) < 0
+end)
+
+core.engine.print("info", util.table.concat(words, ", ")) -- 'Apple, banana, cherry'
+```

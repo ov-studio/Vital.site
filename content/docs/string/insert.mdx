@@ -1,0 +1,57 @@
+---
+title: util.string.insert
+description: Inserts a substring into a string at a given character position
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.insert(
+    input,
+    position = nil,
+    substring
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to insert into |
+| `int` | position | Character position to insert at - negative counts from end - when omitted, substring is appended |
+| `string` | substring | String to insert |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | String with substring inserted |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Append to the end of a string"
+local result = util.string.insert("hello", "!")
+
+core.engine.print("info", result) -- 'hello!'
+```
+
+```lua lineNumbers title="Insert at a specific character position"
+local result = util.string.insert("hello", 1, "X")
+
+core.engine.print("info", result) -- 'Xhello'
+```
+
+```lua lineNumbers title="Insert in the middle of a string"
+local result = util.string.insert("hllo", 2, "e")
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Use a negative position to insert from the end"
+local result = util.string.insert("hello", -1, "p")
+
+core.engine.print("info", result) -- 'hellpo'
+```

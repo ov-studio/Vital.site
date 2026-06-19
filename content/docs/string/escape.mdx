@@ -1,0 +1,59 @@
+---
+title: util.string.escape
+description: Decodes %-style numeric codepoint escapes embedded in a string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.escape(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String containing `%`-style codepoint escapes |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | String with each escape sequence replaced by its actual character |
+
+---
+
+### Escape Forms
+
+| Form | Description |
+|------|-------------|
+| `%ddd` | Decimal codepoint (e.g. `%65`) |
+| `%{ddd}` | Decimal codepoint, explicitly bracketed |
+| `%xXX` \| `%XXX` | Hexadecimal codepoint |
+| `%uXXXX` \| `%UXXXX` | Hexadecimal codepoint (alternate form) |
+| `%%` | Literal percent sign |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Decode a decimal codepoint escape"
+local result = util.string.escape("%{65}")
+
+core.engine.print("info", result) -- 'A'
+```
+
+```lua lineNumbers title="Decode a hexadecimal codepoint escape"
+local result = util.string.escape("%x41")
+
+core.engine.print("info", result) -- 'A'
+```
+
+```lua lineNumbers title="Decode escapes mixed with plain text"
+local result = util.string.escape("100%{37} done")
+
+core.engine.print("info", result) -- '100% done'
+```

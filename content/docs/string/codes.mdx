@@ -1,0 +1,64 @@
+---
+title: util.string.codes
+description: Returns an iterator over each character's byte position and codepoint
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local iterator = util.string.codes(
+    input,
+    lax = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to be iterated over |
+| `bool` | lax | When true - skips validation and decodes even malformed sequences |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | iterator | Iterator function for use in a `for` loop, yielding `byte_position, codepoint` per character |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Iterate over every character's position and codepoint"
+for pos, code in util.string.codes("AB€") do
+    core.engine.print("info", pos, code)
+end
+
+--[[
+Output:
+1  65
+2  66
+3  8364
+]]
+```
+
+```lua lineNumbers title="Count the number of characters in a string"
+local count = 0
+
+for _ in util.string.codes("hello™") do
+    count = count + 1
+end
+
+core.engine.print("info", count) -- 6
+```
+
+```lua lineNumbers title="Build a table of codepoints"
+local codes = {}
+
+for _, code in util.string.codes("Lua") do
+    util.table.insert(codes, code)
+end
+
+core.engine.print("info", util.table.concat(codes, " ")) -- '76 117 97'
+```

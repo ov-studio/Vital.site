@@ -1,0 +1,48 @@
+---
+title: util.string.fold
+description: Applies full Unicode case folding for caseless comparisons
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.fold(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `int` | input | String to fold, or a single codepoint |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `int` | result | Case-folded string, or the folded codepoint if input was a number |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Fold a string for caseless comparison"
+local result = util.string.fold("HELLO")
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Compare two strings caselessly across scripts"
+local a = util.string.fold("Straße")
+local b = util.string.fold("STRASSE")
+
+core.engine.print("info", a == b) -- true
+```
+
+```lua lineNumbers title="Use fold instead of lower for non-Latin scripts"
+local result = util.string.fold("İstanbul")
+
+core.engine.print("info", result) -- folds 'İ' correctly, unlike a plain lower()
+```

@@ -1,0 +1,57 @@
+---
+title: util.string.remove
+description: Removes a range of characters from a string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.remove(
+    input,
+    start_at = -1,
+    end_at = -1
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to remove characters from |
+| `int` | start_at | Character position to start removing from - negative counts from end |
+| `int` | end_at | Character position to stop removing at (inclusive) - negative counts from end |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | String with the given character range removed |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove the last character by default"
+local result = util.string.remove("hello!")
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Remove a single character at a position"
+local result = util.string.remove("hello", 1, 1)
+
+core.engine.print("info", result) -- 'ello'
+```
+
+```lua lineNumbers title="Remove a range of characters"
+local result = util.string.remove("hello world", 6, 11)
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Remove characters counting from the end"
+local result = util.string.remove("hello", -3, -1)
+
+core.engine.print("info", result) -- 'he'
+```

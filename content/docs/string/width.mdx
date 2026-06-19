@@ -1,0 +1,57 @@
+---
+title: util.string.width
+description: Calculates the display width of a string or codepoint
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local width = util.string.width(
+    input,
+    ambiguous_as_double = false,
+    default_width = 0
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `int` | input | String to measure, or a single codepoint |
+| `bool` | ambiguous_as_double | When true - East Asian "ambiguous width" characters count as double-width instead of single-width |
+| `int` | default_width | Width to use for codepoints with no defined display width |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | width | Total display width in terminal columns |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Measure the width of a plain ASCII string"
+local width = util.string.width("hello")
+
+core.engine.print("info", width) -- 5
+```
+
+```lua lineNumbers title="Wide characters count as 2 columns"
+local width = util.string.width("中文")
+
+core.engine.print("info", width) -- 4
+```
+
+```lua lineNumbers title="Measure the width of a single codepoint"
+local width = util.string.width(util.string.byte("中"))
+
+core.engine.print("info", width) -- 2
+```
+
+```lua lineNumbers title="Treat ambiguous-width characters as double-width"
+local width = util.string.width("±", true)
+
+core.engine.print("info", width) -- 2
+```

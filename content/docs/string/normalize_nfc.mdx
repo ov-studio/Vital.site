@@ -1,0 +1,53 @@
+---
+title: util.string.normalize_nfc
+description: Converts a string into Unicode NFC normalized form
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result, was_already_nfc = util.string.normalize_nfc(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to normalize |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Input converted into NFC (Normalization Form C) - identical to input if it was already normalized |
+| `bool` | was_already_nfc | `true` if input was already NFC and no changes were made |
+
+---
+
+### Examples
+
+```lua lineNumbers title="A plain ASCII string passes through unchanged"
+local result, was_already_nfc = util.string.normalize_nfc("hello")
+
+core.engine.print("info", result, was_already_nfc) -- 'hello'  true
+```
+
+```lua lineNumbers title="Compose a decomposed accented character"
+local decomposed = "e" .. util.string.char(0x0301) -- 'e' + combining acute accent
+local result, was_already_nfc = util.string.normalize_nfc(decomposed)
+
+core.engine.print("info", was_already_nfc) -- false
+core.engine.print("info", result == "é") -- true (precomposed form)
+```
+
+```lua lineNumbers title="Normalize user input before storing or comparing it"
+local input = get_user_input()
+local normalized = util.string.normalize_nfc(input)
+
+if normalized == "café" then
+    core.engine.print("info", "Matched, regardless of source composition")
+end
+```

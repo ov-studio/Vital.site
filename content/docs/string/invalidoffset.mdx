@@ -1,0 +1,49 @@
+---
+title: util.string.invalidoffset
+description: Finds the byte position of the first invalid UTF-8 sequence
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local position = util.string.invalidoffset(
+    input,
+    start_at = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to scan |
+| `int` | start_at | Byte position to begin scanning from - negative counts from end |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` \| `nil` | position | Byte position of the first invalid byte, or `nil` if input is fully valid from start_at onward |
+
+---
+
+### Examples
+
+```lua lineNumbers title="A valid string returns nil"
+local pos = util.string.invalidoffset("hello")
+
+core.engine.print("info", pos) -- nil
+```
+
+```lua lineNumbers title="Find the position of a malformed byte"
+local pos = util.string.invalidoffset("ab\xFFcd")
+
+core.engine.print("info", pos) -- 3
+```
+
+```lua lineNumbers title="Scan starting from a later byte position"
+local pos = util.string.invalidoffset("\xFFab\xFFcd", 2)
+
+core.engine.print("info", pos) -- 4
+```

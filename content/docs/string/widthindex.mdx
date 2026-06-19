@@ -1,0 +1,56 @@
+---
+title: util.string.widthindex
+description: Finds the character position where a cumulative display width is reached
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local index, remaining, char_width = util.string.widthindex(
+    input,
+    width,
+    ambiguous_as_double = false,
+    default_width = 0
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to measure |
+| `int` | width | Target display width to find the cutoff for |
+| `bool` | ambiguous_as_double | When true - East Asian "ambiguous width" characters count as double-width instead of single-width |
+| `int` | default_width | Width to use for codepoints with no defined display width |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | index | Character index at which the target width is used up |
+| `int` | remaining | Leftover width still available within that character - only returned if the budget ran out mid-string |
+| `int` | char_width | Display width of the character at index - only returned if the budget ran out mid-string |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Budget larger than the whole string returns one value"
+local index = util.string.widthindex("hi", 10)
+
+core.engine.print("info", index) -- 3 (past the end - the whole string fit)
+```
+
+```lua lineNumbers title="Find a cutoff that lands inside a wide character"
+local index, remaining, char_width = util.string.widthindex("中文", 1)
+
+core.engine.print("info", index, remaining, char_width) -- 1  1  2
+```
+
+```lua lineNumbers title="Truncate a string to fit a fixed display width"
+local text = "hello world"
+local index = util.string.widthindex(text, 5)
+
+core.engine.print("info", util.string.sub(text, 1, index)) -- 'hello'
+```

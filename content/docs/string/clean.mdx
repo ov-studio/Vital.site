@@ -1,0 +1,51 @@
+---
+title: util.string.clean
+description: Replaces invalid UTF-8 byte sequences with a replacement string
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result, was_clean = util.string.clean(
+    input,
+    replacement = "\xEF\xBF\xBD"
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to clean |
+| `string` | replacement | String to substitute in place of each invalid byte sequence - defaults to the Unicode replacement character (U+FFFD) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Cleaned string - identical to input if it was already valid |
+| `bool` | was_clean | `true` if input was already valid UTF-8 and no replacement occurred |
+
+---
+
+### Examples
+
+```lua lineNumbers title="A valid string passes through unchanged"
+local result, was_clean = util.string.clean("hello")
+
+core.engine.print("info", result, was_clean) -- 'hello'  true
+```
+
+```lua lineNumbers title="Replace an invalid byte with the default replacement character"
+local result, was_clean = util.string.clean("ab\xFFcd")
+
+core.engine.print("info", was_clean) -- false
+core.engine.print("info", result) -- 'ab' .. '\xEF\xBF\xBD' .. 'cd'
+```
+
+```lua lineNumbers title="Use a custom replacement string"
+local result = util.string.clean("ab\xFFcd", "?")
+
+core.engine.print("info", result) -- 'ab?cd'
+```

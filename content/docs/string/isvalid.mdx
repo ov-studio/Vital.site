@@ -1,0 +1,55 @@
+---
+title: util.string.isvalid
+description: Checks whether a string is well-formed UTF-8
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local valid = util.string.isvalid(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to validate |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | valid | `true` if input is well-formed UTF-8 |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check a valid UTF-8 string"
+local valid = util.string.isvalid("hello")
+
+core.engine.print("info", valid) -- true
+```
+
+```lua lineNumbers title="Check a string with multi-byte characters"
+local valid = util.string.isvalid("héllo 中文")
+
+core.engine.print("info", valid) -- true
+```
+
+```lua lineNumbers title="Check a string containing a malformed byte sequence"
+local valid = util.string.isvalid("hello\xFF")
+
+core.engine.print("info", valid) -- false
+```
+
+```lua lineNumbers title="Validate input before passing it to other utf8 functions"
+local user_input = "\xC0\x80"
+
+if not util.string.isvalid(user_input) then
+    core.engine.print("info", "Rejecting malformed input")
+end
+```

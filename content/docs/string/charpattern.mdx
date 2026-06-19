@@ -1,0 +1,46 @@
+---
+title: util.string.charpattern
+description: A Lua pattern that matches exactly one valid UTF-8 character sequence
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local pattern = util.string.charpattern
+```
+
+This is a constant string field, not a function - it is read directly rather than called.
+
+### Value
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | pattern | Lua pattern matching the byte sequence of a single UTF-8 character |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Iterate over the raw byte sequence of each character"
+local text = "a€b"
+
+for char in util.string.gmatch(text, util.string.charpattern) do
+    core.engine.print("info", char)
+end
+
+--[[
+Output:
+'a'
+'€'
+'b'
+]]
+```
+
+```lua lineNumbers title="Use charpattern as a building block in a larger pattern"
+-- Matches one UTF-8 character followed by a digit
+local pattern = util.string.charpattern.."%d"
+local result = util.string.match("a5 €9", pattern)
+
+core.engine.print("info", result) -- 'a5'
+```

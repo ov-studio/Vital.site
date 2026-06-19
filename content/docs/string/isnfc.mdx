@@ -1,0 +1,56 @@
+---
+title: util.string.isnfc
+description: Checks whether a string is already in Unicode NFC normalized form
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local is_normalized = util.string.isnfc(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | is_normalized | `true` if input is already in NFC (Normalization Form C) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="A plain ASCII string is always already NFC"
+local is_normalized = util.string.isnfc("hello")
+
+core.engine.print("info", is_normalized) -- true
+```
+
+```lua lineNumbers title="A precomposed accented character is NFC"
+local is_normalized = util.string.isnfc("café") -- é as a single codepoint
+
+core.engine.print("info", is_normalized) -- true
+```
+
+```lua lineNumbers title="A decomposed character is not NFC"
+local decomposed = "e" .. util.string.char(0x0301) -- 'e' + combining acute accent
+local is_normalized = util.string.isnfc(decomposed)
+
+core.engine.print("info", is_normalized) -- false
+```
+
+```lua lineNumbers title="Check before relying on string equality across sources"
+local input = get_user_input()
+
+if not util.string.isnfc(input) then
+    input = util.string.normalize_nfc(input)
+end
+```

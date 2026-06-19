@@ -1,0 +1,58 @@
+---
+title: util.string.next
+description: Finds the byte position and codepoint of a character relative to another
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local position, codepoint = util.string.next(
+    input,
+    start_at = 1,
+    offset = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to search within |
+| `int` | start_at | Byte position to search from - negative counts from end |
+| `int` | offset | Number of characters to move past start_at - defaults to 1 if start_at is given, otherwise 0 |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` \| `nil` | position | Byte position of the resulting character, or `nil` if out of range |
+| `int` \| `nil` | codepoint | Codepoint of the resulting character, or `nil` if out of range |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the first character with no arguments"
+local pos, code = util.string.next("hello")
+
+core.engine.print("info", pos, code) -- 1  104
+```
+
+```lua lineNumbers title="Get the character right after a given position"
+local pos, code = util.string.next("hello", 1)
+
+core.engine.print("info", pos, code) -- 2  101
+```
+
+```lua lineNumbers title="Move multiple characters forward"
+local pos, code = util.string.next("hello", 1, 3)
+
+core.engine.print("info", pos, code) -- 4  108
+```
+
+```lua lineNumbers title="Returns nil when moving past the end of the string"
+local pos, code = util.string.next("hi", 1, 5)
+
+core.engine.print("info", pos, code) -- nil  nil
+```

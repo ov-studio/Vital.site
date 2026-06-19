@@ -1,0 +1,59 @@
+---
+title: util.string.charpos
+description: Retrieves the byte position and codepoint of a character at a given position
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local position, codepoint = util.string.charpos(
+    input,
+    char_at = 1,
+    offset = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to read from |
+| `int` | char_at | Character position to look up - negative counts from end |
+| `int` | offset | When given - char_at is treated as a byte position, and this many characters are skipped from there |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` \| `nil` | position | Byte position of the resulting character, or `nil` if out of range |
+| `int` \| `nil` | codepoint | Codepoint of the resulting character, or `nil` if out of range |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the byte position and codepoint of a character"
+local pos, code = util.string.charpos("hello", 1)
+
+core.engine.print("info", pos, code) -- 1  104
+```
+
+```lua lineNumbers title="Use a negative position to read from the end"
+local pos, code = util.string.charpos("hello", -1)
+
+core.engine.print("info", pos, code) -- 5  111
+```
+
+```lua lineNumbers title="Find a multi-byte character's position"
+local pos, code = util.string.charpos("a€b", 2)
+
+core.engine.print("info", pos, code) -- 2  8364
+```
+
+```lua lineNumbers title="Move relative to a known byte position"
+-- Find the character 2 positions after byte 1
+local pos, code = util.string.charpos("hello", 1, 2)
+
+core.engine.print("info", pos, code) -- 3  108
+```

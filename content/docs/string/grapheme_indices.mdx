@@ -1,0 +1,82 @@
+---
+title: util.string.grapheme_indices
+description: Returns an iterator over the byte ranges of each grapheme cluster
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local iterator = util.string.grapheme_indices(
+    input,
+    start_at = 1,
+    end_at = -1
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to be iterated over |
+| `int` | start_at | Byte position to begin from - negative counts from end |
+| `int` | end_at | Byte position to end at (inclusive) - negative counts from end |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | iterator | Iterator function for use in a `for` loop, yielding `start_byte, end_byte` per grapheme cluster |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Iterate over grapheme clusters in plain text"
+for first, last in util.string.grapheme_indices("abc") do
+    core.engine.print("info", first, last)
+end
+
+--[[
+Output:
+1  1
+2  2
+3  3
+]]
+```
+
+```lua lineNumbers title="A multi-codepoint emoji counts as a single grapheme cluster"
+-- Family emoji built from 4 codepoints joined by zero-width joiners
+local text = "👨‍👩‍👧‍👦"
+local clusters = 0
+
+for _ in util.string.grapheme_indices(text) do
+    clusters = clusters + 1
+end
+
+core.engine.print("info", clusters) -- 1
+```
+
+```lua lineNumbers title="Count grapheme clusters versus raw codepoints"
+-- A family emoji is one visible cluster built from 7 codepoints
+-- (4 person emoji joined by 3 zero-width joiners)
+local text = "👨‍👩‍👧‍👦"
+local clusters, codepoints = 0, 0
+
+for _ in util.string.grapheme_indices(text) do
+    clusters = clusters + 1
+end
+for _ in util.string.codes(text) do
+    codepoints = codepoints + 1
+end
+
+core.engine.print("info", clusters, codepoints) -- 1  7
+```
+
+<Callout type="warn">
+grapheme_indices returns byte positions (like codepoint, codes, offset, charpos
+and invalidoffset), not character positions. Passing those positions into
+util.string.sub or util.string.byte - which now index by character after the
+utf8 merge - will give incorrect results except by coincidence on pure-ASCII
+input.
+</Callout>
