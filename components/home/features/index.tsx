@@ -16,9 +16,11 @@ const BASE_R = 0.46;
 const SPEED = 0.00025;
 const BLUE = [148, 178, 252] as const;
 
-function rng(lo: number, hi: number) { return lo + Math.random() * (hi - lo); }
+function rng(lo: number, hi: number) { 
+  return lo + Math.random() * (hi - lo);
+}
 
-function makeState(i: number, total: number): NodeState {
+function make_state(i: number, total: number): NodeState {
   return {
     angle: (i / total) * Math.PI * 2,
     radPhase: rng(0, Math.PI * 2),
@@ -27,12 +29,12 @@ function makeState(i: number, total: number): NodeState {
   };
 }
 
-function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
+function diagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
   const ctx = canvas.getContext('2d')!;
   let W = 0, H = 0, cx = 0, cy = 0, dpr = 1, raf = 0;
 
   const N = nodeEls.length;
-  const states = Array.from({ length: N }, (_, i) => makeState(i, N));
+  const states = Array.from({ length: N }, (_, i) => make_state(i, N));
 
   function resize() {
     const rect = canvas.parentElement!.getBoundingClientRect();
@@ -47,7 +49,6 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
   ro.observe(canvas.parentElement!);
 
   let last = performance.now();
-
   function frame(now: number) {
     const dt = Math.min(now - last, 32); last = now;
     ctx.resetTransform();
@@ -57,7 +58,7 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
     const baseR = Math.min(W, H) * BASE_R;
 
     const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, baseR * 0.6);
-    grd.addColorStop(0, `rgba(${BLUE},0.04)`);
+    grd.addColorStop(0, `rgba(${BLUE}, 0.04)`);
     grd.addColorStop(1, 'transparent');
     ctx.fillStyle = grd as unknown as string;
     ctx.fillRect(0, 0, W, H);
@@ -74,7 +75,7 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
 
     ctx.beginPath();
     ctx.arc(cx, cy, baseR, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(${BLUE},0.06)`;
+    ctx.strokeStyle = `rgba(${BLUE}, 0.06)`;
     ctx.lineWidth = 4;
     ctx.stroke();
 
@@ -92,7 +93,7 @@ function startDiagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
       ctx.setLineDash([2, 6]);
       ctx.moveTo(cx, cy);
       ctx.lineTo(pos[i].x, pos[i].y);
-      ctx.strokeStyle = `rgba(${BLUE},0.25)`;
+      ctx.strokeStyle = `rgba(${BLUE}, 0.25)`;
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
@@ -123,7 +124,7 @@ export function Features() {
     const canvas = canvasRef.current;
     const nodeEls = nodeRefs.current.map(r => r.el).filter(Boolean) as HTMLDivElement[];
     if (!canvas || nodeEls.length !== config_home.Features.length) return;
-    return startDiagram(canvas, nodeEls);
+    return diagram(canvas, nodeEls);
   }, []);
 
   return (
