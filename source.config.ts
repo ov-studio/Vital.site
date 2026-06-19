@@ -1,22 +1,22 @@
-import { defineConfig, defineDocs, frontmatterSchema, metaSchema } from 'fumadocs-mdx/config';
-import { z } from 'zod';
+import * as fumadocs_config from 'fumadocs-mdx/config';
+import * as zod from 'zod';
 
-export const docs = defineDocs({
+export const docs = fumadocs_config.defineDocs({
   dir: 'content/docs',
   docs: {
-    schema: frontmatterSchema.extend({
-      badge: z.string().optional()
+    schema: fumadocs_config.frontmatterSchema.extend({
+      badge: zod.z.string().optional()
     }),
     postprocess: {
       includeProcessedMarkdown: true,
     },
   },
   meta: {
-    schema: metaSchema,
+    schema: fumadocs_config.metaSchema,
   },
 });
 
-export default defineConfig({
+export default fumadocs_config.defineConfig({
   mdxOptions: {
     remarkPlugins: [],
   },
