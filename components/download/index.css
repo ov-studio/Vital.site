@@ -64,7 +64,5 @@
 }
 
 @media (max-width: 960px) {
-  .download-buttons {
-    margin-bottom: 40px;
-  }
+  .download-buttons { margin-bottom: 40px; }
 }
