@@ -1,27 +1,27 @@
 import * as config_site from '@/configs/site';
-import type { Metadata } from 'next';
-import { RootProvider } from 'fumadocs-ui/provider/next';
-import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
+import * as next from 'next';
+import * as next_font from 'next/font/google';
+import * as fumadocs_provider_next from 'fumadocs-ui/provider/next';
 
-const geist = Geist({
+const geist = next_font.Geist({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-geist'
 });
 
-const geistMono = Geist_Mono({
+const geistMono = next_font.Geist_Mono({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-geist-mono'
 });
 
-const rajdhani = Rajdhani({
+const rajdhani = next_font.Rajdhani({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-rajdhani'
 });
 
-export const metadata: Metadata = {
+export const metadata: next.Metadata = {
   title: {
     template: `%s - ${config_site.info.name}`,
     default: config_site.info.name,
@@ -44,9 +44,9 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen font-sans">
-        <RootProvider theme={{ enabled: true, forcedTheme: 'dark' }}>
+        <fumadocs_provider_next.RootProvider theme={{ enabled: true, forcedTheme: 'dark' }}>
           {children}
-        </RootProvider>
+        </fumadocs_provider_next.RootProvider>
       </body>
     </html>
   );
