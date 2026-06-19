@@ -18,7 +18,7 @@ export function Brand({
   variant = 'full',
   className = '',
   color,
-  href,
+  href
 }: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
   const inner = (
