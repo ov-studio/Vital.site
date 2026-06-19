@@ -14,6 +14,13 @@ local iterator = util.string.grapheme_indices(
 )
 ```
 
+<Callout type="warn">
+This function returns byte positions (like `util.string.codepoint`, `util.string.codes`, `util.string.offset`, `util.string.charpos` and `util.string.invalidoffset`), not character positions.
+
+Passing those positions into `util.string.sub` or `util.string.byte` - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
+</Callout>
+
+
 ### Parameters
 
 | Type | Name | Description |
@@ -72,11 +79,3 @@ end
 
 core.engine.print("info", clusters, codepoints) -- 1  7
 ```
-
-<Callout type="warn">
-grapheme_indices returns byte positions (like codepoint, codes, offset, charpos
-and invalidoffset), not character positions. Passing those positions into
-util.string.sub or util.string.byte - which now index by character after the
-utf8 merge - will give incorrect results except by coincidence on pure-ASCII
-input.
-</Callout>
