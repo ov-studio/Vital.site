@@ -1,7 +1,7 @@
 'use client';
 import * as config_home from '@/configs/home';
 import * as react from 'react';
-import { icons } from '@/components/atoms/icons';
+import * as component_atom_icon from '@/components/atoms/icon';
 import './index.css';
 
 interface NodeRef { el: HTMLDivElement | null }
@@ -135,7 +135,7 @@ export function Features() {
             <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
           </div>
           <a href="/docs" className="sec-link rev">
-            View documentations <icons.arrow_right/>
+            View documentations <component_atom_icon.icon.arrow_right/>
           </a>
         </div>
 
