@@ -14,6 +14,12 @@ local position, codepoint = util.string.next(
 )
 ```
 
+<Callout type="warn">
+    **This function returns a byte position, not a character position.**
+
+    Passing that position into [`util.string.sub`](/docs/string/sub) or [`util.string.byte`](/docs/string/byte) - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
