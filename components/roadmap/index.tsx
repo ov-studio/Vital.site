@@ -9,6 +9,10 @@ const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
   pending: 0
 };
 
+function toAnchor(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function card_progress(card: config_roadmap.RoadmapCard): number {
   if (!card.items.length) return 0;
   const total = card.items.reduce((s, i) => s + (STATUS_WEIGHT[i.status] ?? 0), 0);
@@ -91,10 +95,6 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
       )}
     </div>
   );
-}
-
-function toAnchor(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
 function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSection; index: number }) {
