@@ -5,7 +5,7 @@ import * as lucide from 'lucide-react';
 import * as fumadocs_component_button from 'fumadocs-ui/components/ui/button';
 import * as fumadocs_component_popover from 'fumadocs-ui/components/ui/popover';
 
-const AIProviders = [
+const Providers = [
   {
     title: 'GitHub',
     url: (git_url: string) => git_url,
@@ -47,14 +47,14 @@ const AIProviders = [
     title: 'T3 Chat',
     url: (_: string, q: string) => `https://t3.chat/new?${new URLSearchParams({ q })}`,
     icon: <lucide.MessageCircleIcon/>,
-  },
+  }
 ];
 
 export function DocAI({ md_url, git_url }: { md_url: string; git_url: string }) {
   const items = react.useMemo(() => {
     const fullUrl = typeof window !== 'undefined' ? new URL(md_url, window.location.origin).toString() : 'loading';
     const query = `Read ${fullUrl}, I want to ask questions about it.`;
-    return AIProviders.map(provider => ({ title: provider.title, href: provider.url(git_url, query), icon: provider.icon }));
+    return Providers.map(provider => ({ title: provider.title, href: provider.url(git_url, query), icon: provider.icon }));
   }, [git_url, md_url]);
 
   return (
