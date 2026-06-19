@@ -2,6 +2,12 @@
     "title": "Math",
     "icon": "Calculator",
     "pages": [
+        "---Constant---",
+        "pi",
+        "huge",
+        "maxinteger",
+        "mininteger",
+
         "---Base---",
         "abs",
         "ceil",
@@ -26,12 +32,6 @@
         "tointeger",
         "type",
         "ult",
-
-        "---Constant---",
-        "pi",
-        "huge",
-        "maxinteger",
-        "mininteger",
         "..."
     ]
 }
