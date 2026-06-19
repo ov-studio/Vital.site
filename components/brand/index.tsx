@@ -21,7 +21,6 @@ export function Brand({
   href,
 }: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
-
   const inner = (
     <>
       {variant !== 'wordmark-only' && (
