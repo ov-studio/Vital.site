@@ -1,7 +1,7 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
 import * as lib_source from '@/lib/source';
 import * as config_roadmap from '@/configs/roadmap';
+import * as react from 'react';
 import './index.css';
 
 const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
@@ -22,13 +22,13 @@ function card_status(card: config_roadmap.RoadmapCard): config_roadmap.FeatureSt
 }
 
 function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapCard; mobile_order?: number }) {
-  const [open, setOpen] = useState(false);
-  const innerRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
+  const [open, setOpen] = react.useState(false);
+  const innerRef = react.useRef<HTMLDivElement>(null);
+  const [height, setHeight] = react.useState(0);
   const pct = card_progress(card);
   const status = card_status(card);
 
-  useEffect(() => {
+  react.useEffect(() => {
     if (innerRef.current) setHeight(innerRef.current.scrollHeight);
   }, [card.items]);
 
