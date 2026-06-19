@@ -1,8 +1,8 @@
+import * as lib_source from '@/lib/source';
+import * as config_site from '@/configs/site';
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
 import { generate as DefaultImage } from 'fumadocs-ui/og';
-import * as lib_source from '@/lib/source';
-import * as config_site from '@/configs/site';
 
 export const revalidate = false;
 

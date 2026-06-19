@@ -5,8 +5,8 @@ import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layo
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { DocAI } from '@/components/docai';
-import { Badge } from '@/components/badge';
+import * as component_docai from '@/components/docai';
+import * as component_badge from '@/components/badge';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -20,8 +20,8 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         <div className="flex flex-row gap-2 items-center justify-between">
           <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
           <div className="inline-flex items-center gap-2 font-semibold">
-            {page.data.badge && <Badge type={page.data.badge}/>}
-            <DocAI
+            {page.data.badge && <component_badge.Badge type={page.data.badge}/>}
+            <component_docai.DocAI
               md_url={`${page.url}.mdx`}
               git_url={`https://github.com/${config_site.info.git.site.user}/${config_site.info.git.site.repo}/blob/${config_site.info.git.site.branch}/content/docs/${page.path}`}
             />
