@@ -425,6 +425,10 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Lua math library, enriched with sandbox-native utilities and helpers',
         icon: <Icons.Calculator {...config_site.info.lucide}/>,
         items: [
+          { label: '[Shared] Constant: util.math.pi', status: 'completed' },
+          { label: '[Shared] Constant: util.math.huge', status: 'completed' },
+          { label: '[Shared] Constant: util.math.maxinteger', status: 'completed' },
+          { label: '[Shared] Constant: util.math.mininteger', status: 'completed' },
           { label: '[Shared] API: util.math.abs', status: 'completed' },
           { label: '[Shared] API: util.math.ceil', status: 'completed' },
           { label: '[Shared] API: util.math.floor', status: 'completed' },
@@ -447,11 +451,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: util.math.randomseed', status: 'completed' },
           { label: '[Shared] API: util.math.tointeger', status: 'completed' },
           { label: '[Shared] API: util.math.type', status: 'completed' },
-          { label: '[Shared] API: util.math.ult', status: 'completed' },
-          { label: '[Shared] Constant: util.math.pi', status: 'completed' },
-          { label: '[Shared] Constant: util.math.huge', status: 'completed' },
-          { label: '[Shared] Constant: util.math.maxinteger', status: 'completed' },
-          { label: '[Shared] Constant: util.math.mininteger', status: 'completed' }
+          { label: '[Shared] API: util.math.ult', status: 'completed' }
         ]
       },
       {
