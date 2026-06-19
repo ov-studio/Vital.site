@@ -7,10 +7,9 @@
         "parse",
         "parse_hex",
         "format_time",
+        "split",
         "kern",
         "detab",
-        
-        "split",
         "sub",
         "gsub",
         "byte",
