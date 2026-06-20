@@ -47,8 +47,8 @@
         "randomseed",
 
         "---Misc---",
-        "tointeger",
         "type",
+        "tointeger",
         "ult",
         "..."
     ]
