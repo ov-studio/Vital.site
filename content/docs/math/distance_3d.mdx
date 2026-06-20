@@ -1,0 +1,62 @@
+---
+title: util.math.distance_3d
+description: Calculates the straight-line distance between two 3D points
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.distance_3d(
+    a,
+    b
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | a | First point |
+| `vector3` | b | Second point |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Euclidean distance between a and b |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Distance between two points in 3D space"
+local result = util.math.distance_3d({0, 0, 0}, {1, 2, 2})
+
+core.engine.print("info", result) -- 3.0
+```
+
+```lua lineNumbers title="Distance between identical points is zero"
+local result = util.math.distance_3d({5, 5, 5}, {5, 5, 5})
+
+core.engine.print("info", result) -- 0.0
+```
+
+```lua lineNumbers title="Check if an entity is within a 3D trigger radius"
+local entity_pos = {0, 0, 0}
+local trigger_pos = {2, 0, 2}
+local radius = 5
+
+local triggered = util.math.distance_3d(entity_pos, trigger_pos) <= radius
+
+core.engine.print("info", triggered) -- true
+```
+
+```lua lineNumbers title="Fall back to ground distance when height doesn't matter"
+local a = {0, 100, 0}
+local b = {0, 0, 0}
+
+-- distance_3d accounts for height difference, distance_2d on the x/z plane does not
+core.engine.print("info", util.math.distance_3d(a, b)) -- 100.0
+core.engine.print("info", util.math.distance_2d({a[1], a[3]}, {b[1], b[3]})) -- 0.0
+```
