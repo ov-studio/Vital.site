@@ -12,7 +12,7 @@
         "method__get_type",
         "method__destroy",
 
-        "---⁝⁝API---",
+        "---⁝⁝Misc---",
         "method__resume",
         "method__pause",
         "method__sleep",

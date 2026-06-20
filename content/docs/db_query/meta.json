@@ -14,7 +14,7 @@
         "method__delete",
         "method__update",
 
-        "---⁝⁝API---",
+        "---⁝⁝Misc---",
         "method__fetch",
         "method__alter",
         "method__drop",

@@ -49,7 +49,7 @@
         "method__set_blendshape_value",
         "method__set_animation_speed",
 
-       "---⁝⁝API---",
+       "---⁝⁝Misc---",
         "method__play_animation",
         "method__stop_animation",
         "method__pause_animation",

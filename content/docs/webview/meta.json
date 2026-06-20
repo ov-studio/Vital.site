@@ -31,7 +31,7 @@
         "method__set_devtools_visible",
         "method__set_message_handler",
 
-       "---⁝⁝API---",
+       "---⁝⁝Misc---",
         "method__load_url",
         "method__load_html",
         "method__clear_history",
