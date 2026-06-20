@@ -1,0 +1,68 @@
+---
+title: util.math.distance_2d
+description: Calculates the straight-line distance between two 2D points
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.distance_2d(
+    a,
+    b
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | a | First point |
+| `vector2` | b | Second point |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | result | Euclidean distance between a and b |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Distance between two points using a 3-4-5 triangle"
+local result = util.math.distance_2d({0, 0}, {3, 4})
+
+core.engine.print("info", result) -- 5.0
+```
+
+```lua lineNumbers title="Distance between identical points is zero"
+local result = util.math.distance_2d({10, 10}, {10, 10})
+
+core.engine.print("info", result) -- 0.0
+```
+
+```lua lineNumbers title="Check if a player is within range of an object"
+local player_pos = {120, 80}
+local object_pos = {150, 80}
+local range = 50
+
+local in_range = util.math.distance_2d(player_pos, object_pos) <= range
+
+core.engine.print("info", in_range) -- true
+```
+
+```lua lineNumbers title="Find the closest target from a list"
+local origin = {0, 0}
+local targets = {{50, 0}, {10, 10}, {100, 100}}
+local closest, closest_dist = nil, util.math.huge
+
+for _, target in ipairs(targets) do
+    local dist = util.math.distance_2d(origin, target)
+    if dist < closest_dist then
+        closest, closest_dist = target, dist
+    end
+end
+
+core.engine.print("info", closest[1], closest[2]) -- 10  10
+```
