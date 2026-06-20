@@ -45,18 +45,15 @@ export function Effect() {
     const get_active_id = (): string | null => {
       const offset = nav_h() + 32;
       const candidates: ActiveBest[] = [];
-      const hasRoadmapAnchors = anchors.some(el => el.classList.contains('rcategory'));
-
+      const has_roadmap_anchors = anchors.some(el => el.classList.contains('rcategory'));
       anchors.forEach(el => {
         const top = el.getBoundingClientRect().top - offset;
         if (top <= 0) candidates.push({ id: el.id, gap: top });
       });
-
       if (candidates.length === 0) {
-        if (hasRoadmapAnchors) return anchors.length > 0 ? anchors[0].id : null;
+        if (has_roadmap_anchors) return anchors.length > 0 ? anchors[0].id : null;
         return null;
       }
-
       candidates.sort((a, b) => b.gap - a.gap);
       return candidates[0].id;
     };
