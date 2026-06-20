@@ -54,7 +54,6 @@ core.engine.print("info", result[1], result[2]) -- 7.0710678118655  7.0710678118
 local entity_pos = {200, 200}
 local entity_rotation = 30
 local spawn_distance = 40
-
 local spawn_point = util.math.project_2d(entity_pos, spawn_distance, entity_rotation)
 
 core.engine.print("info", spawn_point[1], spawn_point[2]) -- 234.64101615138  220.0
@@ -63,7 +62,6 @@ core.engine.print("info", spawn_point[1], spawn_point[2]) -- 234.64101615138  22
 ```lua lineNumbers title="util.math.project_2d and util.math.rotation_2d are inverses"
 local origin = {50, 50}
 local target = {150, 200}
-
 local dist = util.math.distance_2d(origin, target)
 local angle = util.math.rotation_2d(origin, target)
 local result = util.math.project_2d(origin, dist, angle)
