@@ -1,0 +1,64 @@
+---
+title: util.math.rotation_2d
+description: Calculates the angle from one 2D point to another, in degrees
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.rotation_2d(
+    a,
+    b
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | a | Origin point |
+| `vector2` | b | Target point |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Angle from a to b in degrees, normalized to the range 0-360 |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Angle pointing directly right"
+local result = util.math.rotation_2d({0, 0}, {10, 0})
+
+core.engine.print("info", result) -- 0.0
+```
+
+```lua lineNumbers title="Angle pointing straight down (screen space, +y is down)"
+local result = util.math.rotation_2d({0, 0}, {0, 10})
+
+core.engine.print("info", result) -- 90.0
+```
+
+```lua lineNumbers title="Negative angles wrap around to stay in range 0-360"
+local result = util.math.rotation_2d({0, 0}, {0, -10})
+
+core.engine.print("info", result) -- 270.0 (not -90.0)
+```
+
+```lua lineNumbers title="Diagonal angle"
+local result = util.math.rotation_2d({0, 0}, {10, 10})
+
+core.engine.print("info", result) -- 45.0
+```
+
+```lua lineNumbers title="Make an entity face a target"
+local entity_pos = {100, 100}
+local target_pos = {200, 50}
+
+local facing_angle = util.math.rotation_2d(entity_pos, target_pos)
+
+core.engine.print("info", facing_angle) -- 333.43494...
+```
