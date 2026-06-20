@@ -56,7 +56,7 @@ core.engine.print("info", triggered) -- true
 local a = {0, 100, 0}
 local b = {0, 0, 0}
 
--- distance_3d accounts for height difference, distance_2d on the x/z plane does not
+-- util.math.distance_3d accounts for height difference, util.math.distance_2d on the x/z plane does not
 core.engine.print("info", util.math.distance_3d(a, b)) -- 100.0
 core.engine.print("info", util.math.distance_2d({a[1], a[3]}, {b[1], b[3]})) -- 0.0
 ```
