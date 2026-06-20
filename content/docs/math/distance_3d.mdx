@@ -46,7 +46,6 @@ core.engine.print("info", result) -- 0.0
 local entity_pos = {0, 0, 0}
 local trigger_pos = {2, 0, 2}
 local radius = 5
-
 local triggered = util.math.distance_3d(entity_pos, trigger_pos) <= radius
 
 core.engine.print("info", triggered) -- true
