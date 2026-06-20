@@ -9,6 +9,12 @@
         "mininteger",
 
         "---Base---",
+        "round",
+        "percent",
+        "distance_2d",
+        "distance_3d",
+        "rotation_2d",
+        "project_2d",
         "abs",
         "ceil",
         "floor",
