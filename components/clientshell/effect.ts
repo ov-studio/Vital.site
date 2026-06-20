@@ -9,41 +9,41 @@ export function Effect() {
     const co = document.getElementById('cur-outer');
     let mx = 0, my = 0, rx = 0, ry = 0;
 
-    const onMouseMove = (e: MouseEvent) => {
-      mx = e.clientX; my = e.clientY;
-      if (cur) { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; }
-    };
-    document.addEventListener('mousemove', onMouseMove);
-
-    let animId: number;
+    let anim_id: number;
     const loop = () => {
       rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
       if (co) { co.style.left = rx + 'px'; co.style.top = ry + 'px'; }
-      animId = requestAnimationFrame(loop);
+      anim_id = requestAnimationFrame(loop);
     };
     loop();
+  
+    const on_mouse_move = (e: MouseEvent) => {
+      mx = e.clientX; my = e.clientY;
+      if (cur) { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; }
+    };
+    document.addEventListener('mousemove', on_mouse_move);
 
-    const onNavBlur = () => {
+    const on_nav_blur = () => {
       document.getElementById('nav')?.classList.toggle('s', window.scrollY > 20);
     };
-    window.addEventListener('scroll', onNavBlur, { passive: true });
+    window.addEventListener('scroll', on_nav_blur, { passive: true });
 
-    const navH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
-    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nl li a'));
-    const navHrefs = new Set(navLinks.map(a => (a.getAttribute('href') ?? '').replace(/^#/, '')).filter(Boolean));
+    const nav_h = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'));
+    const nav_links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nl li a'));
+    const nav_hrefs = new Set(nav_links.map(a => (a.getAttribute('href') ?? '').replace(/^#/, '')).filter(Boolean));
     const anchors = Array.from(
       document.querySelectorAll<HTMLElement>('div[id].rcategory, section[id]:not(#roadmap)')
-    ).filter(el => navHrefs.has(el.id));
+    ).filter(el => nav_hrefs.has(el.id));
 
-    const setActive = (id: string) => {
-      navLinks.forEach(a => {
+    const set_active = (id: string) => {
+      nav_links.forEach(a => {
         const href = (a.getAttribute('href') ?? '').replace(/^#/, '');
         a.classList.toggle('active', href === id);
       });
     };
 
-    const getActiveId = (): string | null => {
-      const offset = navH() + 32;
+    const get_active_id = (): string | null => {
+      const offset = nav_h() + 32;
       const candidates: ActiveBest[] = [];
       const hasRoadmapAnchors = anchors.some(el => el.classList.contains('rcategory'));
 
@@ -61,44 +61,42 @@ export function Effect() {
       return candidates[0].id;
     };
 
-    let forcedId: string | null = null;
-    let forcedY = 0;
-
-    const forceActive = (id: string) => {
-      forcedId = id;
-      forcedY = window.scrollY;
-      setActive(id);
+    let forced_id: string | null = null;
+    let forced_y = 0;
+    const force_active = (id: string) => {
+      forced_id = id;
+      forced_y = window.scrollY;
+      set_active(id);
     };
 
-    navLinks.forEach(a => {
+    nav_links.forEach(a => {
       a.addEventListener('click', () => {
         const id = (a.getAttribute('href') ?? '').replace(/^#/, '');
-        if (id) forceActive(id);
+        if (id) force_active(id);
       });
     });
 
     Array.from(document.querySelectorAll<HTMLAnchorElement>('a.rcategory-label')).forEach(a => {
       a.addEventListener('click', () => {
         const id = (a.getAttribute('href') ?? '').replace(/^#/, '');
-        if (id) forceActive(id);
+        if (id) force_active(id);
       });
     });
 
-    const onScrollActive = () => {
-      if (forcedId !== null) {
-        if (Math.abs(window.scrollY - forcedY) > 60) forcedId = null;
+    const on_scroll_active = () => {
+      if (forced_id !== null) {
+        if (Math.abs(window.scrollY - forced_y) > 60) forced_id = null;
         else return;
       }
-      const id = getActiveId();
-      if (id) setActive(id);
-      else navLinks.forEach(a => a.classList.remove('active'));
+      const id = get_active_id();
+      if (id) set_active(id);
+      else nav_links.forEach(a => a.classList.remove('active'));
     };
+    window.addEventListener('scroll', on_scroll_active, { passive: true });
+    requestAnimationFrame(on_scroll_active);
 
-    window.addEventListener('scroll', onScrollActive, { passive: true });
-    requestAnimationFrame(onScrollActive);
-
-    const revEls = document.querySelectorAll<HTMLElement>('.rev,.rev-l,.rev-r');
-    const revObserver = new IntersectionObserver(entries => {
+    const rev_els = document.querySelectorAll<HTMLElement>('.rev,.rev-l,.rev-r');
+    const rev_observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
         const sibs = [
@@ -106,17 +104,17 @@ export function Effect() {
         ];
         const idx = sibs.indexOf(e.target as Element);
         setTimeout(() => e.target.classList.add('in'), idx * 70);
-        revObserver.unobserve(e.target);
+        rev_observer.unobserve(e.target);
       });
     }, { threshold: 0.08 });
-    revEls.forEach(el => revObserver.observe(el));
+    rev_els.forEach(el => rev_observer.observe(el));
 
     return () => {
-      document.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('scroll', onNavBlur);
-      window.removeEventListener('scroll', onScrollActive);
-      cancelAnimationFrame(animId);
-      revObserver.disconnect();
+      document.removeEventListener('mousemove', on_mouse_move);
+      window.removeEventListener('scroll', on_nav_blur);
+      window.removeEventListener('scroll', on_scroll_active);
+      cancelAnimationFrame(anim_id);
+      rev_observer.disconnect();
     };
   }, []);
 }
