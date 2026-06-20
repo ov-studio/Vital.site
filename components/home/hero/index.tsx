@@ -30,10 +30,10 @@ async function get_git_stats() {
 }
 
 const STAT_ICONS = {
-  stars: <lucide.Star size={14} strokeWidth={2} />,
-  forks: <lucide.GitFork size={14} strokeWidth={2} />,
-  commits: <lucide.GitCommit size={14} strokeWidth={2} />,
-  issues: <lucide.CircleDot size={14} strokeWidth={2} />,
+  stars: <lucide.Star size={14} strokeWidth={2}/>,
+  forks: <lucide.GitFork size={14} strokeWidth={2}/>,
+  commits: <lucide.GitCommit size={14} strokeWidth={2}/>,
+  issues: <lucide.CircleDot size={14} strokeWidth={2}/>
 };
 
 export async function Hero() {
