@@ -1,0 +1,72 @@
+---
+title: util.math.project_2d
+description: Calculates a point a given distance and angle away from an origin
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.project_2d(
+    origin,
+    distance,
+    rotation
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | origin | Starting point |
+| `float` | distance | Distance to project, in the same units as origin |
+| `float` | rotation | Direction to project towards, in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | result | Point located distance units away from origin, in the direction of rotation |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Project straight right"
+local result = util.math.project_2d({100, 100}, 50, 0)
+
+core.engine.print("info", result[1], result[2]) -- 150.0  100.0
+```
+
+```lua lineNumbers title="Project straight down (screen space, +y is down)"
+local result = util.math.project_2d({100, 100}, 50, 90)
+
+core.engine.print("info", result[1], result[2]) -- 100.0  150.0
+```
+
+```lua lineNumbers title="Project at a diagonal angle"
+local result = util.math.project_2d({0, 0}, 10, 45)
+
+core.engine.print("info", result[1], result[2]) -- 7.0710678118655  7.0710678118655
+```
+
+```lua lineNumbers title="Spawn a projectile in front of an entity"
+local entity_pos = {200, 200}
+local entity_rotation = 30
+local spawn_distance = 40
+
+local spawn_point = util.math.project_2d(entity_pos, spawn_distance, entity_rotation)
+
+core.engine.print("info", spawn_point[1], spawn_point[2]) -- 234.64101615138  220.0
+```
+
+```lua lineNumbers title="project_2d and rotation_2d are inverses"
+local origin = {50, 50}
+local target = {150, 200}
+
+local dist = util.math.distance_2d(origin, target)
+local angle = util.math.rotation_2d(origin, target)
+local result = util.math.project_2d(origin, dist, angle)
+
+core.engine.print("info", result[1], result[2]) -- 150.0  200.0
+```
