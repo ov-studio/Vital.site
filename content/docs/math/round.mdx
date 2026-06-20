@@ -1,0 +1,63 @@
+---
+title: util.math.round
+description: Rounds a number to a given number of decimal places
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.round(
+    value,
+    decimals = 0
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Number to round |
+| `int` | decimals | Number of decimal places to round to - negative values round to the nearest power of ten |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | value rounded to decimals places, rounding halfway cases away from zero |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Round to the nearest whole number by default"
+local result = util.math.round(3.14159)
+
+core.engine.print("info", result) -- 3.0
+```
+
+```lua lineNumbers title="Round to two decimal places"
+local result = util.math.round(3.14159, 2)
+
+core.engine.print("info", result) -- 3.14
+```
+
+```lua lineNumbers title="Halfway values round away from zero"
+local result = util.math.round(2.5)
+
+core.engine.print("info", result) -- 3.0
+core.engine.print("info", util.math.round(-2.5)) -- -3.0
+```
+
+```lua lineNumbers title="Use negative decimals to round to the nearest ten"
+local result = util.math.round(123.456, -1)
+
+core.engine.print("info", result) -- 120.0
+```
+
+```lua lineNumbers title="Round a player's display health to a whole number"
+local health = 67.8234
+local display_health = util.math.round(health)
+
+core.engine.print("info", display_health) -- 68.0
+```
