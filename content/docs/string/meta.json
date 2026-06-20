@@ -50,7 +50,7 @@
         "---Normalization---",
         "normalize_nfc",
 
-        "---Display & Layout---",
+        "---Inspection---",
         "len",
         "width",
         "widthindex",

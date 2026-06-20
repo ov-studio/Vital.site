@@ -2,16 +2,24 @@
     "title": "Table",
     "icon": "Table",
     "pages": [
-        "---Base---",
-        "len",
-        "pack",
-        "unpack",
+        "---Manipulation---",
         "insert",
         "remove",
         "move",
         "sort",
-        "clone",
+
+        "---Conversion---",
+        "pack",
+        "unpack",
         "concat",
+
+        "---Duplication---",
+        "clone",
+
+        "---Inspection---",
+        "len",
+
+        "---Serialization---",
         "encode",
         "decode",
         "..."
