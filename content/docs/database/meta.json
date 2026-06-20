@@ -6,15 +6,15 @@
         "create",
         "...",
 
-        "---::Lifecycle---",
+        "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-        "---::Checker---",
+        "---⁝⁝Checker---",
         "method__is_connected",
         
-        "---::API---",
+        "---⁝⁝API---",
         "method__define",
         "method__sync",
         "method__table"

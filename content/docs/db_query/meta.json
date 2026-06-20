@@ -2,19 +2,19 @@
     "title": "Database Query",
     "icon": "TableProperties",
     "pages": [
-        "---::Lifecycle---",
+        "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-        "---::Builder---",
+        "---⁝⁝Builder---",
         "method__select",
         "method__where",
         "method__insert",
         "method__delete",
         "method__update",
 
-        "---::API---",
+        "---⁝⁝API---",
         "method__fetch",
         "method__alter",
         "method__drop",

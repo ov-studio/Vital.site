@@ -12,19 +12,19 @@
         "---Setter---",
         "set_active",
 
-       "---::Lifecycle---",
+       "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
-       "---::Checker---",
+       "---⁝⁝Checker---",
         "method__is_active",
 
-       "---::Getter---",
+       "---⁝⁝Getter---",
         "method__get_size",
         "method__get_active",
 
-       "---::Setter---",
+       "---⁝⁝Setter---",
         "method__set_active"
     ]
 }
