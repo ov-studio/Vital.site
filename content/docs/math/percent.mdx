@@ -1,0 +1,64 @@
+---
+title: util.math.percent
+description: Calculates a given percentage of a value
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.percent(
+    value,
+    percent
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Base number to take a percentage of |
+| `float` | percent | Percentage to apply, where 100 represents the full value |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | value scaled by percent / 100 |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get 50% of a value"
+local result = util.math.percent(200, 50)
+
+core.engine.print("info", result) -- 100.0
+```
+
+```lua lineNumbers title="Get 100% of a value returns the value itself"
+local result = util.math.percent(42, 100)
+
+core.engine.print("info", result) -- 42.0
+```
+
+```lua lineNumbers title="Percentages above 100 scale beyond the original value"
+local result = util.math.percent(50, 150)
+
+core.engine.print("info", result) -- 75.0
+```
+
+```lua lineNumbers title="Calculate a discount"
+local price = 80
+local discount = util.math.percent(price, 25)
+
+core.engine.print("info", price - discount) -- 60.0
+```
+
+```lua lineNumbers title="Calculate damage reduction from armor"
+local incoming_damage = 120
+local armor_reduction = 35 -- percent
+local final_damage = incoming_damage - util.math.percent(incoming_damage, armor_reduction)
+
+core.engine.print("info", final_damage) -- 78.0
+```
