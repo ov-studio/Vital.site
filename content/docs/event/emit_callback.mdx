@@ -126,7 +126,6 @@ if core.engine.get_platform() == "client" then
     util.event.on("on_status", function() return "ok", { detail = "extra" } end)
 else
     util.thread.create(function(self)
-        local ok, results = self:await(util.event.emit_callback("on_status", { remote = true }))
         local ok, results = self:await(util.event.emit_callback("on_status", { remote = true, peer = 1963414407, collect_all = true }))
         core.engine.print("info", "Handler 1:", results[1][1]) -- 'ok'
         core.engine.print("info", "Handler 2:", results[2][1], tostring(results[2][2])) -- 'ok'  'table: 0x...'
