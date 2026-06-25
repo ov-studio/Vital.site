@@ -57,7 +57,7 @@ How that promise resolves depends on the number of registered handlers and the `
 ### Options
 
 <Callout type="warn">
-  **Server → client `emit_callback` requires `peer` and only targets one client at a time.**
+  **Server → Client `emit_callback` requires `peer` and only targets one client at a time.**
 
   - `peer` is **mandatory** when calling `emit_callback` with `{ remote = true }` from the server — omitting it throws an error
   - `peer` must refer to a currently connected peer — passing a disconnected or invalid peer ID throws an error
