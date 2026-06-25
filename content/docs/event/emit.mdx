@@ -67,7 +67,7 @@ util.event.emit("on_damage", 50)
 
 ```lua lineNumbers title="Emit an event from client to server"
 if core.engine.get_platform() == "client" then
-    util.event.emit("on_player_ready", { remote = true }, "Tron", currentMap)
+    util.event.emit("on_player_ready", { remote = true }, "Tron", "sandstorm")
 else
     util.event.on("on_player_ready", function(name, map)
         core.engine.print("info", "Player ready:", name, map)
@@ -77,8 +77,8 @@ end
 
 ```lua lineNumbers title="Broadcast an event from server to all clients"
 if core.engine.get_platform() == "client" then
-    util.event.on("on_round_start", function(roundIndex, mapName)
-        core.engine.print("info", "Round started:", roundIndex, mapName)
+    util.event.on("on_round_start", function(round, map)
+        core.engine.print("info", "Round started:", round, map)
     end)
 else
     util.event.emit("on_round_start", { remote = true }, 1, "sandstorm")
