@@ -120,8 +120,8 @@ else
 end
 ```
 
-```lua lineNumbers title="Await aggregated results from multiple remote handlers"
-if core.engine.get_platform() == "server" then
+```lua lineNumbers title="Collect aggregated results from multiple handlers on the remote client"
+if core.engine.get_platform() == "client" then
     util.event.on("on_status", function() return "ok" end)
     util.event.on("on_status", function() return "ok", { detail = "extra" } end)
 else
