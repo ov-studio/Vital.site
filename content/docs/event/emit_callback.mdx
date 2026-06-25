@@ -73,7 +73,7 @@ util.event.on("on_query", function() return "handler_a" end)
 util.event.on("on_query", function() return "handler_b" end)
 
 util.thread.create(function(self)
-    local ok, results = self:await(util.event.emit_callback("on_query"))
+    local ok, results = self:await(util.event.emit_callback("on_query", { collect_all = true }))
     core.engine.print("info", "Handler 1 returned:", results[1][1]) -- 'handler_a'
     core.engine.print("info", "Handler 2 returned:", results[2][1]) -- 'handler_b'
 end):resume()
@@ -84,7 +84,7 @@ util.event.on("on_status", function() return "ok", 100 end)
 util.event.on("on_status", function() return "ok", 200 end)
 
 util.thread.create(function(self)
-    local ok, results = self:await(util.event.emit_callback("on_status"))
+    local ok, results = self:await(util.event.emit_callback("on_status", { collect_all = true }))
     core.engine.print("info", results[1][1], results[1][2]) -- 'ok'  100
     core.engine.print("info", results[2][1], results[2][2]) -- 'ok'  200
 end):resume()
