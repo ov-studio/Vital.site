@@ -56,7 +56,6 @@ How that promise resolves depends on the number of registered handlers and the `
 
 ### Examples
 
-```lua lineNumbers title="Await a return value from a single local handler"
 util.event.on("on_get_score", function()
     return 42
 end)
@@ -67,7 +66,7 @@ util.thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Collect return values from multiple local handlers"
+```lua lineNumbers title="Collect return values from all local handlers using collect_all"
 util.event.on("on_query", function() return "handler_a" end)
 util.event.on("on_query", function() return "handler_b" end)
 
