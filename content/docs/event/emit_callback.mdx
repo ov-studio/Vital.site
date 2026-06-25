@@ -43,12 +43,11 @@ local result = util.event.emit_callback(
 Always returns a **single** `promise` regardless of how many handlers are registered or whether the call is local or remote.<br/>
 For remote calls, the remote side aggregates all of its handlers using the same rules before sending a single reply — so the caller's promise resolves with the same structure described below.
 
-How that promise resolves depends on the number of registered handlers:
+How that promise resolves depends on the number of registered handlers and the `collect_all` option:
 
 | Handlers | Resolved value |
 |----------|----------------|
 | None | Resolves immediately with no values |
-| One | Resolves directly with that handler's return value(s), unpacked |
 | Multiple | Resolves with `{[1]={...}, [2]={...}, ...}` — each slot is always a table of that handler's return values, even if only one value was returned |
 
 ---
