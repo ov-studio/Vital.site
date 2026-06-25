@@ -78,7 +78,7 @@ util.thread.create(function(self)
 end):resume()
 ```
 
-```lua lineNumbers title="Multiple handlers each returning multiple values"
+```lua lineNumbers title="Multiple handlers each returning multiple values and being collected using collect_all"
 util.event.on("on_status", function() return "ok", 100 end)
 util.event.on("on_status", function() return "ok", 200 end)
 
