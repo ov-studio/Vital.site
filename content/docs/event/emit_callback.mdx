@@ -54,7 +54,21 @@ How that promise resolves depends on the number of registered handlers and the `
 
 ---
 
-<include>./emit.mdx#options</include>
+### Options
+
+| Type | Key | Default | Side | Description |
+|------|-----|---------|------|-------------|
+| `bool` | remote | `false` | Shared | • When `true` - transmits the event to the remote side; client sends to server, server broadcasts to all peers<br/>• When `false` - fires handlers on the current side only |
+| `int` | peer | `0` | Server | Target peer ID for directed server-side remote dispatch (ignored on client)<br/>• When `0` - broadcasts to all connected peers<br/>• When `> 0` - sends to that specific peer only |
+| `bool` | collect_all | `false` | Shared | When `false` — only the first registered handler is fired and its return values are resolved directly, unpacked<br/>When `true` — all registered handlers are fired and results are resolved as a table of tables, one entry per handler |
+
+<Callout type="warn">
+  **Server → client `emit_callback` requires `peer` and only targets one client at a time.**
+
+  - `peer` is **mandatory** when calling `emit_callback` with `{ remote = true }` from the server — omitting it throws an error
+  - `peer` must refer to a currently connected peer — passing a disconnected or invalid peer ID throws an error
+  - Broadcasting a callback to multiple clients is not supported — use `emit` instead if you need to notify all peers without expecting a reply
+</Callout>
 
 ### Examples
 
