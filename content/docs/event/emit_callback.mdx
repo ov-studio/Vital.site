@@ -56,6 +56,7 @@ How that promise resolves depends on the number of registered handlers and the `
 
 ### Examples
 
+```lua lineNumbers title="Await a return value from the first local handler"
 util.event.on("on_get_score", function()
     return 42
 end)
