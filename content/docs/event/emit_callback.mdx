@@ -45,10 +45,12 @@ For remote calls, the remote side aggregates all of its handlers using the same 
 
 How that promise resolves depends on the number of registered handlers and the `collect_all` option:
 
-| Handlers | Resolved value |
-|----------|----------------|
-| None | Resolves immediately with no values |
-| Multiple | Resolves with `{[1]={...}, [2]={...}, ...}` — each slot is always a table of that handler's return values, even if only one value was returned |
+| `collect_all` | Handlers | Resolved value |
+|---------------|----------|----------------|
+| `false` | None | Resolves immediately with no values |
+| `false` | One or more | Resolves directly with the **first** handler's return value(s), unpacked |
+| `true` | None | Resolves immediately with no values |
+| `true` | One or more | Resolves with `{[1]={...}, [2]={...}, ...}` — each slot is always a table of that handler's return values, even if only one value was returned |
 
 ---
 
