@@ -1,8 +1,8 @@
 'use client'
-import { useEffect } from 'react'
+import * as react from 'react';
 
 export function TabTrap() {
-  useEffect(() => {
+  react.useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Tab') e.preventDefault()
     }
