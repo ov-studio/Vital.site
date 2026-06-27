@@ -122,7 +122,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0 32px;
+  padding: 0 30px;
   position: relative;
 }
 
@@ -151,7 +151,7 @@
 
 .hstat-n {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 500;
   color: var(--white);
   letter-spacing: .02em;
@@ -159,9 +159,11 @@
 }
 
 .hstat-l {
-  font-family: 'Geist Mono', monospace;
-  font-size: .8rem;
-  font-weight: 500;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
   color: var(--text-mid);
 }
 
@@ -198,6 +200,6 @@
 }
 
 @media (max-width: 400px) {
-  .hstat-n { font-size: .9rem; }
-  .hstat-l { font-size: .65rem; }
+  .hstat-n { font-size: .86rem; }
+  .hstat-l { font-size: .61rem; }
 }
