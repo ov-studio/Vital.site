@@ -96,13 +96,13 @@ h2 span {
 
 .btn-primary {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  letter-spacing: .045em;
+  letter-spacing: .025em;
   text-transform: uppercase;
   background: var(--blue);
   color: var(--bg);
-  padding: 10px 45px;
+  padding: 10px 52px;
   text-decoration: none;
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
   transition: opacity .2s, transform .15s;
