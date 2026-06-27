@@ -113,7 +113,6 @@
   align-items: stretch;
   justify-content: center;
   width: 100%;
-  margin-top: 52px;
   opacity: 0;
   animation: fadeIn .7s .65s forwards;
 }
