@@ -1,4 +1,5 @@
 import * as config_site from '@/configs/site';
+import * as component_atom_tabtrap from '@/components/atoms/tabtrap';
 import * as next from 'next';
 import * as fumadocs_provider_next from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
@@ -44,6 +45,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen font-sans">
+        <component_atom_tabtrap.TabTrap/>
         <fumadocs_provider_next.RootProvider theme={{ enabled: true, forcedTheme: 'dark' }}>
           {children}
         </fumadocs_provider_next.RootProvider>
