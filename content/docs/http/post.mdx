@@ -59,7 +59,7 @@ util.thread.create(function(self)
         util.table.encode({
             name = "John Doe",
             email = "john@example.com"
-        }, "JSON")
+        })
     ))
 
     if ok then
@@ -76,7 +76,7 @@ util.thread.create(function(self)
         util.table.encode({
             name = "John Doe",
             email = "john@example.com"
-        }, "JSON"),
+        }),
         {
             "Authorization: Bearer my-token"
         },
