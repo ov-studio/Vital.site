@@ -1,24 +1,20 @@
 ---
 title: util.table.decode
-description: Decodes an encoded string into equivalent table
+description: Decodes a JSON string into an equivalent table
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local result = util.table.decode(
-    input,
-    mode = "JSON"
-)
+local result = util.table.decode(input)
 ```
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | input | Encoded string to be decoded |
-| `string` | mode | Decoding mode:<br/>• `"JSON"` - JavaScript Object Notation<br/>• `"YAML"` - YAML Ain't Markup Language |
+| `string` | input | JSON string to be decoded |
 
 ### Returns
 

@@ -1,16 +1,13 @@
 ---
 title: util.table.encode
-description: Encodes a table into string
+description: Encodes a table into a JSON string
 badge: Shared
 ---
 
 ### Syntax
 
 ```lua
-local result = util.table.encode(
-    input,
-    mode = "JSON"
-)
+local result = util.table.encode(input)
 ```
 
 ### Parameters
@@ -18,13 +15,12 @@ local result = util.table.encode(
 | Type | Name | Description |
 |------|------|-------------|
 | `table` | input | Table to be encoded |
-| `string` | mode | Encoding mode:<br/>• `"JSON"` - JavaScript Object Notation<br/>• `"YAML"` - YAML Ain't Markup Language |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` \| `bool` | result | Encoded string on successful execution, `false` otherwise |
+| `string` \| `bool` | result | Encoded JSON string on successful execution, `false` otherwise |
 
 ---
 
@@ -32,28 +28,28 @@ local result = util.table.encode(
 
 ```lua lineNumbers title="Encode a simple table to JSON"
 local data = {name = "John", age = 25}
-local json = util.table.encode(data, "JSON")
+local result = util.table.encode(data)
 
-core.engine.print("info", json) -- '{"name":"John","age":25}'
+core.engine.print("info", result) -- '{"name":"John","age":25}'
 ```
 
 ```lua lineNumbers title="Encode an array to JSON"
 local colors = {"red", "green", "blue"}
-local json = util.table.encode(colors, "JSON")
+local result = util.table.encode(colors)
 
-core.engine.print("info", json) -- '["red","green","blue"]'
+core.engine.print("info", result) -- '["red","green","blue"]'
 ```
 
 ```lua lineNumbers title="Encode a numeric array to JSON"
 local coords = {100, 200, 300}
-local json = util.table.encode(coords, "JSON")
+local result = util.table.encode(coords)
 
-core.engine.print("info", json) -- '[100,200,300]'
+core.engine.print("info", result) -- '[100,200,300]'
 ```
 
 ```lua lineNumbers title="Encode boolean values to JSON"
 local settings = {enabled = true, debug = false}
-local json = util.table.encode(settings, "JSON")
+local result = util.table.encode(settings)
 
-core.engine.print("info", json) -- '{"enabled":true,"debug":false}'
+core.engine.print("info", result) -- '{"enabled":true,"debug":false}'
 ```
