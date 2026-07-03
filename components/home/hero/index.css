@@ -89,7 +89,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .12em;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   opacity: 0;
   animation: fadeIn .7s .35s forwards;
 }
@@ -121,7 +121,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0 25px;
+  padding: 0 22px;
   position: relative;
 }
 
