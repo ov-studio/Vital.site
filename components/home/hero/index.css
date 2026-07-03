@@ -89,7 +89,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .12em;
-  margin-bottom: 45px;
+  margin-bottom: 32px;
   opacity: 0;
   animation: fadeIn .7s .35s forwards;
 }
