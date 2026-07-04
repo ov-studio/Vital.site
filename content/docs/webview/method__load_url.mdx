@@ -16,13 +16,9 @@ local status = self:load_url(
   **Pass a resource-scoped path instead of a URL to load a file straight out of a resource.**
 
   - **`http://` / `https://`** — passed straight through and loaded as-is
-  - **Local path** — anything else resolves relative to the current resource's directory and is served over the client's local HTTP file server
-  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory instead
+  - **Local path** — anything else resolves relative to the current resource's directory and is served over the client's local HTTP server
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory
   - **Example** — `:resource_a/web/index.html` loads `web/index.html` from inside `resource_a`
-</Callout>
-
-<Callout type="warn">
-  **Cross-resource paths require the target resource to be running.** Loading `:resource_a/...` while `resource_a` isn't running throws the same error as other resource-scoped APIs (e.g. `util.file.exists`) — start `resource_a` first, or catch the error.
 </Callout>
 
 ### Parameters
