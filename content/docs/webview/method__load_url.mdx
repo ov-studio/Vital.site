@@ -46,13 +46,11 @@ entity:load_url("https://google.com")
 ```lua lineNumbers title="Load a file from the current resource"
 local entity = core.webview.create()
 
--- Resolves to web/index.html inside the resource this script belongs to
 entity:load_url("web/index.html")
 ```
 
 ```lua lineNumbers title="Load a file from another running resource"
 local entity = core.webview.create()
 
--- Resolves to web/index.html inside resource_a — throws if resource_a isn't running
 entity:load_url(":resource_a/web/index.html")
 ```
