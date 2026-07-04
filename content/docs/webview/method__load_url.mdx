@@ -12,11 +12,24 @@ local status = self:load_url(
 )
 ```
 
+<Callout type="idea">
+  **Pass a resource-scoped path instead of a URL to load a file straight out of a resource.**
+
+  - **`http://` / `https://`** — passed straight through and loaded as-is
+  - **Local path** — anything else resolves relative to the current resource's directory and is served over the client's local HTTP file server
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory instead
+  - **Example** — `:resource_a/web/index.html` loads `web/index.html` from inside `resource_a`
+</Callout>
+
+<Callout type="warn">
+  **Cross-resource paths require the target resource to be running.** Loading `:resource_a/...` while `resource_a` isn't running throws the same error as other resource-scoped APIs (e.g. `util.file.exists`) — start `resource_a` first, or catch the error.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | url | URL to load in the webview |
+| `string` | url | A full `http(s)://` URL, or a resource-scoped file path to load |
 
 ### Returns
 
@@ -28,8 +41,22 @@ local status = self:load_url(
 
 ### Examples
 
-```lua lineNumbers title="Load a URL in a webview"
+```lua lineNumbers title="Load an external URL in a webview"
 local entity = core.webview.create()
 
 entity:load_url("https://google.com")
+```
+
+```lua lineNumbers title="Load a file from the current resource"
+local entity = core.webview.create()
+
+-- Resolves to web/index.html inside the resource this script belongs to
+entity:load_url("web/index.html")
+```
+
+```lua lineNumbers title="Load a file from another running resource"
+local entity = core.webview.create()
+
+-- Resolves to web/index.html inside resource_a — throws if resource_a isn't running
+entity:load_url(":resource_a/web/index.html")
 ```
