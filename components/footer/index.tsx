@@ -29,7 +29,15 @@ export function Footer() {
               <h4>{heading}</h4>
               <ul>
                 {links.map(({ label, href }) => (
-                  <li key={label}><a href={href}>{label}</a></li>
+                  <li key={label}>
+                    <a 
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {label}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
