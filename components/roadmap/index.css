@@ -346,18 +346,6 @@
     margin-bottom: 60px;
   }
 
-  .roadmap-summary-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  .roadmap-summary-top {
-    align-items: flex-start;
-    width: 100%;
-  }
-
   .roadmap-body {
     gap: 60px;
   }
