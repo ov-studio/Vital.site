@@ -16,8 +16,9 @@ export const Footer = [
     heading: 'Resource',
     links: [
       { label: `${config_site.info.git.site.repo}`, href: `https://github.com/${config_site.info.git.site.user}/${config_site.info.git.site.repo}` },
+      { label: `${config_site.info.git.sandbox.repo}`, href: `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}` },
       { label: `${config_site.info.git.kit.repo}`, href: `https://github.com/${config_site.info.git.kit.user}/${config_site.info.git.kit.repo}` },
-      { label: `${config_site.info.git.sandbox.repo}`, href: `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}` }
+      { label: `${config_site.info.git.vault.repo}`, href: `https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}` }
     ]
   },
   {

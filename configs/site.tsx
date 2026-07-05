@@ -5,8 +5,9 @@ export const info = {
 
     git: {
       site: { user: 'ov-studio', repo: 'Vital.site', branch: 'main' },
-      kit: { user: 'ov-studio', repo: 'Vital.kit', branch: 'main' },
       sandbox: { user: 'ov-studio', repo: 'Vital.sandbox', branch: 'main' },
+      kit: { user: 'ov-studio', repo: 'Vital.kit', branch: 'main' },
+      vault: { user: 'ov-studio', repo: 'Vital.vault', branch: 'main' }
     },
 
     social: {
