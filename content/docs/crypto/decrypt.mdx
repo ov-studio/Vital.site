@@ -38,8 +38,8 @@ local result = util.crypto.decrypt(
 
 ```lua lineNumbers title="Decrypts an input string"
 local key = "MySecretKey12345"
-local input, iv = util.crypto.encrypt("AES256", "Hello World", key)
+local input, iv = util.crypto.encrypt("aes256", "Hello World", key)
 
 core.engine.print("info", "Input:", input)
-core.engine.print("info", "Decrypted:", util.crypto.decrypt("AES256", input, key, iv))
+core.engine.print("info", "Decrypted:", util.crypto.decrypt("aes256", input, key, iv))
 ```

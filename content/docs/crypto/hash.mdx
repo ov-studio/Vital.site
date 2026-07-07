@@ -32,11 +32,11 @@ local hash = util.crypto.hash(
 
 | Mode | Description |
 |------|-------------|
-| `"SHA1"` | Secure Hash Algorithm 1 |
-| `"SHA224"` | Secure Hash Algorithm 224-bit |
-| `"SHA256"` | Secure Hash Algorithm 256-bit |
-| `"SHA384"` | Secure Hash Algorithm 384-bit |
-| `"SHA512"` | Secure Hash Algorithm 512-bit |
+| `"sha1"` | Secure Hash Algorithm 1 |
+| `"sha224"` | Secure Hash Algorithm 224-bit |
+| `"sha256"` | Secure Hash Algorithm 256-bit |
+| `"sha384"` | Secure Hash Algorithm 384-bit |
+| `"sha512"` | Secure Hash Algorithm 512-bit |
 
 ---
 
@@ -46,5 +46,5 @@ local hash = util.crypto.hash(
 local input = "Hello World"
 
 core.engine.print("info", "Input:", input)
-core.engine.print("info", "Hash:", util.crypto.hash("SHA256", input))
+core.engine.print("info", "Hash:", util.crypto.hash("sha256", input))
 ```

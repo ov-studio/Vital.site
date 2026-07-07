@@ -35,9 +35,9 @@ local result, iv = util.crypto.encrypt(
 
 | Mode | Description |
 |------|-------------|
-| `"AES128"` | Advanced Encryption Standard 128-bit |
-| `"AES192"` | Advanced Encryption Standard 192-bit |
-| `"AES256"` | Advanced Encryption Standard 256-bit |
+| `"aes128"` | Advanced Encryption Standard 128-bit |
+| `"aes192"` | Advanced Encryption Standard 192-bit |
+| `"aes256"` | Advanced Encryption Standard 256-bit |
 
 ---
 
@@ -46,7 +46,7 @@ local result, iv = util.crypto.encrypt(
 ```lua lineNumbers title="Encrypts an input string"
 local input = "Hello World"
 local key = "MySecretKey12345"
-local output, iv = util.crypto.encrypt("AES256", input, key)
+local output, iv = util.crypto.encrypt("aes256", input, key)
 
 core.engine.print("info", "Input:", input)
 core.engine.print("info", "Encrypted:", output, "IV:", iv)
