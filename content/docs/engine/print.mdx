@@ -25,7 +25,7 @@ local status = core.engine.print(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Log level: <br/>• `"info"` - general information <br/>• `"warn"` - non-critical warnings <br/>• `"error"` - errors and failures |
+| `string` | mode | Log mode<br/>Refer [**Modes**](#modes) section |
 | `any` | ... | Values to print on console |
 
 ### Returns
@@ -33,6 +33,16 @@ local status = core.engine.print(
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Modes
+
+| Mode | Description |
+|------|-------------|
+| `"info"` | General information |
+| `"warn"` | Non-critical warnings |
+| `"error"` | Errors and failures |
 
 ---
 
