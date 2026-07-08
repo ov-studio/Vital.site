@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_tonemapper_mode
+description: Sets the tonemapper mode of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_tonemapper_mode(mode)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Tonemapper mode to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the tonemapper mode was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment tonemapper mode"
+gfx.environment.set_tonemapper_mode(0)
+```

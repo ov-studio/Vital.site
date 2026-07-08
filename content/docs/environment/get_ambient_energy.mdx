@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_ambient_energy
+description: Retrieves the current ambient light energy of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_ambient_energy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current ambient light energy value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment ambient energy"
+core.engine.print("info", "Ambient energy:", gfx.environment.get_ambient_energy())
+```

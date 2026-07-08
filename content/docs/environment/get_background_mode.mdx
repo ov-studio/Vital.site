@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_background_mode
+description: Retrieves the current background mode of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_background_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current background mode |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment background mode"
+core.engine.print("info", "Background mode:", gfx.environment.get_background_mode())
+```

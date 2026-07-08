@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_background_color
+description: Sets the background color of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_background_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Background color as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the background color was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment background color"
+gfx.environment.set_background_color({0.1, 0.2, 0.4, 1.0})
+```

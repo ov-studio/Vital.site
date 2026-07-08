@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_reflection_source
+description: Sets the reflection source of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_reflection_source(source)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | source | Reflection source to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the reflection source was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment reflection source"
+gfx.environment.set_reflection_source(0)
+```

@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_ambient_sky_contribution
+description: Retrieves the current ambient sky contribution of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_ambient_sky_contribution()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current ambient sky contribution value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment ambient sky contribution"
+core.engine.print("info", "Ambient sky contribution:", gfx.environment.get_ambient_sky_contribution())
+```

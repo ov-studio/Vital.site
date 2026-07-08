@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_tonemap_exposure
+description: Sets the tonemap exposure of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_tonemap_exposure(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Tonemap exposure to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the tonemap exposure was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment tonemap exposure"
+gfx.environment.set_tonemap_exposure(1.0)
+```

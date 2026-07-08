@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_background_mode
+description: Sets the background mode of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_background_mode(mode)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Background mode to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the background mode was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment background mode to sky"
+gfx.environment.set_background_mode(1)
+```

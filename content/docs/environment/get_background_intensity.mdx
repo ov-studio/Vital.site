@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_background_intensity
+description: Retrieves the current background luminance intensity of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_background_intensity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current background luminance intensity value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment background intensity"
+core.engine.print("info", "Background intensity:", gfx.environment.get_background_intensity())
+```

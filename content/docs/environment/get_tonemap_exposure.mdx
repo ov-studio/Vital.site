@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_tonemap_exposure
+description: Retrieves the current tonemap exposure of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_tonemap_exposure()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current tonemap exposure value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment tonemap exposure"
+core.engine.print("info", "Tonemap exposure:", gfx.environment.get_tonemap_exposure())
+```

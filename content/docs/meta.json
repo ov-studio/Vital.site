@@ -37,6 +37,7 @@
         "event",
 
         "---Graphics---",
+        "environment",
         "adjustment",
         "emissive",
         "ssr",

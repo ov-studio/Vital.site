@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_background_energy
+description: Retrieves the current background energy multiplier of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_background_energy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current background energy multiplier value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment background energy"
+core.engine.print("info", "Background energy:", gfx.environment.get_background_energy())
+```

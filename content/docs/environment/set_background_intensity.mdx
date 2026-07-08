@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_background_intensity
+description: Sets the background luminance intensity of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_background_intensity(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Background luminance intensity to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the background intensity was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment background intensity"
+gfx.environment.set_background_intensity(30000.0)
+```

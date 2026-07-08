@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_background_energy
+description: Sets the background energy multiplier of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_background_energy(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Background energy multiplier to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the background energy was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment background energy"
+gfx.environment.set_background_energy(1.0)
+```

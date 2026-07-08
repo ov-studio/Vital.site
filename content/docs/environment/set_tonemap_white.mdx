@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_tonemap_white
+description: Sets the tonemap white point of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_tonemap_white(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Tonemap white point to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the tonemap white point was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment tonemap white point"
+gfx.environment.set_tonemap_white(1.0)
+```

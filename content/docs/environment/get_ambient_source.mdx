@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_ambient_source
+description: Retrieves the current ambient light source of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_ambient_source()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current ambient light source |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment ambient source"
+core.engine.print("info", "Ambient source:", gfx.environment.get_ambient_source())
+```

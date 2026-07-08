@@ -1,0 +1,34 @@
+{
+    "title": "Environment",
+    "icon": "Sun",
+    "pages": [
+        "---Getter---",
+        "get_background_mode",
+        "get_background_color",
+        "get_background_energy",
+        "get_background_intensity",
+        "get_ambient_source",
+        "get_ambient_color",
+        "get_ambient_energy",
+        "get_ambient_sky_contribution",
+        "get_reflection_source",
+        "get_tonemapper_mode",
+        "get_tonemap_exposure",
+        "get_tonemap_white",
+
+        "---Setter---",
+        "set_background_mode",
+        "set_background_color",
+        "set_background_energy",
+        "set_background_intensity",
+        "set_ambient_source",
+        "set_ambient_color",
+        "set_ambient_energy",
+        "set_ambient_sky_contribution",
+        "set_reflection_source",
+        "set_tonemapper_mode",
+        "set_tonemap_exposure",
+        "set_tonemap_white",
+        "..."
+    ]
+}

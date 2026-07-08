@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_ambient_sky_contribution
+description: Sets the ambient sky contribution of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_ambient_sky_contribution(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Ambient sky contribution amount to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the ambient sky contribution was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment ambient sky contribution"
+gfx.environment.set_ambient_sky_contribution(1.0)
+```

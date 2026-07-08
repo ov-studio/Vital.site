@@ -1,0 +1,31 @@
+---
+title: gfx.environment.set_ambient_color
+description: Sets the ambient light color of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.set_ambient_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Ambient light color as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the ambient color was set successfully |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment ambient color"
+gfx.environment.set_ambient_color({1.0, 1.0, 1.0, 1.0})
+```

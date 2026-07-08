@@ -1,0 +1,30 @@
+---
+title: gfx.environment.get_reflection_source
+description: Retrieves the current reflection source of the environment
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.environment.get_reflection_source()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current reflection source |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current environment reflection source"
+core.engine.print("info", "Reflection source:", gfx.environment.get_reflection_source())
+```
