@@ -12,11 +12,18 @@ local status = gfx.sky.physical.set_rayleigh_color(
 )
 ```
 
+```lua
+local status = gfx.sky.physical.set_rayleigh_color(
+    hex
+)
+```
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `color` | color | Rayleigh scattering color to apply as `{r, g, b, a}` |
+| `color` | color | Rayleigh scattering color as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.sky.physical.set_rayleigh_color(
 
 ### Examples
 
-```lua lineNumbers title="Set physical sky Rayleigh color"
+```lua lineNumbers title="Set physical sky Rayleigh color using a color table"
 gfx.sky.physical.set_rayleigh_color({0.26, 0.41, 0.58, 1.0})
+```
+
+```lua lineNumbers title="Set physical sky Rayleigh color using a hex string"
+gfx.sky.physical.set_rayleigh_color("#426894")
 ```

@@ -12,11 +12,18 @@ local status = gfx.sky.procedural.set_sky_cover_modulate(
 )
 ```
 
+```lua
+local status = gfx.sky.procedural.set_sky_cover_modulate(
+    hex
+)
+```
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `color` | color | Sky cover modulate color of the procedural sky material to apply as `{r, g, b, a}` |
+| `color` | color | Sky cover modulate color of the procedural sky material as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.sky.procedural.set_sky_cover_modulate(
 
 ### Examples
 
-```lua lineNumbers title="Set procedural sky sky cover modulate"
+```lua lineNumbers title="Set procedural sky cover modulate using a color table"
 gfx.sky.procedural.set_sky_cover_modulate({1.0, 1.0, 1.0, 1.0})
+```
+
+```lua lineNumbers title="Set procedural sky cover modulate using a hex string"
+gfx.sky.procedural.set_sky_cover_modulate("#ffffff")
 ```

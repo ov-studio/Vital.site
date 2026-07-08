@@ -12,11 +12,18 @@ local status = gfx.sky.procedural.set_sky_top_color(
 )
 ```
 
+```lua
+local status = gfx.sky.procedural.set_sky_top_color(
+    hex
+)
+```
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `color` | color | Top color of the procedural sky to apply as `{r, g, b, a}` |
+| `color` | color | Top color of the procedural sky as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.sky.procedural.set_sky_top_color(
 
 ### Examples
 
-```lua lineNumbers title="Set procedural sky sky top color"
+```lua lineNumbers title="Set procedural sky top color using a color table"
 gfx.sky.procedural.set_sky_top_color({0.05, 0.1, 0.4, 1.0})
+```
+
+```lua lineNumbers title="Set procedural sky top color using a hex string"
+gfx.sky.procedural.set_sky_top_color("#0d1a66")
 ```

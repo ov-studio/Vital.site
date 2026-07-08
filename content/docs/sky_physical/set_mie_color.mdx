@@ -12,11 +12,18 @@ local status = gfx.sky.physical.set_mie_color(
 )
 ```
 
+```lua
+local status = gfx.sky.physical.set_mie_color(
+    hex
+)
+```
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `color` | color | Mie scattering color to apply as `{r, g, b, a}` |
+| `color` | color | Mie scattering color as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.sky.physical.set_mie_color(
 
 ### Examples
 
-```lua lineNumbers title="Set physical sky Mie color"
+```lua lineNumbers title="Set physical sky Mie color using a color table"
 gfx.sky.physical.set_mie_color({0.69, 0.86, 1.0, 1.0})
+```
+
+```lua lineNumbers title="Set physical sky Mie color using a hex string"
+gfx.sky.physical.set_mie_color("#b0dcff")
 ```

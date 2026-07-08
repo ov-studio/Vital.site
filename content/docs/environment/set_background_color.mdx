@@ -12,11 +12,18 @@ local status = gfx.env.set_background_color(
 )
 ```
 
+```lua
+local status = gfx.env.set_background_color(
+    hex
+)
+```
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
 | `color` | color | Background color as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.env.set_background_color(
 
 ### Examples
 
-```lua lineNumbers title="Set environment background color"
+```lua lineNumbers title="Set environment background color using a color table"
 gfx.env.set_background_color({0.1, 0.2, 0.4, 1.0})
+```
+
+```lua lineNumbers title="Set environment background color using a hex string"
+gfx.env.set_background_color("#1a3366")
 ```
