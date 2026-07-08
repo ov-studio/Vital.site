@@ -1,0 +1,30 @@
+---
+title: gfx.sky.procedural.get_sky_curve
+description: Retrieves the current curve blend factor of the procedural sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.get_sky_curve()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current curve blend factor of the procedural sky value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current procedural sky sky curve"
+core.engine.print("info", "Sky curve:", gfx.sky.procedural.get_sky_curve())
+```

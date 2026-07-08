@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_sky_top_color
+description: Sets the top color of the procedural sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_sky_top_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Top color of the procedural sky to apply as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky sky top color"
+gfx.sky.procedural.set_sky_top_color({0.05, 0.1, 0.4, 1.0})
+```

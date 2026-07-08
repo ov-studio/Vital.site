@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_ground_energy_multiplier
+description: Sets the energy multiplier of the procedural ground
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_ground_energy_multiplier(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Energy multiplier of the procedural ground to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky ground energy multiplier"
+gfx.sky.procedural.set_ground_energy_multiplier(1.0)
+```

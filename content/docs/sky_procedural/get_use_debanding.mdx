@@ -1,0 +1,30 @@
+---
+title: gfx.sky.procedural.get_use_debanding
+description: Retrieves whether debanding is currently enabled on the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.get_use_debanding()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if debanding is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print whether procedural sky debanding is enabled"
+core.engine.print("info", "Debanding:", gfx.sky.procedural.get_use_debanding())
+```

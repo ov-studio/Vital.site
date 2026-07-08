@@ -1,0 +1,30 @@
+---
+title: gfx.sky.procedural.get_sky_cover_modulate
+description: Retrieves the current sky cover modulate color of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local color = gfx.sky.procedural.get_sky_cover_modulate()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Current sky cover modulate color of the procedural sky material as `{r, g, b, a}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current procedural sky sky cover modulate"
+core.engine.print("info", "Sky cover modulate:", util.table.unpack(gfx.sky.procedural.get_sky_cover_modulate()))
+```

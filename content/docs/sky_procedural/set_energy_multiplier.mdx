@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_energy_multiplier
+description: Sets the overall energy multiplier of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_energy_multiplier(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Overall energy multiplier of the procedural sky material to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky energy multiplier"
+gfx.sky.procedural.set_energy_multiplier(1.0)
+```

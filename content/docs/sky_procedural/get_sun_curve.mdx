@@ -1,0 +1,30 @@
+---
+title: gfx.sky.procedural.get_sun_curve
+description: Retrieves the current sun curve blend factor of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.get_sun_curve()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current sun curve blend factor of the procedural sky material value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current procedural sky sun curve"
+core.engine.print("info", "Sun curve:", gfx.sky.procedural.get_sun_curve())
+```

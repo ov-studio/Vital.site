@@ -42,6 +42,7 @@
         "sky",
         "sky_panorama",
         "sky_physical",
+        "sky_procedural",
         "glow",
         "ssr",
         "ssil",

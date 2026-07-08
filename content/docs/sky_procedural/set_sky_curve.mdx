@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_sky_curve
+description: Sets the curve blend factor of the procedural sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_sky_curve(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Curve blend factor of the procedural sky to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky sky curve"
+gfx.sky.procedural.set_sky_curve(0.15)
+```

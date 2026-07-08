@@ -1,0 +1,30 @@
+---
+title: gfx.sky.procedural.get_ground_energy_multiplier
+description: Retrieves the current energy multiplier of the procedural ground
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.get_ground_energy_multiplier()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current energy multiplier of the procedural ground value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current procedural sky ground energy multiplier"
+core.engine.print("info", "Ground energy multiplier:", gfx.sky.procedural.get_ground_energy_multiplier())
+```

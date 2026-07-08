@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_sky_cover
+description: Sets the sky cover texture of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_sky_cover(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path of the sky cover texture to assign |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky cover texture"
+gfx.sky.procedural.set_sky_cover("assets/sky/cover.png")
+```

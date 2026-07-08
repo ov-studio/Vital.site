@@ -1,0 +1,30 @@
+---
+title: gfx.sky.procedural.get_sky_top_color
+description: Retrieves the current top color of the procedural sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local color = gfx.sky.procedural.get_sky_top_color()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Current top color of the procedural sky as `{r, g, b, a}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current procedural sky sky top color"
+core.engine.print("info", "Sky top color:", util.table.unpack(gfx.sky.procedural.get_sky_top_color()))
+```

@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_sun_curve
+description: Sets the sun curve blend factor of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_sun_curve(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sun curve blend factor of the procedural sky material to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky sun curve"
+gfx.sky.procedural.set_sun_curve(0.15)
+```

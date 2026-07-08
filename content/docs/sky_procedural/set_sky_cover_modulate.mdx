@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_sky_cover_modulate
+description: Sets the sky cover modulate color of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_sky_cover_modulate(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Sky cover modulate color of the procedural sky material to apply as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky sky cover modulate"
+gfx.sky.procedural.set_sky_cover_modulate({1.0, 1.0, 1.0, 1.0})
+```

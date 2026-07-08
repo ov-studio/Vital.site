@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.get_sky_cover
+description: Retrieves the current sky cover texture path of the procedural sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.get_sky_cover()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Path of the currently assigned sky cover texture |
+| `bool` | result | `false` if no sky cover texture is currently assigned |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current procedural sky cover texture path"
+core.engine.print("info", "Sky cover:", gfx.sky.procedural.get_sky_cover())
+```

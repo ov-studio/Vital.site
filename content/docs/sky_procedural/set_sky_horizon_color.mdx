@@ -1,0 +1,31 @@
+---
+title: gfx.sky.procedural.set_sky_horizon_color
+description: Sets the horizon color of the procedural sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.procedural.set_sky_horizon_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Horizon color of the procedural sky to apply as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky sky horizon color"
+gfx.sky.procedural.set_sky_horizon_color({0.6, 0.7, 0.9, 1.0})
+```
