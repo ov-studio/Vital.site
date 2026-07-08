@@ -340,7 +340,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<texture>:get_type', status: 'completed' },
           { label: '[Client] API: self<texture>:destroy', status: 'completed' },
           { label: '[Client] API: self<texture>:get_size', status: 'completed' },
-          { label: '[Client] API: self<texture>:convert', status: 'completed' }
+          { label: '[Client] API: self<texture>:convert', status: 'completed' },
+          { label: '[Client] API: self<texture>:compress', status: 'completed' }
         ]
       },
       {
