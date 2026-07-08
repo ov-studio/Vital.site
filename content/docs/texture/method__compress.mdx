@@ -1,0 +1,61 @@
+---
+title: self:compress
+description: Compresses the texture using GPU block-compression, significantly reducing VRAM usage
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:compress(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Target compression mode<br/>Refer [**Modes**](#modes) section |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Modes
+
+Modes are ordered broadest to narrowest hardware support.<br/>
+Unlike [`self:convert`](/docs/texture/method/convert), compression is irreversible — the texture cannot be converted or compressed again after this call.
+
+| Constant | Description |
+|----------|-------------|
+| `core.texture.compression_mode.S3TC` | BC1/BC3 — universal desktop standard<br/>Automatically uses BC1 for opaque textures and BC3 (DXT5) for alpha<br/>~6:1 compression over RGBA8 |
+| `core.texture.compression_mode.ETC2` | Modern mobile standard (OpenGL ES 3.0+/Vulkan)<br/>Supports alpha<br/>Preferred for Android and iOS targets |
+| `core.texture.compression_mode.BPTC` | BC7 for color/alpha, BC6H for HDR<br/>Higher quality than S3TC at the same ratio — requires DX11-class GPU |
+| `core.texture.compression_mode.ASTC` | Flexible block sizes with best quality-to-ratio on supported hardware<br/>Arm Mali, Apple Silicon, and newer desktop GPUs |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Compress a desktop texture with S3TC"
+local entity = core.texture.create("assets/diffuse.png")
+
+entity:compress(core.texture.compression_mode.S3TC)
+```
+
+```lua lineNumbers title="Compress an alpha texture with high quality BPTC"
+local entity = core.texture.create("assets/sprite.png")
+
+entity:compress(core.texture.compression_mode.BPTC)
+```
+
+```lua lineNumbers title="Compress an HDR sky texture with BPTC"
+local entity = core.texture.create("assets/sky/panorama.hdr")
+
+entity:compress(core.texture.compression_mode.BPTC)
+```

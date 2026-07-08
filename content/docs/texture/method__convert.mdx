@@ -1,6 +1,6 @@
 ---
 title: self:convert
-description: Converts the texture to a different pixel format, freeing VRAM used by the original
+description: Converts the texture to a different pixel format, reducing VRAM by lowering color depth or channel count
 badge: Client
 ---
 
@@ -28,7 +28,8 @@ local status = self:convert(
 
 ### Formats
 
-Formats are ordered highest to lowest quality — or equivalently, lowest to highest VRAM savings.
+Formats are ordered highest to lowest quality — or equivalently, lowest to highest VRAM savings.<br/>
+Unlike [`self:compress`](/docs/texture/method/compress), converted textures remain uncompressed in VRAM and can be converted again at any time.
 
 | Constant | Description |
 |----------|-------------|

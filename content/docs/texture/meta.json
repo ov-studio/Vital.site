@@ -15,6 +15,7 @@
         "method__get_size",
 
         "---⁝⁝Misc---",
-        "method__convert"
+        "method__convert",
+        "method__compress"
     ]
 }
