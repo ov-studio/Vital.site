@@ -1,0 +1,31 @@
+---
+title: gfx.sky.set_radiance_size
+description: Sets the radiance cubemap size of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.set_radiance_size(size)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | size | Radiance size enum value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set sky radiance size"
+gfx.sky.set_radiance_size(2)
+```

@@ -1,0 +1,31 @@
+---
+title: gfx.sky.set_rotation
+description: Sets the rotation of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.set_rotation(rotation)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Sky rotation to apply as `{x, y, z}` in radians |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set sky rotation"
+gfx.sky.set_rotation({0.0, 1.5708, 0.0})
+```

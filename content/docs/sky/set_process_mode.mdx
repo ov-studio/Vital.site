@@ -1,0 +1,31 @@
+---
+title: gfx.sky.set_process_mode
+description: Sets the process mode of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.set_process_mode(mode)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Sky process mode enum value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set sky process mode"
+gfx.sky.set_process_mode(0)
+```

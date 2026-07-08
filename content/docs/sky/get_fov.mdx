@@ -1,0 +1,30 @@
+---
+title: gfx.sky.get_fov
+description: Retrieves the current custom field of view of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.get_fov()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current sky custom field of view value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current sky field of view"
+core.engine.print("info", "Sky FOV:", gfx.sky.get_fov())
+```

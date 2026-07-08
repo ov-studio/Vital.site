@@ -1,0 +1,31 @@
+---
+title: gfx.sky.set_type
+description: Sets the material type of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.set_type(type)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | type | Sky material type to apply — `"panorama"`, `"procedural"`, or `"physical"` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set sky material type to procedural"
+gfx.sky.set_type("procedural")
+```

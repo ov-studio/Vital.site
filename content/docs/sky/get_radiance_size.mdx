@@ -1,0 +1,30 @@
+---
+title: gfx.sky.get_radiance_size
+description: Retrieves the current radiance cubemap size of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.get_radiance_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current radiance size enum value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current sky radiance size"
+core.engine.print("info", "Sky radiance size:", gfx.sky.get_radiance_size())
+```

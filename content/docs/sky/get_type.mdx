@@ -1,0 +1,31 @@
+---
+title: gfx.sky.get_type
+description: Retrieves the current material type of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Current sky material type — `"panorama"`, `"procedural"`, or `"physical"` |
+| `bool` | result | `false` if no sky material is currently assigned |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current sky material type"
+core.engine.print("info", "Sky type:", gfx.sky.get_type())
+```

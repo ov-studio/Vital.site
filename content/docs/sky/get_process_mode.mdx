@@ -1,0 +1,30 @@
+---
+title: gfx.sky.get_process_mode
+description: Retrieves the current process mode of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.get_process_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current sky process mode enum value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current sky process mode"
+core.engine.print("info", "Sky process mode:", gfx.sky.get_process_mode())
+```

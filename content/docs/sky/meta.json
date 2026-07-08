@@ -1,0 +1,20 @@
+{
+    "title": "Sky",
+    "icon": "CloudSun",
+    "pages": [
+        "---Getter---",
+        "get_type",
+        "get_fov",
+        "get_rotation",
+        "get_radiance_size",
+        "get_process_mode",
+
+        "---Setter---",
+        "set_type",
+        "set_fov",
+        "set_rotation",
+        "set_radiance_size",
+        "set_process_mode",
+        "..."
+    ]
+}

@@ -1,0 +1,30 @@
+---
+title: gfx.sky.get_rotation
+description: Retrieves the current rotation of the sky
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.get_rotation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | result | Current sky rotation as `{x, y, z}` in radians |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current sky rotation"
+core.engine.print("info", "Sky rotation:", util.table.unpack(gfx.sky.get_rotation()))
+```
