@@ -1,0 +1,31 @@
+---
+title: gfx.sky.panorama.set_texture
+description: Sets the texture of the panorama sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.panorama.set_texture(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path of the panorama texture to assign |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set panorama sky texture"
+gfx.sky.panorama.set_texture("assets/sky/panorama.hdr")
+```

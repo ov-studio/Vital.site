@@ -1,0 +1,31 @@
+---
+title: gfx.sky.panorama.set_energy_multiplier
+description: Sets the energy multiplier of the panorama sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.panorama.set_energy_multiplier(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Energy multiplier to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set panorama sky energy multiplier"
+gfx.sky.panorama.set_energy_multiplier(1.0)
+```

@@ -1,0 +1,19 @@
+{
+    "title": "Sky Panorama",
+    "icon": "Image",
+    "pages": [
+        "---Checker---",
+        "is_filtering_enabled",
+
+        "---Getter---",
+        "get_texture",
+        "get_energy_multiplier",
+
+        "---Setter---",
+        "set_texture",
+        "set_filtering_enabled",
+        "set_energy_multiplier",
+        "reset_texture",
+        "..."
+    ]
+}

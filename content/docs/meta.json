@@ -40,6 +40,7 @@
         "environment",
         "adjustment",
         "sky",
+        "sky_panorama",
         "glow",
         "ssr",
         "ssil",
