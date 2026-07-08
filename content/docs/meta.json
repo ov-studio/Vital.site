@@ -39,7 +39,7 @@
         "---Graphics---",
         "environment",
         "adjustment",
-        "emissive",
+        "glow",
         "ssr",
         "ssil",
         "sdfgi",
