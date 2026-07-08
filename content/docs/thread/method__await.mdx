@@ -7,7 +7,7 @@ badge: Shared
 ### Syntax
 
 ```lua
-local bool, ... = self:await(
+local status, ... = self:await(
     promise
 )
 ```
@@ -30,7 +30,7 @@ local bool, ... = self:await(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | resolved | `true` if the promise resolved, `false` if it was rejected |
+| `status` | resolved | `true` if the promise resolved, `false` if it was rejected |
 | `any` | ... | Values the promise was settled with |
 
 ---
