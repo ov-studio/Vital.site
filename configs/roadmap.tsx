@@ -711,7 +711,7 @@ export const Roadmap: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Environment',
         desc: 'Post-process, global illumination, and world environment control from Lua',
-        icon: <lucide.Sparkles {...config_site.info.lucide}/>,
+        icon: <lucide.Sunset {...config_site.info.lucide}/>,
         items: [
           { label: 'Adjustment (brightness / contrast / saturation / LUT)', status: 'completed' },
           { label: 'Emissive', status: 'completed' },

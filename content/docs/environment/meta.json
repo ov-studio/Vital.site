@@ -1,6 +1,6 @@
 {
     "title": "Environment",
-    "icon": "Sun",
+    "icon": "Sunset",
     "pages": [
         "---Getter---",
         "get_background_mode",
