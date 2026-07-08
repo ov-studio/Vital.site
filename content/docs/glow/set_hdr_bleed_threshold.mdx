@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_hdr_bleed_threshold
-description: The HDR bleed threshold to be set for the emissive post-processing effect
+title: gfx.glow.set_hdr_bleed_threshold
+description: The HDR bleed threshold to be set for the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_hdr_bleed_threshold(
+local status = gfx.glow.set_hdr_bleed_threshold(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = gfx.emissive.set_hdr_bleed_threshold(
 ### Examples
 
 ```lua lineNumbers title="Allow only very bright pixels to bleed glow"
-gfx.emissive.set_hdr_bleed_threshold(1.5)
+gfx.glow.set_hdr_bleed_threshold(1.5)
 ```

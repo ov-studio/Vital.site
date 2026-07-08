@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_strength
-description: The strength to be set for the emissive post-processing effect
+title: gfx.glow.set_strength
+description: The strength to be set for the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_strength(
+local status = gfx.glow.set_strength(
     value
 )
 ```
@@ -16,7 +16,7 @@ local status = gfx.emissive.set_strength(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | value | Strength value to be applied<br/>Controls the glow's spread or filter strength. Higher values produce a softer, wider glow while lower values keep the glow tighter around emissive surfaces |
+| `float` | value | Strength value to be applied<br/>Controls the glow's spread or filter strength. Higher values produce a softer, wider glow while lower values keep the glow tighter around glow surfaces |
 
 ### Returns
 
@@ -29,5 +29,5 @@ local status = gfx.emissive.set_strength(
 ### Examples
 
 ```lua lineNumbers title="Set a soft wide glow spread"
-gfx.emissive.set_strength(2.0)
+gfx.glow.set_strength(2.0)
 ```

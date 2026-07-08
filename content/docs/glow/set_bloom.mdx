@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_bloom
-description: The bloom threshold to be set for the emissive post-processing effect
+title: gfx.glow.set_bloom
+description: The bloom threshold to be set for the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_bloom(
+local status = gfx.glow.set_bloom(
     value
 )
 ```
@@ -16,7 +16,7 @@ local status = gfx.emissive.set_bloom(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | value | Bloom value to be applied<br/>Controls how much of the glow effect bleeds onto non-emissive surfaces in the scene. Higher values cause the glow to spread further and illuminate surrounding geometry |
+| `float` | value | Bloom value to be applied<br/>Controls how much of the glow effect bleeds onto non-glow surfaces in the scene. Higher values cause the glow to spread further and illuminate surrounding geometry |
 
 ### Returns
 
@@ -29,5 +29,5 @@ local status = gfx.emissive.set_bloom(
 ### Examples
 
 ```lua lineNumbers title="Allow glow to bleed onto surrounding surfaces"
-gfx.emissive.set_bloom(0.5)
+gfx.glow.set_bloom(0.5)
 ```

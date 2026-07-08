@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_mix
-description: The mix amount to be set for the emissive post-processing effect
+title: gfx.glow.set_mix
+description: The mix amount to be set for the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_mix(
+local status = gfx.glow.set_mix(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = gfx.emissive.set_mix(
 ### Examples
 
 ```lua lineNumbers title="Blend glow at 50% with the original scene"
-gfx.emissive.set_mix(0.5)
+gfx.glow.set_mix(0.5)
 ```

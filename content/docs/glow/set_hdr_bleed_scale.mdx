@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_hdr_bleed_scale
-description: The HDR bleed scale to be set for the emissive post-processing effect
+title: gfx.glow.set_hdr_bleed_scale
+description: The HDR bleed scale to be set for the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_hdr_bleed_scale(
+local status = gfx.glow.set_hdr_bleed_scale(
     value
 )
 ```
@@ -29,5 +29,5 @@ local status = gfx.emissive.set_hdr_bleed_scale(
 ### Examples
 
 ```lua lineNumbers title="Amplify bleed from bright HDR surfaces"
-gfx.emissive.set_hdr_bleed_scale(2.0)
+gfx.glow.set_hdr_bleed_scale(2.0)
 ```

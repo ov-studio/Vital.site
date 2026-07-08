@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_blend_mode
-description: The blend mode to be set for the emissive post-processing effect
+title: gfx.glow.set_blend_mode
+description: The blend mode to be set for the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_blend_mode(
+local status = gfx.glow.set_blend_mode(
     value
 )
 ```
@@ -16,7 +16,7 @@ local status = gfx.emissive.set_blend_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | value | Blend mode to be applied. Determines how the glow result is composited over the scene:<br/>• `0` - Additive, glow is added on top of the scene, brightening emissive areas<br/>• `1` - Screen, glow is blended using a screen operation, producing a softer brightening effect<br/>• `2` - Softlight, glow is blended using a soft light operation for a subtle, natural-looking result<br/>• `3` - Replace, glow completely replaces the scene in affected areas<br/>• `4` - Mix, glow is blended with the scene based on the mix value |
+| `int` | value | Blend mode to be applied. Determines how the glow result is composited over the scene:<br/>• `0` - Additive, glow is added on top of the scene, brightening glow areas<br/>• `1` - Screen, glow is blended using a screen operation, producing a softer brightening effect<br/>• `2` - Softlight, glow is blended using a soft light operation for a subtle, natural-looking result<br/>• `3` - Replace, glow completely replaces the scene in affected areas<br/>• `4` - Mix, glow is blended with the scene based on the mix value |
 
 ### Returns
 
@@ -28,10 +28,10 @@ local status = gfx.emissive.set_blend_mode(
 
 ### Examples
 
-```lua lineNumbers title="Set emissive blend mode"
+```lua lineNumbers title="Set glow blend mode"
 -- Set additive blend mode
-gfx.emissive.set_blend_mode(0)
+gfx.glow.set_blend_mode(0)
 
 -- Set mix blend mode
-gfx.emissive.set_blend_mode(4)
+gfx.glow.set_blend_mode(4)
 ```

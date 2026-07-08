@@ -1,13 +1,13 @@
 ---
-title: gfx.emissive.set_level_intensity
-description: The intensity to be set for a specific glow level of the emissive post-processing effect
+title: gfx.glow.set_level_intensity
+description: The intensity to be set for a specific glow level of the glow post-processing effect
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = gfx.emissive.set_level_intensity(
+local status = gfx.glow.set_level_intensity(
     idx,
     value
 )
@@ -32,8 +32,8 @@ local status = gfx.emissive.set_level_intensity(
 
 ```lua lineNumbers title="Set intensity of a specific glow level"
 -- Set a strong contribution on glow level 1
-gfx.emissive.set_level_intensity(1, 1.0)
+gfx.glow.set_level_intensity(1, 1.0)
 
 -- Disable contribution on glow level 3
-gfx.emissive.set_level_intensity(3, 0.0)
+gfx.glow.set_level_intensity(3, 0.0)
 ```
