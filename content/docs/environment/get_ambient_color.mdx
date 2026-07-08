@@ -1,5 +1,5 @@
 ---
-title: gfx.environment.get_ambient_color
+title: gfx.env.get_ambient_color
 description: Retrieves the current ambient light color of the environment
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local color = gfx.environment.get_ambient_color()
+local color = gfx.env.get_ambient_color()
 ```
 
 ### Parameters
@@ -26,5 +26,5 @@ local color = gfx.environment.get_ambient_color()
 ### Examples
 
 ```lua lineNumbers title="Print current environment ambient color"
-core.engine.print("info", "Ambient color:", util.table.unpack(gfx.environment.get_ambient_color()))
+core.engine.print("info", "Ambient color:", util.table.unpack(gfx.env.get_ambient_color()))
 ```
