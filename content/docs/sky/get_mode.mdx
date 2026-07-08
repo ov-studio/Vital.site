@@ -19,13 +19,23 @@ local result = gfx.sky.get_mode()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | result | Current sky material type — `"panorama"`, `"procedural"`, or `"physical"` |
+| `string` | result | Current sky material type<br/>Refer [**Modes**](#modes) section |
 | `bool` | result | `false` if no sky material is currently assigned |
+
+---
+
+### Modes
+
+| Mode | Description |
+|------|-------------|
+| `"panorama"` | Panorama sky material |
+| `"procedural"` | Procedural sky material |
+| `"physical"` | Physical sky material |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Print current sky material type"
-core.engine.print("info", "Sky type:", gfx.sky.get_mode())
+core.engine.print("info", "Sky mode:", gfx.sky.get_mode())
 ```

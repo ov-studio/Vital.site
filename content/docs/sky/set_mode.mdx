@@ -16,13 +16,23 @@ local result = gfx.sky.set_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Sky material type to apply — `"panorama"`, `"procedural"`, or `"physical"` |
+| `string` | mode | Sky material type to apply<br/>Refer [**Modes**](#modes) section |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Modes
+
+| Mode | Description |
+|------|-------------|
+| `"panorama"` | Panorama sky material |
+| `"procedural"` | Procedural sky material |
+| `"physical"` | Physical sky material |
 
 ---
 
