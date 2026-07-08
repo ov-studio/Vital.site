@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_mie_eccentricity
+description: Sets the Mie scattering eccentricity of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_mie_eccentricity(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Mie scattering eccentricity to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky Mie eccentricity"
+gfx.sky.physical.set_mie_eccentricity(0.8)
+```

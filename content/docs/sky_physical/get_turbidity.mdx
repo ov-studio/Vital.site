@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_turbidity
+description: Retrieves the current atmospheric turbidity of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_turbidity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current atmospheric turbidity value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky turbidity"
+core.engine.print("info", "Turbidity:", gfx.sky.physical.get_turbidity())
+```

@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_sun_disk_scale
+description: Sets the sun disk scale of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_sun_disk_scale(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sun disk scale to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky sun disk scale"
+gfx.sky.physical.set_sun_disk_scale(1.0)
+```

@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.get_night_sky
+description: Retrieves the current night sky texture path of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_night_sky()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Path of the currently assigned night sky texture |
+| `bool` | result | `false` if no night sky texture is currently assigned |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky night sky texture path"
+core.engine.print("info", "Night sky:", gfx.sky.physical.get_night_sky())
+```

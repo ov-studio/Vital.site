@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_energy_multiplier
+description: Retrieves the current energy multiplier of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_energy_multiplier()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current energy multiplier value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky energy multiplier"
+core.engine.print("info", "Energy multiplier:", gfx.sky.physical.get_energy_multiplier())
+```

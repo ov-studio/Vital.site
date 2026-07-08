@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_mie_color
+description: Retrieves the current Mie scattering color of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local color = gfx.sky.physical.get_mie_color()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Current Mie scattering color as `{r, g, b, a}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky Mie color"
+core.engine.print("info", "Mie color:", util.table.unpack(gfx.sky.physical.get_mie_color()))
+```

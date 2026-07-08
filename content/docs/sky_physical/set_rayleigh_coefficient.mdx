@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_rayleigh_coefficient
+description: Sets the Rayleigh scattering coefficient of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_rayleigh_coefficient(value)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Rayleigh scattering coefficient to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky Rayleigh coefficient"
+gfx.sky.physical.set_rayleigh_coefficient(2.0)
+```

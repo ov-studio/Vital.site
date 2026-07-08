@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_mie_eccentricity
+description: Retrieves the current Mie scattering eccentricity of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_mie_eccentricity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current Mie scattering eccentricity value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky Mie eccentricity"
+core.engine.print("info", "Mie eccentricity:", gfx.sky.physical.get_mie_eccentricity())
+```

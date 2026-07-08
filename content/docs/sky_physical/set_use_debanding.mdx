@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_use_debanding
+description: Sets whether debanding is enabled on the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_use_debanding(state)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable debanding, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable physical sky debanding"
+gfx.sky.physical.set_use_debanding(true)
+```

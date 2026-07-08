@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_rayleigh_coefficient
+description: Retrieves the current Rayleigh scattering coefficient of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_rayleigh_coefficient()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current Rayleigh scattering coefficient value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky Rayleigh coefficient"
+core.engine.print("info", "Rayleigh coefficient:", gfx.sky.physical.get_rayleigh_coefficient())
+```

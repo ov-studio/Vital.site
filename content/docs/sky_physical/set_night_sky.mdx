@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_night_sky
+description: Sets the night sky texture of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_night_sky(path)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path of the night sky texture to assign |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky night sky texture"
+gfx.sky.physical.set_night_sky("assets/sky/night.png")
+```

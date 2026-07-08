@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_sun_disk_scale
+description: Retrieves the current sun disk scale of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_sun_disk_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current sun disk scale value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky sun disk scale"
+core.engine.print("info", "Sun disk scale:", gfx.sky.physical.get_sun_disk_scale())
+```

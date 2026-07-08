@@ -1,0 +1,30 @@
+---
+title: gfx.sky.physical.get_mie_coefficient
+description: Retrieves the current Mie scattering coefficient of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.get_mie_coefficient()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current Mie scattering coefficient value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current physical sky Mie coefficient"
+core.engine.print("info", "Mie coefficient:", gfx.sky.physical.get_mie_coefficient())
+```

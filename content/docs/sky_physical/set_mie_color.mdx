@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_mie_color
+description: Sets the Mie scattering color of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_mie_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Mie scattering color to apply as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky Mie color"
+gfx.sky.physical.set_mie_color({0.69, 0.86, 1.0, 1.0})
+```

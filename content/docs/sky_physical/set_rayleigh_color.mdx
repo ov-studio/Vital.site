@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_rayleigh_color
+description: Sets the Rayleigh scattering color of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_rayleigh_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Rayleigh scattering color to apply as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky Rayleigh color"
+gfx.sky.physical.set_rayleigh_color({0.26, 0.41, 0.58, 1.0})
+```

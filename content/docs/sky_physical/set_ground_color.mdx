@@ -1,0 +1,31 @@
+---
+title: gfx.sky.physical.set_ground_color
+description: Sets the ground color of the physical sky material
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.physical.set_ground_color(color)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Ground color to apply as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky ground color"
+gfx.sky.physical.set_ground_color({0.1, 0.07, 0.034, 1.0})
+```
