@@ -1,5 +1,5 @@
 ---
-title: gfx.env.set_ambient_color
+title: gfx.environment.set_ambient_color
 description: Sets the ambient light color of the environment
 badge: Client
 ---
@@ -7,8 +7,14 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = gfx.env.set_ambient_color(
+local status = gfx.environment.set_ambient_color(
     color
+)
+```
+
+```lua
+local status = gfx.environment.set_ambient_color(
+    hex
 )
 ```
 
@@ -17,6 +23,7 @@ local status = gfx.env.set_ambient_color(
 | Type | Name | Description |
 |------|------|-------------|
 | `color` | color | Ambient light color as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.env.set_ambient_color(
 
 ### Examples
 
-```lua lineNumbers title="Set environment ambient color"
-gfx.env.set_ambient_color({1.0, 1.0, 1.0, 1.0})
+```lua lineNumbers title="Set environment ambient color using a color table"
+gfx.environment.set_ambient_color({1.0, 1.0, 1.0, 1.0})
+```
+
+```lua lineNumbers title="Set environment ambient color using a hex string"
+gfx.environment.set_ambient_color("#ffffff")
 ```
