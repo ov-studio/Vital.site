@@ -13,7 +13,7 @@ local status = self:define(
 )
 ```
 
-<Callout type="info">
+<Callout type="warn">
   **Defining a schema does not create the table in the core.database.** Call [`self:sync`](/docs/database/method/sync) after all schemas have been defined to synchronise and create any tables that do not already exist.
 
   - **Before sync** — the schema is registered locally on the database instance only
