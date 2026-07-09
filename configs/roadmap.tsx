@@ -726,6 +726,10 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Global background, ambient light, reflection source, and tonemapping control from Lua',
         icon: <lucide.Sunset {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: gfx.env.background_mode', status: 'completed' },
+          { label: '[Client] Enum: gfx.env.ambient_source', status: 'completed' },
+          { label: '[Client] Enum: gfx.env.reflection_source', status: 'completed' },
+          { label: '[Client] Enum: gfx.env.tonemapper_mode', status: 'completed' },
           { label: '[Client] API: gfx.env.get_background_mode', status: 'completed' },
           { label: '[Client] API: gfx.env.get_background_color', status: 'completed' },
           { label: '[Client] API: gfx.env.get_background_energy', status: 'completed' },
@@ -775,6 +779,8 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Sky material mode, FOV, rotation, radiance size, and process mode control from Lua',
         icon: <lucide.CloudSun {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: gfx.sky.radiance_size', status: 'completed' },
+          { label: '[Client] Enum: gfx.sky.process_mode', status: 'completed' },
           { label: '[Client] API: gfx.sky.get_mode', status: 'completed' },
           { label: '[Client] API: gfx.sky.get_fov', status: 'completed' },
           { label: '[Client] API: gfx.sky.get_rotation', status: 'completed' },
@@ -872,6 +878,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Bloom-style glow intensity, blending, and HDR bleed control from Lua',
         icon: <lucide.CircleDot {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: gfx.glow.blend_mode', status: 'completed' },
           { label: '[Client] API: gfx.glow.is_enabled', status: 'completed' },
           { label: '[Client] API: gfx.glow.is_normalized', status: 'completed' },
           { label: '[Client] API: gfx.glow.get_level_intensity', status: 'completed' },
@@ -937,6 +944,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Signed distance field global illumination cascades and quality control from Lua',
         icon: <lucide.Sun {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: gfx.sdfgi.y_scale', status: 'completed' },
           { label: '[Client] API: gfx.sdfgi.is_enabled', status: 'completed' },
           { label: '[Client] API: gfx.sdfgi.is_using_occlusion', status: 'completed' },
           { label: '[Client] API: gfx.sdfgi.is_reading_sky_light', status: 'completed' },
@@ -991,6 +999,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Exponential and depth-based fog density, lighting, and scattering control from Lua',
         icon: <lucide.CloudFog {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: gfx.fog.fog_mode', status: 'completed' },
           { label: '[Client] API: gfx.fog.is_enabled', status: 'completed' },
           { label: '[Client] API: gfx.fog.get_mode', status: 'completed' },
           { label: '[Client] API: gfx.fog.get_light_color', status: 'completed' },
