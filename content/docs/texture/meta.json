@@ -2,6 +2,10 @@
     "title": "Texture",
     "icon": "Image",
     "pages": [
+        "---Enum---",
+        "enum__texel_format",
+        "enum__compression_mode",
+
         "---Base---",
         "create",
         "...",

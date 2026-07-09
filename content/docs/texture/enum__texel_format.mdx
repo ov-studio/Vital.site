@@ -1,0 +1,18 @@
+---
+title: core.texture.texel_format
+description: Enumeration of supported pixel formats for texture conversion
+badge: Client
+---
+
+### Formats
+
+Formats are ordered highest to lowest quality — or equivalently, lowest to highest VRAM savings.
+
+| Constant | Description |
+|----------|-------------|
+| `core.texture.texel_format.RGBA8` | 32-bit full color with alpha — standard default |
+| `core.texture.texel_format.RGB8` | 24-bit full color, no alpha — 25% less VRAM than RGBA8 |
+| `core.texture.texel_format.RGBA4444` | 16-bit color with alpha — half the VRAM of RGBA8, lower quality |
+| `core.texture.texel_format.RGB565` | 16-bit color, no alpha — best VRAM savings without alpha |
+| `core.texture.texel_format.LA8` | 8-bit grayscale with alpha |
+| `core.texture.texel_format.L8` | 8-bit grayscale, no alpha — lightest option |
