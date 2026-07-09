@@ -266,19 +266,6 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
-        label: 'Lighting',
-        desc: 'Runtime creation and configuration of Directional, Omni, and Spot lights from Lua',
-        icon: <lucide.Sun {...config_site.info.lucide}/>,
-        items: [
-          { label: 'DirectionalLight3D', status: 'pending' },
-          { label: 'OmniLight3D', status: 'pending' },
-          { label: 'SpotLight3D', status: 'pending' },
-          { label: 'Shadow mode & bias control', status: 'pending' },
-          { label: 'Light bake mode', status: 'pending' },
-        ]
-      },
-      {
         label: 'Webview',
         desc: 'HTML/CSS/JS renderer with bidirectional Lua - JS messaging',
         icon: <lucide.Code2 {...config_site.info.lucide}/>,
@@ -1099,6 +1086,25 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Process material param overrides', status: 'pending' },
           { label: 'Trail & sub-emitters', status: 'pending' },
         ],
+      }
+    ]
+  },
+
+  {
+    name: 'Lighting',
+    cards: [
+      {
+        // TODO: WIP
+        label: 'Lighting',
+        desc: 'Runtime creation and configuration of Directional, Omni, and Spot lights from Lua',
+        icon: <lucide.Sun {...config_site.info.lucide}/>,
+        items: [
+          { label: 'DirectionalLight3D', status: 'pending' },
+          { label: 'OmniLight3D', status: 'pending' },
+          { label: 'SpotLight3D', status: 'pending' },
+          { label: 'Shadow mode & bias control', status: 'pending' },
+          { label: 'Light bake mode', status: 'pending' },
+        ]
       }
     ]
   },
