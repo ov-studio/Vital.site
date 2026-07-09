@@ -1,0 +1,14 @@
+---
+title: gfx.sky.process_mode
+description: Enumeration of supported radiance map processing strategies for the sky
+badge: Client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.sky.process_mode.AUTOMATIC` | Automatically picks between quality and realtime processing based on the sky material |
+| `gfx.sky.process_mode.QUALITY` | Generates the full radiance map in one pass — highest quality, most expensive, best for static skies |
+| `gfx.sky.process_mode.INCREMENTAL` | Updates the radiance map incrementally across frames — cheaper per frame, suited to skies that change occasionally |
+| `gfx.sky.process_mode.REALTIME` | Updates the radiance map every frame at reduced quality — for fully dynamic skies (e.g. a moving sun) |

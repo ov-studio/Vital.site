@@ -2,6 +2,10 @@
     "title": "Sky",
     "icon": "CloudSun",
     "pages": [
+        "---Enum---",
+        "enum__radiance_size",
+        "enum__process_mode",
+
         "---Getter---",
         "get_mode",
         "get_fov",

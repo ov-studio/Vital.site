@@ -1,0 +1,19 @@
+---
+title: gfx.sky.radiance_size
+description: Enumeration of supported radiance cubemap resolutions for the sky
+badge: Client
+---
+
+### Values
+
+Sizes are ordered lowest to highest resolution — or equivalently, lowest to highest GPU cost.<br/>Larger sizes produce sharper sky reflections and ambient lighting at the expense of memory and processing time.
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.sky.radiance_size.SIZE_32` | 32×32 cubemap — lowest quality, cheapest to process |
+| `gfx.sky.radiance_size.SIZE_64` | 64×64 cubemap |
+| `gfx.sky.radiance_size.SIZE_128` | 128×128 cubemap |
+| `gfx.sky.radiance_size.SIZE_256` | 256×256 cubemap — common default for real-time use |
+| `gfx.sky.radiance_size.SIZE_512` | 512×512 cubemap |
+| `gfx.sky.radiance_size.SIZE_1024` | 1024×1024 cubemap |
+| `gfx.sky.radiance_size.SIZE_2048` | 2048×2048 cubemap — highest quality, most expensive to process |

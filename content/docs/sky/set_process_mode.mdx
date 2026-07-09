@@ -16,7 +16,7 @@ local status = gfx.sky.set_process_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Sky process mode enum value to apply |
+| `int` | mode | Sky process mode enum value to apply<br/>Refer [**gfx.sky.process_mode**](/docs/sky/enum/process_mode) enum |
 
 ### Returns
 
@@ -28,6 +28,6 @@ local status = gfx.sky.set_process_mode(
 
 ### Examples
 
-```lua lineNumbers title="Set sky process mode"
-gfx.sky.set_process_mode(0)
+```lua lineNumbers title="Set sky process mode to automatic"
+gfx.sky.set_process_mode(gfx.sky.process_mode.AUTOMATIC)
 ```
