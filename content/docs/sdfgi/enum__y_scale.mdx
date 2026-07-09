@@ -1,0 +1,15 @@
+---
+title: gfx.sdfgi.y_scale
+description: Enumeration of supported Y-axis scale modes for SDFGI
+badge: Client
+---
+
+### Values
+
+Controls how tightly SDFGI cells are packed along the Y axis. Lower values pack cells closer together vertically, improving quality in scenes with significant vertical range or fast vertical camera movement.
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.sdfgi.y_scale.PERCENT_50` | 50% vertical scale — tightest cell packing, best for tall or vertically active scenes |
+| `gfx.sdfgi.y_scale.PERCENT_75` | 75% vertical scale — balanced packing |
+| `gfx.sdfgi.y_scale.PERCENT_100` | 100% vertical scale — loosest packing, best for wide, flat scenes |

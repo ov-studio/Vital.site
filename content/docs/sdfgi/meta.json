@@ -2,6 +2,9 @@
     "title": "SDFGI",
     "icon": "Sun",
     "pages": [
+        "---Enum---",
+        "enum__y_scale",
+
         "---Checker---",
         "is_enabled",
         "is_using_occlusion",
