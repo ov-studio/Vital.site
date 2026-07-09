@@ -1,6 +1,6 @@
 ## Overview
 
-Official documentation and resource hub for [Vital.sandbox](https://github.com/ov-studio/Vital.sandbox) — covering API references, scripting guides, and everything needed to build with confidence.
+Official documentation and resource hub for Vital.sandbox — covering API references, scripting guides, and everything needed to build with confidence.
 
 Vital.site is built on Next.js and powered by Fumadocs, providing a fast, searchable, and version-aware documentation experience. All content is authored in MDX, keeping docs close to the codebase and easy to contribute to.
 
