@@ -104,8 +104,8 @@ http:
 <Callout type="info">
   **The HTTP server operates independently of the ENet transport layer.**
 
-  - **Both ports must be reachable** — clients require the network port to connect and the HTTP port to stream assets; blocking either will result in a failed session
-  - **Separate firewall rules** — ensure both ports are open in your firewall and, if applicable, forwarded correctly in your network configuration
+  - **Both ports must be reachable** — blocking either one will result in a failed session
+  - **Separate firewall rules** — make sure both ports are open and forwarded correctly
 </Callout>
 
 | Key | Type | Default | Description |
