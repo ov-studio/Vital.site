@@ -16,7 +16,7 @@ local status = gfx.env.set_ambient_source(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | source | Ambient light source to apply |
+| `int` | source | Ambient light source to apply<br/>Refer [**gfx.env.ambient_source**](/docs/environment/enum/ambient_source) enum |
 
 ### Returns
 
@@ -28,6 +28,6 @@ local status = gfx.env.set_ambient_source(
 
 ### Examples
 
-```lua lineNumbers title="Set environment ambient source"
-gfx.env.set_ambient_source(0)
+```lua lineNumbers title="Set environment ambient source to background"
+gfx.env.set_ambient_source(gfx.env.ambient_source.BG)
 ```

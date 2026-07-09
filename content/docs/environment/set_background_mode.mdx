@@ -16,7 +16,7 @@ local status = gfx.env.set_background_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Background mode to apply |
+| `int` | mode | Background mode to apply<br/>Refer [**gfx.env.background_mode**](/docs/environment/enum/background_mode) enum |
 
 ### Returns
 
@@ -29,5 +29,5 @@ local status = gfx.env.set_background_mode(
 ### Examples
 
 ```lua lineNumbers title="Set environment background mode to sky"
-gfx.env.set_background_mode(1)
+gfx.env.set_background_mode(gfx.env.background_mode.SKY)
 ```

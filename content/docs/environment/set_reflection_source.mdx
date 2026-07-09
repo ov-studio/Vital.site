@@ -16,7 +16,7 @@ local status = gfx.env.set_reflection_source(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | source | Reflection source to apply |
+| `int` | source | Reflection source to apply<br/>Refer [**gfx.env.reflection_source**](/docs/environment/enum/reflection_source) enum |
 
 ### Returns
 
@@ -28,6 +28,6 @@ local status = gfx.env.set_reflection_source(
 
 ### Examples
 
-```lua lineNumbers title="Set environment reflection source"
-gfx.env.set_reflection_source(0)
+```lua lineNumbers title="Set environment reflection source to background"
+gfx.env.set_reflection_source(gfx.env.reflection_source.BG)
 ```

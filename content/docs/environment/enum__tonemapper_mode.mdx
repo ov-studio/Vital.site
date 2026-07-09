@@ -1,0 +1,14 @@
+---
+title: gfx.env.tonemapper_mode
+description: Enumeration of supported tonemapping curves for the environment
+badge: Client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.env.tonemapper_mode.LINEAR` | No tonemapping — colors above 1.0 clip directly |
+| `gfx.env.tonemapper_mode.REINHARDT` | Simple ratio-based curve, softens highlights without full filmic rolloff |
+| `gfx.env.tonemapper_mode.FILMIC` | Filmic curve with smoother highlight rolloff than Reinhardt |
+| `gfx.env.tonemapper_mode.ACES` | Industry-standard filmic curve, closest match to typical film/HDR grading |

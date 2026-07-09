@@ -2,6 +2,12 @@
     "title": "Environment",
     "icon": "Sunset",
     "pages": [
+        "---Enum---",
+        "enum__background_mode",
+        "enum__ambient_source",
+        "enum__reflection_source",
+        "enum__tonemapper_mode",
+
         "---Getter---",
         "get_background_mode",
         "get_background_color",
