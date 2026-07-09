@@ -81,7 +81,7 @@ network:
 <Callout type="warn">
   **Both values directly affect client connectivity — change them with care.**
 
-  - **`port`** — Clients must target this exact port to establish a connection. Any change requires updating client configuration and firewall rules accordingly
+  - **`port`** — Changing this means clients must connect using the new port, and any firewall or port-forwarding rules must be updated accordingly
   - **`max_peers`** — Once the limit is reached, incoming connections are refused until a slot becomes available
 </Callout>
 
