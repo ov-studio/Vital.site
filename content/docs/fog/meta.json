@@ -2,6 +2,9 @@
     "title": "Fog",
     "icon": "CloudFog",
     "pages": [
+        "---Enum---",
+        "enum__fog_mode",
+
         "---Checker---",
         "is_enabled",
 

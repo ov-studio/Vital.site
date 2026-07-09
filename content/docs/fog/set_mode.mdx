@@ -16,7 +16,7 @@ local status = gfx.fog.set_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | value | Fog mode to be applied. Determines how fog density is calculated across the scene:<br/>• `0` - Exponential mode, fog density increases exponentially with distance from the camera<br/>• `1` - Depth mode, fog is applied based on a defined depth range with configurable start and end points |
+| `int` | value | Fog mode to be applied<br/>Refer [**gfx.fog.fog_mode**](/docs/fog/enum/fog_mode) enum |
 
 ### Returns
 
@@ -30,8 +30,8 @@ local status = gfx.fog.set_mode(
 
 ```lua lineNumbers title="Set exponential and depth-based fog modes"
 -- Set exponential fog mode
-gfx.fog.set_mode(0)
+gfx.fog.set_mode(gfx.fog.fog_mode.EXPONENTIAL)
 
 -- Set depth-based fog mode
-gfx.fog.set_mode(1)
+gfx.fog.set_mode(gfx.fog.fog_mode.DEPTH)
 ```
