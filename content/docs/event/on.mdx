@@ -15,7 +15,7 @@ local status = util.event.on(
 ```
 
 <Callout type="info">
-  **The `thread` global is only available inside async handlers.**
+  **The `thread` instance is only available inside async handlers.**
 
   - **When `async = true`** — handler runs inside a dedicated thread; thread can be accessed via [`util.thread.current()`](/docs/thread/current)
   - **When `async = false`** — handler runs inline on the calling thread
