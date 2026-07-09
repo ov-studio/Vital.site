@@ -2,6 +2,9 @@
     "title": "Glow",
     "icon": "CircleDot",
     "pages": [
+        "---Enum---",
+        "enum__blend_mode",
+
         "---Checker---",
         "is_enabled",
         "is_normalized",

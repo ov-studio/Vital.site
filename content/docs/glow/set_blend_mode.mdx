@@ -16,7 +16,7 @@ local status = gfx.glow.set_blend_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | value | Blend mode to be applied. Determines how the glow result is composited over the scene:<br/>• `0` - Additive, glow is added on top of the scene, brightening glow areas<br/>• `1` - Screen, glow is blended using a screen operation, producing a softer brightening effect<br/>• `2` - Softlight, glow is blended using a soft light operation for a subtle, natural-looking result<br/>• `3` - Replace, glow completely replaces the scene in affected areas<br/>• `4` - Mix, glow is blended with the scene based on the mix value |
+| `int` | value | Blend mode to be applied<br/>Refer [**gfx.glow.blend_mode**](/docs/glow/enum/blend_mode) enum |
 
 ### Returns
 
@@ -30,8 +30,8 @@ local status = gfx.glow.set_blend_mode(
 
 ```lua lineNumbers title="Set glow blend mode"
 -- Set additive blend mode
-gfx.glow.set_blend_mode(0)
+gfx.glow.set_blend_mode(gfx.glow.blend_mode.ADDITIVE)
 
 -- Set mix blend mode
-gfx.glow.set_blend_mode(4)
+gfx.glow.set_blend_mode(gfx.glow.blend_mode.MIX)
 ```

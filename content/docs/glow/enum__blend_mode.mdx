@@ -1,0 +1,17 @@
+---
+title: gfx.glow.blend_mode
+description: Enumeration of supported compositing modes for the glow effect
+badge: Client
+---
+
+### Values
+
+Determines how the glow result is composited over the scene.
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.glow.blend_mode.ADDITIVE` | Glow is added on top of the scene, brightening glow areas |
+| `gfx.glow.blend_mode.SCREEN` | Glow is blended using a screen operation, producing a softer brightening effect |
+| `gfx.glow.blend_mode.SOFTLIGHT` | Glow is blended using a soft light operation for a subtle, natural-looking result |
+| `gfx.glow.blend_mode.REPLACE` | Glow completely replaces the scene in affected areas |
+| `gfx.glow.blend_mode.MIX` | Glow is blended with the scene based on [`gfx.glow.set_mix`](/docs/glow/set_mix) |
