@@ -12,31 +12,25 @@ local status = self:compress(
 )
 ```
 
+<Callout type="warn">
+  **Compression is irreversible.** Unlike [`self:convert`](/docs/texture/method/convert), once a texture is compressed with GPU block-compression it cannot be converted or compressed again.
+
+  - **Use `convert`** — for quick, reversible VRAM savings, or a specific channel layout
+  - **Use `compress`** — for maximum VRAM savings on a finished asset that won't need further format changes
+  - **Combining both** — convert first if you need a specific format, then compress; compression locks the texture afterward
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Target compression mode<br/>Refer [**Modes**](#modes) section |
+| `int` | mode | Target compression mode<br/>Refer [**core.texture.compression_mode**](/docs/texture/enum/compression_mode) enum |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | status | `true` on successful execution, `false` otherwise |
-
----
-
-### Modes
-
-Modes are ordered highest to lowest compression quality — or equivalently, least to most GPU compatibility.<br/>
-Unlike [`self:convert`](/docs/texture/method/convert), compression is irreversible — the texture cannot be converted or compressed again after this call.
-
-| Constant | Description |
-|----------|-------------|
-| `core.texture.compression_mode.ASTC` | Flexible block sizes with best quality-to-ratio on supported hardware<br/>Arm Mali, Apple Silicon, and newer desktop GPUs |
-| `core.texture.compression_mode.BPTC` | BC7 for color/alpha, BC6H for HDR<br/>Higher quality than S3TC at the same ratio — requires DX11-class GPU |
-| `core.texture.compression_mode.S3TC` | BC1/BC3 — universal desktop standard<br/>Automatically uses BC1 for opaque textures and BC3 (DXT5) for alpha<br/>~6:1 compression over RGBA8 |
-| `core.texture.compression_mode.ETC2` | Modern mobile standard (OpenGL ES 3.0+/Vulkan)<br/>Supports alpha — preferred for Android and iOS targets |
 
 ---
 
