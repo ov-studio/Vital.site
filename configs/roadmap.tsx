@@ -27,7 +27,6 @@ export interface RoadmapCard {
   label: string;
   desc: string;
   icon: React.ReactNode;
-  priority?: string;
   items: RoadmapItem[];
 }
 
@@ -410,7 +409,6 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Tween',
         desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
         icon: <lucide.TrendingUp {...config_site.info.lucide}/>,
-        priority: 'Must have',
         items: [
           { label: 'Tween.tween_property', status: 'pending' },
           { label: 'Tween.tween_callback', status: 'pending' },
@@ -692,7 +690,6 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Input',
         desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
         icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
-        priority: 'Must have',
         items: [
           { label: 'Input singleton access', status: 'pending' },
           { label: 'is_key_pressed / just_pressed / just_released', status: 'pending' },
@@ -1123,7 +1120,6 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Physics 3D',
         desc: 'Raycast, shapecast, apply forces and impulses to rigid bodies, and query collision layers from Lua',
         icon: <lucide.Atom {...config_site.info.lucide}/>,
-        priority: 'Must have',
         items: [
           { label: 'PhysicsServer3D singleton access', status: 'pending' },
           { label: 'RigidBody3D — apply_force / impulse', status: 'pending' },
@@ -1140,7 +1136,6 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Navigation',
         desc: 'Navmesh pathfinding, agent steering, and RVO2 avoidance for NPC and AI movement from Lua',
         icon: <lucide.Navigation {...config_site.info.lucide}/>,
-        priority: 'Must have',
         items: [
           { label: 'NavigationServer3D singleton access', status: 'pending' },
           { label: 'NavigationAgent3D (target / velocity)', status: 'pending' },
@@ -1161,7 +1156,6 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Audio 2D',
         desc: 'Flat stereo playback, bus routing, and bus effects from Lua',
         icon: <lucide.Volume2 {...config_site.info.lucide}/>,
-        priority: 'Must have',
         items: [
           { label: 'AudioStreamPlayer (2D flat)', status: 'pending' },
           { label: 'Play / stop / pause / seek', status: 'pending' },
@@ -1177,7 +1171,6 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Audio 3D',
         desc: 'Positional playback with attenuation and panning from Lua',
         icon: <lucide.Headphones {...config_site.info.lucide}/>,
-        priority: 'Must have',
         items: [
           { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
           { label: 'Play / stop / pause / seek', status: 'pending' },
