@@ -334,6 +334,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Format: BMP', status: 'completed' },
           { label: 'Format: DDS', status: 'completed' },
           { label: 'Format: KTX', status: 'completed' },
+          { label: 'Format: EXR', status: 'completed' },
           { label: 'Implicit texture cache for draw calls', status: 'completed' },
           { label: '[Client] API: core.texture.create', status: 'completed' },
           { label: '[Client] API: self<texture>:is_type', status: 'completed' },
