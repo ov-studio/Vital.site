@@ -674,7 +674,7 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
+        // TODO: WIP, ADD ALL EXPOSED EVENTS
         label: 'Event',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
         icon: <lucide.Zap {...config_site.info.lucide}/>,
