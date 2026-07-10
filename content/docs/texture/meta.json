@@ -15,6 +15,9 @@
         "method__get_type",
         "method__destroy",
 
+        "---::Checker---",
+        "method__is_compressed",
+
         "---⁝⁝Getter---",
         "method__get_size",
 
