@@ -880,6 +880,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: gfx.glow.get_hdr_bleed_scale', status: 'completed' },
           { label: '[Client] API: gfx.glow.get_hdr_luminance_cap', status: 'completed' },
           { label: '[Client] API: gfx.glow.get_map_strength', status: 'completed' },
+          { label: '[Client] API: gfx.glow.get_map', status: 'completed' },
           { label: '[Client] API: gfx.glow.set_enabled', status: 'completed' },
           { label: '[Client] API: gfx.glow.set_level_intensity', status: 'completed' },
           { label: '[Client] API: gfx.glow.set_normalized', status: 'completed' },
@@ -891,7 +892,10 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: gfx.glow.set_hdr_bleed_threshold', status: 'completed' },
           { label: '[Client] API: gfx.glow.set_hdr_bleed_scale', status: 'completed' },
           { label: '[Client] API: gfx.glow.set_hdr_luminance_cap', status: 'completed' },
-          { label: '[Client] API: gfx.glow.set_map_strength', status: 'completed' }
+          { label: '[Client] API: gfx.glow.set_map_strength', status: 'completed' },
+          { label: '[Client] API: gfx.glow.set_map', status: 'completed' },
+          { label: '[Client] API: gfx.glow.reset_map', status: 'completed' }
+
         ]
       },
       {
