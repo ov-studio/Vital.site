@@ -1,0 +1,45 @@
+---
+title: gfx.glow.set_map
+description: Applies a specified glow map on the glow post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = gfx.glow.set_map(
+    path
+)
+```
+
+<Callout type="info">
+  **Glow maps** are textures whose RGB channels multiply the resulting glow color, commonly used to create a "lens dirt" effect. The alpha channel is ignored.
+
+  - **Stretching** — the texture is stretched to fit the screen; use an image whose aspect ratio matches your project's base resolution
+  - **Map strength** — use [`gfx.glow.set_map_strength`](/docs/glow/set_map_strength) to control how strongly the map multiplies glow color
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Path of the glow map to be applied |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a lens dirt glow map"
+gfx.glow.set_map("textures/lens_dirt.png")
+```
+
+```lua lineNumbers title="Apply a glow map with custom strength"
+gfx.glow.set_map("textures/lens_dirt.png")
+gfx.glow.set_map_strength(0.5)
+```

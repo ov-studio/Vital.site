@@ -20,6 +20,7 @@
         "get_hdr_bleed_scale",
         "get_hdr_luminance_cap",
         "get_map_strength",
+        "get_map",
 
         "---Setter---",
         "set_enabled",
@@ -34,6 +35,8 @@
         "set_hdr_bleed_scale",
         "set_hdr_luminance_cap",
         "set_map_strength",
+        "set_map",
+        "reset_map",
         "..."
     ]
 }

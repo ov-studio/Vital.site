@@ -1,0 +1,36 @@
+---
+title: gfx.glow.get_map
+description: Retrieves the path of the currently active glow map on the glow post-processing effect
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = gfx.glow.get_map()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Path of the active glow map, `false` if no glow map is currently applied |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Retrieve currently active glow map"
+local map = gfx.glow.get_map()
+
+if map then
+    core.engine.print("info", "Active glow map:", map)
+else
+    core.engine.print("info", "No glow map is currently applied")
+end
+```
