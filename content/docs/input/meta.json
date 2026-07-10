@@ -1,0 +1,23 @@
+{
+    "title": "Input",
+    "icon": "Keyboard",
+    "pages": [
+        "---Enum---",
+        "enum__key",
+        "enum__mouse_mode",
+
+        "---Checker---",
+        "is_pressed",
+
+        "---Getter---",
+        "get_mouse_velocity",
+        "get_mouse_mode",
+
+        "---Setter---",
+        "set_mouse_mode",
+
+        "---Misc---",
+        "bind",
+        "unbind"
+    ]
+}

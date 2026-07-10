@@ -1,0 +1,41 @@
+---
+title: util.input.set_mouse_mode
+description: Sets the cursor visibility and confinement mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = util.input.set_mouse_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | mode | Target mouse mode to apply<br/>Refer [**util.input.mouse_mode**](/docs/input/enum/mouse_mode) enum |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Capture the cursor for FPS camera control"
+util.input.set_mouse_mode("CAPTURED")
+```
+
+```lua lineNumbers title="Restore the cursor when opening a menu"
+util.input.set_mouse_mode("VISIBLE")
+```
+
+```lua lineNumbers title="Confine the cursor without hiding it"
+util.input.set_mouse_mode("CONFINED")
+```

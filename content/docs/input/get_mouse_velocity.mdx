@@ -1,0 +1,44 @@
+---
+title: util.input.get_mouse_velocity
+description: Returns the mouse cursor velocity from the last input frame
+badge: Client
+---
+
+### Syntax
+
+```lua
+local velocity = util.input.get_mouse_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | velocity | Mouse movement delta as `{x, y}` in pixels per second |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the current mouse velocity"
+local velocity = util.input.get_mouse_velocity()
+
+core.engine.print("info", "Mouse velocity:", velocity[1], velocity[2])
+```
+
+```lua lineNumbers title="Use mouse velocity for FPS camera rotation"
+util.input.set_mouse_mode("CAPTURED")
+
+local sensitivity = 0.1
+local velocity = util.input.get_mouse_velocity()
+
+local yaw   = velocity[1] * sensitivity
+local pitch = velocity[2] * sensitivity
+
+core.engine.print("info", "Yaw delta:", yaw, "Pitch delta:", pitch)
+```

@@ -1,0 +1,54 @@
+---
+title: util.input.unbind
+description: Unregisters a previously bound handler from a key or mouse button input
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = util.input.unbind(
+    key,
+    direction,
+    exec
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | key | Key or button identifier the handler was bound to<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
+| `string` | direction | Input phase the handler was registered for — `"down"` or `"up"` |
+| `function` | exec | Handler function reference to remove<br/>Must be the same function value passed to [`util.input.bind`](/docs/input/bind) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if the handler was found and removed, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Unbind a previously registered handler"
+local function on_jump(key, direction)
+    core.engine.print("info", "Jump triggered")
+end
+
+util.input.bind("SPACE", "down", on_jump)
+
+-- Remove when no longer needed
+util.input.unbind("SPACE", "down", on_jump)
+```
+
+```lua lineNumbers title="Self-unbinding one-shot handler"
+local handler
+handler = function(key, direction)
+    core.engine.print("info", "Fired once, then removed")
+    util.input.unbind("F", "down", handler)
+end
+
+util.input.bind("F", "down", handler)
+```
