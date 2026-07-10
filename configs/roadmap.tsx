@@ -691,14 +691,14 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
         icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
         items: [
-          { label: 'Input singleton access', status: 'pending' },
-          { label: 'is_key_pressed / just_pressed / just_released', status: 'pending' },
-          { label: 'Mouse position & relative motion', status: 'pending' },
-          { label: 'Mouse button state & scroll delta', status: 'pending' },
-          { label: 'Mouse capture / visibility mode', status: 'pending' },
-          { label: 'Gamepad / joystick axis & buttons', status: 'pending' },
-          { label: 'InputMap action queries', status: 'pending' },
-          { label: 'InputEvent pass-through (process_event)', status: 'pending' }
+          { label: '[Shared] Enum: util.input.key', status: 'completed' },
+          { label: '[Shared] Enum: util.input.mouse_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.is_pressed', status: 'completed' },
+          { label: '[Shared] API: util.input.get_mouse_velocity', status: 'completed' },
+          { label: '[Shared] API: util.input.get_mouse_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.set_mouse_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.bind', status: 'completed' },
+          { label: '[Shared] API: util.input.unbind', status: 'completed' }
         ],
       }
     ]
