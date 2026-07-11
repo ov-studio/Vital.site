@@ -244,7 +244,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         // TODO: WIP
-        label: 'Camera 3D',
+        label: 'Camera',
         desc: 'FOV, near/far clip, projection mode, and per-camera environment override from Lua',
         icon: <lucide.Video {...config_site.info.lucide}/>,
         items: [
