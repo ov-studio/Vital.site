@@ -692,11 +692,11 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] Enum: util.input.key', status: 'completed' },
-          { label: '[Shared] Enum: util.input.mouse_mode', status: 'completed' },
+          { label: '[Shared] Enum: util.input.cursor_mode', status: 'completed' },
           { label: '[Shared] API: util.input.is_pressed', status: 'completed' },
           { label: '[Shared] API: util.input.get_mouse_velocity', status: 'completed' },
-          { label: '[Shared] API: util.input.get_mouse_mode', status: 'completed' },
-          { label: '[Shared] API: util.input.set_mouse_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.get_cursor_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.set_cursor_mode', status: 'completed' },
           { label: '[Shared] API: util.input.bind', status: 'completed' },
           { label: '[Shared] API: util.input.unbind', status: 'completed' }
         ],
