@@ -24,7 +24,7 @@
 .ecard {
   position: relative;
   padding: 32px 28px 28px;
-  background: var(--bg3);
+  background: var(--bg4);
   overflow: hidden;
   cursor: default;
   transition: background .3s;
