@@ -18,14 +18,14 @@ local status = util.input.bind(
   **Handlers are scoped to the environment that registered them and are automatically cleaned up when that environment is destroyed.**
 
   - **Multiple handlers** — the same key and direction combination can have any number of handlers registered independently
-  - **Modifier aliases** — `LSHIFT`, `RSHIFT`, `LCTRL`, `RCTRL`, `LALT`, `RALT`, `LMETA`, `RMETA` all resolve to their non-sided counterpart
+  - **Modifier aliases** — `util.input.key.LSHIFT`, `RSHIFT`, `LCTRL`, `RCTRL`, `LALT`, `RALT`, `LMETA`, `RMETA` all resolve to their non-sided counterpart
 </Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | key | Key or button identifier to listen to<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
+| `number` | key | Key or button to listen to<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
 | `string` | direction | Input phase to trigger on — `"down"` when pressed, `"up"` when released |
 | `function` | exec | Handler function to invoke when the input fires |
 
@@ -45,7 +45,7 @@ exec(key, direction)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | key | Identifier of the key or button that triggered the handler |
+| `number` | key | Key enum value of the key or button that triggered the handler |
 | `string` | direction | Input phase that fired — `"down"` or `"up"` |
 
 ---
@@ -53,23 +53,23 @@ exec(key, direction)
 ### Examples
 
 ```lua lineNumbers title="Bind a handler to the spacebar press"
-util.input.bind("SPACE", "down", function(key, direction)
+util.input.bind(util.input.key.SPACE, "down", function(key, direction)
     core.engine.print("info", "Space pressed")
 end)
 ```
 
 ```lua lineNumbers title="Bind separate handlers for press and release"
-util.input.bind("E", "down", function()
+util.input.bind(util.input.key.E, "down", function()
     core.engine.print("info", "E pressed — interact start")
 end)
 
-util.input.bind("E", "up", function()
+util.input.bind(util.input.key.E, "up", function()
     core.engine.print("info", "E released — interact end")
 end)
 ```
 
 ```lua lineNumbers title="Bind a mouse button handler"
-util.input.bind("MOUSE_RIGHT", "down", function(key, direction)
+util.input.bind(util.input.key.MOUSE_RIGHT, "down", function(key, direction)
     core.engine.print("info", "Right mouse button pressed")
 end)
 ```
@@ -79,8 +79,8 @@ local function on_jump(key, direction)
     core.engine.print("info", "Jump triggered")
 end
 
-util.input.bind("SPACE", "down", on_jump)
+util.input.bind(util.input.key.SPACE, "down", on_jump)
 
 -- Remove when no longer needed
-util.input.unbind("SPACE", "down", on_jump)
+util.input.unbind(util.input.key.SPACE, "down", on_jump)
 ```

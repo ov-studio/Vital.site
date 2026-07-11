@@ -16,7 +16,7 @@ local result = util.input.is_pressed(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | key | Key or button identifier to query<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
+| `number` | key | Key or button to query<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
 
 ### Returns
 
@@ -29,20 +29,20 @@ local result = util.input.is_pressed(
 ### Examples
 
 ```lua lineNumbers title="Check if the W key is held"
-if util.input.is_pressed("W") then
+if util.input.is_pressed(util.input.key.W) then
     core.engine.print("info", "W is held")
 end
 ```
 
 ```lua lineNumbers title="Check if the left mouse button is held"
-if util.input.is_pressed("MOUSE_LEFT") then
+if util.input.is_pressed(util.input.key.MOUSE_LEFT) then
     core.engine.print("info", "Left mouse button is held")
 end
 ```
 
 ```lua lineNumbers title="Check multiple keys for a sprint condition"
-local moving = util.input.is_pressed("W")
-local sprinting = moving and util.input.is_pressed("SHIFT")
+local moving = util.input.is_pressed(util.input.key.W)
+local sprinting = moving and util.input.is_pressed(util.input.key.SHIFT)
 
 core.engine.print("info", "Sprinting:", sprinting)
 ```
