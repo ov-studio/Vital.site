@@ -229,7 +229,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <lucide.Box {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Support format: GLB', status: 'completed' },
+          { label: 'Format: GLB', status: 'completed' },
           { label: 'Model loader / unloader', status: 'completed' },
           { label: 'Server spawn replication with per-peer authority', status: 'completed' },
           { label: 'Server transform replication', status: 'pending' },
