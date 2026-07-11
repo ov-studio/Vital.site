@@ -173,14 +173,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.get_timestamp', status: 'completed' },
           { label: '[Shared] API: core.engine.get_resolution', status: 'completed' },
           { label: '[Shared] API: core.engine.get_serial', status: 'completed' },
-          { label: '[Shared] API: core.engine.get_entities', status: 'completed' }
-        ]
-      },
-      {
-        label: 'Canvas',
-        desc: '2D drawing API — shapes, images and text composited into rendertarget each frame',
-        icon: <lucide.PenTool {...config_site.info.lucide} />,
-        items: [
+          { label: '[Shared] API: core.engine.get_entities', status: 'completed' },
           { label: '[Client] API: core.engine.world_to_screen', status: 'completed' },
           { label: '[Client] API: core.engine.screen_to_world', status: 'completed' },
           { label: '[Client] API: core.engine.draw_line', status: 'completed' },
