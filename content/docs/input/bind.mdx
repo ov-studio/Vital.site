@@ -25,7 +25,7 @@ local status = util.input.bind(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | key | Key or button to listen to<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
+| `int` | key | Key or button to listen to<br/>Refer [**util.input.key**](/docs/input/enum/key) enum |
 | `string` | direction | Input phase to trigger on — `"down"` when pressed, `"up"` when released |
 | `function` | exec | Handler function to invoke when the input fires |
 
@@ -45,7 +45,7 @@ exec(key, direction)
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | key | Key enum value of the key or button that triggered the handler |
+| `int` | key | Key enum value of the key or button that triggered the handler |
 | `string` | direction | Input phase that fired — `"down"` or `"up"` |
 
 ---

@@ -16,7 +16,7 @@ local status = util.input.set_cursor_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Target cursor mode to apply<br/>Refer [**util.input.cursor_mode**](/docs/input/enum/cursor_mode) enum |
+| `int` | mode | Target cursor mode to apply<br/>Refer [**util.input.cursor_mode**](/docs/input/enum/cursor_mode) enum |
 
 ### Returns
 
@@ -29,13 +29,13 @@ local status = util.input.set_cursor_mode(
 ### Examples
 
 ```lua lineNumbers title="Capture the cursor for FPS camera control"
-util.input.set_cursor_mode("CAPTURED")
+util.input.set_cursor_mode(util.input.cursor_mode.CAPTURED)
 ```
 
 ```lua lineNumbers title="Restore the cursor when opening a menu"
-util.input.set_cursor_mode("VISIBLE")
+util.input.set_cursor_mode(util.input.cursor_mode.VISIBLE)
 ```
 
 ```lua lineNumbers title="Hide the cursor while still allowing free movement"
-util.input.set_cursor_mode("HIDDEN")
+util.input.set_cursor_mode(util.input.cursor_mode.HIDDEN)
 ```
