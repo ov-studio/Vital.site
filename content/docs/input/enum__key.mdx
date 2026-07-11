@@ -18,54 +18,128 @@ badge: Client
 |----------|-------------|
 | `util.input.key.0` – `util.input.key.9` | Number row keys 0 through 9 |
 
+#### Numpad Digits
+
+| Constant | Description |
+|----------|-------------|
+| `util.input.key.NUM0` – `util.input.key.NUM9` | Numpad digit keys 0 through 9 |
+
+#### Numpad Operators
+
+| Constant | Description |
+|----------|-------------|
+| `util.input.key.NUM_ADD` | Numpad `+` key |
+| `util.input.key.NUM_SUBTRACT` | Numpad `-` key |
+| `util.input.key.NUM_MULTIPLY` | Numpad `*` key |
+| `util.input.key.NUM_DIVIDE` | Numpad `/` key |
+| `util.input.key.NUM_PERIOD` | Numpad `.` key |
+
 #### Function Keys
 
 | Constant | Description |
 |----------|-------------|
 | `util.input.key.F1` – `util.input.key.F12` | Function keys F1 through F12 |
+| `util.input.key.F13` – `util.input.key.F24` | Extended function keys F13 through F24 |
 
-#### Navigation
+#### Arrow Keys
 
 | Constant | Description |
 |----------|-------------|
-| `util.input.key.UP` | Arrow key — Up |
-| `util.input.key.DOWN` | Arrow key — Down |
-| `util.input.key.LEFT` | Arrow key — Left |
-| `util.input.key.RIGHT` | Arrow key — Right |
-| `util.input.key.HOME` | Home key |
-| `util.input.key.END` | End key |
-| `util.input.key.PAGEUP` | Page Up key |
-| `util.input.key.PAGEDOWN` | Page Down key |
-| `util.input.key.INSERT` | Insert key |
-| `util.input.key.DELETE` | Delete key |
+| `util.input.key.UP` | Up arrow key |
+| `util.input.key.DOWN` | Down arrow key |
+| `util.input.key.LEFT` | Left arrow key |
+| `util.input.key.RIGHT` | Right arrow key |
 
-#### Control
+#### Control Keys
 
 | Constant | Description |
 |----------|-------------|
 | `util.input.key.SPACE` | Space bar |
-| `util.input.key.ENTER` | Enter / Return key |
+| `util.input.key.ENTER` | Enter / Return key (main keyboard) |
+| `util.input.key.KP_ENTER` | Enter key on the numpad |
 | `util.input.key.ESCAPE` | Escape key |
 | `util.input.key.TAB` | Tab key |
+| `util.input.key.BACKTAB` | Shift + Tab key |
 | `util.input.key.BACKSPACE` | Backspace key |
-| `util.input.key.CAPSLOCK` | Caps Lock key |
+| `util.input.key.INSERT` | Insert key |
+| `util.input.key.DELETE` | Delete key |
+| `util.input.key.HOME` | Home key |
+| `util.input.key.END` | End key |
+| `util.input.key.PAGEUP` | Page Up key |
+| `util.input.key.PAGEDOWN` | Page Down key |
+| `util.input.key.PAUSE` | Pause key |
+| `util.input.key.PRINT` | Print Screen key |
+| `util.input.key.CLEAR` | Clear key |
+| `util.input.key.MENU` | Context menu key |
 
-#### Modifiers
+#### Modifier Keys
 
 Both sided aliases resolve to the same underlying key code.
 
-| Constant | Alias | Description |
-|----------|-------|-------------|
+| Constant | Aliases | Description |
+|----------|---------|-------------|
 | `util.input.key.SHIFT` | `LSHIFT` / `RSHIFT` | Shift key |
 | `util.input.key.CTRL` | `LCTRL` / `RCTRL` | Control key |
 | `util.input.key.ALT` | `LALT` / `RALT` | Alt key |
 | `util.input.key.META` | `LMETA` / `RMETA` | Meta / Super / Windows key |
 
-#### Numpad
+#### Lock Keys
 
 | Constant | Description |
 |----------|-------------|
-| `util.input.key.NUM0` – `util.input.key.NUM9` | Numpad keys 0 through 9 |
+| `util.input.key.CAPSLOCK` | Caps Lock key |
+| `util.input.key.NUMLOCK` | Num Lock key |
+| `util.input.key.SCROLLLOCK` | Scroll Lock key |
+
+#### Punctuation & Symbols
+
+| Constant | Symbol | Description |
+|----------|--------|-------------|
+| `util.input.key.EXCLAM` | `!` | Exclamation mark |
+| `util.input.key.QUOTEDBL` | `"` | Double quotation mark |
+| `util.input.key.NUMBERSIGN` | `#` | Number sign / hash |
+| `util.input.key.DOLLAR` | `$` | Dollar sign |
+| `util.input.key.PERCENT` | `%` | Percent sign |
+| `util.input.key.AMPERSAND` | `&` | Ampersand |
+| `util.input.key.APOSTROPHE` | `'` | Apostrophe |
+| `util.input.key.PARENLEFT` | `(` | Left parenthesis |
+| `util.input.key.PARENRIGHT` | `)` | Right parenthesis |
+| `util.input.key.ASTERISK` | `*` | Asterisk |
+| `util.input.key.PLUS` | `+` | Plus sign |
+| `util.input.key.COMMA` | `,` | Comma |
+| `util.input.key.MINUS` | `-` | Minus / hyphen |
+| `util.input.key.PERIOD` | `.` | Period / full stop |
+| `util.input.key.SLASH` | `/` | Forward slash |
+| `util.input.key.COLON` | `:` | Colon |
+| `util.input.key.SEMICOLON` | `;` | Semicolon |
+| `util.input.key.LESS` | `<` | Less-than sign |
+| `util.input.key.EQUAL` | `=` | Equal sign |
+| `util.input.key.GREATER` | `>` | Greater-than sign |
+| `util.input.key.QUESTION` | `?` | Question mark |
+| `util.input.key.AT` | `@` | At sign |
+| `util.input.key.BRACKETLEFT` | `[` | Left square bracket |
+| `util.input.key.BACKSLASH` | `\` | Backslash |
+| `util.input.key.BRACKETRIGHT` | `]` | Right square bracket |
+| `util.input.key.ASCIICIRCUM` | `^` | Caret |
+| `util.input.key.UNDERSCORE` | `_` | Underscore |
+| `util.input.key.QUOTELEFT` | `` ` `` | Backtick / grave accent |
+| `util.input.key.BRACELEFT` | `{` | Left curly brace |
+| `util.input.key.BAR` | `\|` | Vertical bar / pipe |
+| `util.input.key.BRACERIGHT` | `}` | Right curly brace |
+| `util.input.key.ASCIITILDE` | `~` | Tilde |
+
+#### Volume & Media Keys
+
+| Constant | Description |
+|----------|-------------|
+| `util.input.key.VOLUMEDOWN` | Volume down key |
+| `util.input.key.VOLUMEMUTE` | Mute volume key |
+| `util.input.key.VOLUMEUP` | Volume up key |
+| `util.input.key.MEDIAPLAY` | Media play key |
+| `util.input.key.MEDIASTOP` | Media stop key |
+| `util.input.key.MEDIAPREVIOUS` | Previous track key |
+| `util.input.key.MEDIANEXT` | Next track key |
+| `util.input.key.MEDIARECORD` | Media record key |
 
 #### Mouse Buttons
 
