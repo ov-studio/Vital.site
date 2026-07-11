@@ -32,7 +32,7 @@ core.engine.print("info", "Mouse velocity:", velocity[1], velocity[2])
 ```
 
 ```lua lineNumbers title="Use mouse velocity for FPS camera rotation"
-util.input.set_mouse_mode("CAPTURED")
+util.input.set_cursor_mode("CAPTURED")
 
 local sensitivity = 0.1
 local velocity = util.input.get_mouse_velocity()

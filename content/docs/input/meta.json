@@ -4,17 +4,17 @@
     "pages": [
         "---Enum---",
         "enum__key",
-        "enum__mouse_mode",
+        "enum__cursor_mode",
 
         "---Checker---",
         "is_pressed",
 
         "---Getter---",
         "get_mouse_velocity",
-        "get_mouse_mode",
+        "get_cursor_mode",
 
         "---Setter---",
-        "set_mouse_mode",
+        "set_cursor_mode",
 
         "---Misc---",
         "bind",

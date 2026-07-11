@@ -1,5 +1,5 @@
 ---
-title: util.input.set_mouse_mode
+title: util.input.set_cursor_mode
 description: Sets the cursor visibility and confinement mode
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = util.input.set_mouse_mode(
+local status = util.input.set_cursor_mode(
     mode
 )
 ```
@@ -16,7 +16,7 @@ local status = util.input.set_mouse_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Target mouse mode to apply<br/>Refer [**util.input.mouse_mode**](/docs/input/enum/mouse_mode) enum |
+| `string` | mode | Target cursor mode to apply<br/>Refer [**util.input.cursor_mode**](/docs/input/enum/cursor_mode) enum |
 
 ### Returns
 
@@ -29,13 +29,13 @@ local status = util.input.set_mouse_mode(
 ### Examples
 
 ```lua lineNumbers title="Capture the cursor for FPS camera control"
-util.input.set_mouse_mode("CAPTURED")
+util.input.set_cursor_mode("CAPTURED")
 ```
 
 ```lua lineNumbers title="Restore the cursor when opening a menu"
-util.input.set_mouse_mode("VISIBLE")
+util.input.set_cursor_mode("VISIBLE")
 ```
 
-```lua lineNumbers title="Confine the cursor without hiding it"
-util.input.set_mouse_mode("CONFINED")
+```lua lineNumbers title="Hide the cursor while still allowing free movement"
+util.input.set_cursor_mode("HIDDEN")
 ```

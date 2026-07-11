@@ -1,0 +1,38 @@
+---
+title: util.input.get_cursor_mode
+description: Returns the current cursor visibility and confinement mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local mode = util.input.get_cursor_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Current cursor mode<br/>Refer [**util.input.cursor_mode**](/docs/input/enum/cursor_mode) enum |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the current cursor mode"
+local mode = util.input.get_cursor_mode()
+
+core.engine.print("info", "Cursor mode:", mode)
+```
+
+```lua lineNumbers title="Toggle captured mode only when not already active"
+if util.input.get_cursor_mode() ~= util.input.cursor_mode.CAPTURED then
+    util.input.set_cursor_mode("CAPTURED")
+end
+```
