@@ -687,9 +687,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Enum: util.input.key', status: 'completed' },
           { label: '[Shared] Enum: util.input.cursor_mode', status: 'completed' },
           { label: '[Shared] API: util.input.is_pressed', status: 'completed' },
-          { label: '[Shared] API: util.input.get_mouse_velocity', status: 'completed' },
           { label: '[Shared] API: util.input.get_cursor_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.get_cursor_position', status: 'completed' },
+          { label: '[Shared] API: util.input.get_mouse_velocity', status: 'completed' },
           { label: '[Shared] API: util.input.set_cursor_mode', status: 'completed' },
+          { label: '[Shared] API: util.input.set_cursor_position', status: 'completed' },
           { label: '[Shared] API: util.input.bind', status: 'completed' },
           { label: '[Shared] API: util.input.unbind', status: 'completed' }
         ],
