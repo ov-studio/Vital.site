@@ -681,7 +681,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Input',
-        desc: 'Key state, mouse position and buttons, scroll delta, gamepad axes, and action map from Lua',
+        desc: 'Key and mouse button state, mouse velocity, cursor mode, and press/release bindings from Lua',
         icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] Enum: util.input.key', status: 'completed' },
@@ -774,7 +774,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Sky Panorama',
-        desc: 'Panorama sky material texture and energy control from Lua',
+        desc: 'Panoramically-mapped texture, filtering, and energy control from Lua',
         icon: <lucide.Image {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] API: gfx.sky_panorama.is_filtering_enabled', status: 'completed' },
@@ -818,7 +818,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Sky Procedural',
-        desc: 'Procedural sky and ground gradient control from Lua',
+        desc: 'Procedurally-generated sky/ground gradients, sun curve, and cloud cover control from Lua',
         icon: <lucide.Wand {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] API: gfx.sky_procedural.get_sky_top_color', status: 'completed' },
