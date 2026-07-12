@@ -1,5 +1,5 @@
 ---
-title: util.input.get_mouse_velocity
+title: util.input.get_cursor_velocity
 description: Returns the mouse cursor velocity from the last input frame
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local velocity = util.input.get_mouse_velocity()
+local velocity = util.input.get_cursor_velocity()
 ```
 
 ### Parameters
@@ -25,17 +25,17 @@ local velocity = util.input.get_mouse_velocity()
 
 ### Examples
 
-```lua lineNumbers title="Print the current mouse velocity"
-local velocity = util.input.get_mouse_velocity()
+```lua lineNumbers title="Print the current cursor velocity"
+local velocity = util.input.get_cursor_velocity()
 
-core.engine.print("info", "Mouse velocity:", velocity[1], velocity[2])
+core.engine.print("info", "Cursor velocity:", velocity[1], velocity[2])
 ```
 
-```lua lineNumbers title="Use mouse velocity for FPS camera rotation"
+```lua lineNumbers title="Use cursor velocity for FPS camera rotation"
 util.input.set_cursor_mode(util.input.cursor_mode.CAPTURED)
 
 local sensitivity = 0.1
-local velocity = util.input.get_mouse_velocity()
+local velocity = util.input.get_cursor_velocity()
 
 local yaw   = velocity[1] * sensitivity
 local pitch = velocity[2] * sensitivity
