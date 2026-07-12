@@ -31,11 +31,3 @@ local status = util.input.set_cursor_position(
 ```lua lineNumbers title="Snap the cursor to a fixed position"
 util.input.set_cursor_position({100, 100})
 ```
-
-```lua lineNumbers title="Reset the cursor after a drag operation"
-local start_position = util.input.get_cursor_position()
-
--- ... perform drag logic ...
-
-util.input.set_cursor_position(start_position)
-```
