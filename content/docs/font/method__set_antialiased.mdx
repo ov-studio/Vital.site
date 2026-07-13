@@ -1,5 +1,5 @@
 ---
-title: self:set_antialiasing
+title: self:set_antialiased
 description: Sets the antialiasing state of the font
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = self:set_antialiasing(
+local status = self:set_antialiased(
     state
 )
 ```
@@ -29,8 +29,8 @@ local status = self:set_antialiasing(
 ### Examples
 
 ```lua lineNumbers title="Set the antialiasing state of a font"
-local ft = core.font.create("fonts/Roboto-Regular.ttf")
+local entity = core.font.create("fonts/Roboto-Regular.ttf")
 
 -- Enable antialiasing
-ft:set_antialiasing(true)
+entity:set_antialiased(true)
 ```

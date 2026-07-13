@@ -11,12 +11,14 @@
         "method__get_type",
         "method__destroy",
         
+        "---⁝⁝Checker---",
+        "method__is_antialiased",
+
        "---⁝⁝Getter---",
-        "method__get_antialiasing",
         "method__get_oversampling",
 
        "---⁝⁝Setter---",
-        "method__set_antialiasing",
+        "method__set_antialiased",
         "method__set_oversampling"
     ]
 }
