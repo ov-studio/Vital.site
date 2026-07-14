@@ -1,5 +1,5 @@
 ---
-title: self:set_v_offset
+title: self:set_vertical_offset
 description: Sets the camera's vertical offset
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = self:set_v_offset(
+local status = self:set_vertical_offset(
     offset
 )
 ```
@@ -31,5 +31,5 @@ local status = self:set_v_offset(
 ```lua lineNumbers title="Set the vertical offset"
 local entity = core.camera.create()
 
-entity:set_v_offset(0.5)
+entity:set_vertical_offset(0.5)
 ```
