@@ -1,0 +1,32 @@
+---
+title: self:get_keep_aspect_mode
+description: Returns the camera's current aspect ratio mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_keep_aspect_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.camera.keep_aspect` | result | Current aspect ratio mode of the camera |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the keep aspect mode"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_keep_aspect_mode()) -- core.camera.keep_aspect.WIDTH
+```

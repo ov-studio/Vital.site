@@ -1,0 +1,34 @@
+---
+title: core.camera.get_active
+description: Retrieves the currently active camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = core.camera.get_active()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `camera` \| `bool` | result | Currently active camera instance, `false` if none is set |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the currently active camera"
+local entity = core.camera.get_active()
+
+if entity then
+    core.engine.print("info", "Active camera FOV:", entity:get_fov())
+end
+```

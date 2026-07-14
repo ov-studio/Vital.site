@@ -1,0 +1,39 @@
+---
+title: core.camera.create
+description: Creates a new camera instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = core.camera.create()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `camera` | instance | Created camera instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a camera and set it as active"
+local entity = core.camera.create()
+
+entity:set_active()
+```
+
+```lua lineNumbers title="Create a camera with perspective projection"
+local entity = core.camera.create()
+
+entity:set_perspective(75, 0.1, 1000)
+entity:set_active()
+```

@@ -1,0 +1,39 @@
+---
+title: core.camera.set_active
+description: Sets the active camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = core.camera.set_active(
+    camera = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `camera` | camera | Camera instance to set as active<br/>Omitting this argument will deactivate the currently active camera |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a camera as active"
+local entity = core.camera.create()
+
+core.camera.set_active(entity)
+```
+
+```lua lineNumbers title="Deactivate the current camera"
+core.camera.set_active()
+```

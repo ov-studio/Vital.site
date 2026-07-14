@@ -1,0 +1,32 @@
+---
+title: self:get_far
+description: Returns the camera's far clip distance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_far()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current far clip distance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the far clip distance"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_far())
+```

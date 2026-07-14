@@ -1,0 +1,36 @@
+---
+title: self:set_size
+description: Sets the camera's orthogonal size
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_size(
+    size
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | size | Orthogonal view size — only relevant when using `core.camera.projection.ORTHOGONAL` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the orthogonal size"
+local entity = core.camera.create()
+
+entity:set_projection(core.camera.projection.ORTHOGONAL)
+entity:set_size(20)
+```

@@ -1,0 +1,39 @@
+---
+title: self:project_local_ray_normal
+description: Returns a normalized direction vector in local camera space through a given screen point
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:project_local_ray_normal(
+    screen_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | screen_point | Position on the screen in pixels |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | result | Normalized direction vector in local camera space through the given screen point |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get a local ray direction from the screen center"
+local entity = core.camera.create()
+
+entity:set_active()
+
+local screen_center = {960, 540}
+local local_ray = entity:project_local_ray_normal(screen_center)
+core.engine.print("info", "Local ray direction:", local_ray)
+```

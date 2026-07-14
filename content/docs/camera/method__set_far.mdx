@@ -1,0 +1,35 @@
+---
+title: self:set_far
+description: Sets the camera's far clip distance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_far(
+    z_far
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | z_far | Far clip distance — objects further than this will not be rendered |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the far clip distance"
+local entity = core.camera.create()
+
+entity:set_far(2000)
+```

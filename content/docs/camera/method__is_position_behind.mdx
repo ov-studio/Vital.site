@@ -1,0 +1,37 @@
+---
+title: self:is_position_behind
+description: Checks whether a world-space position is behind the camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_position_behind(
+    world_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | world_point | Position in world space to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the position is behind the camera, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a position is behind the camera"
+local entity = core.camera.create()
+
+entity:set_active()
+core.engine.print("info", entity:is_position_behind({0, 0, -10})) -- false (in front)
+core.engine.print("info", entity:is_position_behind({0, 0, 10}))  -- true (behind)
+```

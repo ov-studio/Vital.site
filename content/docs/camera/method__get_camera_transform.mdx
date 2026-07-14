@@ -1,0 +1,34 @@
+---
+title: self:get_camera_transform
+description: Returns the camera's current world-space transform
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_camera_transform()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `transform3d` | result | Camera's current world-space transform containing `basis` (x, y, z columns) and `origin` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the camera transform"
+local entity = core.camera.create()
+
+entity:set_active()
+local transform = entity:get_camera_transform()
+core.engine.print("info", "Camera origin:", transform.origin)
+```

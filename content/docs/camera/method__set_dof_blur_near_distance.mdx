@@ -1,0 +1,37 @@
+---
+title: self:set_dof_blur_near_distance
+description: Sets the distance at which near depth of field blur begins
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_near_distance(
+    distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Distance from the camera at which near DOF blur begins |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the near DOF blur distance"
+local entity = core.camera.create()
+
+entity:set_dof_blur_near_enabled(true)
+entity:set_dof_blur_near_distance(2)
+entity:set_dof_blur_near_transition(1)
+```

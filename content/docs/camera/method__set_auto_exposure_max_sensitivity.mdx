@@ -1,0 +1,37 @@
+---
+title: self:set_auto_exposure_max_sensitivity
+description: Sets the camera's maximum auto exposure sensitivity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_auto_exposure_max_sensitivity(
+    sensitivity
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | sensitivity | Maximum auto exposure sensitivity (ISO) — sets the upper bound of the auto exposure range |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the maximum auto exposure sensitivity"
+local entity = core.camera.create()
+
+entity:set_auto_exposure_enabled(true)
+entity:set_auto_exposure_min_sensitivity(50)
+entity:set_auto_exposure_max_sensitivity(800)
+```

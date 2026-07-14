@@ -1,0 +1,35 @@
+---
+title: self:set_doppler_tracking
+description: Sets the camera's doppler tracking mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_doppler_tracking(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.camera.doppler_tracking` | mode | Doppler tracking mode to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable physics-step doppler tracking"
+local entity = core.camera.create()
+
+entity:set_doppler_tracking(core.camera.doppler_tracking.PHYSICS_STEP)
+```

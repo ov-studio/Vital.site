@@ -1,0 +1,32 @@
+---
+title: self:get_near
+description: Returns the camera's near clip distance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_near()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current near clip distance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the near clip distance"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_near())
+```

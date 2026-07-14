@@ -1,0 +1,34 @@
+---
+title: self:get_camera_projection
+description: Returns the camera's current projection matrix
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_camera_projection()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | 4x4 projection matrix as an array of 4 columns, each column being a table of 4 floats (x, y, z, w) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the camera projection matrix"
+local entity = core.camera.create()
+
+entity:set_active()
+local projection = entity:get_camera_projection()
+core.engine.print("info", "Column 1:", projection[1])
+```

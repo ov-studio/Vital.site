@@ -1,0 +1,32 @@
+---
+title: self:get_dof_blur_far_transition
+description: Returns the camera's far depth of field blur transition distance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_dof_blur_far_transition()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Distance over which the far DOF blur gradually fades in |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the far DOF blur transition distance"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_dof_blur_far_transition())
+```

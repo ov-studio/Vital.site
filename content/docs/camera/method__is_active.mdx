@@ -1,0 +1,33 @@
+---
+title: self:is_active
+description: Checks whether the camera is currently active
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_active()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the camera is active, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a camera is active"
+local entity = core.camera.create()
+
+entity:set_active()
+core.engine.print("info", entity:is_active()) -- true
+```

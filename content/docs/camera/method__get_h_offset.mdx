@@ -1,0 +1,32 @@
+---
+title: self:get_h_offset
+description: Returns the camera's horizontal offset
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_h_offset()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current horizontal offset of the camera |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the horizontal offset"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_h_offset())
+```

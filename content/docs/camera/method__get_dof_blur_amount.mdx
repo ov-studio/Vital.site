@@ -1,0 +1,32 @@
+---
+title: self:get_dof_blur_amount
+description: Returns the camera's depth of field blur amount
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_dof_blur_amount()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current DOF blur amount — controls the intensity of the blur effect |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the DOF blur amount"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_dof_blur_amount())
+```

@@ -1,0 +1,40 @@
+---
+title: self:project_ray_origin
+description: Returns the world-space origin point of a ray cast from a given screen point
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:project_ray_origin(
+    screen_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | screen_point | Position on the screen in pixels |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | result | World-space origin of the ray cast from the given screen point |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get a ray origin from a screen point"
+local entity = core.camera.create()
+
+entity:set_active()
+
+local screen_point = {960, 540}
+local ray_origin = entity:project_ray_origin(screen_point)
+local ray_normal = entity:project_ray_normal(screen_point)
+core.engine.print("info", "Ray from:", ray_origin, "towards:", ray_normal)
+```

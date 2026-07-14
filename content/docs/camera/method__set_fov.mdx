@@ -1,0 +1,35 @@
+---
+title: self:set_fov
+description: Sets the camera's field of view
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_fov(
+    fov
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | fov | Field of view in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the camera FOV"
+local entity = core.camera.create()
+
+entity:set_fov(90)
+```

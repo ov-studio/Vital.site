@@ -1,0 +1,37 @@
+---
+title: self:set_dof_blur_near_transition
+description: Sets the transition distance over which near depth of field blur gradually fades in
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_near_transition(
+    distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Distance over which the near DOF blur gradually fades in |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the near DOF blur transition"
+local entity = core.camera.create()
+
+entity:set_dof_blur_near_enabled(true)
+entity:set_dof_blur_near_distance(2)
+entity:set_dof_blur_near_transition(1)
+```

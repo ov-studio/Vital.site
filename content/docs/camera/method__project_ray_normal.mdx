@@ -1,0 +1,39 @@
+---
+title: self:project_ray_normal
+description: Returns a normalized direction vector from the camera through a given screen point
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:project_ray_normal(
+    screen_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | screen_point | Position on the screen in pixels |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | result | Normalized direction vector from the camera through the given screen point |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get a ray direction from the screen center"
+local entity = core.camera.create()
+
+entity:set_active()
+
+local screen_center = {960, 540}
+local ray_dir = entity:project_ray_normal(screen_center)
+core.engine.print("info", "Ray direction:", ray_dir)
+```

@@ -1,0 +1,36 @@
+---
+title: self:set_auto_exposure_speed
+description: Sets the camera's auto exposure adaptation speed
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_auto_exposure_speed(
+    speed
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | speed | Auto exposure speed — controls how quickly the camera adapts to lighting changes |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the auto exposure speed"
+local entity = core.camera.create()
+
+entity:set_auto_exposure_enabled(true)
+entity:set_auto_exposure_speed(1.0)
+```

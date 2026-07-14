@@ -1,0 +1,40 @@
+---
+title: self:project_position
+description: Returns the world-space position corresponding to a screen point at a given depth
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:project_position(
+    screen_point,
+    z_depth
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | screen_point | Position on the screen in pixels |
+| `float` | z_depth | Depth distance from the camera |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | result | World-space position at the given screen point and depth |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Project a screen point into world space"
+local entity = core.camera.create()
+
+entity:set_active()
+
+local world_pos = entity:project_position({960, 540}, 10)
+core.engine.print("info", "World position at depth 10:", world_pos)
+```

@@ -1,0 +1,35 @@
+---
+title: self:is_dof_blur_far_enabled
+description: Checks whether far depth of field blur is enabled on the camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_dof_blur_far_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if far DOF blur is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check far DOF blur state"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:is_dof_blur_far_enabled()) -- false (disabled by default)
+
+entity:set_dof_blur_far_enabled(true)
+core.engine.print("info", entity:is_dof_blur_far_enabled()) -- true
+```

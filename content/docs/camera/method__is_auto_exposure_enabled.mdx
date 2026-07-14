@@ -1,0 +1,35 @@
+---
+title: self:is_auto_exposure_enabled
+description: Checks whether auto exposure is enabled on the camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_auto_exposure_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if auto exposure is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check auto exposure state"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:is_auto_exposure_enabled()) -- false (disabled by default)
+
+entity:set_auto_exposure_enabled(true)
+core.engine.print("info", entity:is_auto_exposure_enabled()) -- true
+```

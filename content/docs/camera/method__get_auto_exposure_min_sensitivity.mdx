@@ -1,0 +1,32 @@
+---
+title: self:get_auto_exposure_min_sensitivity
+description: Returns the camera's minimum auto exposure sensitivity
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_auto_exposure_min_sensitivity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current minimum auto exposure sensitivity (ISO) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the minimum auto exposure sensitivity"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_auto_exposure_min_sensitivity())
+```

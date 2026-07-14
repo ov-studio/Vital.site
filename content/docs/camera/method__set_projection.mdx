@@ -1,0 +1,35 @@
+---
+title: self:set_projection
+description: Sets the camera's projection mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_projection(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.camera.projection` | mode | Projection mode to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the camera to orthogonal projection"
+local entity = core.camera.create()
+
+entity:set_projection(core.camera.projection.ORTHOGONAL)
+```

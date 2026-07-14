@@ -1,0 +1,35 @@
+---
+title: self:set_near
+description: Sets the camera's near clip distance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_near(
+    z_near
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | z_near | Near clip distance — objects closer than this will not be rendered |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the near clip distance"
+local entity = core.camera.create()
+
+entity:set_near(0.1)
+```

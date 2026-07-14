@@ -1,0 +1,32 @@
+---
+title: self:get_auto_exposure_scale
+description: Returns the camera's auto exposure scale
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_auto_exposure_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current auto exposure scale — affects the intensity of the auto exposure effect |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the auto exposure scale"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_auto_exposure_scale())
+```

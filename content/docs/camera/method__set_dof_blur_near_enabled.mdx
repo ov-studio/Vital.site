@@ -1,0 +1,38 @@
+---
+title: self:set_dof_blur_near_enabled
+description: Enables or disables near depth of field blur on the camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_near_enabled(
+    enabled
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | enabled | `true` to enable near DOF blur, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable near DOF blur"
+local entity = core.camera.create()
+
+entity:set_dof_blur_near_enabled(true)
+entity:set_dof_blur_near_distance(2)
+entity:set_dof_blur_near_transition(1)
+entity:set_dof_blur_amount(0.3)
+```

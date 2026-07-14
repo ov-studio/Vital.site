@@ -1,0 +1,42 @@
+---
+title: self:set_active
+description: Sets this camera as the active camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_active()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Activate a camera instance"
+local entity = core.camera.create()
+
+entity:set_active()
+core.engine.print("info", entity:is_active()) -- true
+```
+
+```lua lineNumbers title="Switch between cameras"
+local camA = core.camera.create()
+local camB = core.camera.create()
+
+camA:set_active()
+-- later...
+camB:set_active()
+```

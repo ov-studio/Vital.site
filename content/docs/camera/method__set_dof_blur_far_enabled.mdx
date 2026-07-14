@@ -1,0 +1,38 @@
+---
+title: self:set_dof_blur_far_enabled
+description: Enables or disables far depth of field blur on the camera
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_far_enabled(
+    enabled
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | enabled | `true` to enable far DOF blur, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable far DOF blur"
+local entity = core.camera.create()
+
+entity:set_dof_blur_far_enabled(true)
+entity:set_dof_blur_far_distance(20)
+entity:set_dof_blur_far_transition(5)
+entity:set_dof_blur_amount(0.3)
+```

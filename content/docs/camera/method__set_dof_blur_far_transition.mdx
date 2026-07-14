@@ -1,0 +1,37 @@
+---
+title: self:set_dof_blur_far_transition
+description: Sets the transition distance over which far depth of field blur gradually fades in
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_far_transition(
+    distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Distance over which the far DOF blur gradually fades in |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the far DOF blur transition"
+local entity = core.camera.create()
+
+entity:set_dof_blur_far_enabled(true)
+entity:set_dof_blur_far_distance(20)
+entity:set_dof_blur_far_transition(5)
+```

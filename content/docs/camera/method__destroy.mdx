@@ -1,0 +1,32 @@
+---
+title: self:destroy
+description: Destroys the camera instance and frees its resources
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a camera instance"
+local entity = core.camera.create()
+
+entity:destroy()
+```

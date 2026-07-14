@@ -1,0 +1,32 @@
+---
+title: self:get_projection
+description: Returns the camera's current projection mode
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_projection()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.camera.projection` | result | Current projection mode of the camera |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the camera projection mode"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_projection()) -- core.camera.projection.PERSPECTIVE
+```
