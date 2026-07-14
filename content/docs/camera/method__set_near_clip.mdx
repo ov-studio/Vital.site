@@ -1,5 +1,5 @@
 ---
-title: self:set_near
+title: self:set_near_clip
 description: Sets the camera's near clip distance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = self:set_near(
+local status = self:set_near_clip(
     z_near
 )
 ```
@@ -31,5 +31,5 @@ local status = self:set_near(
 ```lua lineNumbers title="Set the near clip distance"
 local entity = core.camera.create()
 
-entity:set_near(0.1)
+entity:set_near_clip(0.1)
 ```
