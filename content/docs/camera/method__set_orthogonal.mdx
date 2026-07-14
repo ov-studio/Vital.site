@@ -9,8 +9,8 @@ badge: Client
 ```lua
 local status = self:set_orthogonal(
     size,
-    z_near,
-    z_far
+    near_clip,
+    far_clip
 )
 ```
 
@@ -19,8 +19,8 @@ local status = self:set_orthogonal(
 | Type | Name | Description |
 |------|------|-------------|
 | `float` | size | Orthogonal view size |
-| `float` | z_near | Near clip distance |
-| `float` | z_far | Far clip distance |
+| `float` | near_clip | Near clip distance |
+| `float` | far_clip | Far clip distance |
 
 ### Returns
 
