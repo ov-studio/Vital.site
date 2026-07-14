@@ -15,6 +15,7 @@
         "db_query",
         "discord",
         "model",
+        "camera",
         "webview",
         "font",
         "texture",
