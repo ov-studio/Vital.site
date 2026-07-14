@@ -1,5 +1,5 @@
 ---
-title: self:set_far
+title: self:set_far_clip
 description: Sets the camera's far clip distance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = self:set_far(
+local status = self:set_far_clip(
     z_far
 )
 ```
@@ -31,5 +31,5 @@ local status = self:set_far(
 ```lua lineNumbers title="Set the far clip distance"
 local entity = core.camera.create()
 
-entity:set_far(2000)
+entity:set_far_clip(2000)
 ```

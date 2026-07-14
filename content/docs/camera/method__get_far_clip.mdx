@@ -1,5 +1,5 @@
 ---
-title: self:get_far
+title: self:get_far_clip
 description: Returns the camera's far clip distance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = self:get_far()
+local result = self:get_far_clip()
 ```
 
 ### Parameters
@@ -28,5 +28,5 @@ local result = self:get_far()
 ```lua lineNumbers title="Get the far clip distance"
 local entity = core.camera.create()
 
-core.engine.print("info", entity:get_far())
+core.engine.print("info", entity:get_far_clip())
 ```
