@@ -19,7 +19,7 @@ local result = self:get_keep_aspect_mode()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `core.camera.keep_aspect` | result | Current aspect ratio mode of the camera |
+| [`core.camera.keep_aspect`](/docs/camera/enum/keep_aspect) | result | Current aspect ratio mode of the camera |
 
 ---
 
@@ -28,5 +28,5 @@ local result = self:get_keep_aspect_mode()
 ```lua lineNumbers title="Get the keep aspect mode"
 local entity = core.camera.create()
 
-core.engine.print("info", entity:get_keep_aspect_mode()) -- core.camera.keep_aspect.WIDTH
+core.engine.print("info", entity:get_keep_aspect_mode())
 ```
