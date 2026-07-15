@@ -161,6 +161,8 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Top-level engine singleton access for runtime and scene control',
         icon: <lucide.Cpu {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: core.engine.horizontal_alignment', status: 'completed' },
+          { label: '[Client] Enum: core.engine.vertical_alignment', status: 'completed' },
           { label: '[Shared] API: core.engine.print', status: 'completed' },
           { label: '[Shared] API: core.engine.iprint', status: 'completed' },
           { label: '[Shared] API: core.engine.inspect', status: 'completed' },
