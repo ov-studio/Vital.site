@@ -2,6 +2,10 @@
     "title": "Engine",
     "icon": "Cpu",
     "pages": [
+        "---Enum---",
+        "enum__horizontal_alignment",
+        "enum__vertical_alignment",
+
         "---Base---",
         "print",
         "iprint",
@@ -17,7 +21,6 @@
         "get_resolution",
         "get_serial",
         "get_entities",
-
 
         "---Canvas---",
         "world_to_screen",
