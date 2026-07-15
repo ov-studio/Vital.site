@@ -59,7 +59,6 @@
         "method__set_near_clip",
         "method__set_far_clip",
         "method__set_projection",
-        "method__set_perspective",
         "method__set_horizontal_offset",
         "method__set_vertical_offset",
         "method__set_keep_aspect_mode",
