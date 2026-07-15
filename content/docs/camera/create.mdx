@@ -34,6 +34,8 @@ entity:set_active()
 ```lua lineNumbers title="Create a camera with perspective projection"
 local entity = core.camera.create()
 
-entity:set_perspective(75, 0.1, 1000)
+entity:set_projection(core.camera.projection.PERSPECTIVE)
+entity:set_near_clip(0.1)
+entity:set_far_clip(1000)
 entity:set_active()
 ```
