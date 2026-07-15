@@ -1,5 +1,5 @@
 ---
-title: self:get_camera_projection
+title: self:get_projection_matrix
 description: Returns the camera's current projection matrix
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = self:get_camera_projection()
+local result = self:get_projection_matrix()
 ```
 
 ### Parameters
@@ -29,6 +29,6 @@ local result = self:get_camera_projection()
 local entity = core.camera.create()
 
 entity:set_active()
-local projection = entity:get_camera_projection()
+local projection = entity:get_projection_matrix()
 core.engine.print("info", "Column 1:", projection[1])
 ```
