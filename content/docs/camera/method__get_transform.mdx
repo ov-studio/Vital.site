@@ -1,5 +1,5 @@
 ---
-title: self:get_camera_transform
+title: self:get_transform
 description: Returns the camera's current world-space transform
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = self:get_camera_transform()
+local result = self:get_transform()
 ```
 
 ### Parameters
@@ -29,6 +29,6 @@ local result = self:get_camera_transform()
 local entity = core.camera.create()
 
 entity:set_active()
-local transform = entity:get_camera_transform()
+local transform = entity:get_transform()
 core.engine.print("info", "Camera origin:", transform.origin)
 ```

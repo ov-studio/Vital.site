@@ -31,7 +31,7 @@
         "method__is_dof_blur_near_enabled",
 
         "---⁝⁝Getter---",
-        "method__get_camera_transform",
+        "method__get_transform",
         "method__get_projection_matrix",
         "method__get_projection",
         "method__get_fov",
