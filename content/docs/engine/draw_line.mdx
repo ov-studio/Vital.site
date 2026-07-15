@@ -9,7 +9,7 @@ badge: Client
 ```lua
 local status = core.engine.draw_line(
     points, 
-    stroke = 0, 
+    thickness = 0, 
     color = {1, 1, 1, 1}
 )
 ```
@@ -27,7 +27,7 @@ local status = core.engine.draw_line(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector2[]` | points | Array of 2D points defining the line path |
-| `float` | stroke | Line thickness in pixels — set to `0` to disable |
+| `float` | thickness | Line thickness in pixels<br/>Set to `0` to disable |
 | `color` | color | Color of the line |
 
 ### Returns
