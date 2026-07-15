@@ -285,7 +285,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<camera>:set_active', status: 'completed' },
           { label: '[Client] API: self<camera>:set_projection', status: 'completed' },
           { label: '[Client] API: self<camera>:set_perspective', status: 'completed' },
-          { label: '[Client] API: self<camera>:set_orthogonal', status: 'completed' },
           { label: '[Client] API: self<camera>:set_fov', status: 'completed' },
           { label: '[Client] API: self<camera>:set_size', status: 'completed' },
           { label: '[Client] API: self<camera>:set_near_clip', status: 'completed' },
