@@ -32,8 +32,8 @@
 
         "---⁝⁝Getter---",
         "method__get_transform",
-        "method__get_projection_matrix",
         "method__get_projection",
+        "method__get_projection_matrix",
         "method__get_fov",
         "method__get_size",
         "method__get_near_clip",
