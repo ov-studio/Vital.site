@@ -68,7 +68,7 @@ How that promise resolves depends on the number of registered handlers and the `
 |------|-----|---------|------|-------------|
 | `bool` | remote | `false` | Shared | • When `true` - transmits the event to the remote side; client sends to server, server broadcasts to all peers<br/>• When `false` - fires handlers on the current side only |
 | `int` | peer | `0` | Server | Target peer-id for directed server-side remote dispatch (ignored on client)<br/>• When `0` - broadcasts to all connected peers<br/>• When `> 0` - sends to that specific peer only |
-| `bool` | collect_all | `false` | Shared | When `false` — only the first registered handler is fired and its return values are resolved directly, unpacked<br/>When `true` — all registered handlers are fired and results are resolved as a table of tables, one entry per handler |
+| `bool` | collect_all | `false` | Shared | • When `false` - only the first registered handler is fired and its return values are resolved directly, unpacked<br/>• When `true` - all registered handlers are fired and results are resolved as a table of tables, one entry per handler |
 
 ### Examples
 
