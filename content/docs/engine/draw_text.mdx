@@ -14,7 +14,8 @@ local status = core.engine.draw_text(
     font, 
     font_size, 
     color = {1, 1, 1, 1}, 
-    alignment = {"left", "top"}, 
+    horizontal_alignment = core.engine.horizontal_alignment.LEFT,
+    vertical_alignment = core.engine.vertical_alignment.TOP,
     clip = false, 
     wordwrap = false, 
     stroke = 0, 
@@ -42,7 +43,8 @@ local status = core.engine.draw_text(
 | `font` | font | Font to render the text with |
 | `int` | font_size | Font size in points |
 | `color` | color | Color of the text |
-| `alignment[horizontal, vertical]` | alignment | Horizontal alignment: <br/>•`"left"` \| `0` <br/>•`"center"` \| `1` <br/>•`"right"` \| `2` <br/>•`"fill"` \| `3` <br/><br/>Vertical alignment: <br/>•`"top"` \| `0` <br/>•`"center"` \| `1` <br/>•`"bottom"` \| `2` <br/>•`"fill"` \| `3` |
+| [`core.engine.horizontal_alignment`](/docs/engine/enum/horizontal_alignment) | horizontal_alignment | Horizontal alignment of the text within the bounding box |
+| [`core.engine.vertical_alignment`](/docs/engine/enum/vertical_alignment) | vertical_alignment | Vertical alignment of the text within the bounding box |
 | `bool` | clip | When `true`, text is clipped to the bounding box |
 | `bool` | wordwrap | When `true`, text wraps at the bounding box width |
 | `int` | stroke | Outline thickness in pixels<br/>Set to `0` to disable |
@@ -89,7 +91,8 @@ util.event.on("sandbox:draw", function()
         font,
         32,
         {1, 1, 0, 1},
-        {"center", "center"}
+        core.engine.horizontal_alignment.CENTER,
+        core.engine.vertical_alignment.CENTER
     )
 end)
 ```
@@ -107,7 +110,8 @@ util.event.on("sandbox:draw", function()
         font,
         18,
         {1, 1, 1, 1},
-        {"left", "top"},
+        core.engine.horizontal_alignment.LEFT,
+        core.engine.vertical_alignment.TOP,
         true,
         true
     )
@@ -127,7 +131,8 @@ util.event.on("sandbox:draw", function()
         font,
         28,
         {1, 1, 1, 1},
-        {"center", "center"},
+        core.engine.horizontal_alignment.CENTER,
+        core.engine.vertical_alignment.CENTER,
         false,
         false,
         2,
@@ -149,7 +154,8 @@ util.event.on("sandbox:draw", function()
         font,
         20,
         {1, 1, 1, 1},
-        {"left", "top"},
+        core.engine.horizontal_alignment.LEFT,
+        core.engine.vertical_alignment.TOP,
         false,
         false,
         0,
