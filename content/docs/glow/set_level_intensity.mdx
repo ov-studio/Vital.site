@@ -1,6 +1,6 @@
 ---
 title: gfx.glow.set_level_intensity
-description: Sets the intensity of a specific glow level of the glow post-processing effect
+description: Sets the intensity of a specific level of the glow post-processing effect
 badge: Client
 ---
 
@@ -17,8 +17,8 @@ local status = gfx.glow.set_level_intensity(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | idx | Glow level index to target<br/>Glow is applied in multiple passes at different scales; each level corresponds to a blur pass of increasing size |
-| `float` | value | Intensity value to apply to the specified level<br/>Higher values increase the contribution of that glow level to the final result |
+| `int` | idx | Level index to target<br/>Glow is applied in multiple passes at different scales; each level corresponds to a blur pass of increasing size |
+| `float` | value | Intensity value to apply to the specified level<br/>Higher values increase the contribution of that level to the final result |
 
 ### Returns
 
@@ -30,10 +30,10 @@ local status = gfx.glow.set_level_intensity(
 
 ### Examples
 
-```lua lineNumbers title="Set intensity of a specific glow level"
--- Set a strong contribution on glow level 1
+```lua lineNumbers title="Set intensity of a specific level"
+-- Set a strong contribution on level 1
 gfx.glow.set_level_intensity(1, 1.0)
 
--- Disable contribution on glow level 3
+-- Disable contribution on level 3
 gfx.glow.set_level_intensity(3, 0.0)
 ```
