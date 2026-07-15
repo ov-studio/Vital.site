@@ -10,6 +10,13 @@ badge: Client
 local result = self:get_fov()
 ```
 
+<Callout type="warn">
+  **Only applicable in perspective projection mode.** Refer [`core.camera.set_projection`](/docs/camera/method/set_projection) to configure the active projection mode.
+
+  - **Perspective mode required** — calling this function in any other projection mode will have no effect
+  - **Recommended usage** — combine with `core.camera.projection.PERSPECTIVE` to switch projection before adjusting FOV
+</Callout>
+
 ### Parameters
 
 | No parameters are accepted by this function |
