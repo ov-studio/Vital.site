@@ -8,7 +8,7 @@ badge: Client
 
 ```lua
 local result = self:project_ray_origin(
-    screen_point
+    position
 )
 ```
 
@@ -16,7 +16,7 @@ local result = self:project_ray_origin(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector2` | screen_point | Position on the screen in pixels |
+| `vector2` | position | Position on the screen in pixels |
 
 ### Returns
 
@@ -33,8 +33,8 @@ local entity = core.camera.create()
 
 entity:set_active()
 
-local screen_point = {960, 540}
-local ray_origin = entity:project_ray_origin(screen_point)
-local ray_normal = entity:project_ray_normal(screen_point)
+local position = {960, 540}
+local ray_origin = entity:project_ray_origin(position)
+local ray_normal = entity:project_ray_normal(position)
 core.engine.print("info", "Ray from:", ray_origin, "towards:", ray_normal)
 ```
