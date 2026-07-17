@@ -123,6 +123,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Runtime resource manager — loading, caching, unloading, and client-side asset sync and download',
         icon: <lucide.FolderOpen {...config_site.info.lucide}/>,
         items: [
+          { label: 'Vital.kit\'s Lua module injection', status: 'completed' },
           { label: '[Server] Resource scanner', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
           { label: '[Shared] Resource loader / unloader', status: 'completed' },
@@ -319,6 +320,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <lucide.Code2 {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Vital.kit\'s JS module injection', status: 'completed' },
           { label: 'Bidirectional Lua - JS messaging', status: 'completed' },
           { label: 'Serve webview files over HTTP instead of file://', status: 'completed' },
           { label: '[Client] API: core.webview.create', status: 'completed' },
