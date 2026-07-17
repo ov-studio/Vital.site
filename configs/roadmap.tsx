@@ -131,7 +131,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Resource asset streaming via HTTP server', status: 'completed' },
           { label: '[Shared] Resource-scoped entity lifetime', status: 'completed' },
           { label: '[Shared] Per-resource isolated Lua environments', status: 'completed' },
-          { label: '[Shared] Resource start-order persistence for late-joining clients', status: 'completed' },
+          { label: '[Shared] Resource start-order persistence', status: 'completed' },
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
