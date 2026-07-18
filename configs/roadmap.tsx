@@ -341,6 +341,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<webview>:set_visible', status: 'completed' },
           { label: '[Client] API: self<webview>:set_devtools_visible', status: 'completed' },
           { label: '[Client] API: self<webview>:set_message_handler', status: 'completed' },
+          { label: '[Client] API: self<webview>:reset_message_handler', status: 'completed' },
           { label: '[Client] API: self<webview>:load_url', status: 'completed' },
           { label: '[Client] API: self<webview>:load_html', status: 'completed' },
           { label: '[Client] API: self<webview>:clear_history', status: 'completed' },
