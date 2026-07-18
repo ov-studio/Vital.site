@@ -699,18 +699,6 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
-        label: 'Inspect',
-        desc: 'Hardware inspection, device fingerprinting, and runtime environment queries',
-        icon: <lucide.FingerprintPattern {...config_site.info.lucide}/>,
-        items: [
-          { label: 'CPU info (cores, arch)', status: 'pending' },
-          { label: 'OS platform detection', status: 'pending' },
-          { label: 'Memory usage query', status: 'pending' },
-          { label: 'Device fingerprint generation', status: 'completed' },
-        ]
-      },
-      {
         // TODO: WIP, ADD ALL EXPOSED EVENTS
         label: 'Event',
         desc: 'Publish / subscribe event bus for decoupled, reactive module communication',
