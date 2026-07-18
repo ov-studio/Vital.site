@@ -138,19 +138,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
         ]
       },
-      {
-        // TODO: WIP
-        label: 'Performance Monitor',
-        desc: 'Runtime performance monitor — FPS, frame time, draw calls, memory usage, and object counts',
-        icon: <lucide.Activity {...config_site.info.lucide}/>,
-        items: [
-          { label: 'Performance.get (FPS / frame time)', status: 'pending' },
-          { label: 'Draw calls & vertices', status: 'pending' },
-          { label: 'Static / dynamic memory', status: 'pending' },
-          { label: 'Physics step time', status: 'pending' },
-          { label: 'Object / node count', status: 'pending' },
-        ],
-      }
     ]
   },
 
@@ -753,6 +740,20 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: util.input.set_cursor_position', status: 'completed' },
           { label: '[Shared] API: util.input.bind', status: 'completed' },
           { label: '[Shared] API: util.input.unbind', status: 'completed' }
+        ],
+      },
+      {
+        label: 'Monitor',
+        desc: 'Native and custom performance monitor registration, querying, and listing via Godot\'s Performance singleton',
+        icon: <lucide.Activity {...config_site.info.lucide}/>,
+        items: [
+          { label: '[Shared] Enum: util.monitor.stat_native', status: 'completed' },
+          { label: '[Shared] Enum: util.monitor.stat_format', status: 'completed' },
+          { label: '[Shared] API: util.monitor.register', status: 'completed' },
+          { label: '[Shared] API: util.monitor.unregister', status: 'completed' },
+          { label: '[Shared] API: util.monitor.has', status: 'completed' },
+          { label: '[Shared] API: util.monitor.get', status: 'completed' },
+          { label: '[Shared] API: util.monitor.list', status: 'completed' },
         ],
       }
     ]
