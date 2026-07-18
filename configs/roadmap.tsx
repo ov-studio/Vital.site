@@ -725,7 +725,6 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
         label: 'Input',
         desc: 'Key and mouse button state, mouse velocity, cursor mode, and press/release bindings from Lua',
         icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
