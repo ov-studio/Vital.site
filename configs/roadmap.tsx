@@ -455,7 +455,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Easing & transition types', status: 'pending' },
           { label: 'Sequence / parallel / chained', status: 'pending' },
           { label: 'Pause / resume / kill', status: 'pending' },
-        ],
+        ]
       }
     ]
   },
@@ -740,21 +740,21 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: util.input.set_cursor_position', status: 'completed' },
           { label: '[Shared] API: util.input.bind', status: 'completed' },
           { label: '[Shared] API: util.input.unbind', status: 'completed' }
-        ],
+        ]
       },
       {
         label: 'Monitor',
         desc: 'Native and custom performance monitor registration, querying, and listing via Godot\'s Performance singleton',
         icon: <lucide.Activity {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] Enum: util.monitor.stat_native', status: 'completed' },
-          { label: '[Shared] Enum: util.monitor.stat_format', status: 'completed' },
-          { label: '[Shared] API: util.monitor.register', status: 'completed' },
-          { label: '[Shared] API: util.monitor.unregister', status: 'completed' },
-          { label: '[Shared] API: util.monitor.has', status: 'completed' },
-          { label: '[Shared] API: util.monitor.get', status: 'completed' },
-          { label: '[Shared] API: util.monitor.list', status: 'completed' },
-        ],
+          { label: '[Client] Enum: util.monitor.stat_native', status: 'completed' },
+          { label: '[Client] Enum: util.monitor.stat_format', status: 'completed' },
+          { label: '[Client] API: util.monitor.register', status: 'completed' },
+          { label: '[Client] API: util.monitor.unregister', status: 'completed' },
+          { label: '[Client] API: util.monitor.has', status: 'completed' },
+          { label: '[Client] API: util.monitor.get', status: 'completed' },
+          { label: '[Client] API: util.monitor.list', status: 'completed' }
+        ]
       }
     ]
   },
@@ -1143,7 +1143,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Amount, lifetime, speed scale', status: 'pending' },
           { label: 'Process material param overrides', status: 'pending' },
           { label: 'Trail & sub-emitters', status: 'pending' },
-        ],
+        ]
       }
     ]
   },
@@ -1198,7 +1198,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Navmesh region queries', status: 'pending' },
           { label: 'Avoidance (RVO2)', status: 'pending' },
           { label: 'Navigation layers', status: 'pending' },
-        ],
+        ]
       }
     ]
   },
@@ -1234,7 +1234,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Attenuation model & max distance', status: 'pending' },
           { label: 'AudioServer bus routing', status: 'pending' },
           { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
-        ],
+        ]
       }
     ]
   },
@@ -1300,7 +1300,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Mute / unmute (local & remote)', status: 'pending' },
           { label: 'Voice activity detection (VAD)', status: 'pending' },
           { label: 'Volume per speaker', status: 'pending' },
-        ],
+        ]
       }
     ]
   },
@@ -1319,7 +1319,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Player count placeholders', status: 'completed' },
           { label: 'Discord invite link integration', status: 'completed' },
           { label: 'Dynamic updates at runtime', status: 'completed' },
-        ],
+        ]
       }
     ],
   }
