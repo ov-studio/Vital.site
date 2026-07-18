@@ -1,0 +1,61 @@
+---
+title: util.monitor.get
+description: Retrieves the current value of a performance monitor, either native or custom
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local value = util.monitor.get(
+    id
+)
+```
+
+<Callout type="warn">
+  **The monitor must exist before reading it.**
+
+  - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value (integer); throws an error if the value is not a valid native monitor
+  - **Custom monitors** — pass a `string` ID registered via [`util.monitor.register`](/docs/monitor/register); returns `nil` if the monitor does not exist
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) or `string` | id | Monitor to read:<br/>• When `int` — reads a native monitor by enum value; refer [**util.monitor.stat_native**](/docs/monitor/enum/stat_native) enum<br/>• When `string` — reads a custom monitor by its registered ID |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | value | Current sampled value of the monitor |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Read the current FPS"
+local fps = util.monitor.get(util.monitor.stat_native.TIME_FPS)
+
+core.engine.print("info", "FPS:", fps)
+```
+
+```lua lineNumbers title="Read static memory usage"
+local mem = util.monitor.get(util.monitor.stat_native.MEMORY_STATIC)
+
+core.engine.print("info", "Memory (bytes):", mem)
+```
+
+```lua lineNumbers title="Read a custom monitor"
+local count = util.monitor.get("my_resource:entity_count")
+
+core.engine.print("info", "Entity count:", count)
+```
+
+```lua lineNumbers title="Safely read a custom monitor with an existence check"
+if util.monitor.has("my_resource:cache_size") then
+    local size = util.monitor.get("my_resource:cache_size")
+    core.engine.print("info", "Cache size (bytes):", size)
+end
+```

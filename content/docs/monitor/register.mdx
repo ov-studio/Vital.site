@@ -1,0 +1,71 @@
+---
+title: util.monitor.register
+description: Registers a custom performance monitor with a user-supplied sampler function
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = util.monitor.register(
+    id,
+    name,
+    exec,
+    format
+)
+```
+
+<Callout type="info">
+  **Custom monitors are scoped to the environment that registered them and are automatically cleaned up when that environment is destroyed.**
+
+  - **Unique IDs** — registering a monitor under an `id` that already exists returns `false` without replacing the existing monitor; use [`util.monitor.unregister`](/docs/monitor/unregister) first to replace it
+  - **Sampler function** — `exec` is called by Godot's `Performance` singleton on demand; it must return a single numeric value
+  - **Godot integration** — registered monitors appear in Godot's built-in performance profiler alongside native monitors
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | id | Unique string identifier for this monitor |
+| `string` | name | Human-readable display name shown in the Godot profiler |
+| `function` | exec | Sampler function invoked to read the current value:<br/>• Must return a single `number` |
+| [`util.monitor.stat_format`](/docs/monitor/enum/stat_format) | format | Display format for the value in the profiler:<br/>• Refer [**util.monitor.stat_format**](/docs/monitor/enum/stat_format) enum |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful registration, `false` if the `id` is already in use |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Register a simple quantity monitor"
+util.monitor.register("my_resource:entity_count", "Entity Count", function()
+    return entity_manager.count()
+end, util.monitor.stat_format.QUANTITY)
+```
+
+```lua lineNumbers title="Register a memory usage monitor"
+util.monitor.register("my_resource:cache_size", "Cache Size", function()
+    return cache.byte_size()
+end, util.monitor.stat_format.MEMORY)
+```
+
+```lua lineNumbers title="Register a percentage monitor"
+util.monitor.register("my_resource:cpu_load", "CPU Load", function()
+    return profiler.get_load()
+end, util.monitor.stat_format.PERCENTAGE)
+```
+
+```lua lineNumbers title="Guard against duplicate registration"
+local ok = util.monitor.register("my_resource:tick_rate", "Tick Rate", function()
+    return tick_system.get_rate()
+end, util.monitor.stat_format.QUANTITY)
+
+if not ok then
+    core.engine.print("warn", "Monitor already registered")
+end
+```

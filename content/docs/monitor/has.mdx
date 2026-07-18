@@ -1,0 +1,57 @@
+---
+title: util.monitor.has
+description: Checks whether a performance monitor exists, either native or custom
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local result = util.monitor.has(
+    id
+)
+```
+
+<Callout type="info">
+  **Accepts both native and custom monitor identifiers.**
+
+  - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value (integer) to check whether a built-in Godot monitor exists
+  - **Custom monitors** — pass a `string` ID to check whether a monitor registered via [`util.monitor.register`](/docs/monitor/register) exists
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) or `string` | id | Monitor to look up:<br/>• When `int` — checks a native monitor by enum value; refer [**util.monitor.stat_native**](/docs/monitor/enum/stat_native) enum<br/>• When `string` — checks a custom monitor by its registered ID |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the monitor exists, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check for a native monitor"
+if util.monitor.has(util.monitor.stat_native.TIME_FPS) then
+    core.engine.print("info", "FPS monitor is available")
+end
+```
+
+```lua lineNumbers title="Check for a custom monitor before reading it"
+if util.monitor.has("my_resource:entity_count") then
+    local value = util.monitor.get("my_resource:entity_count")
+    core.engine.print("info", "Entity count:", value)
+end
+```
+
+```lua lineNumbers title="Guard registration with an existence check"
+if not util.monitor.has("my_resource:cache_size") then
+    util.monitor.register("my_resource:cache_size", "Cache Size", function()
+        return cache.byte_size()
+    end, util.monitor.stat_format.MEMORY)
+end
+```

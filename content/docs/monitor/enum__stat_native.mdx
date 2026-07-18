@@ -1,0 +1,121 @@
+---
+title: util.monitor.stat_native
+description: Enumeration of built-in Godot performance monitor identifiers
+badge: Shared
+---
+
+### Values
+
+#### Time
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.TIME_FPS` | Frames rendered per second |
+| `util.monitor.stat_native.TIME_PROCESS` | Time spent in the process step of the main loop (seconds) |
+| `util.monitor.stat_native.TIME_PHYSICS_PROCESS` | Time spent in the physics process step of the main loop (seconds) |
+| `util.monitor.stat_native.TIME_NAVIGATION_PROCESS` | Time spent in the navigation process step of the main loop (seconds) |
+
+#### Memory
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.MEMORY_STATIC` | Static memory currently in use (bytes) |
+| `util.monitor.stat_native.MEMORY_STATIC_MAX` | Peak static memory usage since engine start (bytes) |
+| `util.monitor.stat_native.MEMORY_MESSAGE_BUFFER_MAX` | Peak message buffer size (bytes) |
+
+#### Objects
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.OBJECT_COUNT` | Total number of live objects |
+| `util.monitor.stat_native.OBJECT_RESOURCE_COUNT` | Total number of live resource objects |
+| `util.monitor.stat_native.OBJECT_NODE_COUNT` | Total number of live nodes in the scene tree |
+| `util.monitor.stat_native.OBJECT_ORPHAN_NODE_COUNT` | Number of nodes not parented to any other node |
+
+#### Rendering
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.RENDER_TOTAL_OBJECTS_IN_FRAME` | Number of objects drawn in the last frame |
+| `util.monitor.stat_native.RENDER_TOTAL_PRIMITIVES_IN_FRAME` | Number of primitives drawn in the last frame |
+| `util.monitor.stat_native.RENDER_TOTAL_DRAW_CALLS_IN_FRAME` | Number of draw calls issued in the last frame |
+| `util.monitor.stat_native.RENDER_VIDEO_MEM_USED` | Total video memory currently in use (bytes) |
+| `util.monitor.stat_native.RENDER_TEXTURE_MEM_USED` | Video memory used by textures (bytes) |
+| `util.monitor.stat_native.RENDER_BUFFER_MEM_USED` | Video memory used by render buffers (bytes) |
+
+#### Physics 2D
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.PHYSICS_2D_ACTIVE_OBJECTS` | Number of active 2D physics objects |
+| `util.monitor.stat_native.PHYSICS_2D_COLLISION_PAIRS` | Number of 2D collision pairs being processed |
+| `util.monitor.stat_native.PHYSICS_2D_ISLAND_COUNT` | Number of 2D physics islands |
+
+#### Physics 3D
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.PHYSICS_3D_ACTIVE_OBJECTS` | Number of active 3D physics objects |
+| `util.monitor.stat_native.PHYSICS_3D_COLLISION_PAIRS` | Number of 3D collision pairs being processed |
+| `util.monitor.stat_native.PHYSICS_3D_ISLAND_COUNT` | Number of 3D physics islands |
+
+#### Audio
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.AUDIO_OUTPUT_LATENCY` | Audio output latency (seconds) |
+
+#### Navigation (Shared)
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.NAVIGATION_ACTIVE_MAPS` | Number of active navigation maps |
+| `util.monitor.stat_native.NAVIGATION_REGION_COUNT` | Number of navigation regions |
+| `util.monitor.stat_native.NAVIGATION_AGENT_COUNT` | Number of navigation agents |
+| `util.monitor.stat_native.NAVIGATION_LINK_COUNT` | Number of navigation links |
+| `util.monitor.stat_native.NAVIGATION_POLYGON_COUNT` | Number of navigation polygons |
+| `util.monitor.stat_native.NAVIGATION_EDGE_COUNT` | Number of navigation edges |
+| `util.monitor.stat_native.NAVIGATION_EDGE_MERGE_COUNT` | Number of merged navigation edges |
+| `util.monitor.stat_native.NAVIGATION_EDGE_CONNECTION_COUNT` | Number of navigation edge connections |
+| `util.monitor.stat_native.NAVIGATION_EDGE_FREE_COUNT` | Number of free (unconnected) navigation edges |
+| `util.monitor.stat_native.NAVIGATION_OBSTACLE_COUNT` | Number of navigation obstacles |
+
+#### Navigation 2D
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.NAVIGATION_2D_ACTIVE_MAPS` | Number of active 2D navigation maps |
+| `util.monitor.stat_native.NAVIGATION_2D_REGION_COUNT` | Number of 2D navigation regions |
+| `util.monitor.stat_native.NAVIGATION_2D_AGENT_COUNT` | Number of 2D navigation agents |
+| `util.monitor.stat_native.NAVIGATION_2D_LINK_COUNT` | Number of 2D navigation links |
+| `util.monitor.stat_native.NAVIGATION_2D_POLYGON_COUNT` | Number of 2D navigation polygons |
+| `util.monitor.stat_native.NAVIGATION_2D_EDGE_COUNT` | Number of 2D navigation edges |
+| `util.monitor.stat_native.NAVIGATION_2D_EDGE_MERGE_COUNT` | Number of merged 2D navigation edges |
+| `util.monitor.stat_native.NAVIGATION_2D_EDGE_CONNECTION_COUNT` | Number of 2D navigation edge connections |
+| `util.monitor.stat_native.NAVIGATION_2D_EDGE_FREE_COUNT` | Number of free 2D navigation edges |
+| `util.monitor.stat_native.NAVIGATION_2D_OBSTACLE_COUNT` | Number of 2D navigation obstacles |
+
+#### Navigation 3D
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.NAVIGATION_3D_ACTIVE_MAPS` | Number of active 3D navigation maps |
+| `util.monitor.stat_native.NAVIGATION_3D_REGION_COUNT` | Number of 3D navigation regions |
+| `util.monitor.stat_native.NAVIGATION_3D_AGENT_COUNT` | Number of 3D navigation agents |
+| `util.monitor.stat_native.NAVIGATION_3D_LINK_COUNT` | Number of 3D navigation links |
+| `util.monitor.stat_native.NAVIGATION_3D_POLYGON_COUNT` | Number of 3D navigation polygons |
+| `util.monitor.stat_native.NAVIGATION_3D_EDGE_COUNT` | Number of 3D navigation edges |
+| `util.monitor.stat_native.NAVIGATION_3D_EDGE_MERGE_COUNT` | Number of merged 3D navigation edges |
+| `util.monitor.stat_native.NAVIGATION_3D_EDGE_CONNECTION_COUNT` | Number of 3D navigation edge connections |
+| `util.monitor.stat_native.NAVIGATION_3D_EDGE_FREE_COUNT` | Number of free 3D navigation edges |
+| `util.monitor.stat_native.NAVIGATION_3D_OBSTACLE_COUNT` | Number of 3D navigation obstacles |
+
+#### Pipeline Compilations
+
+| Constant | Description |
+|----------|-------------|
+| `util.monitor.stat_native.PIPELINE_COMPILATIONS_CANVAS` | Number of pipeline compilations for canvas rendering |
+| `util.monitor.stat_native.PIPELINE_COMPILATIONS_MESH` | Number of pipeline compilations for meshes |
+| `util.monitor.stat_native.PIPELINE_COMPILATIONS_SURFACE` | Number of pipeline compilations for surfaces |
+| `util.monitor.stat_native.PIPELINE_COMPILATIONS_DRAW` | Number of pipeline compilations for draw calls |
+| `util.monitor.stat_native.PIPELINE_COMPILATIONS_SPECIALIZATION` | Number of pipeline specialization compilations |

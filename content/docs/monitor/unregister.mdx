@@ -1,0 +1,41 @@
+---
+title: util.monitor.unregister
+description: Removes a previously registered custom performance monitor
+badge: Shared
+---
+
+### Syntax
+
+```lua
+local status = util.monitor.unregister(
+    id
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | id | Unique identifier of the custom monitor to remove |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` regardless of whether the monitor existed |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Unregister a custom monitor"
+util.monitor.unregister("my_resource:entity_count")
+```
+
+```lua lineNumbers title="Replace a monitor by unregistering and re-registering"
+util.monitor.unregister("my_resource:tick_rate")
+
+util.monitor.register("my_resource:tick_rate", "Tick Rate (Updated)", function()
+    return tick_system.get_rate()
+end, util.monitor.stat_format.QUANTITY)
+```
