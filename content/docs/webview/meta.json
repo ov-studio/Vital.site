@@ -30,6 +30,7 @@
         "method__set_visible",
         "method__set_devtools_visible",
         "method__set_message_handler",
+        "method__reset_message_handler",
 
        "---⁝⁝Misc---",
         "method__load_url",

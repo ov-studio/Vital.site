@@ -1,0 +1,31 @@
+---
+title: self:reset_message_handler
+description: Removes the previously registered message handler from the webview
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:reset_message_handler()
+```
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reset a message handler on a webview"
+local entity = core.webview.create()
+
+entity:set_message_handler(function(message)
+    core.engine.print("info", "Received message:", message)
+end)
+
+entity:reset_message_handler()
+```
