@@ -694,8 +694,8 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <lucide.Blocks {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] API: util.export.register', status: 'completed' },
-          { label: '[Shared] API: util.export.call', status: 'completed' },
-          { label: '[Shared] API: util.export.list', status: 'completed' }
+          { label: '[Shared] API: util.export.list', status: 'completed' },
+          { label: '[Shared] API: util.export.call', status: 'completed' }
         ]
       },
       {
