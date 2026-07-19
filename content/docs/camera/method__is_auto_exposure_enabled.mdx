@@ -29,7 +29,6 @@ local result = self:is_auto_exposure_enabled()
 local entity = core.camera.create()
 
 core.engine.print("info", entity:is_auto_exposure_enabled()) -- false (disabled by default)
-
 entity:set_auto_exposure_enabled(true)
 core.engine.print("info", entity:is_auto_exposure_enabled()) -- true
 ```
