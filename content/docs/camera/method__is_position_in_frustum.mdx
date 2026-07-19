@@ -30,10 +30,9 @@ local result = self:is_position_in_frustum(
 
 ```lua lineNumbers title="Check if a position is visible to the camera"
 local entity = core.camera.create()
+local position = {0, 0, -5}
 
 entity:set_active()
-
-local position = {0, 0, -5}
 if entity:is_position_in_frustum(position) then
     core.engine.print("info", "Position is visible")
 end
