@@ -28,8 +28,6 @@ local result = self:is_dof_blur_near_enabled()
 ```lua lineNumbers title="Check near DOF blur state"
 local entity = core.camera.create()
 
-core.engine.print("info", entity:is_dof_blur_near_enabled()) -- false (disabled by default)
-
 entity:set_dof_blur_near_enabled(true)
 core.engine.print("info", entity:is_dof_blur_near_enabled()) -- true
 ```
