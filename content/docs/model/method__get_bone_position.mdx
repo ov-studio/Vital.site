@@ -32,7 +32,7 @@ local position = self:get_bone_position(
 local entity = core.model.create("character")
 local position = entity:get_bone_position("Head")
 
-core.engine.print("info", "Bone position:", position[1], position[2], position[3])
+core.engine.print("info", "Bone position:", util.table.unpack(position))
 ```
 
 ```lua lineNumbers title="Draw a screen-space marker at a bone's world position"
@@ -42,8 +42,8 @@ local bone = "Head"
 util.event.on("sandbox:draw", function()
     local position = entity:get_bone_position(bone)
     local screen, distance = core.engine.world_to_screen(position)
-    if screen[1] ~= -1 then
-        core.engine.draw_circle(screen, 5, {1, 0, 0, 1})
-    end
+    if screen[1] == -1 then return false end
+
+    core.engine.draw_circle(screen, 5, {1, 0, 0, 1})
 end)
 ```
