@@ -15,15 +15,15 @@ local result = util.monitor.has(
 <Callout type="info">
   **Accepts both native and custom stat identifiers.**
 
-  - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value to check whether a built-in Godot monitor exists
-  - **Custom monitors** — pass a `string` id to check whether a monitor registered via [`util.monitor.register`](/docs/monitor/register) exists
+  - **Native stats** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value to check whether a built-in Godot stat exists
+  - **Custom stats** — pass a `string` id to check whether a stat registered via [`util.monitor.register`](/docs/monitor/register) exists
 </Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) \| `string` | id | Monitor to look up:<br/>• When [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) - checks a native monitor by enum value<br/>• When `string` - checks a custom monitor by its registered id |
+| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) \| `string` | id | Stat to look up:<br/>• When [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) - checks a native stat by enum value<br/>• When `string` - checks a custom stat by its registered id |
 
 ### Returns
 
