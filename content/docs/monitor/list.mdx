@@ -31,6 +31,7 @@ local result = util.monitor.list()
 |-------|------|-------------|
 | `id` | `int` | Enum value usable with [`util.monitor.get`](/docs/monitor/get) and [`util.monitor.has`](/docs/monitor/has) |
 | `name` | `string` | Constant name from the [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum |
+| `format` | `string` | Display format of the stat, matching one of the [`util.monitor.stat_format`](/docs/monitor/enum/stat_format) enum |
 
 `result.custom` — Array of entries for all currently registered custom stats
 
@@ -38,6 +39,7 @@ local result = util.monitor.list()
 |-------|------|-------------|
 | `id` | `string` | Registered string id usable with [`util.monitor.get`](/docs/monitor/get) and [`util.monitor.has`](/docs/monitor/has) |
 | `name` | `string` | Human-readable display name provided at registration |
+| `format` | `string` | Display format of the stat, matching one of the [`util.monitor.stat_format`](/docs/monitor/enum/stat_format) enum |
 
 ---
 
