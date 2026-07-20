@@ -44,11 +44,11 @@ core.engine.print("info", "FPS:", util.monitor.get(util.monitor.stat_native.TIME
 core.engine.print("info", "Memory (bytes):", util.monitor.get(util.monitor.stat_native.MEMORY_STATIC))
 ```
 
-```lua lineNumbers title="Read a custom monitor"
+```lua lineNumbers title="Read a custom stat"
 core.engine.print("info", "Entity count:", util.monitor.get("my_resource:entity_count"))
 ```
 
-```lua lineNumbers title="Safely read a custom monitor with an existence check"
+```lua lineNumbers title="Safely read a custom stat with an existence check"
 if util.monitor.has("my_resource:cache_size") then
     core.engine.print("info", "Cache size (bytes):", util.monitor.get("my_resource:cache_size"))
 end
