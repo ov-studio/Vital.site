@@ -44,9 +44,9 @@ local instance = core.database.create(
 ### Examples
 
 ```lua lineNumbers title="Connect to a local database without a password"
-local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+local entity = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 ```
 
 ```lua lineNumbers title="Connect with a password and custom port"
-local db = core.database.create("127.0.0.1", "root", "secret", "vital_sandbox", 3307)
+local entity = core.database.create("127.0.0.1", "root", "secret", "vital_sandbox", 3307)
 ```
