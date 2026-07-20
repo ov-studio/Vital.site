@@ -26,9 +26,7 @@ local velocity = util.input.get_cursor_velocity()
 ### Examples
 
 ```lua lineNumbers title="Print the current cursor velocity"
-local velocity = util.input.get_cursor_velocity()
-
-core.engine.print("info", "Cursor velocity:", velocity[1], velocity[2])
+core.engine.print("info", "Cursor velocity:", util.table.unpack(util.input.get_cursor_velocity()))
 ```
 
 ```lua lineNumbers title="Use cursor velocity for FPS camera rotation"
