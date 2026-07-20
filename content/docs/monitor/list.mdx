@@ -54,7 +54,7 @@ core.engine.print("info", "Custom stats:", #stats.custom)
 local stats = util.monitor.list()
 
 for index, entry in ipairs(stats.native) do
-    core.engine.print("info", entry.name, "=", util.monitor.get(entry.id))
+    core.engine.print("info", entry.name, "=", util.monitor.get(entry.id), "(" .. entry.format .. ")")
 end
 ```
 
@@ -62,7 +62,7 @@ end
 local stats = util.monitor.list()
 
 for index, entry in ipairs(stats.custom) do
-    core.engine.print("info", entry.name, "=", util.monitor.get(entry.id))
+    core.engine.print("info", entry.name, "=", util.monitor.get(entry.id), "(" .. entry.format .. ")")
 end
 ```
 
