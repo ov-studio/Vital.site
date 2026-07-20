@@ -64,7 +64,7 @@ core.engine.print("info", digits) -- 5
 ```lua lineNumbers title="Compute how many doublings to reach a target"
 local start = 1
 local target = 1024
-local doublings = util.math.ceil(util.math.log(target / start, 2))
+local doublings = util.math.ceil(util.math.log(target/start, 2))
 
 core.engine.print("info", doublings) -- 10
 ```
