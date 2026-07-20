@@ -16,19 +16,20 @@ local status = util.monitor.unregister(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | id | Unique identifier of the custom monitor to remove |
+| `string` | id | Unique identifier of the custom stat to remove |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | status | `true` if the monitor was found and removed, `false` otherwise |
+| `bool` | status | `true` if the stat was found and removed, `false` otherwise |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Unregister a custom monitor"
+```lua lineNumbers title="Unregister a custom stat"
 util.monitor.unregister("my_resource:entity_count")
 ```
 
