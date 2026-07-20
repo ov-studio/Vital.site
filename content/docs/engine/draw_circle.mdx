@@ -50,7 +50,7 @@ local status = core.engine.draw_circle(
 
 ```lua lineNumbers title="Draw a plain circle at the center"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_circle(
@@ -62,7 +62,7 @@ end)
 
 ```lua lineNumbers title="Draw a filled circle with an outline"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_circle(
@@ -77,7 +77,7 @@ end)
 
 ```lua lineNumbers title="Draw a semi-transparent circle"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_circle(

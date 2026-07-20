@@ -50,12 +50,12 @@ local status = core.engine.draw_rectangle(
 
 ```lua lineNumbers title="Draw a plain white rectangle"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_rectangle(
-        {center[1] - size[1] * 0.5, center[2] - 200},
+        {center[1] - size[1]*0.5, center[2] - 200},
         size
     )
 end)
@@ -63,12 +63,12 @@ end)
 
 ```lua lineNumbers title="Draw a filled rectangle with an outline"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_rectangle(
-        {center[1] - size[1] * 0.5, center[2] - size[2] * 0.5},
+        {center[1] - size[1]*0.5, center[2] - size[2]*0.5},
         size,
         {0, 1, 0, 1},
         2,
@@ -79,18 +79,18 @@ end)
 
 ```lua lineNumbers title="Draw a rectangle rotated around its center"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 local size = {200, 100}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_rectangle(
-        {center[1] - size[1] * 0.5, center[2] + 120},
+        {center[1] - size[1]*0.5, center[2] + 120},
         size,
         {1, 0.5, 0, 1},
         0,
         {1, 1, 1, 1},
         30,
-        {size[1] * 0.5, size[2] * 0.5}
+        {size[1]*0.5, size[2]*0.5}
     )
 end)
 ```

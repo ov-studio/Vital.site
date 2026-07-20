@@ -32,7 +32,7 @@ local position = core.engine.screen_to_world(
 
 ```lua lineNumbers title="Convert screen center to world position"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 local position = core.engine.screen_to_world(center, 100)
 
 core.engine.print("info", "World position:", util.table.unpack(position))
@@ -40,7 +40,7 @@ core.engine.print("info", "World position:", util.table.unpack(position))
 
 ```lua lineNumbers title="Retrieve world positions at near and far depths"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 local near = core.engine.screen_to_world(center, 10)
 local far = core.engine.screen_to_world(center, 500)
 

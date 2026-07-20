@@ -48,7 +48,7 @@ local status = core.engine.draw_polygon(
 
 ```lua lineNumbers title="Draw a plain white triangle"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_polygon(
@@ -63,7 +63,7 @@ end)
 
 ```lua lineNumbers title="Draw a filled triangle with a colored outline"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_polygon(
@@ -81,7 +81,7 @@ end)
 
 ```lua lineNumbers title="Draw a polygon rotated around a pivot point"
 local resolution = core.engine.get_resolution()
-local center = {resolution[1] * 0.5, resolution[2] * 0.5}
+local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_polygon(
