@@ -26,9 +26,7 @@ local mode = util.input.get_cursor_mode()
 ### Examples
 
 ```lua lineNumbers title="Print the current cursor mode"
-local mode = util.input.get_cursor_mode()
-
-core.engine.print("info", "Cursor mode:", mode)
+core.engine.print("info", "Cursor mode:", util.input.get_cursor_mode())
 ```
 
 ```lua lineNumbers title="Toggle captured mode only when not already active"

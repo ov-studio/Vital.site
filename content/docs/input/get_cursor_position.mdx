@@ -26,13 +26,11 @@ local position = util.input.get_cursor_position()
 ### Examples
 
 ```lua lineNumbers title="Print the current cursor position"
-local position = util.input.get_cursor_position()
-
-core.engine.print("info", "Cursor position:", position[1], position[2])
+core.engine.print("info", "Cursor position:", util.table.unpack(util.input.get_cursor_position()))
 ```
 
 ```lua lineNumbers title="Convert the cursor position to a world-space ray"
-local position = util.input.get_cursor_position()
+local cursor_position = util.input.get_cursor_position()
 local world_position = core.engine.screen_to_world(position, 10)
 
 core.engine.print("info", "World position:", world_position[1], world_position[2], world_position[3])
