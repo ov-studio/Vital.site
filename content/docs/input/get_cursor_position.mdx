@@ -33,5 +33,5 @@ core.engine.print("info", "Cursor position:", util.table.unpack(util.input.get_c
 local cursor_position = util.input.get_cursor_position()
 local world_position = core.engine.screen_to_world(position, 10)
 
-core.engine.print("info", "World position:", world_position[1], world_position[2], world_position[3])
+core.engine.print("info", "World position:", util.table.unpack(world_position))
 ```
