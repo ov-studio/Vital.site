@@ -36,26 +36,19 @@ local value = util.monitor.get(
 ### Examples
 
 ```lua lineNumbers title="Read the current FPS"
-local fps = util.monitor.get(util.monitor.stat_native.TIME_FPS)
-
-core.engine.print("info", "FPS:", fps)
+core.engine.print("info", "FPS:", util.monitor.get(util.monitor.stat_native.TIME_FPS))
 ```
 
 ```lua lineNumbers title="Read static memory usage"
-local mem = util.monitor.get(util.monitor.stat_native.MEMORY_STATIC)
-
-core.engine.print("info", "Memory (bytes):", mem)
+core.engine.print("info", "Memory (bytes):", util.monitor.get(util.monitor.stat_native.MEMORY_STATIC))
 ```
 
 ```lua lineNumbers title="Read a custom monitor"
-local count = util.monitor.get("my_resource:entity_count")
-
-core.engine.print("info", "Entity count:", count)
+core.engine.print("info", "Entity count:", util.monitor.get("my_resource:entity_count"))
 ```
 
 ```lua lineNumbers title="Safely read a custom monitor with an existence check"
 if util.monitor.has("my_resource:cache_size") then
-    local size = util.monitor.get("my_resource:cache_size")
-    core.engine.print("info", "Cache size (bytes):", size)
+    core.engine.print("info", "Cache size (bytes):", util.monitor.get("my_resource:cache_size"))
 end
 ```
