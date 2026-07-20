@@ -42,6 +42,6 @@ local resolution = core.engine.get_resolution()
 local near = core.engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 10)
 local far = core.engine.screen_to_world({resolution[1]*0.5, resolution[2]*0.5}, 500)
 
-core.engine.print("info", "Near:", near[1], near[2], near[3])
-core.engine.print("info", "Far:",  far[1],  far[2],  far[3])
+core.engine.print("info", "Near:", util.table.unpack(near))
+core.engine.print("info", "Far:", util.table.unpack(far))
 ```
