@@ -29,5 +29,5 @@ local position = self:get_position()
 local entity = core.webview.create()
 local position = entity:get_position()
 
-core.engine.print("info", "Webview position:", position[1], position[2])
+core.engine.print("info", "Webview position:", util.table.unpack(position))
 ```
