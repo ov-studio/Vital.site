@@ -55,7 +55,7 @@ core.engine.print("info", util.table.concat(t, ", ")) -- '1, 2, 3, 4'
 ```lua lineNumbers title="Build an array dynamically with a loop"
 local numbers = {}
 for i = 1, 5 do
-    util.table.insert(numbers, i * 10)
+    util.table.insert(numbers, i*10)
 end
 
 core.engine.print("info", util.table.concat(numbers, ", ")) -- '10, 20, 30, 40, 50'

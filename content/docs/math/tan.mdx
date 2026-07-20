@@ -56,7 +56,7 @@ core.engine.print("info", slope) -- 0.57735
 ```lua lineNumbers title="Compute height from distance and elevation angle"
 local distance = 100
 local elevation_deg = 30
-local height = distance * util.math.tan(util.math.rad(elevation_deg))
+local height = distance*util.math.tan(util.math.rad(elevation_deg))
 
 core.engine.print("info", height) -- 57.735
 ```

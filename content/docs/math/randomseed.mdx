@@ -68,7 +68,7 @@ core.engine.iprint(deck)
 ```
 
 ```lua lineNumbers title="Use two seed components for a broader range"
-util.math.randomseed(os.time(), os.clock() * 1e9)
+util.math.randomseed(os.time(), os.clock()*1e9)
 
 core.engine.print("info", util.math.random()) -- 0.74392 (varies)
 ```

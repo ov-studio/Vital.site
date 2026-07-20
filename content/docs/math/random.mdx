@@ -81,7 +81,7 @@ core.engine.print("info", picked) -- 'potion' (varies)
 
 ```lua lineNumbers title="Generate a random float in a custom range"
 local range_min, range_max = 1.5, 4.5
-local result = range_min + util.math.random() * (range_max - range_min)
+local result = range_min + util.math.random()*(range_max - range_min)
 
 core.engine.print("info", result) -- 2.87 (varies)
 ```

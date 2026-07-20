@@ -55,14 +55,14 @@ core.engine.print("info", result) -- 1000.0
 ```lua lineNumbers title="Calculate 2D distance between two points"
 local dx = 3
 local dy = 4
-local distance = util.math.sqrt(dx * dx + dy * dy)
+local distance = util.math.sqrt(dx*dx + dy*dy)
 
 core.engine.print("info", distance) -- 5.0
 ```
 
 ```lua lineNumbers title="Normalize a 2D vector"
 local vx, vy = 6, 8
-local length = util.math.sqrt(vx * vx + vy * vy)
+local length = util.math.sqrt(vx*vx + vy*vy)
 local nx, ny = vx / length, vy / length
 
 core.engine.print("info", nx, ny) -- 0.6  0.8
@@ -71,7 +71,7 @@ core.engine.print("info", nx, ny) -- 0.6  0.8
 ```lua lineNumbers title="Check if a point is within a radius"
 local px, py = 3, 3
 local radius = 5
-local dist = util.math.sqrt(px * px + py * py)
+local dist = util.math.sqrt(px*px + py*py)
 
 if dist <= radius then
     core.engine.print("info", "Inside radius")

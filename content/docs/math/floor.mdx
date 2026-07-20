@@ -61,7 +61,7 @@ core.engine.print("info", result) -- 3
 ```lua lineNumbers title="Snap position to grid"
 local pos_x = 137.6
 local grid_size = 32
-local snapped = util.math.floor(pos_x / grid_size) * grid_size
+local snapped = util.math.floor(pos_x / grid_size)*grid_size
 
 core.engine.print("info", snapped) -- 128
 ```

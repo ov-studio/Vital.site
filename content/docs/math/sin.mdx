@@ -56,7 +56,7 @@ core.engine.print("info", result) -- 1.0
 local elapsed = 0.5
 local amplitude = 10
 local frequency = 2
-local pos_y = amplitude * util.math.sin(frequency * elapsed)
+local pos_y = amplitude*util.math.sin(frequency*elapsed)
 
 core.engine.print("info", pos_y) -- 8.4147
 ```
@@ -64,8 +64,8 @@ core.engine.print("info", pos_y) -- 8.4147
 ```lua lineNumbers title="Generate a circular position"
 local angle = util.math.pi / 4
 local radius = 5
-local pos_x = radius * util.math.cos(angle)
-local pos_y = radius * util.math.sin(angle)
+local pos_x = radius*util.math.cos(angle)
+local pos_y = radius*util.math.sin(angle)
 
 core.engine.print("info", pos_x, pos_y) -- 3.5355  3.5355
 ```
