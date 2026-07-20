@@ -29,5 +29,5 @@ local position = self:get_position()
 local entity = core.model.create("character")
 local position = entity:get_position()
 
-core.engine.print("info", "Entity position:", position[1], position[2], position[3])
+core.engine.print("info", "Model position:", util.table.unpack(position))
 ```
