@@ -33,7 +33,7 @@ local entity = core.camera.create()
 
 entity:set_active()
 
-local position = entity:unproject_position({0, 0, -5})
+local screen_position = entity:unproject_position({0, 0, -5})
 
-core.engine.print("info", "Screen position:", position[1], position[2], position[3])
+core.engine.print("info", "Screen position:", screen_position[1], screen_position[2], screen_position[3])
 ```
