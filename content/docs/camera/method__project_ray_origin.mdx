@@ -30,11 +30,13 @@ local result = self:project_ray_origin(
 
 ```lua lineNumbers title="Get a ray origin from a screen point"
 local entity = core.camera.create()
+local position = {960, 540}
 
 entity:set_active()
 
-local position = {960, 540}
 local ray_origin = entity:project_ray_origin(position)
 local ray_normal = entity:project_ray_normal(position)
-core.engine.print("info", "Ray from:", ray_origin, "towards:", ray_normal)
+
+core.engine.print("info", "Ray from:", ray_origin[1], ray_origin[2], ray_origin[3])
+core.engine.print("info", "Ray towards:", ray_normal[1], ray_normal[2], ray_normal[3])
 ```

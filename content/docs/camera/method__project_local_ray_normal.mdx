@@ -36,5 +36,6 @@ local entity = core.camera.create()
 entity:set_active()
 
 local local_ray = entity:project_local_ray_normal(center)
+
 core.engine.print("info", "Local ray direction:", local_ray[1], local_ray[2], local_ray[3])
 ```
