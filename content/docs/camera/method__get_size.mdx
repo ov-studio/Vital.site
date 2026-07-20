@@ -35,7 +35,6 @@ local result = self:get_size()
 ```lua lineNumbers title="Get the orthogonal camera size"
 local entity = core.camera.create()
 
-entity:set_projection(core.camera.projection.ORTHOGONAL)
 entity:set_size(10)
 core.engine.print("info", entity:get_size()) -- 10.0
 ```
