@@ -53,7 +53,7 @@ core.engine.print("info", result) -- 9
 ```
 
 ```lua lineNumbers title="Compute integer division"
-local result = util.math.floor(17 / 5)
+local result = util.math.floor(17/5)
 
 core.engine.print("info", result) -- 3
 ```
@@ -61,14 +61,14 @@ core.engine.print("info", result) -- 3
 ```lua lineNumbers title="Snap position to grid"
 local pos_x = 137.6
 local grid_size = 32
-local snapped = util.math.floor(pos_x / grid_size)*grid_size
+local snapped = util.math.floor(pos_x/grid_size)*grid_size
 
 core.engine.print("info", snapped) -- 128
 ```
 
 ```lua lineNumbers title="Convert seconds to whole minutes"
 local seconds = 185
-local minutes = util.math.floor(seconds / 60)
+local minutes = util.math.floor(seconds/60)
 
 core.engine.print("info", minutes) -- 3
 ```

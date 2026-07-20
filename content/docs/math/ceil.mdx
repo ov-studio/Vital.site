@@ -55,14 +55,14 @@ core.engine.print("info", result) -- 3
 ```lua lineNumbers title="Calculate number of pages needed for items"
 local itemCount = 17
 local perPage = 5
-local pages = util.math.ceil(itemCount / perPage)
+local pages = util.math.ceil(itemCount/perPage)
 
 core.engine.print("info", pages) -- 4
 ```
 
 ```lua lineNumbers title="Round up to the next whole unit"
 local bytes = 1500
-local kb = util.math.ceil(bytes / 1024)
+local kb = util.math.ceil(bytes/1024)
 
 core.engine.print("info", kb) -- 2
 ```
