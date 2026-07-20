@@ -53,7 +53,7 @@ core.engine.print("info", "Custom monitors:", #monitors.custom)
 ```lua lineNumbers title="Iterate over native monitors"
 local monitors = util.monitor.list()
 
-for _, entry in ipairs(monitors.native) do
+for index, entry in ipairs(monitors.native) do
     core.engine.print("info", entry.name, "=", util.monitor.get(entry.id))
 end
 ```
@@ -61,7 +61,7 @@ end
 ```lua lineNumbers title="Iterate over custom monitors"
 local monitors = util.monitor.list()
 
-for _, entry in ipairs(monitors.custom) do
+for index, entry in ipairs(monitors.custom) do
     core.engine.print("info", entry.name, "=", util.monitor.get(entry.id))
 end
 ```
