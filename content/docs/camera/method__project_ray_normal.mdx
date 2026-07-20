@@ -37,5 +37,5 @@ entity:set_active()
 
 local ray_normal = entity:project_ray_normal(center)
 
-core.engine.print("info", "Ray direction:", ray_normal[1], ray_normal[2], ray_normal[3])
+core.engine.print("info", "Ray direction:", util.table.unpack(ray_normal))
 ```
