@@ -29,11 +29,12 @@ local result = self:project_ray_normal(
 ### Examples
 
 ```lua lineNumbers title="Get a ray direction from the screen center"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1] * 0.5, resolution[2] * 0.5}
 local entity = core.camera.create()
 
 entity:set_active()
 
-local screen_center = {960, 540}
-local ray_dir = entity:project_ray_normal(screen_center)
-core.engine.print("info", "Ray direction:", ray_dir)
+local ray_dir = entity:project_ray_normal(center)
+core.engine.print("info", "Ray direction:", ray_dir[1], ray_dir[2], ray_dir[3])
 ```
