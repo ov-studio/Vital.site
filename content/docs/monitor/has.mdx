@@ -43,8 +43,7 @@ end
 
 ```lua lineNumbers title="Check for a custom monitor before reading it"
 if util.monitor.has("my_resource:entity_count") then
-    local value = util.monitor.get("my_resource:entity_count")
-    core.engine.print("info", "Entity count:", value)
+    core.engine.print("info", "Entity count:", util.monitor.get("my_resource:entity_count"))
 end
 ```
 
