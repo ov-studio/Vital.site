@@ -29,6 +29,6 @@ local result = self:get_projection_matrix()
 local entity = core.camera.create()
 
 entity:set_active()
-local projection = entity:get_projection_matrix()
-core.engine.print("info", "Column 1:", projection[1])
+core.engine.print("info", "Camera projection matrix:")
+core.engine.iprint(entity:get_projection_matrix())
 ```
