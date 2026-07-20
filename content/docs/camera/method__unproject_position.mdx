@@ -35,5 +35,5 @@ entity:set_active()
 
 local screen_position = entity:unproject_position({0, 0, -5})
 
-core.engine.print("info", "Screen position:", screen_position[1], screen_position[2], screen_position[3])
+core.engine.print("info", "Screen position:", util.table.unpack(screen_position))
 ```

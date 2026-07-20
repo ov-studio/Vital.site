@@ -37,5 +37,5 @@ entity:set_active()
 
 local world_position = entity:project_position({960, 540}, 10)
 
-core.engine.print("info", "World position:", world_position[1], world_position[2], world_position[3])
+core.engine.print("info", "World position:", util.table.unpack(world_position))
 ```
