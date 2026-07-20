@@ -32,7 +32,7 @@ local status = util.monitor.unregister(
 util.monitor.unregister("my_resource:entity_count")
 ```
 
-```lua lineNumbers title="Replace a monitor by unregistering and re-registering"
+```lua lineNumbers title="Replace a stat by unregistering and re-registering"
 util.monitor.unregister("my_resource:tick_rate")
 
 util.monitor.register("my_resource:tick_rate", "Tick Rate (Updated)", function()
