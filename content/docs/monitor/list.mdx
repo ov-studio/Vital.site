@@ -21,18 +21,18 @@ local result = util.monitor.list()
 |------|------|-------------|
 | `table` | result | Table with two sub-tables: `native` and `custom` (see structure below) |
 
-#### `result.native`
+---
 
-Array of entries for all built-in Godot performance monitors.
+### Structure
+
+`result.native` - Array of entries for all built-in Godot performance monitors.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | `int` | Enum value usable with [`util.monitor.get`](/docs/monitor/get) and [`util.monitor.has`](/docs/monitor/has) |
 | `name` | `string` | Constant name from the [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum |
 
-#### `result.custom`
-
-Array of entries for all currently registered custom monitors.
+`result.custom` - Array of entries for all currently registered custom monitors.
 
 | Field | Type | Description |
 |-------|------|-------------|
