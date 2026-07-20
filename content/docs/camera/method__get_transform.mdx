@@ -29,6 +29,6 @@ local result = self:get_transform()
 local entity = core.camera.create()
 
 entity:set_active()
-local transform = entity:get_transform()
-core.engine.print("info", "Camera origin:", transform.origin)
+core.engine.print("info", "Camera transform:")
+core.engine.iprint(entity:get_transform())
 ```
