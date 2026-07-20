@@ -16,7 +16,7 @@ local status = util.monitor.register(
 ```
 
 <Callout type="info">
-  **Custom monitors are scoped to the environment that registered them and are automatically cleaned up when that environment is destroyed.**
+  **Scoped to the registering environment — automatically cleaned up on environment destruction.**
 
   - **Unique IDs** — if `id` already exists, returns `false`; use [`util.monitor.unregister`](/docs/monitor/unregister) first to replace it
   - **Sampler function** — `exec` is called by Godot's `Performance` singleton on demand and must return a single `number`
