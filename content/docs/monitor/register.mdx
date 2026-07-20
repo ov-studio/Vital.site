@@ -29,8 +29,8 @@ local status = util.monitor.register(
 |------|------|-------------|
 | `string` | id | Unique string identifier for this monitor |
 | `string` | name | Human-readable display name shown in the Godot profiler |
-| `function` | exec | Sampler function invoked to read the current value:<br/>• Must return a single `number` |
-| [`util.monitor.stat_format`](/docs/monitor/enum/stat_format) | format | Display format for the value in the profiler:<br/>• Refer [**util.monitor.stat_format**](/docs/monitor/enum/stat_format) enum |
+| `function` | exec | Sampler function invoked to read the current value<br/>Must return a single `number` |
+| [`util.monitor.stat_format`](/docs/monitor/enum/stat_format) | format | Display format for the value in the profiler |
 
 ### Returns
 
