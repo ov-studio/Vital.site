@@ -21,13 +21,14 @@ local status = util.monitor.register(
   - **Unique IDs** — if `id` already exists, returns `false`; use [`util.monitor.unregister`](/docs/monitor/unregister) first to replace it
   - **Sampler function** — `exec` is called by Godot's `Performance` singleton on demand and must return a single `number`
   - **Godot integration** — registered monitors appear in Godot's built-in performance profiler alongside native monitors
+  - **Godot integration** — registered stats appear in Godot's built-in performance profiler alongside native stats
 </Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | id | Unique string identifier for this monitor |
+| `string` | id | Unique string identifier for this stat |
 | `string` | name | Human-readable display name shown in the Godot profiler |
 | `function` | exec | Sampler function invoked to read the current value<br/>Must return a single `number` |
 | [`util.monitor.stat_format`](/docs/monitor/enum/stat_format) | format | Display format for the value in the profiler |
@@ -42,19 +43,19 @@ local status = util.monitor.register(
 
 ### Examples
 
-```lua lineNumbers title="Register a simple quantity monitor"
+```lua lineNumbers title="Register a simple quantity stat"
 util.monitor.register("my_resource:entity_count", "Entity Count", function()
     return entity_manager.count()
 end, util.monitor.stat_format.QUANTITY)
 ```
 
-```lua lineNumbers title="Register a memory usage monitor"
+```lua lineNumbers title="Register a memory usage stat"
 util.monitor.register("my_resource:cache_size", "Cache Size", function()
     return cache.byte_size()
 end, util.monitor.stat_format.MEMORY)
 ```
 
-```lua lineNumbers title="Register a percentage monitor"
+```lua lineNumbers title="Register a percentage stat"
 util.monitor.register("my_resource:cpu_load", "CPU Load", function()
     return profiler.get_load()
 end, util.monitor.stat_format.PERCENTAGE)
@@ -66,6 +67,6 @@ local ok = util.monitor.register("my_resource:tick_rate", "Tick Rate", function(
 end, util.monitor.stat_format.QUANTITY)
 
 if not ok then
-    core.engine.print("warn", "Monitor already registered")
+    core.engine.print("warn", "Stat already registered")
 end
 ```
