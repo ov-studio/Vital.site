@@ -36,6 +36,6 @@ local query = self:table(
 ### Examples
 
 ```lua lineNumbers title="Create a query builder targeting the 'players' table"
-local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
-local query = db:table("players")
+local entity = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+local query = entity:table("players")
 ```
