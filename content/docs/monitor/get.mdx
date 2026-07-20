@@ -16,7 +16,7 @@ local value = util.monitor.get(
   **The monitor must exist before reading it.**
 
   - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value; throws an error if the value is not a valid native monitor
-  - **Custom monitors** — pass a `string` ID registered via [`util.monitor.register`](/docs/monitor/register); returns `nil` if the monitor does not exist
+  - **Custom monitors** — pass a `string` ID registered via [`util.monitor.register`](/docs/monitor/register); returns `false` if the monitor does not exist
 </Callout>
 
 ### Parameters
@@ -29,7 +29,7 @@ local value = util.monitor.get(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` \| `nil` | value | Current sampled value of the monitor |
+| `number` \| `bool` | value | Current sampled value of the monitor, `false` otherwise |
 
 ---
 
