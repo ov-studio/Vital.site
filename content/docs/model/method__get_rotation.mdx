@@ -29,5 +29,5 @@ local rotation = self:get_rotation()
 local entity = core.model.create("character")
 local rotation = entity:get_rotation()
 
-core.engine.print("info", "Rotation:", rotation[1], rotation[2], rotation[3])
+core.engine.print("info", "Model rotation:", util.table.unpack(rotation))
 ```
