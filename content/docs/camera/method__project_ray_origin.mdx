@@ -37,6 +37,6 @@ entity:set_active()
 local ray_origin = entity:project_ray_origin(position)
 local ray_normal = entity:project_ray_normal(position)
 
-core.engine.print("info", "Ray from:", ray_origin[1], ray_origin[2], ray_origin[3])
-core.engine.print("info", "Ray towards:", ray_normal[1], ray_normal[2], ray_normal[3])
+core.engine.print("info", "Ray from:", util.table.unpack(ray_origin))
+core.engine.print("info", "Ray towards:", util.table.unpack(ray_normal))
 ```
