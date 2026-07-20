@@ -34,8 +34,7 @@ util.input.set_cursor_mode(util.input.cursor_mode.CAPTURED)
 
 local sensitivity = 0.1
 local velocity = util.input.get_cursor_velocity()
-
-local yaw   = velocity[1] * sensitivity
+local yaw = velocity[1] * sensitivity
 local pitch = velocity[2] * sensitivity
 
 core.engine.print("info", "Yaw delta:", yaw, "Pitch delta:", pitch)
