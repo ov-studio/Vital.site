@@ -40,7 +40,7 @@ core.engine.print("info", area) -- 28.274333882308
 local point_count = 8
 
 for i = 0, point_count - 1 do
-    local angle = 2*util.math.pi*i / point_count
+    local angle = 2*util.math.pi*i/point_count
     local pos_x = util.math.cos(angle)
     local pos_y = util.math.sin(angle)
     core.engine.print("info", pos_x, pos_y)
@@ -49,7 +49,7 @@ end
 
 ```lua lineNumbers title="Compute the volume of a sphere"
 local radius = 4
-local volume = (4 / 3)*util.math.pi*radius*radius*radius
+local volume = (4/3)*util.math.pi*radius*radius*radius
 
 core.engine.print("info", volume) -- 268.08257310942
 ```
