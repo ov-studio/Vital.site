@@ -15,7 +15,7 @@ local value = util.monitor.get(
 <Callout type="warn">
   **The monitor must exist before reading it.**
 
-  - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value (integer); throws an error if the value is not a valid native monitor
+  - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value; throws an error if the value is not a valid native monitor
   - **Custom monitors** — pass a `string` ID registered via [`util.monitor.register`](/docs/monitor/register); returns `nil` if the monitor does not exist
 </Callout>
 
@@ -23,13 +23,13 @@ local value = util.monitor.get(
 
 | Type | Name | Description |
 |------|------|-------------|
-| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) \| `string` | id | Monitor to read:<br/>• When `int` — reads a native monitor by enum value; refer [**util.monitor.stat_native**](/docs/monitor/enum/stat_native) enum<br/>• When `string` — reads a custom monitor by its registered ID |
+| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) \| `string` | id | Monitor to read:<br/>• When [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) - reads a native monitor by enum value<br/>• When `string` - reads a custom monitor by its registered ID |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `number` | value | Current sampled value of the monitor |
+| `number` \| `nil` | value | Current sampled value of the monitor |
 
 ---
 
