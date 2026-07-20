@@ -13,7 +13,7 @@ local result = util.monitor.has(
 ```
 
 <Callout type="info">
-  **Accepts both native and custom monitor identifiers.**
+  **Accepts both native and custom stat identifiers.**
 
   - **Native monitors** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value to check whether a built-in Godot monitor exists
   - **Custom monitors** — pass a `string` id to check whether a monitor registered via [`util.monitor.register`](/docs/monitor/register) exists
@@ -29,19 +29,19 @@ local result = util.monitor.has(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | `true` if the monitor exists, `false` otherwise |
+| `bool` | result | `true` if the stat exists, `false` otherwise |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Check for a native monitor"
+```lua lineNumbers title="Check for a native stat"
 if util.monitor.has(util.monitor.stat_native.TIME_FPS) then
-    core.engine.print("info", "FPS monitor is available")
+    core.engine.print("info", "FPS stat is available")
 end
 ```
 
-```lua lineNumbers title="Check for a custom monitor before reading it"
+```lua lineNumbers title="Check for a custom stat before reading it"
 if util.monitor.has("my_resource:entity_count") then
     core.engine.print("info", "Entity count:", util.monitor.get("my_resource:entity_count"))
 end

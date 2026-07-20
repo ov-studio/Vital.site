@@ -43,33 +43,33 @@ local result = util.monitor.list()
 
 ### Examples
 
-```lua lineNumbers title="Print all available monitors"
-local monitors = util.monitor.list()
+```lua lineNumbers title="Print all available stats"
+local stats = util.monitor.list()
 
-core.engine.print("info", "Native monitors:", #monitors.native)
-core.engine.print("info", "Custom monitors:", #monitors.custom)
+core.engine.print("info", "Native stats:", #stats.native)
+core.engine.print("info", "Custom stats:", #stats.custom)
 ```
 
-```lua lineNumbers title="Iterate over native monitors"
-local monitors = util.monitor.list()
+```lua lineNumbers title="Iterate over native stats"
+local stats = util.monitor.list()
 
-for index, entry in ipairs(monitors.native) do
+for index, entry in ipairs(stats.native) do
     core.engine.print("info", entry.name, "=", util.monitor.get(entry.id))
 end
 ```
 
-```lua lineNumbers title="Iterate over custom monitors"
-local monitors = util.monitor.list()
+```lua lineNumbers title="Iterate over custom stats"
+local stats = util.monitor.list()
 
-for index, entry in ipairs(monitors.custom) do
+for index, entry in ipairs(stats.custom) do
     core.engine.print("info", entry.name, "=", util.monitor.get(entry.id))
 end
 ```
 
-```lua lineNumbers title="Check if any custom monitors are registered"
-local monitors = util.monitor.list()
+```lua lineNumbers title="Check if any custom stats are registered"
+local stats = util.monitor.list()
 
-if #monitors.custom == 0 then
-    core.engine.print("warn", "No custom monitors registered")
+if #stats.custom == 0 then
+    core.engine.print("warn", "No custom stats registered")
 end
 ```
