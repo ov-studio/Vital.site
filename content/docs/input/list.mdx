@@ -10,6 +10,14 @@ badge: Client
 local commands = util.input.list()
 ```
 
+<Callout type="info">
+  **Names only — not the handlers themselves.**
+
+  - **Unordered** — backed by a hash map, so iteration order won't match registration order
+  - **Read-only** — safe to call anytime; has no effect on registered handlers
+  - **All environments** — includes commands registered by every resource's script, not just the caller's own
+</Callout>
+
 ### Parameters
 
 | No parameters are accepted by this function |
@@ -19,7 +27,7 @@ local commands = util.input.list()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | commands | Array of registered command name strings<br/>• Order is not guaranteed to match registration order |
+| `table` | commands | Array of registered command name strings |
 
 ---
 
