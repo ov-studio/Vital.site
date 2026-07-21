@@ -126,8 +126,9 @@ A flat list of glob patterns for non-script assets — models, textures, sounds,
 Like scripts, each pattern is expanded on disk; a pattern matching nothing produces an error and the whole manifest fails.
 
 <Callout type="info">
-  **Files are hashed at parse time**, so changes can be detected on restart (see [Restarting](#restarting) below).
+  **Files are hashed at parse time**.
   
+  - Changes after every restart can be detected as per [Resource](#resource) section
   - Models declared under `files` are additionally auto-detected and loaded as part of resource startup.
 </Callout>
 
