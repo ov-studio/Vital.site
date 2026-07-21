@@ -14,14 +14,14 @@ Every resource in **Vital.sandbox** lives in its own folder under the server's `
 <Callout type="info">
   **Where resources live**
 
-  - **Folder = resource** — each resource is a folder named after it, e.g. `resources/drawtest/`
+  - **Folder = resource** — each resource is a folder named after it, e.g. `resources/inventory/`
   - **Fixed filename** — the manifest must be named exactly `manifest.yaml` and sit at the folder's root
   - **Folder name is the reference** — it becomes the resource's `ref` and is used everywhere the resource is addressed
 </Callout>
 
 ```txt title="Example resource folder"
 resources/
-└── drawtest/
+└── inventory/
     ├── manifest.yaml
     ├── client.lua
     ├── client2.lua
@@ -68,7 +68,7 @@ author: "YourName"
 version: "1.0.0"
 
 dependencies:
-  - "drawtest"
+  - "inventory"
 
 scripts:
   - { src: "client.lua", type: "client" }
