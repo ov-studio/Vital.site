@@ -8,7 +8,8 @@
         "index",
         "building",
         "config_server",
-
+        "resource_manifest",
+        
         "---Core---",
         "engine",
         "database",
