@@ -135,7 +135,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
-          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
+          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' },
+          { label: '[Server] Inter-resource dependencies with circular-dependency detection', status: 'completed' },
+          { label: '[Server] Dependency-ordered start and live change tracking on restart', status: 'completed' }
         ]
       },
     ]
