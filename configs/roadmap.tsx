@@ -163,6 +163,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.get_timestamp', status: 'completed' },
           { label: '[Shared] API: core.engine.get_resolution', status: 'completed' },
           { label: '[Shared] API: core.engine.get_serial', status: 'completed' },
+          { label: '[Shared] API: core.engine.get_entity_types', status: 'completed' },
           { label: '[Shared] API: core.engine.get_entities', status: 'completed' },
           { label: '[Client] API: core.engine.world_to_screen', status: 'completed' },
           { label: '[Client] API: core.engine.screen_to_world', status: 'completed' },
