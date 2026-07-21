@@ -148,8 +148,8 @@ Resource Manager resolves the full dependency graph recursively and starts depen
 
 | Rule | Behaviour |
 |---|---|
-| invalid-name | Any dependency name failing the [naming conventions](#naming-conventions) is rejected with an error |
-| self-dependency | A resource cannot list itself as a dependency - rejected outright |
-| missing dependency | If a listed dependency isn't a known resource, resolution fails and the resource does not start |
-| circular-dependency | Detected via a recursion stack; a cycle (e.g. `A → B → A`) aborts the start with the full chain reported |
-| already-running | Dependencies already running are skipped - they are not restarted |
+| `invalid-name` | Any dependency name failing the [naming conventions](#naming-conventions) is rejected with an error |
+| `self-dependency` | A resource cannot list itself as a dependency - rejected outright |
+| `missing dependency` | If a listed dependency isn't a known resource, resolution fails and the resource does not start |
+| `circular-dependency` | Detected via a recursion stack; a cycle (e.g. `A → B → A`) aborts the start with the full chain reported |
+| `already-running` | Dependencies already running are skipped - they are not restarted |
