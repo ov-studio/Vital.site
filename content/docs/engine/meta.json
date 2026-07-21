@@ -20,6 +20,7 @@
         "get_timestamp",
         "get_resolution",
         "get_serial",
+        "get_entity_types",
         "get_entities",
 
         "---Canvas---",
