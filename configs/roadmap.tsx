@@ -728,7 +728,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: util.input.set_cursor_mode', status: 'completed' },
           { label: '[Shared] API: util.input.set_cursor_position', status: 'completed' },
           { label: '[Shared] API: util.input.bind', status: 'completed' },
-          { label: '[Shared] API: util.input.unbind', status: 'completed' }
+          { label: '[Shared] API: util.input.unbind', status: 'completed' },
+          { label: '[Shared] API: util.input.register', status: 'completed' },
+          { label: '[Shared] API: util.input.unregister', status: 'completed' },
+          { label: '[Shared] API: util.input.list', status: 'completed' },
+          { label: '[Shared] API: util.input.execute', status: 'completed' }
         ]
       },
       {
