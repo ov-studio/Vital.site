@@ -125,7 +125,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Vital.kit\'s Lua module injection', status: 'completed' },
           { label: '[Server] Resource scanner', status: 'completed' },
-          { label: '[Server] Resource dependency support', status: 'completed' },
+          { label: '[Server] Resource dependency resolver', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
           { label: '[Shared] Resource loader / unloader', status: 'completed' },
           { label: '[Shared] Resource asset compression', status: 'completed' },
