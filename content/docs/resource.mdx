@@ -213,16 +213,3 @@ Errors are collected per-resource and logged as a group; any one of them causes 
 | Duplicate resource folder name | "duplicate resource found — skipping `<name>`" |
 | Invalid resource folder name | "invalid resource name `<name>` — skipping" |
 | `manifest.yaml` missing | Resource simply not picked up by scan (non-fatal, silent skip) |
-
----
-
-## Quick Reference
-
-<Callout type="info">
-  **Minimal valid manifest** — `scripts` is the only required key; everything else can be omitted.
-</Callout>
-
-```yaml title="Smallest possible manifest.yaml"
-scripts:
-  - { src: "main.lua", type: "shared" }
-```
