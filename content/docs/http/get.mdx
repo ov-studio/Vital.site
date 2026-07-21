@@ -19,8 +19,8 @@ local promise = util.http.get(
 <Callout type="info">
   **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
 
-  - **Inside a thread** — `self:await(util.http.get(...))` yields until the response is received, then returns the resolved values
-  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
+  - **Inside a thread** — `self:await(util.http.get(...))` yields until the response is received, then returns the resolved values.
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
 </Callout>
 
 ### Parameters

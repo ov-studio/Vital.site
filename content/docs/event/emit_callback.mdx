@@ -17,17 +17,17 @@ local result = util.event.emit_callback(
 <Callout type="info">
   **`options` is positional — pass `nil` or omit it entirely when no routing is needed.**
 
-  - **When routing options are needed** — pass the options table as the second argument
-  - **When no routing options are needed** — omit `options` and pass arguments directly after `name`
+  - **When routing options are needed** — pass the options table as the second argument.
+  - **When no routing options are needed** — omit `options` and pass arguments directly after `name`.
 </Callout>
 
 <Callout type="warn">
   **Only serializable values survive remote transmission. Non-serializable values are silently dropped.**
 
-  - **Safe to send** — `nil`, `bool`, `number`, `string`, `table` (including nested tables)
-  - **Silently dropped** — functions, userdata, threads, and any other non-serializable Lua values
-  - **Local-only emit** (`remote = false`) — no serialization occurs; all Lua values are forwarded as-is
-  - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost
+  - **Safe to send** — `nil`, `bool`, `number`, `string`, `table` (including nested tables).
+  - **Silently dropped** — functions, userdata, threads, and any other non-serializable Lua values.
+  - **Local-only emit** (`remote = false`) — no serialization occurs; all Lua values are forwarded as-is.
+  - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost.
 </Callout>
 
 ### Parameters
@@ -59,9 +59,9 @@ How that promise resolves depends on the number of registered handlers and the `
 <Callout type="warn">
   **Server to client [`util.event.emit_callback`](/docs/event/emit_callback) requires a valid `peer`.**
 
-  - `peer` is **mandatory** when calling with `{ remote = true }` from the server — omitting it throws an error
-  - `peer` must refer to a currently connected peer — passing a disconnected or invalid peer-id throws an error
-  - Broadcasting a callback to multiple clients is not supported — use [`util.event.emit`](/docs/event/emit) instead if you need to notify all peers without expecting a reply
+  - `peer` is **mandatory** when calling with `{ remote = true }` from the server — omitting it throws an error.
+  - `peer` must refer to a currently connected peer — passing a disconnected or invalid peer-id throws an error.
+  - Broadcasting a callback to multiple clients is not supported — use [`util.event.emit`](/docs/event/emit) instead if you need to notify all peers without expecting a reply.
 </Callout>
 
 | Type | Key | Default | Side | Description |

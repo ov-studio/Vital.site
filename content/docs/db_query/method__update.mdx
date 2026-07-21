@@ -15,10 +15,10 @@ local query = self:update(
 <Callout type="info">
   **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the core.database.
 
-  - **Chaining** — compatible with `:where` to target specific rows for updating
-  - **Multiple updates** — chain multiple `:update` calls to append additional column updates
-  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the update
-  - **Without conditions** — omitting `:where` will update all rows in the table
+  - **Chaining** — compatible with `:where` to target specific rows for updating.
+  - **Multiple updates** — chain multiple `:update` calls to append additional column updates.
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the update.
+  - **Without conditions** — omitting `:where` will update all rows in the table.
 </Callout>
 
 ### Parameters

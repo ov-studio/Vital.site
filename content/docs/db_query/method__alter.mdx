@@ -15,16 +15,16 @@ local promise = self:alter(
 <Callout type="info">
   **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
 
-  - **Inside a thread** — `self:await(db_query:alter(...))` yields until the operation completes, then returns the resolved values
-  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result
+  - **Inside a thread** — `self:await(db_query:alter(...))` yields until the operation completes, then returns the resolved values.
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
 </Callout>
 
 <Callout type="warning">
   **This operation executes immediately and cannot be rolled back.** Ensure data is migrated or backed up before modifying or dropping columns.
 
-  - **Modifying a column type** — existing data will be cast to the new type. Non-castable values may be truncated or cause an error depending on MySQL's strict mode setting
-  - **Dropping a column** — all data in that column is permanently deleted
-  - **Primary key** — cannot be changed via `modify`. Redefine the table schema and re-sync if a primary key change is needed
+  - **Modifying a column type** — existing data will be cast to the new type. Non-castable values may be truncated or cause an error depending on MySQL's strict mode setting.
+  - **Dropping a column** — all data in that column is permanently deleted.
+  - **Primary key** — cannot be changed via `modify`. Redefine the table schema and re-sync if a primary key change is needed.
 </Callout>
 
 ### Parameters

@@ -15,8 +15,8 @@ local status = self:reject(
 <Callout type="info">
   **A promise can only be settled once.** Calling `self:reject` or [`self:resolve`](/docs/promise/method/resolve) on an already-settled promise has no effect and returns `false`.
 
-  - **Pending** — the promise is rejected and all awaiting threads are resumed with the provided rejection values
-  - **Already settled** — the call is ignored and `false` is returned
+  - **Pending** — the promise is rejected and all awaiting threads are resumed with the provided rejection values.
+  - **Already settled** — the call is ignored and `false` is returned.
 </Callout>
 
 ### Parameters

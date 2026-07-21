@@ -18,9 +18,9 @@ local status = util.monitor.register(
 <Callout type="info">
   **Scoped to the registering environment — automatically cleaned up on environment destruction.**
 
-  - **Unique IDs** — if `id` already exists, returns `false`; use [`util.monitor.unregister`](/docs/monitor/unregister) first to replace it
-  - **Sampler function** — `exec` is called by Godot's `Performance` singleton on demand and must return a single `number`
-  - **Godot integration** — registered stats appear in Godot's built-in performance profiler alongside native stats
+  - **Unique IDs** — if `id` already exists, returns `false`; use [`util.monitor.unregister`](/docs/monitor/unregister) first to replace it.
+  - **Sampler function** — `exec` is called by Godot's `Performance` singleton on demand and must return a single `number`.
+  - **Godot integration** — registered stats appear in Godot's built-in performance profiler alongside native stats.
 </Callout>
 
 ### Parameters

@@ -13,8 +13,8 @@ local status = self:resume()
 <Callout type="warn">
   **A thread cannot be resumed while it is sleeping or awaiting a promise.** Both states must be cleared before `self:resume` can run successfully.
 
-  - **Sleeping** — the thread is currently inside a [`self:sleep`](/docs/thread/method/sleep) call and has not yet woken up
-  - **Awaiting** — the thread is currently suspended inside a [`self:await`](/docs/thread/method/await) call waiting for a promise to settle
+  - **Sleeping** — the thread is currently inside a [`self:sleep`](/docs/thread/method/sleep) call and has not yet woken up.
+  - **Awaiting** — the thread is currently suspended inside a [`self:await`](/docs/thread/method/await) call waiting for a promise to settle.
 </Callout>
 
 ### Parameters

@@ -13,10 +13,10 @@ local query = self:delete()
 <Callout type="info">
   **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the core.database.
 
-  - **Chaining** — compatible with `:where` to target specific rows for deletion
-  - **Multiple deletions** — chain multiple `:delete` calls to append additional row deletions
-  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the deletion
-  - **Without conditions** — omitting `:where` will delete all rows in the table
+  - **Chaining** — compatible with `:where` to target specific rows for deletion.
+  - **Multiple deletions** — chain multiple `:delete` calls to append additional row deletions.
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the deletion.
+  - **Without conditions** — omitting `:where` will delete all rows in the table.
 </Callout>
 
 ### Parameters

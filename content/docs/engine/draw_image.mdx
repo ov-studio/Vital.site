@@ -20,9 +20,9 @@ local status = core.engine.draw_image(
 <Callout type="warn">
   **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
 
-  - **Inside the event** — executes as expected, rendering the image to the canvas each frame
-  - **Outside the event** — the call will be silently ignored and nothing will be drawn
-  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it
+  - **Inside the event** — executes as expected, rendering the image to the canvas each frame.
+  - **Outside the event** — the call will be silently ignored and nothing will be drawn.
+  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it.
 </Callout>
 
 ### Parameters

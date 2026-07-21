@@ -15,9 +15,9 @@ local status = self:sleep(
 <Callout type="warn">
   **This function must be called from within a running thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a util.promise.
 
-  - **Available** — the thread yields for the given duration and resumes automatically when the timer expires
-  - **Outside a thread** — the call is a no-op and returns `false`
-  - **Sleeping or awaiting** — the call is ignored and returns `false`
+  - **Available** — the thread yields for the given duration and resumes automatically when the timer expires.
+  - **Outside a thread** — the call is a no-op and returns `false`.
+  - **Sleeping or awaiting** — the call is ignored and returns `false`.
 </Callout>
 
 ### Parameters

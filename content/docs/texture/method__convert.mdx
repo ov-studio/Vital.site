@@ -15,9 +15,9 @@ local status = self:convert(
 <Callout type="warn">
   **Converting changes pixel format only — the texture stays uncompressed in VRAM.** Unlike [`self:compress`](/docs/texture/method/compress), it doesn't use GPU block-compression, so it can be converted again — or compressed later — at any time.
 
-  - **Use `convert`** — for quick, reversible VRAM savings, or a specific channel layout
-  - **Use `compress`** — for maximum VRAM savings on a finished asset that won't need further format changes
-  - **Combining both** — convert first if you need a specific format, then compress; compression locks the texture afterward
+  - **Use `convert`** — for quick, reversible VRAM savings, or a specific channel layout.
+  - **Use `compress`** — for maximum VRAM savings on a finished asset that won't need further format changes.
+  - **Combining both** — convert first if you need a specific format, then compress; compression locks the texture afterward.
 </Callout>
 
 ### Parameters

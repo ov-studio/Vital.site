@@ -15,8 +15,8 @@ local result = util.monitor.get(
 <Callout type="warn">
   **The stat must exist before reading it.**
 
-  - **Native stats** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value; throws an error if the value is not a valid native stat
-  - **Custom stats** — pass a `string` id registered via [`util.monitor.register`](/docs/monitor/register); returns `false` if the stat does not exist
+  - **Native stats** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value; throws an error if the value is not a valid native stat.
+  - **Custom stats** — pass a `string` id registered via [`util.monitor.register`](/docs/monitor/register); returns `false` if the stat does not exist.
 </Callout>
 
 ### Parameters

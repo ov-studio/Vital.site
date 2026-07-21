@@ -15,10 +15,10 @@ local result = util.resource.restart(
 <Callout type="warn">
   **The resource must be running before it can be restarted.**
 
-  - **Not running** — returns `false` if the resource is not currently running
-  - **Manifest reload** — the manifest is re-read and re-parsed on restart; any changes to scripts or files are picked up automatically
-  - **Cleanup** — the stop phase cleans up all entities, threads, promises, timers, events, and exports before the resource is started again
-  - **Async** — the restart is enqueued; stop executes immediately on the main thread, then start is re-enqueued after
+  - **Not running** — returns `false` if the resource is not currently running.
+  - **Manifest reload** — the manifest is re-read and re-parsed on restart; any changes to scripts or files are picked up automatically.
+  - **Cleanup** — the stop phase cleans up all entities, threads, promises, timers, events, and exports before the resource is started again.
+  - **Async** — the restart is enqueued; stop executes immediately on the main thread, then start is re-enqueued after.
 </Callout>
 
 ### Parameters

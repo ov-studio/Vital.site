@@ -13,8 +13,8 @@ local instance = util.promise.create()
 <Callout type="info">
   **A promise starts in a pending state and must be explicitly settled.** Use [`self:resolve`](/docs/promise/method/resolve) or [`self:reject`](/docs/promise/method/reject) to settle the promise, and [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
 
-  - **Resolved** — the operation completed successfully; awaiting returns the resolved values
-  - **Rejected** — the operation failed; awaiting throws with the rejection reason
+  - **Resolved** — the operation completed successfully; awaiting returns the resolved values.
+  - **Rejected** — the operation failed; awaiting throws with the rejection reason.
 </Callout>
 
 ### Parameters

@@ -13,8 +13,8 @@ local status = self:destroy()
 <Callout type="warn">
   **Destroying a pending promise will leave any threads awaiting it suspended indefinitely.** Ensure the promise has been settled or no threads are awaiting it before calling this function.
 
-  - **Settled promise** — safe to destroy at any time
-  - **Pending promise with active waiters** — awaiting threads will never resume
+  - **Settled promise** — safe to destroy at any time.
+  - **Pending promise with active waiters** — awaiting threads will never resume.
 </Callout>
 
 ### Parameters

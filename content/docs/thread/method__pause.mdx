@@ -13,9 +13,9 @@ local status = self:pause()
 <Callout type="warn">
   **This function must be called from within a running thread.** It cannot be used outside a thread context, while already sleeping, or while awaiting a util.promise.
 
-  - **Available** — execution is suspended at the call site and resumes from that point when [`self:resume`](/docs/thread/method/resume) is called
-  - **Outside a thread** — the call is a no-op and returns `false`
-  - **Sleeping or awaiting** — the call is ignored and returns `false`
+  - **Available** — execution is suspended at the call site and resumes from that point when [`self:resume`](/docs/thread/method/resume) is called.
+  - **Outside a thread** — the call is a no-op and returns `false`.
+  - **Sleeping or awaiting** — the call is ignored and returns `false`.
 </Callout>
 
 ### Parameters
