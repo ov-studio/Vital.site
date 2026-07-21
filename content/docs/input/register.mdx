@@ -16,7 +16,7 @@ local status = util.input.register(
 <Callout type="info">
   **Handlers are scoped to the environment that registered them and are automatically cleaned up when that environment is destroyed.**
 
-  - **Multiple handlers** — the same command name can have any number of handlers registered independently, all of which fire on execution
+  - **Multiple handlers** — the same command name can have any number of handlers registered independently
   - **Console fallback** — typing an unrecognized command into the console dispatches it here automatically; there's no need to call [`util.input.execute`](/docs/input/execute) yourself just to support console input
 </Callout>
 
