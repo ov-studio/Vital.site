@@ -41,7 +41,7 @@ end
 
 ```lua lineNumbers title="Check whether a command is currently registered"
 local function is_registered(name)
-    for _, cmd in ipairs(util.input.list()) do
+    for index, cmd in ipairs(util.input.list()) do
         if cmd == name then return true end
     end
     return false
