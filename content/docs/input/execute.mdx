@@ -17,7 +17,7 @@ local status = util.input.execute(
   **Fires every handler registered under `name`, the same way console input does.**
 
   - **Strings only** — `args` values are converted with `tostring` internally, so pass strings where possible to match what a real console handler receives
-  - **Not for binding** — this only reaches handlers set up with [`util.input.register`](/docs/input/register);<br/>Key and mouse binds registered through [`util.input.bind`](/docs/input/bind) live in a separate registry entirely and won't fire from this call
+  - **Not for binding** — this only reaches handlers set up with [`util.input.register`](/docs/input/register)<br/>Key and mouse binds registered through [`util.input.bind`](/docs/input/bind) live in a separate registry entirely and won't fire from this call
 </Callout>
 
 ### Parameters
