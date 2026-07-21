@@ -14,9 +14,10 @@ local status = util.input.execute(
 ```
 
 <Callout type="info">
-  **Every handler registered under `name`, across every environment, fires on execution — the same way a typed console command does.**
+  **Fires every handler registered under `name`, the same way console input does.**
 
-  - **Argument shape matches the console** — `args` values are converted with `tostring` internally, so pass strings where possible to match what a real console handler receives
+  - **Strings only** — `args` values are converted with `tostring` internally, so pass strings where possible to match what a real console handler receives
+  - **Not for binding** — this only reaches handlers set up with [`util.input.register`](/docs/input/register); it has no effect on key or mouse binds from [`util.input.bind`](/docs/input/bind)
 </Callout>
 
 ### Parameters
