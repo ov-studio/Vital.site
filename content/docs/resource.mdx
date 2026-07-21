@@ -80,13 +80,6 @@ scripts:
   - { src: "client.lua", type: "client" }
 ```
 
-| Field | Type | Description |
-|---|---|---|
-| `src` | `string` | Path or glob pattern to a `.lua` script, relative to the resource folder<br/>Expanded against the filesystem at load time; a pattern that matches nothing is an error |
-| `type` | `string` | One of the below script types:<br/>• `"shared"` - Loaded and executed on server and client both<br/>• `"server"` - Loaded and executed on server only<br/>• `"client"` - Loaded and executed on client only |
-
-A script's `type` is matched against the current build's platform. `server`-typed scripts are filtered out on client builds; only `shared` and `client`-typed scripts (plus their asset paths) are registered for asset delivery and sent to clients.
-
 <Callout type="warn">
   **Invalid or unmatched entries fail the whole manifest.**
 
@@ -94,6 +87,11 @@ A script's `type` is matched against the current build's platform. `server`-type
   - `type` must be exactly `"shared"`, `"server"`, or `"client"` — anything else is rejected
   - A `src` pattern that matches zero files is rejected — there's no "optional" script
 </Callout>
+
+| Field | Type | Description |
+|---|---|---|
+| `src` | `string` | Path or glob pattern to a `.lua` script, relative to the resource folder<br/>Expanded against the filesystem at load time; a pattern that matches nothing is an error |
+| `type` | `string` | One of the below script types:<br/>• `"shared"` - Loaded and executed on server and client both<br/>• `"server"` - Loaded and executed on server only<br/>• `"client"` - Loaded and executed on client only |
 
 ---
 
