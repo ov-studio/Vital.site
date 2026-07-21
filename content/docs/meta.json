@@ -7,8 +7,8 @@
         "---Glossary---",
         "index",
         "building",
-        "server_manifest",
-        "resource_manifest",
+        "server__manifest",
+        "resource__manifest",
         
         "---Core---",
         "engine",
