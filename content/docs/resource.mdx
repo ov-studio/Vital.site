@@ -64,10 +64,10 @@ files:
 |---|---|---|---|---|
 | `name` | `string` | No | `ref` | Display name for the resource<br/>Falls back to resource's reference if omitted |
 | `author` | `string` | No | `""` | Free-text author/credit string - not validated |
-| `version` | `string` | No | `""` | Free-text version string - not validated against any scheme |
-| `scripts` | `list<string>` | Yes | — | List of script entries to compile and execute for this resource. |
-| `files` | `list<string>` | No | `[]` | Glob patterns for non-script assets (models, textures, sounds, etc). |
-| `dependencies` | `list<string>` | No | `[]` | Names of other resources that must be running before this one starts. |
+| `version` | `string` | No | `""` | Free-text version string - not validated |
+| `scripts` | `list<string>` | Yes | — | List of script entries to compile and execute for this resource |
+| `files` | `list<string>` | No | `[]` | Glob patterns for non-script assets (models, textures, sounds, etc) |
+| `dependencies` | `list<string>` | No | `[]` | Names of other resources that must be running before this one starts |
 
 ---
 
