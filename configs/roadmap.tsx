@@ -174,7 +174,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: core.engine.draw_rectangle', status: 'completed' },
           { label: '[Client] API: core.engine.draw_circle', status: 'completed' },
           { label: '[Client] API: core.engine.draw_image', status: 'completed' },
-          { label: '[Client] API: core.engine.draw_text', status: 'completed' }
+          { label: '[Client] API: core.engine.draw_text', status: 'completed' },
+          { label: '[Client] API: core.engine.screenshot', status: 'pending' }
         ]
       },
       {
@@ -207,6 +208,23 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Server] API: self<db_query>:insert', status: 'completed' },
           { label: '[Server] API: self<db_query>:delete', status: 'completed' },
           { label: '[Server] API: self<db_query>:update', status: 'completed' }
+        ]
+      },
+      {
+        label: 'Discord',
+        desc: 'Native Discord Rich Presence — dynamic activity state, user identity, images, and invite links',
+        icon: <lucide.Gamepad2 {...config_site.info.lucide} />,
+        items: [
+          { label: '[Client] API: core.discord.is_connected', status: 'completed' },
+          { label: '[Client] API: core.discord.get_userid', status: 'completed' },
+          { label: '[Client] API: core.discord.get_username', status: 'completed' },
+          { label: '[Client] API: core.discord.set_application_id', status: 'completed' },
+          { label: '[Client] API: core.discord.set_state', status: 'completed' },
+          { label: '[Client] API: core.discord.set_details', status: 'completed' },
+          { label: '[Client] API: core.discord.set_small_image', status: 'completed' },
+          { label: '[Client] API: core.discord.set_large_image', status: 'completed' },
+          { label: '[Client] API: core.discord.set_timestamps', status: 'completed' },
+          { label: '[Client] API: core.discord.reset_application', status: 'completed' }
         ]
       },
       {
@@ -421,17 +439,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<rendertarget>:is_active', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:get_size', status: 'completed' },
           { label: '[Client] API: self<rendertarget>:set_active', status: 'completed' }
-        ]
-      },
-      {
-        // TODO: WIP
-        label: 'Screenshot Capture',
-        desc: 'Grab the current viewport frame as a raw image or save directly to disk',
-        icon: <lucide.Camera {...config_site.info.lucide}/>,
-        items: [
-          { label: 'Viewport.get_texture snapshot', status: 'pending' },
-          { label: 'Save to PNG / JPG', status: 'pending' },
-          { label: 'Region capture (partial frame)', status: 'pending' },
         ]
       },
       {
@@ -1298,23 +1305,4 @@ export const Roadmap: RoadmapSection[] = build([
       }
     ]
   },
-
-  {
-    name: 'Integrations',
-    cards: [
-      {
-        // TODO: WIP
-        label: 'Discord SDK',
-        desc: 'Native Discord Rich Presence — dynamic state, player count, images, and invite links',
-        icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
-        items: [
-          { label: 'Rich Presence state & details', status: 'completed' },
-          { label: 'Large / small image keys', status: 'completed' },
-          { label: 'Player count placeholders', status: 'completed' },
-          { label: 'Discord invite link integration', status: 'completed' },
-          { label: 'Dynamic updates at runtime', status: 'completed' },
-        ]
-      }
-    ],
-  }
 ]);
