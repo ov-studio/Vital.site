@@ -14,9 +14,9 @@ Every resource in **Vital.sandbox** lives in its own folder under the server's `
 <Callout type="info">
   **Where resources live**
 
-  - **Folder = resource** — each resource is a folder named after it, e.g. `resources/inventory/`
-  - **Fixed filename** — the manifest must be named exactly `manifest.yaml` and sit at the folder's root
-  - **Folder name is the reference** — it becomes the resource's `ref` and is used everywhere the resource is addressed
+  - **Folder = resource** — each resource is a folder named after it, e.g. `resources/inventory/`.
+  - **Fixed filename** — the manifest must be named exactly `manifest.yaml` and sit at the folder's root.
+  - **Folder name is the reference** — it becomes the resource's `ref` and is used everywhere the resource is addressed.
 </Callout>
 
 ```txt title="Example resource folder"
@@ -83,8 +83,8 @@ files:
 <Callout type="warn">
   **Only `scripts` is mandatory.**
 
-  - A manifest with no `scripts` key, or where `scripts` isn't a list, is rejected outright and the resource is skipped during scan
-  - `name`, `author`, `version`, `files`, and `dependencies` are all optional
+  - A manifest with no `scripts` key, or where `scripts` isn't a list, is rejected outright and the resource is skipped during scan.
+  - `name`, `author`, `version`, `files`, and `dependencies` are all optional.
 </Callout>
 
 | Key | Type | Required | Default | Description |
@@ -110,9 +110,9 @@ scripts:
 <Callout type="warn">
   **Invalid or unmatched entries fail the whole manifest.**
 
-  - A script entry missing `src` or `type` is a hard error — the manifest fails to parse
-  - `type` must be exactly `"shared"`, `"server"`, or `"client"` — anything else is rejected
-  - A `src` pattern that matches zero files is rejected — there's no "optional" script
+  - A script entry missing `src` or `type` is a hard error — the manifest fails to parse.
+  - `type` must be exactly `"shared"`, `"server"`, or `"client"` — anything else is rejected.
+  - A `src` pattern that matches zero files is rejected — there's no "optional" script.
 </Callout>
 
 | Field | Type | Description |
@@ -130,7 +130,7 @@ Like scripts, each pattern is expanded on disk; a pattern matching nothing produ
 <Callout type="info">
   **Files are hashed at parse time**.
   
-  - Changes after every restart can be detected as per [Resource](#resource) section
+  - Changes after every restart can be detected as per [Resource](#resource) section.
   - Models declared under `files` are additionally auto-detected and loaded as part of resource startup.
 </Callout>
 
