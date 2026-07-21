@@ -129,6 +129,31 @@ http:
 
 ---
 
+#### Bootstrap
+
+Defines resources that are automatically started after the initial resource scan on server boot. Entries are processed in order and respect full dependency resolution — if a bootstrap resource depends on another resource, that dependency is started first.
+
+```yaml
+bootstrap:
+  - "runcode"
+  - "gamemode"
+```
+
+<Callout type="info">
+  **Bootstrap runs once at startup, after the resource scan completes.**
+
+  - **Order is preserved** — resources are started top-to-bottom as listed.
+  - **Dependencies are resolved automatically** — a bootstrap resource's dependencies are started before it, even if they are not listed here.
+  - **Each entry must be a valid resource name** — it must match a folder under `resources/` and pass the resource name validation rules (`a-z`, `0-9`, `_` only).
+  - **Already-running resources are skipped** — no error is raised if a listed resource is already running by the time bootstrap executes.
+</Callout>
+
+| Value | Type | Description |
+|---|---|---|
+| entry | `string` | Name of a resource folder under `resources/` to start at boot |
+
+---
+
 #### Social
 
 Defines community links surfaced in the master-list.
