@@ -7,7 +7,9 @@ description: Declare a Vital.sandbox resource — its scripts, files, and depend
 
 Every resource in **Vital.sandbox** lives in its own folder under the server's `resources/` directory, described by a single `manifest.yaml` at its root. The Resource Manager scans this directory on server startup, parses each manifest, and tracks the resulting metadata for the lifetime of the server.
 
-**Server builds** read `manifest.yaml` directly from disk, validate it, resolve dependencies, and broadcast the resulting metadata to connected clients. **Client builds** never read `manifest.yaml` — they receive an equivalent, pre-resolved manifest over the network from the server and register it locally.
+**Server builds** read `manifest.yaml` directly from disk, validate it, resolve dependencies, and broadcast the resulting metadata to connected clients.
+
+**Client builds** never read `manifest.yaml` — they receive an equivalent, pre-resolved manifest over the network from the server and register it locally.
 
 <Callout type="info">
   **Where resources live**
