@@ -82,14 +82,8 @@ scripts:
 
 | Field | Type | Description |
 |---|---|---|
-| `src` | string (glob) | Path — or glob pattern — to a `.lua` file, relative to the resource folder. Expanded against the filesystem at load time; a pattern that matches nothing is an error. |
-| `type` | string enum | One of [`util.monitor.stat_format`](/docs/monitor/enum/stat_format)-style enums: `"shared"`, `"server"`, or `"client"` — see below. |
-
-| Type | Runs on Server | Runs on Client | Sent to Client |
-|---|---|---|---|
-| `shared` | Yes | Yes | Yes |
-| `server` | Yes | No | No |
-| `client` | No | Yes | Yes |
+| `src` | `string` | Path or glob pattern to a `.lua` script, relative to the resource folder<br/>Expanded against the filesystem at load time; a pattern that matches nothing is an error |
+| `type` | `string` | One of the below script types:<br/>• `"shared"` - Loaded and executed on server and client both<br/>• `"server"` - Loaded and executed on server only<br/>• `"client"` - Loaded and executed on client only |
 
 A script's `type` is matched against the current build's platform. `server`-typed scripts are filtered out on client builds; only `shared` and `client`-typed scripts (plus their asset paths) are registered for asset delivery and sent to clients.
 
