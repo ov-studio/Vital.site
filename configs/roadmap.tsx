@@ -125,6 +125,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Vital.kit\'s Lua module injection', status: 'completed' },
           { label: '[Server] Resource scanner', status: 'completed' },
+          { label: '[Server] Resource dependency support', status: 'completed' },
           { label: '[Shared] Resource cache', status: 'completed' },
           { label: '[Shared] Resource loader / unloader', status: 'completed' },
           { label: '[Shared] Resource asset compression', status: 'completed' },
@@ -135,9 +136,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Main-thread execution enforcement for Lua script callbacks', status: 'completed' },
           { label: '[Shared] Runtime cross-resource exports', status: 'completed' },
           { label: '[Client] Manifest-driven asset sync with hash verification', status: 'completed' },
-          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' },
-          { label: '[Server] Inter-resource dependencies with circular-dependency detection', status: 'completed' },
-          { label: '[Server] Dependency-ordered start and live change tracking on restart', status: 'completed' }
+          { label: '[Client] Concurrent threaded downloads with cancellation', status: 'completed' }
         ]
       },
     ]
