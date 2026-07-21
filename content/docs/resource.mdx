@@ -27,7 +27,7 @@ resources/
         └── ...
 ```
 
-File and script paths declared in the manifest are resolved relative to this folder.
+Script and file paths declared in the manifest are resolved relative to this folder.
 
 ---
 
@@ -97,7 +97,12 @@ scripts:
 
 #### Files
 
-A flat list of glob patterns for non-script assets — models, textures, sounds, config data, anything the resource needs to ship. Like scripts, each pattern is expanded on disk; a pattern matching nothing produces an error and the whole manifest fails.
+A flat list of glob patterns for non-script assets — models, textures, sounds, config data, anything the resource needs to ship.<br/>
+Like scripts, each pattern is expanded on disk; a pattern matching nothing produces an error and the whole manifest fails.
+
+<Callout type="info">
+  **Files are hashed at parse time**, so changes can be detected on restart (see [Restarting](#restarting) below). Models declared under `files` are additionally auto-detected and loaded as part of resource startup.
+</Callout>
 
 ```yaml
 files:
@@ -105,10 +110,6 @@ files:
   - "models/*.glb"
   - "config.json"
 ```
-
-<Callout type="info">
-  **Files are hashed at parse time**, so changes can be detected on restart (see [Restarting](#restarting) below). Models declared under `files` are additionally auto-detected and loaded as part of resource startup.
-</Callout>
 
 ---
 
