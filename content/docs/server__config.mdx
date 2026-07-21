@@ -12,9 +12,9 @@ If the config file is absent or malformed, the server falls back to built-in def
 <Callout type="info">
   **Where the config lives**
 
-  - **Fixed location** — `config.yaml` must sit at the root of your `Vital.server/` directory
-  - **Single file** — all sections (`server`, `network`, `http`, `social`) live in this one file
-  - **Restart to apply** — changes are not hot-reloaded; a server restart is required for any edit to take effect
+  - **Fixed location** — `config.yaml` must sit at the root of your `Vital.server/` directory.
+  - **Single file** — all sections (`server`, `network`, `http`, `social`) live in this one file.
+  - **Restart to apply** — changes are not hot-reloaded; a server restart is required for any edit to take effect.
 </Callout>
 
 ```txt title="Example server layout"
@@ -55,8 +55,8 @@ social:
 <Callout type="warn">
   **All keys are optional.**
 
-  - Every key has a built-in default and can be omitted without error
-  - An absent or malformed `config.yaml` is non-fatal — the server starts with defaults and logs a warning
+  - Every key has a built-in default and can be omitted without error.
+  - An absent or malformed `config.yaml` is non-fatal — the server starts with defaults and logs a warning.
 </Callout>
 
 ---
@@ -93,8 +93,8 @@ network:
 <Callout type="warn">
   **Both values directly affect client connectivity — change them with care.**
 
-  - **`port`** — clients and any firewall or port-forwarding rules must be updated to match
-  - **`max_peers`** — once the limit is reached, incoming connections are refused until a slot becomes available
+  - **`port`** — clients and any firewall or port-forwarding rules must be updated to match.
+  - **`max_peers`** — once the limit is reached, incoming connections are refused until a slot becomes available.
 </Callout>
 
 | Key | Type | Default | Description |
@@ -116,8 +116,8 @@ http:
 <Callout type="info">
   **The HTTP server operates independently of the ENet transport layer.**
 
-  - **Both ports must be reachable** — blocking either one will result in a failed or degraded session
-  - **Separate firewall rules** — ensure both ports are open and forwarded correctly in your network configuration
+  - **Both ports must be reachable** — blocking either one will result in a failed or degraded session.
+  - **Separate firewall rules** — ensure both ports are open and forwarded correctly in your network configuration.
 </Callout>
 
 | Key | Type | Default | Description |
