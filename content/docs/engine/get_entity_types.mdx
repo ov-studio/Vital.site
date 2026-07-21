@@ -23,6 +23,25 @@ local result = core.engine.get_entity_types()
 
 ---
 
+### Entity Types
+
+| Entity Type | Availability | Streamable |
+|-------------|--------------|------------|
+| `"database"` | `server` | `false` |
+| `"database_query"` | `server` | `false` |
+| `"model"` | `client` \| `server` | `true` |
+| `"camera"` | `client` | `false` |
+| `"webview"` | `client` | `false` |
+| `"font"` | `client` | `false` |
+| `"texture"` | `client` | `false` |
+| `"svg"` | `client` | `false` |
+| `"rendertarget"` | `client` | `false` |
+| `"timer"` | `client` \| `server` | `false` |
+| `"promise"` | `client` \| `server` | `false` |
+| `"thread"` | `client` \| `server` | `false` |
+
+---
+
 ### Examples
 
 ```lua lineNumbers title="Prints all registered entity categories"
