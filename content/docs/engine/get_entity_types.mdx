@@ -49,13 +49,13 @@ core.engine.iprint(core.engine.get_entity_types())
 ```
 
 ```lua lineNumbers title="Counts entities across every category"
-for index, category in ipairs(core.engine.get_entity_types()) do
+for _, category in ipairs(core.engine.get_entity_types()) do
     core.engine.print("info", category, "count:", #core.engine.get_entities(category))
 end
 ```
 
 ```lua lineNumbers title="Registers a monitor for every entity category"
-for index, category in ipairs(core.engine.get_entity_types()) do
+for _, category in ipairs(core.engine.get_entity_types()) do
     util.monitor.register(category .. "_count", util.string.upper(category) .. "_COUNT", function() 
         return #core.engine.get_entities(category)
     end, util.monitor.stat_format.QUANTITY)
