@@ -58,3 +58,12 @@ if not util.input.execute("debug_dump") then
     core.engine.print("warn", "debug_dump is not registered")
 end
 ```
+
+```lua lineNumbers title="Non-string arguments are coerced automatically"
+util.input.register("set_speed", function(args)
+    core.engine.print("info", "New speed:", args[1])
+end)
+
+-- Numbers are converted to strings before the handler receives them
+util.input.execute("set_speed", {15.5})
+```
