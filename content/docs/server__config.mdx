@@ -142,10 +142,10 @@ bootstrap:
 <Callout type="info">
   **Bootstrap runs once at startup, after the resource scan completes.**
 
-  - **Order is preserved** — resources are started top-to-bottom as listed.
-  - **Dependencies are resolved automatically** — a bootstrap resource's dependencies are started before it, even if they are not listed here.
-  - **Each entry must be a valid resource name** — it must match a folder under `resources/` and pass the resource name validation rules (`a-z`, `0-9`, `_` only).
-  - **Already-running resources are skipped** — no error is raised if a listed resource is already running by the time bootstrap executes.
+  - **Order is preserved** — resources start top-to-bottom as listed.
+  - **Dependencies are resolved automatically** — a resource's deps start before it, even if not listed here.
+  - **Each entry must be a valid resource name** — must match a folder under `resources/` (`a-z`, `0-9`, `_` only).
+  - **Already-running resources are skipped** — no error is raised if a resource is already running.
 </Callout>
 
 | Value | Type | Description |
