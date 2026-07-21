@@ -84,9 +84,9 @@ server:
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `name` | `string` | `"Vital Sandbox Server"` | Display name shown in the client UI and Discord Rich Presence |
+| `name` | `string` | `"Vital Sandbox Server"` | Display name shown in the master-list and Discord Rich Presence |
 | `version` | `string` | `"1.0.0"` | Free-text version identifier — not validated or compared |
-| `description` | `string` | `""` | Optional description shown in the client UI |
+| `description` | `string` | `""` | Optional description shown in the master-list |
 
 ---
 
@@ -183,7 +183,7 @@ The `state` and `details` fields support the following runtime placeholders, res
 
 #### Social
 
-Defines community links surfaced in the client UI.
+Defines community links surfaced in the master-list.
 
 ```yaml
 social:
@@ -193,5 +193,5 @@ social:
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `discord_invite` | `string` | `""` | Discord server invite URL shown in the client UI |
-| `website` | `string` | `""` | Community or project website URL shown in the client UI |
+| `discord_invite` | `string` | `""` | Discord server invite URL shown in the master-list |
+| `website` | `string` | `""` | Community or project website URL shown in the master-list |
