@@ -42,7 +42,7 @@ core.engine.iprint(util.export.list("my_resource"))
 local list = util.export.list("inventory_resource")
 
 local has_export = false
-for index, name in ipairs(list) do
+for _, name in ipairs(list) do
     if name == "get_items" then
         has_export = true
         break

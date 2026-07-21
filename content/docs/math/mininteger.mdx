@@ -32,7 +32,7 @@ core.engine.print("info", result) -- 9223372036854775807
 local values = {100, 200, 50, 400}
 local largest = util.math.mininteger
 
-for index, v in ipairs(values) do
+for _, v in ipairs(values) do
     if v > largest then largest = v end
 end
 

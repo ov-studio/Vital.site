@@ -72,7 +72,7 @@ local values = {-1, 0, 1, util.math.maxinteger, util.math.mininteger}
 
 util.table.sort(values, util.math.ult)
 
-for index, v in ipairs(values) do
+for _, v in ipairs(values) do
     core.engine.print("info", v)
 end
 ```

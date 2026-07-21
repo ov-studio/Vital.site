@@ -71,7 +71,7 @@ core.engine.print("info", pos_x, pos_y) -- 3.5355  3.5355
 ```
 
 ```lua lineNumbers title="Compute sine for each cardinal angle"
-for index, deg in ipairs({0, 90, 180, 270, 360}) do
+for _, deg in ipairs({0, 90, 180, 270, 360}) do
     core.engine.print("info", deg, util.math.sin(util.math.rad(deg)))
 end
 ```
