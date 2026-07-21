@@ -1,0 +1,232 @@
+---
+title: Resource manifest
+description: Declare a Vital.sandbox resource — its scripts, files, and dependencies — via manifest.yaml
+---
+
+## Overview
+
+Every resource in **Vital.sandbox** lives in its own folder under the server's `resources/` directory, described by a single `manifest.yaml` at its root. The Resource Manager scans this directory on server startup, parses each manifest, and tracks the resulting metadata for the lifetime of the server.
+
+**Server builds** read `manifest.yaml` directly from disk, validate it, resolve dependencies, and broadcast the resulting metadata to connected clients. **Client builds** never read `manifest.yaml` — they receive an equivalent, pre-resolved manifest over the network from the server and register it locally.
+
+<Callout type="info">
+  **Where resources live**
+
+  - **Folder = resource** — each resource is a folder named after it, e.g. `resources/drawtest/`
+  - **Fixed filename** — the manifest must be named exactly `manifest.yaml` and sit at the folder's root
+  - **Folder name is the reference** — it becomes the resource's `ref` and is used everywhere the resource is addressed
+</Callout>
+
+```txt title="Example resource folder"
+resources/
+└── drawtest/
+    ├── manifest.yaml
+    ├── client.lua
+    ├── client2.lua
+    └── assets/
+        └── ...
+```
+
+File and script paths declared in the manifest are resolved relative to this folder.
+
+---
+
+## Manifest
+
+Full example showing every supported top-level key:
+
+```yaml title="resources/<name>/manifest.yaml"
+name: "My Resource"
+author: "YourName"
+version: "1.0.0"
+
+dependencies:
+  - "drawtest"
+
+scripts:
+  - { src: "client.lua", type: "client" }
+  - { src: "client2.lua", type: "client" }
+  - { src: "shared/*.lua", type: "shared" }
+  - { src: "server.lua", type: "server" }
+
+files:
+  - "assets/**"
+```
+
+<Callout type="warn">
+  **Only `scripts` is mandatory.**
+
+  - A manifest with no `scripts` key, or where `scripts` isn't a list, is rejected outright and the resource is skipped during scan
+  - `name`, `author`, `version`, `files`, and `dependencies` are all optional
+</Callout>
+
+| Key | Type | Required | Default | Description |
+|---|---|---|---|---|
+| `name` | `string` | No | `ref` | Display name for the resource<br/>Falls back to resource's reference if omitted |
+| `author` | `string` | No | `""` | Free-text author/credit string - not validated |
+| `version` | `string` | No | `""` | Free-text version string - not validated against any scheme |
+| `scripts` | `list<string>` | Yes | — | List of script entries to compile and execute for this resource. |
+| `files` | `list<string>` | No | `[]` | Glob patterns for non-script assets (models, textures, sounds, etc). |
+| `dependencies` | `list<string>` | No | `[]` | Names of other resources that must be running before this one starts. |
+
+---
+
+#### Scripts
+
+Each entry in `scripts` is a map with two required fields:
+
+```yaml
+scripts:
+  - { src: "client.lua", type: "client" }
+```
+
+| Field | Type | Description |
+|---|---|---|
+| `src` | string (glob) | Path — or glob pattern — to a `.lua` file, relative to the resource folder. Expanded against the filesystem at load time; a pattern that matches nothing is an error. |
+| `type` | string enum | One of [`util.monitor.stat_format`](/docs/monitor/enum/stat_format)-style enums: `"shared"`, `"server"`, or `"client"` — see below. |
+
+| Type | Runs on Server | Runs on Client | Sent to Client |
+|---|---|---|---|
+| `shared` | Yes | Yes | Yes |
+| `server` | Yes | No | No |
+| `client` | No | Yes | Yes |
+
+A script's `type` is matched against the current build's platform. `server`-typed scripts are filtered out on client builds; only `shared` and `client`-typed scripts (plus their asset paths) are registered for asset delivery and sent to clients.
+
+<Callout type="warn">
+  **Invalid or unmatched entries fail the whole manifest.**
+
+  - A script entry missing `src` or `type` is a hard error — the manifest fails to parse
+  - `type` must be exactly `"shared"`, `"server"`, or `"client"` — anything else is rejected
+  - A `src` pattern that matches zero files is rejected — there's no "optional" script
+</Callout>
+
+---
+
+#### Files
+
+A flat list of glob patterns for non-script assets — models, textures, sounds, config data, anything the resource needs to ship. Like scripts, each pattern is expanded on disk; a pattern matching nothing produces an error and the whole manifest fails.
+
+```yaml
+files:
+  - "assets/**"
+  - "models/*.glb"
+  - "config.json"
+```
+
+<Callout type="info">
+  **Files are hashed at parse time**, so changes can be detected on restart (see [Restarting](#restarting) below). Models declared under `files` are additionally auto-detected and loaded as part of resource startup.
+</Callout>
+
+---
+
+#### Dependencies
+
+A list of other resource names that must be running before this resource starts. The Resource Manager resolves the full dependency graph recursively and starts dependencies in the correct order before starting the resource itself.
+
+| Rule | Behaviour |
+|---|---|
+| Invalid name | Any dependency name failing the [naming rules](#naming-rules) below is rejected with an error |
+| Self-dependency | A resource cannot list itself as a dependency — rejected outright |
+| Missing dependency | If a listed dependency isn't a known resource, resolution fails and the resource does not start |
+| Circular dependency | Detected via a recursion stack; a cycle (e.g. `A → B → A`) aborts the start with the full chain reported |
+| Already running | Dependencies already running are skipped — they are not restarted |
+
+---
+
+#### Naming Rules
+
+Resource and dependency names must:
+
+- Not be empty
+- Pass filesystem path sanitization (no path traversal or unsafe path characters)
+- Contain only alphanumeric characters or underscores (`_`) — no spaces, dots, or slashes
+
+---
+
+## Resource Lifecycle
+
+| Operation | Availability | Description |
+|---|---|---|
+| `scan()` | Server only | Clears and rebuilds the full resource list from disk, parsing every `manifest.yaml` found under `resources/`. Invalid or duplicate-named folders are skipped with a logged error. Runs automatically on init. |
+| `start(name)` | Server & Client | Starts a resource: reloads its manifest (server), resolves and starts dependencies (server), registers its assets, then executes its scripts. Fails if already running/pending or not loaded. |
+| `stop(name)` | Server & Client | Stops a running (or pending, client-side) resource, clears its VM environment, unloads its models, and unregisters its assets. |
+| `stop_all()` | Server & Client | Stops every currently running (and, on client, pending) resource. |
+| `restart(name)` | Server only | Reloads the manifest, diffs script/file hashes and dependencies against the previous version, logs the changes, then stops and restarts the resource. |
+| `start_all()` | Server only | Starts every loaded resource that isn't already running. |
+| `restart_all()` | Server only | Restarts every currently running resource. |
+
+#### Starting a Resource (Server)
+
+When a resource is started on the server, the following happens in order:
+
+1. The manifest is reloaded from disk — parse errors abort the start
+2. Dependencies are resolved recursively and started first, in order — a failure anywhere in the chain aborts the start
+3. Script and file paths are registered with the Asset Manager, and the updated asset manifest is broadcast to clients
+4. Scripts are validated (compiled) and executed into a dedicated Lua environment named after the resource
+5. Any declared models are loaded, and a `resource:started` packet — including the full packed manifest — is broadcast to all connected clients
+
+#### Client Registration
+
+Client builds never parse YAML. Instead, when the server broadcasts a `resource:started` packet, the client:
+
+1. Unpacks the manifest payload (scripts, files, models, dependencies)
+2. Registers it locally, skipping it if the resource is already running
+3. Starts it the same way a server-side resource starts — executing scripts filtered to `shared`/`client` type
+
+<Callout type="info">
+  **Reconnecting / late-joining clients**
+
+  - On peer join, the server broadcasts the full asset manifest, then sends a `resource:started` packet for every currently running resource, in the order they were originally started
+  - This lets a client that connects mid-session receive every active resource without a full server restart
+</Callout>
+
+#### Restarting
+
+Restarting reloads the manifest, then compares old vs. new script hashes, file hashes, and dependency lists, reporting exactly what was added, modified, or deleted before stopping and re-starting the resource. This makes it possible to see at a glance whether a restart picked up the change you expected.
+
+---
+
+## Client vs. Server Behaviour
+
+| Aspect | Server (default build) | Client (`VSDK_Client` build) |
+|---|---|---|
+| Manifest source | Parsed from `manifest.yaml` on disk | Received over the network from the server |
+| `scan()` / reload | Available | Not compiled in |
+| Dependency resolution | Full recursive resolution before start | Not performed — server already resolved it |
+| `restart()` / `restart_all()` | Available | Not compiled in |
+| `is_pending(name)` | Not applicable | True while assets for the resource are still downloading |
+| Script type filtering | `server`-typed scripts run | `server`-typed scripts are skipped entirely |
+| Resource start order tracking | Maintained, used for peer-sync ordering | Not applicable |
+
+---
+
+## Common Validation Errors
+
+Errors are collected per-resource and logged as a group; any one of them causes the whole manifest to be rejected for that resource.
+
+| Condition | Error |
+|---|---|
+| `scripts` key missing or not a list | Resource skipped — "no valid scripts section" |
+| Script entry missing `src` or `type` | "script entry missing `src` or `type`" |
+| Script type not shared/server/client | "script `<src>` has invalid type `<type>`" |
+| `src` / file pattern matches nothing | "pattern `<pattern>` matched no files" |
+| Invalid dependency name | "dependency `<name>` has an invalid name" |
+| Resource depends on itself | "resource cannot list itself as a dependency" |
+| Circular dependency chain | "circular dependency detected: A -> B -> A" |
+| Duplicate resource folder name | "duplicate resource found — skipping `<name>`" |
+| Invalid resource folder name | "invalid resource name `<name>` — skipping" |
+| `manifest.yaml` missing | Resource simply not picked up by scan (non-fatal, silent skip) |
+
+---
+
+## Quick Reference
+
+<Callout type="info">
+  **Minimal valid manifest** — `scripts` is the only required key; everything else can be omitted.
+</Callout>
+
+```yaml title="Smallest possible manifest.yaml"
+scripts:
+  - { src: "main.lua", type: "shared" }
+```
