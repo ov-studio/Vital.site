@@ -123,10 +123,10 @@ Resource Manager resolves the full dependency graph recursively and starts depen
 | Rule | Behaviour |
 |---|---|
 | Invalid name | Any dependency name failing the [naming rules](#naming-rules) below is rejected with an error |
-| Self-dependency | A resource cannot list itself as a dependency — rejected outright |
+| Self-dependency | A resource cannot list itself as a dependency - rejected outright |
 | Missing dependency | If a listed dependency isn't a known resource, resolution fails and the resource does not start |
 | Circular dependency | Detected via a recursion stack; a cycle (e.g. `A → B → A`) aborts the start with the full chain reported |
-| Already running | Dependencies already running are skipped — they are not restarted |
+| Already running | Dependencies already running are skipped - they are not restarted |
 
 ---
 
