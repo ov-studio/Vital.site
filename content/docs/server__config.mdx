@@ -13,7 +13,7 @@ If the config file is absent or malformed, the server falls back to built-in def
   **Where the config lives**
 
   - **Fixed location** — `config.yaml` must sit at the root of your `Vital.server/` directory
-  - **Single file** — all sections (`server`, `network`, `http`, `discord`, `social`) live in this one file
+  - **Single file** — all sections (`server`, `network`, `http`, `social`) live in this one file
   - **Restart to apply** — changes are not hot-reloaded; a server restart is required for any edit to take effect
 </Callout>
 
@@ -47,18 +47,8 @@ network:
 http:
   port: 7778
 
-discord:
-  enabled: false
-  application_id: "0"
-  state: "Playing on {server_name}"
-  details: "{player_count}/{max_players} players"
-  large_image_key: ""
-  large_image_text: ""
-  small_image_key: ""
-  small_image_text: ""
-
 social:
-  discord_invite: ""
+  discord: ""
   website: ""
 ```
 
@@ -84,7 +74,7 @@ server:
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `name` | `string` | `"Vital Sandbox Server"` | Display name shown in the master-list and Discord Rich Presence |
+| `name` | `string` | `"Vital Sandbox Server"` | Display name shown in the master-list |
 | `version` | `string` | `"1.0.0"` | Free-text version identifier — not validated or compared |
 | `description` | `string` | `""` | Optional description shown in the master-list |
 
@@ -136,62 +126,17 @@ http:
 
 ---
 
-#### Discord
-
-Configures Discord Rich Presence. This section **only applies to client builds** — it has no effect on server-only deployments.
-
-```yaml
-discord:
-  enabled: false
-  application_id: "0"
-  state: "Playing on {server_name}"
-  details: "{player_count}/{max_players} players"
-  large_image_key: ""
-  large_image_text: ""
-  small_image_key: ""
-  small_image_text: ""
-```
-
-<Callout type="info">
-  **Image asset keys must be registered before use.**
-
-  - **Register assets** — upload and name your images in the [Discord Developer Portal](https://discord.com/developers/applications) under **Rich Presence → Art Assets**
-  - **Application ID** — non-numeric or empty values are treated as `0`, and Rich Presence will not initialize
-  - **Placeholders** — `state` and `details` support runtime tokens resolved at startup (see table below)
-</Callout>
-
-| Key | Type | Default | Description |
-|---|---|---|---|
-| `enabled` | `boolean` | `false` | Enables or disables Discord Rich Presence entirely |
-| `application_id` | `string` | `"0"` | Application ID from the Discord Developer Portal - must be a numeric string |
-| `state` | `string` | `"Playing on {server_name}"` | State line displayed below the game name in Discord |
-| `details` | `string` | `"{player_count}/{max_players} players"` | Details line displayed above the state in Discord |
-| `large_image_key` | `string` | `""` | Asset key for the large Rich Presence image |
-| `large_image_text` | `string` | `""` | Tooltip text shown on hover over the large image |
-| `small_image_key` | `string` | `""` | Asset key for the small Rich Presence image |
-| `small_image_text` | `string` | `""` | Tooltip text shown on hover over the small image |
-
-The `state` and `details` fields support the following runtime placeholders, resolved each time presence is updated:
-
-| Placeholder | Resolves To |
-|---|---|
-| `{server_name}` | Value of `server.name` |
-| `{player_count}` | Current number of connected players |
-| `{max_players}` | Value of `network.max_peers` |
-
----
-
 #### Social
 
 Defines community links surfaced in the master-list.
 
 ```yaml
 social:
-  discord_invite: ""
+  discord: ""
   website: ""
 ```
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `discord_invite` | `string` | `""` | Discord server invite URL shown in the master-list |
+| `discord` | `string` | `""` | Discord server invite URL shown in the master-list |
 | `website` | `string` | `""` | Community or project website URL shown in the master-list |
