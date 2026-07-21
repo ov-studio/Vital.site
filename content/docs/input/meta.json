@@ -20,6 +20,10 @@
 
         "---Misc---",
         "bind",
-        "unbind"
+        "unbind",
+        "register",
+        "unregister",
+        "list",
+        "execute"
     ]
 }

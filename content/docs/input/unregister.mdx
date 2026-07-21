@@ -1,0 +1,52 @@
+---
+title: util.input.unregister
+description: Unregisters a previously registered console command handler
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = util.input.unregister(
+    name,
+    exec
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Command name the handler was registered under |
+| `function` | exec | Handler function to remove<br/>Must be the same function value passed to [`util.input.register`](/docs/input/register) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if the handler was found and removed, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Unregister a previously registered command"
+local function on_debug_toggle(args)
+    core.engine.print("info", "Debug overlay toggled")
+end
+
+util.input.register("debug", on_debug_toggle)
+
+-- Remove when no longer needed
+util.input.unregister("debug", on_debug_toggle)
+```
+
+```lua lineNumbers title="Self-removing one-shot command"
+local handler
+handler = function(args)
+    core.engine.print("info", "Fired once, then removed")
+    util.input.unregister("setup", handler)
+end
+
+util.input.register("setup", handler)
+```

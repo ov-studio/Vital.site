@@ -1,0 +1,84 @@
+---
+title: util.input.register
+description: Registers a named console command handler that fires when the matching command is executed
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = util.input.register(
+    name,
+    exec
+)
+```
+
+<Callout type="info">
+  **Handlers are scoped to the environment that registered them and are automatically cleaned up when that environment is destroyed.**
+
+  - **Multiple handlers** — the same command name can have any number of handlers registered independently, all of which fire on execution
+  - **Console fallback** — typing an unrecognized command into the console dispatches it here automatically; there's no need to call [`util.input.execute`](/docs/input/execute) yourself just to support console input
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Command name to listen for |
+| `function` | exec | Handler function to invoke when the command is executed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful registration, `false` otherwise |
+
+---
+
+### Callback: `exec`
+
+```lua
+exec(args)
+```
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | args | Array of string tokens passed after the command name<br/>• Always strings — no numeric or boolean coercion is performed |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Register a basic teleport command"
+util.input.register("teleport", function(args)
+    if #args < 3 then
+        core.engine.print("warn", "Usage: teleport <x> <y> <z>")
+        return
+    end
+
+    local x, y, z = tonumber(args[1]), tonumber(args[2]), tonumber(args[3])
+    if not x or not y or not z then
+        core.engine.print("error", "teleport: x, y, z must be numbers")
+        return
+    end
+
+    core.engine.print("info", "Teleporting to", x, y, z)
+end)
+```
+
+```lua lineNumbers title="Register a command with no arguments"
+util.input.register("respawn", function(args)
+    core.engine.print("info", "Respawning player")
+end)
+```
+
+```lua lineNumbers title="Register a handler and store a reference for later removal"
+local function on_debug_toggle(args)
+    core.engine.print("info", "Debug overlay toggled")
+end
+
+util.input.register("debug", on_debug_toggle)
+
+-- Remove when no longer needed
+util.input.unregister("debug", on_debug_toggle)
+```

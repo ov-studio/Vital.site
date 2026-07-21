@@ -1,0 +1,45 @@
+---
+title: util.input.list
+description: Retrieves the names of all currently registered console commands
+badge: Client
+---
+
+### Syntax
+
+```lua
+local commands = util.input.list()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | commands | Array of registered command name strings<br/>• Order is not guaranteed to match registration order |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print all registered commands"
+for i, name in ipairs(util.input.list()) do
+    core.engine.print("info", i, name)
+end
+```
+
+```lua lineNumbers title="Check whether a command is currently registered"
+local function is_registered(name)
+    for _, cmd in ipairs(util.input.list()) do
+        if cmd == name then return true end
+    end
+    return false
+end
+
+if is_registered("teleport") then
+    core.engine.print("info", "teleport command is available")
+end
+```

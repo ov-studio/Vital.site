@@ -1,0 +1,59 @@
+---
+title: util.input.execute
+description: Executes a registered console command as if it had been typed into the console
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = util.input.execute(
+    name,
+    args
+)
+```
+
+<Callout type="info">
+  **Every handler registered under `name`, across every environment, fires on execution — the same way a typed console command does.**
+
+  - **Argument shape matches the console** — `args` values are converted with `tostring` internally, so pass strings where possible to match what a real console handler receives
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Command name to execute |
+| `table` | args | *(Optional)* Array of arguments to pass through to the handler |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if a handler for `name` exists and was invoked, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Execute a command without arguments"
+util.input.register("respawn", function(args)
+    core.engine.print("info", "Respawning player")
+end)
+
+util.input.execute("respawn")
+```
+
+```lua lineNumbers title="Execute a command with arguments"
+util.input.register("teleport", function(args)
+    core.engine.print("info", "Teleporting to", args[1], args[2], args[3])
+end)
+
+util.input.execute("teleport", {"10", "20", "30"})
+```
+
+```lua lineNumbers title="Guard against a missing command before executing"
+if not util.input.execute("debug_dump") then
+    core.engine.print("warn", "debug_dump is not registered")
+end
+```
