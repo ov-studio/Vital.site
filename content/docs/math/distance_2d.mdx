@@ -56,7 +56,7 @@ local origin = {0, 0}
 local targets = {{50, 0}, {10, 10}, {100, 100}}
 local closest, closest_dist = nil, util.math.huge
 
-for _, target in ipairs(targets) do
+for index, target in ipairs(targets) do
     local dist = util.math.distance_2d(origin, target)
     if dist < closest_dist then
         closest, closest_dist = target, dist

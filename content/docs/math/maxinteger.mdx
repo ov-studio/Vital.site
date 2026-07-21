@@ -32,7 +32,7 @@ core.engine.print("info", result) -- -9223372036854775808
 local values = {100, 200, 50, 400}
 local smallest = util.math.maxinteger
 
-for _, v in ipairs(values) do
+for index, v in ipairs(values) do
     if v < smallest then smallest = v end
 end
 

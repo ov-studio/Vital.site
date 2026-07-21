@@ -34,7 +34,7 @@ core.engine.print("info", -util.math.huge < -1e308) -- true
 local values = {42, 7, 99, 3, 56}
 local smallest = util.math.huge
 
-for _, v in ipairs(values) do
+for index, v in ipairs(values) do
     if v < smallest then
         smallest = v
     end
@@ -47,7 +47,7 @@ core.engine.print("info", smallest) -- 3
 local values = {42, 7, 99, 3, 56}
 local largest = -util.math.huge
 
-for _, v in ipairs(values) do
+for index, v in ipairs(values) do
     if v > largest then
         largest = v
     end

@@ -60,7 +60,7 @@ core.engine.print("info", degrees) -- 90.0
 ```
 
 ```lua lineNumbers title="Print common radian values in degrees"
-for _, rad in ipairs({0, util.math.pi/6, util.math.pi/4, util.math.pi/3, util.math.pi/2}) do
+for index, rad in ipairs({0, util.math.pi/6, util.math.pi/4, util.math.pi/3, util.math.pi/2}) do
     core.engine.print("info", util.math.deg(rad))
 end
 

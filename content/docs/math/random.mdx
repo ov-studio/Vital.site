@@ -100,7 +100,7 @@ for i = #t, 2, -1 do
     t[i], t[j] = t[j], t[i]
 end
 
-for _, v in ipairs(t) do
+for index, v in ipairs(t) do
     core.engine.print("info", v)
 end
 ```

@@ -65,7 +65,7 @@ core.engine.print("info", clamped) -- 0
 local scores = {42, 88, 17, 95, 63}
 local best = scores[1]
 
-for _, score in ipairs(scores) do
+for index, score in ipairs(scores) do
     best = util.math.max(best, score)
 end
 

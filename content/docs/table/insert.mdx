@@ -96,7 +96,7 @@ core.engine.print("info", #stack) -- 3
 local names = {}
 local inputs = {"Alice", "Bob", "Charlie"}
 
-for _, name in ipairs(inputs) do
+for index, name in ipairs(inputs) do
     util.table.insert(names, name)
 end
 ```

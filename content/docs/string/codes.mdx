@@ -62,7 +62,7 @@ core.engine.print("info", count) -- 6
 ```lua lineNumbers title="Build a table of codepoints"
 local codes = {}
 
-for _, code in util.string.codes("Lua") do
+for index, code in util.string.codes("Lua") do
     util.table.insert(codes, code)
 end
 

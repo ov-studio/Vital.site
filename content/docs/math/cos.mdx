@@ -68,7 +68,7 @@ core.engine.print("info", value) -- -1.0
 ```
 
 ```lua lineNumbers title="Compute cosine for each cardinal angle"
-for _, deg in ipairs({0, 90, 180, 270, 360}) do
+for index, deg in ipairs({0, 90, 180, 270, 360}) do
     core.engine.print("info", deg, util.math.cos(util.math.rad(deg)))
 end
 ```
