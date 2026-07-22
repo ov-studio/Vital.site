@@ -196,8 +196,7 @@ export function Vault() {
           <div className="vault-head">
             <div className="sec-head">
               <div>
-                <div className="slabel">Community</div>
-                <h2>Resource <span>Vault</span></h2>
+                <h2>Community <span>Vault</span></h2>
               </div>
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
