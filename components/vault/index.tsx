@@ -37,7 +37,10 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
           </div>
         )
       }
-      {size === 'modal' && <div className="vault-modal-banner-overlay"/>}
+      {size === 'modal'
+        ? <div className="vault-modal-banner-overlay"/>
+        : <div className="vault-card-banner-overlay"/>
+      }
     </div>
   );
 }
