@@ -18,6 +18,7 @@
         "method__is_incognito",
         "method__is_autoplay",
         "method__is_zoomable",
+        "method__is_forward_input",
         "method__is_devtools_visible",
     
        "---⁝⁝Getter---",
