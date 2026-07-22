@@ -35,14 +35,14 @@
 .vault-filter-btn {
   font-family: 'Geist', sans-serif;
   font-size: .68rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--text-muted);
   background: transparent;
   border-radius: 4px;
   border: 2px solid var(--rule);
-  padding: 6px 16px;
+  padding: 6px 12px;
   cursor: pointer;
   transition: color .2s, border-color .2s, background .2s;
 }
@@ -258,7 +258,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  animation: vmFadeIn .18s ease forwards;
+  animation: vmFadeIn .25s ease forwards;
 }
 
 @keyframes vmFadeIn {
@@ -280,14 +280,14 @@
   overflow: hidden;
   max-height: 90vh;
   overflow-y: auto;
-  animation: vmSlideUp .22s ease forwards;
+  animation: vmSlideUp .35s ease forwards;
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
 }
 
 @keyframes vmSlideUp {
   from {
     opacity: 0;
-    transform: translateY(20px)
+    transform: translateY(10vh)
   }
 
   to {
