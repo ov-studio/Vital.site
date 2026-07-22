@@ -9,7 +9,7 @@
 
 /* ── Header ──────────────────────────────── */
 .vault-head {
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
 .vault-head .sec-head {
@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 
@@ -256,7 +256,7 @@
 .vault-modal-overlay {
   position: fixed;
   inset: 0;
-  background: hsla(250, 25%, 2%, .88);
+  background: hsla(250, 21%, 5.5%, 0.9);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   z-index: 200;
@@ -281,7 +281,7 @@
   width: 100%;
   max-width: 780px;
   background: var(--bg2);
-  border: 1px solid var(--b30);
+  border: 1px solid var(--bg4);
   position: relative;
   overflow: hidden;
   max-height: 90vh;
