@@ -37,6 +37,7 @@ All fields are optional and fall back to their defaults if not specified.
 | `incognito` | `bool` | `true` | Runs the webview in incognito mode, no data is persisted to disk |
 | `autoplay` | `bool` | `false` | Media can be played without user interaction |
 | `zoomable` | `bool` | `false` | Enables page zooming hotkeys |
+| `forward_input` | `bool` | `false` | Allows the webview to become the global input forwarder, forwarding keyboard and mouse input through to the game |
 
 ---
 
@@ -55,7 +56,8 @@ local entity = core.webview.create({
     transparent = true,
     incognito = false,
     autoplay = false,
-    zoomable = false
+    zoomable = false,
+    forward_input = true
 })
 
 entity:set_visible(true)
