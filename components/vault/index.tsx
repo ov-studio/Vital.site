@@ -58,10 +58,31 @@ function VaultModal({ resource, onClose }: {
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
-  // Lock body scroll
+  // Lock background scroll while the modal is open.
+  // Locks both <html> and <body> since either can be the scrolling element
+  // depending on the page's CSS, and compensates for the vanished scrollbar
+  // width so fixed-position content (navbar, etc.) doesn't shift sideways.
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
+    const scrollbar_w = window.innerWidth - document.documentElement.clientWidth;
+
+    const html = document.documentElement;
+    const body = document.body;
+
+    const prev_html_overflow = html.style.overflow;
+    const prev_body_overflow = body.style.overflow;
+    const prev_body_padding_right = body.style.paddingRight;
+
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    if (scrollbar_w > 0) {
+      body.style.paddingRight = `${scrollbar_w}px`;
+    }
+
+    return () => {
+      html.style.overflow = prev_html_overflow;
+      body.style.overflow = prev_body_overflow;
+      body.style.paddingRight = prev_body_padding_right;
+    };
   }, []);
 
   const modal_markup = (
