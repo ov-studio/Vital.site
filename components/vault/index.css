@@ -1,0 +1,470 @@
+/* ═══════════════════════════════════════════
+   Vault — Community Resource Library
+   ═══════════════════════════════════════════ */
+
+#vault {
+  padding: calc(100px + var(--nav-h) * 1) 0 140px;
+}
+
+/* ── Header ──────────────────────────────── */
+.vault-head {
+  margin-bottom: 64px;
+}
+
+.vault-head .sec-head {
+  margin-bottom: 0;
+}
+
+/* ── Filters ─────────────────────────────── */
+.vault-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.vault-filter-btn {
+  font-family: 'Geist', sans-serif;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+}
+
+.vault-filter-btn:hover {
+  color: var(--blue);
+  border-color: var(--b30);
+}
+
+.vault-filter-btn.active {
+  color: var(--blue);
+  border-color: var(--blue);
+  background: var(--b05);
+}
+
+/* ── Grid ────────────────────────────────── */
+.vault-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* ── Card ────────────────────────────────── */
+.vault-card {
+  position: relative;
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: border-color .25s, background .25s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vault-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--b05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .25s;
+  pointer-events: none;
+}
+
+.vault-card:hover {
+  border-color: var(--b30);
+  background: var(--bg3);
+}
+
+.vault-card:hover::before {
+  opacity: 1;
+}
+
+.vault-card.featured {
+  border-color: hsla(220, 95%, 76%, .18);
+}
+
+/* ── Card Banner ─────────────────────────── */
+.vault-card-banner {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  background: var(--bg4);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vault-card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.vault-card:hover .vault-card-banner img {
+  transform: scale(1.03);
+}
+
+.vault-card-banner-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg4) 0%, var(--bg3) 100%);
+}
+
+.vault-card-banner-placeholder svg {
+  opacity: .12;
+}
+
+.vault-card-featured-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: 'Geist', sans-serif;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--bg);
+  border: 1px solid var(--b30);
+  padding: 3px 10px;
+  clip-path: polygon(4px 0%, 100% 0%, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0% 100%, 0% 4px);
+}
+
+/* ── Card Body ───────────────────────────── */
+.vault-card-body {
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+}
+
+.vault-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.vault-card-author {
+  font-family: 'Geist', sans-serif;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.vault-card-version {
+  font-family: 'Geist', sans-serif;
+  font-size: .65rem;
+  color: var(--text-faint);
+  letter-spacing: .04em;
+}
+
+.vault-card-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.vault-card-tagline {
+  font-family: 'Geist', sans-serif;
+  font-size: .8rem;
+  color: var(--text-desc);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.vault-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  margin-top: auto;
+}
+
+.vault-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.vault-card-tag {
+  font-family: 'Geist', sans-serif;
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-dim2);
+  background: var(--bg4);
+  border: 1px solid var(--rule);
+  padding: 2px 8px;
+}
+
+.vault-card-dl-count {
+  font-family: 'Geist', sans-serif;
+  font-size: .68rem;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+/* ── Modal Overlay ───────────────────────── */
+.vault-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: hsla(250, 25%, 2%, .88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: vmFadeIn .18s ease forwards;
+}
+
+@keyframes vmFadeIn {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+.vault-modal {
+  width: 100%;
+  max-width: 780px;
+  background: var(--bg2);
+  border: 1px solid var(--b30);
+  position: relative;
+  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: vmSlideUp .22s ease forwards;
+  clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
+}
+
+@keyframes vmSlideUp {
+  from { opacity: 0; transform: translateY(20px) }
+  to   { opacity: 1; transform: none }
+}
+
+/* ── Modal Banner ────────────────────────── */
+.vault-modal-banner {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vault-modal-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vault-modal-banner-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg4) 0%, var(--bg3) 100%);
+}
+
+.vault-modal-banner-placeholder svg {
+  opacity: .1;
+}
+
+.vault-modal-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, var(--bg2) 100%);
+}
+
+/* ── Modal Body ──────────────────────────── */
+.vault-modal-body {
+  padding: 32px 36px 36px;
+}
+
+.vault-modal-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.vault-modal-author {
+  font-family: 'Geist', sans-serif;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.vault-modal-version {
+  font-family: 'Geist', sans-serif;
+  font-size: .68rem;
+  color: var(--text-faint);
+  letter-spacing: .04em;
+}
+
+.vault-modal-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.vault-modal-tagline {
+  font-family: 'Geist', sans-serif;
+  font-size: .82rem;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.vault-modal-divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 24px 0;
+}
+
+.vault-modal-desc {
+  font-family: 'Geist', sans-serif;
+  font-size: .84rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+
+.vault-modal-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.vault-modal-tag {
+  font-family: 'Geist', sans-serif;
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-dim2);
+  background: var(--bg4);
+  border: 1px solid var(--rule);
+  padding: 3px 10px;
+}
+
+.vault-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vault-modal-updated {
+  font-family: 'Geist', sans-serif;
+  font-size: .68rem;
+  color: var(--text-faint);
+  margin-left: auto;
+}
+
+/* ── Modal Close ─────────────────────────── */
+.vault-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: var(--bg4);
+  border: 1px solid var(--rule);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color .2s, border-color .2s;
+  z-index: 10;
+}
+
+.vault-modal-close:hover {
+  color: var(--white);
+  border-color: var(--b30);
+}
+
+/* ── Empty state ─────────────────────────── */
+.vault-empty {
+  grid-column: 1 / -1;
+  padding: 80px 0;
+  text-align: center;
+  color: var(--text-faint);
+  font-family: 'Geist', sans-serif;
+  font-size: .82rem;
+  letter-spacing: .04em;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 1100px) {
+  .vault-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  #vault {
+    padding: calc(80px + var(--nav-h) * 0.25) 0 80px;
+  }
+
+  .vault-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vault-modal {
+    clip-path: none;
+  }
+
+  .vault-modal-body {
+    padding: 24px 20px 28px;
+  }
+
+  .vault-modal-name {
+    font-size: 1.5rem;
+  }
+
+  .vault-modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vault-modal-updated {
+    margin-left: 0;
+  }
+}
