@@ -158,9 +158,9 @@
   text-transform: uppercase;
   color: var(--blue);
   background: var(--bg);
-  border: 1px solid var(--b30);
-  padding: 3px 10px;
-  clip-path: polygon(4px 0%, 100% 0%, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0% 100%, 0% 4px);
+  border: 1px solid var(--bg4);
+  padding: 5px 15px;
+  clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
 }
 
 /* ── Card Body ───────────────────────────── */
