@@ -199,7 +199,6 @@
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: .01em;
-  text-transform: uppercase;
   color: var(--white);
   margin-bottom: 8px;
   line-height: 1;
@@ -384,7 +383,6 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: .01em;
   line-height: 1;
   color: var(--white);
