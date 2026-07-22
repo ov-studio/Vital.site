@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import * as lucide from 'lucide-react';
 import * as config_vault from '@/configs/vault';
 import './index.css';
@@ -63,7 +64,7 @@ function VaultModal({ resource, onClose }: {
     return () => { document.body.style.overflow = ''; };
   }, []);
 
-  return (
+  const modal_markup = (
     <div className="vault-modal-overlay" onClick={onClose}>
       <div className="vault-modal" onClick={e => e.stopPropagation()}>
 
@@ -119,6 +120,13 @@ function VaultModal({ resource, onClose }: {
       </div>
     </div>
   );
+
+  // Render via portal so the overlay is a direct child of <body>.
+  // This guarantees nothing up the component tree (page transition
+  // wrappers, transformed/filtered ancestors, etc.) can create a stacking
+  // context that breaks backdrop-filter blur.
+  if (typeof document === 'undefined') return null;
+  return createPortal(modal_markup, document.body);
 }
 
 // ── Card ──────────────────────────────────

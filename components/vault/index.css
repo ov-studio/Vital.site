@@ -251,10 +251,9 @@
 .vault-modal-overlay {
   position: fixed;
   inset: 0;
-  background: hsla(250, 21%, 5.5%, 0.9);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 200;
+  background: hsla(250, 21%, 5.5%, 0.95);
+  backdrop-filter: blur(2px) !important;
+  z-index: 600;
   display: flex;
   align-items: center;
   justify-content: center;
