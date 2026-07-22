@@ -4,6 +4,7 @@
 
 #vault {
   padding: calc(100px + var(--nav-h) * 1) 0 140px;
+  min-height: calc(100dvh);
 }
 
 /* ── Header ──────────────────────────────── */
