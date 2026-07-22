@@ -16,7 +16,7 @@ local status = self:set_focussed(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | state | Determines the webview's focus state:<br/>• When `true` - requests OS focus for the webview (if visible), and additionally becomes the global input forwarder if `forward_input` was enabled on creation<br/>• When `false` - releases OS focus; if the webview was the global input forwarder, another eligible visible webview is automatically selected to take over |
+| `bool` | state | Determines the webview's focus state:<br/>• When `true` - requests OS focus for the webview (if visible), and additionally becomes the global input forwarder if `forward_input` option was enabled<br/>• When `false` - releases OS focus; if the webview was the global input forwarder, another eligible visible webview is automatically selected to take over |
 
 ### Returns
 
@@ -29,8 +29,14 @@ local status = self:set_focussed(
 ### Examples
 
 ```lua lineNumbers title="Focus a webview and let it take over input forwarding"
-local hud = core.webview.create({ forward_input = true })
-local phone = core.webview.create({ forward_input = false })
+local hud = core.webview.create({ 
+    forward_input = true
+})
+
+local phone = core.webview.create({ 
+    forward_input = false
+    
+})
 
 hud:set_visible(true)
 phone:set_visible(true)
