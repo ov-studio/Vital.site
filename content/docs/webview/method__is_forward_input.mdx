@@ -1,0 +1,32 @@
+---
+title: self:is_forward_input
+description: Retrieves whether the webview is eligible to become the global input forwarder
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_forward_input()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the webview is eligible to become the global input forwarder, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a webview is eligible for input forwarding"
+local entity = core.webview.create({ forward_input = true })
+
+core.engine.print("info", "Forward input enabled:", entity:is_forward_input())
+```

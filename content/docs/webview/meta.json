@@ -29,6 +29,7 @@
         "method__set_position",
         "method__set_size",
         "method__set_visible",
+        "method__set_focussed",
         "method__set_devtools_visible",
         "method__set_message_handler",
         "method__reset_message_handler",
