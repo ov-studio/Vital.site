@@ -26,7 +26,7 @@ local result = self:is_forward_input()
 ### Examples
 
 ```lua lineNumbers title="Check if a webview is eligible for input forwarding"
-local entity = core.webview.create({ forward_input = true })
+local entity = core.webview.create()
 
-core.engine.print("info", "Forward input enabled:", entity:is_forward_input())
+core.engine.print("info", "Webview forward input:", entity:is_forward_input())
 ```
