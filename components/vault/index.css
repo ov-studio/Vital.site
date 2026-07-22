@@ -72,6 +72,7 @@
   position: relative;
   background: var(--bg2);
   border: 1px solid var(--rule);
+  border-radius: 6px;
   cursor: pointer;
   transition: border-color .25s, background .25s;
   overflow: hidden;
