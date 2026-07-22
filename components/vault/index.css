@@ -153,12 +153,11 @@
   right: 12px;
   font-family: 'Geist', sans-serif;
   font-size: .64rem;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--blue);
-  background: var(--bg);
-  border: 1px solid var(--bg4);
+  color: var(--bg);
+  background: var(--blue);
   padding: 5px 15px;
   clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
 }
