@@ -16,6 +16,14 @@
   margin-bottom: 0;
 }
 
+.vault-intro {
+  margin-top: 14px;
+  font-family: 'Geist', sans-serif;
+  font-size: .88rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
 /* ── Filters ─────────────────────────────── */
 .vault-filters {
   display: flex;
@@ -258,8 +266,13 @@
 }
 
 @keyframes vmFadeIn {
-  from { opacity: 0 }
-  to   { opacity: 1 }
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 .vault-modal {

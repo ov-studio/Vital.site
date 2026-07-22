@@ -209,6 +209,9 @@ export function Vault() {
                 <lucide.ArrowRight size={13}/>
               </a>
             </div>
+            <div className="vault-intro">
+              Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox — browse, download, and ship faster.
+            </div>
           </div>
 
           {/* Tag filters */}
