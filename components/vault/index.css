@@ -40,7 +40,8 @@
   text-transform: uppercase;
   color: var(--text-muted);
   background: transparent;
-  border: 1px solid var(--rule);
+  border-radius: 4px;
+  border: 2px solid var(--rule);
   padding: 6px 16px;
   cursor: pointer;
   transition: color .2s, border-color .2s, background .2s;
