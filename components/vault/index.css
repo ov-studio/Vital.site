@@ -71,7 +71,7 @@
 .vault-card {
   position: relative;
   background: var(--bg2);
-  border: 1px solid var(--rule);
+  border: 1px solid var(--b18);
   border-radius: 6px;
   cursor: pointer;
   transition: border-color .25s, background .25s;
@@ -91,17 +91,13 @@
 }
 
 .vault-card:hover {
-  border-color: var(--b30);
-  background: var(--bg3);
+
 }
 
 .vault-card:hover::before {
   opacity: 1;
 }
 
-.vault-card.featured {
-  border-color: hsla(220, 95%, 76%, .18);
-}
 
 /* ── Card Banner ─────────────────────────── */
 .vault-card-banner {
