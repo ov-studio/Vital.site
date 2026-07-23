@@ -14,18 +14,11 @@
 
 /* Explicit, self-contained layout — don't rely on inherited
    .sec-head defaults. With two children (title + link) here
-   (unlike roadmap's single-child sec-head), we need to pin the
    title to the left and the link to the right ourselves, and
    let them wrap gracefully at any width instead of breaking at
    a single hard media-query cutoff. */
 .vault-head .sec-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px 40px;
-  margin-bottom: 0;
-  text-align: left;
+  margin-bottom: 25px;
 }
 
 .vault-head .sec-head>div {
