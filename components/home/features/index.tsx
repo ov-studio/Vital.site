@@ -135,7 +135,7 @@ export function Features() {
             <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
           </div>
           <a href="/docs" className="sec-link rev">
-            ::View documentations 
+            :: View documentations 
           </a>
         </div>
 
