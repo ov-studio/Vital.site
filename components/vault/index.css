@@ -487,7 +487,14 @@
       flex-direction: column;
   }
 
+    .sec-head {
+      flex-direction: row !important;
+    }
+
+    .sec-link {
       align-self: flex-end
+    }
+    
   .vault-grid {
     grid-template-columns: 1fr;
   }

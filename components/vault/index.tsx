@@ -215,14 +215,16 @@ export function Vault() {
             </div>
 
             <div className="vault-intro sec-head">
-              Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
+              <div>
+                Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
+              </div>
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
                 target="_blank"
                 rel="noreferrer"
                 className="sec-link"
               >
-                :: Submit a Resource
+                :: Submit Resource
               </a>
             </div>
           </div>
