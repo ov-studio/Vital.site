@@ -12,11 +12,9 @@
   margin-bottom: 56px;
 }
 
-/* Explicit, self-contained layout — don't rely on inherited
-   .sec-head defaults. With two children (title + link) here
-   title to the left and the link to the right ourselves, and
-   let them wrap gracefully at any width instead of breaking at
-   a single hard media-query cutoff. */
+/* Match roadmap/features pattern:
+   sec-head holds ONLY the h2 div + sec-link,
+   with the link bottom-aligned to the heading. */
 
 .vault-head .sec-head {
   margin-bottom: 25px;
@@ -30,14 +28,21 @@
 .vault-head .sec-head .sec-link {
   flex-shrink: 0;
   margin-left: auto;
+  /* bottom-aligns with the heading text naturally via align-items: flex-end */
 }
 
+/* intro lives outside sec-head, same as roadmap-intro */
 .vault-intro {
+  display: flex;
   margin-top: 15px;
   margin-bottom: 15px;
   line-height: 1.75;
   color: var(--text-muted);
   text-align: left;
+}
+
+.vault-intro > a {
+  margin-left: auto;
 }
 
 /* ── Filters ─────────────────────────────── */
@@ -75,8 +80,6 @@
   background: var(--b05);
 }
 
-
-
 /* ── Grid ────────────────────────────────── */
 .vault-grid {
   display: grid;
@@ -110,7 +113,6 @@
 .vault-card:hover::before {
   opacity: 1;
 }
-
 
 /* ── Card Banner ─────────────────────────── */
 .vault-card-banner {
@@ -297,7 +299,6 @@
   to   { opacity: 1; transform: none }
 }
 
-/* corner fade overlays — paint over the border near top-right and bottom-right */
 .vault-modal-border {
   position: absolute;
   inset: 0;
@@ -488,10 +489,9 @@
     padding: calc(80px + var(--nav-h) * 0.25) 0 80px;
   }
 
-  .vault-head .sec-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .vault-intro {
+      flex-direction: column;
+    }
 
   .vault-head .sec-head .sec-link {
     margin-left: 0;
