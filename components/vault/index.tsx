@@ -51,33 +51,22 @@ function VaultModal({ resource, onClose }: {
   resource: config_vault.VaultResource;
   onClose: () => void;
 }) {
-  // Close on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
-  // Lock background scroll while the modal is open.
-  // Locks both <html> and <body> since either can be the scrolling element
-  // depending on the page's CSS, and compensates for the vanished scrollbar
-  // width so fixed-position content (navbar, etc.) doesn't shift sideways.
   useEffect(() => {
     const scrollbar_w = window.innerWidth - document.documentElement.clientWidth;
-
     const html = document.documentElement;
     const body = document.body;
-
     const prev_html_overflow = html.style.overflow;
     const prev_body_overflow = body.style.overflow;
     const prev_body_padding_right = body.style.paddingRight;
-
     html.style.overflow = 'hidden';
     body.style.overflow = 'hidden';
-    if (scrollbar_w > 0) {
-      body.style.paddingRight = `${scrollbar_w}px`;
-    }
-
+    if (scrollbar_w > 0) body.style.paddingRight = `${scrollbar_w}px`;
     return () => {
       html.style.overflow = prev_html_overflow;
       body.style.overflow = prev_body_overflow;
@@ -141,10 +130,6 @@ function VaultModal({ resource, onClose }: {
     </div>
   );
 
-  // Render via portal so the overlay is a direct child of <body>.
-  // This guarantees nothing up the component tree (page transition
-  // wrappers, transformed/filtered ancestors, etc.) can create a stacking
-  // context that breaks backdrop-filter blur.
   if (typeof document === 'undefined') return null;
   return createPortal(modal_markup, document.body);
 }
@@ -198,7 +183,6 @@ export function Vault() {
   const [active_tag, set_active_tag] = useState<config_vault.VaultTag | null>(null);
   const [selected, set_selected] = useState<config_vault.VaultResource | null>(null);
 
-  // Intersection observer for .rev animations
   useEffect(() => {
     const els = document.querySelectorAll('.rev');
     const obs = new IntersectionObserver(
@@ -220,27 +204,27 @@ export function Vault() {
       <section id="vault">
         <div className="sw">
 
-          {/* Header */}
+          {/* Header — matches roadmap pattern:
+              sec-head holds only h2 + sec-link (bottom-aligned),
+              vault-intro sits below as a sibling, not inside sec-head */}
           <div className="vault-head">
             <div className="sec-head">
               <div>
                 <h2>Community built,<br />All yours to <span>explore.</span></h2>
               </div>
 
+            </div>
+
             <div className="vault-intro">
+              Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox — browse, download, and ship faster.
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
                 target="_blank"
                 rel="noreferrer"
                 className="sec-link"
               >
-                Submit a Resource
-                <lucide.ArrowRight size={13} />
                 :: Submit a Resource
               </a>
-            </div>
-            <div className="vault-intro">
-              Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox — browse, download, and ship faster.
             </div>
           </div>
 
