@@ -217,6 +217,7 @@ export function Vault() {
 
             <div className="vault-intro">
               Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox — browse, download, and ship faster.
+              Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
                 target="_blank"
