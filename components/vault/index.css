@@ -103,7 +103,7 @@
 .vault-card-banner {
   width: 100%;
   aspect-ratio: 16 / 7;
-  background: var(--bg4);
+  background: var(--bg5);
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -137,7 +137,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bg4) 0%, var(--bg3) 100%);
+  background: linear-gradient(135deg, var(--bg5) 0%, var(--bg4) 100%);
 }
 
 .vault-card-banner-placeholder svg {
@@ -232,7 +232,7 @@
   letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--text-dim2);
-  background: var(--bg4);
+  background: var(--bg5);
   border: 1px solid var(--rule);
   padding: 2px 8px;
 }
@@ -275,7 +275,7 @@
   width: 100%;
   max-width: 780px;
   background: var(--bg2);
-  border: 1px solid var(--bg4);
+  border: 1px solid var(--bg5);
   position: relative;
   overflow: hidden;
   max-height: 90vh;
@@ -311,7 +311,7 @@
 .vault-modal-banner {
   width: 100%;
   aspect-ratio: 16 / 6;
-  background: var(--bg4);
+  background: var(--bg5);
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -330,7 +330,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bg4) 0%, var(--bg3) 100%);
+  background: linear-gradient(135deg, var(--bg5) 0%, var(--bg4) 100%);
 }
 
 .vault-modal-banner-placeholder svg {
@@ -421,7 +421,7 @@
   letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--text-dim2);
-  background: var(--bg4);
+  background: var(--bg5);
   border: 1px solid var(--rule);
   padding: 3px 10px;
 }
@@ -446,7 +446,7 @@
   right: 16px;
   width: 32px;
   height: 32px;
-  background: var(--bg4);
+  background: var(--bg5);
   border: 1px solid var(--rule);
   color: var(--text-muted);
   cursor: pointer;

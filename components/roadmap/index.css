@@ -147,7 +147,7 @@
 
 .rcard {
   position: relative;
-  background: var(--bg4);
+  background: var(--bg5);
   display: flex;
   flex-direction: column;
   width: 100%;
