@@ -212,11 +212,9 @@ export function Vault() {
               <div>
                 <h2>Community built,<br />All yours to <span>explore.</span></h2>
               </div>
-
             </div>
 
-            <div className="vault-intro">
-              Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox — browse, download, and ship faster.
+            <div className="vault-intro sec-head">
               Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
