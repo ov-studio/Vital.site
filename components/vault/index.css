@@ -485,12 +485,9 @@
 
   .vault-intro {
       flex-direction: column;
-    }
-
-  .vault-head .sec-head .sec-link {
-    margin-left: 0;
   }
 
+      align-self: flex-end
   .vault-grid {
     grid-template-columns: 1fr;
   }
