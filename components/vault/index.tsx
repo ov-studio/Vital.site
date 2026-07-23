@@ -25,22 +25,22 @@ function fmt_date(iso: string): string {
 // ── Banner ────────────────────────────────
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
   const cls = size === 'modal' ? 'vault-modal-banner' : 'vault-card-banner';
-  const ph  = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
+  const ph = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
   const ico = size === 'modal' ? 80 : 48;
 
   return (
     <div className={cls}>
       {src
-        ? <img src={src} alt="Resource banner"/>
+        ? <img src={src} alt="Resource banner" />
         : (
           <div className={ph}>
-            <lucide.Package size={ico} color="var(--blue)"/>
+            <lucide.Package size={ico} color="var(--blue)" />
           </div>
         )
       }
       {size === 'modal'
-        ? <div className="vault-modal-banner-overlay"/>
-        : <div className="vault-card-banner-overlay"/>
+        ? <div className="vault-modal-banner-overlay" />
+        : <div className="vault-card-banner-overlay" />
       }
     </div>
   );
@@ -90,10 +90,10 @@ function VaultModal({ resource, onClose }: {
       <div className="vault-modal" onClick={e => e.stopPropagation()}>
 
         <button className="vault-modal-close" onClick={onClose} aria-label="Close">
-          <lucide.X size={14}/>
+          <lucide.X size={14} />
         </button>
 
-        <Banner src={resource.banner} size="modal"/>
+        <Banner src={resource.banner} size="modal" />
 
         <div className="vault-modal-body">
           <div className="vault-modal-eyebrow">
@@ -109,7 +109,7 @@ function VaultModal({ resource, onClose }: {
           <div className="vault-modal-name">{resource.name}</div>
           <div className="vault-modal-tagline">{resource.tagline}</div>
 
-          <hr className="vault-modal-divider"/>
+          <hr className="vault-modal-divider" />
 
           <p className="vault-modal-desc">{resource.description}</p>
 
@@ -126,7 +126,7 @@ function VaultModal({ resource, onClose }: {
 
             {resource.source_url && (
               <a href={resource.source_url} target="_blank" rel="noreferrer" className="btn-secondary">
-                <lucide.Github size={14}/>
+                <lucide.Github size={14} />
                 View Source
               </a>
             )}
@@ -162,7 +162,7 @@ function VaultCard({ resource, onClick }: {
       tabIndex={0}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
     >
-      <Banner src={resource.banner} size="card"/>
+      <Banner src={resource.banner} size="card" />
 
       {resource.featured && (
         <span className="vault-card-featured-badge">Featured</span>
@@ -184,7 +184,7 @@ function VaultCard({ resource, onClick }: {
             ))}
           </div>
           <span className="vault-card-dl-count">
-            <lucide.Download size={11}/>
+            <lucide.Download size={11} />
             {fmt_downloads(resource.downloads)}
           </span>
         </div>
@@ -196,7 +196,7 @@ function VaultCard({ resource, onClick }: {
 // ── Main Component ────────────────────────
 export function Vault() {
   const [active_tag, set_active_tag] = useState<config_vault.VaultTag | null>(null);
-  const [selected, set_selected]     = useState<config_vault.VaultResource | null>(null);
+  const [selected, set_selected] = useState<config_vault.VaultResource | null>(null);
 
   // Intersection observer for .rev animations
   useEffect(() => {
@@ -224,8 +224,9 @@ export function Vault() {
           <div className="vault-head">
             <div className="sec-head">
               <div>
-                <h2>Community <span>Vault</span></h2>
+                <h2>What you build,<br />What we <span>share.</span></h2>
               </div>
+
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
                 target="_blank"
@@ -233,7 +234,7 @@ export function Vault() {
                 className="sec-link"
               >
                 Submit a Resource
-                <lucide.ArrowRight size={13}/>
+                <lucide.ArrowRight size={13} />
               </a>
             </div>
             <div className="vault-intro">
@@ -265,19 +266,19 @@ export function Vault() {
             {filtered.length === 0
               ? <div className="vault-empty">No resources found for this filter.</div>
               : filtered.map(r => (
-                  <VaultCard
-                    key={r.id}
-                    resource={r}
-                    onClick={() => set_selected(r)}
-                  />
-                ))
+                <VaultCard
+                  key={r.id}
+                  resource={r}
+                  onClick={() => set_selected(r)}
+                />
+              ))
             }
           </div>
 
         </div>
       </section>
 
-      {selected && <VaultModal resource={selected} onClose={close}/>}
+      {selected && <VaultModal resource={selected} onClose={close} />}
     </>
   );
 }

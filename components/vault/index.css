@@ -14,6 +14,7 @@
 
 .vault-head .sec-head {
   margin-bottom: 0;
+  align-items: flex-end;
 }
 
 .vault-intro {
