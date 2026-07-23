@@ -7,7 +7,7 @@ import * as next from 'next';
 import '@/app/global.css';
 
 export const metadata: next.Metadata = {
-  title: 'Community Vault',
+  title: 'Vault',
 };
 
 export default function VaultPage() {
