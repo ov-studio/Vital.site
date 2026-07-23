@@ -1,3 +1,4 @@
+import '@/app/global.css';
 import * as lib_source from '@/lib/source';
 import * as config_roadmap from '@/configs/roadmap';
 import * as component_overlay from '@/components/overlay';
@@ -6,7 +7,6 @@ import * as component_footer from '@/components/footer';
 import * as component_roadmap from '@/components/roadmap';
 import * as component_clientshell from '@/components/clientshell';
 import * as next from 'next';
-import '@/app/global.css';
 
 export const metadata: next.Metadata = {
   title: 'Roadmap'
