@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════ */
 
 #vault {
-  padding: calc(100px + var(--nav-h) * 1) 0 140px;
+  padding: calc(100px + var(--nav-h)*1) 0;
   min-height: calc(100dvh);
 }
 
@@ -486,7 +486,7 @@
 
 @media (max-width: 700px) {
   #vault {
-    padding: calc(80px + var(--nav-h) * 0.25) 0 80px;
+    padding: calc(100px + var(--nav-h)*0.25) 0;
   }
 
     .vault-intro {
