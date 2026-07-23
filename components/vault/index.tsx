@@ -127,7 +127,7 @@ function VaultModal({ resource, onClose }: {
             {resource.source_url && (
               <a href={resource.source_url} target="_blank" rel="noreferrer" className="btn-secondary">
                 <lucide.Github size={14}/>
-                Source
+                View Source
               </a>
             )}
 
