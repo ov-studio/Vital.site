@@ -12,9 +12,35 @@
   margin-bottom: 56px;
 }
 
+/* Explicit, self-contained layout — don't rely on inherited
+   .sec-head defaults. With two children (title + link) here
+   (unlike roadmap's single-child sec-head), we need to pin the
+   title to the left and the link to the right ourselves, and
+   let them wrap gracefully at any width instead of breaking at
+   a single hard media-query cutoff. */
 .vault-head .sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px 40px;
   margin-bottom: 0;
-  align-items: flex-end;
+  text-align: left;
+}
+
+.vault-head .sec-head>div {
+  flex: 1 1 320px;
+  min-width: 0;
+  text-align: left;
+}
+
+.vault-head .sec-head h2 {
+  text-align: left;
+}
+
+.vault-head .sec-head .sec-link {
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .vault-intro {
@@ -22,6 +48,7 @@
   margin-bottom: 15px;
   line-height: 1.75;
   color: var(--text-muted);
+  text-align: left;
 }
 
 /* ── Filters ─────────────────────────────── */
@@ -89,10 +116,6 @@
   opacity: 0;
   transition: opacity .25s;
   pointer-events: none;
-}
-
-.vault-card:hover {
-
 }
 
 .vault-card:hover::before {
@@ -488,6 +511,18 @@
     padding: calc(80px + var(--nav-h) * 0.25) 0 80px;
   }
 
+  .vault-head .sec-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vault-head .sec-head .sec-link {
+    margin-left: 0;
+  }
+
+  .vault-intro {
+    text-align: left;
+  }
 
   .vault-grid {
     grid-template-columns: 1fr;
