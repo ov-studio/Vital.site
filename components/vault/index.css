@@ -25,12 +25,6 @@
   text-align: left;
 }
 
-.vault-head .sec-head .sec-link {
-  flex-shrink: 0;
-  margin-left: auto;
-  /* bottom-aligns with the heading text naturally via align-items: flex-end */
-}
-
 /* intro lives outside sec-head, same as roadmap-intro */
 .vault-intro {
   display: flex;
