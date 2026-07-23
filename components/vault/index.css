@@ -275,13 +275,8 @@
 }
 
 @keyframes vmFadeIn {
-  from {
-    opacity: 0
-  }
-
-  to {
-    opacity: 1
-  }
+  from { opacity: 0 }
+  to   { opacity: 1 }
 }
 
 .vault-modal {
@@ -298,15 +293,8 @@
 }
 
 @keyframes vmSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10vh)
-  }
-
-  to {
-    opacity: 1;
-    transform: none
-  }
+  from { opacity: 0; transform: translateY(10vh) }
+  to   { opacity: 1; transform: none }
 }
 
 /* corner fade overlays — paint over the border near top-right and bottom-right */
@@ -507,10 +495,6 @@
 
   .vault-head .sec-head .sec-link {
     margin-left: 0;
-  }
-
-  .vault-intro {
-    text-align: left;
   }
 
   .vault-grid {
