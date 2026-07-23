@@ -441,25 +441,27 @@
 
 /* ── Modal Close ─────────────────────────── */
 .vault-modal-close {
+  opacity: 0.5;
   position: absolute;
   top: 16px;
   right: 16px;
   width: 32px;
   height: 32px;
-  background: var(--bg5);
-  border: 1px solid var(--rule);
+  background: var(--rule);
   color: var(--text-muted);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color .2s, border-color .2s;
+  transition: opacity .2s, color .2s;
   z-index: 10;
+  border-radius: 50%;
+  border-width: 0;
 }
 
 .vault-modal-close:hover {
+  opacity: 1;
   color: var(--white);
-  border-color: var(--b30);
 }
 
 /* ── Empty state ─────────────────────────── */

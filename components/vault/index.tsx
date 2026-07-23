@@ -121,8 +121,7 @@ function VaultModal({ resource, onClose }: {
 
           <div className="vault-modal-actions">
             <a href={resource.download_url} className="btn-primary" download>
-              <lucide.Download size={14}/>
-              Download
+              Download Asset
             </a>
 
             {resource.source_url && (
