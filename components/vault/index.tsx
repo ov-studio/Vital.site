@@ -227,6 +227,7 @@ export function Vault() {
                 <h2>Community built,<br />All yours to <span>explore.</span></h2>
               </div>
 
+            <div className="vault-intro">
               <a
                 href="https://github.com/ov-studio/Vital.sandbox"
                 target="_blank"
@@ -235,6 +236,7 @@ export function Vault() {
               >
                 Submit a Resource
                 <lucide.ArrowRight size={13} />
+                :: Submit a Resource
               </a>
             </div>
             <div className="vault-intro">
