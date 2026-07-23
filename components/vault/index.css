@@ -21,11 +21,6 @@
   margin-bottom: 25px;
 }
 
-.vault-head .sec-head>div {
-  flex: 1 1 320px;
-  min-width: 0;
-  text-align: left;
-}
 
 .vault-head .sec-head h2 {
   text-align: left;
