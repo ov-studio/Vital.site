@@ -17,6 +17,7 @@
    title to the left and the link to the right ourselves, and
    let them wrap gracefully at any width instead of breaking at
    a single hard media-query cutoff. */
+
 .vault-head .sec-head {
   margin-bottom: 25px;
 }
