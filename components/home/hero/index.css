@@ -74,7 +74,7 @@
 .hero-brand {
   margin-bottom: 25px;
   opacity: 0;
-  animation: fadeIn .6s .2s forwards;
+  animation: slide_up .6s .2s forwards;
 }
 
 .hero-motto {
@@ -90,7 +90,7 @@
   letter-spacing: .12em;
   margin-bottom: clamp(25px, 3vw, 40px);
   opacity: 0;
-  animation: fadeIn .7s .35s forwards;
+  animation: slide_up .7s .35s forwards;
 }
 
 .hm-word { color: var(--text-muted); }
@@ -104,7 +104,7 @@
   line-height: 1.85;
   margin-bottom: 20px;
   opacity: 0;
-  animation: fadeIn .7s .45s forwards;
+  animation: slide_up .7s .45s forwards;
 }
 
 .hero-stats {
@@ -113,7 +113,7 @@
   justify-content: center;
   width: 100%;
   opacity: 0;
-  animation: fadeIn .7s .65s forwards;
+  animation: slide_up .7s .65s forwards;
 }
 
 .hstat {

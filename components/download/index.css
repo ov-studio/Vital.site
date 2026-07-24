@@ -5,7 +5,7 @@
   gap: 16px;
   margin-bottom: clamp(20px, 3vw, 40px);
   opacity: 0;
-  animation: fadeIn .7s .55s forwards;
+  animation: slide_up .7s .55s forwards;
 }
 
 .download-buttons-row {
@@ -43,7 +43,7 @@
   letter-spacing: .015em;
   color: var(--text-mid);
   opacity: 0;
-  animation: fadeIn .7s .35s forwards;
+  animation: slide_up .7s .35s forwards;
 }
 
 .download-tos-link {
