@@ -107,6 +107,7 @@ h2 span {
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
   transition: opacity .2s, transform .15s;
   display: inline-block
+
 }
 
 .btn-primary:hover {
