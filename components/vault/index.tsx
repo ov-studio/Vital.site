@@ -3,24 +3,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import * as lucide from 'lucide-react';
+import * as config_site from '@/configs/site';
 import * as config_vault from '@/configs/vault';
 import './index.css';
 
 const ALL_TAGS: config_vault.VaultTag[] = [
   'gamemode', 'utility', 'ui', 'physics', 'audio', 'networking', 'tools',
 ];
-
-function fmt_downloads(n?: number): string {
-  if (!n) return '0';
-  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
-  return String(n);
-}
-
-function fmt_date(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-US', {
-    year: 'numeric', month: 'short', day: 'numeric',
-  });
-}
 
 // ── Banner ────────────────────────────────
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
