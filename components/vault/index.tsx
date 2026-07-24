@@ -33,11 +33,6 @@ interface VaultIndex {
 
 type LoadState = 'loading' | 'error' | 'done';
 
-// ── Constants ─────────────────────────────
-const VAULT_OWNER = 'ov-studio';
-const VAULT_REPO  = 'Vital.vault';
-const VAULT_JSON_URL = `https://cdn.jsdelivr.net/gh/${VAULT_OWNER}/${VAULT_REPO}@main/vault.json`;
-
 const ALL_TAGS: VaultTag[] = [
   'gamemode', 'utility', 'ui', 'physics', 'audio', 'networking', 'tools',
 ];
@@ -53,7 +48,7 @@ function useVaultResources() {
     async function load() {
       set_state('loading');
       try {
-        const res = await fetch(VAULT_JSON_URL, { cache: 'no-store' });
+        const res = await fetch('/api/vault');
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
 
         const index: VaultIndex = await res.json();
@@ -75,21 +70,9 @@ function useVaultResources() {
   return { resources, state };
 }
 
-// ── Directory download (non-submodule resources) ──
-// GitHub has no endpoint that zips just a subfolder — archive/refs/heads/
-// zips only work for a whole repo. So for plain-directory resources (as
-// opposed to submodules, which already are their own repo) we build the
-// zip client-side: list the repo tree once via the Git Trees API, pull only
-// the blobs under this resource's path from raw.githubusercontent.com (CDN,
-// CORS-enabled, not meaningfully rate-limited), and zip them in the browser.
-// This runs from each visitor's own browser/IP, so it isn't subject to the
-// same shared-server rate-limit concerns as a server-side proxy would be —
-// though a single visitor triggering many downloads in a short window could
-// still hit api.github.com's 60 req/hr unauthenticated cap for the one tree
-// call per download.
 async function download_directory_zip(folder: string): Promise<void> {
   const tree_res = await fetch(
-    `https://api.github.com/repos/${VAULT_OWNER}/${VAULT_REPO}/git/trees/main?recursive=1`,
+    `https://api.github.com/repos/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/git/trees/main?recursive=1`,
     { headers: { Accept: 'application/vnd.github+json' } }
   );
   if (!tree_res.ok) throw new Error(`tree fetch ${tree_res.status}`);
@@ -104,7 +87,7 @@ async function download_directory_zip(folder: string): Promise<void> {
   const zip = new JSZip();
 
   await Promise.all(files.map(async file => {
-    const raw_url = `https://raw.githubusercontent.com/${VAULT_OWNER}/${VAULT_REPO}/main/${file.path}`;
+    const raw_url = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`;
     const file_res = await fetch(raw_url);
     if (!file_res.ok) return; // skip a single failed file rather than aborting the whole zip
     const buf = await file_res.arrayBuffer();
