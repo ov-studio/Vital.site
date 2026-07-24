@@ -188,9 +188,9 @@
   font-family: 'Geist', sans-serif;
   font-size: .62rem;
   font-weight: 600;
-  letter-spacing: .06em;
-  color: var(--blue);
+  letter-spacing: .08em;
   text-transform: uppercase;
+  color: var(--blue);
 }
 
 .vault-card-version {
