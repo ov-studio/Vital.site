@@ -198,15 +198,8 @@ h2 span {
 }
 
 @keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(30px)
-  }
-
-  to {
-    opacity: 1;
-    transform: none
-  }
+  from { opacity: 0; transform: translateX(30px) }
+  to { opacity: 1; transform: none }
 }
 
 @media(max-width:960px) {

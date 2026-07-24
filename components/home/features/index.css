@@ -150,14 +150,8 @@
 }
 
 @keyframes fhub-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: .15;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: .75;
-  }
+  0%, 100% { transform: scale(1); opacity: .15; }
+  50% { transform: scale(1.05); opacity: .75; }
 }
 
 .fnode-group {
