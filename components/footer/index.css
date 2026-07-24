@@ -58,14 +58,14 @@ footer {
   letter-spacing: .01em;
   text-transform: uppercase;
   color: hsl(220, 20%, 60%);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .footer-nav-col ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
 .footer-nav-col ul li a {
