@@ -115,14 +115,9 @@ function VaultModal({ resource, onClose }: {
 
             {resource.source_url && (
               <a href={resource.source_url} target="_blank" rel="noreferrer" className="btn-secondary">
-                <lucide.Github size={14} />
-                View Source
+                :: View Source
               </a>
             )}
-
-            <span className="vault-modal-updated">
-              Updated {fmt_date(resource.updated)}
-            </span>
           </div>
         </div>
 

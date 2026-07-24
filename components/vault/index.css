@@ -242,7 +242,7 @@
   position: fixed;
   inset: 0;
   background: hsla(250, 21%, 5.5%, 0.95);
-  backdrop-filter: blur(2px) !important;
+  backdrop-filter: blur(6px) !important;
   z-index: 600;
   display: flex;
   align-items: center;
@@ -409,11 +409,8 @@
   gap: 16px;
 }
 
-.vault-modal-updated {
-  font-family: 'Geist', sans-serif;
-  font-size: .68rem;
-  color: var(--text-faint);
-  margin-left: auto;
+.vault-modal-actions .btn-secondary {
+
 }
 
 /* ── Modal Close ─────────────────────────── */
