@@ -44,6 +44,11 @@
   --syn-pu: hsl(220, 12%, 50%);
 
 
+  /* ── Selection ── */
+  --selection-bg: hsl(220, 40%, 46%);
+  --selection-text: var(--white);
+
+
   /* ── Brand ── */
   --brand-color: var(--blue);
 
@@ -70,4 +75,9 @@ html {
 
 *:focus {
   outline: none;
+}
+
+*::selection {
+  color: var(--selection-text);
+  background: var(--selection-bg);
 }
