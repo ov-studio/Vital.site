@@ -15,7 +15,6 @@ export default function VaultPage() {
     <component_clientshell.ClientShell>
       <component_overlay.Overlay/>
       <component_navbar.Navbar links={[
-        { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }
       ]}/>
