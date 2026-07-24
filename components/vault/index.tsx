@@ -3,7 +3,7 @@ import * as config_site from '@/configs/site';
 import * as config_vault from '@/configs/vault';
 import * as react from 'react';
 import * as lucide from 'lucide-react';
-import { createPortal } from 'react-dom';
+import * as react_dom from 'react-dom';
 import './index.css';
 
 const ALL_TAGS: config_vault.VaultTag[] = [
@@ -131,7 +131,7 @@ function VaultModal({ resource, onClose }: {
   );
 
   if (typeof document === 'undefined') return null;
-  return createPortal(modal_markup, document.body);
+  return react_dom.createPortal(modal_markup, document.body);
 }
 
 // ── Card ──────────────────────────────────
