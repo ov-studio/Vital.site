@@ -89,7 +89,7 @@ async function download_directory_zip(folder: string): Promise<void> {
   await Promise.all(files.map(async file => {
     const raw_url = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`;
     const file_res = await fetch(raw_url);
-    if (!file_res.ok) return; // skip a single failed file rather than aborting the whole zip
+    if (!file_res.ok) return;
     const buf = await file_res.arrayBuffer();
     zip.file(file.path.slice(prefix.length), buf);
   }));
@@ -106,25 +106,20 @@ async function download_directory_zip(folder: string): Promise<void> {
 }
 
 // ── Banner ────────────────────────────────
-function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
-  const cls = size === 'modal' ? 'vault-modal-banner' : 'vault-card-banner';
-  const ph  = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
-  const ico = size === 'modal' ? 80 : 48;
+const BANNER_CFG = {
+  card:  { wrap: 'vault-card-banner',  ph: 'vault-card-banner-placeholder',  overlay: 'vault-card-banner-overlay',  ico: 48 },
+  modal: { wrap: 'vault-modal-banner', ph: 'vault-modal-banner-placeholder', overlay: 'vault-modal-banner-overlay', ico: 80 },
+} as const;
 
+function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
+  const { wrap, ph, overlay, ico } = BANNER_CFG[size];
   return (
-    <div className={cls}>
+    <div className={wrap}>
       {src
         ? <img src={src} alt="Resource banner" />
-        : (
-          <div className={ph}>
-            <lucide.Package size={ico} color="var(--blue)" />
-          </div>
-        )
+        : <div className={ph}><lucide.Package size={ico} color="var(--blue)" /></div>
       }
-      {size === 'modal'
-        ? <div className="vault-modal-banner-overlay" />
-        : <div className="vault-card-banner-overlay" />
-      }
+      <div className={overlay} />
     </div>
   );
 }

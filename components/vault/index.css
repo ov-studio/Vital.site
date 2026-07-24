@@ -1,31 +1,12 @@
-/* ═══════════════════════════════════════════
-   Vault — Community Resource Library
-   ═══════════════════════════════════════════ */
-
 #vault {
   padding: calc(100px + var(--nav-h)*1) 0;
   min-height: calc(100dvh);
 }
 
-/* ── Header ──────────────────────────────── */
-.vault-head {
-  margin-bottom: 56px;
-}
+.vault-head                  { margin-bottom: 56px; }
+.vault-head .sec-head        { margin-bottom: 25px; }
+.vault-head .sec-head h2     { text-align: left; }
 
-/* Match roadmap/features pattern:
-   sec-head holds ONLY the h2 div + sec-link,
-   with the link bottom-aligned to the heading. */
-
-.vault-head .sec-head {
-  margin-bottom: 25px;
-}
-
-
-.vault-head .sec-head h2 {
-  text-align: left;
-}
-
-/* intro lives outside sec-head, same as roadmap-intro */
 .vault-intro {
   display: flex;
   margin-top: 15px;
@@ -34,12 +15,8 @@
   color: var(--text-muted);
   text-align: left;
 }
+.vault-intro > a { margin-left: auto; }
 
-.vault-intro > a {
-  margin-left: auto;
-}
-
-/* ── Filters ─────────────────────────────── */
 .vault-filters {
   display: flex;
   align-items: center;
@@ -62,26 +39,15 @@
   cursor: pointer;
   transition: color .2s, border-color .2s, background .2s;
 }
+.vault-filter-btn:hover { color: var(--blue); border-color: var(--b30); }
+.vault-filter-btn.active { color: var(--blue); border-color: var(--blue); background: var(--b05); }
 
-.vault-filter-btn:hover {
-  color: var(--blue);
-  border-color: var(--b30);
-}
-
-.vault-filter-btn.active {
-  color: var(--blue);
-  border-color: var(--blue);
-  background: var(--b05);
-}
-
-/* ── Grid ────────────────────────────────── */
 .vault-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
 
-/* ── Card ────────────────────────────────── */
 .vault-card {
   position: relative;
   background: var(--bg3);
@@ -93,44 +59,33 @@
   display: flex;
   flex-direction: column;
 }
+.vault-card:hover { border-color: var(--b40); }
 
-.vault-card:hover {
-  border-color: var(--b40);
-}
-
-/* ── Card Banner ─────────────────────────── */
-.vault-card-banner {
+.vault-card-banner,
+.vault-modal-banner {
   width: 100%;
-  aspect-ratio: 16 / 7;
   background: var(--bg5);
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
 }
+.vault-card-banner  { aspect-ratio: 16 / 7; }
+.vault-modal-banner { aspect-ratio: 16 / 6; }
 
-.vault-card-banner img {
+.vault-card-banner img,
+.vault-modal-banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.vault-card:hover .vault-card-banner img {
+  transform: scale(1.03);
   transition: transform .4s ease;
 }
 
-.vault-card:hover .vault-card-banner img {
-  transform: scale(1.03);
-}
-
-.vault-card-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, hsla(250, 25%, 2%, .38) 0%, transparent 30%, transparent 50%, var(--bg3) 100%),
-    linear-gradient(to right, hsla(250, 25%, 2%, .28) 0%, transparent 35%),
-    linear-gradient(to left, hsla(250, 25%, 2%, .28) 0%, transparent 35%);
-  pointer-events: none;
-}
-
-.vault-card-banner-placeholder {
+.vault-card-banner-placeholder,
+.vault-modal-banner-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
@@ -138,15 +93,31 @@
   justify-content: center;
   background: linear-gradient(135deg, var(--bg5) 0%, var(--bg4) 100%);
 }
+.vault-card-banner-placeholder svg  { opacity: .12; }
+.vault-modal-banner-placeholder svg { opacity: .1; }
 
-.vault-card-banner-placeholder svg {
-  opacity: .12;
+.vault-card-banner-overlay,
+.vault-modal-banner-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.vault-card-banner-overlay {
+  background:
+    linear-gradient(to bottom, hsla(250,25%,2%,.38) 0%, transparent 30%, transparent 50%, var(--bg3) 100%),
+    linear-gradient(to right,  hsla(250,25%,2%,.28) 0%, transparent 35%),
+    linear-gradient(to left,   hsla(250,25%,2%,.28) 0%, transparent 35%);
+}
+.vault-modal-banner-overlay {
+  background:
+    linear-gradient(to bottom, hsla(250,25%,2%,.45) 0%, transparent 35%, transparent 55%, var(--bg2) 100%),
+    linear-gradient(to right,  hsla(250,25%,2%,.72) 0%, transparent 40%),
+    linear-gradient(to left,   hsla(250,25%,2%,.72) 0%, transparent 40%);
 }
 
 .vault-card-featured-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 12px; right: 12px;
   font-family: 'Geist', sans-serif;
   font-size: .64rem;
   font-weight: 800;
@@ -155,7 +126,7 @@
   color: var(--bg);
   background: var(--blue);
   padding: 5px 15px;
-  clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+  clip-path: polygon(6px 0%,100% 0%,100% calc(100% - 6px),calc(100% - 6px) 100%,0% 100%,0% 6px);
 }
 
 /* ── Card Body ───────────────────────────── */
@@ -164,7 +135,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 0;
 }
 
 .vault-card-meta {
@@ -174,7 +144,9 @@
   margin-bottom: 12px;
 }
 
-.vault-card-author {
+/* author / version — shared base, modal overrides font-size */
+.vault-card-author,
+.vault-modal-author {
   font-family: 'Geist', sans-serif;
   font-size: .62rem;
   font-weight: 600;
@@ -182,13 +154,15 @@
   text-transform: uppercase;
   color: var(--blue);
 }
-
-.vault-card-version {
+.vault-card-version,
+.vault-modal-version {
   font-family: 'Geist', sans-serif;
   font-size: .62rem;
   font-weight: 700;
   color: var(--text-desc);
 }
+.vault-modal-author,
+.vault-modal-version { font-size: .7rem; }
 
 .vault-card-name {
   font-family: 'Rajdhani', sans-serif;
@@ -218,13 +192,17 @@
   margin-top: auto;
 }
 
-.vault-card-tags {
+/* ── Tags (card + modal shared) ─────────── */
+.vault-card-tags,
+.vault-modal-tags {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
+.vault-modal-tags { margin-bottom: 28px; }
 
-.vault-card-tag {
+.vault-card-tag,
+.vault-modal-tag {
   padding: 4px 8px;
   font-family: 'Geist', sans-serif;
   font-size: .64rem;
@@ -236,13 +214,12 @@
   border: 2px solid var(--rule);
   border-radius: 4px;
 }
+.vault-modal-tag { font-size: .66rem; }
 
-
-/* ── Modal Overlay ───────────────────────── */
 .vault-modal-overlay {
   position: fixed;
   inset: 0;
-  background: hsla(250, 21%, 7.5%, 0.95);
+  background: hsla(250,21%,7.5%,0.95);
   backdrop-filter: blur(6px) !important;
   z-index: 600;
   display: flex;
@@ -252,10 +229,7 @@
   animation: fade-in .25s ease forwards;
 }
 
-@keyframes fade-in {
-  from { opacity: 0 }
-  to   { opacity: 1 }
-}
+@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
 
 .vault-modal {
   width: 100%;
@@ -267,7 +241,7 @@
   max-height: 90vh;
   overflow-y: auto;
   animation: slide-up .35s ease forwards;
-  clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
+  clip-path: polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);
   isolation: isolate;
   transform: translateZ(0);
 }
@@ -277,82 +251,13 @@
   to   { opacity: 1; transform: none }
 }
 
-.vault-modal-border {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10;
-  overflow: visible;
-}
-
-/* ── Modal Banner ────────────────────────── */
-.vault-modal-banner {
-  width: 100%;
-  aspect-ratio: 16 / 6;
-  background: var(--bg5);
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.vault-modal-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.vault-modal-banner-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--bg5) 0%, var(--bg4) 100%);
-}
-
-.vault-modal-banner-placeholder svg {
-  opacity: .1;
-}
-
-.vault-modal-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, hsla(250, 25%, 2%, .45) 0%, transparent 35%, transparent 55%, var(--bg2) 100%),
-    linear-gradient(to right, hsla(250, 25%, 2%, .72) 0%, transparent 40%),
-    linear-gradient(to left, hsla(250, 25%, 2%, .72) 0%, transparent 40%);
-  pointer-events: none;
-}
-
-/* ── Modal Body ──────────────────────────── */
-.vault-modal-body {
-  padding: 32px 36px 36px;
-}
+.vault-modal-body { padding: 32px 36px 36px; }
 
 .vault-modal-eyebrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
-}
-
-.vault-modal-author {
-  font-family: 'Geist', sans-serif;
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-
-.vault-modal-version {
-  font-family: 'Geist', sans-serif;
-  font-size: .7rem;
-  font-weight: 700;
-  color: var(--text-desc);
 }
 
 .vault-modal-name {
@@ -388,46 +293,19 @@
   white-space: pre-line;
 }
 
-.vault-modal-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-
-.vault-modal-tag {
-  font-family: 'Geist', sans-serif;
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  background: transparent;
-  border: 2px solid var(--rule);
-  border-radius: 4px;
-  padding: 4px 8px;
-}
-
 .vault-modal-actions {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
-.vault-modal-actions .btn-secondary {
-  margin-left: auto;
-}
+.vault-modal-actions .btn-secondary { margin-left: auto; }
 
 .vault-spin {
   animation: spin 0.8s linear infinite;
   vertical-align: -2px;
   margin-right: 4px;
 }
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
 
 .vault-modal-dl-error {
   font-family: 'Geist', sans-serif;
@@ -436,14 +314,11 @@
   margin-top: 10px;
 }
 
-/* ── Modal Close ─────────────────────────── */
 .vault-modal-close {
   opacity: 0.5;
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
+  top: 16px; right: 16px;
+  width: 32px; height: 32px;
   background: var(--rule);
   color: var(--text-muted);
   cursor: pointer;
@@ -455,13 +330,8 @@
   border-radius: 50%;
   border-width: 0;
 }
+.vault-modal-close:hover { opacity: 1; color: var(--white); }
 
-.vault-modal-close:hover {
-  opacity: 1;
-  color: var(--white);
-}
-
-/* ── Empty state ─────────────────────────── */
 .vault-empty {
   grid-column: 1 / -1;
   padding: 80px 0;
@@ -472,101 +342,47 @@
   letter-spacing: .04em;
 }
 
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 1100px) {
-  .vault-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+.vault-card--skeleton { pointer-events: none; }
 
-@media (max-width: 960px) {
-  #vault {
-    padding: calc(100px + var(--nav-h)*0.25) 0;
-  }
-
-  .vault-intro {
-    flex-direction: column;
-  }
-
-  .sec-head {
-    flex-direction: row !important;
-  }
-
-  .sec-link {
-    align-self: flex-end
-  }
-
-  .vault-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vault-modal {
-    clip-path: none;
-  }
-
-  .vault-modal-body {
-    padding: 24px 20px 28px;
-  }
-
-  .vault-modal-name {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .vault-modal-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .vault-modal-actions .btn-secondary {
-    margin-left: 0;
-  }
-}
-
-
-/* ── Skeleton loader ─────────────────────── */
-.vault-card--skeleton {
-  pointer-events: none;
-}
-
-.vault-skeleton-banner {
-  aspect-ratio: 16 / 7;
-  background: linear-gradient(90deg,
-      var(--bg5) 25%,
-      var(--bg4) 50%,
-      var(--bg5) 75%);
+.vault-skeleton-banner,
+.vault-skeleton-line {
+  background: linear-gradient(90deg, var(--bg5) 25%, var(--bg4) 50%, var(--bg5) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite;
 }
+
+.vault-skeleton-banner { aspect-ratio: 16 / 7; }
 
 .vault-skeleton-line {
   height: 12px;
   border-radius: 2px;
   margin-bottom: 10px;
-  background: linear-gradient(90deg,
-      var(--bg5) 25%,
-      var(--bg4) 50%,
-      var(--bg5) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite;
 }
-
-.vault-skeleton-line--sm {
-  width: 40%;
-  height: 10px;
-}
-
-.vault-skeleton-line--lg {
-  width: 70%;
-  height: 16px;
-}
-
-.vault-skeleton-line--md {
-  width: 55%;
-}
+.vault-skeleton-line--sm { width: 40%; height: 10px; }
+.vault-skeleton-line--lg { width: 70%; height: 16px; }
+.vault-skeleton-line--md { width: 55%; }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
+  0%   { background-position:  200% 0; }
   100% { background-position: -200% 0; }
+}
+
+@media (max-width: 1100px) {
+  .vault-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 960px) {
+  #vault             { padding: calc(100px + var(--nav-h)*0.25) 0; }
+  .vault-intro       { flex-direction: column; }
+  .sec-head          { flex-direction: row !important; }
+  .sec-link          { align-self: flex-end; }
+  .vault-grid        { grid-template-columns: 1fr; }
+  .vault-modal       { clip-path: none; }
+  .vault-modal-body  { padding: 24px 20px 28px; }
+  .vault-modal-name  { font-size: 1.5rem; }
+}
+
+@media (max-width: 400px) {
+  .vault-modal-actions              { flex-direction: column; align-items: flex-start; }
+  .vault-modal-actions .btn-secondary { margin-left: 0; }
 }
