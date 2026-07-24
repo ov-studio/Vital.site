@@ -46,14 +46,14 @@
   height: 24px;
   z-index: 2;
   opacity: .35;
-  animation: cornerfade 3s ease-in-out infinite;
+  animation: corner_fade 3s ease-in-out infinite;
 }
 .hcorner-tl { top: 24px; left: 24px; border-top: 1px solid var(--blue); border-left: 1px solid var(--blue); }
 .hcorner-tr { top: 24px; right: 24px; border-top: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 .hcorner-bl { bottom: 24px; left: 24px; border-bottom: 1px solid var(--blue); border-left: 1px solid var(--blue); }
 .hcorner-br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 
-@keyframes cornerfade {
+@keyframes corner_fade {
   0%, 100% { opacity: .25; }
   50% { opacity: .55; }
 }
