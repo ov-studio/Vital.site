@@ -19,8 +19,9 @@ interface VaultResource {
   tags:         VaultTag[];
   banner?:      string;
   featured:     boolean;
+  is_submodule: boolean;
   source_url?:  string;
-  download_url: string;
+  download_url: string | null;
 }
 
 interface VaultIndex {
@@ -35,17 +36,6 @@ type LoadState = 'loading' | 'error' | 'done';
 // ── Constants ─────────────────────────────
 const VAULT_OWNER = 'ov-studio';
 const VAULT_REPO  = 'Vital.vault';
-
-// Fetched via jsDelivr rather than raw.githubusercontent.com or a release
-// asset. Release assets (objects.githubusercontent.com) don't send an
-// Access-Control-Allow-Origin header, so a browser fetch() gets blocked by
-// CORS even though the file downloads fine via direct navigation.
-// raw.githubusercontent.com does send CORS headers, but its CDN cache has no
-// public purge mechanism and ignores query strings when computing the cache
-// key — so a stale response can stick around with no way to force a refresh.
-// jsDelivr is CORS-friendly too, but exposes a purge API, which the build
-// workflow calls right after pushing vault.json — so this URL reflects the
-// latest build within seconds instead of waiting out an unbustable TTL.
 const VAULT_JSON_URL = `https://cdn.jsdelivr.net/gh/${VAULT_OWNER}/${VAULT_REPO}@main/vault.json`;
 
 const ALL_TAGS: VaultTag[] = [
@@ -161,9 +151,8 @@ function VaultModal({ resource, onClose }: {
   resource: VaultResource;
   onClose:  () => void;
 }) {
-  const is_dir = resource.id.startsWith('dir:');
-  const folder = is_dir ? resource.id.slice('dir:'.length) : '';
-
+  const is_dir  = !resource.is_submodule;
+  const folder  = is_dir ? resource.id.slice(4) : '';
   const [downloading, set_downloading] = react.useState(false);
   const [dl_error,    set_dl_error]    = react.useState<string | null>(null);
 
@@ -266,7 +255,7 @@ function VaultModal({ resource, onClose }: {
                 }
               </button>
             ) : (
-              <a href={resource.download_url} className="btn-primary" download>
+              <a href={resource.download_url ?? resource.source_url ?? '#'} className="btn-primary" download>
                 Download Resource
               </a>
             )}
