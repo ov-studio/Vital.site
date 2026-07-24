@@ -196,8 +196,8 @@
 .vault-card-version {
   font-family: 'Geist', sans-serif;
   font-size: .65rem;
-  color: var(--text-faint);
-  letter-spacing: .04em;
+  font-weight: 700;
+  color: var(--text-desc);
 }
 
 .vault-card-name {
@@ -368,7 +368,6 @@
   font-family: 'Geist', sans-serif;
   font-size: .68rem;
   color: var(--text-faint);
-  letter-spacing: .04em;
 }
 
 .vault-modal-name {
