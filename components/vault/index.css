@@ -416,18 +416,6 @@
   margin-left: auto;
 }
 
-.vault-modal-actions button.btn-primary {
-  border: none;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-}
-
-.vault-modal-actions button.btn-primary:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
-}
-
 .vault-spin {
   animation: vault-spin-rotate 0.8s linear infinite;
   vertical-align: -2px;
