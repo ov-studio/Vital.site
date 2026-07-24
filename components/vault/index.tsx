@@ -1,10 +1,9 @@
 'use client';
-
-import { useState, useEffect, useCallback } from 'react';
-import { createPortal } from 'react-dom';
-import * as lucide from 'lucide-react';
 import * as config_site from '@/configs/site';
 import * as config_vault from '@/configs/vault';
+import * as react from 'react';
+import * as lucide from 'lucide-react';
+import { createPortal } from 'react-dom';
 import './index.css';
 
 const ALL_TAGS: config_vault.VaultTag[] = [
@@ -40,13 +39,13 @@ function VaultModal({ resource, onClose }: {
   resource: config_vault.VaultResource;
   onClose: () => void;
 }) {
-  useEffect(() => {
+  react.useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
-  useEffect(() => {
+  react.useEffect(() => {
     const scrollbar_w = window.innerWidth - document.documentElement.clientWidth;
     if (scrollbar_w <= 0) {
       document.documentElement.style.overflow = 'hidden';
@@ -177,10 +176,10 @@ function VaultCard({ resource, onClick }: {
 
 // ── Main Component ────────────────────────
 export function Vault() {
-  const [active_tag, set_active_tag] = useState<config_vault.VaultTag | null>(null);
-  const [selected, set_selected] = useState<config_vault.VaultResource | null>(null);
+  const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
+  const [selected, set_selected] = react.useState<config_vault.VaultResource | null>(null);
 
-  useEffect(() => {
+  react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
@@ -194,7 +193,7 @@ export function Vault() {
     ? config_vault.Vault.filter(r => r.tags.includes(active_tag))
     : config_vault.Vault;
 
-  const close = useCallback(() => set_selected(null), []);
+  const close = react.useCallback(() => set_selected(null), []);
 
   return (
     <>
