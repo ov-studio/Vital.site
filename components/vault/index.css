@@ -84,7 +84,7 @@
 /* ── Card ────────────────────────────────── */
 .vault-card {
   position: relative;
-  background: var(--bg2);
+  background: var(--bg3);
   border: 1px solid var(--b18);
   border-radius: 6px;
   cursor: pointer;
@@ -134,7 +134,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, hsla(250, 25%, 2%, .38) 0%, transparent 30%, transparent 50%, var(--bg2) 100%),
+    linear-gradient(to bottom, hsla(250, 25%, 2%, .38) 0%, transparent 30%, transparent 50%, var(--bg3) 100%),
     linear-gradient(to right, hsla(250, 25%, 2%, .28) 0%, transparent 35%),
     linear-gradient(to left, hsla(250, 25%, 2%, .28) 0%, transparent 35%);
   pointer-events: none;
