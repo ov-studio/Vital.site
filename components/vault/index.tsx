@@ -9,42 +9,33 @@ import './index.css';
 type VaultTag = 'gamemode' | 'utility' | 'ui' | 'physics' | 'audio' | 'networking' | 'tools';
 
 interface VaultResource {
-  id:           string;
-  name:         string;
-  author:       string;
-  author_url?:  string;
-  version:      string;
-  tagline:      string;
-  description:  string;
-  tags:         VaultTag[];
-  banner?:      string;
-  featured:     boolean;
-  source_url?:  string;
+  id: string;
+  name: string;
+  author: string;
+  author_url?: string;
+  version: string;
+  tagline: string;
+  description: string;
+  tags: VaultTag[];
+  banner?: string;
+  featured: boolean;
+  source_url?: string;
   download_url: string;
 }
 
 interface VaultIndex {
   generated_at: string;
-  commit:       string;
-  count:        number;
-  resources:    VaultResource[];
+  commit: string;
+  count: number;
+  resources: VaultResource[];
 }
 
 type LoadState = 'loading' | 'error' | 'done';
 
 // ── Constants ─────────────────────────────
 const VAULT_OWNER = 'ov-studio';
-const VAULT_REPO  = 'Vital.vault';
-
-// Fetched straight from raw.githubusercontent.com. GitHub release assets are
-// served from objects.githubusercontent.com without an
-// Access-Control-Allow-Origin header, so a browser fetch() to a release
-// asset gets blocked by CORS even though the file downloads fine via direct
-// navigation. raw.githubusercontent.com sends CORS headers and is CDN-backed
-// with no meaningful rate limit, unlike api.github.com's 60 req/hr per IP.
-// The release workflow commits vault.json to `main` on every rebuild
-// specifically so this URL always reflects the latest build.
-const VAULT_JSON_URL = `https://raw.githubusercontent.com/${VAULT_OWNER}/${VAULT_REPO}/main/vault.json`;
+const VAULT_REPO = 'Vital.vault';
+const VAULT_JSON_URL = `https://cdn.jsdelivr.net/gh/${VAULT_OWNER}/${VAULT_REPO}@main/vault.json`;
 
 const ALL_TAGS: VaultTag[] = [
   'gamemode', 'utility', 'ui', 'physics', 'audio', 'networking', 'tools',
@@ -53,7 +44,7 @@ const ALL_TAGS: VaultTag[] = [
 // ── Data hook — single direct fetch ───────
 function useVaultResources() {
   const [resources, set_resources] = react.useState<VaultResource[]>([]);
-  const [state,     set_state]     = react.useState<LoadState>('loading');
+  const [state, set_state] = react.useState<LoadState>('loading');
 
   react.useEffect(() => {
     let cancelled = false;
@@ -61,7 +52,7 @@ function useVaultResources() {
     async function load() {
       set_state('loading');
       try {
-        const res = await fetch(`${VAULT_JSON_URL}?t=${Date.now()}`);
+        const res = await fetch(VAULT_JSON_URL, { cache: 'no-store' });
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
 
         const index: VaultIndex = await res.json();
@@ -86,7 +77,7 @@ function useVaultResources() {
 // ── Banner ────────────────────────────────
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
   const cls = size === 'modal' ? 'vault-modal-banner' : 'vault-card-banner';
-  const ph  = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
+  const ph = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
   const ico = size === 'modal' ? 80 : 48;
 
   return (
@@ -110,7 +101,7 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
 // ── Modal ─────────────────────────────────
 function VaultModal({ resource, onClose }: {
   resource: VaultResource;
-  onClose:  () => void;
+  onClose: () => void;
 }) {
   react.useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
@@ -137,7 +128,7 @@ function VaultModal({ resource, onClose }: {
     });
 
     const prev_overflow = document.documentElement.style.overflow;
-    const prev_body_pr  = document.body.style.paddingRight;
+    const prev_body_pr = document.body.style.paddingRight;
     document.documentElement.style.overflow = 'hidden';
     document.body.style.paddingRight = `${scrollbar_w}px`;
 
@@ -163,7 +154,7 @@ function VaultModal({ resource, onClose }: {
             <span className="vault-modal-author">
               {resource.author_url
                 ? <a href={resource.author_url} target="_blank" rel="noreferrer"
-                    style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
+                  style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
                 : resource.author
               }
             </span>
@@ -206,7 +197,7 @@ function VaultModal({ resource, onClose }: {
 // ── Card ──────────────────────────────────
 function VaultCard({ resource, onClick }: {
   resource: VaultResource;
-  onClick:  () => void;
+  onClick: () => void;
 }) {
   return (
     <div
@@ -260,7 +251,7 @@ export function Vault() {
   const { resources, state } = useVaultResources();
 
   const [active_tag, set_active_tag] = react.useState<VaultTag | null>(null);
-  const [selected,   set_selected]   = react.useState<VaultResource | null>(null);
+  const [selected, set_selected] = react.useState<VaultResource | null>(null);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
