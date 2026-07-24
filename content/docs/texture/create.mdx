@@ -9,6 +9,7 @@ badge: Client
 ```lua
 local instance = core.texture.create(
     path
+    path,
 )
 ```
 
@@ -55,4 +56,10 @@ local entity = core.texture.create("assets/image.webp")
 
 ```lua lineNumbers title="Create a texture instance from a DDS file"
 local entity = core.texture.create("assets/terrain.dds")
+```
+
+```lua lineNumbers title="Create a texture with mipmaps"
+local entity = core.texture.create("assets/terrain/cliff_diffuse.png", true)
+
+entity:set_filter(core.texture.texture_filter.LINEAR_MIPMAP_ANISOTROPIC)
 ```
