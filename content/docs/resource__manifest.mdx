@@ -67,16 +67,16 @@ name: "My Resource"
 author: "YourName"
 version: "1.0.0"
 
-author_url: "https://github.com/YourName" # Required for vault
-banner: "https://raw.githubusercontent.com/<org>/<repo>/main/resources/<name>/banner.png" # Required for vault
-tagline: "One-line summary of what this resource does" # Required for vault
-featured: false # Required for vault
+author_url: "https://github.com/YourName" # Required for Vault
+banner: "https://raw.githubusercontent.com/<org>/<repo>/main/resources/<name>/banner.png" # Required for Vault
+tagline: "One-line summary of what this resource does" # Required for Vault
+featured: false # Required for Vault
 
-description: |  # Required for vault
+description: |  # Required for Vault
   Longer description shown in the Vault modal.
   Supports multiple lines like this.
 
-tags:  # Required for vault
+tags:  # Required for Vault
   - "utility"
 
 dependencies:
@@ -102,15 +102,15 @@ files:
 
 | Key | Type | Required | Default | Used in | Description |
 |---|---|---|---|---|---|
-| `name` | `string` | No | `ref` | Sandbox, Vault | Display name for the resource<br/>Falls back to resource's reference if omitted |
-| `author` | `string` | No | `""` | Sandbox, Vault | Free-text author/credit string - not validated |
-| `version` | `string` | No | `""` | Sandbox, Vault | Free-text version string - not validated |
-| `author_url` | `string` | No | `https://github.com/<author>` | Vault | Link wrapped around the author name in the Vault modal |
-| `banner` | `string` | No | `null` | Vault | Full URL to a banner image - shows a placeholder icon if omitted<br/>No path resolution yet, so this must be a full URL, not a relative filename |
-| `tagline` | `string` | No | `"N/A"` | Vault | Short one-line summary shown on the Vault card + modal |
-| `featured` | `boolean` | No | `false` | Vault | Pins the resource to the top of the Vault grid |
-| `description` | `string` | No | `"N/A"` | Vault | Longer text shown in the Vault modal<br/>Use a YAML block scalar (`\|`) for line breaks - `<br/>` renders as plain text, not HTML |
-| `tags` | `string[]` | No | `[]` | Vault | Filters shown on the Vault card - only known tags are kept: `gamemode`, `utility`, `ui`, `physics`, `audio`, `networking`, `tools` |
+| `name` | `string` | No | `ref` | Sandbox, Vault | Display name for the resource |
+| `author` | `string` | No | `""` | Sandbox, Vault | Free-text author/credit string |
+| `version` | `string` | No | `""` | Sandbox, Vault | Free-text version string |
+| `author_url` | `string` | No | `https://github.com/<author>` | Vault | Link wrapped around the author name |
+| `banner` | `string` | No | `null` | Vault | Full URL to a banner image |
+| `tagline` | `string` | No | `"N/A"` | Vault | Short one-line summary |
+| `featured` | `boolean` | No | `false` | Vault | Pins the resource to the top of Vault |
+| `description` | `string` | No | `"N/A"` | Vault | Longer brief summary |
+| `tags` | `string[]` | No | `[]` | Vault | Filters to be shown:<br/>`gamemode`<br/>`utility`<br/>`ui`<br/>`physics`<br/>`audio`<br/>`networking`<br/>`tools` |
 | `dependencies` | `string[]` | No | `[]` | Sandbox | Names of other resources that must be running before this one starts |
 | `scripts` | `string[]` | Yes | None | Sandbox | List of script entries to compile and execute for this resource |
 | `files` | `string[]` | No | `[]` | Sandbox | Glob patterns for non-script assets (models, textures, sounds, etc) |
