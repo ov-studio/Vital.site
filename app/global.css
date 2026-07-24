@@ -186,15 +186,8 @@ h2 span {
 .pu { color: var(--syn-pu) }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px)
-  }
-
-  to {
-    opacity: 1;
-    transform: none
-  }
+  from { opacity: 0; transform: translateY(16px) }
+  to { opacity: 1; transform: none }
 }
 
 @keyframes slideLeft {
@@ -203,9 +196,7 @@ h2 span {
 }
 
 @media(max-width:960px) {
-  .sw {
-    padding: 0 24px
-  }
+  .sw { padding: 0 24px }
 
   .sec-head {
     flex-direction: column;
@@ -214,17 +205,11 @@ h2 span {
     margin-bottom: 40px;
   }
 
-  .sec-link {
-    align-self: flex-start
-  }
+  .sec-link { align-self: flex-start }
 }
 
 @media(max-width:640px) {
-  .sw {
-    padding: 0 20px
-  }
+  .sw { padding: 0 20px }
 
-  h2 {
-    font-size: clamp(2rem, 7vw, 2.6rem)
-  }
+  h2 { font-size: clamp(2rem, 7vw, 2.6rem) }
 }
