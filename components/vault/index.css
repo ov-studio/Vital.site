@@ -213,7 +213,7 @@
 .vault-card-tagline {
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
-  color: var(--text-desc);
+  color: var(--text-soft);
   font-weight: 500;
   margin-bottom: 18px;
   flex: 1;
@@ -385,7 +385,7 @@
   font-family: 'Geist', sans-serif;
   font-size: .82rem;
   font-weight: 500;
-  color: var(--text-desc);
+  color: var(--text-soft);
   margin-bottom: 24px;
 }
 
