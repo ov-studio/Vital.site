@@ -209,11 +209,10 @@
 }
 
 .rcard-name {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.78rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.03rem;
   font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  letter-spacing: .02em;
   color: var(--dim);
   transition: color .25s;
 }
