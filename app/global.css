@@ -11,7 +11,7 @@
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Geist', sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
