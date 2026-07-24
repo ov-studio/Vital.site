@@ -14,7 +14,11 @@ export default function VaultPage() {
   return (
     <component_clientshell.ClientShell>
       <component_overlay.Overlay/>
-      <component_navbar.Navbar links={[]}/>
+      <component_navbar.Navbar links={[
+        { label: 'Vault', href: '/vault' },
+        { label: 'Documentations', href: '/docs' },
+        { label: 'Roadmap', href: '/roadmap' }
+      ]}/>
       <component_vault.Vault/>
       <component_footer.Footer/>
     </component_clientshell.ClientShell>
