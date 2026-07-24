@@ -6,10 +6,10 @@ export const Footer = [
   {
     heading: 'Sandbox',
     links: [
+      { label: 'Vault', href: '/vault' },
       { label: 'Documentations', href: '/docs' },
       { label: 'Roadmap', href: '/roadmap' },
-      { label: 'Contributing', href: '/docs/building' },
-      { label: 'Terms of Service', href: '/tos' }
+      { label: 'Contributing', href: '/docs/building' }
     ]
   },
   {
