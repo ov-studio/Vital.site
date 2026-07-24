@@ -6,7 +6,21 @@ import * as react_dom from 'react-dom';
 import './index.css';
 
 // ── Types ─────────────────────────────────
-type VaultTag = 'gamemode' | 'utility' | 'ui' | 'physics' | 'audio' | 'networking' | 'tools';
+type VaultTag =
+  | 'animation'
+  | 'gamemode'
+  | 'gfx'
+  | 'library'
+  | 'map'
+  | 'material'
+  | 'model'
+  | 'network'
+  | 'physx'
+  | 'sfx'
+  | 'shader'
+  | 'ui'
+  | 'utility'
+  | 'vfx';
 
 interface VaultResource {
   id:           string;
@@ -34,7 +48,20 @@ interface VaultIndex {
 type LoadState = 'loading' | 'error' | 'done';
 
 const ALL_TAGS: VaultTag[] = [
-  'gamemode', 'utility', 'ui', 'physics', 'audio', 'networking', 'tools',
+  'animation',
+  'gamemode',
+  'gfx',
+  'library',
+  'map',
+  'material',
+  'model',
+  'network',
+  'physx',
+  'sfx',
+  'shader',
+  'ui',
+  'utility',
+  'vfx',
 ];
 
 // ── Data hook — single direct fetch ───────
