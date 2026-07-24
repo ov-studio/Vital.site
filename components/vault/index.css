@@ -382,6 +382,7 @@
   color: var(--text-muted);
   line-height: 1.85;
   margin-bottom: 28px;
+  white-space: pre-line;
 }
 
 .vault-modal-tags {
@@ -462,17 +463,17 @@
   }
 
   .vault-intro {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-    .sec-head {
-      flex-direction: row !important;
-    }
+  .sec-head {
+    flex-direction: row !important;
+  }
 
-    .sec-link {
-      align-self: flex-end
-    }
-    
+  .sec-link {
+    align-self: flex-end
+  }
+
   .vault-grid {
     grid-template-columns: 1fr;
   }
@@ -491,5 +492,56 @@
 
   .vault-modal-updated {
     margin-left: 0;
+  }
+}
+
+/* ── Skeleton loader ─────────────────────── */
+.vault-card--skeleton {
+  pointer-events: none;
+}
+
+.vault-skeleton-banner {
+  aspect-ratio: 16 / 7;
+  background: linear-gradient(90deg,
+      var(--bg5) 25%,
+      var(--bg4) 50%,
+      var(--bg5) 75%);
+  background-size: 200% 100%;
+  animation: vault-shimmer 1.4s infinite;
+}
+
+.vault-skeleton-line {
+  height: 12px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg,
+      var(--bg5) 25%,
+      var(--bg4) 50%,
+      var(--bg5) 75%);
+  background-size: 200% 100%;
+  animation: vault-shimmer 1.4s infinite;
+}
+
+.vault-skeleton-line--sm {
+  width: 40%;
+  height: 10px;
+}
+
+.vault-skeleton-line--lg {
+  width: 70%;
+  height: 16px;
+}
+
+.vault-skeleton-line--md {
+  width: 55%;
+}
+
+@keyframes vault-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
   }
 }
