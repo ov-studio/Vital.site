@@ -260,7 +260,7 @@
   width: 100%;
   max-width: 780px;
   background: var(--bg2);
-  border: 1px solid var(--bg5);
+  border: 1px solid var(--bg2);
   position: relative;
   overflow: hidden;
   max-height: 90vh;
