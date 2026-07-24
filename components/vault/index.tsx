@@ -213,7 +213,7 @@ export function Vault() {
                 Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
               </div>
               <a
-                href="https://github.com/ov-studio/Vital.sandbox"
+                href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}
                 target="_blank"
                 rel="noreferrer"
                 className="sec-link"
