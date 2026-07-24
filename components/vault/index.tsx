@@ -1,19 +1,92 @@
 'use client';
 import * as config_site from '@/configs/site';
-import * as config_vault from '@/configs/vault';
 import * as react from 'react';
 import * as lucide from 'lucide-react';
 import * as react_dom from 'react-dom';
 import './index.css';
 
-const ALL_TAGS: config_vault.VaultTag[] = [
+// ── Types ─────────────────────────────────
+type VaultTag = 'gamemode' | 'utility' | 'ui' | 'physics' | 'audio' | 'networking' | 'tools';
+
+interface VaultResource {
+  id:           string;
+  name:         string;
+  author:       string;
+  author_url?:  string;
+  version:      string;
+  tagline:      string;
+  description:  string;
+  tags:         VaultTag[];
+  banner?:      string;
+  featured:     boolean;
+  source_url?:  string;
+  download_url: string;
+}
+
+interface VaultIndex {
+  generated_at: string;
+  commit:       string;
+  count:        number;
+  resources:    VaultResource[];
+}
+
+type LoadState = 'loading' | 'error' | 'done';
+
+// ── Constants ─────────────────────────────
+const VAULT_OWNER = 'ov-studio';
+const VAULT_REPO  = 'Vital.vault';
+
+// Fetched straight from raw.githubusercontent.com. GitHub release assets are
+// served from objects.githubusercontent.com without an
+// Access-Control-Allow-Origin header, so a browser fetch() to a release
+// asset gets blocked by CORS even though the file downloads fine via direct
+// navigation. raw.githubusercontent.com sends CORS headers and is CDN-backed
+// with no meaningful rate limit, unlike api.github.com's 60 req/hr per IP.
+// The release workflow commits vault.json to `main` on every rebuild
+// specifically so this URL always reflects the latest build.
+const VAULT_JSON_URL = `https://raw.githubusercontent.com/${VAULT_OWNER}/${VAULT_REPO}/main/vault.json`;
+
+const ALL_TAGS: VaultTag[] = [
   'gamemode', 'utility', 'ui', 'physics', 'audio', 'networking', 'tools',
 ];
+
+// ── Data hook — single direct fetch ───────
+function useVaultResources() {
+  const [resources, set_resources] = react.useState<VaultResource[]>([]);
+  const [state,     set_state]     = react.useState<LoadState>('loading');
+
+  react.useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      set_state('loading');
+      try {
+        const res = await fetch(`${VAULT_JSON_URL}?t=${Date.now()}`);
+        if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
+
+        const index: VaultIndex = await res.json();
+
+        if (!cancelled) {
+          set_resources(index.resources ?? []);
+          set_state('done');
+        }
+      } catch (err) {
+        console.error('[Vault]', err);
+        if (!cancelled) set_state('error');
+      }
+    }
+
+    load();
+    return () => { cancelled = true; };
+  }, []);
+
+  return { resources, state };
+}
 
 // ── Banner ────────────────────────────────
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
   const cls = size === 'modal' ? 'vault-modal-banner' : 'vault-card-banner';
-  const ph = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
+  const ph  = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
   const ico = size === 'modal' ? 80 : 48;
 
   return (
@@ -36,8 +109,8 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
 
 // ── Modal ─────────────────────────────────
 function VaultModal({ resource, onClose }: {
-  resource: config_vault.VaultResource;
-  onClose: () => void;
+  resource: VaultResource;
+  onClose:  () => void;
 }) {
   react.useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
@@ -49,21 +122,17 @@ function VaultModal({ resource, onClose }: {
     const scrollbar_w = window.innerWidth - document.documentElement.clientWidth;
     if (scrollbar_w <= 0) {
       document.documentElement.style.overflow = 'hidden';
-      return () => {
-        document.documentElement.style.overflow = '';
-      };
+      return () => { document.documentElement.style.overflow = ''; };
     }
 
     const fixed_els: { el: HTMLElement; prev: string }[] = [];
-    const candidates = document.querySelectorAll<HTMLElement>(
+    document.querySelectorAll<HTMLElement>(
       'nav, header, [data-fixed], .vault-modal-overlay'
-    );
-    candidates.forEach(el => {
+    ).forEach(el => {
       const style = getComputedStyle(el);
       if (style.position === 'fixed' || style.position === 'sticky') {
         fixed_els.push({ el, prev: el.style.paddingRight });
-        const current_pr = parseFloat(style.paddingRight) || 0;
-        el.style.paddingRight = `${current_pr + scrollbar_w}px`;
+        el.style.paddingRight = `${(parseFloat(style.paddingRight) || 0) + scrollbar_w}px`;
       }
     });
 
@@ -93,7 +162,8 @@ function VaultModal({ resource, onClose }: {
           <div className="vault-modal-eyebrow">
             <span className="vault-modal-author">
               {resource.author_url
-                ? <a href={resource.author_url} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
+                ? <a href={resource.author_url} target="_blank" rel="noreferrer"
+                    style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
                 : resource.author
               }
             </span>
@@ -117,7 +187,6 @@ function VaultModal({ resource, onClose }: {
             <a href={resource.download_url} className="btn-primary" download>
               Download Resource
             </a>
-
             {resource.source_url && (
               <a href={resource.source_url} target="_blank" rel="noreferrer" className="btn-secondary">
                 :: View Source
@@ -136,8 +205,8 @@ function VaultModal({ resource, onClose }: {
 
 // ── Card ──────────────────────────────────
 function VaultCard({ resource, onClick }: {
-  resource: config_vault.VaultResource;
-  onClick: () => void;
+  resource: VaultResource;
+  onClick:  () => void;
 }) {
   return (
     <div
@@ -158,10 +227,8 @@ function VaultCard({ resource, onClick }: {
           <span className="vault-card-author">{resource.author}</span>
           <span className="vault-card-version">v{resource.version}</span>
         </div>
-
         <div className="vault-card-name">{resource.name}</div>
         <div className="vault-card-tagline">{resource.tagline}</div>
-
         <div className="vault-card-footer">
           <div className="vault-card-tags">
             {resource.tags.slice(0, 2).map(t => (
@@ -174,10 +241,26 @@ function VaultCard({ resource, onClick }: {
   );
 }
 
+// ── Skeleton card ─────────────────────────
+function VaultSkeleton() {
+  return (
+    <div className="vault-card vault-card--skeleton">
+      <div className="vault-card-banner vault-skeleton-banner" />
+      <div className="vault-card-body">
+        <div className="vault-skeleton-line vault-skeleton-line--sm" />
+        <div className="vault-skeleton-line vault-skeleton-line--lg" />
+        <div className="vault-skeleton-line vault-skeleton-line--md" />
+      </div>
+    </div>
+  );
+}
+
 // ── Main Component ────────────────────────
 export function Vault() {
-  const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
-  const [selected, set_selected] = react.useState<config_vault.VaultResource | null>(null);
+  const { resources, state } = useVaultResources();
+
+  const [active_tag, set_active_tag] = react.useState<VaultTag | null>(null);
+  const [selected,   set_selected]   = react.useState<VaultResource | null>(null);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
@@ -187,11 +270,11 @@ export function Vault() {
     );
     els.forEach(el => obs.observe(el));
     return () => obs.disconnect();
-  }, [active_tag]);
+  }, [resources, active_tag]);
 
   const filtered = active_tag
-    ? config_vault.Vault.filter(r => r.tags.includes(active_tag))
-    : config_vault.Vault;
+    ? resources.filter(r => r.tags.includes(active_tag))
+    : resources;
 
   const close = react.useCallback(() => set_selected(null), []);
 
@@ -206,7 +289,6 @@ export function Vault() {
                 <h2>Community built,<br />All yours to <span>explore.</span></h2>
               </div>
             </div>
-
             <div className="vault-intro sec-head">
               <div>
                 Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
@@ -241,16 +323,20 @@ export function Vault() {
           </div>
 
           <div className="vault-grid">
-            {filtered.length === 0
-              ? <div className="vault-empty">No resources found for this filter.</div>
-              : filtered.map(r => (
-                <VaultCard
-                  key={r.id}
-                  resource={r}
-                  onClick={() => set_selected(r)}
-                />
-              ))
+            {state === 'loading' &&
+              Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i} />)
             }
+            {state === 'error' && (
+              <div className="vault-empty">
+                Failed to load resources. Check your connection and try again.
+              </div>
+            )}
+            {state === 'done' && filtered.length === 0 && (
+              <div className="vault-empty">No resources found for this filter.</div>
+            )}
+            {state === 'done' && filtered.map(r => (
+              <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)} />
+            ))}
           </div>
 
         </div>
