@@ -248,10 +248,10 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  animation: vmFadeIn .25s ease forwards;
+  animation: modal_fade_in .25s ease forwards;
 }
 
-@keyframes vmFadeIn {
+@keyframes modal_fade_in {
   from { opacity: 0 }
   to   { opacity: 1 }
 }
@@ -265,13 +265,13 @@
   overflow: hidden;
   max-height: 90vh;
   overflow-y: auto;
-  animation: vmSlideUp .35s ease forwards;
+  animation: modal_slide_up .35s ease forwards;
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   isolation: isolate;
   transform: translateZ(0);
 }
 
-@keyframes vmSlideUp {
+@keyframes modal_slide_up {
   from { opacity: 0; transform: translateY(10vh) }
   to   { opacity: 1; transform: none }
 }
@@ -417,12 +417,12 @@
 }
 
 .vault-spin {
-  animation: vault-spin-rotate 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
   vertical-align: -2px;
   margin-right: 4px;
 }
 
-@keyframes vault-spin-rotate {
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
@@ -535,7 +535,7 @@
       var(--bg4) 50%,
       var(--bg5) 75%);
   background-size: 200% 100%;
-  animation: vault-shimmer 1.4s infinite;
+  animation: shimmer 1.4s infinite;
 }
 
 .vault-skeleton-line {
@@ -547,7 +547,7 @@
       var(--bg4) 50%,
       var(--bg5) 75%);
   background-size: 200% 100%;
-  animation: vault-shimmer 1.4s infinite;
+  animation: shimmer 1.4s infinite;
 }
 
 .vault-skeleton-line--sm {
@@ -564,7 +564,7 @@
   width: 55%;
 }
 
-@keyframes vault-shimmer {
+@keyframes shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }

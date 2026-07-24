@@ -140,7 +140,7 @@
   border-radius: 50%;
   border: 2px solid var(--blue);
   opacity: .15;
-  animation: fhub-pulse 3.5s ease-in-out infinite;
+  animation: fhub_pulse 3.5s ease-in-out infinite;
 }
 
 .fhub-ring-2 {
@@ -149,7 +149,7 @@
   animation-delay: 1.75s;
 }
 
-@keyframes fhub-pulse {
+@keyframes fhub_pulse {
   0%, 100% { transform: scale(1); opacity: .15; }
   50% { transform: scale(1.05); opacity: .75; }
 }

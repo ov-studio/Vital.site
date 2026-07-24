@@ -100,12 +100,12 @@
 
 .rcategory {
   opacity: 0;
-  animation: rcategory-in .45s ease forwards;
+  animation: rcategory_slide_up .45s ease forwards;
   animation-delay: calc(var(--ci, 0) * 70ms);
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
-@keyframes rcategory-in {
+@keyframes rcategory_slide_up {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: none; }
 }
