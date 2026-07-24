@@ -220,7 +220,7 @@ function VaultModal({ resource, onClose }: {
 
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
-              <span key={t} className="vault-modal-tag">{t}</span>
+              <span key={t} className="vault-modal-tag">#{t}</span>
             ))}
           </div>
 
@@ -289,7 +289,7 @@ function VaultCard({ resource, onClick }: {
         <div className="vault-card-footer">
           <div className="vault-card-tags">
             {resource.tags.slice(0, 2).map(t => (
-              <span key={t} className="vault-card-tag">{t}</span>
+              <span key={t} className="vault-card-tag">#{t}</span>
             ))}
           </div>
         </div>
