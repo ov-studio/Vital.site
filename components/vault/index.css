@@ -366,8 +366,9 @@
 
 .vault-modal-version {
   font-family: 'Geist', sans-serif;
-  font-size: .68rem;
-  color: var(--text-faint);
+  font-size: .73rem;
+  font-weight: 700;
+  color: var(--text-desc);
 }
 
 .vault-modal-name {
