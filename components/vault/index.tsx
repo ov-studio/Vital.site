@@ -59,18 +59,35 @@ function VaultModal({ resource, onClose }: {
 
   useEffect(() => {
     const scrollbar_w = window.innerWidth - document.documentElement.clientWidth;
-    const html = document.documentElement;
-    const body = document.body;
-    const prev_html_overflow = html.style.overflow;
-    const prev_body_overflow = body.style.overflow;
-    const prev_body_padding_right = body.style.paddingRight;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (scrollbar_w > 0) body.style.paddingRight = `${scrollbar_w}px`;
+    if (scrollbar_w <= 0) {
+      document.documentElement.style.overflow = 'hidden';
+      return () => {
+        document.documentElement.style.overflow = '';
+      };
+    }
+
+    const fixed_els: { el: HTMLElement; prev: string }[] = [];
+    const candidates = document.querySelectorAll<HTMLElement>(
+      'nav, header, [data-fixed], .vault-modal-overlay'
+    );
+    candidates.forEach(el => {
+      const style = getComputedStyle(el);
+      if (style.position === 'fixed' || style.position === 'sticky') {
+        fixed_els.push({ el, prev: el.style.paddingRight });
+        const current_pr = parseFloat(style.paddingRight) || 0;
+        el.style.paddingRight = `${current_pr + scrollbar_w}px`;
+      }
+    });
+
+    const prev_overflow = document.documentElement.style.overflow;
+    const prev_body_pr  = document.body.style.paddingRight;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.paddingRight = `${scrollbar_w}px`;
+
     return () => {
-      html.style.overflow = prev_html_overflow;
-      body.style.overflow = prev_body_overflow;
-      body.style.paddingRight = prev_body_padding_right;
+      document.documentElement.style.overflow = prev_overflow;
+      document.body.style.paddingRight = prev_body_pr;
+      fixed_els.forEach(({ el, prev }) => { el.style.paddingRight = prev; });
     };
   }, []);
 
@@ -195,9 +212,6 @@ export function Vault() {
       <section id="vault">
         <div className="sw">
 
-          {/* Header — matches roadmap pattern:
-              sec-head holds only h2 + sec-link (bottom-aligned),
-              vault-intro sits below as a sibling, not inside sec-head */}
           <div className="vault-head">
             <div className="sec-head">
               <div>
