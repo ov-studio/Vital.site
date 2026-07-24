@@ -4,6 +4,7 @@
     "pages": [
         "---Enum---",
         "enum__texel_format",
+        "enum__texture_filter",
         "enum__compression_mode",
 
         "---Base---",
@@ -20,7 +21,11 @@
 
         "---⁝⁝Getter---",
         "method__get_size",
+        "method__get_filter",
 
+        "---⁝⁝Setter---",
+        "method__set_filter",
+        
         "---⁝⁝Misc---",
         "method__convert",
         "method__compress"
