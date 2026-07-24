@@ -75,7 +75,6 @@ export async function Hero() {
           <br/><span style={{ marginTop: '16px', display: 'inline-block' }}>From indie ideas to large scale multiplayer worlds, build without compromise.</span>
         </p>
 
-        {/* Client component — fetches release info in the browser */}
         <component_download.Download/>
 
         <div className="hero-stats">

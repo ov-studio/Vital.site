@@ -234,7 +234,6 @@ export function Vault() {
             </div>
           </div>
 
-          {/* Tag filters */}
           <div className="vault-filters">
             <button
               className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
@@ -253,7 +252,6 @@ export function Vault() {
             ))}
           </div>
 
-          {/* Grid */}
           <div className="vault-grid">
             {filtered.length === 0
               ? <div className="vault-empty">No resources found for this filter.</div>

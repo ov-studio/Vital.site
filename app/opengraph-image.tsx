@@ -31,7 +31,6 @@ export default async function OGImage() {
                 justifyContent: 'center',
                 position: 'relative',
             }}>
-                {/* grid bg */}
                 <div style={{
                     position: 'absolute',
                     inset: 0,
