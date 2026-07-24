@@ -514,11 +514,19 @@
   .vault-modal-name {
     font-size: 1.5rem;
   }
+}
 
-  .vault-modal-updated {
+@media (max-width: 400px) {
+  .vault-modal-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vault-modal-actions .btn-secondary {
     margin-left: 0;
   }
 }
+
 
 /* ── Skeleton loader ─────────────────────── */
 .vault-card--skeleton {
