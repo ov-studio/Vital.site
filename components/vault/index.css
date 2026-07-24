@@ -94,18 +94,8 @@
   flex-direction: column;
 }
 
-.vault-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--b05) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity .25s;
-  pointer-events: none;
-}
-
-.vault-card:hover::before {
-  opacity: 1;
+.vault-card:hover {
+  border-color: var(--b40);
 }
 
 /* ── Card Banner ─────────────────────────── */
