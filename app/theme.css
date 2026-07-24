@@ -45,7 +45,7 @@
 
 
   /* ── Selection ── */
-  --selection-bg: hsl(220, 40%, 46%);
+  --selection-bg: hsl(220, 40%, 40%);
   --selection-text: var(--white);
 
 
