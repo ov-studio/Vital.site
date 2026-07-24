@@ -8,12 +8,11 @@ import './index.css';
 // ── Types ─────────────────────────────────
 type VaultTag =
   | 'animation'
+  | 'asset'
   | 'gamemode'
   | 'gfx'
   | 'library'
   | 'map'
-  | 'material'
-  | 'model'
   | 'physx'
   | 'sfx'
   | 'shader'
@@ -48,12 +47,11 @@ type LoadState = 'loading' | 'error' | 'done';
 
 const ALL_TAGS: VaultTag[] = [
   'animation',
+  'asset',
   'gamemode',
   'gfx',
   'library',
   'map',
-  'material',
-  'model',
   'physx',
   'sfx',
   'shader',
