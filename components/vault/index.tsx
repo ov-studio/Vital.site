@@ -9,32 +9,43 @@ import './index.css';
 type VaultTag = 'gamemode' | 'utility' | 'ui' | 'physics' | 'audio' | 'networking' | 'tools';
 
 interface VaultResource {
-  id: string;
-  name: string;
-  author: string;
-  author_url?: string;
-  version: string;
-  tagline: string;
-  description: string;
-  tags: VaultTag[];
-  banner?: string;
-  featured: boolean;
-  source_url?: string;
+  id:           string;
+  name:         string;
+  author:       string;
+  author_url?:  string;
+  version:      string;
+  tagline:      string;
+  description:  string;
+  tags:         VaultTag[];
+  banner?:      string;
+  featured:     boolean;
+  source_url?:  string;
   download_url: string;
 }
 
 interface VaultIndex {
   generated_at: string;
-  commit: string;
-  count: number;
-  resources: VaultResource[];
+  commit:       string;
+  count:        number;
+  resources:    VaultResource[];
 }
 
 type LoadState = 'loading' | 'error' | 'done';
 
 // ── Constants ─────────────────────────────
 const VAULT_OWNER = 'ov-studio';
-const VAULT_REPO = 'Vital.vault';
+const VAULT_REPO  = 'Vital.vault';
+
+// Fetched via jsDelivr rather than raw.githubusercontent.com or a release
+// asset. Release assets (objects.githubusercontent.com) don't send an
+// Access-Control-Allow-Origin header, so a browser fetch() gets blocked by
+// CORS even though the file downloads fine via direct navigation.
+// raw.githubusercontent.com does send CORS headers, but its CDN cache has no
+// public purge mechanism and ignores query strings when computing the cache
+// key — so a stale response can stick around with no way to force a refresh.
+// jsDelivr is CORS-friendly too, but exposes a purge API, which the build
+// workflow calls right after pushing vault.json — so this URL reflects the
+// latest build within seconds instead of waiting out an unbustable TTL.
 const VAULT_JSON_URL = `https://cdn.jsdelivr.net/gh/${VAULT_OWNER}/${VAULT_REPO}@main/vault.json`;
 
 const ALL_TAGS: VaultTag[] = [
@@ -44,7 +55,7 @@ const ALL_TAGS: VaultTag[] = [
 // ── Data hook — single direct fetch ───────
 function useVaultResources() {
   const [resources, set_resources] = react.useState<VaultResource[]>([]);
-  const [state, set_state] = react.useState<LoadState>('loading');
+  const [state,     set_state]     = react.useState<LoadState>('loading');
 
   react.useEffect(() => {
     let cancelled = false;
@@ -74,10 +85,57 @@ function useVaultResources() {
   return { resources, state };
 }
 
+// ── Directory download (non-submodule resources) ──
+// GitHub has no endpoint that zips just a subfolder — archive/refs/heads/
+// zips only work for a whole repo. So for plain-directory resources (as
+// opposed to submodules, which already are their own repo) we build the
+// zip client-side: list the repo tree once via the Git Trees API, pull only
+// the blobs under this resource's path from raw.githubusercontent.com (CDN,
+// CORS-enabled, not meaningfully rate-limited), and zip them in the browser.
+// This runs from each visitor's own browser/IP, so it isn't subject to the
+// same shared-server rate-limit concerns as a server-side proxy would be —
+// though a single visitor triggering many downloads in a short window could
+// still hit api.github.com's 60 req/hr unauthenticated cap for the one tree
+// call per download.
+async function download_directory_zip(folder: string): Promise<void> {
+  const tree_res = await fetch(
+    `https://api.github.com/repos/${VAULT_OWNER}/${VAULT_REPO}/git/trees/main?recursive=1`,
+    { headers: { Accept: 'application/vnd.github+json' } }
+  );
+  if (!tree_res.ok) throw new Error(`tree fetch ${tree_res.status}`);
+
+  const tree_data: { tree: { path: string; type: string }[] } = await tree_res.json();
+  const prefix = `resources/${folder}/`;
+  const files = tree_data.tree.filter(item => item.type === 'blob' && item.path.startsWith(prefix));
+
+  if (files.length === 0) throw new Error(`No files found under ${prefix}`);
+
+  const { default: JSZip } = await import('jszip');
+  const zip = new JSZip();
+
+  await Promise.all(files.map(async file => {
+    const raw_url = `https://raw.githubusercontent.com/${VAULT_OWNER}/${VAULT_REPO}/main/${file.path}`;
+    const file_res = await fetch(raw_url);
+    if (!file_res.ok) return; // skip a single failed file rather than aborting the whole zip
+    const buf = await file_res.arrayBuffer();
+    zip.file(file.path.slice(prefix.length), buf);
+  }));
+
+  const blob = await zip.generateAsync({ type: 'blob' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${folder}.zip`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 // ── Banner ────────────────────────────────
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
   const cls = size === 'modal' ? 'vault-modal-banner' : 'vault-card-banner';
-  const ph = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
+  const ph  = size === 'modal' ? 'vault-modal-banner-placeholder' : 'vault-card-banner-placeholder';
   const ico = size === 'modal' ? 80 : 48;
 
   return (
@@ -101,8 +159,28 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
 // ── Modal ─────────────────────────────────
 function VaultModal({ resource, onClose }: {
   resource: VaultResource;
-  onClose: () => void;
+  onClose:  () => void;
 }) {
+  const is_dir = resource.id.startsWith('dir:');
+  const folder = is_dir ? resource.id.slice('dir:'.length) : '';
+
+  const [downloading, set_downloading] = react.useState(false);
+  const [dl_error,    set_dl_error]    = react.useState<string | null>(null);
+
+  const handle_download = react.useCallback(async () => {
+    if (!is_dir || downloading) return;
+    set_downloading(true);
+    set_dl_error(null);
+    try {
+      await download_directory_zip(folder);
+    } catch (err) {
+      console.error('[Vault] directory zip failed', err);
+      set_dl_error('Could not prepare the download. Please try again.');
+    } finally {
+      set_downloading(false);
+    }
+  }, [is_dir, folder, downloading]);
+
   react.useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handler);
@@ -128,7 +206,7 @@ function VaultModal({ resource, onClose }: {
     });
 
     const prev_overflow = document.documentElement.style.overflow;
-    const prev_body_pr = document.body.style.paddingRight;
+    const prev_body_pr  = document.body.style.paddingRight;
     document.documentElement.style.overflow = 'hidden';
     document.body.style.paddingRight = `${scrollbar_w}px`;
 
@@ -154,7 +232,7 @@ function VaultModal({ resource, onClose }: {
             <span className="vault-modal-author">
               {resource.author_url
                 ? <a href={resource.author_url} target="_blank" rel="noreferrer"
-                  style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
+                    style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
                 : resource.author
               }
             </span>
@@ -175,15 +253,31 @@ function VaultModal({ resource, onClose }: {
           </div>
 
           <div className="vault-modal-actions">
-            <a href={resource.download_url} className="btn-primary" download>
-              Download Resource
-            </a>
+            {is_dir ? (
+              <button
+                className="btn-primary"
+                onClick={handle_download}
+                disabled={downloading}
+                style={downloading ? { opacity: 0.7, cursor: 'wait' } : undefined}
+              >
+                {downloading
+                  ? <><lucide.Loader2 size={14} className="vault-spin" /> Preparing…</>
+                  : 'Download Resource'
+                }
+              </button>
+            ) : (
+              <a href={resource.download_url} className="btn-primary" download>
+                Download Resource
+              </a>
+            )}
             {resource.source_url && (
               <a href={resource.source_url} target="_blank" rel="noreferrer" className="btn-secondary">
                 :: View Source
               </a>
             )}
           </div>
+
+          {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
         </div>
 
       </div>
@@ -197,7 +291,7 @@ function VaultModal({ resource, onClose }: {
 // ── Card ──────────────────────────────────
 function VaultCard({ resource, onClick }: {
   resource: VaultResource;
-  onClick: () => void;
+  onClick:  () => void;
 }) {
   return (
     <div
@@ -251,7 +345,7 @@ export function Vault() {
   const { resources, state } = useVaultResources();
 
   const [active_tag, set_active_tag] = react.useState<VaultTag | null>(null);
-  const [selected, set_selected] = react.useState<VaultResource | null>(null);
+  const [selected,   set_selected]   = react.useState<VaultResource | null>(null);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
