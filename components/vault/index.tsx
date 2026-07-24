@@ -110,7 +110,7 @@ function VaultModal({ resource, onClose }: {
 
           <div className="vault-modal-actions">
             <a href={resource.download_url} className="btn-primary" download>
-              Download Asset
+              Download Resource
             </a>
 
             {resource.source_url && (

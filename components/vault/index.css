@@ -410,7 +410,7 @@
 }
 
 .vault-modal-actions .btn-secondary {
-
+  margin-left: auto;
 }
 
 /* ── Modal Close ─────────────────────────── */
@@ -487,11 +487,6 @@
 
   .vault-modal-name {
     font-size: 1.5rem;
-  }
-
-  .vault-modal-actions {
-    flex-direction: column;
-    align-items: stretch;
   }
 
   .vault-modal-updated {
