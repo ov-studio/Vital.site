@@ -46,14 +46,14 @@
   height: 24px;
   z-index: 2;
   opacity: .35;
-  animation: corner_fade 3s ease-in-out infinite;
+  animation: corner-fade 3s ease-in-out infinite;
 }
 .hcorner-tl { top: 24px; left: 24px; border-top: 1px solid var(--blue); border-left: 1px solid var(--blue); }
 .hcorner-tr { top: 24px; right: 24px; border-top: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 .hcorner-bl { bottom: 24px; left: 24px; border-bottom: 1px solid var(--blue); border-left: 1px solid var(--blue); }
 .hcorner-br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 
-@keyframes corner_fade {
+@keyframes corner-fade {
   0%, 100% { opacity: .25; }
   50% { opacity: .55; }
 }
@@ -74,7 +74,7 @@
 .hero-brand {
   margin-bottom: 25px;
   opacity: 0;
-  animation: slide_up .6s .2s forwards;
+  animation: slide-up .6s .2s forwards;
 }
 
 .hero-motto {
@@ -90,7 +90,7 @@
   letter-spacing: .12em;
   margin-bottom: clamp(25px, 3vw, 40px);
   opacity: 0;
-  animation: slide_up .7s .35s forwards;
+  animation: slide-up .7s .35s forwards;
 }
 
 .hm-word { color: var(--text-muted); }
@@ -104,7 +104,7 @@
   line-height: 1.85;
   margin-bottom: 20px;
   opacity: 0;
-  animation: slide_up .7s .45s forwards;
+  animation: slide-up .7s .45s forwards;
 }
 
 .hero-stats {
@@ -113,7 +113,7 @@
   justify-content: center;
   width: 100%;
   opacity: 0;
-  animation: slide_up .7s .65s forwards;
+  animation: slide-up .7s .65s forwards;
 }
 
 .hstat {

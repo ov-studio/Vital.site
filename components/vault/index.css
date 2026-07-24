@@ -248,10 +248,10 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  animation: modal_fade_in .25s ease forwards;
+  animation: fade-in .25s ease forwards;
 }
 
-@keyframes modal_fade_in {
+@keyframes fade-in {
   from { opacity: 0 }
   to   { opacity: 1 }
 }
@@ -265,13 +265,13 @@
   overflow: hidden;
   max-height: 90vh;
   overflow-y: auto;
-  animation: modal_slide_up .35s ease forwards;
+  animation: slide-up .35s ease forwards;
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   isolation: isolate;
   transform: translateZ(0);
 }
 
-@keyframes modal_slide_up {
+@keyframes slide-up {
   from { opacity: 0; transform: translateY(10vh) }
   to   { opacity: 1; transform: none }
 }
