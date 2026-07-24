@@ -14,7 +14,6 @@ type VaultTag =
   | 'map'
   | 'material'
   | 'model'
-  | 'network'
   | 'physx'
   | 'sfx'
   | 'shader'
@@ -55,7 +54,6 @@ const ALL_TAGS: VaultTag[] = [
   'map',
   'material',
   'model',
-  'network',
   'physx',
   'sfx',
   'shader',
