@@ -94,10 +94,10 @@
 .ecard:hover .ecard-title { color: var(--white); }
 
 .ecard-desc {
-  font-family: 'Barlow', sans-serif;
-  font-size: .84rem;
-  font-weight: 300;
-  line-height: 1.65;
+  font-family: 'Geist', sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.7;
   color: var(--text-desc);
   transition: color .25s;
 }
