@@ -195,7 +195,7 @@
 
 .vault-card-version {
   font-family: 'Geist', sans-serif;
-  font-size: .65rem;
+  font-size: .62rem;
   font-weight: 700;
   color: var(--text-desc);
 }
@@ -366,7 +366,7 @@
 
 .vault-modal-version {
   font-family: 'Geist', sans-serif;
-  font-size: .73rem;
+  font-size: .7rem;
   font-weight: 700;
   color: var(--text-desc);
 }
