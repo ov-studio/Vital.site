@@ -67,6 +67,18 @@ name: "My Resource"
 author: "YourName"
 version: "1.0.0"
 
+author_url: "https://github.com/YourName" # Used only by vault
+banner: "https://raw.githubusercontent.com/<org>/<repo>/main/resources/<name>/banner.png" # Used only by vault
+tagline: "One-line summary of what this resource does" false # Used only by vault
+featured: false # Used only by vault
+
+description: |  # Used only by vault
+  Longer description shown in the Vault modal.
+  Supports multiple lines like this.
+
+tags:  # Used only by vault
+  - "utility"
+
 dependencies:
   - "inventory"
 
@@ -78,6 +90,7 @@ scripts:
 
 files:
   - "assets/**"
+
 ```
 
 <Callout type="warn">
@@ -87,14 +100,20 @@ files:
   - `name`, `author`, `version`, `files`, and `dependencies` are all optional.
 </Callout>
 
-| Key | Type | Required | Default | Description |
-|---|---|---|---|---|
-| `name` | `string` | No | `ref` | Display name for the resource<br/>Falls back to resource's reference if omitted |
-| `author` | `string` | No | `""` | Free-text author/credit string - not validated |
-| `version` | `string` | No | `""` | Free-text version string - not validated |
-| `scripts` | `list<string>` | Yes | None | List of script entries to compile and execute for this resource |
-| `files` | `list<string>` | No | `[]` | Glob patterns for non-script assets (models, textures, sounds, etc) |
-| `dependencies` | `list<string>` | No | `[]` | Names of other resources that must be running before this one starts |
+| Key | Type | Required | Default | Used in | Description |
+|---|---|---|---|---|---|
+| `name` | `string` | No | `ref` | Sandbox, Vault | Display name for the resource<br/>Falls back to resource's reference if omitted |
+| `author` | `string` | No | `""` | Sandbox, Vault | Free-text author/credit string - not validated |
+| `version` | `string` | No | `""` | Sandbox, Vault | Free-text version string - not validated |
+| `scripts` | `list<string>` | Yes | None | Sandbox | List of script entries to compile and execute for this resource |
+| `files` | `list<string>` | No | `[]` | Sandbox | Glob patterns for non-script assets (models, textures, sounds, etc) |
+| `dependencies` | `list<string>` | No | `[]` | Sandbox | Names of other resources that must be running before this one starts |
+| `author_url` | `string` | No | `https://github.com/<author>` | Vault | Link wrapped around the author name in the Vault modal |
+| `tagline` | `string` | No | `"N/A"` | Vault | Short one-line summary shown on the Vault card + modal |
+| `description` | `string` | No | `"N/A"` | Vault | Longer text shown in the Vault modal<br/>Use a YAML block scalar (`\|`) for line breaks - `<br/>` renders as plain text, not HTML |
+| `tags` | `list<string>` | No | `[]` | Vault | Filters shown on the Vault card - only known tags are kept: `gamemode`, `utility`, `ui`, `physics`, `audio`, `networking`, `tools` |
+| `banner` | `string` | No | `null` | Vault | Full URL to a banner image - shows a placeholder icon if omitted<br/>No path resolution yet, so this must be a full URL, not a relative filename |
+| `featured` | `boolean` | No | `false` | Vault | Pins the resource to the top of the Vault grid |
 
 ---
 
