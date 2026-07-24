@@ -236,15 +236,6 @@
   padding: 2px 8px;
 }
 
-.vault-card-dl-count {
-  font-family: 'Geist', sans-serif;
-  font-size: .68rem;
-  color: var(--text-faint);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-}
 
 /* ── Modal Overlay ───────────────────────── */
 .vault-modal-overlay {

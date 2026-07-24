@@ -168,10 +168,6 @@ function VaultCard({ resource, onClick }: {
               <span key={t} className="vault-card-tag">{t}</span>
             ))}
           </div>
-          <span className="vault-card-dl-count">
-            <lucide.Download size={11} />
-            {fmt_downloads(resource.downloads)}
-          </span>
         </div>
       </div>
     </div>
