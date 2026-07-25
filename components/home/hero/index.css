@@ -9,11 +9,11 @@
   overflow: hidden;
 }
 
-.hbg {
+.hbg { 
   position: absolute;
-  inset: 0;
+  inset: 0; 
+  z-index: 0; 
   pointer-events: none;
-  z-index: 0;
 }
 
 .hbg-grid {
@@ -53,11 +53,6 @@
 .hcorner-bl { bottom: 24px; left: 24px;  border-bottom: 1px solid var(--blue); border-left: 1px solid var(--blue); }
 .hcorner-br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 
-@keyframes corner-fade {
-  0%, 100% { opacity: .25; }
-  50% { opacity: .55; }
-}
-
 .hero-center {
   position: relative;
   z-index: 3;
@@ -92,7 +87,6 @@
   opacity: 0;
   animation: slide-up .7s .35s forwards;
 }
-
 .hm-word { color: var(--text-muted) }
 .hm-blue { color: var(--white) }
 .hm-sep  { color: var(--dim); font-weight: 300 }
