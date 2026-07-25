@@ -211,14 +211,13 @@ h2 span { color: var(--blue) }
 }
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(16px) }
+  from { opacity: 0; transform: translateY(30px) }
   to   { opacity: 1; transform: none }
 }
 
 @keyframes slide-down {
   0%   { opacity: 1; transform: none }
-  55%  { opacity: 1; transform: translateY(24px) }
-  100% { opacity: 0; transform: translateY(40px) }
+  100% { opacity: 0; transform: translateY(30px) }
 }
 
 @keyframes slide-left {
