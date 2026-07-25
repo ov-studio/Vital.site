@@ -199,13 +199,7 @@
   padding: 7px 0;
 }
 .ritem:not(:last-child) { border-bottom: 1px solid hsla(220,18%,100%,.04); }
-
-.ritem-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.ritem-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
 .ritem--completed .ritem-dot { background: var(--blue);      box-shadow: 0 0 4px var(--blue); }
 .ritem--partial   .ritem-dot { background: hsl(45,80%,58%); }
 .ritem--pending   .ritem-dot { background: transparent;      border: 1px solid var(--text-faint); opacity: .4; }
