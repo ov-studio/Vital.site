@@ -6,7 +6,9 @@
 .vault-head                  { margin-bottom: 56px; }
 .vault-head .sec-head        { margin-bottom: 25px; }
 .vault-head .sec-head h2     { text-align: left; }
+.vault-head              { margin-bottom: 56px; }
 .vault-head .sec-head    { margin-bottom: 25px; }
+.vault-head .sec-head h2 { text-align: left; }
 
 .vault-intro {
   display: flex;
@@ -74,16 +76,8 @@
 .vault-modal-banner { aspect-ratio: 16 / 6; }
 
 .vault-card-banner img,
-.vault-modal-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.vault-card:hover .vault-card-banner img {
-  transform: scale(1.03);
-  transition: transform .4s ease;
-}
+.vault-modal-banner img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.vault-card:hover .vault-card-banner img { transform: scale(1.03); transition: transform .4s ease; }
 
 .vault-card-banner-placeholder,
 .vault-modal-banner-placeholder {
@@ -228,11 +222,7 @@
   clip-path: polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);
   isolation: isolate;
   transform: translateZ(0);
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(10vh) }
-  to   { opacity: 1; transform: none }
+  animation: slide-up .35s ease forwards;
 }
 
 .vault-modal-body { padding: 32px 36px 36px; }
@@ -245,67 +235,52 @@
 }
 
 .vault-modal-name {
+  margin-bottom: 6px;
   font-family: 'Rajdhani', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: .01em;
   line-height: 1;
   color: var(--white);
-  margin-bottom: 6px;
 }
 
 .vault-modal-tagline {
+  margin-bottom: 24px;
   font-family: 'Geist', sans-serif;
   font-size: .82rem;
   font-weight: 500;
   color: var(--text-soft);
-  margin-bottom: 24px;
 }
 
-.vault-modal-divider {
-  border: none;
-  border-top: 1px solid var(--rule);
-  margin: 24px 0;
-}
+.vault-modal-divider { border: none; border-top: 1px solid var(--rule); margin: 24px 0; }
 
 .vault-modal-desc {
+  margin-bottom: 20px;
   font-family: 'Geist', sans-serif;
   font-size: .84rem;
   color: var(--text-muted);
   line-height: 1.85;
-  margin-bottom: 20px;
   white-space: pre-line;
 }
 
-.vault-modal-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.vault-modal-actions { display: flex; align-items: center; gap: 16px; }
 .vault-modal-actions .btn-secondary { margin-left: auto; }
 
-.vault-spin {
-  animation: spin 0.8s linear infinite;
-  vertical-align: -2px;
-  margin-right: 4px;
-}
-@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
-
 .vault-modal-dl-error {
+  margin-top: 10px;
   font-family: 'Geist', sans-serif;
   font-size: .74rem;
   color: var(--red, #e5484d);
-  margin-top: 10px;
 }
 
 .vault-modal-close {
-  opacity: 0.5;
   position: absolute;
   top: 16px; right: 16px;
   width: 32px; height: 32px;
   background: var(--rule);
   color: var(--text-muted);
   cursor: pointer;
+  right: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
