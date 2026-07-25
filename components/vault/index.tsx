@@ -332,9 +332,6 @@ export function Vault() {
               </div>
             </div>
             <div className="vault-intro sec-head">
-              <div>
-                Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
-              </div>
               <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
               <a
                 href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}
