@@ -29,6 +29,7 @@
 .hbg-scanline {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
     transparent,
@@ -36,7 +37,6 @@
     var(--blue-scanline) 2px,
     var(--blue-scanline) 4px
   );
-  pointer-events: none;
 }
 
 .hcorner {
