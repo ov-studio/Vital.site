@@ -144,8 +144,6 @@
   align-items: center; 
   flex-shrink: 0; 
   color: var(--blue);
-  align-items: center;
-  flex-shrink: 0;
 }
 
 .hstat-n {
