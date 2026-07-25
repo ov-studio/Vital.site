@@ -288,7 +288,6 @@
 
 .vault-card--skeleton { pointer-events: none; }
 .vault-skeleton-banner { aspect-ratio: 16 / 7; }
-
 .vault-skeleton-line {
   height: 12px;
   border-radius: 2px;
