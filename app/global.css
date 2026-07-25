@@ -179,7 +179,9 @@ h2 span { color: var(--blue) }
   opacity: 0;
   transform: translateX(24px);
   transition: opacity .6s ease, transform .6s ease
+  text-align: center;
   font-family: 'Geist', sans-serif;
+  letter-spacing: .04em;
 }
 
 .shimmer {
