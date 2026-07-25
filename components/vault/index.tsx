@@ -308,10 +308,16 @@ export function Vault() {
           <div className="vault-grid">
             {state === 'loading' && Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i}/>)}
             {state === 'error' && (
-              <div className="state-empty">Failed to load resources. Check your connection and try again.</div>
+              <div className="state-empty">
+                <lucide.WifiOff size={24}/>
+                Failed to load resources. Check your connection and try again.
+              </div>
             )}
             {state === 'done' && filtered.length === 0 && (
-              <div className="state-empty">No resources found for this filter.</div>
+              <div className="state-empty">
+                <lucide.PackageOpen size={24}/>
+                No resources found for this filter.
+              </div>
             )}
             {state === 'done' && filtered.map(r => (
               <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)}/>
