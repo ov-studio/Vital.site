@@ -80,13 +80,14 @@
   margin-bottom: 14px;
   font-family: 'Geist', sans-serif;
   font-size: 0.78rem;
+  font-size: .78rem;
   font-weight: 700;
   letter-spacing: .05em;
   text-transform: uppercase;
   color: var(--dim);
   transition: color .25s;
 }
-.ecard:hover .ecard-title { color: var(--white); }
+.ecard:hover .ecard-title { color: var(--white) }
 
 .ecard-desc {
   font-family: 'Geist', sans-serif;
@@ -97,6 +98,7 @@
   transition: color .25s;
 }
 .ecard:hover .ecard-desc { color: var(--text-desc-hover); }
+.ecard:hover .ecard-desc { color: var(--text-desc-hover) }
 
 .ecard.rev {
   transition:
