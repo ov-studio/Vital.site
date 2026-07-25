@@ -297,7 +297,7 @@ export function Vault() {
               className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
               onClick={() => set_active_tag(null)}
             >All</button>
-            {ALL_TAGS.map(tag => (
+            {config_vault.ALL_TAGS.map(tag => (
               <button
                 key={tag}
                 className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
