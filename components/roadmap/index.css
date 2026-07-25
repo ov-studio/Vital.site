@@ -30,18 +30,6 @@
   line-height: 1;
   color: var(--blue);
 }
-.roadmap-summary-pct small {
-  font-size: .95rem;
-  font-weight: 700;
-  margin-left: 1px;
-}
-
-.roadmap-summary-bar {
-  height: 4px;
-  background: hsla(220, 18%, 100%, .06);
-  border-radius: 3px;
-  overflow: hidden;
-}
 .roadmap-summary-pct small { font-size: .95rem; font-weight: 700; margin-left: 1px; }
 
 .roadmap-summary-bar-fill {
