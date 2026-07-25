@@ -44,12 +44,9 @@
 }
 .tos-section-p:last-child { margin-bottom: 0 }
 
-@media (max-width: 640px) {
-  #tos {
-    padding: calc(100px + var(--nav-h)*0.25) 0;
-  }
 
-  .tos-effective {
-    margin-bottom: 60px;
-  }
+/* ── @media ── */
+@media (max-width: 640px) {
+  #tos { padding: calc(100px + var(--nav-h) * .25) 0; }
+  .tos-effective { margin-bottom: 60px; }
 }
