@@ -31,14 +31,8 @@
   color: var(--blue);
 }
 .roadmap-summary-pct small { font-size: .95rem; font-weight: 700; margin-left: 1px; }
-
-.roadmap-summary-bar-fill {
-  height: 100%;
-  background: var(--blue);
-  box-shadow: 0 0 6px var(--blue);
-  border-radius: 3px;
-  transition: width .6s cubic-bezier(.4, 0, .2, 1);
-}
+.roadmap-summary-bar { height: 4px; }
+.roadmap-summary-bar .bar-fill { box-shadow: 0 0 6px var(--blue); }
 
 .roadmap-summary-legend {
   display: flex;
@@ -102,7 +96,6 @@
 
 .rcard {
   position: relative;
-  background: var(--bg5);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -118,16 +111,10 @@
   flex-direction: column;
 }
 
-.rcard-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
+.rcard-header { display: flex; align-items: flex-start; gap: 20px; }
 
 .rcard-icon {
   position: relative;
-  width: 36px;
-  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,32 +126,9 @@
 .rcard--completed .rcard-icon { color: var(--blue); }
 .rcard--partial   .rcard-icon { color: hsl(45,80%,58%); }
 .rcard--pending   .rcard-icon { color: var(--text-dim2); }
+.rcard--partial   .icon-ring { border-color: hsla(45,80%,58%,.3); }
 
-.rcard-icon-ring {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: opacity .3s, transform .3s;
-  pointer-events: none;
-}
-
-.rcard--completed .rcard-icon-ring { border-color: var(--b30); }
-.rcard--partial   .rcard-icon-ring { border-color: hsla(45,80%,58%,.3); }
-.rcard--pending   .rcard-icon-ring { border-color: hsla(220,10%,50%,.2); }
-.rcard:hover .rcard-icon-ring,
-.rcard--open  .rcard-icon-ring { opacity: 1; transform: scale(1); }
-
-.rcard-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-  padding-top: 2px;
-}
+.rcard-info { flex: 1; display: flex; flex-direction: column; gap: 5px; min-width: 0; padding-top: 2px; }
 
 .rcard-name {
   font-family: 'Geist', sans-serif;
@@ -188,13 +152,6 @@
 }
 .rcard:hover .rcard-desc,
 .rcard--open .rcard-desc { color: var(--text-desc-hover) }
-
-.rchevron {
-  color: var(--text-faint);
-  transition: transform .2s, color .2s;
-  flex-shrink: 0;
-  margin-top: 3px;
-}
 .rcard--completed .rchevron--up { transform: rotate(180deg); color: var(--blue); }
 .rcard--partial   .rchevron--up { transform: rotate(180deg); color: hsl(45,80%,58%); }
 .rcard--pending   .rchevron--up { transform: rotate(180deg); color: var(--text-dim2); }
