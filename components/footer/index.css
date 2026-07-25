@@ -38,6 +38,7 @@ footer {
   object-fit: cover;
   opacity: .65;
   image-rendering: -webkit-optimize-contrast;
+  transition: opacity .2s ease;
 }
 
 .footer-flag:hover {
