@@ -206,13 +206,13 @@
 .vault-modal-overlay {
   position: fixed;
   inset: 0;
-  background: hsla(250,21%,7.5%,0.95);
-  backdrop-filter: blur(6px) !important;
   z-index: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
+  background: hsla(250,21%,7.5%,.95);
+  backdrop-filter: blur(6px) !important;
   animation: fade-in .25s ease forwards;
 }
 
