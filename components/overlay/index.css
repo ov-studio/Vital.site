@@ -20,7 +20,7 @@
   height: 8px;
   background: var(--blue);
   border-radius: 50%;
-  transition: transform .15s
+  transition: transform .15s;
 }
 
 #cur-outer {
