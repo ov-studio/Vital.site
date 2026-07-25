@@ -76,15 +76,10 @@
 }
 .ecard:hover .ecard-desc { color: var(--text-desc-hover) }
 
-.ecard.rev {
-  transition:
-    opacity .55s ease calc(var(--i, 0) * 55ms),
-    transform .55s ease calc(var(--i, 0) * 55ms),
-    background .3s;
-}
 
-@media (max-width: 1100px) {
-  .ethos-grid { grid-template-columns: repeat(2, 1fr); }
+/* ── @media ── */
+@media (max-width: 1100px) { 
+  .ethos-grid { grid-template-columns: repeat(2, 1fr) }
 }
 
 @media (max-width: 960px) {
