@@ -23,6 +23,7 @@ export function Footer() {
             ))}
           </div>
         </div>
+        
         <div className="footer-nav">
           {config_footer.Footer.map(({ heading, links }) => (
             <div className="footer-nav-col" key={heading}>
