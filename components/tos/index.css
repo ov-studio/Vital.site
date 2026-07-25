@@ -41,12 +41,8 @@
   font-size: .86rem;
   color: var(--text-muted);
   line-height: 1.85;
-  margin-bottom: 12px;
 }
-
-.tos-section-p:last-child {
-  margin-bottom: 0;
-}
+.tos-section-p:last-child { margin-bottom: 0 }
 
 @media (max-width: 640px) {
   #tos {
