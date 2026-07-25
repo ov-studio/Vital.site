@@ -103,8 +103,8 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
         </div>
 
         <div className="rcard-bar-row">
-          <div className="rcard-bar-track">
-            <div className="rcard-bar-track-fill" style={{ width: `${pct}%` }}/>
+          <div className="bar-track">
+            <div className="bar-fill" style={{ width: `${pct}%` }}/>
           </div>
           <span className="rcard-pct">{pct > 0 ? `${pct}%` : '—'}</span>
         </div>
@@ -118,7 +118,6 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
                 <span className="ritem-dot"/>
                 <span className="ritem-label">{item.label}</span>
                 <span className="ritem-tag">
-                  {item.status === 'completed' ? 'Completed' : item.status === 'partial'  ? 'WIP' : 'Planned'}
                   {item.status === 'completed' ? 'Completed' : item.status === 'partial' ? 'WIP' : 'Planned'}
                 </span>
               </div>
