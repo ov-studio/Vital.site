@@ -16,6 +16,8 @@ body {
   overflow-x: hidden;
 }
 
+
+/* ── Headers ── */
 h1 {
   font-family: 'Rajdhani', sans-serif;
   font-size: clamp(4.5rem, 8vw, 8rem);
@@ -38,6 +40,8 @@ h2 {
 }
 h2 span { color: var(--blue) }
 
+
+/* ── Section ── */
 .sw {
   max-width: var(--section-width);
   margin: 0 auto;
@@ -89,6 +93,8 @@ h2 span { color: var(--blue) }
 }
 .sec-link:hover { color: var(--blue) }
 
+
+/* ── Buttons ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -129,6 +135,8 @@ h2 span { color: var(--blue) }
 }
 .btn-secondary:hover { color: var(--blue) }
 
+
+/* ── Scroll Reveal ── */
 .rev, .rev-l, .rev-r {
   opacity: 0;
   transition: opacity .6s ease, transform .6s ease;
@@ -149,6 +157,8 @@ h2 span { color: var(--blue) }
   pointer-events: none;
 }
 
+
+/* ── Progress Bar ── */
 .bar-track {
   background: hsla(220, 18%, 100%, .06);
   border-radius: 3px;
@@ -161,6 +171,8 @@ h2 span { color: var(--blue) }
   transition: width .6s cubic-bezier(.4, 0, .2, 1);
 }
 
+
+/* ── Tag ── */
 .tag-pill {
   display: inline-block;
   padding: 4px 8px;
@@ -175,6 +187,8 @@ h2 span { color: var(--blue) }
   border-radius: 4px;
 }
 
+
+/* ── States ── */
 .state-empty {
   padding: 80px 0;
   text-align: center;
@@ -189,13 +203,6 @@ h2 span { color: var(--blue) }
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite;
 }
-
-.kw { color: var(--blue) }
-.fn { color: var(--syn-fn) }
-.st { color: var(--syn-st) }
-.cm { color: var(--syn-cm) }
-.nm { color: var(--syn-nm) }
-.pu { color: var(--syn-pu) }
 
 
 /* ── @keyframes ── */
