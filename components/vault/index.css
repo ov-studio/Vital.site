@@ -266,7 +266,7 @@
 }
 
 .vault-modal.closing {
-  animation: slide-down .225s ease forwards;
+  animation: slide-down .205s ease forwards;
 }
 
 .vault-modal-close {
