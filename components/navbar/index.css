@@ -6,7 +6,7 @@ nav {
   z-index: 500;
   height: 68px;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 nav::after {
@@ -15,6 +15,7 @@ nav::after {
   inset: 0;
   background: hsla(250, 20%, 4%, 0);
   border-bottom: 1px solid transparent;
+  pointer-events: none;
   transition: background .4s, border-color .4s;
   pointer-events: none
 }
@@ -22,32 +23,35 @@ nav::after {
 nav.s::after {
   background: hsla(250, 20%, 4%, .92);
   border-color: var(--rule);
-  backdrop-filter: blur(20px)
+  backdrop-filter: blur(20px);
 }
 
 .ni {
-  max-width: var(--section-width);
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 48px;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  z-index: 1
+  width: 100%;
+  max-width: var(--section-width);
+  margin: 0 auto;
+  padding: 0 48px;
 }
 
-.nav-brand {
-  flex-shrink: 0;
-}
+.nav-brand { flex-shrink: 0 }
 
 .nl {
   display: flex;
   list-style: none;
-  gap: 0
+  gap: 0;
 }
 
+.nl li { border-right: 1px solid var(--rule) }
+.nl li:first-child { border-left: 1px solid var(--rule) }
+
 .nl li a {
+  display: block;
+  padding: 8px 22px;
   font-family: 'Geist', sans-serif;
   font-size: .8rem;
   font-weight: 500;
@@ -55,22 +59,13 @@ nav.s::after {
   text-transform: uppercase;
   color: var(--dim);
   text-decoration: none;
-  padding: 8px 22px;
   transition: color .2s;
-  display: block
 }
-
 .nl li a:hover,
-.nl li a.active {
-  color: var(--white)
-}
-
-.nl li {
-  border-right: 1px solid var(--rule)
-}
-.nl li:first-child { border-left: 1px solid var(--rule) }
+.nl li a.active { color: var(--white) }
 
 .ncta {
+  padding: 9px 26px;
   font-family: 'Geist', sans-serif;
   font-size: .8rem;
   font-weight: 700;
@@ -79,10 +74,9 @@ nav.s::after {
   color: var(--bg);
   background: var(--blue);
   border: 1px solid var(--blue);
-  padding: 9px 26px;
   text-decoration: none;
   clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
-  transition: background .2s, opacity .2s
+  transition: background .2s, opacity .2s;
 }
 .ncta:hover { opacity: .8 }
 
