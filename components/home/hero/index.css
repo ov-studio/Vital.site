@@ -148,10 +148,10 @@
 
 .hstat-n {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.96rem;
+  font-size: .96rem;
   font-weight: 500;
-  color: var(--white);
   letter-spacing: .02em;
+  color: var(--white);
   line-height: 1;
 }
 
@@ -159,8 +159,8 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: .76rem;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: .04em;
+  text-transform: uppercase;
   color: var(--text-mid);
 }
 
