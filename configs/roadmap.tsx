@@ -415,6 +415,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Runtime vector SVG loading, unloading, rendering, and mutation from raw string buffers',
         icon: <lucide.FileCode {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: core.svg.filter', status: 'completed' },
           { label: 'Lifecycle hooks', status: 'completed' },
           { label: 'Format: SVG', status: 'completed' },
           { label: 'SVG instantiation and mutation from raw string buffers', status: 'completed' },
@@ -423,7 +424,10 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<svg>:is_type', status: 'completed' },
           { label: '[Client] API: self<svg>:get_type', status: 'completed' },
           { label: '[Client] API: self<svg>:destroy', status: 'completed' },
+          { label: '[Client] API: self<svg>:has_mipmaps', status: 'completed' },
           { label: '[Client] API: self<svg>:get_size', status: 'completed' },
+          { label: '[Client] API: self<svg>:get_filter', status: 'completed' },
+          { label: '[Client] API: self<svg>:set_filter', status: 'completed' },
           { label: '[Client] API: self<svg>:update', status: 'completed' }
         ]
       },
