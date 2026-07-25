@@ -122,11 +122,14 @@
   width: 36px;
   height: 36px;
 }
-
 .rcard--completed .rcard-icon { color: var(--blue); }
 .rcard--partial   .rcard-icon { color: hsl(45,80%,58%); }
 .rcard--pending   .rcard-icon { color: var(--text-dim2); }
+.rcard--completed .icon-ring { border-color: var(--b30); }
 .rcard--partial   .icon-ring { border-color: hsla(45,80%,58%,.3); }
+.rcard--pending   .icon-ring { border-color: hsla(220,10%,50%,.2); }
+.rcard:hover .icon-ring,
+.rcard--open .icon-ring { opacity: 1; transform: scale(1); }
 
 .rcard-info { flex: 1; display: flex; flex-direction: column; gap: 5px; min-width: 0; padding-top: 2px; }
 
@@ -152,39 +155,15 @@
 }
 .rcard:hover .rcard-desc,
 .rcard--open .rcard-desc { color: var(--text-desc-hover) }
+.rchevron { color: var(--text-faint); flex-shrink: 0; margin-top: 3px; transition: transform .2s, color .2s; }
 .rcard--completed .rchevron--up { transform: rotate(180deg); color: var(--blue); }
 .rcard--partial   .rchevron--up { transform: rotate(180deg); color: hsl(45,80%,58%); }
 .rcard--pending   .rchevron--up { transform: rotate(180deg); color: var(--text-dim2); }
-
-.rcard-bar-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.rcard-bar-track {
-  flex: 1;
-  height: 3px;
-  background: hsla(220, 18%, 100%, .06);
-  border-radius: 3px;
-}
-
-.rcard-bar-track-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width .6s cubic-bezier(.4, 0, .2, 1);
-}
-
-.rcard--completed .rcard-bar-track-fill {
-  background: var(--blue);
-  box-shadow: 0 0 5px var(--blue);
-}
-
-.rcard--partial .rcard-bar-track-fill {
-  background: hsl(45, 80%, 58%);
-  box-shadow: 0 0 5px hsla(45, 80%, 58%, .6);
-}
+.rcard-bar-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.rcard-bar-row .bar-track { flex: 1; height: 3px; }
+.rcard--completed .bar-fill { background: var(--blue);          box-shadow: 0 0 5px var(--blue); }
+.rcard--partial   .bar-fill { background: hsl(45,80%,58%);      box-shadow: 0 0 5px hsla(45,80%,58%,.6); }
+.rcard--pending   .bar-fill { background: transparent; }
 
 .rcard-pct {
   flex-shrink: 0;
