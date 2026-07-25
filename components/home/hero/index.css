@@ -168,17 +168,17 @@
 }
 
 @media (max-width: 960px) {
-  #hero { padding-top: 120px; padding-bottom: 60px; }
+  #hero        { padding-top: 120px; padding-bottom: 60px; }
   .hero-center { padding: 0 24px; }
-  .hstat { padding: 0 20px; }
+  .hstat       { padding: 0 20px; }
 }
 
 @media (max-width: 640px) {
-  #hero { padding-top: 110px; padding-bottom: 48px; }
+  #hero        { padding-top: 110px; padding-bottom: 48px; }
   .hero-center { padding: 0 20px; }
-  .hero-motto { gap: 10px; font-size: .82rem; }
-  .hero-sub { font-size: .88rem; }
-  .hcorner { display: none; }
+  .hero-motto  { gap: 10px; font-size: .82rem; }
+  .hero-sub    { font-size: .88rem; }
+  .hcorner     { display: none; }
 
   .hero-stats {
     display: grid;
