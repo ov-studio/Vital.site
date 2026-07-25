@@ -144,10 +144,10 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
         {columns.map((col, ci) => (
           <div key={ci} className="rcategory-col">
             {col.map((card, ri) => (
-              <FeatureCard
-                key={card.id}
-                card={card}
-                mobile_order={ri*COLS + ci}
+              <FeatureCard 
+                key={card.id} 
+                card={card} 
+                mobile_order={ri * COLS + ci}
               />
             ))}
           </div>
@@ -170,6 +170,7 @@ export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[
             intro="Complete breakdown of every feature in the sandbox; shipped, in-progress and planned"
           />
         </div>
+
         <div className="roadmap-body">
           {config_roadmap.Roadmap.map((section, i) => (
             <SectionBlock key={section.name} section={section} index={i}/>
