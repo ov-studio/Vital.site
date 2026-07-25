@@ -199,6 +199,6 @@
 }
 
 @media (max-width: 400px) {
-  .hstat-n { font-size: .86rem; }
-  .hstat-l { font-size: .61rem; }
+  .hstat-n { font-size: .86rem }
+  .hstat-l { font-size: .61rem }
 }
