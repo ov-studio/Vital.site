@@ -110,21 +110,9 @@ h2 span { color: var(--blue) }
   cursor: pointer;
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
 }
-
-.btn-primary:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
-}
-
-.btn-primary:disabled {
-  cursor: not-allowed;
-}
-
-.btn-primary:hover {
-  opacity: .85;
-  transform: translateY(-2px)
-}
+.btn-primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .btn-primary:disabled      { cursor: not-allowed; }
+.btn-primary:hover         { opacity: .85; transform: translateY(-2px); }
 
 .btn-secondary {
   display: inline-flex;
