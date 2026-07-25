@@ -79,7 +79,6 @@
 .vault-card-banner-placeholder,
 .vault-modal-banner-placeholder {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,11 +90,7 @@
 .vault-modal-banner-placeholder svg { opacity: .1; }
 
 .vault-card-banner-overlay,
-.vault-modal-banner-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
+.vault-modal-banner-overlay { position: absolute; inset: 0; pointer-events: none; }
 .vault-card-banner-overlay {
   background:
     linear-gradient(to bottom, hsla(250,25%,2%,.38) 0%, transparent 30%, transparent 50%, var(--bg3) 100%),
