@@ -36,10 +36,7 @@ h2 {
   text-transform: uppercase;
   line-height: .95;
 }
-
-h2 span {
-  color: var(--blue)
-}
+h2 span { color: var(--blue) }
 
 .sw {
   max-width: var(--section-width);
