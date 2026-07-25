@@ -24,6 +24,7 @@ function card_status(card: config_roadmap.RoadmapCard): config_roadmap.FeatureSt
 function overall_progress(sections: config_roadmap.RoadmapSection[]) {
   let weight = 0, count = 0, completed = 0, partial = 0, pending = 0;
   for (const section of sections)
+    for (const card of section.cards) {
       for (const item of card.items) {
         count++;
         weight += STATUS_WEIGHT[item.status] ?? 0;
