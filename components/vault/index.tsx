@@ -325,7 +325,6 @@ export function Vault() {
     <>
       <section id="vault">
         <div className="sw">
-
           <div className="vault-head">
             <div className="sec-head">
               <div>
@@ -374,10 +373,9 @@ export function Vault() {
               <div className="state-empty">No resources found for this filter.</div>
             )}
             {state === 'done' && filtered.map(r => (
-              <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)} />
+              <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)}/>
             ))}
           </div>
-
         </div>
       </section>
 
