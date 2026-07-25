@@ -7,9 +7,8 @@ import * as react_dom from 'react-dom';
 import './index.css';
 
 function useVaultResources() {
-  const [resources, set_resources] = react.useState<VaultResource[]>([]);
-  const [state,     set_state]     = react.useState<LoadState>('loading');
   const [resources, set_resources] = react.useState<config_vault.VaultResource[]>([]);
+  const [state,     set_state]     = react.useState<config_vault.LoadState>('loading');
 
   react.useEffect(() => {
     let cancelled = false;
