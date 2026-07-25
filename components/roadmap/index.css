@@ -134,6 +134,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: var(--bg5);
   cursor: pointer;
   transition: background .3s;
 }
@@ -159,6 +160,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
 }
 
 .rcard--completed .rcard-icon { color: var(--blue); }
@@ -306,7 +309,7 @@
   line-height: 1.5;
   color: var(--dim);
 }
-.ritem--completed .ritem-label { color: var(--text-soft); }
+.ritem--completed .ritem-label,
 .ritem--partial   .ritem-label { color: var(--text-soft); }
 .ritem--pending   .ritem-label { color: var(--text-faint); }
 
