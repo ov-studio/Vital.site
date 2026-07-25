@@ -86,7 +86,7 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
   );
 }
 
-function VaultModal({ resource, onClose, closing }: { resource: config_vault.VaultResource; onClose: () => void; closing: boolean }) {
+function VaultModal({ resource, on_close, closing }: { resource: config_vault.VaultResource; on_close: () => void; closing: boolean }) {
   const is_dir = !resource.is_submodule;
   const folder = is_dir ? resource.id.slice(4) : '';
   const [downloading, set_downloading] = react.useState(false);
@@ -107,10 +107,10 @@ function VaultModal({ resource, onClose, closing }: { resource: config_vault.Vau
   }, [is_dir, folder, downloading]);
 
   react.useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') on_close(); };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [onClose]);
+  }, [on_close]);
 
   react.useEffect(() => {
     const sw = window.innerWidth - document.documentElement.clientWidth;
@@ -142,10 +142,9 @@ function VaultModal({ resource, onClose, closing }: { resource: config_vault.Vau
 
   if (typeof document === 'undefined') return null;
   return react_dom.createPortal(
-    <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={onClose}>
+    <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
       <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
-
-        <button className="vault-modal-close" onClick={onClose} aria-label="Close">
+        <button className="vault-modal-close" onClick={on_close} aria-label="Close">
           <lucide.X size={14}/>
         </button>
 
@@ -165,11 +164,8 @@ function VaultModal({ resource, onClose, closing }: { resource: config_vault.Vau
 
           <div className="vault-modal-name">{resource.name}</div>
           <div className="vault-modal-tagline">{resource.tagline}</div>
-
           <hr className="vault-modal-divider"/>
-
           <p className="vault-modal-desc">{resource.description}</p>
-
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
               <span key={t} className="tag-pill vault-modal-tag">#{t}</span>
@@ -200,10 +196,8 @@ function VaultModal({ resource, onClose, closing }: { resource: config_vault.Vau
               </a>
             )}
           </div>
-
           {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
         </div>
-
       </div>
     </div>,
     document.body
@@ -344,7 +338,7 @@ export function Vault() {
         </div>
       </section>
 
-      {selected && <VaultModal resource={selected} onClose={close} closing={closing}/>}
+      {selected && <VaultModal resource={selected} on_close={close} closing={closing}/>}
     </>
   );
 }
