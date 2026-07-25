@@ -1,0 +1,42 @@
+---
+title: self:get_filter
+description: Retrieves the current sampling filter of the SVG
+badge: Client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_filter()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.texture.texture_filter`](/docs/texture/enum/texture_filter) | mode | Sampling filter of the SVG texture |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check an SVG's filter before overriding it"
+local entity = core.svg.create("assets/icon.svg")
+
+if entity:get_filter() == core.texture.texture_filter.DEFAULT then
+    entity:set_filter(core.texture.texture_filter.NEAREST)
+end
+```
+
+```lua lineNumbers title="Copy one SVG's filter onto another"
+local source = core.svg.create("assets/icon.svg")
+source:set_filter(core.texture.texture_filter.NEAREST)
+
+local target = core.svg.create("assets/logo.svg")
+target:set_filter(source:get_filter())
+```
