@@ -139,9 +139,11 @@
   gap: 10px;
 }
 
-.hstat-ico {
+.hstat-ico { 
+  display: flex; 
+  align-items: center; 
+  flex-shrink: 0; 
   color: var(--blue);
-  display: flex;
   align-items: center;
   flex-shrink: 0;
 }
