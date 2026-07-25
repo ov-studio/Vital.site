@@ -205,7 +205,6 @@ function VaultModal({ resource, onClose }: { resource: config_vault.VaultResourc
   );
 }
 
-function VaultCard({ resource, onClick }: { resource: VaultResource; onClick: () => void }) {
 function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource; onClick: () => void }) {
   return (
     <div
