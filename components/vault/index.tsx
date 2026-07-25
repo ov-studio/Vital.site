@@ -309,10 +309,11 @@ function VaultSkeleton() {
   return (
     <div className="vault-card vault-card--skeleton">
       <div className="vault-card-banner vault-skeleton-banner" />
+      <div className="vault-card-banner vault-skeleton-banner shimmer"/>
       <div className="vault-card-body">
-        <div className="vault-skeleton-line vault-skeleton-line--sm" />
-        <div className="vault-skeleton-line vault-skeleton-line--lg" />
-        <div className="vault-skeleton-line vault-skeleton-line--md" />
+        <div className="vault-skeleton-line vault-skeleton-line--sm shimmer"/>
+        <div className="vault-skeleton-line vault-skeleton-line--lg shimmer"/>
+        <div className="vault-skeleton-line vault-skeleton-line--md shimmer"/>
       </div>
     </div>
   );
