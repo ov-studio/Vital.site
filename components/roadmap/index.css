@@ -255,13 +255,14 @@
     display: contents;
   }
 
-  .rcard {
-    order: var(--mobile-order, 0);
-    width: 100%;
-    flex-shrink: 0;
-  }
 
-  .rcard-body {
-    padding: 20px 18px 16px;
-  }
+/* ── @media ── */
+@media (max-width: 960px) {
+  #roadmap            { padding: calc(100px + var(--nav-h) * .25) 0; }
+  .roadmap-summary    { margin-bottom: 60px; }
+  .roadmap-body       { gap: 60px; }
+  .rcategory-cols     { flex-direction: row; flex-wrap: wrap; gap: 14px; }
+  .rcategory-col      { display: contents; }
+  .rcard              { order: var(--mobile-order, 0); width: 100%; flex-shrink: 0; }
+  .rcard-body         { padding: 20px 18px 16px; }
 }
