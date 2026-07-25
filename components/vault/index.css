@@ -260,6 +260,15 @@
   color: var(--red, #e5484d);
 }
 
+.vault-modal-overlay.closing {
+  animation: fade-out .18s ease forwards;
+  pointer-events: none;
+}
+
+.vault-modal.closing {
+  animation: slide-down .22s ease forwards;
+}
+
 .vault-modal-close {
   position: absolute;
   top: 16px;
@@ -309,17 +318,6 @@
   font-weight: 500;
   color: var(--text-desc);
   text-align: center;
-}
-
-
-/* ── @keyframes ── */
-@keyframes fade-in { 
-  from { opacity: 0 } 
-  to { opacity: 1 } 
-}
-
-@keyframes spin { 
-  to { transform: rotate(360deg) } 
 }
 
 

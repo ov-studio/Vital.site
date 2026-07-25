@@ -86,7 +86,7 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
   );
 }
 
-function VaultModal({ resource, onClose }: { resource: config_vault.VaultResource; onClose: () => void }) {
+function VaultModal({ resource, onClose, closing }: { resource: config_vault.VaultResource; onClose: () => void; closing: boolean }) {
   const is_dir = !resource.is_submodule;
   const folder = is_dir ? resource.id.slice(4) : '';
   const [downloading, set_downloading] = react.useState(false);
@@ -142,8 +142,8 @@ function VaultModal({ resource, onClose }: { resource: config_vault.VaultResourc
 
   if (typeof document === 'undefined') return null;
   return react_dom.createPortal(
-    <div className="vault-modal-overlay" onClick={onClose}>
-      <div className="vault-modal" onClick={e => e.stopPropagation()}>
+    <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={onClose}>
+      <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
 
         <button className="vault-modal-close" onClick={onClose} aria-label="Close">
           <lucide.X size={14}/>
@@ -246,6 +246,7 @@ export function Vault() {
   const { resources, state } = useVaultResources();
   const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
   const [selected,   set_selected]   = react.useState<config_vault.VaultResource | null>(null);
+  const [closing,    set_closing]    = react.useState(false);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
@@ -265,7 +266,18 @@ export function Vault() {
     });
   }, [resources, active_tag]);
 
-  const close = react.useCallback(() => set_selected(null), []);
+  const open = react.useCallback((r: config_vault.VaultResource) => {
+    set_closing(false);
+    set_selected(r);
+  }, []);
+
+  const close = react.useCallback(() => {
+    set_closing(prev => {
+      if (prev) return prev;
+      window.setTimeout(() => { set_selected(null); set_closing(false); }, 220);
+      return true;
+    });
+  }, []);
 
   return (
     <>
@@ -325,14 +337,14 @@ export function Vault() {
                 </div>
               )}
               {state === 'done' && filtered.map(r => (
-                <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)}/>
+                <VaultCard key={r.id} resource={r} onClick={() => open(r)}/>
               ))}
             </div>
           )}
         </div>
       </section>
 
-      {selected && <VaultModal resource={selected} onClose={close}/>}
+      {selected && <VaultModal resource={selected} onClose={close} closing={closing}/>}
     </>
   );
 }
