@@ -40,6 +40,7 @@ footer {
   image-rendering: -webkit-optimize-contrast;
   transition: opacity .2s ease;
 }
+.footer-flag:hover { opacity: .9 }
 
 .footer-flag:hover {
   opacity: 0.9;
