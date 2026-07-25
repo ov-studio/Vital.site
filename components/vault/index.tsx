@@ -116,7 +116,6 @@ async function download_directory_zip(folder: string): Promise<void> {
   URL.revokeObjectURL(url);
 }
 
-// ── Banner ────────────────────────────────
 const BANNER_CFG = {
   card:  { wrap: 'vault-card-banner',  ph: 'vault-card-banner-placeholder',  overlay: 'vault-card-banner-overlay',  ico: 48 },
   modal: { wrap: 'vault-modal-banner', ph: 'vault-modal-banner-placeholder', overlay: 'vault-modal-banner-overlay', ico: 80 },
@@ -135,13 +134,9 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
   );
 }
 
-// ── Modal ─────────────────────────────────
-function VaultModal({ resource, onClose }: {
-  resource: VaultResource;
-  onClose:  () => void;
-}) {
-  const is_dir  = !resource.is_submodule;
-  const folder  = is_dir ? resource.id.slice(4) : '';
+function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: () => void }) {
+  const is_dir = !resource.is_submodule;
+  const folder = is_dir ? resource.id.slice(4) : '';
   const [downloading, set_downloading] = react.useState(false);
   const [dl_error,    set_dl_error]    = react.useState<string | null>(null);
 
@@ -166,8 +161,8 @@ function VaultModal({ resource, onClose }: {
   }, [onClose]);
 
   react.useEffect(() => {
-    const scrollbar_w = window.innerWidth - document.documentElement.clientWidth;
-    if (scrollbar_w <= 0) {
+    const sw = window.innerWidth - document.documentElement.clientWidth;
+    if (sw <= 0) {
       document.documentElement.style.overflow = 'hidden';
       return () => { document.documentElement.style.overflow = ''; };
     }
@@ -180,6 +175,7 @@ function VaultModal({ resource, onClose }: {
       if (style.position === 'fixed' || style.position === 'sticky') {
         fixed_els.push({ el, prev: el.style.paddingRight });
         el.style.paddingRight = `${(parseFloat(style.paddingRight) || 0) + scrollbar_w}px`;
+      if (s.position === 'fixed' || s.position === 'sticky') {
       }
     });
 
