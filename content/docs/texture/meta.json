@@ -16,7 +16,7 @@
         "method__get_type",
         "method__destroy",
 
-        "---::Checker---",
+        "---⁝⁝Checker---",
         "method__has_mipmaps",
         "method__is_compressed",
 
