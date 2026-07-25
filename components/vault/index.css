@@ -1,6 +1,6 @@
 #vault {
-  padding: calc(100px + var(--nav-h)*1) 0;
-  min-height: calc(100dvh);
+  min-height: 100dvh;
+  padding: calc(100px + var(--nav-h)) 0;
 }
 
 .vault-head                  { margin-bottom: 56px; }
