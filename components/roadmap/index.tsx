@@ -61,9 +61,9 @@ function RoadmapSummary({ sections, intro }: { sections: config_roadmap.RoadmapS
 
 function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapCard; mobile_order?: number }) {
   const [open, setOpen] = react.useState(false);
-  const innerRef = react.useRef<HTMLDivElement>(null);
+  const innerRef        = react.useRef<HTMLDivElement>(null);
   const [height, setHeight] = react.useState(0);
-  const pct = card_progress(card);
+  const pct    = card_progress(card);
   const status = card_status(card);
 
   react.useEffect(() => {
@@ -84,10 +84,8 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
       >
         <div className="rcard-header">
           <div className="rcard-icon">
-            <svg width="18" viewBox="0 0 18 18" fill="none">
-              {card.icon}
-            </svg>
-            <span className="rcard-icon-ring"/>
+            <svg width="18" viewBox="0 0 18 18" fill="none">{card.icon}</svg>
+            <span className="icon-ring"/>
           </div>
 
           <div className="rcard-info">
