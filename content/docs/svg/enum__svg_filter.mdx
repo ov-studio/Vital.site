@@ -1,5 +1,5 @@
 ---
-title: core.svg.texture_filter
+title: core.svg.svg_filter
 description: Enumeration of sampling filters that can be applied to an individual SVG, overriding whatever draws it
 badge: Client
 ---
@@ -10,10 +10,10 @@ Constants are ordered from the shared default through crisp (nearest) to smooth 
 
 | Constant | Description |
 |----------|-------------|
-| `core.svg.texture_filter.DEFAULT` | No per-texture override — inherits whatever filter the drawing call defaults to |
-| `core.svg.texture_filter.NEAREST` | Point sampling — crisp, blocky edges, no blur at non-integer scales; ideal for pixel art |
-| `core.svg.texture_filter.NEAREST_MIPMAP` | Nearest sampling with mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
-| `core.svg.texture_filter.NEAREST_MIPMAP_ANISOTROPIC` | Nearest sampling with anisotropic mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
-| `core.svg.texture_filter.LINEAR` | Bilinear sampling — smooth, blurred edges at non-integer scales; the effective default before any override is set |
-| `core.svg.texture_filter.LINEAR_MIPMAP` | Linear sampling with mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
-| `core.svg.texture_filter.LINEAR_MIPMAP_ANISOTROPIC` | Linear sampling with anisotropic mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
+| `core.svg.svg_filter.DEFAULT` | No per-texture override — inherits whatever filter the drawing call defaults to |
+| `core.svg.svg_filter.NEAREST` | Point sampling — crisp, blocky edges, no blur at non-integer scales; ideal for pixel art |
+| `core.svg.svg_filter.NEAREST_MIPMAP` | Nearest sampling with mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
+| `core.svg.svg_filter.NEAREST_MIPMAP_ANISOTROPIC` | Nearest sampling with anisotropic mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
+| `core.svg.svg_filter.LINEAR` | Bilinear sampling — smooth, blurred edges at non-integer scales; the effective default before any override is set |
+| `core.svg.svg_filter.LINEAR_MIPMAP` | Linear sampling with mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
+| `core.svg.svg_filter.LINEAR_MIPMAP_ANISOTROPIC` | Linear sampling with anisotropic mipmaps<br/>Requires the source to have mip levels —<br/>generate via [`core.svg.create`](/docs/svg/create)'s `mipmaps` parameter |
