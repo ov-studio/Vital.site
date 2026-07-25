@@ -362,9 +362,6 @@ export function Vault() {
           </div>
 
           <div className="vault-grid">
-            {state === 'loading' &&
-              Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i} />)
-            }
             {state === 'loading' && Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i}/>)}
             {state === 'error' && (
               <div className="state-empty">Failed to load resources. Check your connection and try again.</div>
