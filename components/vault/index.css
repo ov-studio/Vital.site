@@ -297,6 +297,21 @@
 .vault-skeleton-line--lg { width: 70%; height: 16px; }
 .vault-skeleton-line--md { width: 55%; }
 
+.state-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  grid-column: 1 / -1;
+  padding: 64px 24px;
+  font-family: 'Geist', sans-serif;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text-desc);
+  text-align: center;
+}
+
 
 /* ── @keyframes ── */
 @keyframes fade-in { 
