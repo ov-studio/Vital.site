@@ -82,9 +82,10 @@ nav.s::after {
 @media(max-width:960px) {
   .nl { display: none }
   .ni { padding: 0 24px }
+  .nl  { display: none }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .ncta { display: none }
-  .ni { padding: 0 20px }
+  .ni   { padding: 0 20px }
 }
