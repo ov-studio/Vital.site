@@ -126,8 +126,8 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
   return (
     <div className={wrap}>
       {src
-        ? <img src={src} alt="Resource banner" />
-        : <div className={ph}><lucide.Package size={ico} color="var(--blue)" /></div>
+        ? <img src={src} alt="Resource banner"/>
+        : <div className={ph}><lucide.Package size={ico} color="var(--blue)"/></div>
       }
       <div className={overlay}/>
     </div>
@@ -167,31 +167,30 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
       return () => { document.documentElement.style.overflow = ''; };
     }
 
-    const fixed_els: { el: HTMLElement; prev: string }[] = [];
-    document.querySelectorAll<HTMLElement>(
-      'nav, header, [data-fixed], .vault-modal-overlay'
-    ).forEach(el => {
-      const style = getComputedStyle(el);
-      if (style.position === 'fixed' || style.position === 'sticky') {
-        fixed_els.push({ el, prev: el.style.paddingRight });
-        el.style.paddingRight = `${(parseFloat(style.paddingRight) || 0) + scrollbar_w}px`;
+    const fixed: { el: HTMLElement; prev: string }[] = [];
+    document.querySelectorAll<HTMLElement>('nav, header, [data-fixed], .vault-modal-overlay').forEach(el => {
+      const s = getComputedStyle(el);
       if (s.position === 'fixed' || s.position === 'sticky') {
+        fixed.push({ el, prev: el.style.paddingRight });
+        el.style.paddingRight = `${(parseFloat(s.paddingRight) || 0) + sw}px`;
       }
     });
 
-    const prev_overflow = document.documentElement.style.overflow;
-    const prev_body_pr  = document.body.style.paddingRight;
+    const prev_ov = document.documentElement.style.overflow;
+    const prev_pr = document.body.style.paddingRight;
     document.documentElement.style.overflow = 'hidden';
     document.body.style.paddingRight = `${scrollbar_w}px`;
+    document.body.style.paddingRight = `${sw}px`;
 
     return () => {
-      document.documentElement.style.overflow = prev_overflow;
-      document.body.style.paddingRight = prev_body_pr;
-      fixed_els.forEach(({ el, prev }) => { el.style.paddingRight = prev; });
+      document.documentElement.style.overflow = prev_ov;
+      document.body.style.paddingRight = prev_pr;
+      fixed.forEach(({ el, prev }) => { el.style.paddingRight = prev; });
     };
   }, []);
 
   const modal_markup = (
+  return react_dom.createPortal(
     <div className="vault-modal-overlay" onClick={onClose}>
       <div className="vault-modal" onClick={e => e.stopPropagation()}>
 
@@ -222,7 +221,7 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
 
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
-              <span key={t} className="vault-modal-tag">#{t}</span>
+              <span key={t} className="tag-pill vault-modal-tag">#{t}</span>
             ))}
           </div>
 
@@ -255,7 +254,8 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 
   if (typeof document === 'undefined') return null;
@@ -273,9 +273,7 @@ function VaultCard({ resource, onClick }: { resource: VaultResource; onClick: ()
     >
       <Banner src={resource.banner} size="card"/>
 
-      {resource.featured && (
-        <span className="vault-card-featured-badge">Featured</span>
-      )}
+      {resource.featured && <span className="vault-card-featured-badge">Featured</span>}
 
       <div className="vault-card-body">
         <div className="vault-card-meta">
