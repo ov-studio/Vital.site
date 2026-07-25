@@ -79,10 +79,11 @@ nav.s::after {
 }
 .ncta:hover { opacity: .8 }
 
-@media(max-width:960px) {
-  .nl { display: none }
-  .ni { padding: 0 24px }
+
+/* ── @media ── */
+@media (max-width: 960px) {
   .nl  { display: none }
+  .ni  { padding: 0 24px }
 }
 
 @media (max-width: 640px) {
