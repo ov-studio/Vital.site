@@ -1,0 +1,53 @@
+export type VaultTag =
+    | 'animation'
+    | 'asset'
+    | 'gamemode'
+    | 'gfx'
+    | 'library'
+    | 'map'
+    | 'physx'
+    | 'sfx'
+    | 'shader'
+    | 'ui'
+    | 'utility'
+    | 'vfx'
+
+export interface VaultResource {
+    id: string;
+    name: string;
+    author: string;
+    author_url?: string;
+    version: string;
+    tagline: string;
+    description: string;
+    tags: VaultTag[];
+    banner?: string;
+    featured: boolean;
+    is_submodule: boolean;
+    source_url?: string;
+    download_url: string | null;
+}
+
+export interface VaultIndex {
+    generated_at: string;
+    commit: string;
+    count: number;
+    resources: VaultResource[];
+}
+
+export type LoadState = 'loading' | 'error' | 'done';
+
+export const ALL_TAGS: VaultTag[] = [
+    'animation',
+    'asset',
+    'gamemode',
+    'gfx',
+    'library',
+    'map',
+    'physx',
+    'sfx',
+    'shader',
+    'ui',
+    'utility',
+    'vfx'
+];
