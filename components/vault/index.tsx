@@ -279,7 +279,7 @@ function VaultCard({ resource, onClick }: {
       tabIndex={0}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
     >
-      <Banner src={resource.banner} size="card" />
+      <Banner src={resource.banner} size="card"/>
 
       {resource.featured && (
         <span className="vault-card-featured-badge">Featured</span>
@@ -295,7 +295,7 @@ function VaultCard({ resource, onClick }: {
         <div className="vault-card-footer">
           <div className="vault-card-tags">
             {resource.tags.slice(0, 2).map(t => (
-              <span key={t} className="vault-card-tag">#{t}</span>
+              <span key={t} className="tag-pill">#{t}</span>
             ))}
           </div>
         </div>
