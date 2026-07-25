@@ -310,13 +310,13 @@ export function Vault() {
             {state === 'error' && (
               <div className="state-empty">
                 <lucide.WifiOff size={24}/>
-                Failed to load resources. Check your connection and try again.
+                Failed to load resources — check your connection and try again
               </div>
             )}
             {state === 'done' && filtered.length === 0 && (
               <div className="state-empty">
                 <lucide.PackageOpen size={24}/>
-                No resources found for this filter.
+                No resources match the selected tag
               </div>
             )}
             {state === 'done' && filtered.map(r => (
