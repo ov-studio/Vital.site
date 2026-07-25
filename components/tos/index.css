@@ -23,15 +23,8 @@
   padding: 40px 0;
   border-bottom: 1px solid var(--rule);
 }
-
-.tos-section:first-child {
-  padding-top: 0;
-}
-
-.tos-section:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
+.tos-section:first-child  { padding-top: 0 }
+.tos-section:last-child   { border-bottom: none; padding-bottom: 0 }
 
 .tos-section-title {
   font-family: 'Rajdhani', sans-serif;
