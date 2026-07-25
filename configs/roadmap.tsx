@@ -211,7 +211,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Discord',
         desc: 'Native Discord Rich Presence — dynamic activity state, user identity, images, and invite links',
-        icon: <lucide.Gamepad2 {...config_site.info.lucide} />,
+        icon: <lucide.Gamepad2 {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] API: core.discord.is_connected', status: 'completed' },
           { label: '[Client] API: core.discord.get_userid', status: 'completed' },
@@ -696,7 +696,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Resource',
         desc: 'Introspect the running resource and control start, stop, and restart of server-managed resources',
-        icon: <lucide.PackageOpen {...config_site.info.lucide} />,
+        icon: <lucide.PackageOpen {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] API: util.resource.current', status: 'completed' },
           { label: '[Shared] API: util.resource.list', status: 'completed' },
