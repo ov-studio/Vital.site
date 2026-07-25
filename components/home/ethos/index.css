@@ -112,12 +112,12 @@
 }
 
 @media (max-width: 960px) {
-  #ethos { padding: 72px 0; }
+  #ethos      { padding: 72px 0; }
   .ethos-head { margin-bottom: 40px; }
 }
 
 @media (max-width: 640px) {
-  #ethos { padding: 56px 0; }
+  #ethos      { padding: 56px 0; }
   .ethos-grid { grid-template-columns: 1fr; }
-  .ecard { padding: 24px 20px 22px; }
+  .ecard      { padding: 24px 20px 22px; }
 }
