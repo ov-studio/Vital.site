@@ -1,0 +1,55 @@
+---
+title: self:set_filter
+description: Sets the sampling filter of the SVG
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_filter(
+    mode
+)
+```
+
+<Callout type="warn">
+  **Mipmap-based filters require the texture to already have a svg chain — no chain is generated on demand.**<br/>`NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the SVG was created without mipmaps.
+
+  - **Generating mipmaps** — pass `mipmaps = true` to [`core.svg.create`](/docs/svg/create) or [`core.svg.create_from_raw`](/docs/svg/create_from_raw) upfront.
+  - **Survives updates** — [`self:update`](/docs/svg/method/update) replaces the SVG contents but the texture is updated in place, so filter override stays applied.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.texture.texture_filter`](/docs/texture/enum/texture_filter) | mode | Sampling filter to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Force crisp nearest-neighbour sampling"
+local entity = core.svg.create("assets/icon.svg")
+
+entity:set_filter(core.texture.texture_filter.NEAREST)
+```
+
+```lua lineNumbers title="Reset back to the inherited default filter"
+local entity = core.svg.create("assets/icon.svg")
+
+entity:set_filter(core.texture.texture_filter.NEAREST)
+entity:set_filter(core.texture.texture_filter.DEFAULT)
+```
+
+```lua lineNumbers title="Apply a mipmap filter — SVG must be created with mipmaps"
+local entity = core.svg.create("assets/icon.svg", true)
+
+entity:set_filter(core.texture.texture_filter.LINEAR_MIPMAP_ANISOTROPIC)
+```
