@@ -6,6 +6,10 @@ import * as lucide       from 'lucide-react';
 import * as react_dom    from 'react-dom';
 import './index.css';
 
+function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[] {
+  return tags.filter(t => (config_vault.ALL_TAGS as readonly string[]).includes(t));
+}
+
 function useVaultResources() {
   const [resources, set_resources] = react.useState<config_vault.VaultResource[]>([]);
   const [state,     set_state]     = react.useState<config_vault.LoadState>('loading');
