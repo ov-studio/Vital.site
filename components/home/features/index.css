@@ -27,10 +27,7 @@
   border-left: 2px solid var(--rule);
   transition: border-color .3s, background .3s;
 }
-
-.fcluster.is-active {
-  background: var(--bg5);
-}
+.fcluster.is-active { border-color: var(--blue); background: var(--bg5); }
 
 .fcluster-head {
   position: relative;
