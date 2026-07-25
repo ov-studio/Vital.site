@@ -78,6 +78,7 @@ footer {
   transition: color .2s;
   letter-spacing: .01em;
 }
+.footer-nav-col ul li a:hover { color: var(--white) }
 
 .footer-nav-col ul li a:hover { color: var(--white); }
 
