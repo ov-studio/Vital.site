@@ -47,8 +47,8 @@ function RoadmapSummary({ sections, intro }: { sections: config_roadmap.RoadmapS
           <span className="roadmap-summary-pct">{pct}<small>%</small></span>
         </div>
       </div>
-      <div className="roadmap-summary-bar">
-        <div className="roadmap-summary-bar-fill" style={{ width: `${pct}%` }}/>
+      <div className="roadmap-summary-bar bar-track">
+        <div className="bar-fill" style={{ width: `${pct}%` }}/>
       </div>
       <div className="roadmap-summary-legend">
         <span className="rleg rleg--completed"><i/>{completed} Completed</span>
