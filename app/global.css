@@ -103,12 +103,10 @@ h2 span { color: var(--blue) }
   color: var(--bg);
   background: var(--blue);
   text-decoration: none;
-  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  transition: opacity .2s, transform .15s;
-  display: inline-block;
   border: none;
   cursor: pointer;
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+  transition: opacity .2s, transform .15s;
 }
 .btn-primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .btn-primary:disabled      { cursor: not-allowed; }
