@@ -209,9 +209,9 @@
 .rcard-desc {
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
-  color: var(--text-desc);
   font-weight: 500;
   line-height: 1.7;
+  color: var(--text-desc);
   transition: color .25s;
 }
 .rcard:hover .rcard-desc,
