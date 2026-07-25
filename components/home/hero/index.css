@@ -83,12 +83,12 @@
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(.9rem, 1.4vw, 1.0rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .12em;
   margin-bottom: clamp(25px, 3vw, 40px);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(.9rem, 1.4vw, 1rem);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   opacity: 0;
   animation: slide-up .7s .35s forwards;
 }
