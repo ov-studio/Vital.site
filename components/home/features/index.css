@@ -173,10 +173,9 @@
 .fnode-group.is-active .fnode::after { opacity: 1 }
 
 
-.fnode::after {
-  bottom: -2px;
-  right: -2px;
-  border-width: 0 2px 2px 0;
+/* ── @keyframes ── */
+@keyframes fhub-pulse {
+  0%, 100%  { transform: scale(1);    opacity: .15 }
   50%       { transform: scale(1.05); opacity: .75 }
 }
 
