@@ -336,6 +336,7 @@ export function Vault() {
               <div>
                 Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox
               </div>
+              <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
               <a
                 href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}
                 target="_blank"
@@ -357,9 +358,7 @@ export function Vault() {
                 key={tag}
                 className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
                 onClick={() => set_active_tag(tag === active_tag ? null : tag)}
-              >
-                {tag}
-              </button>
+              >{tag}</button>
             ))}
           </div>
 
@@ -373,7 +372,7 @@ export function Vault() {
               </div>
             )}
             {state === 'done' && filtered.length === 0 && (
-              <div className="vault-empty">No resources found for this filter.</div>
+              <div className="state-empty">No resources found for this filter.</div>
             )}
             {state === 'done' && filtered.map(r => (
               <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)} />
