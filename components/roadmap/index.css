@@ -196,7 +196,7 @@
 
 .rcard-name {
   font-family: 'Geist', sans-serif;
-  font-size: 0.78rem;
+  font-size: .78rem;
   font-weight: 700;
   letter-spacing: .05em;
   text-transform: uppercase;
@@ -204,7 +204,7 @@
   transition: color .25s;
 }
 .rcard:hover .rcard-name,
-.rcard--open  .rcard-name { color: var(--white); }
+.rcard--open .rcard-name { color: var(--white) }
 
 .rcard-desc {
   font-family: 'Geist', sans-serif;
