@@ -175,13 +175,13 @@ h2 span { color: var(--blue) }
   border-radius: 4px;
 }
 
-.rev-r {
-  opacity: 0;
-  transform: translateX(24px);
-  transition: opacity .6s ease, transform .6s ease
+.state-empty {
+  padding: 80px 0;
   text-align: center;
   font-family: 'Geist', sans-serif;
+  font-size: .82rem;
   letter-spacing: .04em;
+  color: var(--text-faint);
 }
 
 .shimmer {
