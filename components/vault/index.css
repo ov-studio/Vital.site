@@ -120,7 +120,6 @@
 
 /* ── Card Body ───────────────────────────── */
 .vault-card-body {
-  padding: 22px 24px 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -155,28 +154,29 @@
 .vault-modal-version { font-size: .7rem; }
 
 .vault-card-name {
+  margin-bottom: 6px;
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: .01em;
   color: var(--white);
-  margin-bottom: 6px;
   line-height: 1;
 }
 
 .vault-card-tagline {
+  flex: 1;
+  margin-bottom: 18px;
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
-  color: var(--text-soft);
   font-weight: 500;
-  margin-bottom: 18px;
-  flex: 1;
+  color: var(--text-soft);
 }
 
 .vault-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
   padding-top: 16px;
   border-top: 1px solid var(--rule);
   margin-top: auto;
