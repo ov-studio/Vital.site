@@ -22,9 +22,10 @@
   background: var(--bg5);
   overflow: hidden;
   cursor: default;
-  transition: background .3s;
-  transition-delay: calc(var(--i, 0) * 60ms);
+  transition:
+    background .3s,
     opacity .55s ease calc(var(--i, 0) * 55ms),
+    transform .55s ease calc(var(--i, 0) * 55ms);
 }
 
 .ecard-corner {
@@ -40,19 +41,6 @@
 .ecard-corner--br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
 .ecard:hover .ecard-corner { opacity: 1 }
 
-.ecard-corner--tl {
-  top: 10px;
-  left: 10px;
-  border-width: 2px 0 0 2px;
-}
-
-.ecard-corner--br {
-  bottom: 10px;
-  right: 10px;
-  border-width: 0 2px 2px 0;
-}
-.ecard:hover .ecard-corner { opacity: 1; }
-
 .ecard-ico {
   position: relative;
   display: flex;
@@ -63,22 +51,6 @@
   height: 36px;
   color: var(--blue);
   margin-bottom: 18px;
-  flex-shrink: 0;
-}
-
-.ecard-ico-ring {
-  position: absolute;
-  inset: -6px;
-  border: 2px solid var(--b30);
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: opacity .3s, transform .3s;
-}
-
-.ecard:hover .ecard-ico-ring {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .ecard-title {
