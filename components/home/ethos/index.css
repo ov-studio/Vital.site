@@ -1,19 +1,14 @@
 #ethos {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-top: 1px solid var(--rule);
+  min-height: 100vh;
   padding: 100px 0;
+  border-top: 1px solid var(--rule);
 }
 
-.ethos-head {
-  margin-bottom: 64px;
-}
-
-.ethos-head h2 {
-  margin-top: 8px;
-}
+.ethos-head         { margin-bottom: 64px }
+.ethos-head h2      { margin-top: 8px }
 
 .ethos-grid {
   display: grid;
