@@ -17,18 +17,18 @@
 }
 
 .download-release-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.8rem;
+  font-size: .8rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--blue);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
 }
-
-.download-release-tag::before, .download-release-tag::after {
+.download-release-tag::before,
+.download-release-tag::after {
   content: '';
   width: 25px;
   height: 1px;
@@ -38,7 +38,7 @@
 .download-tos-note {
   margin-top: 5px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.9rem;
+  font-size: .9rem;
   font-weight: 600;
   letter-spacing: .015em;
   color: var(--text-mid);
@@ -51,7 +51,4 @@
   text-decoration: none;
   transition: opacity .2s;
 }
-
-.download-tos-link:hover {
-  opacity: .7;
-}
+.download-tos-link:hover { opacity: .7 }
