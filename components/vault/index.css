@@ -286,16 +286,14 @@
   animation: spin .8s linear infinite;
 }
 
-.vault-card--skeleton { pointer-events: none; }
-.vault-skeleton-banner { aspect-ratio: 16 / 7; }
-.vault-skeleton-line {
-  height: 12px;
-  border-radius: 2px;
-  margin-bottom: 10px;
+.vault-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  color: var(--dark);
 }
-.vault-skeleton-line--sm { width: 40%; height: 10px; }
-.vault-skeleton-line--lg { width: 70%; height: 16px; }
-.vault-skeleton-line--md { width: 55%; }
+.vault-loading .vault-spin { margin-right: 0; }
 
 .state-empty {
   opacity: .5;
