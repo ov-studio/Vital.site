@@ -6,6 +6,7 @@
 .vault-head                  { margin-bottom: 56px; }
 .vault-head .sec-head        { margin-bottom: 25px; }
 .vault-head .sec-head h2     { text-align: left; }
+.vault-head .sec-head    { margin-bottom: 25px; }
 
 .vault-intro {
   display: flex;
@@ -26,6 +27,7 @@
 }
 
 .vault-filter-btn {
+  padding: 6px 12px;
   font-family: 'Geist', sans-serif;
   font-size: .68rem;
   font-weight: 600;
@@ -33,13 +35,12 @@
   text-transform: uppercase;
   color: var(--text-muted);
   background: transparent;
-  border-radius: 4px;
   border: 2px solid var(--rule);
-  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
   transition: color .2s, border-color .2s, background .2s;
 }
-.vault-filter-btn:hover { color: var(--blue); border-color: var(--b30); }
+.vault-filter-btn:hover  { color: var(--blue); border-color: var(--b30); }
 .vault-filter-btn.active { color: var(--blue); border-color: var(--blue); background: var(--b05); }
 
 .vault-grid {
@@ -50,24 +51,24 @@
 
 .vault-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--bg3);
   border: 1px solid var(--b18);
   border-radius: 6px;
   cursor: pointer;
   transition: border-color .25s, background .25s;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 .vault-card:hover { border-color: var(--b40); }
 
 .vault-card-banner,
 .vault-modal-banner {
-  width: 100%;
-  background: var(--bg5);
   position: relative;
-  overflow: hidden;
+  width: 100%;
   flex-shrink: 0;
+  background: var(--bg5);
+  overflow: hidden;
 }
 .vault-card-banner  { aspect-ratio: 16 / 7; }
 .vault-modal-banner { aspect-ratio: 16 / 6; }
