@@ -193,14 +193,9 @@
     min-height: unset;
   }
 
-  .feat-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .feat-clusters { width: 100%; }
+  .feat-body    { display: flex; flex-direction: column; gap: 0; }
   .feat-diagram { display: none; }
+  .feat-clusters { width: 100%; }
 }
 
 @media (max-width: 640px) {
