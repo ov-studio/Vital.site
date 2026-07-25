@@ -44,9 +44,7 @@ nav.s::after {
   list-style: none;
   gap: 0;
 }
-
-.nl li { border-right: 1px solid var(--rule) }
-.nl li:first-child { border-left: 1px solid var(--rule) }
+.nl li:not(:last-child) { border-right: 1px solid var(--rule); }
 
 .nl li a {
   display: block;
