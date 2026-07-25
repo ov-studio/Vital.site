@@ -18,15 +18,15 @@ function build(sections: SectionInput[]): RoadmapSection[] {
 export type FeatureStatus = 'completed' | 'partial' | 'pending';
 
 export interface RoadmapItem {
-  label: string;
+  label:  string;
   status: FeatureStatus;
 }
 
 export interface RoadmapCard {
-  id: string;
+  id:    string;
   label: string;
-  desc: string;
-  icon: React.ReactNode;
+  desc:  string;
+  icon:  React.ReactNode;
   items: RoadmapItem[];
 }
 

@@ -6,11 +6,11 @@ type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {
-  size?: BrandSize;
-  variant?: BrandVariant;
+  size?:      BrandSize;
+  variant?:   BrandVariant;
   className?: string;
-  color?: string;
-  href?: string;
+  color?:     string;
+  href?:      string;
 }
 
 export function Brand({ size = 'md', variant = 'full', className = '', color, href}: BrandProps) {

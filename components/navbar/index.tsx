@@ -5,7 +5,7 @@ import './index.css';
 
 interface NavLink {
   label: string;
-  href: string;
+  href:  string;
 }
 
 interface NavbarProps {

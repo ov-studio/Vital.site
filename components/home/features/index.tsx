@@ -5,10 +5,10 @@ import './index.css';
 
 interface NodeRef { el: HTMLDivElement | null }
 interface NodeState {
-  angle: number;
+  angle:    number;
   radPhase: number;
-  radFreq: number;
-  radAmp: number;
+  radFreq:  number;
+  radAmp:   number;
 }
 
 const BASE_R = 0.46;

@@ -1,8 +1,8 @@
 import * as config_site from '@/configs/site';
 
 export interface TOSSection {
-  id: string;
-  title: string;
+  id:      string;
+  title:   string;
   content: string[];
 }
 

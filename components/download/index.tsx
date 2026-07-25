@@ -5,9 +5,9 @@ import * as lucide from 'lucide-react';
 import './index.css';
 
 interface ReleaseInfo {
-  tag: string;
-  client_url: string | null;
-  server_url: string | null;
+  tag:         string;
+  client_url:  string | null;
+  server_url:  string | null;
   client_size: string | null;
   server_size: string | null;
 }
