@@ -196,10 +196,10 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
       <div className="vault-modal" onClick={e => e.stopPropagation()}>
 
         <button className="vault-modal-close" onClick={onClose} aria-label="Close">
-          <lucide.X size={14} />
+          <lucide.X size={14}/>
         </button>
 
-        <Banner src={resource.banner} size="modal" />
+        <Banner src={resource.banner} size="modal"/>
 
         <div className="vault-modal-body">
           <div className="vault-modal-eyebrow">
@@ -216,7 +216,7 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
           <div className="vault-modal-name">{resource.name}</div>
           <div className="vault-modal-tagline">{resource.tagline}</div>
 
-          <hr className="vault-modal-divider" />
+          <hr className="vault-modal-divider"/>
 
           <p className="vault-modal-desc">{resource.description}</p>
 
