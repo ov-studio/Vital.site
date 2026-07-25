@@ -58,7 +58,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 36px;
+  height: 36px;
   color: var(--blue);
   margin-bottom: 18px;
   flex-shrink: 0;
@@ -82,7 +84,6 @@
 .ecard-title {
   margin-bottom: 14px;
   font-family: 'Geist', sans-serif;
-  font-size: 0.78rem;
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .05em;
