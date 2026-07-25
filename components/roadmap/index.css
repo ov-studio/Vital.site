@@ -83,14 +83,13 @@
 
 .rcategory {
   opacity: 0;
-  animation: rcategory-slide-up .45s ease forwards;
-  animation-delay: calc(var(--ci, 0) * 70ms);
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
 @keyframes rcategory-slide-up {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: none; }
+  animation-delay: calc(var(--ci, 0) * 70ms);
 }
 
 .rcategory-head {
