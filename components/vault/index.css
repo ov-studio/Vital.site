@@ -3,9 +3,6 @@
   padding: calc(100px + var(--nav-h)) 0;
 }
 
-.vault-head                  { margin-bottom: 56px; }
-.vault-head .sec-head        { margin-bottom: 25px; }
-.vault-head .sec-head h2     { text-align: left; }
 .vault-head              { margin-bottom: 56px; }
 .vault-head .sec-head    { margin-bottom: 25px; }
 .vault-head .sec-head h2 { text-align: left; }
