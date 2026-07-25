@@ -37,10 +37,7 @@ function overall_progress(sections: config_roadmap.RoadmapSection[]) {
   return { pct: count ? Math.round((weight / count) * 100) : 0, completed, partial, pending };
 }
 
-function RoadmapSummary({ sections, intro }: {
-  sections: config_roadmap.RoadmapSection[];
-  intro:    react.ReactNode;
-}) {
+function RoadmapSummary({ sections, intro }: { sections: config_roadmap.RoadmapSection[]; intro: react.ReactNode; }) {
   const { pct, completed, partial, pending } = overall_progress(sections);
   return (
     <div className="roadmap-summary">
@@ -62,10 +59,7 @@ function RoadmapSummary({ sections, intro }: {
   );
 }
 
-function FeatureCard({ card, mobile_order = 0 }: {
-  card:          config_roadmap.RoadmapCard;
-  mobile_order?: number;
-}) {
+function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapCard; mobile_order?: number; }) {
   const [open, setOpen] = react.useState(false);
   const innerRef        = react.useRef<HTMLDivElement>(null);
   const [height, setHeight] = react.useState(0);
@@ -133,10 +127,7 @@ function FeatureCard({ card, mobile_order = 0 }: {
   );
 }
 
-function SectionBlock({ section, index }: {
-  section: config_roadmap.RoadmapSection;
-  index:   number;
-}) {
+function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSection; index: number; }) {
   const COLS = 3;
   const columns: config_roadmap.RoadmapCard[][] = Array.from({ length: COLS }, () => []);
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
