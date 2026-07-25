@@ -261,12 +261,12 @@
 }
 
 .vault-modal-overlay.closing {
-  animation: fade-out .18s ease forwards;
+  animation: fade-out .2s ease forwards;
   pointer-events: none;
 }
 
 .vault-modal.closing {
-  animation: slide-down .22s ease forwards;
+  animation: slide-down .225s ease forwards;
 }
 
 .vault-modal-close {
