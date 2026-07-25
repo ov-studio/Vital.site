@@ -114,19 +114,8 @@
 }
 .rcategory-label:hover { color: var(--white) }
 
-.rcategory-cols {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.rcategory-col {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+.rcategory-cols { display: flex; align-items: flex-start; gap: 14px; }
+.rcategory-col  { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
 
 .rcard {
   position: relative;
