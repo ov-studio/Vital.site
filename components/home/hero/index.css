@@ -59,15 +59,15 @@
 }
 
 .hero-center {
-  max-width: 860px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 48px;
   position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 48px;
   text-align: center;
 }
 
