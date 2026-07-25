@@ -3,84 +3,58 @@
 @import 'fumadocs-ui/css/preset.css';
 @import '../theme.css';
 
+/* ── Variables ───────────────────────────── */
 :root {
   --fd-layout-width: 100vw;
-  --sidebar-width: 340px;
+  --sidebar-width:   340px;
 }
 
 @theme {
   --color-fd-primary: var(--blue);
-  --font-sans: var(--font-geist);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:        var(--font-geist);
+  --font-mono:        var(--font-geist-mono);
 }
 
 .dark {
-  --color-fd-primary: var(--blue);
+  --color-fd-primary:    var(--blue);
   --color-fd-background: var(--bg);
 }
+.dark #nd-sidebar { background-color: var(--bg4); }
 
-.dark #nd-sidebar {
-  background-color: var(--bg4);
-}
-
-.prose a {
-  text-decoration: none;
-}
+.prose a { text-decoration: none; }
 
 #nd-sidebar {
   margin-top: 10px;
   margin-bottom: 10px;
-  transition: width 0.2s ease, min-width 0.2s ease !important;
   mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
-}
-
-@media (min-width: 1600px) {
-  #nd-sidebar {
-    width: var(--sidebar-width);
-  }
-
-  #nd-sidebar>* {
-    width: var(--sidebar-width);
-    min-width: var(--sidebar-width);
-    overflow: visible;
-  }
-}
-
-button[aria-label="Collapse Sidebar"] {
-  display: none !important;
+  transition: width .2s ease, min-width .2s ease !important;
 }
 
 aside#nd-sidebar[data-collapsed="true"] {
-  width: 0 !important;
-  min-width: 0 !important;
   overflow: hidden !important;
   padding: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
   border: none !important;
 }
+
+button[aria-label="Collapse Sidebar"] { display: none !important; }
 
 .sidebar-header-row {
   display: flex;
   justify-content: flex-end;
-  padding: 0 0.5rem;
+  padding: 0 .5rem;
 }
 
 .sidebar-toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
-  border: 1px solid hsl(220, 18%, 12%);
-  background: transparent;
-  color: hsl(220, 10%, 50%);
-  cursor: pointer;
-  transition: color 0.2s, background 0.2s;
+  border: 1px solid hsl(220,18%,12%);
+  color: hsl(220,10%,50%);
 }
-
 .sidebar-toggle-btn:hover {
-  color: hsl(0, 0%, 97%);
-  background: hsl(250, 25%, 9%);
+  color: hsl(0,0%,97%);
+  background: hsl(250,25%,9%);
 }
 
 #nd-toc,
@@ -93,7 +67,6 @@ aside#nd-sidebar[data-collapsed="true"] {
 #nd-docs-layout h1,
 #nd-page h1 {
   font-family: 'Geist', sans-serif;
-  font-size: 1.2rem;
   font-size: clamp(1.1rem, 2vw, 1.2rem);
   font-weight: 500;
   color: var(--blue);
@@ -124,6 +97,7 @@ aside#nd-sidebar[data-collapsed="true"] {
   letter-spacing: .01em;
 }
 
+/* ── Sidebar nav labels ──────────────────── */
 [class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
   font-family: 'Geist', sans-serif;
   font-size: .72rem;
@@ -133,22 +107,18 @@ aside#nd-sidebar[data-collapsed="true"] {
 }
 
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
+  margin-top: 30px !important;
   margin-left: 17px !important;
-  padding: 0px 4px !important;
+  padding: 0 4px !important;
   font-family: 'Geist', sans-serif;
   font-size: .68rem;
   font-weight: 800;
-  line-height: 0.6;
   letter-spacing: .04em;
+  line-height: .6;
   text-transform: uppercase;
   color: var(--blue) !important;
   border-radius: 6px;
 }
-
-[class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
-  margin-top: 30px !important;
-}
-
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
   margin-top: 15px !important;
 }
@@ -166,8 +136,13 @@ article#nd-page {
   justify-self: center;
 }
 
+
+/* ── @media ── */
+@media (min-width: 1600px) {
+  #nd-sidebar       { width: var(--sidebar-width); }
+  #nd-sidebar > *   { overflow: visible; width: var(--sidebar-width); min-width: var(--sidebar-width); }
+}
+
 @media (max-width: 2000px) {
-  .nav-social {
-    display: none;
-  }
+  .nav-social { display: none; }
 }
