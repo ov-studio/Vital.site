@@ -52,11 +52,7 @@
   border-radius: 50%;
   transition: background .3s, box-shadow .3s;
 }
-
-.fcluster.is-active .fcluster-dot {
-  background: var(--blue);
-  box-shadow: 0 0 6px var(--blue);
-}
+.fcluster.is-active .fcluster-dot { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
 
 .fcluster-label {
   flex: 1;
