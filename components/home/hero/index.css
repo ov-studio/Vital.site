@@ -6,6 +6,7 @@
   justify-content: center;
   min-height: 100vh;
   padding-top: var(--nav-h);
+  overflow: hidden;
 }
 
 .hbg {
@@ -98,11 +99,11 @@
 .hm-sep  { color: var(--dim); font-weight: 300 }
 
 .hero-sub {
+  margin-bottom: 20px;
   font-family: 'Geist', sans-serif;
   font-size: .97rem;
   color: var(--text-muted);
   line-height: 1.85;
-  margin-bottom: 20px;
   opacity: 0;
   animation: slide-up .7s .45s forwards;
 }
