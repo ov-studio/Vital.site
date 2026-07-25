@@ -74,12 +74,8 @@
 }
 .fcluster.is-active .fcluster-desc { color: var(--dim) }
 
-.fcluster.is-active .fcluster-desc {
-  color: var(--dim);
-}
-
-.feat-diagram {
-  position: relative;
+.feat-diagram { 
+  position: relative; 
 }
 
 .fdiagram-wrap {
