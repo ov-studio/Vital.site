@@ -258,6 +258,8 @@
 }
 
 .rcard-pct {
+  flex-shrink: 0;
+  min-width: 28px;
   font-family: 'Rajdhani', sans-serif;
   font-size: .82rem;
   font-weight: 800;
@@ -277,10 +279,10 @@
 }
 
 .rcard-items {
-  border-top: 1px solid var(--rule);
-  padding: 8px 22px 28px;
   display: flex;
   flex-direction: column;
+  padding: 8px 22px 28px;
+  border-top: 1px solid var(--rule);
 }
 
 .ritem {
