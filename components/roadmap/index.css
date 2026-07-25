@@ -215,7 +215,7 @@
   transition: color .25s;
 }
 .rcard:hover .rcard-desc,
-.rcard--open  .rcard-desc { color: var(--text-desc-hover); }
+.rcard--open .rcard-desc { color: var(--text-desc-hover) }
 
 .rchevron {
   color: var(--text-faint);
