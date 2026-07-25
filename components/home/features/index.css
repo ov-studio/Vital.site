@@ -133,35 +133,24 @@
 }
 .fhub-ring-2 { inset: -20px; opacity: .08; animation-delay: 1.75s; }
 
-.fhub-ring-2 {
-  inset: -20px;
-  opacity: .08;
-  animation-delay: 1.75s;
-}
-
-@keyframes fhub-pulse {
-  0%, 100% { transform: scale(1); opacity: .15; }
-  50% { transform: scale(1.05); opacity: .75; }
-}
-
 .fnode-group {
   position: absolute;
-  transform: translate(-50%, -50%);
   z-index: 6;
+  transform: translate(-50%, -50%);
   pointer-events: auto;
 }
 
 .fnode {
+  position: relative;
+  padding: 5px 10px;
   font-family: 'Geist', sans-serif;
   font-size: .7rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
   background: var(--bg2);
-  padding: 5px 10px;
   white-space: nowrap;
   cursor: default;
-  position: relative;
   transition: border-color .3s, color .25s;
 }
 
@@ -176,6 +165,8 @@
   opacity: 0;
   transition: opacity .3s;
 }
+.fnode::before { top: -2px;    left: -2px;  border-width: 2px 0 0 2px; }
+.fnode::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
 
 .fnode::before {
   top: -2px;
