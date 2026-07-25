@@ -197,6 +197,8 @@ h2 span { color: var(--blue) }
 .nm { color: var(--syn-nm) }
 .pu { color: var(--syn-pu) }
 
+
+/* ── @keyframes ── */
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(16px) }
   to   { opacity: 1; transform: none }
@@ -207,7 +209,14 @@ h2 span { color: var(--blue) }
   to   { opacity: 1; transform: none }
 }
 
-@media(max-width:960px) {
+@keyframes shimmer {
+  0%   { background-position:  200% 0 }
+  100% { background-position: -200% 0 }
+}
+
+
+/* ── @media ── */
+@media (max-width: 960px) {
   .sw { padding: 0 24px }
 
   .sec-head {
