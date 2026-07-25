@@ -170,7 +170,6 @@ export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[
             intro="Complete breakdown of every feature in the sandbox; shipped, in-progress and planned"
           />
         </div>
-
         <div className="roadmap-body">
           {config_roadmap.Roadmap.map((section, i) => (
             <SectionBlock key={section.name} section={section} index={i}/>
