@@ -253,8 +253,8 @@ function VaultSkeleton() {
 
 export function Vault() {
   const { resources, state } = useVaultResources();
-  const [active_tag, set_active_tag] = react.useState<VaultTag | null>(null);
-  const [selected,   set_selected]   = react.useState<VaultResource | null>(null);
+  const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
+  const [selected,   set_selected]   = react.useState<config_vault.VaultResource | null>(null);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
@@ -283,8 +283,8 @@ export function Vault() {
               <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
               <a
                 href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}
-                target="_blank" 
-                rel="noreferrer" 
+                target="_blank"
+                rel="noreferrer"
                 className="sec-link"
               >
                 :: Submit Resource
