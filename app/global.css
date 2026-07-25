@@ -58,7 +58,6 @@ h2 span { color: var(--blue) }
   text-transform: uppercase;
   color: var(--blue);
 }
-
 .slabel::before {
   content: '';
   width: 20px;
