@@ -8,15 +8,24 @@ badge: Client
 
 ```lua
 local instance = core.svg.create_from_raw(
-    raw
+    raw,
+    mipmaps = false
 )
 ```
+
+<Callout type="info">
+  **Only needed if you already know a mipmap-based filter is coming.**
+
+  - **Use it when** — the SVG is going to use `NEAREST_MIPMAP`, `LINEAR_MIPMAP`, or an `ANISOTROPIC` variant.
+  - **Before compressing** — if both mipmaps and compression are needed, pass `true` here; [`self:compress`](/docs/texture/method/compress) cannot generate mipmaps, so this is the only opportunity.
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | raw | Raw SVG markup string |
+| `bool` | mipmaps | Determines whether to generate a mipmap chain for the underlying texture |
 
 ### Returns
 
@@ -32,6 +41,20 @@ local instance = core.svg.create_from_raw(
 local entity = core.svg.create_from_raw([[
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="50"/>
+    </svg>
+]])
+```
+
+```lua lineNumbers title="Create a procedural SVG and update it later"
+local entity = core.svg.create_from_raw([[
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" fill="red"/>
+    </svg>
+]])
+
+entity:update([[
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" fill="blue"/>
     </svg>
 ]])
 ```
