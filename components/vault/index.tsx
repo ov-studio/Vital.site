@@ -266,11 +266,7 @@ function VaultModal({ resource, onClose }: {
   return react_dom.createPortal(modal_markup, document.body);
 }
 
-// ── Card ──────────────────────────────────
-function VaultCard({ resource, onClick }: {
-  resource: VaultResource;
-  onClick:  () => void;
-}) {
+function VaultCard({ resource, onClick }: { resource: VaultResource; onClick: () => void }) {
   return (
     <div
       className={`vault-card rev${resource.featured ? ' featured' : ''}`}
