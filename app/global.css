@@ -154,12 +154,10 @@ h2 span { color: var(--blue) }
   border-radius: 3px;
   overflow: hidden;
 }
-
-.rev {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .6s ease, transform .6s ease
+.bar-fill {
+  height: 100%;
   background: var(--blue);
+  transition: width .6s cubic-bezier(.4, 0, .2, 1);
 }
 
 .tag-pill {
