@@ -135,8 +135,9 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   return (
     <div id={lib_source.to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <a className="rcategory-label" href={`#${lib_source.to_anchor(section.name)}`}># {section.name}</a>
+        <a className="rcategory-label" href={`#${lib_source.to_anchor(section.name)}`}>
           # {section.name}
+        </a>
       </div>
 
       <div className="rcategory-cols">
