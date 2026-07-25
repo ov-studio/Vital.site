@@ -179,7 +179,6 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
     const prev_ov = document.documentElement.style.overflow;
     const prev_pr = document.body.style.paddingRight;
     document.documentElement.style.overflow = 'hidden';
-    document.body.style.paddingRight = `${scrollbar_w}px`;
     document.body.style.paddingRight = `${sw}px`;
 
     return () => {
@@ -189,7 +188,7 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
     };
   }, []);
 
-  const modal_markup = (
+  if (typeof document === 'undefined') return null;
   return react_dom.createPortal(
     <div className="vault-modal-overlay" onClick={onClose}>
       <div className="vault-modal" onClick={e => e.stopPropagation()}>
@@ -257,9 +256,6 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
     </div>,
     document.body
   );
-
-  if (typeof document === 'undefined') return null;
-  return react_dom.createPortal(modal_markup, document.body);
 }
 
 function VaultCard({ resource, onClick }: { resource: VaultResource; onClick: () => void }) {
@@ -309,10 +305,8 @@ function VaultSkeleton() {
   );
 }
 
-// ── Main Component ────────────────────────
 export function Vault() {
   const { resources, state } = useVaultResources();
-
   const [active_tag, set_active_tag] = react.useState<VaultTag | null>(null);
   const [selected,   set_selected]   = react.useState<VaultResource | null>(null);
 
@@ -326,11 +320,8 @@ export function Vault() {
     return () => obs.disconnect();
   }, [resources, active_tag]);
 
-  const filtered = active_tag
-    ? resources.filter(r => r.tags.includes(active_tag))
-    : resources;
-
-  const close = react.useCallback(() => set_selected(null), []);
+  const filtered = active_tag ? resources.filter(r => r.tags.includes(active_tag)) : resources;
+  const close    = react.useCallback(() => set_selected(null), []);
 
   return (
     <>
