@@ -242,19 +242,6 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
   );
 }
 
-function VaultSkeleton() {
-  return (
-    <div className="vault-card vault-card--skeleton">
-      <div className="vault-card-banner vault-skeleton-banner shimmer"/>
-      <div className="vault-card-body">
-        <div className="vault-skeleton-line vault-skeleton-line--sm shimmer"/>
-        <div className="vault-skeleton-line vault-skeleton-line--lg shimmer"/>
-        <div className="vault-skeleton-line vault-skeleton-line--md shimmer"/>
-      </div>
-    </div>
-  );
-}
-
 export function Vault() {
   const { resources, state } = useVaultResources();
   const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
