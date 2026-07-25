@@ -290,11 +290,9 @@ function VaultCard({ resource, onClick }: { resource: VaultResource; onClick: ()
   );
 }
 
-// ── Skeleton card ─────────────────────────
 function VaultSkeleton() {
   return (
     <div className="vault-card vault-card--skeleton">
-      <div className="vault-card-banner vault-skeleton-banner" />
       <div className="vault-card-banner vault-skeleton-banner shimmer"/>
       <div className="vault-card-body">
         <div className="vault-skeleton-line vault-skeleton-line--sm shimmer"/>
