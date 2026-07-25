@@ -23,7 +23,7 @@ local status = self:set_filter(
 
 | Type | Name | Description |
 |------|------|-------------|
-| [`core.texture.svg_filter`](/docs/svg/enum/svg_filter) | mode | Sampling filter to apply |
+| [`core.svg.svg_filter`](/docs/svg/enum/svg_filter) | mode | Sampling filter to apply |
 
 ### Returns
 
@@ -38,18 +38,18 @@ local status = self:set_filter(
 ```lua lineNumbers title="Force crisp nearest-neighbour sampling"
 local entity = core.svg.create("assets/icon.svg")
 
-entity:set_filter(core.texture.svg_filter.NEAREST)
+entity:set_filter(core.svg.svg_filter.NEAREST)
 ```
 
 ```lua lineNumbers title="Reset back to the inherited default filter"
 local entity = core.svg.create("assets/icon.svg")
 
-entity:set_filter(core.texture.svg_filter.NEAREST)
-entity:set_filter(core.texture.svg_filter.DEFAULT)
+entity:set_filter(core.svg.svg_filter.NEAREST)
+entity:set_filter(core.svg.svg_filter.DEFAULT)
 ```
 
 ```lua lineNumbers title="Apply a mipmap filter — SVG must be created with mipmaps"
 local entity = core.svg.create("assets/icon.svg", true)
 
-entity:set_filter(core.texture.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
+entity:set_filter(core.svg.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
 ```

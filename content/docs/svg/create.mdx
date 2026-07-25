@@ -44,5 +44,5 @@ local entity = core.svg.create("assets/icon.svg")
 ```lua lineNumbers title="Create an SVG with mipmaps for mipmap-based filtering"
 local entity = core.svg.create("assets/icon.svg", true)
 
-entity:set_filter(core.texture.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
+entity:set_filter(core.svg.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
 ```

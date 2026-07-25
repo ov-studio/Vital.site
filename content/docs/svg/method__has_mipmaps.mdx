@@ -29,7 +29,7 @@ local result = self:has_mipmaps()
 local entity = core.svg.create("assets/icon.svg")
 
 if entity:has_mipmaps() then
-    entity:set_filter(core.texture.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
+    entity:set_filter(core.svg.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
 end
 ```
 
@@ -37,6 +37,6 @@ end
 local entity = core.svg.create("assets/icon.svg", true)
 
 if entity:has_mipmaps() then
-    entity:set_filter(core.texture.svg_filter.NEAREST_MIPMAP)
+    entity:set_filter(core.svg.svg_filter.NEAREST_MIPMAP)
 end
 ```
