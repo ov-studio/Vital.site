@@ -9,6 +9,7 @@ import './index.css';
 function useVaultResources() {
   const [resources, set_resources] = react.useState<VaultResource[]>([]);
   const [state,     set_state]     = react.useState<LoadState>('loading');
+  const [resources, set_resources] = react.useState<config_vault.VaultResource[]>([]);
 
   react.useEffect(() => {
     let cancelled = false;
