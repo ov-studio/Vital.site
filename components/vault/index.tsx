@@ -304,24 +304,31 @@ export function Vault() {
             ))}
           </div>
 
-          <div className="vault-grid">
-            {state === 'loading' && Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i}/>)}
-            {state === 'error' && (
-              <div className="state-empty">
-                <lucide.WifiOff size={24}/>
-                Failed to load resources — check your connection and try again
-              </div>
-            )}
-            {state === 'done' && filtered.length === 0 && (
-              <div className="state-empty">
-                <lucide.PackageOpen size={24}/>
-                No resources match the selected tag
-              </div>
-            )}
-            {state === 'done' && filtered.map(r => (
-              <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)}/>
-            ))}
-          </div>
+          {state === 'loading' && (
+            <div className="vault-loading">
+              <lucide.Loader2 size={32} className="vault-spin"/>
+            </div>
+          )}
+
+          {state !== 'loading' && (
+            <div className="vault-grid">
+              {state === 'error' && (
+                <div className="state-empty">
+                  <lucide.WifiOff size={24}/>
+                  Failed to load resources — check your connection and try again
+                </div>
+              )}
+              {state === 'done' && filtered.length === 0 && (
+                <div className="state-empty">
+                  <lucide.PackageOpen size={24}/>
+                  No resources match the selected tag
+                </div>
+              )}
+              {state === 'done' && filtered.map(r => (
+                <VaultCard key={r.id} resource={r} onClick={() => set_selected(r)}/>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
