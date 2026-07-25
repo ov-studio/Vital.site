@@ -133,8 +133,10 @@ function FeatureCard({ card, mobile_order = 0 }: {
   );
 }
 
-function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSection; index: number }) {
+function SectionBlock({ section, index }: {
+  section: config_roadmap.RoadmapSection;
   index:   number;
+}) {
   const COLS = 3;
   const columns: config_roadmap.RoadmapCard[][] = Array.from({ length: COLS }, () => []);
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
