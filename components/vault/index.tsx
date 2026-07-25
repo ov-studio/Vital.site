@@ -366,10 +366,9 @@ export function Vault() {
             {state === 'loading' &&
               Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i} />)
             }
+            {state === 'loading' && Array.from({ length: 3 }).map((_, i) => <VaultSkeleton key={i}/>)}
             {state === 'error' && (
-              <div className="vault-empty">
-                Failed to load resources. Check your connection and try again.
-              </div>
+              <div className="state-empty">Failed to load resources. Check your connection and try again.</div>
             )}
             {state === 'done' && filtered.length === 0 && (
               <div className="state-empty">No resources found for this filter.</div>
