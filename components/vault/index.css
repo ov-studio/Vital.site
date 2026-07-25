@@ -298,6 +298,7 @@
 .vault-skeleton-line--md { width: 55%; }
 
 .state-empty {
+  opacity: .5;
   display: flex;
   flex-direction: column;
   align-items: center;
