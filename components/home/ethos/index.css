@@ -54,11 +54,10 @@
 
 .ecard-ico {
   position: relative;
-  width: 36px;
-  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 36px;
   color: var(--blue);
   margin-bottom: 18px;
   flex-shrink: 0;
