@@ -47,7 +47,10 @@ h2 span { color: var(--blue) }
 .sec-pad-sm { padding: calc(100px + var(--nav-h) * .25) 0; }
 
 .slabel {
+  display: flex;
+  align-items: center;
   gap: 8px;
+  margin-bottom: 14px;
   font-family: 'Geist', sans-serif;
   font-size: .72rem;
   font-weight: 600;
@@ -67,10 +70,14 @@ h2 span { color: var(--blue) }
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 64px
+  margin-bottom: 64px;
 }
 
 .sec-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 4px;
   font-family: 'Geist', sans-serif;
   font-size: .75rem;
   font-weight: 500;
@@ -78,33 +85,30 @@ h2 span { color: var(--blue) }
   text-transform: uppercase;
   color: var(--text-soft);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color .2s;
   flex-shrink: 0;
-  padding-bottom: 4px
+  transition: color .2s;
 }
-
-.sec-link:hover {
-  color: var(--blue)
-}
+.sec-link:hover { color: var(--blue) }
 
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 52px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.98rem;
+  font-size: .98rem;
   font-weight: 600;
   letter-spacing: .025em;
   text-transform: uppercase;
-  background: var(--blue);
   color: var(--bg);
-  padding: 10px 52px;
+  background: var(--blue);
   text-decoration: none;
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
   transition: opacity .2s, transform .15s;
   display: inline-block;
   border: none;
   cursor: pointer;
+  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
 }
 
 .btn-primary:focus-visible {
@@ -120,8 +124,12 @@ h2 span { color: var(--blue) }
   opacity: .85;
   transform: translateY(-2px)
 }
+.btn-primary:disabled      { cursor: not-allowed; }
 
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'Geist', sans-serif;
   font-size: .7rem;
   font-weight: 500;
@@ -129,49 +137,71 @@ h2 span { color: var(--blue) }
   text-transform: uppercase;
   color: var(--white);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background .2s, color .2s;
   background: none;
   border: none;
   cursor: pointer;
+  transition: color .2s;
+}
+.btn-secondary:hover { color: var(--blue) }
+
+.rev, .rev-l, .rev-r {
+  opacity: 0;
+  transition: opacity .6s ease, transform .6s ease;
+}
+.rev   { transform: translateY(20px) }
+.rev-l { transform: translateX(-24px) }
+.rev-r { transform: translateX(24px) }
+.rev.in, .rev-l.in, .rev-r.in { opacity: 1; transform: none }
+
+.icon-ring {
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--b30);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
 }
 
-.btn-secondary:hover {
-  color: var(--blue);
-}
-
-.btn-primary,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.bar-track {
+  background: hsla(220, 18%, 100%, .06);
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 .rev {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity .6s ease, transform .6s ease
+  background: var(--blue);
 }
 
-.rev-l {
-  opacity: 0;
-  transform: translateX(-24px);
-  transition: opacity .6s ease, transform .6s ease
+.tag-pill {
+  display: inline-block;
+  padding: 4px 8px;
+  font-family: 'Geist', sans-serif;
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: transparent;
+  border: 2px solid var(--rule);
+  border-radius: 4px;
 }
 
 .rev-r {
   opacity: 0;
   transform: translateX(24px);
   transition: opacity .6s ease, transform .6s ease
+  font-family: 'Geist', sans-serif;
 }
 
-.rev.in,
-.rev-l.in,
-.rev-r.in {
-  opacity: 1;
-  transform: none
+.shimmer {
+  background: linear-gradient(90deg, var(--bg5) 25%, var(--bg4) 50%, var(--bg5) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
 }
 
 .kw { color: var(--blue) }
