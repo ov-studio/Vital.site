@@ -1,4 +1,4 @@
-import * as lib_source from '@/lib/source';
+import * as lib_source      from '@/lib/source';
 import * as next_navigation from 'next/navigation';
 
 export const revalidate = false;

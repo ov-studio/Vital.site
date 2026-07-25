@@ -1,5 +1,5 @@
 import * as config_site from '@/configs/site';
-import * as lucide from 'lucide-react';
+import * as lucide      from 'lucide-react';
 
 export const Features = [
   {

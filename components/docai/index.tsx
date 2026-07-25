@@ -1,8 +1,8 @@
 'use client';
-import * as lib_cn from '@/lib/cn';
-import * as react from 'react';
-import * as lucide from 'lucide-react';
-import * as fumadocs_component_button from 'fumadocs-ui/components/ui/button';
+import * as lib_cn                     from '@/lib/cn';
+import * as react                      from 'react';
+import * as lucide                     from 'lucide-react';
+import * as fumadocs_component_button  from 'fumadocs-ui/components/ui/button';
 import * as fumadocs_component_popover from 'fumadocs-ui/components/ui/popover';
 
 const Providers = [

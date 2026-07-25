@@ -1,7 +1,7 @@
-import * as config_site from '@/configs/site';
-import * as component_atom_tabtrap from '@/components/atoms/tabtrap';
-import * as next from 'next';
-import * as fumadocs_provider_next from 'fumadocs-ui/provider/next';
+import * as config_site                from '@/configs/site';
+import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
+import * as next                       from 'next';
+import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
 
 const geist = Geist({

@@ -1,5 +1,5 @@
 'use client';
-import * as component_brand from '@/components/brand';
+import * as component_brand  from '@/components/brand';
 import * as component_social from '@/components/social';
 import './index.css';
 

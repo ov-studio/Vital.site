@@ -1,6 +1,6 @@
 'use client';
 import * as config_home from '@/configs/home';
-import * as react from 'react';
+import * as react       from 'react';
 import './index.css';
 
 interface NodeRef { el: HTMLDivElement | null }

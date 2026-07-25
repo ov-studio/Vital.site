@@ -1,7 +1,7 @@
 'use client';
-import * as lib_source from '@/lib/source';
+import * as lib_source     from '@/lib/source';
 import * as config_roadmap from '@/configs/roadmap';
-import * as react from 'react';
+import * as react          from 'react';
 import './index.css';
 
 const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {

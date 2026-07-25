@@ -1,5 +1,5 @@
 'use client';
-import * as config_footer from '@/configs/footer';
+import * as config_footer   from '@/configs/footer';
 import * as component_brand from '@/components/brand';
 import './index.css';
 

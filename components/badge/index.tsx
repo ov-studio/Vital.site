@@ -1,5 +1,5 @@
 'use client';
-import * as lucide from 'lucide-react';
+import * as lucide                    from 'lucide-react';
 import * as fumadocs_component_button from 'fumadocs-ui/components/ui/button';
 
 const Badges = {

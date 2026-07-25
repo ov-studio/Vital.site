@@ -1,5 +1,5 @@
 import * as config_site from '@/configs/site';
-import * as config_tos from '@/configs/tos';
+import * as config_tos  from '@/configs/tos';
 import './index.css';
 
 export function TOS() {

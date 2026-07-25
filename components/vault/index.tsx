@@ -1,9 +1,9 @@
 'use client';
-import * as config_site from '@/configs/site';
+import * as config_site  from '@/configs/site';
 import * as config_vault from '@/configs/vault';
-import * as react from 'react';
-import * as lucide from 'lucide-react';
-import * as react_dom from 'react-dom';
+import * as react        from 'react';
+import * as lucide       from 'lucide-react';
+import * as react_dom    from 'react-dom';
 import './index.css';
 
 function useVaultResources() {

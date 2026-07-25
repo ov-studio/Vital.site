@@ -1,5 +1,5 @@
 import * as fumadocs_config from 'fumadocs-mdx/config';
-import * as zod from 'zod';
+import * as zod             from 'zod';
 
 export const docs = fumadocs_config.defineDocs({
   dir: 'content/docs',

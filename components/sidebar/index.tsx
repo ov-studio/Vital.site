@@ -1,5 +1,5 @@
 'use client';
-import * as react from 'react';
+import * as react  from 'react';
 import * as lucide from 'lucide-react';
 import './index.css';
 

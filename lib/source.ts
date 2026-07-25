@@ -1,8 +1,8 @@
-import * as config_site from '@/configs/site';
-import * as react from 'react';
-import * as lucide from 'lucide-react';
+import * as config_site          from '@/configs/site';
+import * as react                from 'react';
+import * as lucide               from 'lucide-react';
 import * as fumadocs_core_source from 'fumadocs-core/source';
-import * as fumadocs_mdx_server from 'fumadocs-mdx:collections/server';
+import * as fumadocs_mdx_server  from 'fumadocs-mdx:collections/server';
 
 export function to_anchor(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

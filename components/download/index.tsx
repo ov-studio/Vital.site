@@ -1,7 +1,7 @@
 'use client';
 import * as config_site from '@/configs/site';
-import * as react from 'react';
-import * as lucide from 'lucide-react';
+import * as react       from 'react';
+import * as lucide      from 'lucide-react';
 import './index.css';
 
 interface ReleaseInfo {

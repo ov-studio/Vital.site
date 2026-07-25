@@ -1,7 +1,7 @@
-import * as config_site from '@/configs/site';
-import * as component_brand from '@/components/brand';
+import * as config_site        from '@/configs/site';
+import * as component_brand    from '@/components/brand';
 import * as component_download from '@/components/download';
-import * as lucide from 'lucide-react';
+import * as lucide             from 'lucide-react';
 import './index.css';
 
 function format(v: number | string) {
