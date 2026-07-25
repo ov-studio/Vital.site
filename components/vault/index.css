@@ -216,18 +216,15 @@
   animation: fade-in .25s ease forwards;
 }
 
-@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
-
 .vault-modal {
+  position: relative;
   width: 100%;
   max-width: 780px;
+  max-height: 90vh;
+  overflow: hidden;
+  overflow-y: auto;
   background: var(--bg2);
   border: 1px solid var(--bg2);
-  position: relative;
-  overflow: hidden;
-  max-height: 90vh;
-  overflow-y: auto;
-  animation: slide-up .35s ease forwards;
   clip-path: polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);
   isolation: isolate;
   transform: translateZ(0);
