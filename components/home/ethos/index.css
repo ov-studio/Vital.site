@@ -52,6 +52,7 @@
   color: var(--blue);
   margin-bottom: 18px;
 }
+.ecard:hover .icon-ring { opacity: 1; transform: scale(1) }
 
 .ecard-title {
   margin-bottom: 14px;
