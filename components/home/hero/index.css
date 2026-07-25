@@ -158,6 +158,14 @@
   color: var(--text-mid);
 }
 
+
+/* ── @keyframes ── */
+@keyframes corner-fade {
+  0%, 100% { opacity: .25 }
+  50%       { opacity: .55 }
+}
+
+
 /* ── @media ── */
 @media (max-width: 960px) {
   #hero        { padding-top: 120px; padding-bottom: 60px; }
