@@ -2,6 +2,9 @@
     "title": "SVG",
     "icon": "FileCode",
     "pages": [
+        "---Enum---",
+        "enum__svg_filter",
+
         "---Base---",
         "create",
         "create_from_raw",
