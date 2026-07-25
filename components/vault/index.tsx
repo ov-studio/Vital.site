@@ -349,7 +349,7 @@ export function Vault() {
           <div className="vault-head">
             <div className="sec-head">
               <div>
-                <h2>Community built,<br />All yours to <span>explore.</span></h2>
+                <h2>Community built,<br/>All yours to <span>explore.</span></h2>
               </div>
             </div>
             <div className="vault-intro sec-head">
