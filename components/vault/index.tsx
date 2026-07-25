@@ -5,7 +5,6 @@ import * as lucide from 'lucide-react';
 import * as react_dom from 'react-dom';
 import './index.css';
 
-// ── Types ─────────────────────────────────
 type VaultTag =
   | 'animation'
   | 'asset'
@@ -60,32 +59,24 @@ const ALL_TAGS: VaultTag[] = [
   'vfx',
 ];
 
-// ── Data hook — single direct fetch ───────
 function useVaultResources() {
   const [resources, set_resources] = react.useState<VaultResource[]>([]);
   const [state,     set_state]     = react.useState<LoadState>('loading');
 
   react.useEffect(() => {
     let cancelled = false;
-
     async function load() {
       set_state('loading');
       try {
         const res = await fetch('/api/vault');
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
-
         const index: VaultIndex = await res.json();
-
-        if (!cancelled) {
-          set_resources(index.resources ?? []);
-          set_state('done');
-        }
+        if (!cancelled) { set_resources(index.resources ?? []); set_state('done'); }
       } catch (err) {
         console.error('[Vault]', err);
         if (!cancelled) set_state('error');
       }
     }
-
     load();
     return () => { cancelled = true; };
   }, []);
@@ -102,26 +93,23 @@ async function download_directory_zip(folder: string): Promise<void> {
 
   const tree_data: { tree: { path: string; type: string }[] } = await tree_res.json();
   const prefix = `resources/${folder}/`;
-  const files = tree_data.tree.filter(item => item.type === 'blob' && item.path.startsWith(prefix));
-
-  if (files.length === 0) throw new Error(`No files found under ${prefix}`);
+  const files  = tree_data.tree.filter(i => i.type === 'blob' && i.path.startsWith(prefix));
+  if (!files.length) throw new Error(`No files found under ${prefix}`);
 
   const { default: JSZip } = await import('jszip');
   const zip = new JSZip();
 
   await Promise.all(files.map(async file => {
-    const raw_url = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`;
-    const file_res = await fetch(raw_url);
-    if (!file_res.ok) return;
-    const buf = await file_res.arrayBuffer();
-    zip.file(file.path.slice(prefix.length), buf);
+    const r = await fetch(
+      `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`
+    );
+    if (!r.ok) return;
+    zip.file(file.path.slice(prefix.length), await r.arrayBuffer());
   }));
 
   const blob = await zip.generateAsync({ type: 'blob' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${folder}.zip`;
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement('a'), { href: url, download: `${folder}.zip` });
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -383,9 +371,7 @@ export function Vault() {
             <button
               className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
               onClick={() => set_active_tag(null)}
-            >
-              All
-            </button>
+            >All</button>
             {ALL_TAGS.map(tag => (
               <button
                 key={tag}
@@ -417,7 +403,7 @@ export function Vault() {
         </div>
       </section>
 
-      {selected && <VaultModal resource={selected} onClose={close} />}
+      {selected && <VaultModal resource={selected} onClose={close}/>}
     </>
   );
 }
