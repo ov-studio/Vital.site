@@ -270,8 +270,15 @@ export function Vault() {
     return () => obs.disconnect();
   }, [resources, active_tag]);
 
-  const filtered = active_tag ? resources.filter(r => r.tags.includes(active_tag)) : resources;
-  const close    = react.useCallback(() => set_selected(null), []);
+  const filtered = react.useMemo(() => {
+    const list = active_tag ? resources.filter(r => r.tags.includes(active_tag)) : resources;
+    return [...list].sort((a, b) => {
+      if (a.featured !== b.featured) return a.featured ? -1 : 1;
+      return a.name.localeCompare(b.name);
+    });
+  }, [resources, active_tag]);
+
+  const close = react.useCallback(() => set_selected(null), []);
 
   return (
     <>
