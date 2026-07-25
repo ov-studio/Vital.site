@@ -3,16 +3,16 @@
   inset: 0;
   z-index: 4;
   pointer-events: none;
-  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, hsla(250, 30%, 1.5%, .75) 100%)
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, hsla(250, 30%, 1.5%, .75) 100%);
 }
 
 #cur {
   position: fixed;
   z-index: 9999;
-  pointer-events: none;
   top: 0;
   left: 0;
-  transform: translate(-50%, -50%)
+  pointer-events: none;
+  transform: translate(-50%, -50%);
 }
 
 #cur-inner {
@@ -26,15 +26,15 @@
 #cur-outer {
   position: fixed;
   z-index: 9998;
-  pointer-events: none;
   top: 0;
   left: 0;
-  transform: translate(-50%, -50%);
+  pointer-events: none;
   width: 36px;
   height: 36px;
   border: 2px solid var(--b30);
   border-radius: 50%;
-  transition: width .2s, height .2s, border-color .2s
+  transform: translate(-50%, -50%);
+  transition: width .2s, height .2s, border-color .2s;
 }
 
 body:has(a:hover) #cur-outer,
@@ -44,6 +44,7 @@ body:has(button:hover) #cur-outer {
   border-color: var(--blue)
 
 }
+body:has(button:hover) #cur-outer { width: 52px; height: 52px; border-color: var(--blue) }
 
 body:has(a:hover) #cur-inner { transform: scale(1.6) }
 
