@@ -24,6 +24,7 @@
   cursor: default;
   transition: background .3s;
   transition-delay: calc(var(--i, 0) * 60ms);
+    opacity .55s ease calc(var(--i, 0) * 55ms),
 }
 
 .ecard-corner {
