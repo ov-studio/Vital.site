@@ -17,6 +17,7 @@
         "method__destroy",
 
         "---::Checker---",
+        "method__has_mipmaps",
         "method__is_compressed",
 
         "---⁝⁝Getter---",
