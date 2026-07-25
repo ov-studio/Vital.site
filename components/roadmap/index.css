@@ -25,11 +25,10 @@
 
 .roadmap-summary-pct {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.6rem;
   font-size: clamp(1.4rem, 3vw, 1.6rem);
   font-weight: 800;
-  color: var(--blue);
   line-height: 1;
+  color: var(--blue);
 }
 .roadmap-summary-pct small {
   font-size: .95rem;
@@ -43,6 +42,7 @@
   border-radius: 3px;
   overflow: hidden;
 }
+.roadmap-summary-pct small { font-size: .95rem; font-weight: 700; margin-left: 1px; }
 
 .roadmap-summary-bar-fill {
   height: 100%;
@@ -70,21 +70,16 @@
 }
 
 .rleg i {
+  display: inline-block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  display: inline-block;
 }
-
 .rleg--completed i { background: var(--blue); box-shadow: 0 0 4px var(--blue); }
-.rleg--partial i   { background: hsl(45,80%,58%); }
-.rleg--pending i   { background: transparent; border: 1px solid var(--text-faint); opacity: .5; }
+.rleg--partial   i { background: hsl(45,80%,58%); }
+.rleg--pending   i { background: transparent; border: 1px solid var(--text-faint); opacity: .5; }
 
-.roadmap-body {
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
+.roadmap-body { display: flex; flex-direction: column; gap: 80px; }
 
 .rcategory {
   opacity: 0;
@@ -114,10 +109,10 @@
   letter-spacing: .01em;
   color: var(--dim);
   text-decoration: none;
-  transition: color .2s;
   cursor: pointer;
+  transition: color .2s;
 }
-.rcategory-label:hover { color: var(--white); }
+.rcategory-label:hover { color: var(--white) }
 
 .rcategory-cols {
   display: flex;
