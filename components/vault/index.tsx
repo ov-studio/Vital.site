@@ -81,7 +81,7 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
   );
 }
 
-function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: () => void }) {
+function VaultModal({ resource, onClose }: { resource: config_vault.VaultResource; onClose: () => void }) {
   const is_dir = !resource.is_submodule;
   const folder = is_dir ? resource.id.slice(4) : '';
   const [downloading, set_downloading] = react.useState(false);
@@ -206,6 +206,7 @@ function VaultModal({ resource, onClose }: { resource: VaultResource; onClose: (
 }
 
 function VaultCard({ resource, onClick }: { resource: VaultResource; onClick: () => void }) {
+function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource; onClick: () => void }) {
   return (
     <div
       className={`vault-card rev${resource.featured ? ' featured' : ''}`}
