@@ -123,14 +123,13 @@
   padding: 0 22px;
   position: relative;
 }
-
 .hstat:not(:last-child)::after {
   content: '';
   position: absolute;
   right: 0;
   top: 10%;
-  height: 80%;
   width: 1px;
+  height: 80%;
   background: var(--rule);
 }
 
