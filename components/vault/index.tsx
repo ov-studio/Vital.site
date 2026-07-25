@@ -22,7 +22,8 @@ function useVaultResources() {
         const res = await fetch('/api/vault');
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
         const index: config_vault.VaultIndex = await res.json();
-        if (!cancelled) { set_resources(index.resources ?? []); set_state('done'); }
+        const cleaned = (index.resources ?? []).map(r => ({ ...r, tags: valid_tags(r.tags) }));
+        if (!cancelled) { set_resources(cleaned); set_state('done'); }
       } catch (err) {
         console.error('[Vault]', err);
         if (!cancelled) set_state('error');
