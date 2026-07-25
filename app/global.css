@@ -187,12 +187,12 @@ h2 span {
 
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(16px) }
-  to { opacity: 1; transform: none }
+  to   { opacity: 1; transform: none }
 }
 
 @keyframes slide-left {
   from { opacity: 0; transform: translateX(30px) }
-  to { opacity: 1; transform: none }
+  to   { opacity: 1; transform: none }
 }
 
 @media(max-width:960px) {
@@ -209,7 +209,7 @@ h2 span {
 }
 
 @media(max-width:640px) {
+@media (max-width: 640px) {
   .sw { padding: 0 20px }
-
-  h2 { font-size: clamp(2rem, 7vw, 2.6rem) }
+  h2  { font-size: clamp(2rem, 7vw, 2.6rem) }
 }
