@@ -1,63 +1,10 @@
 'use client';
 import * as config_site from '@/configs/site';
+import * as config_vault from '@/configs/vault';
 import * as react from 'react';
 import * as lucide from 'lucide-react';
 import * as react_dom from 'react-dom';
 import './index.css';
-
-type VaultTag =
-  | 'animation'
-  | 'asset'
-  | 'gamemode'
-  | 'gfx'
-  | 'library'
-  | 'map'
-  | 'physx'
-  | 'sfx'
-  | 'shader'
-  | 'ui'
-  | 'utility'
-  | 'vfx';
-
-interface VaultResource {
-  id:           string;
-  name:         string;
-  author:       string;
-  author_url?:  string;
-  version:      string;
-  tagline:      string;
-  description:  string;
-  tags:         VaultTag[];
-  banner?:      string;
-  featured:     boolean;
-  is_submodule: boolean;
-  source_url?:  string;
-  download_url: string | null;
-}
-
-interface VaultIndex {
-  generated_at: string;
-  commit:       string;
-  count:        number;
-  resources:    VaultResource[];
-}
-
-type LoadState = 'loading' | 'error' | 'done';
-
-const ALL_TAGS: VaultTag[] = [
-  'animation',
-  'asset',
-  'gamemode',
-  'gfx',
-  'library',
-  'map',
-  'physx',
-  'sfx',
-  'shader',
-  'ui',
-  'utility',
-  'vfx',
-];
 
 function useVaultResources() {
   const [resources, set_resources] = react.useState<VaultResource[]>([]);
