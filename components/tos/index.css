@@ -17,10 +17,7 @@
   color: var(--text-muted);
 }
 
-.tos-body {
-  display: flex;
-  flex-direction: column;
-}
+.tos-body { display: flex; flex-direction: column; }
 
 .tos-section {
   padding: 40px 0;
