@@ -1248,7 +1248,7 @@ export const Roadmap: RoadmapSection[] = build([
       }
     ]
   },
-  
+
   {
     name: 'Network',
     cards: [
