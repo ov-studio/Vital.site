@@ -13,13 +13,7 @@ interface BrandProps {
   href?: string;
 }
 
-export function Brand({
-  size = 'md',
-  variant = 'full',
-  className = '',
-  color,
-  href
-}: BrandProps) {
+export function Brand({ size = 'md', variant = 'full', className = '', color, href}: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
   const inner = (
     <>
