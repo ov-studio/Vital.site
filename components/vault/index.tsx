@@ -129,7 +129,7 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
         ? <img src={src} alt="Resource banner" />
         : <div className={ph}><lucide.Package size={ico} color="var(--blue)" /></div>
       }
-      <div className={overlay} />
+      <div className={overlay}/>
     </div>
   );
 }
