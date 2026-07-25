@@ -20,12 +20,10 @@ export function Ethos() {
             >
               <span className="ecard-corner ecard-corner--tl"/>
               <span className="ecard-corner ecard-corner--br"/>
-
               <div className="ecard-ico">
                 {icon}
                 <span className="icon-ring"/>
               </div>
-
               <h3 className="ecard-title">{title}</h3>
               <p className="ecard-desc">{desc}</p>
             </div>
