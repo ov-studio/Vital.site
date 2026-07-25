@@ -17,7 +17,6 @@ function useVaultResources() {
       try {
         const res = await fetch('/api/vault');
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
-        const index: VaultIndex = await res.json();
         const index: config_vault.VaultIndex = await res.json();
         if (!cancelled) { set_resources(index.resources ?? []); set_state('done'); }
       } catch (err) {
