@@ -1,6 +1,6 @@
 ---
 title: self:set_filter
-description: Overrides the sampling filter used when this texture is drawn
+description: Sets the sampling filter of the texture
 badge: Client
 ---
 
@@ -13,7 +13,7 @@ local status = self:set_filter(
 ```
 
 <Callout type="warn">
-  **Mipmap-based filters require the texture to already have a mip chain — no chain is generated on demand.**<br/>`NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the texture was created without mipmaps.
+  **Mipmap-based filters require the texture to already have a mipmap chain — no chain is generated on demand.**<br/>`NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the texture was created without mipmaps.
 
   - **Generating mipmaps** — pass `mipmaps = true` to [`core.texture.create`](/docs/texture/create) upfront.
   - **Survives format changes** — [`self:convert`](/docs/texture/method/convert) and [`self:compress`](/docs/texture/method/compress) update the texture in place, so filter override stays applied.
