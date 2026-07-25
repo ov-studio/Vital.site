@@ -111,10 +111,7 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
       </div>
 
       {card.items.length > 0 && (
-        <div
-          className="rcard-items-wrap"
-          style={{ maxHeight: open ? `${height}px` : '0px' }}
-        >
+        <div className="rcard-items-wrap" style={{ maxHeight: open ? `${height}px` : '0px' }}>
           <div ref={innerRef} className="rcard-items">
             {card.items.map((item, i) => (
               <div key={i} className={`ritem ritem--${item.status}`}>
@@ -122,6 +119,7 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
                 <span className="ritem-label">{item.label}</span>
                 <span className="ritem-tag">
                   {item.status === 'completed' ? 'Completed' : item.status === 'partial'  ? 'WIP' : 'Planned'}
+                  {item.status === 'completed' ? 'Completed' : item.status === 'partial' ? 'WIP' : 'Planned'}
                 </span>
               </div>
             ))}
