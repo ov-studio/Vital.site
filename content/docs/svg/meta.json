@@ -7,15 +7,22 @@
         "create_from_raw",
         "...",
 
-       "---⁝⁝Lifecycle---",
+        "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
 
+        "---⁝⁝Checker---",
+        "method__has_mipmaps",
+
         "---⁝⁝Getter---",
         "method__get_size",
-        
-       "---⁝⁝Misc---",
+        "method__get_filter",
+
+        "---⁝⁝Setter---",
+        "method__set_filter",
+
+        "---⁝⁝Misc---",
         "method__update"
     ]
 }
