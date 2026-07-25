@@ -48,10 +48,13 @@ body:has(button:hover) #cur-outer { width: 52px; height: 52px; border-color: var
 
 body:has(a:hover) #cur-inner { transform: scale(1.6) }
 
-@media(min-width:961px) {
-  * { cursor: none; }
+/* ── @media ── */
+@media (min-width: 961px) { 
+  * { cursor: none }
 }
 
-@media(max-width:960px) {
-  #cur, #cur-outer { display: none }
+@media (max-width: 960px) { 
+  #cur, #cur-outer { 
+    display: none 
+  } 
 }
