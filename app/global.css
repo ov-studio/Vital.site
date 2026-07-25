@@ -226,9 +226,7 @@ h2 span { color: var(--blue) }
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg)
-  }
+  to   { transform: rotate(360deg) }
 }
 
 
