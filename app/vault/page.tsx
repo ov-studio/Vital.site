@@ -18,7 +18,9 @@ export default function VaultPage() {
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }
       ]}/>
-      <component_vault.Vault/>
+      <Suspense>
+        <Vault/>
+      </Suspense>
       <component_footer.Footer/>
     </component_clientshell.ClientShell>
   );
