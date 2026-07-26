@@ -25,6 +25,13 @@
   flex-wrap: wrap;
 }
 
+.vault-filter-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .vault-filter-btn {
   padding: 6px 12px;
   font-family: 'Geist', sans-serif;
