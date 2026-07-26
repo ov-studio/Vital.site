@@ -17,13 +17,9 @@
 }
 
 .vault-filters {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: space-between;
   margin-bottom: 40px;
-  flex-wrap: wrap;
 }
+.vault-filters::after { content: ''; display: table; clear: both; }
 
 .vault-filter-tags {
   display: flex;
