@@ -4,6 +4,7 @@ import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_vault       from '@/components/vault';
 import * as component_clientshell from '@/components/clientshell';
+import * as react                 from 'react';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
