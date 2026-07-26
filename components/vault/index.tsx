@@ -98,9 +98,20 @@ function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' 
 
 function VaultModal({ resource, on_close, closing }: { resource: config_vault.VaultResource; on_close: () => void; closing: boolean }) {
   const is_dir = !resource.is_submodule;
-  const folder = is_dir ? resource.id.slice(4) : '';
+  const folder = is_dir ? resource.id : '';
   const [downloading, set_downloading] = react.useState(false);
   const [dl_error,    set_dl_error]    = react.useState<string | null>(null);
+  const [copied,      set_copied]      = react.useState(false);
+
+  const handle_share = react.useCallback(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.set('modal', resource.id);
+    const url = `${window.location.origin}/vault?${params.toString()}`;
+    navigator.clipboard.writeText(url).then(() => {
+      set_copied(true);
+      window.setTimeout(() => set_copied(false), 2000);
+    });
+  }, [resource.id]);
 
   const handle_download = react.useCallback(async () => {
     if (!is_dir || downloading) return;
@@ -154,6 +165,9 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   return react_dom.createPortal(
     <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
       <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
+        <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Copy share link" title="Copy share link">
+          {copied ? <lucide.Check size={14}/> : <lucide.Link size={14}/>}
+        </button>
         <button className="vault-modal-close" onClick={on_close} aria-label="Close">
           <lucide.X size={14}/>
         </button>
@@ -264,9 +278,18 @@ export function Vault() {
     const params = new URLSearchParams();
     if (active_tag) params.set('tag', active_tag);
     if (search.trim()) params.set('search', search.trim());
+    if (selected) params.set('modal', selected.id);
     const qs = params.toString();
     router.replace(`/vault${qs ? `?${qs}` : ''}`, { scroll: false });
-  }, [active_tag, search]);
+  }, [active_tag, search, selected]);
+
+  react.useEffect(() => {
+    if (state !== 'done') return;
+    const modal_id = searchParams.get('modal');
+    if (!modal_id || selected) return;
+    const match = resources.find(r => r.id === modal_id);
+    if (match) { set_closing(false); set_selected(match); }
+  }, [state, resources]);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
