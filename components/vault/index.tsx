@@ -166,10 +166,10 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
       <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
         <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Copy share link" title="Copy share link">
-          {copied ? <lucide.Check size={14} strokeWidth={2}/> : <lucide.Link size={14} strokeWidth={2}/>}
+          {copied ? <lucide.Check size={14} strokeWidth={2.5}/> : <lucide.Link size={14} strokeWidth={2.5}/>}
         </button>
         <button className="vault-modal-close" onClick={on_close} aria-label="Close">
-          <lucide.X size={14} strokeWidth={2}/>
+          <lucide.X size={14} strokeWidth={2.5}/>
         </button>
 
         <Banner src={resource.banner} size="modal"/>
