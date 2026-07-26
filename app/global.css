@@ -241,7 +241,9 @@ h2 span { color: var(--blue) }
     margin-bottom: 40px;
   }
 
-  .sec-link { align-self: flex-start }
+  .sec-link { 
+    align-self: flex-start;
+  }
 }
 
 @media (max-width: 640px) {

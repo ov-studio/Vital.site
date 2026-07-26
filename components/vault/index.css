@@ -15,7 +15,6 @@
   color: var(--text-muted);
   text-align: left;
 }
-.vault-intro > a { margin-left: auto; }
 
 .vault-filters {
   display: flex;
@@ -329,7 +328,6 @@
 @media (max-width: 960px) {
   #vault                   { padding: calc(100px + var(--nav-h) * .25) 0; }
   .vault-intro             { flex-direction: column; }
-  .vault-intro .sec-link   { margin-left: 0; }
   .vault-grid              { grid-template-columns: 1fr; }
   .vault-modal             { clip-path: none; }
   .vault-modal-body        { padding: 24px 20px 28px; }
