@@ -387,7 +387,7 @@ export function Vault() {
             <div className="vault-grid">
               {state === 'error' && (
                 <div className="state-empty">
-                  <lucide.WifiOff size={24} strokeWidth={2}/>
+                  <lucide.WifiOff size={24} strokeWidth={2.5}/>
                   Failed to load resources — check your connection and try again
                 </div>
               )}
