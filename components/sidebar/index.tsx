@@ -16,7 +16,7 @@ export function SidebarToggle() {
 
   return (
     <button className="sidebar-toggle-btn" onClick={toggle}>
-      <lucide.PanelLeft size={18}/>
+      <lucide.PanelLeft size={18} strokeWidth={2}/>
     </button>
   );
 }

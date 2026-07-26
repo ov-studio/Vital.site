@@ -166,10 +166,10 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
       <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
         <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Copy share link" title="Copy share link">
-          {copied ? <lucide.Check size={14}/> : <lucide.Link size={14}/>}
+          {copied ? <lucide.Check size={14} strokeWidth={2}/> : <lucide.Link size={14} strokeWidth={2}/>}
         </button>
         <button className="vault-modal-close" onClick={on_close} aria-label="Close">
-          <lucide.X size={14}/>
+          <lucide.X size={14} strokeWidth={2}/>
         </button>
 
         <Banner src={resource.banner} size="modal"/>
@@ -207,7 +207,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
                 style={downloading ? { opacity: 0.7, cursor: 'wait' } : undefined}
               >
                 {downloading
-                  ? <><lucide.Loader2 size={14} className="vault-spin"/> Preparing…</>
+                  ? <><lucide.Loader2 size={14} strokeWidth={2} className="vault-spin"/> Preparing…</>
                   : 'Download Resource'
                 }
               </button>
@@ -349,7 +349,7 @@ export function Vault() {
 
           <div className="vault-filters">
             <div className="vault-search">
-              <lucide.Search size={14}/>
+              <lucide.Search size={14} strokeWidth={2}/>
               <input
                 type="text"
                 value={search}
@@ -379,7 +379,7 @@ export function Vault() {
 
           {state === 'loading' && (
             <div className="vault-loading">
-              <lucide.Loader2 size={32} className="vault-spin"/>
+              <lucide.Loader2 size={32} strokeWidth={2} className="vault-spin"/>
             </div>
           )}
 
@@ -387,7 +387,7 @@ export function Vault() {
             <div className="vault-grid">
               {state === 'error' && (
                 <div className="state-empty">
-                  <lucide.WifiOff size={24}/>
+                  <lucide.WifiOff size={24} strokeWidth={2}/>
                   Failed to load resources — check your connection and try again
                 </div>
               )}
