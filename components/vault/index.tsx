@@ -165,7 +165,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   return react_dom.createPortal(
     <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
       <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
-        <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Copy share link" title="Copy share link">
+        <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Share">
           {copied ? <lucide.Check size={14} strokeWidth={2.5}/> : <lucide.Link size={14} strokeWidth={2.5}/>}
         </button>
         <button className="vault-modal-close" onClick={on_close} aria-label="Close">
@@ -355,7 +355,7 @@ export function Vault() {
                 value={search}
                 onChange={e => set_search(e.target.value)}
                 placeholder="Search resources…"
-                aria-label="Search resources"
+                aria-label="Search"
                 spellCheck={false}
                 autoCorrect="off"
                 autoCapitalize="off"
