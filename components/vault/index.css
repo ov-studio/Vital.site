@@ -331,31 +331,10 @@
   animation: slide-down .205s ease forwards;
 }
 
-.vault-modal-share {
-  position: absolute;
-  top: 16px;
-  right: 56px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: var(--rule);
-  color: var(--text-muted);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: .5;
-  transition: opacity .2s, color .2s;
-}
-.vault-modal-share:hover,
-.vault-modal-share.copied { opacity: 1; color: var(--blue); }
-
+.vault-modal-share,
 .vault-modal-close {
   position: absolute;
   top: 16px;
-  right: 16px;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -370,8 +349,11 @@
   opacity: .5;
   transition: opacity .2s, color .2s;
 }
-.vault-modal-close:hover { opacity: 1; color: var(--white); }
-
+.vault-modal-share { right: 56px; }
+.vault-modal-close { right: 16px; }
+.vault-modal-share:hover,
+.vault-modal-share.copied { opacity: 1; color: var(--blue); }
+.vault-modal-close:hover  { opacity: 1; color: var(--white); }
 .vault-spin {
   vertical-align: -2px;
   margin-right: 4px;
