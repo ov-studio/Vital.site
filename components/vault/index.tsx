@@ -250,6 +250,7 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
 export function Vault() {
   const { resources, state } = useVaultResources();
   const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
+  const [search,     set_search]     = react.useState('');
   const [selected,   set_selected]   = react.useState<config_vault.VaultResource | null>(null);
   const [closing,    set_closing]    = react.useState(false);
 
@@ -261,15 +262,17 @@ export function Vault() {
     );
     els.forEach(el => obs.observe(el));
     return () => obs.disconnect();
-  }, [resources, active_tag]);
+  }, [resources, active_tag, search]);
 
   const filtered = react.useMemo(() => {
-    const list = active_tag ? resources.filter(r => r.tags.includes(active_tag)) : resources;
+    const tagged = active_tag ? resources.filter(r => r.tags.includes(active_tag)) : resources;
+    const q = search.trim().toLowerCase();
+    const list = q ? tagged.filter(r => r.name.toLowerCase().includes(q)) : tagged;
     return [...list].sort((a, b) => {
       if (a.featured !== b.featured) return a.featured ? -1 : 1;
       return a.name.localeCompare(b.name);
     });
-  }, [resources, active_tag]);
+  }, [resources, active_tag, search]);
 
   const open = react.useCallback((r: config_vault.VaultResource) => {
     set_closing(false);
@@ -308,17 +311,30 @@ export function Vault() {
           </div>
 
           <div className="vault-filters">
-            <button
-              className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
-              onClick={() => set_active_tag(null)}
-            >All</button>
-            {config_vault.ALL_TAGS.map(tag => (
+            <div className="vault-filter-tags">
               <button
-                key={tag}
-                className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
-                onClick={() => set_active_tag(tag === active_tag ? null : tag)}
-              >{tag}</button>
-            ))}
+                className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
+                onClick={() => set_active_tag(null)}
+              >All</button>
+              {config_vault.ALL_TAGS.map(tag => (
+                <button
+                  key={tag}
+                  className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
+                  onClick={() => set_active_tag(tag === active_tag ? null : tag)}
+                >{tag}</button>
+              ))}
+            </div>
+
+            <div className="vault-search">
+              <lucide.Search size={13}/>
+              <input
+                type="text"
+                value={search}
+                onChange={e => set_search(e.target.value)}
+                placeholder="Search resources…"
+                aria-label="Search resources"
+              />
+            </div>
           </div>
 
           {state === 'loading' && (
@@ -338,7 +354,7 @@ export function Vault() {
               {state === 'done' && filtered.length === 0 && (
                 <div className="state-empty">
                   <lucide.PackageOpen size={24}/>
-                  No resources match the selected tag
+                  No resources match your query
                 </div>
               )}
               {state === 'done' && filtered.map(r => (
