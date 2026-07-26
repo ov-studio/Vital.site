@@ -361,7 +361,11 @@
   .vault-modal             { clip-path: none; }
   .vault-modal-body        { padding: 24px 20px 28px; }
   .vault-modal-name        { font-size: 1.5rem; }
+  .vault-filters           { flex-direction: column; align-items: flex-start; }
+  .vault-search            { margin-left: 0; width: 100%; }
   .vault-search input,
+  .vault-search input:focus,
+  .vault-search input:not(:placeholder-shown) { width: 100%; }
 }
 
 @media (max-width: 400px) {
