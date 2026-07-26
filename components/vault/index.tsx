@@ -311,20 +311,6 @@ export function Vault() {
           </div>
 
           <div className="vault-filters">
-            <div className="vault-filter-tags">
-              <button
-                className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
-                onClick={() => set_active_tag(null)}
-              >All</button>
-              {config_vault.ALL_TAGS.map(tag => (
-                <button
-                  key={tag}
-                  className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
-                  onClick={() => set_active_tag(tag === active_tag ? null : tag)}
-                >{tag}</button>
-              ))}
-            </div>
-
             <div className="vault-search">
               <lucide.Search size={14}/>
               <input
@@ -337,6 +323,20 @@ export function Vault() {
                 autoCorrect="off"
                 autoCapitalize="off"
               />
+            </div>
+
+            <div className="vault-filter-tags">
+              <button
+                className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
+                onClick={() => set_active_tag(null)}
+              >All</button>
+              {config_vault.ALL_TAGS.map(tag => (
+                <button
+                  key={tag}
+                  className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
+                  onClick={() => set_active_tag(tag === active_tag ? null : tag)}
+                >{tag}</button>
+              ))}
             </div>
           </div>
 
