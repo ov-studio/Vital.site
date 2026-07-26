@@ -89,6 +89,10 @@ html {
 *::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
 *::-webkit-scrollbar-thumb:hover { background: var(--b20); }
 
+* {
+  cursor: none;
+}
+
 *:focus {
   outline: none;
 }

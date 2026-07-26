@@ -48,7 +48,6 @@
   background: transparent;
   border: 2px solid var(--rule);
   border-radius: 4px;
-  cursor: pointer;
   transition: color .2s, border-color .2s, background .2s;
 }
 .vault-filter-btn:hover  { color: var(--blue); border-color: var(--b30); }
@@ -90,7 +89,6 @@
   background: var(--bg3);
   border: 1px solid var(--b18);
   border-radius: 6px;
-  cursor: pointer;
   transition: border-color .25s, background .25s;
 }
 .vault-card:hover { border-color: var(--b40); }
@@ -351,7 +349,6 @@
   color: var(--text-muted);
   border: none;
   border-radius: 50%;
-  cursor: pointer;
   transition: color .2s, background .2s;
 }
 .vault-modal-close:hover  { color: var(--blue); }

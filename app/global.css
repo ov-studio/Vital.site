@@ -109,7 +109,6 @@ h2 span { color: var(--blue) }
   background: var(--blue);
   text-decoration: none;
   border: none;
-  cursor: pointer;
   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
   transition: opacity .2s, transform .15s;
 }
@@ -130,7 +129,6 @@ h2 span { color: var(--blue) }
   text-decoration: none;
   background: none;
   border: none;
-  cursor: pointer;
   transition: color .2s;
 }
 .btn-secondary:hover { color: var(--blue) }

@@ -6,7 +6,6 @@
   border: none;
   background: transparent;
   color: var(--color-fd-muted-foreground);
-  cursor: pointer;
   transition: color .2s;
 }
 .sidebar-toggle-btn:hover { color: var(--color-fd-foreground) }
