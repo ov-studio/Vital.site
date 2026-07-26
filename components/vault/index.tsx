@@ -100,8 +100,8 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   const is_dir = !resource.is_submodule;
   const folder = is_dir ? resource.id : '';
   const [downloading, set_downloading] = react.useState(false);
-  const [dl_error,    set_dl_error]    = react.useState<string | null>(null);
-  const [copied,      set_copied]      = react.useState(false);
+  const [dl_error, set_dl_error] = react.useState<string | null>(null);
+  const [copied, set_copied] = react.useState(false);
 
   const handle_share = react.useCallback(() => {
     const params = new URLSearchParams(window.location.search);
