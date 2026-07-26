@@ -290,6 +290,7 @@
 }
 
 .vault-modal-divider { border: none; border-top: 1px solid var(--rule); margin: 24px 0; flex-shrink: 0; }
+  margin: 24px 0; 
 
 .vault-modal-desc-scroll {
   flex: 1;
