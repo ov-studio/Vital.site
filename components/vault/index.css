@@ -75,7 +75,6 @@
 }
 .vault-search input::placeholder { color: var(--text-faint); }
 .vault-search input:focus { border-color: var(--b50); width: 250px; }
-.vault-search input:focus { border-color: var(--b70); width: 250px; }
 
 .vault-grid {
   display: grid;
