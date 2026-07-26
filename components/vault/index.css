@@ -21,7 +21,12 @@
 }
 .vault-filters::after { content: ''; display: table; clear: both; }
 
+.vault-search {
+  position: relative;
+  display: flex;
+  align-items: center;
   float: right;
+}
 .vault-filter-tags {
   display: flex;
   align-items: center;
