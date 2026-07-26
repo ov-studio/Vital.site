@@ -331,11 +331,17 @@
   animation: slide-down .205s ease forwards;
 }
 
-.vault-modal-share,
-.vault-modal-close {
+.vault-modal-controls {
   position: absolute;
   top: 16px;
+  right: 16px;
   z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.vault-modal-share,
+.vault-modal-close {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -348,10 +354,8 @@
   cursor: pointer;
   transition: color .2s, background .2s;
 }
-.vault-modal-share { right: 56px; }
-.vault-modal-close { right: 16px; }
 .vault-modal-close:hover  { color: var(--blue); }
-.vault-modal-share:hover { color: var(--blue) }
+.vault-modal-share:hover { color: var(--blue); }
 .vault-modal-share.copied { color: var(--bg); background: var(--blue); }
 .vault-spin {
   vertical-align: -2px;
