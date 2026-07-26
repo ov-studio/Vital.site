@@ -18,11 +18,11 @@ export default function VaultPage() {
       <component_navbar.Navbar links={[
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }
-      ]} />
+      ]}/>
       <react.Suspense>
-        <component_vault.Vault />
+        <component_vault.Vault/>
       </react.Suspense>
-      <component_footer.Footer />
+      <component_footer.Footer/>
     </component_clientshell.ClientShell>
   );
 }
