@@ -333,6 +333,9 @@ export function Vault() {
                 onChange={e => set_search(e.target.value)}
                 placeholder="Search resources…"
                 aria-label="Search resources"
+                spellCheck={false}
+                autoCorrect="off"
+                autoCapitalize="off"
               />
             </div>
           </div>
