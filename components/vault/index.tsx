@@ -248,11 +248,24 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
 }
 
 export function Vault() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { resources, state } = useVaultResources();
-  const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(null);
-  const [search,     set_search]     = react.useState('');
-  const [selected,   set_selected]   = react.useState<config_vault.VaultResource | null>(null);
-  const [closing,    set_closing]    = react.useState(false);
+  const [search,  set_search] = react.useState(() => searchParams.get('search') ?? '');
+  const [selected, set_selected] = react.useState<config_vault.VaultResource | null>(null);
+  const [closing, set_closing] = react.useState(false);
+  const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(() => {
+    const t = searchParams.get('tag') as config_vault.VaultTag | null;
+    return t && (config_vault.ALL_TAGS as readonly string[]).includes(t) ? t : null;
+  });
+  
+  react.useEffect(() => {
+    const params = new URLSearchParams();
+    if (active_tag) params.set('tag', active_tag);
+    if (search.trim()) params.set('search', search.trim());
+    const qs = params.toString();
+    router.replace(`/vault${qs ? `?${qs}` : ''}`, { scroll: false });
+  }, [active_tag, search]);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
