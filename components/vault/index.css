@@ -361,6 +361,7 @@
   .vault-modal             { clip-path: none; }
   .vault-modal-body        { padding: 24px 20px 28px; }
   .vault-modal-name        { font-size: 1.5rem; }
+  .vault-search input,
 }
 
 @media (max-width: 400px) {
