@@ -248,8 +248,8 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
 }
 
 export function Vault() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const router = next_navigation.useRouter();
+  const searchParams = next_navigation.useSearchParams();
   const { resources, state } = useVaultResources();
   const [search,  set_search] = react.useState(() => searchParams.get('search') ?? '');
   const [selected, set_selected] = react.useState<config_vault.VaultResource | null>(null);
