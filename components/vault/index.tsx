@@ -349,7 +349,7 @@ export function Vault() {
 
           <div className="vault-filters">
             <div className="vault-search">
-              <lucide.Search size={14} strokeWidth={2}/>
+              <lucide.Search size={14} strokeWidth={2.5}/>
               <input
                 type="text"
                 value={search}
