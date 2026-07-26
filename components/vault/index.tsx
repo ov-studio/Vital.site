@@ -207,7 +207,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
                 style={downloading ? { opacity: 0.7, cursor: 'wait' } : undefined}
               >
                 {downloading
-                  ? <><lucide.Loader2 size={14} strokeWidth={2} className="vault-spin"/> Preparing…</>
+                  ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
                   : 'Download Resource'
                 }
               </button>
