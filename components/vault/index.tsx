@@ -174,7 +174,9 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
           <div className="vault-modal-name">{resource.name}</div>
           <div className="vault-modal-tagline">{resource.tagline}</div>
           <hr className="vault-modal-divider"/>
-          <p className="vault-modal-desc">{render_with_code(resource.description)}</p>
+          <div className="vault-modal-desc-scroll">
+            <p className="vault-modal-desc">{render_with_code(resource.description)}</p>
+          </div>
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
               <span key={t} className="tag-pill vault-modal-tag">#{t}</span>
