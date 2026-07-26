@@ -109,3 +109,12 @@ html {
   transition: background .25s, border-color .25s, filter .25s;
 }
 .code-pill:hover { filter: brightness(1.15) saturate(1.15); }
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--b20) transparent;
+}
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--b20); border-radius: 3px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--b40); }

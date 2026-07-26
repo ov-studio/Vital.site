@@ -301,13 +301,7 @@
   margin-bottom: 20px;
   padding-right: 10px;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--b20) transparent;
 }
-.vault-modal-desc-scroll::-webkit-scrollbar { width: 6px; }
-.vault-modal-desc-scroll::-webkit-scrollbar-track { background: transparent; }
-.vault-modal-desc-scroll::-webkit-scrollbar-thumb { background: var(--b20); border-radius: 3px; }
-.vault-modal-desc-scroll::-webkit-scrollbar-thumb:hover { background: var(--b40); }
 
 .vault-modal-desc {
   font-family: 'Geist', sans-serif;
