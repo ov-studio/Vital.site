@@ -39,6 +39,7 @@
 
   /* ── Borders ── */
   --rule: hsl(220, 18%, 9%);
+  --rule-dim: hsl(220, 18%, 7%);
 
 
   /* ── Syntax highlight ── */
@@ -112,9 +113,9 @@ html {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: var(--b20) transparent;
+  scrollbar-color: var(--b10) var(--rule-dim);
 }
 *::-webkit-scrollbar { width: 6px; height: 6px; }
-*::-webkit-scrollbar-track { background: transparent; }
-*::-webkit-scrollbar-thumb { background: var(--b20); border-radius: 3px; }
-*::-webkit-scrollbar-thumb:hover { background: var(--b40); }
+*::-webkit-scrollbar-track { background: var(--rule-dim); }
+*::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--b20); }
