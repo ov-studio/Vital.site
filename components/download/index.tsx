@@ -44,7 +44,7 @@ export function Download() {
     return (
       <div className="download-buttons">
         <button className="btn-primary" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-          <lucide.Download size={14} strokeWidth={2}/> Fetching release…
+          <lucide.Download size={14} strokeWidth={2.5}/> Fetching release…
         </button>
       </div>
     );
@@ -60,7 +60,7 @@ export function Download() {
 
       {info.server_url && (
         <a href={info.server_url} className="btn-secondary" target="_blank" rel="noreferrer">
-          <lucide.CloudDownload size={14} strokeWidth={2}/>
+          <lucide.CloudDownload size={14} strokeWidth={2.5}/>
           Download Server{info.server_size ? ` · ${info.server_size}` : ''}
         </a>
       )}
