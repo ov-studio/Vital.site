@@ -47,6 +47,7 @@
   align-items: center;
   flex-shrink: 0;
   margin-left: auto;
+}
 .vault-search input::placeholder { color: var(--text-faint); }
 .vault-search input:focus,
 .vault-grid {
