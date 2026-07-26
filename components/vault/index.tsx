@@ -4,6 +4,7 @@ import * as config_vault from '@/configs/vault';
 import * as react        from 'react';
 import * as lucide       from 'lucide-react';
 import * as react_dom    from 'react-dom';
+import * as next_navigation from 'next/navigation';
 import './index.css';
 
 function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[] {
