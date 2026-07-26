@@ -10,6 +10,15 @@ function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[]
   return tags.filter(t => (config_vault.ALL_TAGS as readonly string[]).includes(t));
 }
 
+function render_with_code(text: string): react.ReactNode[] {
+  return text.split(/(`[^`]+`)/g).map((part, i) => {
+    if (part.length > 1 && part.startsWith('`') && part.endsWith('`')) {
+      return <code key={i} className="vault-modal-code">{part.slice(1, -1)}</code>;
+    }
+    return <react.Fragment key={i}>{part}</react.Fragment>;
+  });
+}
+
 function useVaultResources() {
   const [resources, set_resources] = react.useState<config_vault.VaultResource[]>([]);
   const [state,     set_state]     = react.useState<config_vault.LoadState>('loading');
@@ -165,7 +174,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
           <div className="vault-modal-name">{resource.name}</div>
           <div className="vault-modal-tagline">{resource.tagline}</div>
           <hr className="vault-modal-divider"/>
-          <p className="vault-modal-desc">{resource.description}</p>
+          <p className="vault-modal-desc">{render_with_code(resource.description)}</p>
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
               <span key={t} className="tag-pill vault-modal-tag">#{t}</span>
