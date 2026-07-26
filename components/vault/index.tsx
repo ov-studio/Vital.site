@@ -13,7 +13,7 @@ function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[]
 function render_with_code(text: string): react.ReactNode[] {
   return text.split(/(`[^`]+`)/g).map((part, i) => {
     if (part.length > 1 && part.startsWith('`') && part.endsWith('`')) {
-      return <code key={i} className="vault-modal-code">{part.slice(1, -1)}</code>;
+      return <code key={i} className="code-pill">{part.slice(1, -1)}</code>;
     }
     return <react.Fragment key={i}>{part}</react.Fragment>;
   });

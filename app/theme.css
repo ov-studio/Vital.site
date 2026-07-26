@@ -93,3 +93,19 @@ html {
 .cm { color: var(--syn-cm) }
 .nm { color: var(--syn-nm) }
 .pu { color: var(--syn-pu) }
+
+.code-pill {
+  padding: 1px 4px;
+  margin: 0 1px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--blue);
+  background: var(--b05);
+  border: 1px solid var(--b20);
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background .25s, border-color .25s, filter .25s;
+}
+.code-pill:hover { filter: brightness(1.15) saturate(1.15); }
