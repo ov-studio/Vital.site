@@ -78,10 +78,16 @@
 
 
 html {
+  overflow-x: hidden;
   font-variant-ligatures: none;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--b10) var(--rule-dim);
 }
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: var(--rule-dim); }
+*::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--b20); }
 
 *:focus {
   outline: none;
@@ -114,12 +120,3 @@ html {
   transition: background .25s, border-color .25s, filter .25s;
 }
 .code-pill:hover { filter: brightness(1.15) saturate(1.15); }
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--b10) var(--rule-dim);
-}
-*::-webkit-scrollbar { width: 6px; height: 6px; }
-*::-webkit-scrollbar-track { background: var(--rule-dim); }
-*::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
-*::-webkit-scrollbar-thumb:hover { background: var(--b20); }
