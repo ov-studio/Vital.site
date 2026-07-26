@@ -41,6 +41,12 @@
 .vault-filter-btn:hover  { color: var(--blue); border-color: var(--b30); }
 .vault-filter-btn.active { color: var(--blue); border-color: var(--blue); background: var(--b05); }
 
+.vault-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
 .vault-search input::placeholder { color: var(--text-faint); }
 .vault-search input:focus,
 .vault-grid {
