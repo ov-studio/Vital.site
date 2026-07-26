@@ -61,7 +61,7 @@
   .brand--xxl { --brand-logo-size: clamp(4rem, 14vw, 8.7rem);   --brand-wordmark-size: clamp(3rem, 11vw, 6.8rem);  --brand-gap: clamp(18px, 5vw, 40px); }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .brand--lg,
   .brand--xl,
   .brand--xxl { --brand-gap: 10px }

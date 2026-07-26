@@ -406,7 +406,7 @@
   .vault-search input:not(:placeholder-shown) { width: 100%; }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .vault-modal-actions                { flex-direction: column; align-items: flex-start; }
   .vault-modal-actions .btn-secondary { margin-left: 0; }
 }

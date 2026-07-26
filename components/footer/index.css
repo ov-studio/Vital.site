@@ -85,6 +85,6 @@ footer {
   .footer-nav  { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .footer-nav { grid-template-columns: 1fr }
 }

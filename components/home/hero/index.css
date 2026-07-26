@@ -198,7 +198,7 @@
   .hstat:nth-child(1), .hstat:nth-child(3)      { border-right: 1px solid var(--rule) }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .hstat-n { font-size: .86rem }
   .hstat-l { font-size: .61rem }
 }

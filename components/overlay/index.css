@@ -51,11 +51,7 @@ body:has([role="button"]:hover) #cur-inner { transform: scale(1.6) }
 
 
 /* ── @media ── */
-@media (min-width: 961px) { 
-  * { cursor: none }
-}
-
-@media (max-width: 960px) { 
+@media (max-width: 450px) { 
   #cur, #cur-outer { 
     display: none 
   } 
