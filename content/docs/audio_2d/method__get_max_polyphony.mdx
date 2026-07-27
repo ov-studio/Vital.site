@@ -1,0 +1,32 @@
+---
+title: self:get_max_polyphony
+description: Retrieves the maximum number of simultaneous voices for the audio_2d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_max_polyphony()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Maximum number of simultaneous voices |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the max polyphony of an audio_2d instance"
+local entity = core.audio_2d.create("sounds/sfx.ogg")
+
+core.engine.print("info", "Max polyphony:", entity:get_max_polyphony())
+```

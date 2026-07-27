@@ -1,0 +1,35 @@
+---
+title: self:has_stream_playback
+description: Checks whether the audio_2d instance has an active stream playback object
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:has_stream_playback()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if a stream playback object exists, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check for an active stream playback before querying it"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+entity:play()
+
+if entity:has_stream_playback() then
+    core.engine.print("info", "Playback position:", entity:get_playback_position())
+end
+```

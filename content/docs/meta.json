@@ -22,7 +22,7 @@
         "texture",
         "svg",
         "rendertarget",
-        "audio2d",
+        "audio_2d",
         
         "---Utility---",
         "math",

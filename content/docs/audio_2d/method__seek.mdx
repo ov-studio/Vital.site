@@ -1,0 +1,36 @@
+---
+title: self:seek
+description: Seeks to a specific position in the audio_2d stream
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:seek(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | position | Position in seconds to seek to |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Seek to a specific position in a track"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+entity:play()
+
+entity:seek(30.0)
+```

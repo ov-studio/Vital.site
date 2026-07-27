@@ -1,0 +1,35 @@
+---
+title: self:set_autoplay
+description: Sets whether the audio_2d instance should play automatically when ready
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_autoplay(
+    enable
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | enable | When `true`, playback begins automatically as soon as the instance is ready |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable autoplay on an audio_2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+entity:set_autoplay(true)
+```

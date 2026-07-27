@@ -1,0 +1,13 @@
+---
+title: core.audio_2d.playback_type
+description: Enumeration of playback types that control how an audio_2d instance is processed
+badge: Client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `core.audio_2d.playback_type.DEFAULT` | Uses the default playback type as defined by the audio server |
+| `core.audio_2d.playback_type.STREAM` | Streams audio from disk — suited for long tracks like music where loading the full file upfront is not practical |
+| `core.audio_2d.playback_type.SAMPLE` | Loads the full audio into memory — suited for short, frequently triggered sounds like sound effects |

@@ -1,0 +1,34 @@
+---
+title: self:is_playing
+description: Checks whether the audio_2d instance is currently playing
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_playing()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if audio is currently playing, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check playback state before starting"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+if not entity:is_playing() then
+    entity:play()
+end
+```

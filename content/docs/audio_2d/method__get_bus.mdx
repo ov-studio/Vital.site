@@ -1,0 +1,32 @@
+---
+title: self:get_bus
+description: Retrieves the name of the audio bus the audio_2d instance is routed through
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_bus()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Name of the current audio bus |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the bus of an audio_2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Bus:", entity:get_bus())
+```

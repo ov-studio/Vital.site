@@ -1,0 +1,35 @@
+---
+title: self:set_panning_strength
+description: Sets the panning strength of the audio_2d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_panning_strength(
+    strength
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | strength | Panning strength factor. Higher values produce stronger left/right stereo separation based on the source position |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Increase stereo panning effect"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+entity:set_panning_strength(2.0)
+```

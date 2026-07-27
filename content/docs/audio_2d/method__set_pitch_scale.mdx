@@ -1,0 +1,35 @@
+---
+title: self:set_pitch_scale
+description: Sets the pitch scale of the audio_2d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_pitch_scale(
+    pitch_scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | pitch_scale | Pitch multiplier. `1.0` is normal pitch, `2.0` doubles it, `0.5` halves it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a higher pitch on an audio_2d instance"
+local entity = core.audio_2d.create("sounds/sfx.ogg")
+
+entity:set_pitch_scale(1.5)
+```
