@@ -13,9 +13,9 @@
 
         "---⁝⁝Checker---",
         "method__is_playing",
-        "method__is_autoplay",
         "method__is_paused",
-
+        "method__is_autoplay",
+        
         "---⁝⁝Getter---",
         "method__get_playback_position",
         "method__get_volume",
