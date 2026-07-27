@@ -1,5 +1,5 @@
 ---
-title: self:is_autoplay_enabled
+title: self:is_autoplay
 description: Checks whether autoplay is enabled on the audio_2d instance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = self:is_autoplay_enabled()
+local result = self:is_autoplay()
 ```
 
 ### Parameters
@@ -28,5 +28,5 @@ local result = self:is_autoplay_enabled()
 ```lua lineNumbers title="Check autoplay state of an audio_2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-core.engine.print("info", "Autoplay:", entity:is_autoplay_enabled())
+core.engine.print("info", "Autoplay:", entity:is_autoplay())
 ```

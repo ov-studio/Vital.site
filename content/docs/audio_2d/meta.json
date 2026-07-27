@@ -13,7 +13,7 @@
 
         "---⁝⁝Checker---",
         "method__is_playing",
-        "method__is_autoplay_enabled",
+        "method__is_autoplay",
         "method__is_paused",
 
         "---⁝⁝Getter---",
