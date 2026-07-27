@@ -470,7 +470,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_2d>:set_volume_db', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_pitch_scale', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_bus', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:set_autoplay', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_stream_paused', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_max_distance', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_attenuation', status: 'completed' },
