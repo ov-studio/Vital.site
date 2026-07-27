@@ -27,6 +27,7 @@ local result = self:get_stream_paused()
 
 ```lua lineNumbers title="Resume a paused audio_2d stream"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
+
 entity:play()
 entity:set_stream_paused(true)
 
