@@ -18,7 +18,7 @@
 
         "---⁝⁝Getter---",
         "method__get_playback_position",
-        "method__get_volume_db",
+        "method__get_volume",
         "method__get_pitch_scale",
         "method__get_bus",
         "method__get_max_distance",
