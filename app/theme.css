@@ -81,6 +81,10 @@ html {
   overflow-x: hidden;
   font-variant-ligatures: none;
   scroll-behavior: smooth;
+}
+
+* {
+  cursor: none;
   scrollbar-width: thin;
   scrollbar-color: var(--b10) var(--rule-dim);
 }
@@ -88,10 +92,6 @@ html {
 *::-webkit-scrollbar-track { background: var(--rule-dim); }
 *::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
 *::-webkit-scrollbar-thumb:hover { background: var(--b20); }
-
-* {
-  cursor: none;
-}
 
 *:focus {
   outline: none;
