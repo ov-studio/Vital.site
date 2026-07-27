@@ -14,7 +14,7 @@
         "---⁝⁝Checker---",
         "method__is_playing",
         "method__is_autoplay_enabled",
-        "method__get_stream_paused",
+        "method__is_paused",
 
         "---⁝⁝Getter---",
         "method__get_playback_position",

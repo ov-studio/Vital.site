@@ -1,5 +1,5 @@
 ---
-title: self:get_stream_paused
+title: self:is_paused
 description: Checks whether the audio_2d stream is currently paused
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local result = self:get_stream_paused()
+local result = self:is_paused()
 ```
 
 ### Parameters
@@ -31,7 +31,7 @@ local entity = core.audio_2d.create("sounds/ambient.ogg")
 entity:play()
 entity:set_stream_paused(true)
 
-if entity:get_stream_paused() then
+if entity:is_paused() then
     entity:set_stream_paused(false)
 end
 ```
