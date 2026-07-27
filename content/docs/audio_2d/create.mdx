@@ -42,10 +42,12 @@ local instance = core.audio_2d.create(
 
 ```lua lineNumbers title="Create a basic audio_2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
+
 entity:play()
 ```
 
 ```lua lineNumbers title="Create an instance that starts playing immediately"
 local entity = core.audio_2d.create("sounds/ambient.ogg", true)
+
 entity:set_volume(1.0)
 ```
