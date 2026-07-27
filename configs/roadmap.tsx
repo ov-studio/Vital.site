@@ -448,6 +448,57 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
+        label: 'Audio 2D',
+        desc: 'Flat stereo playback, bus routing, and attenuation from Lua',
+        icon: <lucide.Volume2 {...config_site.info.lucide}/>,
+        items: [
+          { label: '[Client] API: core.audio_2d.create', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:is_type', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_type', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:destroy', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:is_playing', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:is_autoplay_enabled', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_stream_paused', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_playback_position', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_volume_db', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_pitch_scale', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_bus', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_max_distance', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_attenuation', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_max_polyphony', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:get_panning_strength', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_volume_db', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_pitch_scale', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_bus', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_autoplay', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_stream_paused', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_max_distance', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_attenuation', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_max_polyphony', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_panning_strength', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:play', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:stop', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:seek', status: 'completed' }
+        ]
+      },
+      {
+        // TODO: WIP
+        label: 'Audio 3D',
+        desc: 'Positional playback with attenuation, doppler, and directional emission from Lua',
+        icon: <lucide.Headphones {...config_site.info.lucide}/>,
+        items: [
+          { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
+          { label: 'Play / stop / pause / seek', status: 'pending' },
+          { label: 'Volume (linear & dB) control', status: 'pending' },
+          { label: 'Pitch scale control', status: 'pending' },
+          { label: 'Attenuation model & max distance', status: 'pending' },
+          { label: 'Doppler tracking', status: 'pending' },
+          { label: 'Directional emission angle & filtering', status: 'pending' },
+          { label: 'AudioServer bus routing', status: 'pending' },
+          { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
+        ]
+      },
+      {
         // TODO: WIP
         label: 'MeshInstance & Primitives',
         desc: 'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
@@ -1205,42 +1256,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Navmesh region queries', status: 'pending' },
           { label: 'Avoidance (RVO2)', status: 'pending' },
           { label: 'Navigation layers', status: 'pending' },
-        ]
-      }
-    ]
-  },
-
-  {
-    name: 'Audio',
-    cards: [
-      {
-        // TODO: WIP
-        label: 'Audio 2D',
-        desc: 'Flat stereo playback, bus routing, and bus effects from Lua',
-        icon: <lucide.Volume2 {...config_site.info.lucide}/>,
-        items: [
-          { label: 'AudioStreamPlayer (2D flat)', status: 'pending' },
-          { label: 'Play / stop / pause / seek', status: 'pending' },
-          { label: 'Volume (linear & dB) control', status: 'pending' },
-          { label: 'Pitch scale control', status: 'pending' },
-          { label: 'AudioServer bus routing', status: 'pending' },
-          { label: 'Bus effects (Reverb / EQ / Limiter)', status: 'pending' },
-          { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
-        ]
-      },
-      {
-        // TODO: WIP
-        label: 'Audio 3D',
-        desc: 'Positional playback with attenuation and panning from Lua',
-        icon: <lucide.Headphones {...config_site.info.lucide}/>,
-        items: [
-          { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
-          { label: 'Play / stop / pause / seek', status: 'pending' },
-          { label: 'Volume (linear & dB) control', status: 'pending' },
-          { label: 'Pitch scale control', status: 'pending' },
-          { label: 'Attenuation model & max distance', status: 'pending' },
-          { label: 'AudioServer bus routing', status: 'pending' },
-          { label: 'AudioStream format: OGG / WAV / MP3', status: 'pending' },
         ]
       }
     ]
