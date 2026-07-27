@@ -342,6 +342,7 @@ function VaultInner() {
     const t = searchParams.get('tag') as config_vault.VaultTag | null;
     return t && (config_vault.ALL_TAGS as readonly string[]).includes(t) ? t : null;
   });
+  const [initial_modal_id] = react.useState(() => searchParams.get('modal'));
   
   react.useEffect(() => {
     const params = new URLSearchParams();
@@ -353,12 +354,10 @@ function VaultInner() {
   }, [active_tag, search, selected]);
 
   react.useEffect(() => {
-    if (state !== 'done') return;
-    const modal_id = searchParams.get('modal');
-    if (!modal_id || selected) return;
-    const match = resources.find(r => r.id === modal_id);
+    if (state !== 'done' || !initial_modal_id || selected) return;
+    const match = resources.find(r => r.id === initial_modal_id);
     if (match) { set_closing(false); set_selected(match); }
-  }, [state, resources]);
+  }, [state, resources, initial_modal_id, selected]);
 
   react.useEffect(() => {
     const els = document.querySelectorAll('.rev');
