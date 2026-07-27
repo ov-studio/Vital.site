@@ -17,7 +17,6 @@
         "method__is_autoplayed",
         
         "---⁝⁝Getter---",
-        "method__get_playback_position",
         "method__get_volume",
         "method__get_pitch_scale",
         "method__get_bus",
@@ -25,7 +24,8 @@
         "method__get_attenuation",
         "method__get_max_polyphony",
         "method__get_panning_strength",
-
+        "method__get_playback_position",
+        
         "---⁝⁝Setter---",
         "method__set_volume",
         "method__set_pitch_scale",
