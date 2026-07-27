@@ -18,7 +18,6 @@
         
         "---⁝⁝Getter---",
         "method__get_volume",
-        "method__get_bus",
         "method__get_max_distance",
         "method__get_attenuation",
         "method__get_pitch_scale",
@@ -27,7 +26,6 @@
         
         "---⁝⁝Setter---",
         "method__set_volume",
-        "method__set_bus",
         "method__set_paused",
         "method__set_max_distance",
         "method__set_attenuation",
