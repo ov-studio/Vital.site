@@ -42,9 +42,9 @@ Each entry in the `columns` table is a key-value pair where the key is the colum
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | `type` | `string` | `"VARCHAR(255)"` | SQL column type:<br/>• `"INT"` \| `"INT UNSIGNED"` \| `"BIGINT"`<br/>• `"FLOAT"` \| `"DOUBLE"`<br/>• `"BOOLEAN"`<br/>• `"VARCHAR(n)"` \| `"TEXT"`<br/>• `"DATETIME"` \| `"TIMESTAMP"` |
-| `primary` | `bool` | `false` | Whether this column is the primary key |
-| `autoincrement` | `bool` | `false` | Whether this column auto-increments<br/>Typically used alongside `"INT UNSIGNED"` primary keys |
-| `nullable` | `bool` | `true` | Whether this column allows `NULL` values |
+| `primary` | `bool` | `false` | Determines whether this column is the primary key:<br/>• When `true` - the column is used as the table's primary key<br/>• When `false` - the column is not part of the primary key |
+| `autoincrement` | `bool` | `false` | Determines whether this column auto-increments:<br/>• When `true` - the column's value increases automatically with each insert<br/>• When `false` - the column's value must be provided manually |
+| `nullable` | `bool` | `true` | Determines whether this column allows `NULL` values:<br/>• When `true` - the column may be left empty<br/>• When `false` - the column requires a value on insert |
 
 ---
 
