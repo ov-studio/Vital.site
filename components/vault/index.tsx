@@ -7,6 +7,11 @@ import * as react_dom       from 'react-dom';
 import * as next_navigation from 'next/navigation';
 import './index.css';
 
+const BANNER_CFG = {
+  card: { wrap: 'vault-card-banner', ph: 'vault-card-banner-placeholder', overlay: 'vault-card-banner-overlay', ico: 48 },
+  modal: { wrap: 'vault-modal-banner', ph: 'vault-modal-banner-placeholder', overlay: 'vault-modal-banner-overlay', ico: 80 },
+} as const;
+
 function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[] {
   return tags.filter(t => (config_vault.ALL_TAGS as readonly string[]).includes(t));
 }
@@ -20,9 +25,9 @@ function render_with_code(text: string): react.ReactNode[] {
   });
 }
 
-function useVaultResources() {
+function use_vault_resources() {
   const [resources, set_resources] = react.useState<config_vault.VaultResource[]>([]);
-  const [state,     set_state]     = react.useState<config_vault.LoadState>('loading');
+  const [state, set_state] = react.useState<config_vault.LoadState>('loading');
 
   react.useEffect(() => {
     let cancelled = false;
@@ -42,7 +47,6 @@ function useVaultResources() {
     load();
     return () => { cancelled = true; };
   }, []);
-
   return { resources, state };
 }
 
@@ -77,11 +81,6 @@ async function download_directory_zip(folder: string): Promise<void> {
   a.remove();
   URL.revokeObjectURL(url);
 }
-
-const BANNER_CFG = {
-  card:  { wrap: 'vault-card-banner',  ph: 'vault-card-banner-placeholder',  overlay: 'vault-card-banner-overlay',  ico: 48 },
-  modal: { wrap: 'vault-modal-banner', ph: 'vault-modal-banner-placeholder', overlay: 'vault-modal-banner-overlay', ico: 80 },
-} as const;
 
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
   const { wrap, ph, overlay, ico } = BANNER_CFG[size];
@@ -153,7 +152,6 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     const prev_pr = document.body.style.paddingRight;
     document.documentElement.style.overflow = 'hidden';
     document.body.style.paddingRight = `${sw}px`;
-
     return () => {
       document.documentElement.style.overflow = prev_ov;
       document.body.style.paddingRight = prev_pr;
@@ -264,10 +262,81 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
   );
 }
 
-export function Vault() {
+function VaultHead({ submit_href }: { submit_href?: string }) {
+  return (
+    <div className="vault-head">
+      <div className="sec-head">
+        <div>
+          <h2>Community built,<br/>All yours to <span>explore.</span></h2>
+        </div>
+      </div>
+      <div className="vault-intro sec-head">
+        <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
+        {submit_href && (
+          <a href={submit_href} target="_blank" rel="noreferrer" className="sec-link">
+            :: Submit Resource
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disabled }: config_vault.VaultFiltersProps) {
+  return (
+    <div className="vault-filters">
+      <div className="vault-search">
+        <lucide.Search size={14} strokeWidth={2.5}/>
+        <input
+          type="text"
+          value={disabled ? undefined : search}
+          onChange={disabled ? undefined : e => on_search?.(e.target.value)}
+          placeholder="Search resources…"
+          aria-label="Search"
+          spellCheck={false}
+          autoCorrect="off"
+          autoCapitalize="off"
+          disabled={disabled}
+        />
+      </div>
+
+      <div className="vault-filter-tags">
+        <button
+          className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
+          onClick={disabled ? undefined : () => on_tag?.(null)}
+          disabled={disabled}
+        >All</button>
+        {config_vault.ALL_TAGS.map(tag => (
+          <button
+            key={tag}
+            className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
+            onClick={disabled ? undefined : () => on_tag?.(tag === active_tag ? null : tag)}
+            disabled={disabled}
+          >{tag}</button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function VaultSkeleton() {
+  return (
+    <section id="vault">
+      <div className="sw">
+        <VaultHead/>
+        <VaultFilters disabled/>
+        <div className="vault-loading">
+          <lucide.Loader2 size={32} strokeWidth={2} className="vault-spin"/>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VaultInner() {
   const router = next_navigation.useRouter();
   const searchParams = next_navigation.useSearchParams();
-  const { resources, state } = useVaultResources();
+  const { resources, state } = use_vault_resources();
   const [search,  set_search] = react.useState(() => searchParams.get('search') ?? '');
   const [selected, set_selected] = react.useState<config_vault.VaultResource | null>(null);
   const [closing, set_closing] = react.useState(false);
@@ -330,54 +399,14 @@ export function Vault() {
     <>
       <section id="vault">
         <div className="sw">
-          <div className="vault-head">
-            <div className="sec-head">
-              <div>
-                <h2>Community built,<br/>All yours to <span>explore.</span></h2>
-              </div>
-            </div>
-            <div className="vault-intro sec-head">
-              <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
-              <a
-                href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}
-                target="_blank"
-                rel="noreferrer"
-                className="sec-link"
-              >
-                :: Submit Resource
-              </a>
-            </div>
-          </div>
+          <VaultHead submit_href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}/>
 
-          <div className="vault-filters">
-            <div className="vault-search">
-              <lucide.Search size={14} strokeWidth={2.5}/>
-              <input
-                type="text"
-                value={search}
-                onChange={e => set_search(e.target.value)}
-                placeholder="Search resources…"
-                aria-label="Search"
-                spellCheck={false}
-                autoCorrect="off"
-                autoCapitalize="off"
-              />
-            </div>
-
-            <div className="vault-filter-tags">
-              <button
-                className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
-                onClick={() => set_active_tag(null)}
-              >All</button>
-              {config_vault.ALL_TAGS.map(tag => (
-                <button
-                  key={tag}
-                  className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
-                  onClick={() => set_active_tag(tag === active_tag ? null : tag)}
-                >{tag}</button>
-              ))}
-            </div>
-          </div>
+          <VaultFilters
+            search={search}
+            on_search={set_search}
+            active_tag={active_tag}
+            on_tag={set_active_tag}
+          />
 
           {state === 'loading' && (
             <div className="vault-loading">
@@ -409,5 +438,13 @@ export function Vault() {
 
       {selected && <VaultModal resource={selected} on_close={close} closing={closing}/>}
     </>
+  );
+}
+
+export function Vault() {
+  return (
+    <react.Suspense fallback={<VaultSkeleton/>}>
+      <VaultInner/>
+    </react.Suspense>
   );
 }
