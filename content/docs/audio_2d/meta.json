@@ -27,7 +27,7 @@
         "method__get_panning_strength",
 
         "---⁝⁝Setter---",
-        "method__set_volume_db",
+        "method__set_volume",
         "method__set_pitch_scale",
         "method__set_bus",
         "method__set_stream_paused",

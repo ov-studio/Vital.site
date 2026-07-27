@@ -1,14 +1,14 @@
 ---
-title: self:set_volume_db
-description: Sets the volume of the audio_2d instance in decibels
+title: self:set_volume
+description: Sets the volume of the audio_2d instance
 badge: Client
 ---
 
 ### Syntax
 
 ```lua
-local status = self:set_volume_db(
-    volume_db
+local status = self:set_volume(
+    volume
 )
 ```
 
@@ -16,7 +16,7 @@ local status = self:set_volume_db(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | volume_db | Volume in decibels. `0.0` is full volume, negative values reduce it |
+| `float` | volume | Linear volume. `1.0` is full volume, `0.0` is silent |
 
 ### Returns
 
@@ -31,5 +31,5 @@ local status = self:set_volume_db(
 ```lua lineNumbers title="Reduce the volume of an audio_2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-entity:set_volume_db(-10.0)
+entity:set_volume(0.5)
 ```
