@@ -449,7 +449,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Audio 2D',
-        desc: 'Flat stereo playback, bus routing, and attenuation from Lua',
+        desc: 'Flat stereo playback, bus routing, and attenuation control for ambient sound and UI feedback from Lua',
         icon: <lucide.Volume2 {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] API: core.audio_2d.create', status: 'completed' },
@@ -484,7 +484,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         // TODO: WIP
         label: 'Audio 3D',
-        desc: 'Positional playback with attenuation, doppler, and directional emission from Lua',
+        desc: 'Positional playback with attenuation, doppler tracking, and directional emission control from Lua',
         icon: <lucide.Headphones {...config_site.info.lucide}/>,
         items: [
           { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
