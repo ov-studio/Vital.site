@@ -262,7 +262,7 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
   );
 }
 
-function VaultHead({ submit_href }: { submit_href?: string }) {
+function VaultHead() {
   return (
     <div className="vault-head">
       <div className="sec-head">
@@ -272,11 +272,9 @@ function VaultHead({ submit_href }: { submit_href?: string }) {
       </div>
       <div className="vault-intro sec-head">
         <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
-        {submit_href && (
-          <a href={submit_href} target="_blank" rel="noreferrer" className="sec-link">
-            :: Submit Resource
-          </a>
-        )}
+        <a href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`} target="_blank" rel="noreferrer" className="sec-link">
+          :: Submit Resource
+        </a>
       </div>
     </div>
   );
@@ -399,7 +397,7 @@ function VaultInner() {
     <>
       <section id="vault">
         <div className="sw">
-          <VaultHead submit_href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`}/>
+          <VaultHead/>
 
           <VaultFilters
             search={search}
