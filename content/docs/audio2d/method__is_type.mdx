@@ -1,0 +1,36 @@
+---
+title: self:is_type
+description: Checks whether the instance belongs to the specified type
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_type(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type to check against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the type of an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+core.engine.print("info", entity:is_type("audio2d")) -- true
+core.engine.print("info", entity:is_type("audio3d")) -- false
+```

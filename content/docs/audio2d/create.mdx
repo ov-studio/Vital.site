@@ -1,0 +1,45 @@
+---
+title: core.audio2d.create
+description: Creates a new Audio2D instance from a file path
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = core.audio2d.create(
+    path,
+    volume_db = 0.0,
+    pitch_scale = 1.0,
+    bus = "Master",
+    autoplay = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the audio asset. Supported formats: `.ogg`, `.wav`, `.mp3` |
+| `float` | volume_db | Initial volume in decibels. `0.0` is full volume, negative values reduce it |
+| `float` | pitch_scale | Initial pitch multiplier. `1.0` is normal pitch, `2.0` doubles it |
+| `string` | bus | Name of the audio bus to route playback through |
+| `bool` | autoplay | When `true`, playback begins automatically as soon as the instance is ready |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `audio2d` | instance | Created Audio2D instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a basic Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+```
+
+```lua lineNumbers title="Create a quieter, auto-playing instance on a custom bus"
+local entity = core.audio2d.create("sounds/ambient.ogg", -10.0, 1.0, "Ambient", true)
+```

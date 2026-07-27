@@ -1,0 +1,36 @@
+---
+title: self:get_stream_paused
+description: Checks whether the Audio2D stream is currently paused
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_stream_paused()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the stream is paused, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Resume a paused Audio2D stream"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+entity:play()
+entity:set_stream_paused(true)
+
+if entity:get_stream_paused() then
+    entity:set_stream_paused(false)
+end
+```

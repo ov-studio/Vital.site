@@ -1,0 +1,35 @@
+---
+title: self:set_attenuation
+description: Sets the attenuation curve factor of the Audio2D instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_attenuation(
+    curve
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | curve | Attenuation curve factor. Higher values cause volume to drop off more sharply with distance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a sharper attenuation curve"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+entity:set_attenuation(2.0)
+```

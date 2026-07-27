@@ -1,0 +1,32 @@
+---
+title: self:get_pitch_scale
+description: Retrieves the current pitch scale of the Audio2D instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_pitch_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current pitch multiplier. `1.0` is normal pitch |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the pitch scale of an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Pitch scale:", entity:get_pitch_scale())
+```

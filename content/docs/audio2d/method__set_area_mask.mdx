@@ -1,0 +1,35 @@
+---
+title: self:set_area_mask
+description: Sets the area mask of the Audio2D instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_area_mask(
+    mask
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Bitmask determining which areas interact with this audio source |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the area mask of an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+entity:set_area_mask(1)
+```

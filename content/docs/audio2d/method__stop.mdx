@@ -1,0 +1,33 @@
+---
+title: self:stop
+description: Stops playback of the Audio2D instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:stop()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Stop an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+entity:play()
+
+entity:stop()
+```

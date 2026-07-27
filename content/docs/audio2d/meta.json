@@ -1,0 +1,53 @@
+{
+    "title": "Audio 2D",
+    "icon": "Volume2",
+    "pages": [
+        "---Enum---",
+        "enum__playback_type",
+
+        "---Base---",
+        "create",
+        "...",
+
+        "---⁝⁝Lifecycle---",
+        "method__is_type",
+        "method__get_type",
+        "method__destroy",
+
+        "---⁝⁝Checker---",
+        "method__is_playing",
+        "method__is_autoplay_enabled",
+        "method__get_stream_paused",
+        "method__has_stream_playback",
+
+        "---⁝⁝Getter---",
+        "method__get_playback_position",
+        "method__get_volume_db",
+        "method__get_pitch_scale",
+        "method__get_bus",
+        "method__get_max_distance",
+        "method__get_attenuation",
+        "method__get_area_mask",
+        "method__get_max_polyphony",
+        "method__get_panning_strength",
+        "method__get_playback_type",
+
+        "---⁝⁝Setter---",
+        "method__set_volume_db",
+        "method__set_pitch_scale",
+        "method__set_bus",
+        "method__set_autoplay",
+        "method__set_stream_paused",
+        "method__set_max_distance",
+        "method__set_attenuation",
+        "method__set_area_mask",
+        "method__set_max_polyphony",
+        "method__set_panning_strength",
+        "method__set_playback_type",
+
+        "---⁝⁝Misc---",
+        "method__play",
+        "method__stop",
+        "method__seek"
+    ]
+}

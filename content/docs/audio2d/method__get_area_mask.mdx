@@ -1,0 +1,32 @@
+---
+title: self:get_area_mask
+description: Retrieves the area mask of the Audio2D instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_area_mask()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current area mask bitmask |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the area mask of an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Area mask:", entity:get_area_mask())
+```

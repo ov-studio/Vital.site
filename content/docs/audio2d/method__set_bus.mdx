@@ -1,0 +1,35 @@
+---
+title: self:set_bus
+description: Sets the audio bus the Audio2D instance is routed through
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_bus(
+    bus
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | bus | Name of the audio bus to route playback through |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Route an Audio2D instance to a custom bus"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+entity:set_bus("Ambient")
+```

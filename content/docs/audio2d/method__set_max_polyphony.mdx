@@ -1,0 +1,35 @@
+---
+title: self:set_max_polyphony
+description: Sets the maximum number of simultaneous voices for the Audio2D instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_max_polyphony(
+    voices
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | voices | Maximum number of simultaneous voices. Useful for sound effects that may overlap |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Allow up to 4 simultaneous voices on a sound effect"
+local entity = core.audio2d.create("sounds/sfx.ogg")
+
+entity:set_max_polyphony(4)
+```

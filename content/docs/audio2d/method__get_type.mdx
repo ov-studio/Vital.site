@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Retrieves the type name of the instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Type of the instance, `false` if unavailable |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+core.engine.print("info", entity:get_type()) -- 'audio2d'
+```

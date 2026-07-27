@@ -1,0 +1,35 @@
+---
+title: self:set_max_distance
+description: Sets the maximum distance at which the Audio2D instance can be heard
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_max_distance(
+    pixels
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | pixels | Maximum audible distance in pixels. Beyond this distance the audio is inaudible |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the max audible distance of an Audio2D instance"
+local entity = core.audio2d.create("sounds/ambient.ogg")
+
+entity:set_max_distance(500.0)
+```
