@@ -1,6 +1,6 @@
 ---
 title: self:get_volume
-description: Retrieves the current volume of the audio-2d instance
+description: Retrieves the current volume of the audio_2d instance
 badge: Client
 ---
 
@@ -19,13 +19,13 @@ local result = self:get_volume()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | result | Current linear volume. `1.0` is full volume, `0.0` is silent |
+| `float` | result | Current linear volume, where `0.0` is silent and `1.0` is full volume<br/>Values above `1.0` amplify the audio beyond its original level |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the volume of an audio-2d instance"
+```lua lineNumbers title="Get the volume of an audio_2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 core.engine.print("info", "Volume:", entity:get_volume())
