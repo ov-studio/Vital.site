@@ -1,6 +1,6 @@
 ---
 title: self:get_max_distance
-description: Retrieves the maximum distance at which the audio_2d instance can be heard
+description: Retrieves the maximum distance at which the audio-2d instance can be heard
 badge: Client
 ---
 
@@ -25,7 +25,7 @@ local result = self:get_max_distance()
 
 ### Examples
 
-```lua lineNumbers title="Get the max distance of an audio_2d instance"
+```lua lineNumbers title="Get the max distance of an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 core.engine.print("info", "Max distance:", entity:get_max_distance())

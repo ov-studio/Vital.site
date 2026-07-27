@@ -1,6 +1,6 @@
 ---
 title: self:get_bus
-description: Retrieves the name of the audio bus the audio_2d instance is routed through
+description: Retrieves the name of the audio bus the audio-2d instance is routed through
 badge: Client
 ---
 
@@ -25,7 +25,7 @@ local result = self:get_bus()
 
 ### Examples
 
-```lua lineNumbers title="Get the bus of an audio_2d instance"
+```lua lineNumbers title="Get the bus of an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 core.engine.print("info", "Bus:", entity:get_bus())

@@ -1,6 +1,6 @@
 ---
 title: self:get_attenuation
-description: Retrieves the attenuation curve factor of the audio_2d instance
+description: Retrieves the attenuation curve factor of the audio-2d instance
 badge: Client
 ---
 
@@ -25,7 +25,7 @@ local result = self:get_attenuation()
 
 ### Examples
 
-```lua lineNumbers title="Get the attenuation of an audio_2d instance"
+```lua lineNumbers title="Get the attenuation of an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 core.engine.print("info", "Attenuation:", entity:get_attenuation())

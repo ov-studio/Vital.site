@@ -1,6 +1,6 @@
 ---
 title: self:get_max_polyphony
-description: Retrieves the maximum number of simultaneous voices for the audio_2d instance
+description: Retrieves the maximum number of simultaneous voices for the audio-2d instance
 badge: Client
 ---
 
@@ -25,7 +25,7 @@ local result = self:get_max_polyphony()
 
 ### Examples
 
-```lua lineNumbers title="Get the max polyphony of an audio_2d instance"
+```lua lineNumbers title="Get the max polyphony of an audio-2d instance"
 local entity = core.audio_2d.create("sounds/sfx.ogg")
 
 core.engine.print("info", "Max polyphony:", entity:get_max_polyphony())
