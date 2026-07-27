@@ -8,7 +8,8 @@ badge: Client
 
 ```lua
 local instance = core.audio_2d.create(
-    path
+    path,
+    autoplay = false
 )
 ```
 
@@ -17,6 +18,7 @@ local instance = core.audio_2d.create(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | path | File path to the audio asset. Supported formats: `.ogg`, `.wav`, `.mp3` |
+| `boolean` | autoplay | Whether the instance should start playing as soon as it's created |
 
 ### Returns
 
@@ -30,6 +32,11 @@ local instance = core.audio_2d.create(
 
 ```lua lineNumbers title="Create a basic audio_2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
+entity:play()
+```
+
+```lua lineNumbers title="Create an instance that starts playing immediately"
+local entity = core.audio_2d.create("sounds/ambient.ogg", true)
 ```
 
 ```lua lineNumbers title="Create a quieter instance on a custom bus, then play it"
