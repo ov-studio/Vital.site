@@ -256,6 +256,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'FOV, near/far clip, projection mode, DOF, auto exposure, and ray projection control from Lua',
         icon: <lucide.Video {...config_site.info.lucide}/>,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
           { label: '[Client] Enum: core.camera.projection', status: 'completed' },
           { label: '[Client] Enum: core.camera.keep_aspect', status: 'completed' },
           { label: '[Client] Enum: core.camera.doppler_tracking', status: 'completed' },
@@ -434,8 +435,8 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <lucide.Layers {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
-          { label: 'Optional alpha-transparent render surface', status: 'completed' },
-          { label: 'Optional immediate-mode per-frame updates', status: 'completed' },
+          { label: 'Alpha-transparent render surface', status: 'completed' },
+          { label: 'Immediate-mode per-frame updates', status: 'completed' },
           { label: '[Client] API: core.rendertarget.create', status: 'completed' },
           { label: '[Client] API: core.rendertarget.get_active', status: 'completed' },
           { label: '[Client] API: core.rendertarget.set_active', status: 'completed' },
@@ -452,6 +453,10 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Flat stereo playback, bus routing, and attenuation control for ambient sound and UI feedback from Lua',
         icon: <lucide.Volume2 {...config_site.info.lucide}/>,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Format: OGG', status: 'completed' },
+          { label: 'Format: WAV', status: 'completed' },
+          { label: 'Format: MP3', status: 'completed' },
           { label: '[Client] API: core.audio_2d.create', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:is_type', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:get_type', status: 'completed' },
@@ -486,6 +491,10 @@ export const Roadmap: RoadmapSection[] = build([
         desc: 'Positional playback with attenuation, doppler tracking, and directional emission control from Lua',
         icon: <lucide.Headphones {...config_site.info.lucide}/>,
         items: [
+          { label: 'Lifecycle hooks', status: 'completed' },
+          { label: 'Format: OGG', status: 'completed' },
+          { label: 'Format: WAV', status: 'completed' },
+          { label: 'Format: MP3', status: 'completed' },
           { label: 'AudioStreamPlayer3D (positional)', status: 'pending' },
           { label: 'Play / stop / pause / seek', status: 'pending' },
           { label: 'Volume (linear & dB) control', status: 'pending' },
