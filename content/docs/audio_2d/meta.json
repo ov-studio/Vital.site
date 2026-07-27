@@ -30,7 +30,7 @@
         "method__set_volume",
         "method__set_pitch_scale",
         "method__set_bus",
-        "method__set_stream_paused",
+        "method__set_paused",
         "method__set_max_distance",
         "method__set_attenuation",
         "method__set_max_polyphony",

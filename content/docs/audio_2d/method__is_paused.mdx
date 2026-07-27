@@ -29,9 +29,9 @@ local result = self:is_paused()
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 entity:play()
-entity:set_stream_paused(true)
+entity:set_paused(true)
 
 if entity:is_paused() then
-    entity:set_stream_paused(false)
+    entity:set_paused(false)
 end
 ```

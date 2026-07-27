@@ -1,5 +1,5 @@
 ---
-title: self:set_stream_paused
+title: self:set_paused
 description: Sets the paused state of the audio-2d stream
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local status = self:set_stream_paused(
+local status = self:set_paused(
     pause
 )
 ```
@@ -35,8 +35,8 @@ local entity = core.audio_2d.create("sounds/ambient.ogg")
 entity:play()
 
 -- Pause
-entity:set_stream_paused(true)
+entity:set_paused(true)
 
 -- Resume
-entity:set_stream_paused(false)
+entity:set_paused(false)
 ```
