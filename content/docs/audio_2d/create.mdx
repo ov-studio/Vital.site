@@ -18,7 +18,7 @@ local instance = core.audio_2d.create(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | path | File path to the audio asset. Supported formats: `.ogg`, `.wav`, `.mp3` |
-| `boolean` | autoplay | Whether the instance should start playing as soon as it's created |
+| `bool` | autoplay | Determines whether the audio starts playing immediately:<br/>• When `true` - playback begins as soon as the instance is created<br/>• When `false` - playback must be started manually via [`self:play()`](/docs/audio_2d/method/play) |
 
 ### Returns
 
