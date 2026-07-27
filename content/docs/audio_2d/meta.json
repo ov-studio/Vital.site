@@ -23,7 +23,6 @@
         "method__get_bus",
         "method__get_max_distance",
         "method__get_attenuation",
-        "method__get_area_mask",
         "method__get_max_polyphony",
         "method__get_panning_strength",
 
@@ -35,7 +34,6 @@
         "method__set_stream_paused",
         "method__set_max_distance",
         "method__set_attenuation",
-        "method__set_area_mask",
         "method__set_max_polyphony",
         "method__set_panning_strength",
 
