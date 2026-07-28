@@ -1,6 +1,6 @@
 ---
 title: core.engine.world_to_screen
-description: Projects a 3D world position to 2D screen-space coordinates via the active viewport camera
+description: Projects a 3D world-space position to 2D screen-space coordinates via the active viewport camera
 badge: Client
 ---
 
@@ -17,7 +17,7 @@ local position, distance = core.engine.world_to_screen(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | 3D world position to convert to screen-space coordinates |
+| `vector3` | position | World-space position to convert to screen-space coordinates |
 | `float` | padding | Extra pixel boundary beyond screen edges before treating the point as off-screen |
 
 ### Returns
