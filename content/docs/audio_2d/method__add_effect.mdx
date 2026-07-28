@@ -7,8 +7,8 @@ badge: Client
 ### Syntax
 
 ```lua
-local effect_index = self:add_effect(
-    type,
+local id = self:add_effect(
+    name,
     parameters = {}
 )
 ```
@@ -17,18 +17,18 @@ local effect_index = self:add_effect(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | type | Effect type to add<br/>Refer [**Effect Types**](#effect-types) section |
+| `string` | name | Effect to add<br/>Refer [**Effects**](#effect-types) section |
 | `table` | parameters | Parameters specific to the given effect `type`<br/>Omitted keys fall back to the engine default value |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` \| `bool` | effect_index | Index of the newly added effect on success, `false` otherwise |
+| `int` \| `bool` | id | Index of the newly added effect on success, `false` otherwise |
 
 ---
 
-### Effect Types
+### Effects
 
 #### reverb
 
@@ -169,7 +169,7 @@ local effect_index = self:add_effect(
 ```lua lineNumbers title="Add a reverb effect to an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-local effect_index = entity:add_effect("reverb", {
+local id = entity:add_effect("reverb", {
     room_size = 0.8,
     wet = 0.5,
     dry = 0.5
