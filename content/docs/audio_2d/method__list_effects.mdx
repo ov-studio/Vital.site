@@ -32,10 +32,13 @@ entity:add_effect("my_reverb", "reverb")
 entity:add_effect("my_amp", "amplify", { volume_db = 6.0 })
 
 local effects = entity:list_effects()
+core.engine.iprint(effects)
 
-for i, name in ipairs(effects) do
-    core.engine.print("info", i, name)
-end
--- 1   my_reverb
--- 2   my_amp
+--[[
+Output:
+{
+    1: 'my_reverb'
+    2: 'my_amp'
+}
+]]
 ```
