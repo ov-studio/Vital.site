@@ -34,7 +34,7 @@ Chorus — layers detuned copies of the signal for a fuller sound.
 | `voice_count` | `int` | Number of chorus voices |
 | `wet` | `float` | Amount of processed signal in the output |
 | `dry` | `float` | Amount of unprocessed signal in the output |
-| `voices` | `table` | Array indexed `1..voice_count`, each entry a table with `delay_ms`, `rate_hz`, `depth_ms`, `level_db`, `cutoff_hz`, `pan` |
+| `voices` | `table[]` | Array indexed `1..voice_count`, each entry a table with `delay_ms`, `rate_hz`, `depth_ms`, `level_db`, `cutoff_hz`, `pan` |
 
 ---
 
@@ -270,7 +270,7 @@ High-shelf filter — boosts or cuts all frequencies above the cutoff.
 
 | Key | Type | Description |
 |-----|------|-------------|
-| `bands` | `table` | Array of 6 entries, each the gain in decibels for that band |
+| `bands` | `float[]` | Array of 6 entries, each the gain in decibels for that band |
 
 ---
 
@@ -280,7 +280,7 @@ High-shelf filter — boosts or cuts all frequencies above the cutoff.
 
 | Key | Type | Description |
 |-----|------|-------------|
-| `bands` | `table` | Array of 10 entries, each the gain in decibels for that band |
+| `bands` | `float[]` | Array of 10 entries, each the gain in decibels for that band |
 
 ---
 
@@ -290,4 +290,4 @@ High-shelf filter — boosts or cuts all frequencies above the cutoff.
 
 | Key | Type | Description |
 |-----|------|-------------|
-| `bands` | `table` | Array of 21 entries, each the gain in decibels for that band |
+| `bands` | `float[]` | Array of 21 entries, each the gain in decibels for that band |
