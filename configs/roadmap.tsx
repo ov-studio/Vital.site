@@ -450,7 +450,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Audio 2D',
-        desc: 'Flat stereo playback, bus routing, and attenuation control for ambient sound and UI feedback from Lua',
+        desc: 'Flat stereo audio playback with attenuation, pitch, panning, and a real-time effect chain from Lua',
         icon: <lucide.Volume2 {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
@@ -478,13 +478,18 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_2d>:set_panning_strength', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:play', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:stop', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:seek', status: 'completed' }
+          { label: '[Client] API: self<audio_2d>:seek', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:add_effect', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:remove_effect', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:list_effects', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_effect_enabled', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:is_effect_enabled', status: 'completed' },
         ]
       },
       {
         // TODO: WIP
         label: 'Audio 3D',
-        desc: 'Positional playback with attenuation, doppler tracking, and directional emission control from Lua',
+        desc: 'Positional audio playback with attenuation, doppler, directional emission, and effect chain from Lua',
         icon: <lucide.Headphones {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks', status: 'completed' },
