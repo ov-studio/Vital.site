@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local id = self:add_effect(
+local status = self:add_effect(
     name,
     type,
     parameters = {}
@@ -26,7 +26,7 @@ local id = self:add_effect(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` \| `bool` | id | Index of the newly added effect on success, `false` otherwise |
+| `bool` | status | `true` on successful execution, `false` otherwise |
 
 ---
 
@@ -171,7 +171,7 @@ local id = self:add_effect(
 ```lua lineNumbers title="Add a reverb effect to an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-local id = entity:add_effect("my_reverb", "reverb", {
+local status = entity:add_effect("my_reverb", "reverb", {
     room_size = 0.8,
     wet = 0.5,
     dry = 0.5
