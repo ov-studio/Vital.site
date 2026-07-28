@@ -39,6 +39,7 @@
         "method__add_effect",
         "method__remove_effect",
         "method__get_effect_count",
+        "method__get_effects",
         "method__set_effect_enabled",
         "method__is_effect_enabled"
     ]

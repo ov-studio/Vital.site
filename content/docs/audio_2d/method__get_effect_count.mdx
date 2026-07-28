@@ -28,8 +28,8 @@ local count = self:get_effect_count()
 ```lua lineNumbers title="Get the effect count of an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-entity:add_effect("reverb")
-entity:add_effect("amplify", { volume_db = 6.0 })
+entity:add_effect("my_reverb", "reverb")
+entity:add_effect("my_amp", "amplify", { volume_db = 6.0 })
 
 core.engine.print("info", "Effect count:", entity:get_effect_count()) -- 2
 ```

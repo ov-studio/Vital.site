@@ -8,7 +8,7 @@ badge: Client
 
 ```lua
 local result = self:is_effect_enabled(
-    id
+    name
 )
 ```
 
@@ -16,7 +16,7 @@ local result = self:is_effect_enabled(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | id | Index of the effect to check, as returned by [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
+| `string` | name | Identifier of the effect to check, as passed to [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
 
 ### Returns
 
@@ -31,7 +31,7 @@ local result = self:is_effect_enabled(
 ```lua lineNumbers title="Check whether an effect is enabled on an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-local id = entity:add_effect("reverb", { wet = 0.5 })
+entity:add_effect("my_reverb", "reverb", { wet = 0.5 })
 
-core.engine.print("info", entity:is_effect_enabled(id)) -- true
+core.engine.print("info", entity:is_effect_enabled("my_reverb")) -- true
 ```

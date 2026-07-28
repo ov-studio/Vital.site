@@ -8,7 +8,7 @@ badge: Client
 
 ```lua
 local status = self:set_effect_enabled(
-    id,
+    name,
     state
 )
 ```
@@ -17,7 +17,7 @@ local status = self:set_effect_enabled(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | id | Index of the effect to toggle, as returned by [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
+| `string` | name | Identifier of the effect to toggle, as passed to [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
 | `bool` | state | Determines the enabled state of the effect:<br/>• When `true` - the effect is applied to the signal<br/>• When `false` - the effect is bypassed |
 
 ### Returns
@@ -33,11 +33,11 @@ local status = self:set_effect_enabled(
 ```lua lineNumbers title="Toggle an effect on an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-local id = entity:add_effect("reverb", { wet = 0.5 })
+entity:add_effect("my_reverb", "reverb", { wet = 0.5 })
 
 -- Bypass
-entity:set_effect_enabled(id, false)
+entity:set_effect_enabled("my_reverb", false)
 
 -- Re-enable
-entity:set_effect_enabled(id, true)
+entity:set_effect_enabled("my_reverb", true)
 ```
