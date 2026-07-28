@@ -35,6 +35,11 @@
         "---⁝⁝Misc---",
         "method__play",
         "method__stop",
-        "method__seek"
+        "method__seek",
+        "method__add_effect",
+        "method__remove_effect",
+        "method__get_effect_count",
+        "method__set_effect_enabled",
+        "method__is_effect_enabled"
     ]
 }
