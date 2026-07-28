@@ -2,6 +2,9 @@
     "title": "Audio 2D",
     "icon": "Volume2",
     "pages": [
+        "---Enum---",
+        "enum__effect",
+
         "---Base---",
         "create",
         "...",
