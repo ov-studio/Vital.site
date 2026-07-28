@@ -1,6 +1,6 @@
 ---
 title: core.engine.get_timestamp
-description: Retrieves engine's current timestamp
+description: Retrieves current timestamp
 badge: Shared
 ---
 
@@ -19,13 +19,13 @@ local timestamp = core.engine.get_timestamp()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | timestamp | Engine's current timestamp containing the following fields:<br/>• `hour` (number) - current hour<br/>• `minute` (number) - current minute<br/>• `second` (number) - current second<br/>• `day` (number) - current day<br/>• `month` (number) - current month<br/>• `year` (number) - current year |
+| `table` | timestamp | Current timestamp containing the following fields:<br/>• `hour` (number) - current hour<br/>• `minute` (number) - current minute<br/>• `second` (number) - current second<br/>• `day` (number) - current day<br/>• `month` (number) - current month<br/>• `year` (number) - current year |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Prints engine's current timestamp"
+```lua lineNumbers title="Prints current timestamp"
 core.engine.print("info", "current timestamp:")
 core.engine.iprint(core.engine.get_timestamp())
 ```
