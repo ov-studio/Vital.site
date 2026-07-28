@@ -34,8 +34,7 @@ Chorus — layers detuned copies of the signal for a fuller sound.
 | `voice_count` | `int` | Number of chorus voices |
 | `wet` | `float` | Amount of processed signal in the output |
 | `dry` | `float` | Amount of unprocessed signal in the output |
-| `voices` | `table[]` | Array indexed `1..voice_count`, each entry a table with `delay_ms`, `rate_hz`, `depth_ms`, `level_db`, `cutoff_hz`, `pan` |
-
+| `voices` | `table[]` | Array of `voice_count` entries, each a table with the following fields:<br/>• `delay_ms` - `float`<br/>• `rate_hz` - `float`<br/>• `depth_ms` - `float`<br/>• `level_db` - `float`<br/>• `cutoff_hz` - `float`<br/>• `pan` - `float` |
 ---
 
 #### `core.audio_2d.effect.DELAY`
