@@ -19,8 +19,8 @@ local status = self:add_effect(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Unique name for this effect slot |
-| `string` | type | Effect type to instantiate<br/>Refer [**Effects**](#effect-types) section |
-| `table` | parameters | Parameters specific to the given effect `type`<br/>Omitted keys fall back to the engine's default value |
+| `core.audio_2d.effect` | effect | Effect to instantiate<br/>Refer [**core.audio_2d.effect**](/docs/audio_2d/enum/effect) |
+| `table` | parameters | Parameters specific to the assigned effect<br/>Omitted keys fall back to the engine's default value<br/>Refer [**core.audio_2d.effect**](/docs/audio_2d/enum/effect) |
 
 ### Returns
 
