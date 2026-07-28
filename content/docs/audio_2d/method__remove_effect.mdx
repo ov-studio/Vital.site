@@ -16,7 +16,7 @@ local status = self:remove_effect(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | name | Name of the effect to remove, as passed to [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
+| `string` | name | Name of the effect to remove |
 
 ### Returns
 
@@ -32,6 +32,5 @@ local status = self:remove_effect(
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 entity:add_effect("my_reverb", "reverb", { wet = 0.5 })
-
 entity:remove_effect("my_reverb")
 ```
