@@ -1,5 +1,5 @@
 ---
-title: self:get_effects
+title: self:list_effects
 description: Retrieves the names of all audio effects applied to the audio-2d instance
 badge: Client
 ---
@@ -7,7 +7,7 @@ badge: Client
 ### Syntax
 
 ```lua
-local effects = self:get_effects()
+local effects = self:list_effects()
 ```
 
 ### Parameters
@@ -31,7 +31,7 @@ local entity = core.audio_2d.create("sounds/ambient.ogg")
 entity:add_effect("my_reverb", "reverb")
 entity:add_effect("my_amp", "amplify", { volume_db = 6.0 })
 
-local effects = entity:get_effects()
+local effects = entity:list_effects()
 
 for i, name in ipairs(effects) do
     core.engine.print("info", i, name)
