@@ -31,8 +31,7 @@ local entity = core.audio_2d.create("sounds/ambient.ogg")
 entity:add_effect("my_reverb", "reverb")
 entity:add_effect("my_amp", "amplify", { volume_db = 6.0 })
 
-local effects = entity:list_effects()
-core.engine.iprint(effects)
+core.engine.iprint(entity:list_effects())
 
 --[[
 Output:
