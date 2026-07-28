@@ -1,0 +1,35 @@
+---
+title: self:get_effect_count
+description: Retrieves the number of audio effects applied to the audio-2d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local count = self:get_effect_count()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | count | Number of effects currently applied to the instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the effect count of an audio-2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+entity:add_effect("reverb")
+entity:add_effect("amplify", { volume_db = 6.0 })
+
+core.engine.print("info", "Effect count:", entity:get_effect_count()) -- 2
+```

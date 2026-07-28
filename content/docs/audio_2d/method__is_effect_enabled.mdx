@@ -1,0 +1,37 @@
+---
+title: self:is_effect_enabled
+description: Checks whether an audio effect on the audio-2d instance's effect chain is enabled
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_effect_enabled(
+    effect_index
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | effect_index | Index of the effect to check, as returned by [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the effect is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether an effect is enabled on an audio-2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+local effect_index = entity:add_effect("reverb", { wet = 0.5 })
+
+core.engine.print("info", entity:is_effect_enabled(effect_index)) -- true
+```

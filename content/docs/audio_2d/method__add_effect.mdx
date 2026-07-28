@@ -1,0 +1,189 @@
+---
+title: self:add_effect
+description: Adds an audio effect to the audio-2d instance's effect chain
+badge: Client
+---
+
+### Syntax
+
+```lua
+local effect_index = self:add_effect(
+    type,
+    parameters = {}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | type | Effect type to add<br/>Refer [**Effect Types**](#effect-types) section |
+| `table` | parameters | Parameters specific to the given effect `type`<br/>Omitted keys fall back to the engine default value |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` \| `bool` | effect_index | Index of the newly added effect on success, `false` otherwise |
+
+---
+
+### Effect Types
+
+#### reverb
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `room_size` | `float` | Size of the simulated room |
+| `damping` | `float` | High-frequency damping of the reflections |
+| `spread` | `float` | Stereo spread of the reflections |
+| `wet` | `float` | Amount of processed signal in the output |
+| `dry` | `float` | Amount of unprocessed signal in the output |
+| `hpf` | `float` | High-pass filter applied to the reflections |
+| `predelay_msec` | `float` | Delay in milliseconds before reflections start |
+| `predelay_feedback` | `float` | Feedback amount applied to the pre-delay |
+
+#### chorus
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `voice_count` | `int` | Number of chorus voices |
+| `wet` | `float` | Amount of processed signal in the output |
+| `dry` | `float` | Amount of unprocessed signal in the output |
+| `voices` | `table` | Array indexed `1..voice_count`, each entry a table with `delay_ms`, `rate_hz`, `depth_ms`, `level_db`, `cutoff_hz`, `pan` |
+
+#### delay
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `dry` | `float` | Amount of unprocessed signal in the output |
+| `tap1_active` | `bool` | Enables the first delay tap |
+| `tap1_delay_ms` | `float` | Delay time of the first tap |
+| `tap1_level_db` | `float` | Output level of the first tap |
+| `tap1_pan` | `float` | Stereo pan of the first tap |
+| `tap2_active` | `bool` | Enables the second delay tap |
+| `tap2_delay_ms` | `float` | Delay time of the second tap |
+| `tap2_level_db` | `float` | Output level of the second tap |
+| `tap2_pan` | `float` | Stereo pan of the second tap |
+| `feedback_active` | `bool` | Enables the feedback loop |
+| `feedback_delay_ms` | `float` | Delay time of the feedback loop |
+| `feedback_level_db` | `float` | Output level of the feedback loop |
+| `feedback_lowpass` | `float` | Low-pass cutoff applied to the feedback loop |
+
+#### distortion
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `mode` | `int` | Distortion mode enum |
+| `pre_gain` | `float` | Gain applied before distortion |
+| `keep_hf_hz` | `float` | Frequency above which the signal is preserved |
+| `drive` | `float` | Amount of distortion applied |
+| `post_gain` | `float` | Gain applied after distortion |
+
+#### amplify
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `volume_db` | `float` | Amplification amount in decibels |
+| `volume_linear` | `float` | Amplification amount as a linear multiplier |
+
+#### compressor
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `threshold` | `float` | Level above which compression is applied |
+| `ratio` | `float` | Amount of compression applied above the threshold |
+| `gain` | `float` | Output gain compensation |
+| `attack_us` | `float` | Attack time in microseconds |
+| `release_ms` | `float` | Release time in milliseconds |
+| `mix` | `float` | Blend between unprocessed and compressed signal |
+
+#### limiter
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `ceiling_db` | `float` | Maximum output level |
+| `threshold_db` | `float` | Level above which limiting is applied |
+| `soft_clip_db` | `float` | Range over which soft clipping is applied |
+| `soft_clip_ratio` | `float` | Amount of soft clipping applied |
+
+#### hard_limiter
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `ceiling_db` | `float` | Maximum output level |
+| `pre_gain_db` | `float` | Gain applied before limiting |
+| `release` | `float` | Release time of the limiter |
+
+#### panner
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `pan` | `float` | Stereo position, from `-1.0` (left) to `1.0` (right) |
+
+#### phaser
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `range_min_hz` | `float` | Lower bound of the sweep range |
+| `range_max_hz` | `float` | Upper bound of the sweep range |
+| `rate_hz` | `float` | Speed of the sweep |
+| `feedback` | `float` | Amount of feedback applied to the sweep |
+| `depth` | `float` | Intensity of the phasing effect |
+
+#### pitch_shift
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `pitch_scale` | `float` | Pitch multiplier applied to the signal |
+| `oversampling` | `int` | Oversampling factor used during processing |
+| `fft_size` | `int` | FFT size enum used during processing |
+
+#### stereo_enhance
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `pan_pullout` | `float` | Amount of stereo pan widening |
+| `time_pullout` | `float` | Amount of time-based stereo widening |
+| `surround` | `float` | Amount of surround signal added |
+
+#### lowpass_filter, highpass_filter, bandpass_filter, notch_filter, bandlimit_filter, lowshelf_filter, highshelf_filter
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+#### eq6, eq10, eq21
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `bands` | `table` | Array indexed `1..band_count`, each entry the gain in decibels for that band |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Add a reverb effect to an audio-2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+local effect_index = entity:add_effect("reverb", {
+    room_size = 0.8,
+    wet = 0.5,
+    dry = 0.5
+})
+
+entity:play()
+```
+
+```lua lineNumbers title="Add a 10-band EQ effect to an audio-2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+entity:add_effect("eq10", {
+    bands = { 0.0, 0.0, -3.0, -3.0, 0.0, 0.0, 2.0, 2.0, 0.0, 0.0 }
+})
+
+entity:play()
+```

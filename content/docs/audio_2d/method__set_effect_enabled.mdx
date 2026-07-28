@@ -1,0 +1,43 @@
+---
+title: self:set_effect_enabled
+description: Enables or disables an audio effect on the audio-2d instance's effect chain
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_effect_enabled(
+    effect_index,
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | effect_index | Index of the effect to toggle, as returned by [`self:add_effect()`](/docs/audio_2d/method/add_effect) |
+| `bool` | state | Determines the enabled state of the effect:<br/>• When `true` - the effect is applied to the signal<br/>• When `false` - the effect is bypassed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle an effect on an audio-2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+local effect_index = entity:add_effect("reverb", { wet = 0.5 })
+
+-- Bypass
+entity:set_effect_enabled(effect_index, false)
+
+-- Re-enable
+entity:set_effect_enabled(effect_index, true)
+```
