@@ -171,7 +171,7 @@ local status = self:add_effect(
 ```lua lineNumbers title="Add a reverb effect to an audio-2d instance"
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
-local status = entity:add_effect("my_reverb", "reverb", {
+entity:add_effect("my_reverb", "reverb", {
     room_size = 0.8,
     wet = 0.5,
     dry = 0.5
