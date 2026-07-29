@@ -1,7 +1,6 @@
 import * as config_site from '@/configs/site';
 
 const RELEASES_URL = `https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`;
-const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 interface ReleaseInfo {
   tag: string;
@@ -32,7 +31,7 @@ export async function GET() {
   const now = Date.now();
 
   // Serve from cache if still fresh
-  if (cache && now - cache.fetched_at < CACHE_TTL_MS) {
+  if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms) {
     return Response.json(cache.data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',

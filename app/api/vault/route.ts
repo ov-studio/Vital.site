@@ -2,7 +2,6 @@
 import * as config_site from '@/configs/site';
 
 const RAW_URL = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/vault.json`;
-const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 interface CacheEntry {
   data: unknown;
@@ -15,7 +14,7 @@ export async function GET() {
   const now = Date.now();
 
   // Serve from cache if still fresh
-  if (cache && now - cache.fetched_at < CACHE_TTL_MS) {
+  if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms) {
     return Response.json(cache.data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
