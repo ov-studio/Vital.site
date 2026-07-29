@@ -42,8 +42,8 @@
 
   /* ── Borders ── */
   --rule: hsl(220, 18%, 9%);
-  --rule-dim: hsl(220, 18%, 7%);
-  --rule-dim2: hsl(220, 18%, 20%);
+  --rule7: hsl(220, 18%, 7%);
+  --rule2: hsl(220, 18%, 20%);
 
 
   /* ── Syntax highlight ── */
@@ -87,10 +87,10 @@ html {
 * {
   cursor: none;
   scrollbar-width: thin;
-  scrollbar-color: var(--b10) var(--rule-dim);
+  scrollbar-color: var(--b10) var(--rule7);
 }
 *::-webkit-scrollbar { width: 6px; height: 6px; }
-*::-webkit-scrollbar-track { background: var(--rule-dim); }
+*::-webkit-scrollbar-track { background: var(--rule7); }
 *::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
 *::-webkit-scrollbar-thumb:hover { background: var(--b20); }
 
