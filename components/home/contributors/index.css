@@ -12,7 +12,7 @@
 .contrib-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 20px;
 }
 
 .contrib-avatar {
@@ -24,7 +24,7 @@
   overflow: hidden;
   background: var(--bg5);
   flex-shrink: 0;
-  box-shadow: 0 0 0px 4px var(--b30);
+  box-shadow: 0 0 0px 4px var(--rule-dim2);
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .contrib-avatar:hover { z-index: 2; box-shadow: 0 0 0px 4px var(--blue); }
