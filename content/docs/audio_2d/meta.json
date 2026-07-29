@@ -35,14 +35,17 @@
         "method__set_pitch_scale",
         "method__set_panning_strength",
 
-        "---⁝⁝Misc---",
-        "method__play",
-        "method__stop",
-        "method__seek",
+        "---⁝⁝Effect---",
         "method__add_effect",
         "method__remove_effect",
         "method__list_effects",
+        "method__is_effect_enabled",
         "method__set_effect_enabled",
-        "method__is_effect_enabled"
+        
+        
+        "---⁝⁝Misc---",
+        "method__play",
+        "method__stop",
+        "method__seek"
     ]
 }
