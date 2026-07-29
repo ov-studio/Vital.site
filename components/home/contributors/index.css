@@ -62,14 +62,14 @@
 
 .contrib-tip strong {
   font-family: 'Geist', sans-serif;
-  font-size: .7rem;
-  font-weight: 700;
+  font-size: .75rem;
+  font-weight: 800;
   color: var(--blue);
 }
 .contrib-tip em {
   font-family: 'Geist', sans-serif;
   font-style: normal;
-  font-size: .64rem;
+  font-size: .66rem;
   font-weight: 500;
   color: var(--text-muted);
 }
