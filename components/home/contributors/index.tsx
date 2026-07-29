@@ -26,7 +26,7 @@ export function Contributors() {
         <div className="sec-head">
           <div className="rev">
             <div className="slabel">Contributors</div>
-            <h2>Built by the community.<br />Powered by <span>everyone.</span></h2>
+            <h2>Built by the community.<br/>Powered by <span>everyone.</span></h2>
           </div>
           <a href="https://github.com/ov-studio" className="sec-link rev" target="_blank" rel="noreferrer">
             :: View on GitHub
@@ -35,12 +35,12 @@ export function Contributors() {
 
         <div className="contrib-grid rev">
           {!list && Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className="contrib-avatar contrib-avatar--skeleton" />
+            <span key={i} className="contrib-avatar contrib-avatar--skeleton"/>
           ))}
 
           {list?.map((c) => (
             <a key={c.login} href={c.profile_url} target="_blank" rel="noreferrer" className="contrib-avatar">
-              <img src={c.avatar_url} alt={c.login} loading="lazy" />
+              <img src={c.avatar_url} alt={c.login} loading="lazy"/>
               <span className="contrib-tip">
                 <strong>{c.login}</strong>
                 <em>{c.contributions} commit{c.contributions === 1 ? '' : 's'}</em>
