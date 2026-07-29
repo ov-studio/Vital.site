@@ -24,7 +24,6 @@
   overflow: hidden;
   background: var(--bg5);
   flex-shrink: 0;
-  box-shadow: 0 0 0px 4px var(--rule-dim2);
   box-shadow: 0 0 0px 4px var(--rule2);
   transition: transform .25s ease, box-shadow .25s ease;
 }
