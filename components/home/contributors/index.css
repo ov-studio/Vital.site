@@ -49,8 +49,9 @@
   align-items: center;
   gap: 2px;
   padding: 6px 10px;
-  background: var(--bg2);
+  background: var(--bg7);
   border: 2px solid var(--rule);
+  border-radius: 4px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
@@ -63,7 +64,7 @@
   font-family: 'Geist', sans-serif;
   font-size: .7rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--blue);
 }
 .contrib-tip em {
   font-family: 'Geist', sans-serif;
