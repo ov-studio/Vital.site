@@ -1,0 +1,35 @@
+---
+title: self:set_scale
+description: Sets the scale of the audio-3d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_scale(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | scale | Scale as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the scale of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_scale({1, 1, 1})
+```

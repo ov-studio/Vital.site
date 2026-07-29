@@ -1,0 +1,31 @@
+---
+title: core.audio_3d.attenuation_model
+description: Enumeration of supported 3D attenuation models
+badge: Client
+---
+
+### Values
+
+---
+
+#### `core.audio_3d.attenuation_model.INVERSE_DISTANCE`
+
+Volume decreases proportionally to distance — the natural real-world falloff model.
+
+---
+
+#### `core.audio_3d.attenuation_model.INVERSE_SQUARE_DISTANCE`
+
+Volume decreases proportionally to the square of distance — a physically accurate model for point sources.
+
+---
+
+#### `core.audio_3d.attenuation_model.LOGARITHMIC`
+
+Volume decreases on a logarithmic curve — matches human loudness perception well.
+
+---
+
+#### `core.audio_3d.attenuation_model.DISABLED`
+
+No distance-based attenuation is applied — the audio plays at full volume regardless of distance.

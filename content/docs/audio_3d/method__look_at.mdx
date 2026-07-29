@@ -1,0 +1,40 @@
+---
+title: self:look_at
+description: Rotates the audio-3d instance to face a target position
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:look_at(
+    target,
+    up = {0, 1, 0}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | target | World-space position to face as `{x, y, z}` |
+| `{float, float, float}` | up | Up vector used to orient the rotation as `{x, y, z}`<br/>Defaults to `{0, 1, 0}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Point an audio-3d source toward the origin"
+local entity = core.audio_3d.create("sounds/speaker.ogg")
+
+entity:set_global_position({10, 0, 0})
+entity:look_at({0, 0, 0})
+entity:set_emission_angle_enabled(true)
+entity:play()
+```

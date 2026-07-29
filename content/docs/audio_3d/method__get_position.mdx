@@ -1,0 +1,33 @@
+---
+title: self:get_position
+description: Retrieves the local position of the audio-3d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | result | Current local position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local position of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+local pos = entity:get_position()
+core.engine.print("info", pos[1], pos[2], pos[3])
+```

@@ -1,0 +1,32 @@
+---
+title: self:is_visible_in_tree
+description: Checks whether the audio-3d instance is visible in the scene tree, accounting for parent visibility
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible_in_tree()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance is visible in the scene tree, `false` if it or any ancestor is hidden |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check effective tree visibility of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Visible in tree:", entity:is_visible_in_tree())
+```

@@ -1,0 +1,54 @@
+---
+title: core.audio_3d.create
+description: Creates a new audio-3d instance from a file path
+badge: Client
+---
+
+### Syntax
+
+```lua
+local instance = core.audio_3d.create(
+    path
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the audio asset<br/>Refer [**Formats**](#formats) section |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `audio_3d` | instance | Created audio-3d instance |
+
+---
+
+### Formats
+
+| Format | Extension | Description |
+|--------|-----------|-------------|
+| OGG | `.ogg` | Lossy compressed audio, ideal for music and ambience |
+| WAV | `.wav` | Uncompressed audio, no lossy artifacts |
+| MP3 | `.mp3` | Lossy compressed audio, widely supported format |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a basic audio-3d instance"
+local entity = core.audio_3d.create("sounds/footstep.ogg")
+
+entity:set_position({0, 1, -5})
+entity:play()
+```
+
+```lua lineNumbers title="Create a 3D sound source and point it at the player"
+local entity = core.audio_3d.create("sounds/siren.ogg")
+
+entity:set_global_position({10, 0, 0})
+entity:look_at({0, 0, 0})
+entity:play()
+```

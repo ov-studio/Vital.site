@@ -23,7 +23,8 @@
         "svg",
         "rendertarget",
         "audio_2d",
-        
+        "audio_3d",
+
         "---Utility---",
         "math",
         "string",

@@ -1,0 +1,35 @@
+---
+title: self:set_rotation
+description: Sets the rotation of the audio-3d instance in radians
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_rotation(
+    euler_radians
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | euler_radians | Euler rotation in radians as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate an audio-3d instance in radians"
+local entity = core.audio_3d.create("sounds/speaker.ogg")
+
+entity:set_rotation({0, math.pi / 2, 0})
+```

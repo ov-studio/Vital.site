@@ -1,0 +1,36 @@
+---
+title: self:remove_fx
+description: Removes an audio effect from the audio-2d instance's effect chain
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:remove_fx(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the effect to remove |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove an effect from an audio-2d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:add_fx("my_reverb", "reverb", { wet = 0.5 })
+entity:remove_fx("my_reverb")
+```

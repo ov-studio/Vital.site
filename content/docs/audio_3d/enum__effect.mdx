@@ -1,0 +1,292 @@
+---
+title: core.audio_3d.effect
+description: Enumeration of supported audio effects
+badge: Client
+---
+
+### Values
+
+---
+
+#### `core.audio_3d.effect.REVERB`
+
+Room reverb — simulates reflections within an enclosed space.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `room_size` | `float` | Size of the simulated room |
+| `damping` | `float` | High-frequency damping of the reflections |
+| `spread` | `float` | Stereo spread of the reflections |
+| `wet` | `float` | Amount of processed signal in the output |
+| `dry` | `float` | Amount of unprocessed signal in the output |
+| `hpf` | `float` | High-pass filter applied to the reflections |
+| `predelay_msec` | `float` | Delay in milliseconds before reflections start |
+| `predelay_feedback` | `float` | Feedback amount applied to the pre-delay |
+
+---
+
+#### `core.audio_3d.effect.CHORUS`
+
+Chorus — layers detuned copies of the signal for a fuller sound.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `voice_count` | `int` | Number of chorus voices |
+| `wet` | `float` | Amount of processed signal in the output |
+| `dry` | `float` | Amount of unprocessed signal in the output |
+| `voices` | `table[]` | Array of `voice_count` entries, each a table with the following fields:<br/>• `delay_ms` - `float`<br/>• `rate_hz` - `float`<br/>• `depth_ms` - `float`<br/>• `level_db` - `float`<br/>• `cutoff_hz` - `float`<br/>• `pan` - `float` |
+---
+
+#### `core.audio_3d.effect.DELAY`
+
+Delay — echoes the signal across one or two configurable taps.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `dry` | `float` | Amount of unprocessed signal in the output |
+| `tap1_active` | `bool` | Enables the first delay tap |
+| `tap1_delay_ms` | `float` | Delay time of the first tap |
+| `tap1_level_db` | `float` | Output level of the first tap |
+| `tap1_pan` | `float` | Stereo pan of the first tap |
+| `tap2_active` | `bool` | Enables the second delay tap |
+| `tap2_delay_ms` | `float` | Delay time of the second tap |
+| `tap2_level_db` | `float` | Output level of the second tap |
+| `tap2_pan` | `float` | Stereo pan of the second tap |
+| `feedback_active` | `bool` | Enables the feedback loop |
+| `feedback_delay_ms` | `float` | Delay time of the feedback loop |
+| `feedback_level_db` | `float` | Output level of the feedback loop |
+| `feedback_lowpass` | `float` | Low-pass cutoff applied to the feedback loop |
+
+---
+
+#### `core.audio_3d.effect.DISTORTION`
+
+Distortion — applies harmonic clipping and overdrive.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `mode` | `int` | Distortion mode enum |
+| `pre_gain` | `float` | Gain applied before distortion |
+| `keep_hf_hz` | `float` | Frequency above which the signal is preserved |
+| `drive` | `float` | Amount of distortion applied |
+| `post_gain` | `float` | Gain applied after distortion |
+
+---
+
+#### `core.audio_3d.effect.AMPLIFY`
+
+Amplify — boosts or attenuates the signal level.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `volume_db` | `float` | Amplification amount in decibels |
+| `volume_linear` | `float` | Amplification amount as a linear multiplier |
+
+---
+
+#### `core.audio_3d.effect.COMPRESSOR`
+
+Compressor — reduces dynamic range above a threshold.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `threshold` | `float` | Level above which compression is applied |
+| `ratio` | `float` | Amount of compression applied above the threshold |
+| `gain` | `float` | Output gain compensation |
+| `attack_us` | `float` | Attack time in microseconds |
+| `release_ms` | `float` | Release time in milliseconds |
+| `mix` | `float` | Blend between unprocessed and compressed signal |
+
+---
+
+#### `core.audio_3d.effect.LIMITER`
+
+Limiter — soft-clamps peaks to a ceiling with configurable soft-clip.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `ceiling_db` | `float` | Maximum output level |
+| `threshold_db` | `float` | Level above which limiting is applied |
+| `soft_clip_db` | `float` | Range over which soft clipping is applied |
+| `soft_clip_ratio` | `float` | Amount of soft clipping applied |
+
+---
+
+#### `core.audio_3d.effect.HARD_LIMITER`
+
+Hard Limiter — hard-clamps peaks to a ceiling.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `ceiling_db` | `float` | Maximum output level |
+| `pre_gain_db` | `float` | Gain applied before limiting |
+| `release` | `float` | Release time of the limiter |
+
+---
+
+#### `core.audio_3d.effect.PANNER`
+
+Panner — positions the signal in the stereo field.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `pan` | `float` | Stereo position, from `-1.0` (left) to `1.0` (right) |
+
+---
+
+#### `core.audio_3d.effect.PHASER`
+
+Phaser — sweeps a series of notch filters across the spectrum.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `range_min_hz` | `float` | Lower bound of the sweep range |
+| `range_max_hz` | `float` | Upper bound of the sweep range |
+| `rate_hz` | `float` | Speed of the sweep |
+| `feedback` | `float` | Amount of feedback applied to the sweep |
+| `depth` | `float` | Intensity of the phasing effect |
+
+---
+
+#### `core.audio_3d.effect.PITCH_SHIFT`
+
+Pitch Shift — transposes the signal without changing its tempo.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `pitch_scale` | `float` | Pitch multiplier applied to the signal |
+| `oversampling` | `int` | Oversampling factor used during processing |
+| `fft_size` | `int` | FFT size enum used during processing |
+
+---
+
+#### `core.audio_3d.effect.STEREO_ENHANCE`
+
+Stereo Enhance — widens the stereo image via pan and time pullout.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `pan_pullout` | `float` | Amount of stereo pan widening |
+| `time_pullout` | `float` | Amount of time-based stereo widening |
+| `surround` | `float` | Amount of surround signal added |
+
+---
+
+#### `core.audio_3d.effect.LOWPASS_FILTER`
+
+Low-pass filter — attenuates frequencies above the cutoff.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.HIGHPASS_FILTER`
+
+High-pass filter — attenuates frequencies below the cutoff.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.BANDPASS_FILTER`
+
+Band-pass filter — passes a band of frequencies around the cutoff.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.NOTCH_FILTER`
+
+Notch filter — attenuates a narrow band around the cutoff.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.BANDLIMIT_FILTER`
+
+Band-limit filter — combines low-pass and high-pass into a single stage.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.LOWSHELF_FILTER`
+
+Low-shelf filter — boosts or cuts all frequencies below the cutoff.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.HIGHSHELF_FILTER`
+
+High-shelf filter — boosts or cuts all frequencies above the cutoff.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `cutoff` | `float` | Cutoff frequency of the filter |
+| `resonance` | `float` | Resonance applied at the cutoff frequency |
+| `gain` | `float` | Gain applied by the filter |
+| `db` | `int` | Filter roll-off enum |
+
+---
+
+#### `core.audio_3d.effect.EQ6`
+
+6-band equalizer.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `bands` | `float[]` | Array of 6 entries, each the gain in decibels for that band |
+
+---
+
+#### `core.audio_3d.effect.EQ10`
+
+10-band equalizer.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `bands` | `float[]` | Array of 10 entries, each the gain in decibels for that band |
+
+---
+
+#### `core.audio_3d.effect.EQ21`
+
+21-band equalizer.
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `bands` | `float[]` | Array of 21 entries, each the gain in decibels for that band |

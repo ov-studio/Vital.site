@@ -1,0 +1,35 @@
+---
+title: self:rotate_z
+description: Rotates the audio-3d instance around the Z axis by the given angle in radians
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:rotate_z(
+    angle
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | angle | Angle in radians to rotate around the Z axis |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate an audio-3d instance around the Z axis"
+local entity = core.audio_3d.create("sounds/speaker.ogg")
+
+entity:rotate_z(math.pi / 4)
+```

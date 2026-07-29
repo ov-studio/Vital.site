@@ -1,0 +1,35 @@
+---
+title: self:set_attenuation_filter_db
+description: Sets the attenuation filter gain of the audio-3d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_attenuation_filter_db(
+    db
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | db | Gain in decibels applied by the distance attenuation filter<br/>More negative values increase the high-frequency roll-off at distance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Increase high-frequency roll-off with distance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_attenuation_filter_db(-6.0)
+```

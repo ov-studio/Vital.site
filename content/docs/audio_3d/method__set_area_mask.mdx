@@ -1,0 +1,35 @@
+---
+title: self:set_area_mask
+description: Sets the area mask of the audio-3d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_area_mask(
+    mask
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Bitmask that determines which `Area3D` nodes affect this audio source<br/>Only areas whose layers overlap this mask will apply their audio effects |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the area mask of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_area_mask(1)
+```

@@ -1,0 +1,38 @@
+---
+title: self:to_local
+description: Converts a world-space position to the local space of the audio-3d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:to_local(
+    global_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | global_point | World-space position to convert as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | result | Converted local-space position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Convert a world position to the instance's local space"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_global_position({10, 0, 0})
+
+local local_pos = entity:to_local({15, 0, 0})
+core.engine.print("info", local_pos[1], local_pos[2], local_pos[3])
+```

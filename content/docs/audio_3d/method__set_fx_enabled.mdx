@@ -1,0 +1,43 @@
+---
+title: self:set_fx_enabled
+description: Enables or disables an audio effect on the audio-2d instance's effect chain
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_fx_enabled(
+    name,
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the effect to toggle |
+| `bool` | state | Determines the enabled state of the effect:<br/>• When `true` - the effect is applied to the signal<br/>• When `false` - the effect is bypassed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle an effect on an audio-2d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:add_fx("my_reverb", "reverb", { wet = 0.5 })
+
+-- Bypass
+entity:set_fx_enabled("my_reverb", false)
+
+-- Re-enable
+entity:set_fx_enabled("my_reverb", true)
+```

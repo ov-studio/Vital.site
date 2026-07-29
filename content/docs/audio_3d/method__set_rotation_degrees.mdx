@@ -1,0 +1,35 @@
+---
+title: self:set_rotation_degrees
+description: Sets the rotation of the audio-3d instance in degrees
+badge: Client
+---
+
+### Syntax
+
+```lua
+local status = self:set_rotation_degrees(
+    euler_degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `{float, float, float}` | euler_degrees | Euler rotation in degrees as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate an audio-3d instance by 90 degrees on Y"
+local entity = core.audio_3d.create("sounds/speaker.ogg")
+
+entity:set_rotation_degrees({0, 90, 0})
+```

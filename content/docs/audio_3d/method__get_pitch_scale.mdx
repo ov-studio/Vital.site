@@ -1,0 +1,32 @@
+---
+title: self:get_pitch_scale
+description: Retrieves the current pitch scale of the audio-2d instance
+badge: Client
+---
+
+### Syntax
+
+```lua
+local result = self:get_pitch_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current pitch multiplier |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the pitch scale of an audio-2d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Pitch scale:", entity:get_pitch_scale())
+```
