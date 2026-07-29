@@ -1,11 +1,12 @@
 import '@/app/global.css';
-import * as component_overlay       from '@/components/overlay';
-import * as component_navbar        from '@/components/navbar';
-import * as component_footer        from '@/components/footer';
-import * as component_home_hero     from '@/components/home/hero';
-import * as component_home_features from '@/components/home/features';
-import * as component_home_ethos    from '@/components/home/ethos';
-import * as component_clientshell   from '@/components/clientshell';
+import * as component_overlay           from '@/components/overlay';
+import * as component_navbar            from '@/components/navbar';
+import * as component_footer            from '@/components/footer';
+import * as component_home_hero         from '@/components/home/hero';
+import * as component_home_features     from '@/components/home/features';
+import * as component_home_ethos        from '@/components/home/ethos';
+import * as component_home_contributors from '@/components/home/contributors';
+import * as component_clientshell       from '@/components/clientshell';
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
       <component_home_hero.Hero/>
       <component_home_features.Features/>
       <component_home_ethos.Ethos/>
+      <component_home_contributors.Contributors/>
       <component_footer.Footer/>
     </component_clientshell.ClientShell>
   );
