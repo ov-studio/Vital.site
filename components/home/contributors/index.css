@@ -9,7 +9,7 @@
 .contrib-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
 }
 
 .contrib-avatar {
@@ -49,8 +49,8 @@
   align-items: center;
   gap: 2px;
   padding: 6px 10px;
-  background: var(--bg7);
-  border: 2px solid var(--rule);
+  background: var(--bg8);
+  border: 2px solid var(--bg9);
   border-radius: 4px;
   white-space: nowrap;
   opacity: 0;
