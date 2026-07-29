@@ -40,7 +40,7 @@
 }
 
 .contrib-avatar-img.contrib-avatar--skeleton {
-  animation: contrib-pulse 1.6s ease-in-out infinite;
+  animation: pulse 1.6s ease-in-out infinite;
 }
 
 .contrib-tip {
@@ -75,13 +75,6 @@
   font-size: .64rem;
   font-weight: 500;
   color: var(--text-muted);
-}
-
-
-/* ── @keyframes ── */
-@keyframes contrib-pulse {
-  0%, 100% { opacity: .35 }
-  50%      { opacity: .6 }
 }
 
 
