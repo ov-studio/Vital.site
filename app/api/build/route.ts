@@ -16,13 +16,17 @@ interface CacheEntry {
   fetched_at: number;
 }
 
-const EMPTY_INFO: ReleaseInfo = { tag: '', client_url: null, server_url: null, client_size: null, server_size: null };
+const EMPTY_INFO: ReleaseInfo = { 
+  tag: '', 
+  client_url: null, 
+  server_url: null, 
+  client_size: null, 
+  server_size: null
+};
+
+let cache: CacheEntry | null = null;
 
 const format_size = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-
-// Module-level cache — survives across requests within the same server process.
-// In a multi-instance deploy each instance has its own cache, which is fine.
-let cache: CacheEntry | null = null;
 
 export async function GET() {
   const now = Date.now();
@@ -40,7 +44,6 @@ export async function GET() {
   // Fetch fresh from GitHub
   try {
     const res = await fetch(RELEASES_URL, {
-      // We manage our own cache above, so tell Next.js not to double-cache.
       cache: 'no-store',
       headers: {
         Accept: 'application/vnd.github+json',
@@ -74,8 +77,6 @@ export async function GET() {
     });
   }
   catch (err) {
-    // If GitHub is unreachable but we have a stale copy, serve it rather
-    // than returning an error — stale data is better than nothing.
     if (cache) {
       console.error('[api/build] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {

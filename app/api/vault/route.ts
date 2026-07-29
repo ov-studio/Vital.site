@@ -9,8 +9,6 @@ interface CacheEntry {
   fetched_at: number;
 }
 
-// Module-level cache — survives across requests within the same server process.
-// In a multi-instance deploy each instance has its own cache, which is fine.
 let cache: CacheEntry | null = null;
 
 export async function GET() {
@@ -29,8 +27,6 @@ export async function GET() {
   // Fetch fresh from GitHub
   try {
     const res = await fetch(RAW_URL, {
-      // Tell Next.js fetch not to cache this at the framework level —
-      // we manage our own cache above so we control the TTL exactly.
       cache: 'no-store',
       headers: { 'User-Agent': 'Vital.site/1.0' },
     });
@@ -46,8 +42,6 @@ export async function GET() {
     });
   } 
   catch (err) {
-    // If GitHub is unreachable but we have a stale copy, serve it rather
-    // than returning an error — stale data is better than nothing.
     if (cache) {
       console.error('[api/vault] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
