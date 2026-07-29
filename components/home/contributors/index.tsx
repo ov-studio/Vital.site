@@ -36,12 +36,16 @@ export function Contributors() {
 
         <div className="contrib-grid rev">
           {!list && Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className="contrib-avatar contrib-avatar--skeleton"/>
+            <span key={i} className="contrib-avatar">
+              <span className="contrib-avatar-img contrib-avatar--skeleton"/>
+            </span>
           ))}
 
           {list?.map((c) => (
             <a key={c.login} href={c.profile_url} target="_blank" rel="noreferrer" className="contrib-avatar">
-              <img src={c.avatar_url} alt={c.login} loading="lazy"/>
+              <span className="contrib-avatar-img">
+                <img src={c.avatar_url} alt={c.login} loading="lazy"/>
+              </span>
               <span className="contrib-tip">
                 <strong>{c.login}</strong>
                 <em>{c.contributions} commit{c.contributions === 1 ? '' : 's'}</em>
