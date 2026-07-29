@@ -1,0 +1,95 @@
+import * as config_site from '@/configs/site';
+
+const RELEASES_URL = `https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`;
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+interface ReleaseInfo {
+  tag: string;
+  client_url: string | null;
+  server_url: string | null;
+  client_size: string | null;
+  server_size: string | null;
+}
+
+interface CacheEntry {
+  data: ReleaseInfo;
+  fetched_at: number;
+}
+
+const EMPTY_INFO: ReleaseInfo = { tag: '', client_url: null, server_url: null, client_size: null, server_size: null };
+
+const format_size = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+
+// Module-level cache — survives across requests within the same server process.
+// In a multi-instance deploy each instance has its own cache, which is fine.
+let cache: CacheEntry | null = null;
+
+export async function GET() {
+  const now = Date.now();
+
+  // Serve from cache if still fresh
+  if (cache && now - cache.fetched_at < CACHE_TTL_MS) {
+    return Response.json(cache.data, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'X-Build-Cache': 'HIT',
+      },
+    });
+  }
+
+  // Fetch fresh from GitHub
+  try {
+    const res = await fetch(RELEASES_URL, {
+      // We manage our own cache above, so tell Next.js not to double-cache.
+      cache: 'no-store',
+      headers: {
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'Vital.site/1.0',
+      },
+    });
+    if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
+
+    const releases = await res.json();
+    const release = Array.isArray(releases) ? releases[0] : null;
+    let info: ReleaseInfo = EMPTY_INFO;
+    if (release) {
+      const assets: { name: string; browser_download_url: string; size: number }[] = release.assets ?? [];
+      const client = assets.find((a) => a.name.toLowerCase().includes('client') && a.name.endsWith('.zip'));
+      const server = assets.find((a) => a.name.toLowerCase().includes('server') && a.name.endsWith('.zip'));
+      info = {
+        tag: release.tag_name ?? '',
+        client_url: client?.browser_download_url ?? null,
+        server_url: server?.browser_download_url ?? null,
+        client_size: client ? format_size(client.size) : null,
+        server_size: server ? format_size(server.size) : null,
+      };
+    }
+
+    cache = { data: info, fetched_at: now };
+    return Response.json(info, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'X-Build-Cache': 'MISS',
+      },
+    });
+  }
+  catch (err) {
+    // If GitHub is unreachable but we have a stale copy, serve it rather
+    // than returning an error — stale data is better than nothing.
+    if (cache) {
+      console.error('[api/build] fetch failed, serving stale cache:', err);
+      return Response.json(cache.data, {
+        headers: {
+          'Cache-Control': 'public, s-maxage=30',
+          'X-Build-Cache': 'STALE',
+        },
+      });
+    }
+
+    console.error('[api/build] fetch failed, no cache available:', err);
+    return Response.json(
+      { error: 'Failed to load build data' },
+      { status: 502 }
+    );
+  }
+}

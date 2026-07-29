@@ -34,21 +34,18 @@ export async function GET() {
       cache: 'no-store',
       headers: { 'User-Agent': 'Vital.site/1.0' },
     });
-
-    if (!res.ok) {
-      throw new Error(`GitHub responded ${res.status}`);
-    }
+    if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
 
     const data = await res.json();
     cache = { data, fetched_at: now };
-
     return Response.json(data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
         'X-Vault-Cache': 'MISS',
       },
     });
-  } catch (err) {
+  } 
+  catch (err) {
     // If GitHub is unreachable but we have a stale copy, serve it rather
     // than returning an error — stale data is better than nothing.
     if (cache) {
