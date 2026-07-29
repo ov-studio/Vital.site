@@ -75,27 +75,36 @@ async function fetch_fresh_stats(): Promise<StatsInfo> {
   );
 }
 
-export async function get_stats(): Promise<StatsInfo> {
+export async function GET() {
   const now = Date.now();
 
   // Serve from cache if still fresh
   if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms * 12) {
-    return cache.data;
+    return Response.json(cache.data, {
+      headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600' },
+    });
   }
 
   // Fetch fresh from GitHub
   try {
     const data = await fetch_fresh_stats();
     cache = { data, fetched_at: now };
-    return data;
-  } 
+    return Response.json(data, {
+      headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600' },
+    });
+  }
   catch (err) {
     if (cache) {
       console.error('[stats] fetch failed, serving stale cache:', err);
-      return cache.data;
+      return Response.json(cache.data, {
+        headers: { 'Cache-Control': 'public, s-maxage=1800' },
+      });
     }
 
     console.error('[stats] fetch failed, no cache available:', err);
-    return { stars: 0, forks: 0, issues: 0, commits: 0 };
+    return Response.json(
+      { stars: 0, forks: 0, issues: 0, commits: 0 },
+      { status: 502 }
+    );
   }
 }
