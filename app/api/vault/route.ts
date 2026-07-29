@@ -4,7 +4,7 @@ import * as config_site from '@/configs/site';
 const RAW_URL = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/vault.json`;
 
 interface CacheEntry {
-  data: unknown;
+  data:       unknown;
   fetched_at: number;
 }
 

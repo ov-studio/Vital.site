@@ -3,22 +3,22 @@ import * as config_site from '@/configs/site';
 const RELEASES_URL = `https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`;
 
 interface ReleaseInfo {
-  tag: string;
-  client_url: string | null;
-  server_url: string | null;
+  tag:         string;
+  client_url:  string | null;
+  server_url:  string | null;
   client_size: string | null;
   server_size: string | null;
 }
 
 interface CacheEntry {
-  data: ReleaseInfo;
+  data:       ReleaseInfo;
   fetched_at: number;
 }
 
 const EMPTY_INFO: ReleaseInfo = { 
   tag: '', 
-  client_url: null, 
-  server_url: null, 
+  client_url:  null, 
+  server_url:  null, 
   client_size: null, 
   server_size: null
 };
