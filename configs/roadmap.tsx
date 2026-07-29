@@ -465,6 +465,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_2d>:is_playing', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:is_paused', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:is_autoplayed', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:is_fx_enabled', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:get_volume', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:get_max_distance', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:get_attenuation', status: 'completed' },
@@ -477,14 +478,13 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_2d>:set_attenuation', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_pitch_scale', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:set_panning_strength', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:set_fx_enabled', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:play', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:stop', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:seek', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:add_effect', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:remove_effect', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:list_effects', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:set_effect_enabled', status: 'completed' },
-          { label: '[Client] API: self<audio_2d>:is_effect_enabled', status: 'completed' }
+          { label: '[Client] API: self<audio_2d>:add_fx', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:remove_fx', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:list_fx', status: 'completed' }
         ]
       },
       {
@@ -524,11 +524,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_3d>:play', status: 'pending' },
           { label: '[Client] API: self<audio_3d>:stop', status: 'pending' },
           { label: '[Client] API: self<audio_3d>:seek', status: 'pending' },
-          { label: '[Client] API: self<audio_3d>:add_effect', status: 'pending' },
-          { label: '[Client] API: self<audio_3d>:remove_effect', status: 'pending' },
-          { label: '[Client] API: self<audio_3d>:list_effects', status: 'pending' },
-          { label: '[Client] API: self<audio_3d>:set_effect_enabled', status: 'pending' },
-          { label: '[Client] API: self<audio_3d>:is_effect_enabled', status: 'pending' }
+          { label: '[Client] API: self<audio_3d>:add_fx', status: 'pending' },
+          { label: '[Client] API: self<audio_3d>:remove_fx', status: 'pending' },
+          { label: '[Client] API: self<audio_3d>:list_fx', status: 'pending' },
+          { label: '[Client] API: self<audio_3d>:set_fx_enabled', status: 'pending' },
+          { label: '[Client] API: self<audio_3d>:is_fx_enabled', status: 'pending' }
         ]
       },
       {
