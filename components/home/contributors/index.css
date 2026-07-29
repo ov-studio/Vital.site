@@ -23,6 +23,7 @@
   flex-shrink: 0;
   box-shadow: 0 0 0px 4px var(--rule2);
   transition: transform .25s ease, box-shadow .25s ease;
+  transition: box-shadow .25s ease;
 }
 .contrib-avatar:hover { z-index: 2; box-shadow: 0 0 0px 4px var(--blue); }
 
