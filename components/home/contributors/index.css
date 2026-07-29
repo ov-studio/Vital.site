@@ -1,8 +1,9 @@
 #contributors {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;
   min-height: 100vh;
+  */
   padding: 100px 0;
   border-top: 1px solid var(--rule);
 }
