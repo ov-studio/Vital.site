@@ -15,6 +15,7 @@ export default function HomePage() {
       <component_navbar.Navbar links={[
         { label: 'Features', href: '#features' },
         { label: 'Ethos', href: '#ethos' },
+        { label: 'Contributors', href: '#contributors' },
         { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }

@@ -3,11 +3,11 @@ import * as react from 'react';
 import './index.css';
 
 interface ContributorInfo {
-  login: string;
-  avatar_url: string;
-  profile_url: string;
+  login:         string;
+  avatar_url:    string;
+  profile_url:   string;
   contributions: number;
-  repos: string[];
+  repos:         string[];
 }
 
 export function Contributors() {
@@ -38,28 +38,21 @@ export function Contributors() {
             <span key={i} className="contrib-avatar contrib-avatar--skeleton" />
           ))}
 
-          {list?.map((c, i) => (
-
-            key = { c.login }
-              href = { c.profile_url }
-              target = "_blank"
-              rel = "noreferrer"
-              className = "contrib-avatar"
-              style = {{ '--i': i } as React.CSSProperties}
-            >
-          <img src={c.avatar_url} alt={c.login} loading="lazy" />
-          <span className="contrib-tip">
-            <strong>{c.login}</strong>
-            <em>{c.contributions} commit{c.contributions === 1 ? '' : 's'}</em>
-          </span>
-        </a>
+          {list?.map((c) => (
+            <a key={c.login} href={c.profile_url} target="_blank" rel="noreferrer" className="contrib-avatar">
+              <img src={c.avatar_url} alt={c.login} loading="lazy" />
+              <span className="contrib-tip">
+                <strong>{c.login}</strong>
+                <em>{c.contributions} commit{c.contributions === 1 ? '' : 's'}</em>
+              </span>
+            </a>
           ))}
 
-        {list && list.length === 0 && (
-          <p className="contrib-empty">No contributors found.</p>
-        )}
+          {list && list.length === 0 && (
+            <p className="state-empty">No contributors found.</p>
+          )}
+        </div>
       </div>
-    </div>
-    </section >
+    </section>
   );
 }
