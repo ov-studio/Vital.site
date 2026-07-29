@@ -35,12 +35,6 @@ export function Contributors() {
         </div>
 
         <div className="contrib-grid rev">
-          {!list && Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className="contrib-avatar">
-              <span className="contrib-avatar-img contrib-avatar--skeleton"/>
-            </span>
-          ))}
-
           {list?.map((c) => (
             <a key={c.login} href={c.profile_url} target="_blank" rel="noreferrer" className="contrib-avatar">
               <span className="contrib-avatar-img">

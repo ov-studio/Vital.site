@@ -39,10 +39,6 @@
   display: block;
 }
 
-.contrib-avatar-img.contrib-avatar--skeleton {
-  animation: pulse 1.6s ease-in-out infinite;
-}
-
 .contrib-tip {
   position: absolute;
   bottom: calc(100% + 8px);
