@@ -1,5 +1,6 @@
 'use client';
-import * as react from 'react';
+import * as config_site from '@/configs/site';
+import * as react       from 'react';
 import './index.css';
 
 interface ContributorInfo {
@@ -28,7 +29,7 @@ export function Contributors() {
             <div className="slabel">Contributors</div>
             <h2>Built by the community.<br/>Powered by <span>everyone.</span></h2>
           </div>
-          <a href="https://github.com/ov-studio" className="sec-link rev" target="_blank" rel="noreferrer">
+          <a href={config_site.info.social.github.href} className="sec-link rev" target="_blank" rel="noreferrer">
             :: View on GitHub
           </a>
         </div>
