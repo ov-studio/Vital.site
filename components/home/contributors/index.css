@@ -27,7 +27,7 @@
   box-shadow: 0 0 0px 4px var(--rule-dim2);
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.contrib-avatar:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px var(--blue); z-index: 2; }
+.contrib-avatar:hover { z-index: 2; box-shadow: 0 0 0px 4px var(--blue); }
 
 .contrib-avatar img {
   width: 100%;
