@@ -13,9 +13,9 @@ export default function HomePage() {
     <component_clientshell.ClientShell>
       <component_overlay.Overlay/>
       <component_navbar.Navbar links={[
-        { label: 'Features', href: '#features' },
-        { label: 'Ethos', href: '#ethos' },
-        { label: 'Contributors', href: '#contributors' },
+        { label: '# Features', href: '#features' },
+        { label: '# Ethos', href: '#ethos' },
+        { label: '# Contributors', href: '#contributors' },
         { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }

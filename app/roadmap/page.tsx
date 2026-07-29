@@ -13,8 +13,8 @@ export const metadata: next.Metadata = {
 };
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
-  label: s.name,
-  href: `#${lib_source.to_anchor(s.name)}`,
+  label: `# ${s.name}`,
+  href: `#${lib_source.to_anchor(s.name)}`
 }));
 
 export default function HomePage() {
