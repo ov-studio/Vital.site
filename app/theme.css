@@ -43,6 +43,7 @@
   /* ── Borders ── */
   --rule: hsl(220, 18%, 9%);
   --rule-dim: hsl(220, 18%, 7%);
+  --rule-dim2: hsl(220, 18%, 20%);
 
 
   /* ── Syntax highlight ── */
