@@ -92,7 +92,7 @@ export async function GET() {
   const now = Date.now();
 
   // Serve from cache if still fresh
-  if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms * 12) {
+  if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms*12) {
     return Response.json(cache.data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
