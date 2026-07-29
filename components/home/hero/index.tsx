@@ -1,32 +1,19 @@
-import * as config_site        from '@/configs/site';
+'use client';
 import * as component_brand    from '@/components/brand';
 import * as component_download from '@/components/download';
+import * as react              from 'react';
 import * as lucide             from 'lucide-react';
 import './index.css';
 
-function format(v: number | string) {
-  return typeof v === 'number' ? v.toLocaleString() : v;
+interface StatsInfo {
+  stars:   number;
+  forks:   number;
+  issues:  number;
+  commits: number;
 }
 
-async function get_git_stats() {
-  try {
-    const [repoRes, commitsRes] = await Promise.all([
-      fetch(`https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}`, { next: { revalidate: 3600 } }),
-      fetch(`https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/commits?per_page=1`, { next: { revalidate: 3600 } }),
-    ]);
-    const repo = await repoRes.json();
-    const link = commitsRes.headers.get('link') ?? '';
-    const match = link.match(/page=(\d+)>; rel="last"/);
-    return {
-      stars: repo.stargazers_count ?? '—',
-      forks: repo.forks_count ?? '—',
-      issues: repo.open_issues_count ?? '—',
-      commits: match ? parseInt(match[1]) : '—'
-    };
-  }
-  catch {
-    return { stars: '—', forks: '—', issues: '—', commits: '—' };
-  }
+function format(v: number) {
+  return v.toLocaleString();
 }
 
 const STAT_ICONS = {
@@ -36,13 +23,21 @@ const STAT_ICONS = {
   issues: <lucide.CircleDot size={15} strokeWidth={2.5}/>
 };
 
-export async function Hero() {
-  const data = await get_git_stats();
+export function Hero() {
+  const [data, setData] = react.useState<StatsInfo | null>(null);
+
+  react.useEffect(() => {
+    fetch('/api/stats')
+      .then((r) => r.json())
+      .then(setData)
+      .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0 }));
+  }, []);
+
   const stats = [
-    { key: 'stars', value: format(data.stars), label: 'Stars' },
-    { key: 'forks', value: format(data.forks), label: 'Forks' },
-    { key: 'commits', value: format(data.commits), label: 'Commits' },
-    { key: 'issues', value: format(data.issues), label: 'Issues' },
+    { key: 'stars',   value: data ? format(data.stars)   : '—', label: 'Stars'   },
+    { key: 'forks',   value: data ? format(data.forks)   : '—', label: 'Forks'   },
+    { key: 'commits', value: data ? format(data.commits) : '—', label: 'Commits' },
+    { key: 'issues',  value: data ? format(data.issues)  : '—', label: 'Issues'  }
   ] as const;
 
   return (
