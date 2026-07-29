@@ -18,7 +18,8 @@
         "method__is_playing",
         "method__is_paused",
         "method__is_autoplayed",
-        
+        "method__is_fx_enabled",
+
         "---⁝⁝Getter---",
         "method__get_volume",
         "method__get_max_distance",
@@ -34,18 +35,15 @@
         "method__set_attenuation",
         "method__set_pitch_scale",
         "method__set_panning_strength",
+        "method__set_fx_enabled",
 
-        "---⁝⁝Effect---",
-        "method__add_effect",
-        "method__remove_effect",
-        "method__list_effects",
-        "method__is_effect_enabled",
-        "method__set_effect_enabled",
-        
         
         "---⁝⁝Misc---",
         "method__play",
         "method__stop",
-        "method__seek"
+        "method__seek",
+        "method__add_fx",
+        "method__remove_fx",
+        "method__list_fx"
     ]
 }
