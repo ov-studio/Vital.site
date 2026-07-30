@@ -3,7 +3,6 @@ import { info } from './src/configs/site.js';
 
 const withMDX = fumadocs_next.createMDX();
 
-/** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
 
