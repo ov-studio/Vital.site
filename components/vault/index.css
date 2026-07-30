@@ -64,8 +64,8 @@
   font-weight: 600;
   font-size: .8rem;
   color: var(--text-soft);
-  background: var(--b05);
-  border: 2px solid var(--rule);
+  background: var(--b10);
+  border: 2px solid transparent;
   border-radius: 4px;
   outline: none;
   transition: width .2s, border-color .2s;
