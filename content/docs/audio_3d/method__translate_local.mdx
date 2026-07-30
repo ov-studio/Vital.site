@@ -16,7 +16,7 @@ local status = self:translate_local(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `{float, float, float}` | offset | Local-space offset to move by as `{x, y, z}` |
+| `vector3` | offset | Local-space offset to move by as `{x, y, z}` |
 
 ### Returns
 
@@ -31,6 +31,5 @@ local status = self:translate_local(
 ```lua lineNumbers title="Move an audio-3d instance forward along its own local Z axis"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
-entity:set_rotation_degrees({0, 45, 0})
 entity:translate_local({0, 0, -5})
 ```
