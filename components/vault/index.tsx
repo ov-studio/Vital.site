@@ -284,21 +284,6 @@ function VaultHead() {
 function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disabled }: config_vault.VaultFiltersProps) {
   return (
     <div className="vault-filters">
-      <div className="vault-search">
-        <lucide.Search size={14} strokeWidth={2.5}/>
-        <input
-          type="text"
-          value={disabled ? undefined : search}
-          onChange={disabled ? undefined : e => on_search?.(e.target.value)}
-          placeholder="Search resources…"
-          aria-label="Search"
-          spellCheck={false}
-          autoCorrect="off"
-          autoCapitalize="off"
-          disabled={disabled}
-        />
-      </div>
-
       <div className="vault-filter-tags">
         <button
           className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
@@ -314,6 +299,21 @@ function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disab
           >{tag}</button>
         ))}
       </div>
+
+      <div className="vault-search">
+        <lucide.Search size={14} strokeWidth={2.5}/>
+        <input
+          type="text"
+          value={disabled ? undefined : search}
+          onChange={disabled ? undefined : e => on_search?.(e.target.value)}
+          placeholder="Search resources…"
+          aria-label="Search"
+          spellCheck={false}
+          autoCorrect="off"
+          autoCapitalize="off"
+          disabled={disabled}
+        />
+      </div>
     </div>
   );
 }
@@ -324,6 +324,7 @@ function VaultSkeleton() {
       <div className="sw">
         <VaultHead/>
         <VaultFilters disabled/>
+        <div className="vault-divider"/>
         <div className="vault-loading">
           <lucide.Loader2 size={32} strokeWidth={2} className="vault-spin"/>
         </div>
@@ -406,6 +407,8 @@ function VaultInner() {
             active_tag={active_tag}
             on_tag={set_active_tag}
           />
+          
+          <div className="vault-divider"/>
 
           {state === 'loading' && (
             <div className="vault-loading">
