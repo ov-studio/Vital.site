@@ -18,13 +18,6 @@
   gap: 2px;
 }
 
-.vault-search {
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .vault-filter-tags {
   display: flex;
   align-items: center;
@@ -50,12 +43,20 @@
 .vault-filter-btn:hover  { color: var(--blue); border-color: var(--b30); }
 .vault-filter-btn.active { color: var(--blue); border-color: var(--blue); background: var(--b05); }
 
+.vault-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .vault-search svg {
   position: absolute;
   left: 10px;
   color: var(--text-faint);
   pointer-events: none;
 }
+
 .vault-search input {
   width: 200px;
   padding: 8px 12px 8px 30px;
