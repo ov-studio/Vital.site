@@ -59,7 +59,7 @@
 
 .vault-search input {
   width: 200px;
-  padding: 8px 12px 8px 30px;
+  padding: 6px 12px 6px 30px;
   font-family: 'Geist', sans-serif;
   font-weight: 600;
   font-size: .8rem;
@@ -410,7 +410,7 @@
   .vault-search            { order: 2; width: 100%; margin: 12px 0 0; }
   .vault-search input,
   .vault-search input:focus,
-  .vault-search input:not(:placeholder-shown) { width: 100%; }
+  .vault-search input:not(:placeholder-shown) { padding: 8px 12px 8px 30px;    width: 100%; }
 }
 
 @media (max-width: 450px) {
