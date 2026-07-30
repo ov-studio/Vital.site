@@ -24,6 +24,8 @@
         "method__is_emission_angle_enabled",
 
         "---⁝⁝Getter---",
+        "method__get_position",
+        "method__get_global_position",
         "method__get_volume",
         "method__get_pitch_scale",
         "method__get_panning_strength",
@@ -37,10 +39,10 @@
         "method__get_emission_angle_filter_attenuation_db",
         "method__get_attenuation_filter_cutoff_hz",
         "method__get_attenuation_filter_db",
-        "method__get_position",
-        "method__get_global_position",
 
         "---⁝⁝Setter---",
+        "method__set_position",
+        "method__set_global_position",
         "method__set_volume",
         "method__set_paused",
         "method__set_pitch_scale",
@@ -57,17 +59,15 @@
         "method__set_attenuation_filter_cutoff_hz",
         "method__set_attenuation_filter_db",
         "method__set_fx_enabled",
-        "method__set_position",
-        "method__set_global_position",
 
         "---⁝⁝Misc---",
+        "method__translate",
+        "method__translate_local",
         "method__play",
         "method__stop",
         "method__seek",
         "method__add_fx",
         "method__remove_fx",
-        "method__list_fx",
-        "method__translate",
-        "method__translate_local"
+        "method__list_fx"
     ]
 }
