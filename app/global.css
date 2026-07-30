@@ -53,7 +53,7 @@ h2 span { color: var(--blue) }
 .slabel {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   margin-bottom: 14px;
   font-family: 'Geist', sans-serif;
   font-size: .72rem;
