@@ -94,7 +94,7 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--bg3);
-  border: 1px solid var(--b18);
+  border: 2px solid var(--b18);
   border-radius: 6px;
   transition: border-color .25s, background .25s;
 }
