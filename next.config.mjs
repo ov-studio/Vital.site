@@ -1,4 +1,5 @@
 import * as fumadocs_next from 'fumadocs-mdx/next';
+import { info } from './src/configs/site.js';
 
 const withMDX = fumadocs_next.createMDX();
 
@@ -16,19 +17,17 @@ const config = {
   },
 
   async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'discord.vital-sandbox.com'
-          }
-        ],
-        destination: 'https://discord.gg/sVCnxPW',
-        permanent: false
-      },
-    ];
+    return Object.entries(info.social).map(([key, { href }]) => ({
+      source: '/:path*',
+      has: [
+        {
+          type: 'host',
+          value: `${key}.vital-sandbox.com`
+        }
+      ],
+      destination: href.startsWith('http') ? href : `https://${href}`,
+      permanent: false
+    }));
   }
 };
 
