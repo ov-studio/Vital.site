@@ -1,5 +1,5 @@
 import * as fumadocs_next from 'fumadocs-mdx/next';
-import { info } from './src/configs/site.tsx';
+import * as config_site from './src/configs/site.tsx';
 
 const withMDX = fumadocs_next.createMDX();
 
@@ -16,7 +16,7 @@ const config = {
   },
 
   async redirects() {
-    return Object.entries(info.social).map(([key, { href }]) => ({
+    return Object.entries(config_site.info.social).map(([key, { href }]) => ({
       source: '/:path*',
       has: [
         {
