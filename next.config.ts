@@ -1,5 +1,5 @@
 import * as fumadocs_next from 'fumadocs-mdx/next';
-import * as config_site   from './app/configs/site';
+import * as config_site   from './configs/site';
 
 const withMDX = fumadocs_next.createMDX();
 
