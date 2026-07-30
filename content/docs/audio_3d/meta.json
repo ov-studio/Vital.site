@@ -47,7 +47,6 @@
         "method__set_paused",
         "method__set_pitch_scale",
         "method__set_panning_strength",
-        "method__set_autoplay",
         "method__set_unit_size",
         "method__set_max_db",
         "method__set_max_distance",
