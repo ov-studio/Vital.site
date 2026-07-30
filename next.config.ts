@@ -6,7 +6,8 @@ const withMDX = fumadocs_next.createMDX();
 
 const config: next.NextConfig = {
   reactStrictMode: true,
-
+  trailingSlash: false,
+  
   async rewrites() {
     return [
       {
