@@ -6,9 +6,11 @@ export function Ethos() {
   return (
     <section id="ethos">
       <div className="sw">
-        <div className="ethos-head">
-          <div className="slabel rev">Ethos</div>
-          <h2 className="rev">No bloat. No strings.<br/><span>Just power.</span></h2>
+        <div className="sec-head rev">
+          <div>
+            <div className="slabel">Ethos</div>
+            <h2>No bloat. No strings.<br/><span>Just power.</span></h2>
+          </div>
         </div>
 
         <div className="ethos-grid">
