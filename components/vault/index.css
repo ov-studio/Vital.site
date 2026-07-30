@@ -14,8 +14,8 @@
 
 .vault-filters {
   margin-bottom: 40px;
+  gap: 2px;
 }
-.vault-filters::after { content: ''; display: table; clear: both; }
 
 .vault-search {
   position: relative;
