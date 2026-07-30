@@ -1,9 +1,10 @@
-import * as fumadocs_next from 'fumadocs-mdx/next';
-import * as config_site   from './configs/site.tsx';
+import type * as next          from 'next';
+import *      as fumadocs_next from 'fumadocs-mdx/next';
+import *      as config_site   from './configs/site.tsx';
 
 const withMDX = fumadocs_next.createMDX();
 
-const config = {
+const config: next.NextConfig = {
   reactStrictMode: true,
 
   async rewrites() {
@@ -20,7 +21,7 @@ const config = {
       source: '/:path*',
       has: [
         {
-          type: 'host',
+          type: 'host' as const,
           value: `${key}.vital-sandbox.com`
         }
       ],
