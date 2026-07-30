@@ -75,6 +75,8 @@ h2 span { color: var(--blue) }
   justify-content: space-between;
   margin-bottom: 64px;
 }
+.sec-head--intro { margin-bottom: 25px; }
+.page-head { margin-bottom: 56px; }
 
 .sec-link {
   display: flex;
@@ -244,7 +246,9 @@ h2 span { color: var(--blue) }
     margin-bottom: 40px;
   }
 
-  .sec-link { 
+  .sec-head--intro { margin-bottom: 20px; }
+
+  .sec-link {
     align-self: flex-start;
   }
 }
