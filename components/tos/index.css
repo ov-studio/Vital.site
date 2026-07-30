@@ -2,9 +2,6 @@
   padding: calc(100px + var(--nav-h)) 0;
 }
 
-.tos-head { margin-bottom: 56px }
-.tos-head .sec-head { margin-bottom: 25px }
-
 .tos-intro {
   margin-bottom: 15px;
   line-height: 1.65;

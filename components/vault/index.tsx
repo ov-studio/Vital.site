@@ -264,13 +264,14 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
 
 function VaultHead() {
   return (
-    <div className="vault-head">
-      <div className="sec-head">
+    <div className="page-head">
+      <div className="sec-head sec-head--intro">
         <div>
+          <div className="slabel">Vault</div>
           <h2>Community built,<br/>All yours to <span>explore.</span></h2>
         </div>
       </div>
-      <div className="vault-intro sec-head">
+      <div className="vault-intro sec-head sec-head--intro">
         <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
         <a href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`} target="_blank" rel="noreferrer" className="sec-link">
           :: Submit Resource
@@ -343,7 +344,7 @@ function VaultInner() {
     return t && (config_vault.ALL_TAGS as readonly string[]).includes(t) ? t : null;
   });
   const [initial_modal_id, set_initial_modal_id] = react.useState(() => searchParams.get('modal'));
-  
+
   react.useEffect(() => {
     const params = new URLSearchParams();
     if (active_tag) params.set('tag', active_tag);

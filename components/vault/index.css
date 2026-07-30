@@ -3,10 +3,6 @@
   padding: calc(100px + var(--nav-h)) 0;
 }
 
-.vault-head              { margin-bottom: 56px; }
-.vault-head .sec-head    { margin-bottom: 25px; }
-.vault-head .sec-head h2 { text-align: left; }
-
 .vault-intro {
   display: flex;
   margin-top: 15px;
@@ -286,10 +282,10 @@
   text-overflow: ellipsis;
 }
 
-.vault-modal-divider { 
-  border: none; 
-  border-top: 1px solid var(--rule); 
-  margin: 24px 0; 
+.vault-modal-divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 24px 0;
   flex-shrink: 0;
 }
 
@@ -387,8 +383,8 @@
 
 
 /* ── @media ── */
-@media (max-width: 1100px) { 
-  .vault-grid { grid-template-columns: repeat(2, 1fr); } 
+@media (max-width: 1100px) {
+  .vault-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 960px) {

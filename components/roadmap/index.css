@@ -1,8 +1,5 @@
 #roadmap { padding: calc(100px + var(--nav-h)) 0; }
 
-.roadmap-head           { margin-bottom: 56px; }
-.roadmap-head .sec-head { margin-bottom: 25px; }
-
 .roadmap-summary { margin-bottom: 80px; }
 
 .roadmap-summary-row {

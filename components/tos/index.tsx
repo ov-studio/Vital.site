@@ -6,9 +6,12 @@ export function TOS() {
   return (
     <section id="tos">
       <div className="sw">
-        <div className="tos-head">
-          <div className="sec-head">
-            <h2>Terms of <span>Service</span></h2>
+        <div className="page-head">
+          <div className="sec-head sec-head--intro">
+            <div>
+              <div className="slabel">Legal</div>
+              <h2>Terms of <span>Service</span></h2>
+            </div>
           </div>
           <div className="tos-intro">
             Terms and conditions governing your use of {config_site.info.name} and its associated services
