@@ -404,6 +404,7 @@
   .vault-modal             { clip-path: none; }
   .vault-modal-body        { padding: 24px 20px 28px; }
   .vault-modal-name        { font-size: 1.5rem; }
+  .vault-filters           { flex-direction: column; align-items: stretch; }
   .vault-filter-tags       { order: 1; }
   .vault-search            { order: 2; width: 100%; margin: 12px 0 0; }
   .vault-search input,
