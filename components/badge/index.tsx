@@ -29,7 +29,7 @@ function capitalize(text: string) {
 }
 
 export function Badge({ type }: { type: string }) {
-  const key = type.toLowerCase() as keyof typeof Badges;
+  const key = type as keyof typeof Badges;
   const config = Badges[key];
   if (!config) return null;
 
