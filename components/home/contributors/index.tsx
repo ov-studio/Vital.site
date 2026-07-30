@@ -1,6 +1,7 @@
 'use client';
 import * as config_site from '@/configs/site';
 import * as react       from 'react';
+import * as lucide      from 'lucide-react';
 import './index.css';
 
 interface ContributorInfo {
@@ -48,7 +49,10 @@ export function Contributors() {
           ))}
 
           {list && list.length === 0 && (
-            <p className="state-empty">No contributors found.</p>
+            <div className="state-empty">
+              <lucide.Package size={28} strokeWidth={1.5}/>
+              <p>No contributors found</p>
+            </div>
           )}
         </div>
       </div>
