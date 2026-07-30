@@ -50,7 +50,7 @@ export function Contributors() {
 
           {list && list.length === 0 && (
             <div className="state-empty">
-              <lucide.Package size={28} strokeWidth={1.5}/>
+              <lucide.UserRoundX size={28} strokeWidth={1.5}/>
               <p>No contributors found</p>
             </div>
           )}
