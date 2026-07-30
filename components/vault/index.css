@@ -410,7 +410,7 @@
   .vault-search            { order: 2; width: 100%; margin: 12px 0 0; }
   .vault-search input,
   .vault-search input:focus,
-  .vault-search input:not(:placeholder-shown) { padding: 8px 12px 8px 30px;    width: 100%; }
+  .vault-search input:not(:placeholder-shown) { padding: 8px 12px 8px 30px; width: 100%; }
 }
 
 @media (max-width: 450px) {
