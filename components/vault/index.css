@@ -376,22 +376,6 @@
 }
 .vault-loading .vault-spin { margin-right: 0; }
 
-.state-empty {
-  opacity: .5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  grid-column: 1 / -1;
-  padding: 64px 24px;
-  font-family: 'Geist', sans-serif;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text-desc);
-  text-align: center;
-}
-
 
 /* ── @media ── */
 @media (max-width: 1100px) {
