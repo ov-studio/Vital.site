@@ -1,13 +1,13 @@
 ---
-title: self:list_fx
-description: Retrieves the names of all audio effects applied to the audio-2d instance
+title: self:list_effects
+description: Retrieves the names of all audio effects applied to the audio-3d instance
 badge: client
 ---
 
 ### Syntax
 
 ```lua
-local effects = self:list_fx()
+local effects = self:list_effects()
 ```
 
 ### Parameters
@@ -25,13 +25,13 @@ local effects = self:list_fx()
 
 ### Examples
 
-```lua lineNumbers title="List all effects on an audio-2d instance"
+```lua lineNumbers title="List all effects on an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 entity:add_fx("my_reverb", "reverb")
 entity:add_fx("my_amp", "amplify", { volume_db = 6.0 })
 
-core.engine.iprint(entity:list_fx())
+core.engine.iprint(entity:list_effects())
 
 --[[
 Output:

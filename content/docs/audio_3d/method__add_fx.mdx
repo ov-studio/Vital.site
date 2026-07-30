@@ -1,6 +1,6 @@
 ---
 title: self:add_fx
-description: Adds an audio effect to the audio-2d instance's effect chain
+description: Adds an audio effect to the audio-3d instance's effect chain
 badge: client
 ---
 
@@ -32,7 +32,7 @@ local status = self:add_fx(
 
 ### Examples
 
-```lua lineNumbers title="Add a reverb effect to an audio-2d instance"
+```lua lineNumbers title="Add a reverb effect to an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 entity:add_fx("my_reverb", core.audio_3d.effect.REVERB, {
@@ -44,7 +44,7 @@ entity:add_fx("my_reverb", core.audio_3d.effect.REVERB, {
 entity:play()
 ```
 
-```lua lineNumbers title="Add a 10-band EQ effect to an audio-2d instance"
+```lua lineNumbers title="Add a 10-band EQ effect to an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 entity:add_fx("my_eq", core.audio_3d.effect.EQ10, {

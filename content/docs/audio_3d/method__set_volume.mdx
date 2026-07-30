@@ -1,6 +1,6 @@
 ---
 title: self:set_volume
-description: Sets the linear volume of the audio-2d instance
+description: Sets the linear volume of the audio-3d instance
 badge: client
 ---
 
@@ -28,7 +28,7 @@ local status = self:set_volume(
 
 ### Examples
 
-```lua lineNumbers title="Reduce the volume of an audio-2d instance"
+```lua lineNumbers title="Reduce the volume of an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 entity:set_volume(0.5)

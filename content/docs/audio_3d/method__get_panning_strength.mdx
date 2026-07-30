@@ -1,6 +1,6 @@
 ---
 title: self:get_panning_strength
-description: Retrieves the panning strength of the audio-2d instance
+description: Retrieves the panning strength of the audio-3d instance
 badge: client
 ---
 
@@ -25,7 +25,7 @@ local result = self:get_panning_strength()
 
 ### Examples
 
-```lua lineNumbers title="Get the panning strength of an audio-2d instance"
+```lua lineNumbers title="Get the panning strength of an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 core.engine.print("info", "Panning strength:", entity:get_panning_strength())

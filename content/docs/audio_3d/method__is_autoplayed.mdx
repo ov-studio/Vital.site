@@ -1,6 +1,6 @@
 ---
 title: self:is_autoplayed
-description: Checks whether the audio-2d instance is autoplayed
+description: Checks whether the audio-3d instance is autoplayed
 badge: client
 ---
 
@@ -25,7 +25,7 @@ local result = self:is_autoplayed()
 
 ### Examples
 
-```lua lineNumbers title="Check autoplay state of an audio-2d instance"
+```lua lineNumbers title="Check autoplay state of an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 core.engine.print("info", "Autoplay:", entity:is_autoplayed())

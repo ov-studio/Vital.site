@@ -22,8 +22,6 @@
         "method__is_autoplayed",
         "method__is_fx_enabled",
         "method__is_emission_angle_enabled",
-        "method__is_visible",
-        "method__is_visible_in_tree",
 
         "---⁝⁝Getter---",
         "method__get_volume",
@@ -41,9 +39,6 @@
         "method__get_attenuation_filter_db",
         "method__get_position",
         "method__get_global_position",
-        "method__get_scale",
-        "method__get_rotation",
-        "method__get_rotation_degrees",
 
         "---⁝⁝Setter---",
         "method__set_volume",
@@ -62,12 +57,8 @@
         "method__set_attenuation_filter_cutoff_hz",
         "method__set_attenuation_filter_db",
         "method__set_fx_enabled",
-        "method__set_visible",
         "method__set_position",
         "method__set_global_position",
-        "method__set_scale",
-        "method__set_rotation",
-        "method__set_rotation_degrees",
 
         "---⁝⁝Misc---",
         "method__play",
@@ -75,12 +66,8 @@
         "method__seek",
         "method__add_fx",
         "method__remove_fx",
-        "method__list_fx",
+        "method__list_effects",
         "method__translate",
-        "method__translate_local",
-        "method__look_at",
-        "method__look_at_from_position",
-        "method__to_local",
-        "method__to_global"
+        "method__translate_local"
     ]
 }
