@@ -57,15 +57,15 @@ h2 span { color: var(--blue) }
   margin-bottom: 14px;
   font-family: 'Geist', sans-serif;
   font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .1em;
+  font-weight: 700;
+  letter-spacing: .05em;
   text-transform: uppercase;
   color: var(--blue);
 }
 .slabel::before {
   content: '';
-  width: 20px;
-  height: 1px;
+  width: 12px;
+  height: 2px;
   background: var(--blue);
 }
 
