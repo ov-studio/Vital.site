@@ -8,6 +8,9 @@ import * as mdx_components                from '@/mdx-components';
 import * as fumadocs_mdx                  from 'fumadocs-ui/mdx';
 import * as fumadocs_layout_notebook_page from 'fumadocs-ui/layouts/notebook/page';
 
+export const revalidate = false;
+export const dynamicParams = false;
+
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
   const page = lib_source.source.getPage(params.slug);

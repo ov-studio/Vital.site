@@ -5,6 +5,7 @@ import * as next_og         from 'next/og';
 import * as fumadocs_og     from 'fumadocs-ui/og';
 
 export const revalidate = false;
+export const dynamicParams = false;
 
 export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...slug]'>) {
   const { slug } = await params;
