@@ -17,6 +17,7 @@
         "---⁝⁝Checker---",
         "method__is_playing",
         "method__is_paused",
+        "method__is_looped",
         "method__is_autoplayed",
         "method__is_fx_enabled",
 
@@ -27,17 +28,17 @@
         "method__get_pitch_scale",
         "method__get_panning_strength",
         "method__get_playback_position",
-        
+
         "---⁝⁝Setter---",
         "method__set_volume",
         "method__set_paused",
+        "method__set_looped",
         "method__set_max_distance",
         "method__set_attenuation",
         "method__set_pitch_scale",
         "method__set_panning_strength",
         "method__set_fx_enabled",
 
-        
         "---⁝⁝Misc---",
         "method__play",
         "method__stop",
