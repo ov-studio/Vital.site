@@ -1,0 +1,32 @@
+---
+title: self:get_max_volume
+description: Retrieves the maximum linear volume ceiling of the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_max_volume()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current maximum linear volume ceiling |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the max volume of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Max volume:", entity:get_max_volume())
+```

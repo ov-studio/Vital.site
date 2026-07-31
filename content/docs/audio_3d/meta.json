@@ -20,6 +20,7 @@
         "method__is_playing",
         "method__is_paused",
         "method__is_autoplayed",
+        "method__is_looped",
         "method__is_emission_angle_enabled",
         "method__is_fx_enabled",
         
@@ -46,6 +47,7 @@
         "method__set_volume",
         "method__set_max_volume",
         "method__set_paused",
+        "method__set_looped",
         "method__set_pitch_scale",
         "method__set_panning_strength",
         "method__set_unit_size",
