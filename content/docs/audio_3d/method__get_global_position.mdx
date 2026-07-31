@@ -27,7 +27,7 @@ local result = self:get_global_position()
 
 ```lua lineNumbers title="Get the world position of an audio-3d instance"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
+local position = entity:get_global_position()
 
-local pos = entity:get_global_position()
-core.engine.print("info", pos[1], pos[2], pos[3])
+core.engine.print("info", "Audio global position:", util.table.unpack(position))
 ```

@@ -27,7 +27,7 @@ local result = self:get_position()
 
 ```lua lineNumbers title="Get the position of an audio-3d instance relative to its parent"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
+local position = entity:get_position()
 
-local pos = entity:get_position()
-core.engine.print("info", pos[1], pos[2], pos[3])
+core.engine.print("info", "Audio position:", util.table.unpack(position))
 ```
