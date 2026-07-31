@@ -488,7 +488,6 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
         label: 'Audio 3D',
         desc: 'Positional audio playback with attenuation, doppler, directional emission, and effect chain from Lua',
         icon: <lucide.Volume2 {...config_site.info.lucide}/>,
