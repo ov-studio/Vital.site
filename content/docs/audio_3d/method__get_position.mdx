@@ -1,6 +1,6 @@
 ---
 title: self:get_position
-description: Retrieves the local position of the audio-3d instance
+description: Retrieves the position of the audio-3d instance relative to its parent
 badge: client
 ---
 
@@ -19,13 +19,13 @@ local result = self:get_position()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | result | Current local position as `{x, y, z}` |
+| `vector3` | result | Current position relative to the parent as `{x, y, z}` |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the local position of an audio-3d instance"
+```lua lineNumbers title="Get the position of an audio-3d instance relative to its parent"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 local pos = entity:get_position()

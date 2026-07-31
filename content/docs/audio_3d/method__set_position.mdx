@@ -1,6 +1,6 @@
 ---
 title: self:set_position
-description: Sets the local position of the audio-3d instance
+description: Sets the position of the audio-3d instance relative to its parent
 badge: client
 ---
 
@@ -16,7 +16,7 @@ local status = self:set_position(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | Local position to apply as `{x, y, z}` |
+| `vector3` | position | Position to apply, relative to the parent, as `{x, y, z}` |
 
 ### Returns
 
@@ -28,7 +28,7 @@ local status = self:set_position(
 
 ### Examples
 
-```lua lineNumbers title="Position an audio-3d instance in local space"
+```lua lineNumbers title="Position an audio-3d instance relative to its parent"
 local entity = core.audio_3d.create("sounds/ambient.ogg")
 
 entity:set_position({0, 2, -10})
