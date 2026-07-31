@@ -20,9 +20,9 @@
         "method__is_playing",
         "method__is_paused",
         "method__is_autoplayed",
-        "method__is_fx_enabled",
         "method__is_emission_angle_enabled",
-
+        "method__is_fx_enabled",
+        
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
