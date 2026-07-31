@@ -8,7 +8,7 @@ badge: client
 
 ```lua
 local status = self:set_emission_angle_enabled(
-    enabled
+    state
 )
 ```
 
@@ -16,7 +16,7 @@ local status = self:set_emission_angle_enabled(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | enabled | Determines whether the emission angle cone is active:<br/>• When `true` - audio is only emitted within the configured cone angle<br/>• When `false` - audio is emitted in all directions equally |
+| `bool` | state | Determines whether the emission angle cone is active:<br/>• When `true` - audio is only emitted within the configured cone angle<br/>• When `false` - audio is emitted in all directions equally |
 
 ### Returns
 

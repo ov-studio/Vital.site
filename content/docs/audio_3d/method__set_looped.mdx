@@ -8,7 +8,7 @@ badge: client
 
 ```lua
 local status = self:set_looped(
-    loop
+    state
 )
 ```
 
@@ -16,7 +16,7 @@ local status = self:set_looped(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | loop | Determines the looping behavior of playback:<br/>• When `true` - the stream restarts automatically once it reaches the end<br/>• When `false` - the stream stops once it reaches the end |
+| `bool` | state | Determines the looping behavior of playback:<br/>• When `true` - the stream restarts automatically once it reaches the end<br/>• When `false` - the stream stops once it reaches the end |
 
 ### Returns
 

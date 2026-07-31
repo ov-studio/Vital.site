@@ -8,7 +8,7 @@ badge: client
 
 ```lua
 local status = self:set_paused(
-    pause
+    state
 )
 ```
 
@@ -16,7 +16,7 @@ local status = self:set_paused(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | pause | Determines the paused state of the stream:<br/>• When `true` - the stream is paused while preserving the playback position<br/>• When `false` - the stream resumes from where it was paused |
+| `bool` | state | Determines the paused state of the stream:<br/>• When `true` - the stream is paused while preserving the playback position<br/>• When `false` - the stream resumes from where it was paused |
 
 ### Returns
 
