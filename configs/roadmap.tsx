@@ -1318,6 +1318,25 @@ export const Roadmap: RoadmapSection[] = build([
   },
 
   {
+    name: 'Website',
+    cards: [
+      {
+        label: 'Backend',
+        desc: 'Next.js API routes — cached, rate-limit-safe endpoints that aggregate build info, contributor data, and live server listings for the website',
+        icon: <lucide.ServerCog {...config_site.info.lucide}/>,
+        items: [
+          { label: 'GET /api/build — fetch latest build info', status: 'completed' },
+          { label: 'GET /api/build — 5-minute server-side cache shared across all clients', status: 'completed' },
+          { label: 'GET /api/contributors — fetch current contributor list', status: 'completed' },
+          { label: 'GET /api/contributors — 5-minute server-side cache shared across all clients', status: 'completed' },
+          { label: 'GET /api/masterlist — live server list with metadata', status: 'completed' },
+          { label: 'Homepage contributors section with real-time updates via /api/contributors', status: 'completed' },
+        ]
+      },
+    ]
+  },
+
+  {
     name: 'Network',
     cards: [
       {
