@@ -233,7 +233,7 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--bg2);
-  border: 1px solid var(--bg2);
+  border: 2px solid var(--bg2);
   clip-path: polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);
   isolation: isolate;
   transform: translateZ(0);
