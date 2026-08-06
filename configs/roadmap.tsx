@@ -42,7 +42,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Frontend',
         desc: 'Public-facing Next.js + Fumadocs site — homepage, vault, docs, and live roadmap, powered by the backend routes',
-        icon: <lucide.LayoutDashboard {...config_site.info.lucide} />,
+        icon: <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
           { label: 'Homepage — hero, feature pillars, ethos section', status: 'completed' },
           { label: 'Homepage — live release/build info widget', status: 'completed' },
@@ -58,7 +58,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Backend',
         desc: 'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, and server listings',
-        icon: <lucide.ServerCog {...config_site.info.lucide} />,
+        icon: <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
           { label: 'GET /api/build — latest build info', status: 'completed' },
           { label: 'GET /api/contributors — contributor list', status: 'completed' },
@@ -763,7 +763,7 @@ export const Roadmap: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Easing',
         desc: 'Stateless interpolation and easing curve functions — no timers, no objects, just math you drive yourself',
-        icon: <lucide.TrendingUp {...config_site.info.lucide} />,
+        icon: <lucide.TrendingUp {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] API: util.easing.lerp', status: 'pending' },
           { label: '[Shared] API: util.easing.linear', status: 'pending' },
