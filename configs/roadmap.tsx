@@ -595,20 +595,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'MeshInstance3D creation', status: 'pending' },
           { label: 'Surface material assignment', status: 'pending' },
         ]
-      },
-      {
-        // TODO: WIP
-        label: 'Tween',
-        desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
-        icon: <lucide.TrendingUp {...config_site.info.lucide}/>,
-        items: [
-          { label: 'Tween.tween_property', status: 'pending' },
-          { label: 'Tween.tween_callback', status: 'pending' },
-          { label: 'Tween.tween_interval', status: 'pending' },
-          { label: 'Easing & transition types', status: 'pending' },
-          { label: 'Sequence / parallel / chained', status: 'pending' },
-          { label: 'Pause / resume / kill', status: 'pending' },
-        ]
       }
     ]
   },
@@ -825,6 +811,20 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Data compression via zstd library', status: 'completed' },
           { label: '[Shared] API: util.shrinker.compress', status: 'completed' },
           { label: '[Shared] API: util.shrinker.decompress', status: 'completed' }
+        ]
+      },
+      {
+        // TODO: WIP
+        label: 'Tween',
+        desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
+        icon: <lucide.TrendingUp {...config_site.info.lucide} />,
+        items: [
+          { label: 'Tween.tween_property', status: 'pending' },
+          { label: 'Tween.tween_callback', status: 'pending' },
+          { label: 'Tween.tween_interval', status: 'pending' },
+          { label: 'Easing & transition types', status: 'pending' },
+          { label: 'Sequence / parallel / chained', status: 'pending' },
+          { label: 'Pause / resume / kill', status: 'pending' },
         ]
       },
       {
