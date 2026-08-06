@@ -61,9 +61,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon: <lucide.ServerCog {...config_site.info.lucide} />,
         items: [
           { label: 'GET /api/build — latest build info', status: 'completed' },
-          { label: 'GET /api/build — 5-minute shared cache', status: 'completed' },
           { label: 'GET /api/contributors — contributor list', status: 'completed' },
-          { label: 'GET /api/contributors — 5-minute shared cache', status: 'completed' },
           { label: 'GET /api/masterlist — live server list', status: 'pending' },
         ]
       }
