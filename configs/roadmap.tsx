@@ -37,6 +37,40 @@ export interface RoadmapSection {
 
 export const Roadmap: RoadmapSection[] = build([
   {
+    name: 'Website',
+    cards: [
+      {
+        label: 'Frontend',
+        desc: 'Public-facing Next.js + Fumadocs site — homepage, vault, docs, and live roadmap, powered by the backend routes',
+        icon: <lucide.LayoutDashboard {...config_site.info.lucide} />,
+        items: [
+          { label: 'Homepage — hero, feature pillars, ethos section', status: 'completed' },
+          { label: 'Homepage — live release/build info widget', status: 'completed' },
+          { label: 'Homepage — live GitHub repo stats', status: 'completed' },
+          { label: 'Homepage — live contributors via /api/contributors', status: 'completed' },
+          { label: 'Vault — community resource browser with filtering', status: 'completed' },
+          { label: 'Docs — Fumadocs sidebar nav + Cmd+K search', status: 'completed' },
+          { label: 'Docs — building / server / manifest guides', status: 'completed' },
+          { label: 'Roadmap — this page, live status breakdown', status: 'completed' },
+          { label: 'Terms of Service page', status: 'completed' },
+        ]
+      },
+      {
+        label: 'Backend',
+        desc: 'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, and server listings',
+        icon: <lucide.ServerCog {...config_site.info.lucide} />,
+        items: [
+          { label: 'GET /api/build — latest build info', status: 'completed' },
+          { label: 'GET /api/build — 5-minute shared cache', status: 'completed' },
+          { label: 'GET /api/contributors — contributor list', status: 'completed' },
+          { label: 'GET /api/contributors — 5-minute shared cache', status: 'completed' },
+          { label: 'GET /api/masterlist — live server list', status: 'pending' },
+        ]
+      }
+    ]
+  },
+  
+  {
     name: 'Sandbox',
     cards: [
       {
@@ -1312,25 +1346,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Navigation layers', status: 'pending' },
         ]
       }
-    ]
-  },
-
-  {
-    name: 'Website',
-    cards: [
-      {
-        label: 'Backend',
-        desc: 'Next.js API routes — cached, rate-limit-safe endpoints that aggregate build info, contributor data, and live server listings for the website',
-        icon: <lucide.ServerCog {...config_site.info.lucide}/>,
-        items: [
-          { label: 'GET /api/build — fetch latest build info', status: 'completed' },
-          { label: 'GET /api/build — 5-minute server-side cache shared across all clients', status: 'completed' },
-          { label: 'GET /api/contributors — fetch current contributor list', status: 'completed' },
-          { label: 'GET /api/contributors — 5-minute server-side cache shared across all clients', status: 'completed' },
-          { label: 'GET /api/masterlist — live server list with metadata', status: 'completed' },
-          { label: 'Homepage contributors section with real-time updates via /api/contributors', status: 'completed' },
-        ]
-      },
     ]
   },
 
