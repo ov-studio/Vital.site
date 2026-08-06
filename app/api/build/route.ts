@@ -15,11 +15,11 @@ interface CacheEntry {
   fetched_at: number;
 }
 
-const EMPTY_INFO: ReleaseInfo = { 
-  tag: '', 
-  client_url:  null, 
-  server_url:  null, 
-  client_size: null, 
+const EMPTY_INFO: ReleaseInfo = {
+  tag:         '',
+  client_url:  null,
+  server_url:  null,
+  client_size: null,
   server_size: null
 };
 
