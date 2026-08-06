@@ -69,6 +69,7 @@ export async function GET() {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
         'X-Build-Cache': 'MISS',
+        'X-Build-Cache': 'MISS'
       },
     });
   }
@@ -78,7 +79,7 @@ export async function GET() {
       return Response.json(cache.data, {
         headers: {
           'Cache-Control': 'public, s-maxage=30',
-          'X-Build-Cache': 'STALE',
+          'X-Build-Cache': 'STALE'
         },
       });
     }
