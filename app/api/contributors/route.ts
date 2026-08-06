@@ -71,11 +71,11 @@ async function build_contributor_list(): Promise<ContributorInfo[]> {
       }
       else {
         merged.set(c.login, {
-          login: c.login,
-          avatar_url: c.avatar_url,
-          profile_url: c.html_url,
+          login:         c.login,
+          avatar_url:    c.avatar_url,
+          profile_url:   c.html_url,
           contributions: c.contributions,
-          repos: [repo],
+          repos:         [repo],
         });
       }
     }
