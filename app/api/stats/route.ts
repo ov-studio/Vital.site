@@ -21,7 +21,6 @@ async function get_commit_count(user: string, repo: string): Promise<number> {
   });
   if (!res.ok) return 0;
 
-  const link = res.headers.get('link') ?? '';
   const link  = res.headers.get('link') ?? '';
   const match = link.match(/page=(\d+)>; rel="last"/);
   if (match) return parseInt(match[1]);
@@ -31,7 +30,6 @@ async function get_commit_count(user: string, repo: string): Promise<number> {
 }
 
 async function fetch_fresh_stats(): Promise<StatsInfo> {
-  const repos = Object.values(config_site.info.git);
   const repos    = Object.values(config_site.info.git);
   const per_repo = await Promise.all(
     repos.map(async ({ user, repo }) => {
