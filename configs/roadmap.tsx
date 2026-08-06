@@ -516,6 +516,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_2d>:seek', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:add_fx', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:remove_fx', status: 'completed' },
+          { label: '[Client] API: self<audio_2d>:update_fx', status: 'completed' },
           { label: '[Client] API: self<audio_2d>:list_fx', status: 'completed' }
         ]
       },
@@ -581,6 +582,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self<audio_3d>:seek', status: 'completed' },
           { label: '[Client] API: self<audio_3d>:add_fx', status: 'completed' },
           { label: '[Client] API: self<audio_3d>:remove_fx', status: 'completed' },
+          { label: '[Client] API: self<audio_3d>:update_fx', status: 'completed' },
           { label: '[Client] API: self<audio_3d>:list_fx', status: 'completed' }
         ]
       },
