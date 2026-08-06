@@ -8,7 +8,8 @@ badge: client
 
 ```lua
 local instance = core.audio_3d.create(
-    path
+    path,
+    autoplay = false
 )
 ```
 
@@ -17,6 +18,7 @@ local instance = core.audio_3d.create(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | path | File path to the audio asset<br/>Refer [**Formats**](#formats) section |
+| `bool` | autoplay | Determines whether the audio starts playing immediately:<br/>• When `true` - playback begins as soon as the instance is created<br/>• When `false` - playback must be started manually via [`self:play()`](/docs/audio_3d/method/play) |
 
 ### Returns
 
