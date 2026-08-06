@@ -51,6 +51,7 @@ export async function GET() {
     const releases = await res.json();
     const release = Array.isArray(releases) ? releases[0] : null;
     let info: ReleaseInfo = EMPTY_INFO;
+
     if (release) {
       const assets: { name: string; browser_download_url: string; size: number }[] = release.assets ?? [];
       const client = assets.find((a) => a.name.toLowerCase().includes('client') && a.name.endsWith('.zip'));
