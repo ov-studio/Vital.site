@@ -26,7 +26,7 @@ export const info = {
     cache_ttl_ms: 5*60*1000, // 5 minutes — shared TTL for all cached api routes
     github_headers: {
       'Accept':       'application/vnd.github+json',
-      'User-Agent': 'Vital.site/1.0'
+      'User-Agent':   'Vital.site/1.0'
     }
   },
 };
