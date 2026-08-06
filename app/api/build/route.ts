@@ -59,9 +59,9 @@ export async function GET() {
       const client = assets.find((a) => a.name.toLowerCase().includes('client') && a.name.endsWith('.zip'));
       const server = assets.find((a) => a.name.toLowerCase().includes('server') && a.name.endsWith('.zip'));
       info = {
-        tag: release.tag_name ?? '',
-        client_url: client?.browser_download_url ?? null,
-        server_url: server?.browser_download_url ?? null,
+        tag:         release.tag_name ?? '',
+        client_url:  client?.browser_download_url ?? null,
+        server_url:  server?.browser_download_url ?? null,
         client_size: client ? format_size(client.size) : null,
         server_size: server ? format_size(server.size) : null,
       };
