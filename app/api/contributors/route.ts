@@ -105,7 +105,7 @@ export async function GET() {
         'X-Contributors-Cache': 'MISS'
       },
     });
-  } 
+  }
   catch (err) {
     if (cache) {
       console.error('[api/contributors] fetch failed, serving stale cache:', err);
