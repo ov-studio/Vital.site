@@ -41,7 +41,7 @@ entity:add_fx("my_reverb", core.audio_2d.effect.REVERB, {
 
 entity:play()
 
--- Later, tweak the wet/dry mix without removing and re-adding the effect
+-- Tweak the wet/dry mix without removing and re-adding the effect
 entity:update_fx("my_reverb", {
     wet = 0.9,
     dry = 0.1
