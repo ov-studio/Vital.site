@@ -50,7 +50,7 @@ async function build_contributor_list(): Promise<ContributorInfo[]> {
       try {
         const contributors = await fetch_all_pages<GithubContributor>(`https://api.github.com/repos/${user}/${repo}/contributors`);
         return { repo, contributors };
-      } 
+      }
       catch (err) {
         console.error(`[api/contributors] failed for ${repo}:`, err);
         return { repo, contributors: [] as GithubContributor[] };
