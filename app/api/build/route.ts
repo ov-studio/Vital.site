@@ -28,9 +28,9 @@ let cache: CacheEntry | null = null;
 const format_size = (bytes: number) => `${(bytes / (1024*1024)).toFixed(1)} MB`;
 
 export async function GET() {
-  const now    = Date.now();
+  const now = Date.now();
   const ttl_ms = config_site.info.api.cache_ttl_ms;
-  const ttl_s  = Math.floor(ttl_ms/1000);
+  const ttl_s = Math.floor(ttl_ms/1000);
 
   // Serve from cache if still fresh
   if (cache && now - cache.fetched_at < ttl_ms) {
@@ -51,7 +51,7 @@ export async function GET() {
     if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
 
     const releases = await res.json();
-    const release  = Array.isArray(releases) ? releases[0] : null;
+    const release = Array.isArray(releases) ? releases[0] : null;
     let info: ReleaseInfo = EMPTY_INFO;
 
     if (release) {

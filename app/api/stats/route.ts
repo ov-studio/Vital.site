@@ -21,7 +21,7 @@ async function get_commit_count(user: string, repo: string): Promise<number> {
   });
   if (!res.ok) return 0;
 
-  const link  = res.headers.get('link') ?? '';
+  const link = res.headers.get('link') ?? '';
   const match = link.match(/page=(\d+)>; rel="last"/);
   if (match) return parseInt(match[1]);
 
@@ -30,7 +30,7 @@ async function get_commit_count(user: string, repo: string): Promise<number> {
 }
 
 async function fetch_fresh_stats(): Promise<StatsInfo> {
-  const repos    = Object.values(config_site.info.git);
+  const repos = Object.values(config_site.info.git);
   const per_repo = await Promise.all(
     repos.map(async ({ user, repo }) => {
       try {
@@ -71,9 +71,9 @@ async function fetch_fresh_stats(): Promise<StatsInfo> {
 }
 
 export async function GET() {
-  const now    = Date.now();
+  const now = Date.now();
   const ttl_ms = config_site.info.api.cache_ttl_ms*12;
-  const ttl_s  = Math.floor(ttl_ms/1000);
+  const ttl_s = Math.floor(ttl_ms/1000);
 
   // Serve from cache if still fresh
   if (cache && now - cache.fetched_at < ttl_ms) {
