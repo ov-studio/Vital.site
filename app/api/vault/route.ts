@@ -10,13 +10,15 @@ interface CacheEntry {
 let cache: CacheEntry | null = null;
 
 export async function GET() {
-  const now = Date.now();
+  const now    = Date.now();
+  const ttl_ms = config_site.info.api.cache_ttl_ms;
+  const ttl_s  = Math.floor(ttl_ms/1000);
 
   // Serve from cache if still fresh
   if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms) {
     return Response.json(cache.data, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control': `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
         'X-Vault-Cache': 'HIT'
       }
     });
@@ -34,7 +36,7 @@ export async function GET() {
     cache = { data, fetched_at: now };
     return Response.json(data, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control': `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
         'X-Vault-Cache': 'MISS'
       }
     });
@@ -44,7 +46,7 @@ export async function GET() {
       console.error('[api/vault] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
         headers: {
-          'Cache-Control': 'public, s-maxage=30',
+          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s*0.5)}`,
           'X-Vault-Cache': 'STALE'
         }
       });
