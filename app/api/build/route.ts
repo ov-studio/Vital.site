@@ -44,10 +44,7 @@ export async function GET() {
   try {
     const res = await fetch(RELEASES_URL, {
       cache: 'no-store',
-      headers: {
-        Accept: 'application/vnd.github+json',
-        'User-Agent': 'Vital.site/1.0',
-      },
+      headers: config_site.info.api.github_headers,
     });
     if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
 
