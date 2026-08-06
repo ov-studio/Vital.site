@@ -46,7 +46,7 @@ export async function GET() {
       console.error('[api/vault] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
         headers: {
-          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s*0.5)}`,
+          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s/2)}`,
           'X-Vault-Cache': 'STALE'
         }
       });
