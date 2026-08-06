@@ -39,7 +39,8 @@ function use_vault_resources() {
         const index: config_vault.VaultIndex = await res.json();
         const cleaned = (index.resources ?? []).map(r => ({ ...r, tags: valid_tags(r.tags) }));
         if (!cancelled) { set_resources(cleaned); set_state('done'); }
-      } catch (err) {
+      }
+      catch (err) {
         console.error('[Vault]', err);
         if (!cancelled) set_state('error');
       }
@@ -118,10 +119,12 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     set_dl_error(null);
     try {
       await download_directory_zip(folder);
-    } catch (err) {
+    }
+    catch (err) {
       console.error('[Vault] directory zip failed', err);
       set_dl_error('Could not prepare the download. Please try again.');
-    } finally {
+    }
+    finally {
       set_downloading(false);
     }
   }, [is_dir, folder, downloading]);
