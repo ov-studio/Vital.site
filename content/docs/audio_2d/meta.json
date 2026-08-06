@@ -45,6 +45,7 @@
         "method__seek",
         "method__add_fx",
         "method__remove_fx",
+        "method__update_fx",
         "method__list_fx"
     ]
 }
