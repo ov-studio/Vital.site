@@ -35,6 +35,20 @@ export function Contributors() {
           </a>
         </div>
 
+        <div className="studio-note rev">
+          <p>
+            We&apos;re <strong>ov-studio</strong> – the same team that spent years crafting shaders,
+            systems, and experiences on MTA, FiveM, and SAMP. As those platforms aged, we chose to build
+            something modern. Something truly ours.
+          </p>
+          <p>
+            <strong>Vital.sandbox</strong> is what we built — a community-driven, fully open-source
+            sandbox project, backed by ov-studio. Same team, same philosophy, same leadership. Every
+            talented developer from ov-studio is here, bringing decades of experience into this new
+            chapter.
+          </p>
+        </div>
+
         <div className="contrib-grid rev">
           {list?.map((c) => (
             <a key={c.login} href={c.profile_url} target="_blank" rel="noreferrer" className="contrib-avatar">

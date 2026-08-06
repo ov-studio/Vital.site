@@ -6,6 +6,26 @@
 }
 #contributors > .sw { width: 100%; }
 
+.studio-note {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+  margin: 0 0 48px;
+}
+.studio-note p {
+  font-family: 'Geist', sans-serif;
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+.studio-note p strong {
+  color: var(--blue);
+  font-weight: 800;
+}
+
 .contrib-grid {
   display: flex;
   flex-wrap: wrap;
@@ -79,4 +99,5 @@
 @media (max-width: 640px) {
   #contributors   { padding: 56px 0 }
   .contrib-avatar { width: 40px; height: 40px }
+  .studio-note    { margin-bottom: 32px }
 }
