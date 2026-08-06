@@ -47,6 +47,7 @@ export async function GET() {
         headers: {
           'Cache-Control': 'public, s-maxage=30',
           'X-Vault-Cache': 'STALE',
+          'X-Vault-Cache': 'STALE'
         },
       });
     }
