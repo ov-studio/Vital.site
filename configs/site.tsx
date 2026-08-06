@@ -11,10 +11,10 @@ export const info = {
   },
 
   social: {
-    kofi: { label: 'Ko-fi', href: 'https://ko-fi.com/ovstudio' },
-    github: { label: 'GitHub', href: 'https://github.com/ov-studio' },
+    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio' },
+    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio' },
     discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW' },
-    youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community' }
+    youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community' },
   },
 
   lucide: {
@@ -23,6 +23,10 @@ export const info = {
   },
 
   api: {
-    cache_ttl_ms: 5 * 60 * 1000 // 5 minutes — shared TTL for all cached api routes
-  }
-};    github_headers: {
+    cache_ttl_ms: 5*60*1000, // 5 minutes — shared TTL for all cached api routes
+    github_headers: {
+      Accept:       'application/vnd.github+json',
+      'User-Agent': 'Vital.site/1.0',
+    } as Record<string, string>
+  },
+};
