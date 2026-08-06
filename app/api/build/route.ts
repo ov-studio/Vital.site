@@ -28,13 +28,15 @@ let cache: CacheEntry | null = null;
 const format_size = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 
 export async function GET() {
-  const now = Date.now();
+  const now    = Date.now();
+  const ttl_ms = config_site.info.api.cache_ttl_ms;
+  const ttl_s  = Math.floor(ttl_ms/1000);
 
   // Serve from cache if still fresh
-  if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms) {
+  if (cache && now - cache.fetched_at < ttl_ms) {
     return Response.json(cache.data, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control': `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
         'X-Build-Cache': 'HIT'
       }
     });
@@ -68,7 +70,7 @@ export async function GET() {
     cache = { data: info, fetched_at: now };
     return Response.json(info, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control': `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
         'X-Build-Cache': 'MISS'
       }
     });
@@ -78,7 +80,7 @@ export async function GET() {
       console.error('[api/build] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
         headers: {
-          'Cache-Control': 'public, s-maxage=30',
+          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s*0.5)}`,
           'X-Build-Cache': 'STALE'
         }
       });
