@@ -1,10 +1,9 @@
 import * as config_site from '@/configs/site';
 
 export interface StatsInfo {
-  stars: number;
-  forks: number;
-  issues: number;
+  stars:   number;
   forks:   number;
+  issues:  number;
   commits: number;
 }
 
