@@ -33,15 +33,15 @@ local instance = core.audio_3d.create(
 ### Examples
 
 ```lua lineNumbers title="Create a basic audio-3d instance"
-local entity = core.audio_3d.create("sounds/footstep.ogg")
+local entity = core.audio_3d.create("sounds/ambient.ogg")
 
-entity:set_position({0, 1, -5})
+entity:set_global_position({0, 1, -5})
 entity:play()
 ```
 
-```lua lineNumbers title="Create a 3D sound source and set its position"
-local entity = core.audio_3d.create("sounds/siren.ogg")
+```lua lineNumbers title="Create an instance that starts playing immediately"
+local entity = core.audio_3d.create("sounds/ambient.ogg", true)
 
 entity:set_global_position({10, 0, 0})
-entity:play()
+entity:set_volume(1.0)
 ```
