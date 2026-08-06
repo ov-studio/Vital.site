@@ -77,6 +77,8 @@ export async function GET() {
   if (cache && now - cache.fetched_at < ttl_ms) {
     return Response.json(cache.data, {
       headers: { 
+        'Cache-Control': `public, s-maxage=${ttl_s}, stale-while-revalidate=${Math.floor(ttl_s/6)}`
+      }
     });
   }
 
@@ -85,14 +87,18 @@ export async function GET() {
     const data = await fetch_fresh_stats();
     cache = { data, fetched_at: now };
     return Response.json(data, {
-      headers: { 'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600' }
+      headers: { 
+        'Cache-Control': `public, s-maxage=${ttl_s}, stale-while-revalidate=${Math.floor(ttl_s/6)}`
+      }
     });
   }
   catch (err) {
     if (cache) {
       console.error('[stats] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
-        headers: { 'Cache-Control': 'public, s-maxage=1800' }
+        headers: { 
+          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s/2)}`
+        }
       });
     }
 
