@@ -51,7 +51,7 @@ export async function GET() {
     if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
 
     const releases = await res.json();
-    const release = Array.isArray(releases) ? releases[0] : null;
+    const release  = Array.isArray(releases) ? releases[0] : null;
     let info: ReleaseInfo = EMPTY_INFO;
 
     if (release) {
