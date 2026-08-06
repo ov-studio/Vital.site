@@ -51,10 +51,10 @@ function use_vault_resources() {
 }
 
 async function download_directory_zip(folder: string): Promise<void> {
-  const tree_res = await fetch(
-    `https://api.github.com/repos/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/git/trees/main?recursive=1`,
-    { headers: { Accept: 'application/vnd.github+json' } }
-  );
+  const r = await fetch(`https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`, { 
+    cache: 'no-store',
+    headers: config_site.info.api.github_headers
+  });
   if (!tree_res.ok) throw new Error(`tree fetch ${tree_res.status}`);
 
   const tree_data: { tree: { path: string; type: string }[] } = await tree_res.json();
