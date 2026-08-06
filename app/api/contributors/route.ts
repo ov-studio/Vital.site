@@ -31,7 +31,7 @@ async function fetch_all_pages<T>(url_base: string): Promise<T[]> {
   while (true) {
     const res = await fetch(`${url_base}${url_base.includes('?') ? '&' : '?'}per_page=100&page=${page}`, {
       cache: 'no-store',
-      headers: config_site.info.api.github_headers,
+      headers: config_site.info.api.github_headers
     });
     if (!res.ok) throw new Error(`GitHub responded ${res.status} for ${url_base}`);
 
