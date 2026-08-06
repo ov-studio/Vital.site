@@ -16,7 +16,7 @@ export const ALL_TAGS = [
 export type VaultTag = typeof ALL_TAGS[number];
 
 export type VaultFiltersProps = {
-  search?:    string;
+  search?:     string;
   on_search?:  (v: string) => void;
   active_tag?: VaultTag | null;
   on_tag?:     (tag: VaultTag | null) => void;
