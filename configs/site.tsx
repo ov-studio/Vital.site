@@ -4,16 +4,16 @@ export const info = {
   description: "An open-source, high-performance sandbox built on Godot and powered by C++17 and Lua.",
 
   git: {
-    site: { user: 'ov-studio', repo: 'Vital.site', branch: 'main' },
+    site:    { user: 'ov-studio', repo: 'Vital.site',    branch: 'main' },
     sandbox: { user: 'ov-studio', repo: 'Vital.sandbox', branch: 'main' },
-    kit: { user: 'ov-studio', repo: 'Vital.kit', branch: 'main' },
-    vault: { user: 'ov-studio', repo: 'Vital.vault', branch: 'main' }
+    kit:     { user: 'ov-studio', repo: 'Vital.kit',     branch: 'main' },
+    vault:   { user: 'ov-studio', repo: 'Vital.vault',   branch: 'main' }
   },
 
   social: {
-    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio' },
-    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio' },
-    discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW' },
+    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio'            },
+    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio'          },
+    discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW'             },
     youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community' },
   },
 
@@ -24,6 +24,7 @@ export const info = {
 
   api: {
     cache_ttl_ms: 5*60*1000, // 5 minutes — shared TTL for all cached api routes
+
     github_headers: {
       Accept:       'application/vnd.github+json',
       'User-Agent': 'Vital.site/1.0',
