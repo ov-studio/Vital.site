@@ -18,10 +18,11 @@ export const info = {
   },
 
   lucide: {
-    size: 18, strokeWidth: 2
+    size: 18,
+    strokeWidth: 2
   },
 
   api: {
     cache_ttl_ms: 5 * 60 * 1000 // 5 minutes — shared TTL for all cached api routes
   }
-};
+};    github_headers: {
