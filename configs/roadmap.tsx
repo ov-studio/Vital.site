@@ -758,6 +758,26 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
+        // TODO: WIP
+        label: 'Easing',
+        desc: 'Stateless interpolation and easing curve functions — no timers, no objects, just math you drive yourself',
+        icon: <lucide.TrendingUp {...config_site.info.lucide} />,
+        items: [
+          { label: '[Shared] API: util.easing.lerp', status: 'pending' },
+          { label: '[Shared] API: util.easing.linear', status: 'pending' },
+          { label: '[Shared] API: util.easing.sine_in / sine_out / sine_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.quad_in / quad_out / quad_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.cubic_in / cubic_out / cubic_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.quart_in / quart_out / quart_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.quint_in / quint_out / quint_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.expo_in / expo_out / expo_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.circ_in / circ_out / circ_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.back_in / back_out / back_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.elastic_in / elastic_out / elastic_in_out', status: 'pending' },
+          { label: '[Shared] API: util.easing.bounce_in / bounce_out / bounce_in_out', status: 'pending' },
+        ]
+      },
+      {
         label: 'File',
         desc: 'Read, write, and manage files on disk from within Lua scripts',
         icon: <lucide.FileText {...config_site.info.lucide}/>,
@@ -811,20 +831,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Data compression via zstd library', status: 'completed' },
           { label: '[Shared] API: util.shrinker.compress', status: 'completed' },
           { label: '[Shared] API: util.shrinker.decompress', status: 'completed' }
-        ]
-      },
-      {
-        // TODO: WIP
-        label: 'Tween',
-        desc: 'Interpolate any node property smoothly with easing functions, chaining, and parallel playback',
-        icon: <lucide.TrendingUp {...config_site.info.lucide} />,
-        items: [
-          { label: 'Tween.tween_property', status: 'pending' },
-          { label: 'Tween.tween_callback', status: 'pending' },
-          { label: 'Tween.tween_interval', status: 'pending' },
-          { label: 'Easing & transition types', status: 'pending' },
-          { label: 'Sequence / parallel / chained', status: 'pending' },
-          { label: 'Pause / resume / kill', status: 'pending' },
         ]
       },
       {
