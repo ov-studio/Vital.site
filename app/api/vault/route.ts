@@ -27,7 +27,7 @@ export async function GET() {
   // Fetch fresh from GitHub
   try {
     const res = await fetch(RAW_URL, {
-      cache: 'no-store',
+      cache:  'no-store',
       headers: config_site.info.api.github_headers
     });
     if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
