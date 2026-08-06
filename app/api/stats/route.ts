@@ -17,7 +17,7 @@ let cache: CacheEntry | null = null;
 async function get_commit_count(user: string, repo: string): Promise<number> {
   const res = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=1`, {
     cache: 'no-store',
-    headers: GITHUB_HEADERS,
+    headers: config_site.info.api.github_headers,
   });
   if (!res.ok) return 0;
 
@@ -37,7 +37,7 @@ async function fetch_fresh_stats(): Promise<StatsInfo> {
         const [repoRes, commits] = await Promise.all([
           fetch(`https://api.github.com/repos/${user}/${repo}`, {
             cache: 'no-store',
-            headers: GITHUB_HEADERS,
+            headers: config_site.info.api.github_headers,
           }),
           get_commit_count(user, repo),
         ]);
@@ -46,9 +46,9 @@ async function fetch_fresh_stats(): Promise<StatsInfo> {
         const data = await repoRes.json();
 
         return {
-          stars: data.stargazers_count ?? 0,
-          forks: data.forks_count ?? 0,
-          issues: data.open_issues_count ?? 0,
+          stars:   data.stargazers_count  ?? 0,
+          forks:   data.forks_count       ?? 0,
+          issues:  data.open_issues_count ?? 0,
           commits,
         };
       }
