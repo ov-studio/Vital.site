@@ -90,6 +90,8 @@ export async function GET() {
   if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms*12) {
     return Response.json(cache.data, {
       headers: {
+        'Cache-Control':        'public, s-maxage=60, stale-while-revalidate=300',
+        'X-Contributors-Cache': 'HIT'
       },
     });
   }
@@ -98,7 +100,6 @@ export async function GET() {
   try {
     const data = await build_contributor_list();
     cache = { data, fetched_at: now };
-
     return Response.json(data, {
       headers: {
         'Cache-Control':        'public, s-maxage=60, stale-while-revalidate=300',
