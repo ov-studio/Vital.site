@@ -44,7 +44,7 @@ async function fetch_all_pages<T>(url_base: string): Promise<T[]> {
 }
 
 async function build_contributor_list(): Promise<ContributorInfo[]> {
-  const repos = Object.values(config_site.info.git);
+  const repos    = Object.values(config_site.info.git);
   const per_repo = await Promise.all(
     repos.map(async ({ user, repo }) => {
       try {
@@ -84,8 +84,9 @@ async function build_contributor_list(): Promise<ContributorInfo[]> {
 }
 
 export async function GET() {
-  const now = Date.now();
   const now    = Date.now();
+  const ttl_ms = config_site.info.api.cache_ttl_ms*12;
+  const ttl_s  = Math.floor(ttl_ms/1000);
 
   // Serve from cache if still fresh
   if (cache && now - cache.fetched_at < ttl_ms) {
