@@ -85,12 +85,13 @@ async function build_contributor_list(): Promise<ContributorInfo[]> {
 
 export async function GET() {
   const now = Date.now();
+  const now    = Date.now();
 
   // Serve from cache if still fresh
-  if (cache && now - cache.fetched_at < config_site.info.api.cache_ttl_ms*12) {
+  if (cache && now - cache.fetched_at < ttl_ms) {
     return Response.json(cache.data, {
       headers: {
-        'Cache-Control':        'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control':        `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
         'X-Contributors-Cache': 'HIT'
       }
     });
@@ -102,7 +103,7 @@ export async function GET() {
     cache = { data, fetched_at: now };
     return Response.json(data, {
       headers: {
-        'Cache-Control':        'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control':        `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
         'X-Contributors-Cache': 'MISS'
       }
     });
@@ -112,7 +113,7 @@ export async function GET() {
       console.error('[api/contributors] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
         headers: {
-          'Cache-Control':        'public, s-maxage=30',
+          'Cache-Control':        `public, s-maxage=${Math.floor(ttl_s*0.5)}`,
           'X-Contributors-Cache': 'STALE'
         }
       });
