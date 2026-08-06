@@ -18,7 +18,7 @@ export async function GET() {
     return Response.json(cache.data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
-        'X-Vault-Cache': 'HIT',
+        'X-Vault-Cache': 'HIT'
       },
     });
   }
@@ -36,10 +36,10 @@ export async function GET() {
     return Response.json(data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
-        'X-Vault-Cache': 'MISS',
+        'X-Vault-Cache': 'MISS'
       },
     });
-  } 
+  }
   catch (err) {
     if (cache) {
       console.error('[api/vault] fetch failed, serving stale cache:', err);
