@@ -1,10 +1,5 @@
 import * as config_site from '@/configs/site';
 
-const GITHUB_HEADERS = {
-  Accept: 'application/vnd.github+json',
-  'User-Agent': 'Vital.site/1.0',
-};
-
 interface ContributorInfo {
   login:         string;
   avatar_url:    string;

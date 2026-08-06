@@ -1,19 +1,15 @@
 import * as config_site from '@/configs/site';
 
-const GITHUB_HEADERS = {
-  Accept: 'application/vnd.github+json',
-  'User-Agent': 'Vital.site/1.0',
-};
-
 export interface StatsInfo {
   stars: number;
   forks: number;
   issues: number;
+  forks:   number;
   commits: number;
 }
 
 interface CacheEntry {
-  data: StatsInfo;
+  data:       StatsInfo;
   fetched_at: number;
 }
 
