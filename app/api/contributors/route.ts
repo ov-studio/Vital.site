@@ -92,7 +92,7 @@ export async function GET() {
       headers: {
         'Cache-Control':        'public, s-maxage=60, stale-while-revalidate=300',
         'X-Contributors-Cache': 'HIT'
-      },
+      }
     });
   }
 
@@ -104,7 +104,7 @@ export async function GET() {
       headers: {
         'Cache-Control':        'public, s-maxage=60, stale-while-revalidate=300',
         'X-Contributors-Cache': 'MISS'
-      },
+      }
     });
   }
   catch (err) {
@@ -114,7 +114,7 @@ export async function GET() {
         headers: {
           'Cache-Control':        'public, s-maxage=30',
           'X-Contributors-Cache': 'STALE'
-        },
+        }
       });
     }
 

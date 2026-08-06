@@ -18,7 +18,7 @@ export async function GET() {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
         'X-Vault-Cache': 'HIT'
-      },
+      }
     });
   }
 
@@ -36,7 +36,7 @@ export async function GET() {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
         'X-Vault-Cache': 'MISS'
-      },
+      }
     });
   }
   catch (err) {
@@ -46,7 +46,7 @@ export async function GET() {
         headers: {
           'Cache-Control': 'public, s-maxage=30',
           'X-Vault-Cache': 'STALE'
-        },
+        }
       });
     }
 
