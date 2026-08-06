@@ -102,4 +102,4 @@ export async function GET() {
       { status: 502 }
     );
   }
-} 
+}
