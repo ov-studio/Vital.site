@@ -26,5 +26,5 @@ export const Footer = [
       href,
       icon: key
     }))
-  },
+  }
 ];
