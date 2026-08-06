@@ -25,7 +25,7 @@ const EMPTY_INFO: ReleaseInfo = {
 
 let cache: CacheEntry | null = null;
 
-const format_size = (bytes: number) => `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+const format_size = (bytes: number) => `${(bytes / (1024*1024)).toFixed(1)} MB`;
 
 export async function GET() {
   const now    = Date.now();
@@ -80,7 +80,7 @@ export async function GET() {
       console.error('[api/build] fetch failed, serving stale cache:', err);
       return Response.json(cache.data, {
         headers: {
-          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s*0.5)}`,
+          'Cache-Control': `public, s-maxage=${Math.floor(ttl_s/2)}`,
           'X-Build-Cache': 'STALE'
         }
       });
