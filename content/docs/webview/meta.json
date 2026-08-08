@@ -38,7 +38,6 @@
         "method__clear_history",
         "method__reload",
         "method__zoom",
-        "method__update",
         "method__eval",
         "method__emit"
     ]

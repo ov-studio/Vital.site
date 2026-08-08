@@ -386,7 +386,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Client] API: self<webview>:clear_history',        status: 'completed' },
           { label:  '[Client] API: self<webview>:reload',               status: 'completed' },
           { label:  '[Client] API: self<webview>:zoom',                 status: 'completed' },
-          { label:  '[Client] API: self<webview>:update',               status: 'completed' },
           { label:  '[Client] API: self<webview>:eval',                 status: 'completed' },
           { label:  '[Client] API: self<webview>:emit',                 status: 'completed' }
         ]
