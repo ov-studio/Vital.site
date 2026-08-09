@@ -24,12 +24,14 @@
        "---⁝⁝Getter---",
         "method__get_position",
         "method__get_size",
+        "method__get_z_index",
 
        "---⁝⁝Setter---",
         "method__set_position",
         "method__set_size",
         "method__set_visible",
         "method__set_focussed",
+        "method__set_z_index",
         "method__set_devtools_visible",
 
        "---⁝⁝Misc---",
