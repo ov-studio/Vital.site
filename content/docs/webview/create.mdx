@@ -32,6 +32,7 @@ All fields are optional and fall back to their defaults if not specified.
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
+| `z_index` | `number` | `0` | Stacking order of the webview window. Silently clamped to `0`–`10000` (values above are reserved for engine UI like the console) |
 | `fullscreen` | `bool` | `true` | Webview will always match the size of the viewport |
 | `transparent` | `bool` | `true` | Webview background will be transparent |
 | `incognito` | `bool` | `true` | Runs the webview in incognito mode, no data is persisted to disk |
@@ -52,6 +53,7 @@ entity:load_url("https://google.com")
 
 ```lua lineNumbers title="Create a webview with custom options"
 local entity = core.webview.create({
+    z_index = 100,
     fullscreen = true,
     transparent = true,
     incognito = false,
