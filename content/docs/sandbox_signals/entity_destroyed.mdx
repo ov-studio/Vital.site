@@ -1,0 +1,31 @@
+---
+title: entity:destroyed
+description: Fired when any entity instance is removed from the engine registry
+badge: shared
+---
+
+### Signal
+
+```
+entity:destroyed
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | entity | The entity instance being destroyed |
+
+### Notes
+
+Fires before the entity is erased from the registry. The entity reference is still valid during the handler — use it for last-moment cleanup. After the handler returns the entity is removed and marked as destroyed.
+
+---
+
+### Example
+
+```lua lineNumbers title="Clean up on entity destruction"
+util.event.on("entity:destroyed", function(entity)
+    core.engine.print("info", "Entity destroyed:", entity:get_type())
+end)
+```

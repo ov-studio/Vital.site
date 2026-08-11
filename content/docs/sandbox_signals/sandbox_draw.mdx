@@ -1,0 +1,47 @@
+---
+title: sandbox:draw
+description: Fired every render frame — the main hook for all canvas drawing
+badge: client
+---
+
+### Signal
+
+```
+sandbox:draw
+```
+
+### Arguments
+
+| No arguments are passed by this signal |
+|----------------------------------------|
+
+### Notes
+
+The global per-frame render hook, equivalent to `onClientRender` in other sandbox engines. All `core.engine.draw_*` calls must be made inside this signal.
+
+Unlike [`sandbox:process`](/docs/sandbox_signals/sandbox_process), this is tied to render frames and may fire less frequently under low FPS. Do not mutate simulation state here — read state set in `sandbox:process` and draw from it.
+
+For pure UI and panels where the only logic is layout, doing everything inside `sandbox:draw` is acceptable and keeps code in one place.
+
+---
+
+### Example
+
+```lua lineNumbers title="Draw a HUD label"
+util.event.on("sandbox:draw", function()
+    core.engine.draw_text("Hello World", 10, 10, 20)
+end)
+```
+
+```lua lineNumbers title="UI panel in draw"
+local mx, my = 0, 0
+
+util.event.on("sandbox:mouse_move", function(x, y)
+    mx, my = x, y
+end)
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_rectangle(50, 50, 200, 100, false)
+    core.engine.draw_text("x: " .. mx .. " y: " .. my, 60, 90, 14)
+end)
+```

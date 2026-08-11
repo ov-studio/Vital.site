@@ -1,0 +1,42 @@
+---
+title: sandbox:process
+description: Fired every engine tick — the main update loop for game logic
+badge: shared
+---
+
+### Signal
+
+```
+sandbox:process
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | delta | Time in seconds elapsed since the last tick |
+
+### Notes
+
+The global per-tick hook, equivalent to `onClientProcess` in other sandbox engines. Fires once per idle process tick. Use `delta` to keep logic framerate-independent.
+
+All game simulation — entity movement, timers, network state — should live here. Do not make canvas draw calls inside this signal; use [`sandbox:draw`](/docs/sandbox_signals/sandbox_draw) for rendering.
+
+---
+
+### Example
+
+```lua lineNumbers title="Per-tick game logic"
+util.event.on("sandbox:process", function(delta)
+    core.engine.print("info", "Tick delta:", delta)
+end)
+```
+
+```lua lineNumbers title="Framerate-independent movement"
+local speed = 5.0
+local x = 0.0
+
+util.event.on("sandbox:process", function(delta)
+    x = x + speed * delta
+end)
+```

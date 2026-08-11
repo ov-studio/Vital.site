@@ -1,0 +1,30 @@
+---
+title: sandbox:ready
+description: Fired when the sandbox manager has finished initialising
+badge: shared
+---
+
+### Signal
+
+```
+sandbox:ready
+```
+
+### Arguments
+
+| No arguments are passed by this signal |
+|----------------------------------------|
+
+### Notes
+
+This is the earliest signal available to Lua. Fires once when the sandbox manager comes up. In most cases [`core:ready`](/docs/engine/core_ready) is the preferred entry-point for game logic — `sandbox:ready` is useful if you specifically need to react before resources start loading.
+
+---
+
+### Example
+
+```lua lineNumbers title="Detect sandbox ready"
+util.event.on("sandbox:ready", function()
+    core.engine.print("info", "Sandbox is ready")
+end)
+```

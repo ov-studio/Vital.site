@@ -1,0 +1,24 @@
+{
+    "title": "Sandbox Signals",
+    "icon": "Radio",
+    "pages": [
+        "---Lifecycle---",
+        "sandbox_ready",
+
+        "---Tick---",
+        "sandbox_process",
+        "sandbox_draw",
+
+        "---Input---",
+        "sandbox_key_input",
+        "sandbox_mouse_move",
+
+        "---Entity---",
+        "entity_created",
+        "entity_destroyed",
+
+        "---Resource---",
+        "resource_started",
+        "resource_stopped"
+    ]
+}

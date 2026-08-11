@@ -1,0 +1,31 @@
+---
+title: entity:created
+description: Fired when any entity instance is registered into the engine
+badge: shared
+---
+
+### Signal
+
+```
+entity:created
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | entity | The newly created entity instance |
+
+### Notes
+
+Fires immediately after the entity is inserted into the registry. The `entity` argument is the same userdata object returned by the entity's constructor. Fires for all entity types (Model, Webview, Font, etc.).
+
+---
+
+### Example
+
+```lua lineNumbers title="React to any entity being created"
+util.event.on("entity:created", function(entity)
+    core.engine.print("info", "Entity created:", entity:get_type())
+end)
+```
