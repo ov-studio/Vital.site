@@ -9,7 +9,6 @@
         "emit_callback",
 
         "---Signal---",
-        "signal__sandbox_ready",
         "signal__sandbox_process",
         "signal__sandbox_draw",
         "signal__sandbox_key_input",
