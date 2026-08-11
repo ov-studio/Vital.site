@@ -1,5 +1,5 @@
-import { Redis } from '@upstash/redis';
 import * as config_site from '@/configs/site';
+import { Redis } from '@upstash/redis';
 
 export const redis = Redis.fromEnv();
 
