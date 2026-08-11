@@ -16,9 +16,12 @@ resource:stopped
 |------|------|-------------|
 | `string` | name | Name of the resource that was stopped |
 
-### Notes
+<Callout type="info">
+  **On the server, stopping a resource also notifies all connected clients.**
 
-Fires after a resource has been stopped and its scripts unloaded. On the server this also broadcasts a stop packet to all connected clients. Use this to clean up any state tied to a specific resource.
+  - Clients will automatically stop their local copy of the resource after this fires on the server.
+  - Use this to clean up any state tied to the stopped resource.
+</Callout>
 
 ---
 

@@ -16,9 +16,12 @@ entity:destroyed
 |------|------|-------------|
 | `userdata` | entity | The entity instance being destroyed |
 
-### Notes
+<Callout type="info">
+  **The entity reference is still valid during the handler.**
 
-Fires before the entity is erased from the registry. The entity reference is still valid during the handler — use it for last-moment cleanup. After the handler returns the entity is removed and marked as destroyed.
+  - Use it for last-moment cleanup before the entity is gone.
+  - After the handler returns the entity is removed from the registry and marked as destroyed.
+</Callout>
 
 ---
 

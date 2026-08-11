@@ -15,9 +15,12 @@ sandbox:ready
 | No arguments are passed by this signal |
 |----------------------------------------|
 
-### Notes
+<Callout type="info">
+  **This is the earliest signal available to Lua.**
 
-This is the earliest signal available to Lua. Fires once when the sandbox manager comes up. In most cases [`core:ready`](/docs/engine/core_ready) is the preferred entry-point for game logic — `sandbox:ready` is useful if you specifically need to react before resources start loading.
+  - For general game logic, prefer listening to [`core:ready`](/docs/engine) which fires after resources and subsystems are fully up.
+  - Use `sandbox:ready` only when you need to react before resources begin loading.
+</Callout>
 
 ---
 

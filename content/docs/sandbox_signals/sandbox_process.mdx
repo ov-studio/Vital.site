@@ -16,11 +16,12 @@ sandbox:process
 |------|------|-------------|
 | `float` | delta | Time in seconds elapsed since the last tick |
 
-### Notes
+<Callout type="info">
+  **This is the global tick hook for all game logic.**
 
-The global per-tick hook, equivalent to `onClientProcess` in other sandbox engines. Fires once per idle process tick. Use `delta` to keep logic framerate-independent.
-
-All game simulation — entity movement, timers, network state — should live here. Do not make canvas draw calls inside this signal; use [`sandbox:draw`](/docs/sandbox_signals/sandbox_draw) for rendering.
+  - Use `delta` to keep movement and timers framerate-independent.
+  - Do not make `core.engine.draw_*` calls here — use [`sandbox:draw`](/docs/sandbox_signals/sandbox_draw) for all rendering.
+</Callout>
 
 ---
 

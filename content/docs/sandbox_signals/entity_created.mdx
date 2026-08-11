@@ -16,9 +16,12 @@ entity:created
 |------|------|-------------|
 | `userdata` | entity | The newly created entity instance |
 
-### Notes
+<Callout type="info">
+  **Fires for all entity types — Model, Webview, Font, and any other registered entity.**
 
-Fires immediately after the entity is inserted into the registry. The `entity` argument is the same userdata object returned by the entity's constructor. Fires for all entity types (Model, Webview, Font, etc.).
+  - The `entity` argument is the same userdata object returned by the entity's constructor.
+  - Fires immediately after the entity is inserted into the registry.
+</Callout>
 
 ---
 

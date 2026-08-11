@@ -16,9 +16,11 @@ resource:started
 |------|------|-------------|
 | `string` | name | Name of the resource that started |
 
-### Notes
+<Callout type="info">
+  **On the server, starting a resource also notifies all connected clients.**
 
-Fires after a resource's scripts have been loaded and executed. On the server this also triggers a broadcast to all connected clients so they register and start their local copy of the resource.
+  - Clients will automatically receive and register the resource after this fires on the server.
+</Callout>
 
 ---
 

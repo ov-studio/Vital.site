@@ -17,9 +17,13 @@ sandbox:key_input
 | `int` | keycode | Godot `Key` or `MouseButton` enum value identifying the key or button |
 | `bool` | pressed | `true` if pressed, `false` if released |
 
-### Notes
+<Callout type="info">
+  **Fires for both keyboard keys and mouse buttons.**
 
-Fires for both keyboard keys and mouse buttons. Key-repeat echoes are suppressed — only the initial press and release are reported. If the engine console intercepts a key on press, that key will not fire this signal.
+  - Key-repeat echoes are suppressed — only the initial press and release are reported.
+  - If the engine console intercepts a key on press, that key will not fire this signal.
+  - Refer to Godot's `Key` and `MouseButton` enums via [`util.input`](/docs/input) for keycode values.
+</Callout>
 
 ---
 
