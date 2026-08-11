@@ -866,12 +866,25 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Publish / subscribe event bus for decoupled, reactive module communication',
         icon:  <lucide.Zap {...config_site.info.lucide}/>,
         items: [
-          { label:  'Priority-ordered listeners',             status: 'completed' },
-          { label:  'Auto-unsubscribe listeners',             status: 'completed' },
-          { label:  '[Shared] API: util.event.on',            status: 'completed' },
-          { label:  '[Shared] API: util.event.off',           status: 'completed' },
-          { label:  '[Shared] API: util.event.emit',          status: 'completed' },
-          { label:  '[Shared] API: util.event.emit_callback', status: 'completed' }
+          { label:  'Priority-ordered listeners',               status: 'completed' },
+          { label:  'Auto-unsubscribe listeners',               status: 'completed' },
+          { label:  '[Shared] API: util.event.on',              status: 'completed' },
+          { label:  '[Shared] API: util.event.off',             status: 'completed' },
+          { label:  '[Shared] API: util.event.emit',            status: 'completed' },
+          { label:  '[Shared] API: util.event.emit_callback',   status: 'completed' },
+          { label:  '[Shared] Signal: "sandbox:process"',       status: 'completed' },
+          { label:  '[Client] Signal: "sandbox:draw"',          status: 'completed' },
+          { label:  '[Client] Signal: "sandbox:key_input"',     status: 'completed' },
+          { label:  '[Client] Signal: "sandbox:mouse_move"',    status: 'completed' },
+          { label:  '[Shared] Signal: "sandbox:console_input"', status: 'completed' },
+          { label:  '[Shared] Signal: "entity:created"',        status: 'completed' },
+          { label:  '[Shared] Signal: "entity:destroyed"',      status: 'completed' },
+          { label:  '[Shared] Signal: "resource:started"',      status: 'completed' },
+          { label:  '[Shared] Signal: "resource:stopped"',      status: 'completed' },
+          { label:  '[Client] Signal: "webview:preload"',       status: 'completed' },
+          { label:  '[Client] Signal: "webview:load"',          status: 'completed' },
+          { label:  '[Client] Signal: "webview:resize"',        status: 'completed' },
+          { label:  '[Client] Signal: "webview:message"',       status: 'completed' }
         ]
       },
       {
