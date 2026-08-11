@@ -6,6 +6,22 @@
         "on",
         "off",
         "emit",
-        "emit_callback"
+        "emit_callback",
+
+        "---Signal---",
+        "signal__sandbox_ready",
+        "signal__sandbox_process",
+        "signal__sandbox_draw",
+        "signal__sandbox_key_input",
+        "signal__sandbox_mouse_move",
+        "signal__sandbox_console_input",
+        "signal__entity_created",
+        "signal__entity_destroyed",
+        "signal__resource_started",
+        "signal__resource_stopped",
+        "signal__webview_preload",
+        "signal__webview_load",
+        "signal__webview_resize",
+        "signal__webview_message"
     ]
 }
