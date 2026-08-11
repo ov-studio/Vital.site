@@ -30,4 +30,9 @@ export const info = {
       'User-Agent':   'Vital.site/1.0'
     }
   },
+
+  masterlist: {
+    heartbeat_interval_ms: 5*60*1000,  // 5 minutes — servers should heartbeat at or below this
+    ttl_ms:                11*60*1000  // ~2x interval — tolerates one missed heartbeat before delisting
+  },
 };
