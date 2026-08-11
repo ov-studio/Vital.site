@@ -1,0 +1,44 @@
+---
+title: webview:message
+description: Fired when a webview receives an IPC message from its page
+badge: client
+---
+
+### Signal
+
+```
+webview:message
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | webview | The webview instance that received the message |
+| `string` | message | The raw message string sent from the page |
+
+<Callout type="info">
+  **This is the primary IPC channel between a webview page and Lua.**
+
+  - Messages are sent from the page via `window.ipc.postMessage(message)`.
+  - The message is a raw string — parse it as JSON if structured data is needed.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Handle a message from a webview page"
+util.event.on("webview:message", function(webview, message)
+    core.engine.print("info", "Webview message:", message)
+end)
+```
+
+```lua lineNumbers title="Parse a JSON message"
+util.event.on("webview:message", function(webview, message)
+    local data = util.table.decode(message)
+    if data and data.action == "ready" then
+        core.engine.print("info", "Page is ready")
+    end
+end)
+```

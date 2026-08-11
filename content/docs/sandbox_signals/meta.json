@@ -13,12 +13,21 @@
         "sandbox_key_input",
         "sandbox_mouse_move",
 
+        "---Console---",
+        "sandbox_console_input",
+
         "---Entity---",
         "entity_created",
         "entity_destroyed",
 
         "---Resource---",
         "resource_started",
-        "resource_stopped"
+        "resource_stopped",
+
+        "---Webview---",
+        "webview_preload",
+        "webview_load",
+        "webview_resize",
+        "webview_message"
     ]
 }
