@@ -1,6 +1,6 @@
 ---
 title: Server configuration
-description: Configure your Vital.sandbox server's runtime behaviour — identity, ports, bootstrapper, and socials — via config.yaml
+description: Configure a Vital.sandbox server — its identity, ports, bootstrapper, socials, and master-list — via config.yaml
 ---
 
 ## Overview
@@ -14,6 +14,7 @@ If the config file is absent or malformed, the server falls back to built-in def
 
   - **Fixed location** — `config.yaml` must sit at the root of your `Vital.server/` directory.
   - **Single file** — all sections (`server`, `network`, `http`, `bootstrap`, `social`) live in this one file.
+  - **Single file** — all sections (`server`, `network`, `http`, `bootstrap`, `social`, `masterlist`) live in this one file.
   - **Restart to apply** — changes are not hot-reloaded; a server restart is required for any edit to take effect.
 </Callout>
 
