@@ -58,7 +58,6 @@ masterlist:
   enabled: true
   token: ""
   url: "https://vital-sandbox.com/api/masterlist"
-  interval: 300
 ```
 
 <Callout type="warn">
@@ -186,7 +185,6 @@ masterlist:
   enabled: true
   token: "your-token-here"
   url: "https://vital-sandbox.com/api/masterlist"
-  interval: 300
 ```
 
 <Callout type="warn">
@@ -197,15 +195,8 @@ masterlist:
   - Set `enabled: false` to keep your server off the public listing entirely (e.g. private or LAN servers).
 </Callout>
 
-<Callout type="info">
-  **Heartbeat timing**
-
-  The master-list expires listings after a TTL (currently **660 s / 11 minutes**). Set `interval` comfortably below that value — the default of `300 s` provides a healthy margin even if a single heartbeat is missed.
-</Callout>
-
 | Key | Type | Default | Description |
 |---|---|---|---|
 | `enabled` | `boolean` | `true` | When `true`, the server reports itself to the public master-list |
 | `token` | `string` | `""` | API token obtained from a staff member via Discord |
 | `url` | `string` | `"https://vital-sandbox.com/api/masterlist"` | Base URL of the master-list API |
-| `interval` | `integer` | `300` | How often (in seconds) the server sends a heartbeat to the master-list |
