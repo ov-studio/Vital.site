@@ -1,12 +1,11 @@
 import { redis, server_key, token_key, masterlist_ttl_seconds } from '@/lib/redis';
-import { createHash, timingSafeEqual } from 'crypto';
+import { createHash } from 'crypto';
 import { Ratelimit } from '@upstash/ratelimit';
 
 export const runtime = 'nodejs';
 
 interface HeartbeatBody {
-  id:           string;
-  secret:       string;
+  token:        string;
   name:         string;
   ip:           string;
   port:         number;
@@ -21,23 +20,24 @@ interface HeartbeatBody {
 
 // A server heartbeats roughly every 5 minutes (see configs/site.tsx) — this
 // allows a generous burst on top of that (retries, restarts) without
-// letting a compromised secret spam the endpoint.
+// letting a compromised token spam the endpoint.
 const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, '5 m'),
   prefix: 'masterlist:ratelimit'
 });
 
-function safe_equal(a: string, b: string): boolean {
-  const buf_a = Buffer.from(a, 'hex');
-  const buf_b = Buffer.from(b, 'hex');
-  if (buf_a.length !== buf_b.length) return false;
-  return timingSafeEqual(buf_a, buf_b);
-}
-
 function clamp_int(n: unknown, min: number, max: number): number {
   const v = typeof n === 'number' ? Math.trunc(n) : 0;
   return Math.min(max, Math.max(min, v));
+}
+
+// The public id is a one-way hash of the token, so it's never sent by the
+// client -- deriving it here IS the authenticity check. No secret needs to
+// be transmitted, stored, or compared: if id_of(token) has a registered
+// entry in Redis, the caller has proven they hold the original token.
+function id_of(token: string): string {
+  return createHash('sha256').update(token).digest('hex');
 }
 
 export async function POST(req: Request) {
@@ -49,29 +49,26 @@ export async function POST(req: Request) {
     return new Response('invalid json', { status: 400 });
   }
 
-  const { id, secret, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
+  const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
 
-  if (!id || !secret || !name || !ip || !port) {
-    return new Response('missing required fields (id, secret, name, ip, port)', { status: 400 });
+  if (!token || !name || !ip || !port) {
+    return new Response('missing required fields (token, name, ip, port)', { status: 400 });
   }
+
+  const id = id_of(token);
 
   const { success } = await ratelimit.limit(id);
   if (!success) {
     return new Response('rate limited', { status: 429 });
   }
 
-  const stored_hash = await redis.get<string>(token_key(id));
-  if (!stored_hash) {
-    return new Response('unknown server id — register first', { status: 401 });
-  }
-
-  const given_hash = createHash('sha256').update(secret).digest('hex');
-  if (!safe_equal(given_hash, stored_hash)) {
-    return new Response('bad secret', { status: 401 });
+  const registered = await redis.get(token_key(id));
+  if (!registered) {
+    return new Response('unknown token — register first', { status: 401 });
   }
 
   // Lock heartbeats to the IP that's actually sending them, so a leaked
-  // secret can't be used from a different machine to hijack a listing.
+  // token can't be used from a different machine to hijack a listing.
   // Set MASTERLIST_STRICT_IP=false in env if servers sit behind rotating
   // egress IPs and this causes false rejections.
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
@@ -107,7 +104,7 @@ export async function POST(req: Request) {
 // Graceful shutdown — the server calls this on clean exit so its entry
 // disappears immediately instead of lingering until the TTL expires.
 export async function DELETE(req: Request) {
-  let body: { id?: string; secret?: string };
+  let body: { token?: string };
   try {
     body = await req.json();
   }
@@ -115,14 +112,12 @@ export async function DELETE(req: Request) {
     return new Response('invalid json', { status: 400 });
   }
 
-  const { id, secret } = body;
-  if (!id || !secret) return new Response('missing id/secret', { status: 400 });
+  const { token } = body;
+  if (!token) return new Response('missing token', { status: 400 });
 
-  const stored_hash = await redis.get<string>(token_key(id));
-  if (!stored_hash) return new Response('unknown server id', { status: 401 });
-
-  const given_hash = createHash('sha256').update(secret).digest('hex');
-  if (!safe_equal(given_hash, stored_hash)) return new Response('bad secret', { status: 401 });
+  const id = id_of(token);
+  const registered = await redis.get(token_key(id));
+  if (!registered) return new Response('unknown token', { status: 401 });
 
   await redis.del(server_key(id));
   return Response.json({ ok: true });

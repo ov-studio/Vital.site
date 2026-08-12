@@ -1,5 +1,5 @@
 import { redis, token_key } from '@/lib/redis';
-import { randomUUID, randomBytes, createHash, timingSafeEqual } from 'crypto';
+import { randomBytes, createHash, timingSafeEqual } from 'crypto';
 
 export const runtime = 'nodejs';
 
@@ -25,15 +25,19 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
   const name: string | undefined = body?.name;
 
-  const id = randomUUID();
-  const secret = randomBytes(24).toString('hex');
-  const hash = createHash('sha256').update(secret).digest('hex');
+  // A single high-entropy bearer token is both the credential AND (via a
+  // one-way hash) the source of the public id -- no separate id/secret
+  // pair to keep in sync. Knowing the token is the only way to produce its
+  // id, so checking "does this id exist" already proves possession of the
+  // token; nothing else needs to be stored or compared.
+  const token = randomBytes(32).toString('hex');
+  const id = createHash('sha256').update(token).digest('hex');
 
-  await redis.set(token_key(id), hash);
+  await redis.set(token_key(id), Date.now()); // persistent, no TTL -- just an existence marker
   return Response.json({
+    token,
     id,
-    secret,
     name: name ?? null,
-    note: 'Store id + secret in that server\'s config.yaml now — the secret will not be shown again.'
+    note: 'Store this token in that server\'s config.yaml now — it will not be shown again.'
   });
 }
