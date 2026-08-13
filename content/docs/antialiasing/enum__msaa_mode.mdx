@@ -6,6 +6,10 @@ badge: client
 
 ### Values
 
+<Callout type="info">
+MSAA operates on geometry edges at the rasterization level and works alongside [`gfx.antialiasing.mode`](/docs/antialiasing/enum/mode) — it is not a replacement for FXAA/TAA.
+</Callout>
+
 | Constant | Description |
 |----------|-------------|
 | `gfx.antialiasing.msaa_mode.DISABLED` | MSAA is disabled. Fastest setting |
@@ -13,6 +17,3 @@ badge: client
 | `gfx.antialiasing.msaa_mode.X4` | 4× multi-sample antialiasing. Good compromise between performance and quality |
 | `gfx.antialiasing.msaa_mode.X8` | 8× multi-sample antialiasing. Very high performance cost |
 
-<Callout type="info">
-MSAA operates on geometry edges at the rasterization level and works alongside [`gfx.antialiasing.mode`](/docs/antialiasing/enum/mode) — it is not a replacement for FXAA/TAA.
-</Callout>
