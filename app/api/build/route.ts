@@ -1,5 +1,5 @@
 import * as config_site from '@/configs/site';
-import { create_cached_route } from '@/lib/api_cache';
+import * as api_cache from '@/lib/api_cache';
 
 const RELEASES_URL = `https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`;
 
@@ -45,7 +45,7 @@ async function fetch_fresh(): Promise<ReleaseInfo> {
   };
 }
 
-export const GET = create_cached_route<ReleaseInfo>({
+export const GET = api_cache.create_cached_route<ReleaseInfo>({
   label:          'Build',
   fetch_fresh,
   fallback_error: 'Failed to load build data'

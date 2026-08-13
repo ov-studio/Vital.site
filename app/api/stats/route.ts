@@ -1,5 +1,5 @@
 import * as config_site from '@/configs/site';
-import { create_cached_route } from '@/lib/api_cache';
+import * as api_cache from '@/lib/api_cache';
 
 export interface StatsInfo {
   stars:   number;
@@ -66,7 +66,7 @@ async function fetch_fresh(): Promise<StatsInfo> {
   );
 }
 
-export const GET = create_cached_route<StatsInfo>({
+export const GET = api_cache.create_cached_route<StatsInfo>({
   label:         'Stats',
   ttl_ms:        config_site.info.api.cache_ttl_ms * 12,
   fetch_fresh,
