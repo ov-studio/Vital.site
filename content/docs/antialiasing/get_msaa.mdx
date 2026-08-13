@@ -1,0 +1,30 @@
+---
+title: gfx.antialiasing.get_msaa
+description: Retrieves the currently active MSAA level
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.antialiasing.get_msaa()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.antialiasing.msaa_mode`](/docs/antialiasing/enum/msaa_mode) | result | Currently active MSAA level |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current MSAA level"
+core.engine.print("info", "MSAA level:", gfx.antialiasing.get_msaa())
+```

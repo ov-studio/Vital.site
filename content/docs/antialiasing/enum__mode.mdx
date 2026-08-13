@@ -1,0 +1,17 @@
+---
+title: gfx.antialiasing.mode
+description: Enumeration of supported antialiasing modes
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.antialiasing.mode.DISABLED` | No screen-space or temporal antialiasing is applied |
+| `gfx.antialiasing.mode.FXAA` | Fast approximate antialiasing — cheap post-process, softens the image |
+| `gfx.antialiasing.mode.TAA` | Temporal antialiasing — accumulates prior frames for sharper edges, can ghost on fast motion |
+
+<Callout type="info">
+This is independent of MSAA — refer [`gfx.antialiasing.msaa_mode`](/docs/antialiasing/enum/msaa_mode), which can be combined with any of the above.
+</Callout>

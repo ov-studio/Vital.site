@@ -1,0 +1,33 @@
+---
+title: gfx.antialiasing.set_msaa
+description: Sets the active MSAA (multi-sample antialiasing) level
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.antialiasing.set_msaa(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.antialiasing.msaa_mode`](/docs/antialiasing/enum/msaa_mode) | mode | MSAA level to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set MSAA to 4x"
+gfx.antialiasing.set_msaa(gfx.antialiasing.msaa_mode["4X"])
+```

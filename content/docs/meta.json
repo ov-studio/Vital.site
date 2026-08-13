@@ -45,6 +45,7 @@
         "---Graphics---",
         "environment",
         "adjustment",
+        "antialiasing",
         "sky",
         "sky_panorama",
         "sky_physical",
