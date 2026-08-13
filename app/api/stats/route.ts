@@ -39,8 +39,8 @@ async function fetch_fresh(): Promise<StatsInfo> {
         ]);
 
         if (!repo_res.ok) throw new Error(`GitHub responded ${repo_res.status}`);
+        
         const data = await repo_res.json();
-
         return {
           stars:   data.stargazers_count  ?? 0,
           forks:   data.forks_count       ?? 0,

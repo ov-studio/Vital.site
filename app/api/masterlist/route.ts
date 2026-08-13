@@ -22,9 +22,8 @@ export interface ServerInfo {
 
 export async function GET() {
   const keys = await lib_redis.redis.keys('masterlist:server:*');
-
   if (keys.length === 0) return Response.json([], { headers: cache_headers() });
-
+  
   const values = await lib_redis.redis.mget<unknown[]>(...keys);
   const servers: ServerInfo[] = values
     .filter((v): v is NonNullable<unknown> => Boolean(v))

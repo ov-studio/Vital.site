@@ -9,6 +9,7 @@ async function fetch_fresh(): Promise<unknown> {
     headers: config_site.info.api.github_headers
   });
   if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
+  
   return res.json();
 }
 

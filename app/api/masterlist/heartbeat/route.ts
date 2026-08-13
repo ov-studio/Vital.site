@@ -55,23 +55,18 @@ function id_of(token: string): string {
 
 export async function POST(req: Request) {
   let body: HeartbeatBody;
-  try {
-    body = await req.json();
-  }
+  try { body = await req.json(); }
   catch { return new Response('invalid json', { status: 400 }); }
 
   const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
-
   if (!token || !name || !ip || !port) return new Response('missing required fields (token, name, ip, port)', { status: 400 });
 
   const id = id_of(token);
-
   const { success } = await ratelimit.limit(id);
   if (!success) return new Response('rate limited', { status: 429 });
 
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const strict_ip = process.env.MASTERLIST_STRICT_IP !== 'false';
-
   if (request_ip && request_ip !== ip) {
     if (strict_ip) {
       console.warn(`[masterlist] rejected ip mismatch for ${id}: claimed=${ip} actual=${request_ip}`);
@@ -100,7 +95,6 @@ export async function POST(req: Request) {
     [lib_redis.token_key(id), lib_redis.server_key(id)],
     [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds)]
   );
-
   if (!ok) return new Response('unknown token — register first', { status: 401 });
 
   return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds });
@@ -108,9 +102,7 @@ export async function POST(req: Request) {
 
 export async function DELETE(req: Request) {
   let body: { token?: string };
-  try {
-    body = await req.json();
-  }
+  try { body = await req.json(); }
   catch { return new Response('invalid json', { status: 400 }); }
 
   const { token } = body;
@@ -118,7 +110,7 @@ export async function DELETE(req: Request) {
 
   const id = id_of(token);
   const ok = await lib_redis.redis.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
-
   if (!ok) return new Response('unknown token', { status: 401 });
+  
   return Response.json({ ok: true });
 }
