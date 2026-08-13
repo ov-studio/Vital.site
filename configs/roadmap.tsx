@@ -1327,11 +1327,11 @@ export const Roadmap: RoadmapSection[] = build([
   },
 
   {
-    name: 'Lighting',
+    name: 'Light',
     cards: [
       {
         // TODO: WIP
-        label: 'Lighting',
+        label: 'Light',
         desc:  'Runtime creation and configuration of Directional, Omni, and Spot lights from Lua',
         icon:  <lucide.Sun {...config_site.info.lucide}/>,
         items: [
