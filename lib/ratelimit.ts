@@ -7,7 +7,7 @@ const ratelimit = new upstash_ratelimit.Ratelimit({
   prefix: 'api:ratelimit',
   limiter: upstash_ratelimit.Ratelimit.slidingWindow(
     config_site.info.ratelimit.requests_per_window,
-    config_site.info.ratelimit.window
+    config_site.info.ratelimit.window as upstash_ratelimit.Duration
   )
 });
 

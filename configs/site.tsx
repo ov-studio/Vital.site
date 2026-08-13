@@ -36,7 +36,7 @@ export const info = {
   ratelimit: {
     requests_per_window: 30,   // max requests allowed per window per IP
     window: '1 m' // sliding window duration (Upstash duration string)
-  } as const,
+  },
 
   masterlist: {
     heartbeat_interval_ms: 5*60*1000,  // 5 minutes — servers should heartbeat at or below this 
