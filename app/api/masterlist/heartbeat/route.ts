@@ -1,6 +1,6 @@
 import * as lib_redis from '@/lib/redis';
-import { createHash } from 'crypto';
-import { Ratelimit } from '@upstash/ratelimit';
+import * as crypto from 'crypto';
+import * as upstash_ratelimit from '@upstash/ratelimit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -50,7 +50,7 @@ function clamp_int(n: unknown, min: number, max: number): number {
 }
 
 function id_of(token: string): string {
-  return createHash('sha256').update(token).digest('hex');
+  return crypto.createHash('sha256').update(token).digest('hex');
 }
 
 export async function POST(req: Request) {
