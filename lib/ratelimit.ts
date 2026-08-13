@@ -1,10 +1,13 @@
-import * as lib_redis         from '@/lib/redis';
+import * as config_site     from '@/configs/site';
+import * as lib_redis       from '@/lib/redis';
 import * as upstash_ratelimit from '@upstash/ratelimit';
 
-// 30 requests per minute per IP — shared across all public API routes. // TODO: Integrate w config 
 const ratelimit = new upstash_ratelimit.Ratelimit({
-  redis:  lib_redis.redis,
-  limiter: upstash_ratelimit.Ratelimit.slidingWindow(30, '1 m'),
+  redis:   lib_redis.redis,
+  limiter: upstash_ratelimit.Ratelimit.slidingWindow(
+    config_site.info.ratelimit.requests_per_window,
+    config_site.info.ratelimit.window
+  ),
   prefix: 'api:ratelimit'
 });
 
