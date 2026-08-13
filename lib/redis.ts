@@ -1,7 +1,7 @@
 import * as config_site from '@/configs/site';
-import { Redis } from '@upstash/redis';
+import * as upstash_redis from '@upstash/redis';
 
-export const redis = Redis.fromEnv();
+export const redis = upstash_redis.Redis.fromEnv();
 
 export const masterlist_ttl_seconds = Math.floor(config_site.info.masterlist.ttl_ms/1000);
 
