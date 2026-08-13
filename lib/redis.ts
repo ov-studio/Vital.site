@@ -5,9 +5,8 @@ export const redis_configured = Boolean(process.env.UPSTASH_REDIS_REST_URL && pr
 
 if (!redis_configured) {
   console.error(
-    '[Redis] Missing UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN ' +
-    '(or KV_REST_API_URL / KV_REST_API_TOKEN). Redis-backed features (ratelimit, masterlist) ' +
-    'are disabled until these are set in the deployment environment.'
+    '[Redis] Missing UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN.' +
+    'Redis-backed features (ratelimit, masterlist) are disabled until these are set in the deployment environment.'
   );
 }
 
