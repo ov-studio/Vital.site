@@ -1,5 +1,5 @@
-import * as fumadocs_layout_shared from 'fumadocs-ui/layouts/shared';
 import * as component_brand        from '@/components/brand';
+import * as fumadocs_layout_shared from 'fumadocs-ui/layouts/shared';
 
 export function baseOptions(): fumadocs_layout_shared.BaseLayoutProps {
   return {

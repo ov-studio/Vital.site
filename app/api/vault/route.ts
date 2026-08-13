@@ -1,4 +1,4 @@
-import * as config_site from '@/configs/site';
+import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
 
 const RAW_URL = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/vault.json`;
@@ -9,7 +9,7 @@ async function fetch_fresh(): Promise<unknown> {
     headers: config_site.info.api.github_headers
   });
   if (!res.ok) throw new Error(`GitHub responded ${res.status}`);
-  
+
   return res.json();
 }
 
