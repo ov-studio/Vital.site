@@ -9,13 +9,9 @@ badge: client
 | Constant | Description |
 |----------|-------------|
 | `gfx.antialiasing.msaa_mode.DISABLED` | MSAA is disabled. Fastest setting |
-| `gfx.antialiasing.msaa_mode["2X"]` | 2× multi-sample antialiasing. Moderate performance cost |
-| `gfx.antialiasing.msaa_mode["4X"]` | 4× multi-sample antialiasing. Good compromise between performance and quality |
-| `gfx.antialiasing.msaa_mode["8X"]` | 8× multi-sample antialiasing. Very high performance cost |
-
-<Callout type="warn">
-`2X`/`4X`/`8X` start with a digit, which isn't a valid Lua identifier — index them with brackets, e.g. `gfx.antialiasing.msaa_mode["4X"]`, not dot notation.
-</Callout>
+| `gfx.antialiasing.msaa_mode.X2` | 2× multi-sample antialiasing. Moderate performance cost |
+| `gfx.antialiasing.msaa_mode.X4` | 4× multi-sample antialiasing. Good compromise between performance and quality |
+| `gfx.antialiasing.msaa_mode.X8` | 8× multi-sample antialiasing. Very high performance cost |
 
 <Callout type="info">
 MSAA operates on geometry edges at the rasterization level and works alongside [`gfx.antialiasing.mode`](/docs/antialiasing/enum/mode) — it is not a replacement for FXAA/TAA.
