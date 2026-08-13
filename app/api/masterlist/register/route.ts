@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   const auth = req.headers.get('authorization') ?? '';
   const expected = `Bearer ${admin_secret}`;
   if (!safe_equal(auth, expected)) return new Response('unauthorized', { status: 401 });
-  if (!lib_redis.redis_configured) return new Response('Masterlist is temporarily unavailable', { status: 503 });
+  if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
   const body = await req.json().catch(() => ({}));
   const name: string | undefined = body?.name;

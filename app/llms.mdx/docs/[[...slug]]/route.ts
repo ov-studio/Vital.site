@@ -11,7 +11,7 @@ export async function GET(_req: Request, { params }: RouteContext<'/llms.mdx/doc
 
   return new Response(await lib_source.getLLMText(page), {
     headers: {
-      'Content-Type': 'text/markdown',
+      'Content-Type': 'text/markdown'
     }
   });
 }

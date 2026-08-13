@@ -61,13 +61,13 @@ export async function POST(req: Request) {
   catch { return new Response('invalid json', { status: 400 }); }
 
   const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
-  if (!lib_redis.redis_configured) return new Response('Masterlist is temporarily unavailable', { status: 503 });
+  if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
   if (!token || !name || !ip || !port) return new Response('missing required fields (token, name, ip, port)', { status: 400 });
 
   const id = id_of(token);
   if (ratelimit) {
     const { success } = await ratelimit.limit(id);
-    if (!success) return new Response('rate limited', { status: 429 });
+    if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
   }
 
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
@@ -112,7 +112,7 @@ export async function DELETE(req: Request) {
 
   const { token } = body;
   if (!token) return new Response('missing token', { status: 400 });
-  if (!lib_redis.redis_configured) return new Response('Masterlist is temporarily unavailable', { status: 503 });
+  if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
   const id = id_of(token);
   const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);

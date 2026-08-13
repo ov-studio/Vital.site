@@ -23,7 +23,7 @@ export async function check(req: Request): Promise<Response | null> {
   try {
     const ip = get_ip(req);
     const { success } = await ratelimit.limit(ip);
-    if (!success) return new Response('rate limited', { status: 429 });
+    if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
     return null;
   }
   catch (err) {
