@@ -62,7 +62,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label:  'GET /api/build — latest build info',       status: 'completed' },
           { label:  'GET /api/contributors — contributor list', status: 'completed' },
-          { label:  'GET /api/masterlist — live server list',   status: 'pending' },
+          { label:  'GET /api/masterlist — live server list',   status: 'pending'   },
         ]
       }
     ]
@@ -77,7 +77,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Puzzle {...config_site.info.lucide}/>,
         items: [
           { label:  'Platform: Windows support', status: 'completed' },
-          { label:  'Platform: Linux support',   status: 'pending' }
+          { label:  'Platform: Linux support',   status: 'pending'   }
         ]
       },
       {
@@ -143,7 +143,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Server] Command: stop_all',              status: 'completed' },
           { label:  '[Server] Command: restart_all',           status: 'completed' },
           { label:  '[Server] Command: shutdown',              status: 'completed' },
-          { label:  '[Client] Command: connect <ip> <port>',   status: 'pending'   },
           { label:  '[Client] Command: disconnect',            status: 'pending'   },
           { label:  '[Client] Command: status',                status: 'pending'   }
         ]
@@ -266,12 +265,12 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Format: GLB',                                       status: 'completed' },
           { label:  'Model loader / unloader',                           status: 'completed' },
           { label:  'Server spawn replication with per-peer authority',  status: 'completed' },
-          { label:  'Server transform replication',                      status: 'pending' },
-          { label:  'Server blendshape replication',                     status: 'pending' },
-          { label:  'Server material override replication',              status: 'pending' },
-          { label:  'Server material flag replication',                  status: 'pending' },
-          { label:  'Server animation state replication',                status: 'pending' },
-          { label:  'Transform (position / rotation / scale) control',   status: 'partial' },
+          { label:  'Server transform replication',                      status: 'pending'   },
+          { label:  'Server blendshape replication',                     status: 'pending'   },
+          { label:  'Server material override replication',              status: 'pending'   },
+          { label:  'Server material flag replication',                  status: 'pending'   },
+          { label:  'Server animation state replication',                status: 'pending'   },
+          { label:  'Transform (position / rotation / scale) control',   status: 'partial'   },
           { label:  'Animation playback (play / stop / pause / resume)', status: 'completed' },
           { label:  'Animation speed scale',                             status: 'completed' },
           { label:  'Blendshape (morph target) control',                 status: 'completed' },
@@ -279,8 +278,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Material visibility override per component',        status: 'completed' },
           { label:  'Material feature & flag overrides',                 status: 'completed' },
           { label:  'Wildcard component / material targeting',           status: 'completed' },
-          { label:  'Skeleton & bone transforms',                        status: 'partial' },
-          { label:  'LOD (Level of Detail) control',                     status: 'pending' }
+          { label:  'Skeleton & bone transforms',                        status: 'partial'   },
+          { label:  'LOD (Level of Detail) control',                     status: 'pending'   }
         ]
       },
       {
@@ -986,12 +985,12 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Screen-space FXAA, temporal TAA, and MSAA antialiasing mode control from Lua',
         icon:  <lucide.Blend {...config_site.info.lucide}/>,
         items: [
-          { label:  '[Client] Enum: gfx.antialiasing.mode',       status: 'completed' },
-          { label:  '[Client] Enum: gfx.antialiasing.msaa_mode',  status: 'completed' },
-          { label:  '[Client] API: gfx.antialiasing.get_mode',    status: 'completed' },
-          { label:  '[Client] API: gfx.antialiasing.get_msaa',    status: 'completed' },
-          { label:  '[Client] API: gfx.antialiasing.set_mode',    status: 'completed' },
-          { label:  '[Client] API: gfx.antialiasing.set_msaa',    status: 'completed' }
+          { label:  '[Client] Enum: gfx.antialiasing.mode',         status: 'completed' },
+          { label:  '[Client] Enum: gfx.antialiasing.msaa_mode',    status: 'completed' },
+          { label:  '[Client] API: gfx.antialiasing.get_mode',      status: 'completed' },
+          { label:  '[Client] API: gfx.antialiasing.get_msaa_mode', status: 'completed' },
+          { label:  '[Client] API: gfx.antialiasing.set_mode',      status: 'completed' },
+          { label:  '[Client] API: gfx.antialiasing.set_msaa_mode', status: 'completed' }
         ]
       },
       {
@@ -1396,12 +1395,12 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Peer join / leave tracking',                          status: 'completed' },
           { label:  'Peer ID management',                                  status: 'completed' },
           { label:  'Reliable RPC transport',                              status: 'completed' },
-          { label:  'Unreliable / sequenced channels',                     status: 'pending' },
+          { label:  'Unreliable / sequenced channels',                     status: 'pending'   },
           { label:  'Auto-reconnect with configurable attempts and delay', status: 'completed' },
-          { label:  'Bandwidth limiting',                                  status: 'pending' },
+          { label:  'Bandwidth limiting',                                  status: 'pending'   },
           { label:  'send / broadcast API',                                status: 'completed' },
           { label:  'Peer handshake on connect',                           status: 'completed' },
-          { label:  'Ping & round-trip time',                              status: 'pending' },
+          { label:  'Ping & round-trip time',                              status: 'pending'   },
         ]
       },
       {
@@ -1415,7 +1414,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'MultiplayerSynchronizer — position & rotation replication', status: 'completed' },
           { label:  'Synced model spawn with per-peer authority assignment',     status: 'completed' },
           { label:  'Spawn queue — deferred spawn until asset is ready',         status: 'completed' },
-          { label:  'Lua RPC bindings',                                          status: 'pending' },
+          { label:  'Lua RPC bindings',                                          status: 'pending'   },
         ]
       },
       {
