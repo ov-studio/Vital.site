@@ -64,8 +64,11 @@ export async function POST(req: Request) {
   if (!token || !name || !ip || !port) return new Response('missing required fields (token, name, ip, port)', { status: 400 });
 
   const id = id_of(token);
-  const { success } = await ratelimit.limit(id);
-  if (!success) return new Response('rate limited', { status: 429 });
+
+  if (ratelimit) {
+    const { success } = await ratelimit.limit(id);
+    if (!success) return new Response('rate limited', { status: 429 });
+  }
 
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const strict_ip = process.env.MASTERLIST_STRICT_IP !== 'false';
