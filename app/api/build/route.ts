@@ -1,5 +1,6 @@
 import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
+import * as lib_ratelimit from '@/lib/ratelimit';
 
 const RELEASES_URL = `https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`;
 
@@ -45,8 +46,15 @@ async function fetch_fresh(): Promise<ReleaseInfo> {
   };
 }
 
-export const GET = lib_api_cache.create_cached_route<ReleaseInfo>({
+const cached_GET = lib_api_cache.create_cached_route<ReleaseInfo>({
   label:          'Build',
   fetch_fresh,
   fallback_error: 'Failed to load build data'
 });
+
+export async function GET(req: Request) {
+  const limited = await lib_ratelimit.check(req);
+  if (limited) return limited;
+  
+  return cached_GET();
+}

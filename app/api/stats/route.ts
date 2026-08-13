@@ -1,5 +1,6 @@
 import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
+import * as lib_ratelimit from '@/lib/ratelimit';
 
 export interface StatsInfo {
   stars:   number;
@@ -66,9 +67,16 @@ async function fetch_fresh(): Promise<StatsInfo> {
   );
 }
 
-export const GET = lib_api_cache.create_cached_route<StatsInfo>({
+const cached_GET = lib_api_cache.create_cached_route<StatsInfo>({
   label:         'Stats',
   ttl_ms:        config_site.info.api.cache_ttl_ms * 12,
   fetch_fresh,
   fallback_data: EMPTY_STATS
 });
+
+export async function GET(req: Request) {
+  const limited = await lib_ratelimit.check(req);
+  if (limited) return limited;
+  
+  return cached_GET();
+}
