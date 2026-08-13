@@ -20,11 +20,13 @@ interface HeartbeatBody {
   website?:     string;
 }
 
-const ratelimit = new upstash_ratelimit.Ratelimit({
-  redis: lib_redis.redis,
-  limiter: upstash_ratelimit.Ratelimit.slidingWindow(10, '5 m'),
-  prefix: 'masterlist:ratelimit'
-});
+const ratelimit = lib_redis.redis_configured
+  ? new upstash_ratelimit.Ratelimit({
+      redis:   lib_redis.redis!,
+      prefix:  'masterlist:ratelimit',
+      limiter: upstash_ratelimit.Ratelimit.slidingWindow(10, '5 m')
+    })
+  : null;
 
 const HEARTBEAT_SCRIPT = `
 if redis.call('EXISTS', KEYS[1]) == 1 then
