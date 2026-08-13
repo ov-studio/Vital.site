@@ -1,6 +1,6 @@
 export const info = {
-  name: "Vital.sandbox",
-  author: "ov-studio",
+  name:        "Vital.sandbox",
+  author:      "ov-studio",
   description: "An open-source, high-performance sandbox built on Godot and powered by C++17 and Lua.",
 
   git: {
@@ -19,20 +19,22 @@ export const info = {
   },
 
   lucide: {
-    size: 18,
+    size:        18,
     strokeWidth: 2
   },
 
   api: {
-    cache_ttl_ms: 5*60*1000, // 5 minutes — shared TTL for all cached api routes
+    cache_ttl_ms:         5*60*1000, // 5 minutes — shared TTL for all cached api routes
+    cache_swr_multiplier: 5, // stale-while-revalidate window = ttl * this
+    cache_stale_divisor:  2, // fallback s-maxage when serving stale-on-error = ttl / this
     github_headers: {
-      'Accept':       'application/vnd.github+json',
-      'User-Agent':   'Vital.site/1.0'
+      'Accept':     'application/vnd.github+json',
+      'User-Agent': 'Vital.site/1.0'
     }
   },
 
   masterlist: {
     heartbeat_interval_ms: 5*60*1000,  // 5 minutes — servers should heartbeat at or below this
     ttl_ms:                11*60*1000  // ~2x interval — tolerates one missed heartbeat before delisting
-  },
+  }
 };
