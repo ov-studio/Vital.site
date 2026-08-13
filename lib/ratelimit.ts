@@ -4,11 +4,11 @@ import * as upstash_ratelimit from '@upstash/ratelimit';
 
 const ratelimit = new upstash_ratelimit.Ratelimit({
   redis:   lib_redis.redis,
+  prefix: 'api:ratelimit',
   limiter: upstash_ratelimit.Ratelimit.slidingWindow(
     config_site.info.ratelimit.requests_per_window,
     config_site.info.ratelimit.window
-  ),
-  prefix: 'api:ratelimit'
+  )
 });
 
 export function get_ip(req: Request): string {
