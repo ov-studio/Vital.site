@@ -20,9 +20,9 @@ interface HeartbeatBody {
   website?:     string;
 }
 
-const ratelimit = new Ratelimit({
+const ratelimit = new upstash_ratelimit.Ratelimit({
   redis: lib_redis.redis,
-  limiter: Ratelimit.slidingWindow(10, '5 m'),
+  limiter: upstash_ratelimit.Ratelimit.slidingWindow(10, '5 m'),
   prefix: 'masterlist:ratelimit'
 });
 
