@@ -44,11 +44,17 @@ async function fetch_fresh(): Promise<ContributorInfo[]> {
     repos.map(async ({ user, repo }) => {
       try {
         const contributors = await fetch_all_pages<GithubContributor>(`https://api.github.com/repos/${user}/${repo}/contributors`);
-        return { repo, contributors };
+        return { 
+          repo, 
+          contributors 
+        };
       }
       catch (err) {
         console.error(`[Contributors] failed for ${repo}:`, err);
-        return { repo, contributors: [] as GithubContributor[] };
+        return { 
+          repo, 
+          contributors: [] as GithubContributor[] 
+        };
       }
     })
   );
@@ -89,6 +95,6 @@ const cached_GET = lib_api_cache.create_cached_route<ContributorInfo[]>({
 export async function GET(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  
+
   return cached_GET();
 }

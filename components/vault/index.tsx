@@ -48,7 +48,11 @@ function use_vault_resources() {
     load();
     return () => { cancelled = true; };
   }, []);
-  return { resources, state };
+
+  return { 
+    resources, 
+    state 
+  };
 }
 
 async function download_directory_zip(folder: string): Promise<void> {

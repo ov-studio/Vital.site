@@ -46,7 +46,7 @@ async function fetch_fresh(): Promise<StatsInfo> {
           stars:   data.stargazers_count  ?? 0,
           forks:   data.forks_count       ?? 0,
           issues:  data.open_issues_count ?? 0,
-          commits,
+          commits
         };
       }
       catch (err) {

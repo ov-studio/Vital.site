@@ -57,7 +57,7 @@ export async function generateMetadata(props: PageProps<'/docs/[[...slug]]'>): P
     title: `${page.data.title}`,
     description: page.data.description,
     openGraph: {
-      images: lib_source.getPageImage(page).url,
-    },
+      images: lib_source.getPageImage(page).url
+    }
   };
 }

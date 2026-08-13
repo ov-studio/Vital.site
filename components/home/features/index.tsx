@@ -24,7 +24,7 @@ function make_state(i: number, total: number): NodeState {
     angle: (i / total) * Math.PI * 2,
     radPhase: rng(0, Math.PI * 2),
     radFreq: rng(0.00035, 0.00085),
-    radAmp: rng(10, 24),
+    radAmp: rng(10, 24)
   };
 }
 

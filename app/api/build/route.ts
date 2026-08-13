@@ -42,7 +42,7 @@ async function fetch_fresh(): Promise<ReleaseInfo> {
     client_url:  client?.browser_download_url ?? null,
     server_url:  server?.browser_download_url ?? null,
     client_size: client ? format_size(client.size) : null,
-    server_size: server ? format_size(server.size) : null,
+    server_size: server ? format_size(server.size) : null
   };
 }
 

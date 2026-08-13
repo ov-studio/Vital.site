@@ -22,7 +22,12 @@ function card_status(card: config_roadmap.RoadmapCard): config_roadmap.FeatureSt
 }
 
 function overall_progress(sections: config_roadmap.RoadmapSection[]) {
-  let weight = 0, count = 0, completed = 0, partial = 0, pending = 0;
+  let weight = 0;
+  let count = 0;
+  let completed = 0;
+  let partial = 0;
+  let pending = 0;
+  
   for (const section of sections) {
     for (const card of section.cards) {
       for (const item of card.items) {
@@ -34,7 +39,13 @@ function overall_progress(sections: config_roadmap.RoadmapSection[]) {
       }
     }
   }
-  return { pct: count ? Math.round((weight / count) * 100) : 0, completed, partial, pending };
+
+  return { 
+    pct: count ? Math.round((weight / count) * 100) : 0, 
+    completed, 
+    partial, 
+    pending 
+  };
 }
 
 function RoadmapSummary({ sections, intro }: { sections: config_roadmap.RoadmapSection[]; intro: react.ReactNode; }) {

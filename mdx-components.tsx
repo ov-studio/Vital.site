@@ -4,6 +4,6 @@ import * as mdx_types    from 'mdx/types';
 export function getMDXComponents(components?: mdx_types.MDXComponents): mdx_types.MDXComponents {
   return {
     ...fumadocs_mdx.default,
-    ...components,
+    ...components
   };
 }
