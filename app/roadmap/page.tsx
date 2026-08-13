@@ -1,11 +1,11 @@
 import '@/app/global.css';
-import * as lib_source            from '@/lib/source';
 import * as config_roadmap        from '@/configs/roadmap';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_roadmap     from '@/components/roadmap';
 import * as component_clientshell from '@/components/clientshell';
+import * as lib_source            from '@/lib/source';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {

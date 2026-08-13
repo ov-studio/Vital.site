@@ -1,4 +1,4 @@
-import * as config_site from '@/configs/site';
+import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
 
 export interface StatsInfo {
@@ -39,7 +39,7 @@ async function fetch_fresh(): Promise<StatsInfo> {
         ]);
 
         if (!repo_res.ok) throw new Error(`GitHub responded ${repo_res.status}`);
-        
+
         const data = await repo_res.json();
         return {
           stars:   data.stargazers_count  ?? 0,

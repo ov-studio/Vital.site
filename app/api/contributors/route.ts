@@ -1,4 +1,4 @@
-import * as config_site from '@/configs/site';
+import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
 
 interface ContributorInfo {

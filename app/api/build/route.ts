@@ -1,4 +1,4 @@
-import * as config_site from '@/configs/site';
+import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
 
 const RELEASES_URL = `https://api.github.com/repos/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/releases?per_page=1`;

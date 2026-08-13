@@ -1,7 +1,7 @@
-import * as lib_source                    from '@/lib/source';
 import * as config_site                   from '@/configs/site';
 import * as component_docai               from '@/components/docai';
 import * as component_badge               from '@/components/badge';
+import * as lib_source                    from '@/lib/source';
 import * as next                          from 'next';
 import * as next_navigation               from 'next/navigation';
 import * as mdx_components                from '@/mdx-components';

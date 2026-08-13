@@ -1,9 +1,9 @@
-import * as lib_source               from '@/lib/source';
-import * as lib_layout               from '@/lib/layout.shared';
 import * as component_overlay        from '@/components/overlay';
 import * as component_social         from '@/components/social';
 import * as component_sidebar        from '@/components/sidebar';
 import * as component_clientshell    from '@/components/clientshell';
+import * as lib_source               from '@/lib/source';
+import * as lib_layout               from '@/lib/layout.shared';
 import * as fumadocs_layout_notebook from 'fumadocs-ui/layouts/notebook';
 import '@/app/docs/layout.css';
 
