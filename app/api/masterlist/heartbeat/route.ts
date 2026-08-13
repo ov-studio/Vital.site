@@ -29,21 +29,21 @@ const ratelimit = lib_redis.redis_configured
   : null;
 
 const HEARTBEAT_SCRIPT = `
-if redis.call('EXISTS', KEYS[1]) == 1 then
-  redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
-  return 1
-else
-  return 0
-end
+  if redis.call('EXISTS', KEYS[1]) == 1 then
+    redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
+    return 1
+  else
+    return 0
+  end
 `;
 
 const OFFLINE_SCRIPT = `
-if redis.call('EXISTS', KEYS[1]) == 1 then
-  redis.call('DEL', KEYS[2])
-  return 1
-else
-  return 0
-end
+  if redis.call('EXISTS', KEYS[1]) == 1 then
+    redis.call('DEL', KEYS[2])
+    return 1
+  else
+    return 0
+  end
 `;
 
 function clamp_int(n: unknown, min: number, max: number): number {
