@@ -19,13 +19,14 @@ export async function POST(req: Request) {
   const auth = req.headers.get('authorization') ?? '';
   const expected = `Bearer ${admin_secret}`;
   if (!safe_equal(auth, expected)) return new Response('unauthorized', { status: 401 });
+  if (!lib_redis.redis_configured) return new Response('Masterlist is temporarily unavailable', { status: 503 });
 
   const body = await req.json().catch(() => ({}));
   const name: string | undefined = body?.name;
   const token = crypto.randomBytes(32).toString('hex');
   const id = crypto.createHash('sha256').update(token).digest('hex');
 
-  await lib_redis.redis.set(lib_redis.token_key(id), Date.now());
+  await lib_redis.redis!.set(lib_redis.token_key(id), Date.now());
   return Response.json({
     token,
     id,

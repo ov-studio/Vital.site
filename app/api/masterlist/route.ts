@@ -24,11 +24,12 @@ export interface ServerInfo {
 export async function GET(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
+  if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
-  const keys = await lib_redis.redis.keys('masterlist:server:*');
+  const keys = await lib_redis.redis!.keys('masterlist:server:*');
   if (keys.length === 0) return Response.json([], { headers: cache_headers() });
 
-  const values = await lib_redis.redis.mget<unknown[]>(...keys);
+  const values = await lib_redis.redis!.mget<unknown[]>(...keys);
   const servers: ServerInfo[] = values
     .filter((v): v is NonNullable<unknown> => Boolean(v))
     .map((v) => (typeof v === 'string' ? JSON.parse(v) : v) as ServerInfo)
