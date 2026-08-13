@@ -20,14 +20,29 @@ interface HeartbeatBody {
   website?:     string;
 }
 
-// A server heartbeats roughly every 5 minutes (see configs/site.tsx) — this
-// allows a generous burst on top of that (retries, restarts) without
-// letting a compromised token spam the endpoint.
 const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, '5 m'),
   prefix: 'masterlist:ratelimit'
 });
+
+const HEARTBEAT_SCRIPT = `
+if redis.call('EXISTS', KEYS[1]) == 1 then
+  redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
+  return 1
+else
+  return 0
+end
+`;
+
+const OFFLINE_SCRIPT = `
+if redis.call('EXISTS', KEYS[1]) == 1 then
+  redis.call('DEL', KEYS[2])
+  return 1
+else
+  return 0
+end
+`;
 
 function clamp_int(n: unknown, min: number, max: number): number {
   const v = typeof n === 'number' ? Math.trunc(n) : 0;
@@ -64,15 +79,6 @@ export async function POST(req: Request) {
     return new Response('rate limited', { status: 429 });
   }
 
-  const registered = await redis.get(token_key(id));
-  if (!registered) {
-    return new Response('unknown token — register first', { status: 401 });
-  }
-
-  // Lock heartbeats to the IP that's actually sending them, so a leaked
-  // token can't be used from a different machine to hijack a listing.
-  // Set MASTERLIST_STRICT_IP=false in env if servers sit behind rotating
-  // egress IPs and this causes false rejections.
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const strict_ip = process.env.MASTERLIST_STRICT_IP !== 'false';
 
@@ -99,7 +105,16 @@ export async function POST(req: Request) {
     lastSeen:    Date.now()
   };
 
-  await redis.set(server_key(id), JSON.stringify(payload), { ex: masterlist_ttl_seconds });
+  const ok = await redis.eval(
+    HEARTBEAT_SCRIPT,
+    [token_key(id), server_key(id)],
+    [JSON.stringify(payload), String(masterlist_ttl_seconds)]
+  );
+
+  if (!ok) {
+    return new Response('unknown token — register first', { status: 401 });
+  }
+
   return Response.json({ ok: true, ttlSeconds: masterlist_ttl_seconds });
 }
 
@@ -118,9 +133,8 @@ export async function DELETE(req: Request) {
   if (!token) return new Response('missing token', { status: 400 });
 
   const id = id_of(token);
-  const registered = await redis.get(token_key(id));
-  if (!registered) return new Response('unknown token', { status: 401 });
+  const ok = await redis.eval(OFFLINE_SCRIPT, [token_key(id), server_key(id)], []);
 
-  await redis.del(server_key(id));
+  if (!ok) return new Response('unknown token', { status: 401 });
   return Response.json({ ok: true });
 }

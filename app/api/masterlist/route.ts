@@ -37,6 +37,6 @@ export async function GET() {
 
 function cache_headers() {
   return {
-    'Cache-Control': 'public, s-maxage=5, stale-while-revalidate=15'
+    'Cache-Control': 'public, s-maxage=15, stale-while-revalidate=60'
   };
 }
