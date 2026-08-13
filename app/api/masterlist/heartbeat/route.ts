@@ -58,11 +58,11 @@ function id_of(token: string): string {
 export async function POST(req: Request) {
   let body: HeartbeatBody;
   try { body = await req.json(); }
-  catch { return new Response('invalid json', { status: 400 }); }
+  catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
   const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
-  if (!token || !name || !ip || !port) return new Response('missing required fields (token, name, ip, port)', { status: 400 });
+  if (!token || !name || !ip || !port) return Response.json({ error: 'missing required fields (token, name, ip, port)' }, { status: 400 });
 
   const id = id_of(token);
   if (ratelimit) {
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
   if (request_ip && request_ip !== ip) {
     if (strict_ip) {
       console.warn(`[masterlist] rejected ip mismatch for ${id}: claimed=${ip} actual=${request_ip}`);
-      return new Response('ip mismatch', { status: 403 });
+      return Response.json({ error: 'ip mismatch' }, { status: 403 });
     }
     console.warn(`[masterlist] ip mismatch for ${id}: claimed=${ip} actual=${request_ip}`);
   }
@@ -100,7 +100,7 @@ export async function POST(req: Request) {
     [lib_redis.token_key(id), lib_redis.server_key(id)],
     [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds)]
   );
-  if (!ok) return new Response('unknown token — register first', { status: 401 });
+  if (!ok) return Response.json({ error: 'unknown token — register first' }, { status: 401 });
 
   return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds });
 }
@@ -108,15 +108,15 @@ export async function POST(req: Request) {
 export async function DELETE(req: Request) {
   let body: { token?: string };
   try { body = await req.json(); }
-  catch { return new Response('invalid json', { status: 400 }); }
+  catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
   const { token } = body;
-  if (!token) return new Response('missing token', { status: 400 });
+  if (!token) return Response.json({ error: 'missing token' }, { status: 400 });
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
   const id = id_of(token);
   const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
-  if (!ok) return new Response('unknown token', { status: 401 });
-  
+  if (!ok) return Response.json({ error: 'unknown token' }, { status: 401 });
+
   return Response.json({ ok: true });
 }
