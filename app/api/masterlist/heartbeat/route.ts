@@ -90,7 +90,7 @@ export async function POST(req: Request) {
     lastSeen:    Date.now()
   };
 
-  const ok = await lib_redis.redis.eval(
+  const ok = await lib_redis.redis!.eval(
     HEARTBEAT_SCRIPT,
     [lib_redis.token_key(id), lib_redis.server_key(id)],
     [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds)]
@@ -107,9 +107,10 @@ export async function DELETE(req: Request) {
 
   const { token } = body;
   if (!token) return new Response('missing token', { status: 400 });
+  if (!lib_redis.redis_configured) return new Response('Masterlist is temporarily unavailable', { status: 503 });
 
   const id = id_of(token);
-  const ok = await lib_redis.redis.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
+  const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
   if (!ok) return new Response('unknown token', { status: 401 });
   
   return Response.json({ ok: true });
