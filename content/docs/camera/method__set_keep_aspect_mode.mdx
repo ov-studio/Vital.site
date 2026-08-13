@@ -1,5 +1,5 @@
 ---
-title: self:set_keep_aspect_mode
+title: self:set_keep_aspect
 description: Sets the camera's aspect ratio mode
 badge: client
 ---
@@ -7,7 +7,7 @@ badge: client
 ### Syntax
 
 ```lua
-local status = self:set_keep_aspect_mode(
+local status = self:set_keep_aspect(
     mode
 )
 ```
@@ -31,5 +31,5 @@ local status = self:set_keep_aspect_mode(
 ```lua lineNumbers title="Set the keep aspect mode"
 local entity = core.camera.create()
 
-entity:set_keep_aspect_mode(core.camera.keep_aspect.HEIGHT)
+entity:set_keep_aspect(core.camera.keep_aspect.HEIGHT)
 ```
