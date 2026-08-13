@@ -1,5 +1,5 @@
 import * as lib_redis from '@/lib/redis';
-import { randomBytes, createHash, timingSafeEqual } from 'crypto';
+import * as crypto    from 'crypto';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -9,7 +9,7 @@ function safe_equal(a: string, b: string): boolean {
   const buf_a = Buffer.from(a);
   const buf_b = Buffer.from(b);
   if (buf_a.length !== buf_b.length) return false;
-  return timingSafeEqual(buf_a, buf_b);
+  return crypto.timingSafeEqual(buf_a, buf_b);
 }
 
 export async function POST(req: Request) {
@@ -22,8 +22,8 @@ export async function POST(req: Request) {
 
   const body = await req.json().catch(() => ({}));
   const name: string | undefined = body?.name;
-  const token = randomBytes(32).toString('hex');
-  const id = createHash('sha256').update(token).digest('hex');
+  const token = crypto.randomBytes(32).toString('hex');
+  const id = crypto.createHash('sha256').update(token).digest('hex');
 
   await lib_redis.redis.set(lib_redis.token_key(id), Date.now());
   return Response.json({
