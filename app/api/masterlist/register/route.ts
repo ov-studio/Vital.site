@@ -14,11 +14,11 @@ function safe_equal(a: string, b: string): boolean {
 
 export async function POST(req: Request) {
   const admin_secret = process.env.MASTERLIST_ADMIN_SECRET;
-  if (!admin_secret) return new Response('MASTERLIST_ADMIN_SECRET not configured', { status: 500 });
+  if (!admin_secret) return Response.json({ error: 'MASTERLIST_ADMIN_SECRET not configured' }, { status: 500 });
 
   const auth = req.headers.get('authorization') ?? '';
   const expected = `Bearer ${admin_secret}`;
-  if (!safe_equal(auth, expected)) return new Response('unauthorized', { status: 401 });
+  if (!safe_equal(auth, expected)) return Response.json({ error: 'unauthorized' }, { status: 401 });
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
   const body = await req.json().catch(() => ({}));
