@@ -1,5 +1,6 @@
-import * as config_site from '@/configs/site';
-import * as lib_redis   from '@/lib/redis';
+import * as config_site   from '@/configs/site';
+import * as lib_redis     from '@/lib/redis';
+import * as lib_ratelimit from '@/lib/ratelimit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -20,7 +21,10 @@ export interface ServerInfo {
   lastSeen:    number;
 }
 
-export async function GET() {
+export async function GET(req: Request) {
+  const limited = await lib_ratelimit.check(req);
+  if (limited) return limited;
+
   const keys = await lib_redis.redis.keys('masterlist:server:*');
   if (keys.length === 0) return Response.json([], { headers: cache_headers() });
 
@@ -36,8 +40,5 @@ export async function GET() {
 function cache_headers() {
   const s_maxage_s = Math.floor(config_site.info.masterlist.cache_s_maxage_ms / 1000);
   const swr_s = s_maxage_s * config_site.info.masterlist.cache_swr_multiplier;
-
-  return {
-    'Cache-Control': `public, s-maxage=${s_maxage_s}, stale-while-revalidate=${swr_s}`
-  };
+  return { 'Cache-Control': `public, s-maxage=${s_maxage_s}, stale-while-revalidate=${swr_s}` };
 }
