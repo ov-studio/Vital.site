@@ -1,4 +1,4 @@
-import * as config_site from '@/configs/site';
+import * as config_site   from '@/configs/site';
 import * as upstash_redis from '@upstash/redis';
 
 export const redis = upstash_redis.Redis.fromEnv();
