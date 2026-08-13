@@ -74,6 +74,7 @@ async function fetch_fresh(): Promise<ContributorInfo[]> {
       }
     }
   }
+  
   return Array.from(merged.values()).sort((a, b) => b.contributions - a.contributions);
 }
 

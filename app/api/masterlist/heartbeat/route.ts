@@ -49,10 +49,6 @@ function clamp_int(n: unknown, min: number, max: number): number {
   return Math.min(max, Math.max(min, v));
 }
 
-// The public id is a one-way hash of the token, so it's never sent by the
-// client -- deriving it here IS the authenticity check. No secret needs to
-// be transmitted, stored, or compared: if id_of(token) has a registered
-// entry in Redis, the caller has proven they hold the original token.
 function id_of(token: string): string {
   return createHash('sha256').update(token).digest('hex');
 }
@@ -118,8 +114,6 @@ export async function POST(req: Request) {
   return Response.json({ ok: true, ttlSeconds: masterlist_ttl_seconds });
 }
 
-// Graceful shutdown — the server calls this on clean exit so its entry
-// disappears immediately instead of lingering until the TTL expires.
 export async function DELETE(req: Request) {
   let body: { token?: string };
   try {
