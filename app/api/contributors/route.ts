@@ -1,4 +1,5 @@
 import * as config_site from '@/configs/site';
+import { create_cached_route } from '@/lib/api_cache';
 
 interface ContributorInfo {
   login:         string;
@@ -6,11 +7,6 @@ interface ContributorInfo {
   profile_url:   string;
   contributions: number;
   repos:         string[];
-}
-
-interface CacheEntry {
-  data:       ContributorInfo[];
-  fetched_at: number;
 }
 
 interface GithubContributor {
@@ -21,8 +17,6 @@ interface GithubContributor {
   type:          string;
 }
 
-let cache: CacheEntry | null = null;
-
 // GitHub paginates at 100/page max; walk pages until one comes back short.
 async function fetch_all_pages<T>(url_base: string): Promise<T[]> {
   const results: T[] = [];
@@ -30,7 +24,7 @@ async function fetch_all_pages<T>(url_base: string): Promise<T[]> {
 
   while (true) {
     const res = await fetch(`${url_base}${url_base.includes('?') ? '&' : '?'}per_page=100&page=${page}`, {
-      cache:  'no-store',
+      cache:   'no-store',
       headers: config_site.info.api.github_headers
     });
     if (!res.ok) throw new Error(`GitHub responded ${res.status} for ${url_base}`);
@@ -43,7 +37,7 @@ async function fetch_all_pages<T>(url_base: string): Promise<T[]> {
   return results;
 }
 
-async function build_contributor_list(): Promise<ContributorInfo[]> {
+async function fetch_fresh(): Promise<ContributorInfo[]> {
   const repos = Object.values(config_site.info.git);
   const per_repo = await Promise.all(
     repos.map(async ({ user, repo }) => {
@@ -52,7 +46,7 @@ async function build_contributor_list(): Promise<ContributorInfo[]> {
         return { repo, contributors };
       }
       catch (err) {
-        console.error(`[api/contributors] failed for ${repo}:`, err);
+        console.error(`[Contributors] failed for ${repo}:`, err);
         return { repo, contributors: [] as GithubContributor[] };
       }
     })
@@ -83,47 +77,9 @@ async function build_contributor_list(): Promise<ContributorInfo[]> {
   return Array.from(merged.values()).sort((a, b) => b.contributions - a.contributions);
 }
 
-export async function GET() {
-  const now = Date.now();
-  const ttl_ms = config_site.info.api.cache_ttl_ms*12;
-  const ttl_s = Math.floor(ttl_ms/1000);
-
-  // Serve from cache if still fresh
-  if (cache && now - cache.fetched_at < ttl_ms) {
-    return Response.json(cache.data, {
-      headers: {
-        'Cache-Control':        `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
-        'X-Contributors-Cache': 'HIT'
-      }
-    });
-  }
-
-  // Fetch fresh from GitHub
-  try {
-    const data = await build_contributor_list();
-    cache = { data, fetched_at: now };
-    return Response.json(data, {
-      headers: {
-        'Cache-Control':        `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s*5}`,
-        'X-Contributors-Cache': 'MISS'
-      }
-    });
-  }
-  catch (err) {
-    if (cache) {
-      console.error('[api/contributors] fetch failed, serving stale cache:', err);
-      return Response.json(cache.data, {
-        headers: {
-          'Cache-Control':        `public, s-maxage=${Math.floor(ttl_s/2)}`,
-          'X-Contributors-Cache': 'STALE'
-        }
-      });
-    }
-
-    console.error('[api/contributors] fetch failed, no cache available:', err);
-    return Response.json(
-      { error: 'Failed to load contributors data' },
-      { status: 502 }
-    );
-  }
-}
+export const GET = create_cached_route<ContributorInfo[]>({
+  label:          'Contributors',
+  ttl_ms:         config_site.info.api.cache_ttl_ms * 12,
+  fetch_fresh,
+  fallback_error: 'Failed to load contributors data'
+});
