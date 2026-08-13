@@ -8,11 +8,11 @@
 
         "---Getter---",
         "get_mode",
-        "get_msaa",
+        "get_msaa_mode",
 
         "---Setter---",
         "set_mode",
-        "set_msaa",
+        "set_msaa_mode",
         "..."
     ]
 }
