@@ -1,10 +1,7 @@
 import * as config_site   from '@/configs/site';
 import * as upstash_redis from '@upstash/redis';
 
-const upstash_url   = process.env.UPSTASH_REDIS_REST_URL   ?? process.env.KV_REST_API_URL;
-const upstash_token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
-
-export const redis_configured = Boolean(upstash_url && upstash_token);
+export const redis_configured = Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
 
 if (!redis_configured) {
   console.error(
@@ -15,7 +12,7 @@ if (!redis_configured) {
 }
 
 export const redis = redis_configured
-  ? new upstash_redis.Redis({ url: upstash_url!, token: upstash_token! })
+  ? new upstash_redis.Redis({ url: process.env.UPSTASH_REDIS_REST_URL!, token: process.env.UPSTASH_REDIS_REST_TOKEN! })
   : null;
 
 export const masterlist_ttl_seconds = Math.floor(config_site.info.masterlist.ttl_ms/1000);
