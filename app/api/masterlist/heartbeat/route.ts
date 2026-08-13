@@ -61,10 +61,10 @@ export async function POST(req: Request) {
   catch { return new Response('invalid json', { status: 400 }); }
 
   const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
+  if (!lib_redis.redis_configured) return new Response('Masterlist is temporarily unavailable', { status: 503 });
   if (!token || !name || !ip || !port) return new Response('missing required fields (token, name, ip, port)', { status: 400 });
 
   const id = id_of(token);
-
   if (ratelimit) {
     const { success } = await ratelimit.limit(id);
     if (!success) return new Response('rate limited', { status: 429 });
