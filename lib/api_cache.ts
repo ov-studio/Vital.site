@@ -32,11 +32,9 @@ export function create_cached_route<T>(opts: CachedRouteOptions<T>) {
     const now = Date.now();
 
     // Serve from cache if still fresh
-    if (cache && now - cache.fetched_at < ttl_ms) {
-      return Response.json(cache.data, {
-        headers: { 'Cache-Control': cache_control(ttl_s), [header_name]: 'HIT' }
-      });
-    }
+    if (cache && now - cache.fetched_at < ttl_ms) return Response.json(cache.data, {
+      headers: { 'Cache-Control': cache_control(ttl_s), [header_name]: 'HIT' }
+    });
 
     // Fetch fresh
     try {

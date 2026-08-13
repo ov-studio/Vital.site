@@ -1,4 +1,4 @@
-import { redis, token_key } from '@/lib/redis';
+import * as lib_redis from '@/lib/redis';
 import { randomBytes, createHash, timingSafeEqual } from 'crypto';
 
 export const runtime = 'nodejs';
@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   const token = randomBytes(32).toString('hex');
   const id = createHash('sha256').update(token).digest('hex');
 
-  await redis.set(token_key(id), Date.now());
+  await lib_redis.redis.set(lib_redis.token_key(id), Date.now());
   return Response.json({
     token,
     id,

@@ -1,5 +1,5 @@
 import * as config_site from '@/configs/site';
-import * as api_cache from '@/lib/api_cache';
+import * as lib_api_cache from '@/lib/api_cache';
 
 interface ContributorInfo {
   login:         string;
@@ -74,11 +74,11 @@ async function fetch_fresh(): Promise<ContributorInfo[]> {
       }
     }
   }
-  
+
   return Array.from(merged.values()).sort((a, b) => b.contributions - a.contributions);
 }
 
-export const GET = api_cache.create_cached_route<ContributorInfo[]>({
+export const GET = lib_api_cache.create_cached_route<ContributorInfo[]>({
   label:          'Contributors',
   ttl_ms:         config_site.info.api.cache_ttl_ms * 12,
   fetch_fresh,

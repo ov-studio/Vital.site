@@ -1,4 +1,4 @@
-import { redis } from '@/lib/redis';
+import * as lib_redis from '@/lib/redis';
 import * as config_site from '@/configs/site';
 
 export const runtime = 'nodejs';
@@ -21,13 +21,11 @@ export interface ServerInfo {
 }
 
 export async function GET() {
-  const keys = await redis.keys('masterlist:server:*');
+  const keys = await lib_redis.redis.keys('masterlist:server:*');
 
-  if (keys.length === 0) {
-    return Response.json([], { headers: cache_headers() });
-  }
+  if (keys.length === 0) return Response.json([], { headers: cache_headers() });
 
-  const values = await redis.mget<unknown[]>(...keys);
+  const values = await lib_redis.redis.mget<unknown[]>(...keys);
   const servers: ServerInfo[] = values
     .filter((v): v is NonNullable<unknown> => Boolean(v))
     .map((v) => (typeof v === 'string' ? JSON.parse(v) : v) as ServerInfo)

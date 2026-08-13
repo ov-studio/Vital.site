@@ -1,4 +1,4 @@
-import { redis, server_key, token_key, masterlist_ttl_seconds } from '@/lib/redis';
+import * as lib_redis from '@/lib/redis';
 import { createHash } from 'crypto';
 import { Ratelimit } from '@upstash/ratelimit';
 
@@ -21,7 +21,7 @@ interface HeartbeatBody {
 }
 
 const ratelimit = new Ratelimit({
-  redis,
+  redis: lib_redis.redis,
   limiter: Ratelimit.slidingWindow(10, '5 m'),
   prefix: 'masterlist:ratelimit'
 });
@@ -58,22 +58,16 @@ export async function POST(req: Request) {
   try {
     body = await req.json();
   }
-  catch {
-    return new Response('invalid json', { status: 400 });
-  }
+  catch { return new Response('invalid json', { status: 400 }); }
 
   const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
 
-  if (!token || !name || !ip || !port) {
-    return new Response('missing required fields (token, name, ip, port)', { status: 400 });
-  }
+  if (!token || !name || !ip || !port) return new Response('missing required fields (token, name, ip, port)', { status: 400 });
 
   const id = id_of(token);
 
   const { success } = await ratelimit.limit(id);
-  if (!success) {
-    return new Response('rate limited', { status: 429 });
-  }
+  if (!success) return new Response('rate limited', { status: 429 });
 
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const strict_ip = process.env.MASTERLIST_STRICT_IP !== 'false';
@@ -101,17 +95,15 @@ export async function POST(req: Request) {
     lastSeen:    Date.now()
   };
 
-  const ok = await redis.eval(
+  const ok = await lib_redis.redis.eval(
     HEARTBEAT_SCRIPT,
-    [token_key(id), server_key(id)],
-    [JSON.stringify(payload), String(masterlist_ttl_seconds)]
+    [lib_redis.token_key(id), lib_redis.server_key(id)],
+    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds)]
   );
 
-  if (!ok) {
-    return new Response('unknown token — register first', { status: 401 });
-  }
+  if (!ok) return new Response('unknown token — register first', { status: 401 });
 
-  return Response.json({ ok: true, ttlSeconds: masterlist_ttl_seconds });
+  return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds });
 }
 
 export async function DELETE(req: Request) {
@@ -119,15 +111,13 @@ export async function DELETE(req: Request) {
   try {
     body = await req.json();
   }
-  catch {
-    return new Response('invalid json', { status: 400 });
-  }
+  catch { return new Response('invalid json', { status: 400 }); }
 
   const { token } = body;
   if (!token) return new Response('missing token', { status: 400 });
 
   const id = id_of(token);
-  const ok = await redis.eval(OFFLINE_SCRIPT, [token_key(id), server_key(id)], []);
+  const ok = await lib_redis.redis.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
 
   if (!ok) return new Response('unknown token', { status: 401 });
   return Response.json({ ok: true });
