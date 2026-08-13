@@ -3,6 +3,8 @@ import { createHash } from 'crypto';
 import { Ratelimit } from '@upstash/ratelimit';
 
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 
 interface HeartbeatBody {
   token:        string;

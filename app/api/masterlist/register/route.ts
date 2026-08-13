@@ -2,6 +2,8 @@ import { redis, token_key } from '@/lib/redis';
 import { randomBytes, createHash, timingSafeEqual } from 'crypto';
 
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 
 function safe_equal(a: string, b: string): boolean {
   const buf_a = Buffer.from(a);
