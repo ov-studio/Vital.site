@@ -24,9 +24,9 @@
 .prose a { text-decoration: none; }
 
 #nd-sidebar {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  mask-image: linear-gradient(to bottom, transparent 0px, var(--bg4) 20px, var(--bg4) calc(100% - 20px), transparent 100%);
   transition: width .2s ease, min-width .2s ease !important;
 }
 
