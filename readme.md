@@ -58,24 +58,29 @@ Open [http://localhost:3000](http://localhost:3000) to view the site locally. Ch
 |---|---|
 | `app/(home)` | Landing page and top-level routes |
 | `app/docs` | Documentation layout and MDX pages |
-| `app/api/masterlist` | Server-list API (`GET` list, `POST` register, `POST`/`DELETE` heartbeat) |
+| `app/api` | API routes — masterlist, search, stats, contributors, build, vault (see below) |
 | `content/docs` | MDX source files for all documentation |
 | `components` | Shared UI components |
 | `lib` | Content source adapter, Redis client, and shared utilities |
 | `configs` | Site-wide configuration files |
 
-## Masterlist API
+## API Routes
 
-The masterlist tracks which Vital.sandbox servers are currently online, backed by Redis. It's the piece that actually needs the environment variables above:
-
-| Endpoint | Auth | Purpose |
+| Route | Auth | Purpose |
 |---|---|---|
-| `GET /api/masterlist` | Public | Lists all currently online servers, sorted by player count. |
+| `GET /api/masterlist` | Public | Lists all currently online Vital.sandbox servers, sorted by player count. |
 | `POST /api/masterlist/register` | `Authorization: Bearer <MASTERLIST_ADMIN_SECRET>` | Issues a new server token. Store the returned token in that server's config — it's shown once. |
 | `POST /api/masterlist/heartbeat` | Server token | Called periodically by a registered server to report status and stay listed. |
 | `DELETE /api/masterlist/heartbeat` | Server token | Marks a server offline immediately (graceful shutdown). |
+| `GET /api/search` | Public | Fumadocs/Orama search index over `content/docs`. |
+| `GET /api/stats` | Public | Aggregated GitHub stats (stars, forks, open issues, commit count) across the repos in `configs/site.tsx`. Cached, GitHub API only. |
+| `GET /api/contributors` | Public | Merged, de-duplicated contributor list across the repos in `configs/site.tsx`, sorted by contributions. Cached, GitHub API only. |
+| `GET /api/build` | Public | Latest sandbox release info — tag, and client/server download URLs + sizes. Cached, GitHub API only. |
+| `GET /api/vault` | Public | Proxies and caches `vault.json` from the configured vault repo. |
 
-Servers are expected to heartbeat roughly every 5 minutes; a listing expires after ~11 minutes without one.
+Only the `masterlist` routes touch Redis or the environment variables above — `search`, `stats`, `contributors`, `build`, and `vault` just call the public GitHub API (no token needed) and are cached in-memory per `configs/site.tsx` (`api.cache_ttl_ms`). All routes are rate-limited per IP when Redis is configured (`ratelimit.requests_per_window` in the same config).
+
+Masterlist servers are expected to heartbeat roughly every 5 minutes; a listing expires after ~11 minutes without one.
 
 ## Contributing
 
