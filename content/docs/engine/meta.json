@@ -6,13 +6,10 @@
         "enum__horizontal_alignment",
         "enum__vertical_alignment",
 
-        "---Base---",
-        "print",
-        "iprint",
-        "inspect",
-        "compile_string",
-        "load_string",
-        
+        "---Checker---",
+        "is_splash_visible",
+        "is_console_visible",
+
         "---Getter---",
         "get_tick",
         "get_version",
@@ -22,6 +19,13 @@
         "get_serial",
         "get_entity_types",
         "get_entities",
+
+        "---Misc---",
+        "print",
+        "iprint",
+        "inspect",
+        "compile_string",
+        "load_string",
 
         "---Canvas---",
         "world_to_screen",

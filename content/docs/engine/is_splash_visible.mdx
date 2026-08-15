@@ -1,0 +1,32 @@
+---
+title: core.engine.is_splash_visible
+description: Retrieves whether the splash screen is currently visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = core.engine.is_splash_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the splash screen is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Waits for the splash screen to hide before interacting with the console"
+if not core.engine.is_splash_visible() then
+    core.engine.print("info", "Splash has finished, console is now available")
+end
+```
