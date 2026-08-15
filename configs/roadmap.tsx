@@ -81,16 +81,18 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
         label: 'Splash Screen',
-        desc:  'Client boot screen — shown while the engine and resources initialize, before the main menu',
+        desc:  'Animated boot screen rendered in a Godot WebView — Vital.sandbox and Godot logo reveals with retro CRT-style effects, shown while the engine starts up',
         icon:  <lucide.Sparkles {...config_site.info.lucide}/>,
         items: [
-          { label:  'Splash screen scene & layout',     status: 'pending' },
-          { label:  'Logo / branding display',          status: 'pending' },
-          { label:  'Loading progress indicator',       status: 'pending' },
-          { label:  'Minimum display duration / skip',  status: 'pending' },
-          { label:  'Transition to main menu',          status: 'pending' },
+          { label:  'Vital.sandbox logo reveal (SVG stroke-draw animation)',          status: 'completed' },
+          { label:  'Godot logo reveal (SVG stroke-draw animation)',                  status: 'completed' },
+          { label:  'Flash / ripple / particle burst transition effects',             status: 'completed' },
+          { label:  'Ambient CRT flicker, vignette & scanline overlay',               status: 'completed' },
+          { label:  'Three-stage exit — fade to black, hold, fade to transparent',    status: 'completed' },
+          { label:  'Configurable timing (delays, hold durations, stroke speed)',     status: 'completed' },
+          { label:  'Godot WebView IPC handshake (ready / init / hide)',              status: 'completed' },
+          { label:  'Boot lifecycle integration — wire into kit startup',             status: 'completed' }
         ]
       },
       {
