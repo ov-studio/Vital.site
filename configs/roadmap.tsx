@@ -82,45 +82,42 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         // TODO: WIP
+        label: 'Splash Screen',
+        desc:  'Client boot screen — shown while the engine and resources initialize, before the main menu',
+        icon:  <lucide.Sparkles {...config_site.info.lucide}/>,
+        items: [
+          { label:  'Splash screen scene & layout',     status: 'pending' },
+          { label:  'Logo / branding display',          status: 'pending' },
+          { label:  'Loading progress indicator',       status: 'pending' },
+          { label:  'Minimum display duration / skip',  status: 'pending' },
+          { label:  'Transition to main menu',          status: 'pending' },
+        ]
+      },
+      {
+        // TODO: WIP
         label: 'Main Menu',
-        desc:  'Client entry point — play, game browser, settings, credits, and quit',
+        desc:  'Client entry point — play, browse/filter/join servers, configure window/display/input/audio, credits, and quit',
         icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
-          { label:  'Main menu scene & layout',     status: 'pending' },
-          { label:  'Play / browse servers flow',   status: 'pending' },
-          { label:  'Settings screen',              status: 'pending' },
-          { label:  'Credits screen',               status: 'pending' },
-          { label:  'Version & build info display', status: 'pending' },
-        ]
-      },
-      {
-        // TODO: WIP
-        label: 'Game Browser',
-        desc:  'Client server browser — query, filter, sort, favorite, and join available game servers',
-        icon:  <lucide.Server {...config_site.info.lucide}/>,
-        items: [
-          { label:  'Server list fetch & display',        status: 'pending' },
-          { label:  'Filter by name / gamemode / region', status: 'pending' },
-          { label:  'Sort by player count / ping / name', status: 'pending' },
-          { label:  'Direct connect by IP & port',        status: 'pending' },
-          { label:  'Refresh & auto-refresh interval',    status: 'pending' },
-          { label:  'Favorite servers list',              status: 'pending' },
-        ]
-      },
-      {
-        // TODO: WIP
-        label: 'Settings Menu',
-        desc:  'Client settings menu — window mode, resolution, keybinds, audio, and display configuration',
-        icon:  <lucide.SlidersHorizontal {...config_site.info.lucide}/>,
-        items: [
-          { label:  'Window mode (fullscreen / borderless / windowed)', status: 'pending' },
-          { label:  'Resolution & DPI / scale factor',                  status: 'pending' },
-          { label:  'Window title & icon',                              status: 'pending' },
-          { label:  'Clipboard get / set',                              status: 'pending' },
-          { label:  'Cursor mode (visible / hidden / captured)',        status: 'pending' },
-          { label:  'Multi-monitor screen info',                        status: 'pending' },
-          { label:  'Keybind configuration',                            status: 'pending' },
-          { label:  'Audio output device & volume',                     status: 'pending' },
+          { label:  'Main menu scene & layout',                          status: 'pending' },
+          { label:  'Play / browse servers flow',                        status: 'pending' },
+          { label:  'Server list fetch & display',                       status: 'pending' },
+          { label:  'Filter by name / gamemode / region',                status: 'pending' },
+          { label:  'Sort by player count / ping / name',                status: 'pending' },
+          { label:  'Direct connect by IP & port',                       status: 'pending' },
+          { label:  'Refresh & auto-refresh interval',                   status: 'pending' },
+          { label:  'Favorite servers list',                             status: 'pending' },
+          { label:  'Settings screen',                                   status: 'pending' },
+          { label:  'Window mode (fullscreen / borderless / windowed)',  status: 'pending' },
+          { label:  'Resolution & DPI / scale factor',                   status: 'pending' },
+          { label:  'Window title & icon',                               status: 'pending' },
+          { label:  'Clipboard get / set',                               status: 'pending' },
+          { label:  'Cursor mode (visible / hidden / captured)',         status: 'pending' },
+          { label:  'Multi-monitor screen info',                         status: 'pending' },
+          { label:  'Keybind configuration',                             status: 'pending' },
+          { label:  'Audio output device & volume',                      status: 'pending' },
+          { label:  'Credits screen',                                    status: 'pending' },
+          { label:  'Version & build info display',                      status: 'pending' },
         ]
       },
       {
