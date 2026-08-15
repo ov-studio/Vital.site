@@ -1,0 +1,32 @@
+---
+title: self:get_distance_fade_shadow
+description: Retrieves the distance at which shadow casting begins to fade on the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local distance = self:get_distance_fade_shadow()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Shadow fade begin distance in world units |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get distance fade shadow of a point light"
+local entity = light.point_light.create()
+
+core.engine.print("info", entity:get_distance_fade_shadow())
+```

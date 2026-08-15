@@ -1,0 +1,37 @@
+---
+title: self:to_global
+description: Converts a local-space position to world-space relative to the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local world_position = self:to_global(
+    local_position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | local_position | Position in local space as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | world_position | Equivalent position in world space as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Convert a local offset to world space"
+local entity = light.point_light.create()
+entity:set_position({10, 0, 0})
+
+local world_pos = entity:to_global({1, 0, 0})
+core.engine.print("info", util.table.unpack(world_pos))
+```

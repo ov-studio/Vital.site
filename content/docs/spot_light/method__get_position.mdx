@@ -1,0 +1,33 @@
+---
+title: self:get_position
+description: Retrieves the local position of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local position = self:get_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current local position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local position of a spot light"
+local entity = light.spot_light.create()
+local position = entity:get_position()
+
+core.engine.print("info", "Position:", util.table.unpack(position))
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_spot_angle
+description: Retrieves the angular radius of the spot light cone in degrees
+badge: client
+---
+
+### Syntax
+
+```lua
+local angle = self:get_spot_angle()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | angle | Current cone angle in degrees |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the cone angle of a spot light"
+local entity = light.spot_light.create()
+
+core.engine.print("info", entity:get_spot_angle())
+```

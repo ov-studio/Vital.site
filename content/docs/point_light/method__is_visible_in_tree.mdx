@@ -1,0 +1,32 @@
+---
+title: self:is_visible_in_tree
+description: Checks whether the point light is effectively visible within the scene tree, accounting for parent visibility
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible_in_tree()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the point light is visible in the scene tree, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check scene-tree visibility of a point light"
+local entity = light.point_light.create()
+
+core.engine.print("info", entity:is_visible_in_tree())
+```

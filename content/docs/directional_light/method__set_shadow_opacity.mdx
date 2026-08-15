@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_opacity
+description: Sets the shadow opacity of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_opacity(
+    opacity
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | opacity | Shadow opacity to apply, from `0.0` to `1.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow opacity on a directional light"
+local entity = light.directional_light.create()
+
+entity:set_shadow_opacity(1.0)
+```

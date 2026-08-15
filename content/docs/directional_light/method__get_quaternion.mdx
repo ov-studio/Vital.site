@@ -1,0 +1,32 @@
+---
+title: self:get_quaternion
+description: Retrieves the rotation of the directional light as a quaternion
+badge: client
+---
+
+### Syntax
+
+```lua
+local quaternion = self:get_quaternion()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `quaternion` | quaternion | Current rotation as `{x, y, z, w}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the quaternion rotation of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", util.table.unpack(entity:get_quaternion()))
+```

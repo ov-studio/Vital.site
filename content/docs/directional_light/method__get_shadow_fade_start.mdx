@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_fade_start
+description: Retrieves the shadow fade start of the directional light, as a proportion of the shadow max distance at which shadows begin fading out
+badge: client
+---
+
+### Syntax
+
+```lua
+local fade = self:get_shadow_fade_start()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | fade | Current fade start proportion, from `0.0` to `1.0` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the shadow fade start of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", entity:get_shadow_fade_start())
+```

@@ -1,0 +1,37 @@
+---
+title: self:rotate
+description: Rotates the point light around the given world-space axis by the specified angle
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:rotate(
+    axis,
+    angle
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | axis | World-space axis to rotate around as `{x, y, z}` |
+| `float` | angle | Angle in radians |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a point light 90 degrees around the Y axis"
+local entity = light.point_light.create()
+
+entity:rotate({0, 1, 0}, math.pi / 2)
+```

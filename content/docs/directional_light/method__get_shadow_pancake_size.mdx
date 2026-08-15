@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_pancake_size
+description: Retrieves the shadow pancake size of the directional light, which reduces peter-panning on shadow edges by squashing the shadow frustum
+badge: client
+---
+
+### Syntax
+
+```lua
+local size = self:get_shadow_pancake_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | size | Current pancake size value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the shadow pancake size of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", entity:get_shadow_pancake_size())
+```

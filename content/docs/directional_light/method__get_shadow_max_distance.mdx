@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_max_distance
+description: Retrieves the maximum distance at which the directional light renders shadows
+badge: client
+---
+
+### Syntax
+
+```lua
+local distance = self:get_shadow_max_distance()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Current shadow max distance in world units |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the shadow max distance of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", entity:get_shadow_max_distance())
+```

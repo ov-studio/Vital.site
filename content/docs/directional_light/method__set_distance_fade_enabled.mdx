@@ -1,0 +1,35 @@
+---
+title: self:set_distance_fade_enabled
+description: Sets whether distance-based fade is enabled on the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_distance_fade_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable distance fade, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply distance fade enabled on a directional light"
+local entity = light.directional_light.create()
+
+entity:set_distance_fade_enabled(true)
+```

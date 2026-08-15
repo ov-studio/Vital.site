@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_reverse_cull_face_enabled
+description: Sets whether shadow reverse cull face is enabled on the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_reverse_cull_face_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable reverse cull face, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow reverse cull face enabled on a spot light"
+local entity = light.spot_light.create()
+
+entity:set_shadow_reverse_cull_face_enabled(true)
+```

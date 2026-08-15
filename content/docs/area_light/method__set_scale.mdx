@@ -1,0 +1,35 @@
+---
+title: self:set_scale
+description: Sets the local scale of the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_scale(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the scale of a area light"
+local entity = light.area_light.create()
+
+entity:set_scale({2, 2, 2})
+```

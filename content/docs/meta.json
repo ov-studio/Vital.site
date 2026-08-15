@@ -42,6 +42,12 @@
         "input",
         "monitor",
 
+        "---Light---",
+        "directional_light",
+        "point_light",
+        "spot_light",
+        "area_light",
+
         "---Graphics---",
         "environment",
         "adjustment",

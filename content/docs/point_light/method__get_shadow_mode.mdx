@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_mode
+description: Retrieves the shadow rendering mode of the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_shadow_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Current shadow mode enum value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the shadow mode of a point light"
+local entity = light.point_light.create()
+
+core.engine.print("info", entity:get_shadow_mode())
+```

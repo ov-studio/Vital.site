@@ -1,0 +1,35 @@
+---
+title: self:set_specular
+description: Sets the specular contribution factor of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_specular(
+    specular
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | specular | Specular factor to apply, from `0.0` to `1.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply specular on a spot light"
+local entity = light.spot_light.create()
+
+entity:set_specular(1.0)
+```

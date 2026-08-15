@@ -1,0 +1,32 @@
+---
+title: self:get_range
+description: Retrieves the maximum range of the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local range = self:get_range()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | range | Current light range in world units |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the range of a point light"
+local entity = light.point_light.create()
+
+core.engine.print("info", entity:get_range())
+```

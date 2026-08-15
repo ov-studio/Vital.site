@@ -1,0 +1,32 @@
+---
+title: self:is_visible
+description: Checks whether the spot light is set as visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the spot light is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check visibility of a spot light"
+local entity = light.spot_light.create()
+
+core.engine.print("info", entity:is_visible())
+```

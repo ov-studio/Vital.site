@@ -1,0 +1,32 @@
+---
+title: self:is_shadow_reverse_cull_face_enabled
+description: Checks whether shadow reverse cull face is enabled on the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_shadow_reverse_cull_face_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if shadow reverse cull face is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check is shadow reverse cull face enabled on a spot light"
+local entity = light.spot_light.create()
+
+core.engine.print("info", entity:is_shadow_reverse_cull_face_enabled())
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_spot_angle_attenuation
+description: Retrieves the spot light cone attenuation, which controls how sharply the edges of the cone fall off
+badge: client
+---
+
+### Syntax
+
+```lua
+local attenuation = self:get_spot_angle_attenuation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | attenuation | Current cone edge attenuation value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the cone edge attenuation of a spot light"
+local entity = light.spot_light.create()
+
+core.engine.print("info", entity:get_spot_angle_attenuation())
+```

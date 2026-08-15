@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_normal_bias
+description: Sets the shadow normal bias of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_normal_bias(
+    bias
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | bias | Shadow normal bias value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow normal bias on a directional light"
+local entity = light.directional_light.create()
+
+entity:set_shadow_normal_bias(1.0)
+```

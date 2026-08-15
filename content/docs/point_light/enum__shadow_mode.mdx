@@ -1,0 +1,29 @@
+---
+title: light.point_light.shadow_mode
+description: Enumeration of shadow rendering modes available for the point light
+badge: client
+---
+
+### Values
+
+---
+
+#### `light.point_light.shadow_mode.DUAL_PARABOLOID`
+
+Renders shadows using a dual-paraboloid projection. Faster to compute but lower quality than cube map shadows.
+
+---
+
+#### `light.point_light.shadow_mode.CUBE`
+
+Renders shadows using a cube map. Higher quality than dual-paraboloid but more expensive to compute.
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a shadow mode to a point light"
+local entity = light.point_light.create()
+
+entity:set_shadow_mode(light.point_light.shadow_mode.CUBE)
+```

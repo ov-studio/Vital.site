@@ -1,0 +1,34 @@
+---
+title: light.area_light.create
+description: Creates a new area light instance and adds it to the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = light.area_light.create()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `area_light` | instance | Created area light instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a area light instance"
+local entity = light.area_light.create()
+
+entity:set_color({1, 1, 1})
+entity:set_energy(1.0)
+entity:set_position({0, 5, 0})
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_range
+description: Sets the maximum range of the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_range(
+    range
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | range | Light range in world units |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the range of a point light"
+local entity = light.point_light.create()
+
+entity:set_range(10.0)
+```

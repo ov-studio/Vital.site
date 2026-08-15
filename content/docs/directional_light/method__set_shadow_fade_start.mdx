@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_fade_start
+description: Sets the shadow fade start of the directional light, as a proportion of the shadow max distance at which shadows begin fading out
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_fade_start(
+    fade
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | fade | Fade start proportion to apply, from `0.0` to `1.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set shadow fade start on a directional light"
+local entity = light.directional_light.create()
+
+entity:set_shadow_fade_start(0.8)
+```

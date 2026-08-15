@@ -1,0 +1,32 @@
+---
+title: self:get_sky_mode
+description: Retrieves the sky interaction mode of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_sky_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Current sky mode enum value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the sky mode of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", entity:get_sky_mode())
+```

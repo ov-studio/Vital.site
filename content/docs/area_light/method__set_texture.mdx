@@ -1,0 +1,35 @@
+---
+title: self:set_texture
+description: Applies a texture to the area light, which modulates its emitted light pattern
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_texture(
+    path
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the texture to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a texture to an area light"
+local entity = light.area_light.create()
+
+entity:set_texture("textures/light_panel.png")
+```

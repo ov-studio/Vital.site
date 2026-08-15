@@ -1,0 +1,32 @@
+---
+title: self:get_energy
+description: Retrieves the energy (brightness multiplier) of the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local energy = self:get_energy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | energy | Current energy value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get energy of a area light"
+local entity = light.area_light.create()
+
+core.engine.print("info", entity:get_energy())
+```

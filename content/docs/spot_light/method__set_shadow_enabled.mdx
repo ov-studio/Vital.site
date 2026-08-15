@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_enabled
+description: Sets whether the spot light casts shadows
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable shadow casting, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow enabled on a spot light"
+local entity = light.spot_light.create()
+
+entity:set_shadow_enabled(true)
+```

@@ -1,0 +1,32 @@
+---
+title: self:is_distance_fade_enabled
+description: Checks whether distance-based fade is enabled on the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_distance_fade_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if distance fade is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check is distance fade enabled on a area light"
+local entity = light.area_light.create()
+
+core.engine.print("info", entity:is_distance_fade_enabled())
+```

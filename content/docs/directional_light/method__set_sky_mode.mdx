@@ -1,0 +1,35 @@
+---
+title: self:set_sky_mode
+description: Sets the sky interaction mode of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_sky_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Sky mode enum value — refer to [`light.directional_light.sky_mode`](/docs/directional_light/enum/sky_mode) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a directional light to affect geometry only"
+local entity = light.directional_light.create()
+
+entity:set_sky_mode(light.directional_light.sky_mode.LIGHT_ONLY)
+```

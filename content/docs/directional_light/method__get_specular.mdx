@@ -1,0 +1,32 @@
+---
+title: self:get_specular
+description: Retrieves the specular contribution factor of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local specular = self:get_specular()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | specular | Current specular factor, from `0.0` to `1.0` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get specular of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", entity:get_specular())
+```

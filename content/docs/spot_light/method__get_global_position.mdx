@@ -1,0 +1,33 @@
+---
+title: self:get_global_position
+description: Retrieves the global world-space position of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local position = self:get_global_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current global world-space position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the global world-space position of a spot light"
+local entity = light.spot_light.create()
+local position = entity:get_global_position()
+
+core.engine.print("info", "Position:", util.table.unpack(position))
+```

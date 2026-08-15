@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_opacity
+description: Retrieves the shadow opacity of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local opacity = self:get_shadow_opacity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | opacity | Current shadow opacity, from `0.0` to `1.0` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get shadow opacity of a directional light"
+local entity = light.directional_light.create()
+
+core.engine.print("info", entity:get_shadow_opacity())
+```

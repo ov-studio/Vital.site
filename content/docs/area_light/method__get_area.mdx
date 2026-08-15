@@ -1,0 +1,32 @@
+---
+title: self:get_area
+description: Retrieves the dimensions of the area light's rectangular emitting surface
+badge: client
+---
+
+### Syntax
+
+```lua
+local size = self:get_area()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | size | Current area dimensions as `{width, height}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the dimensions of an area light"
+local entity = light.area_light.create()
+
+core.engine.print("info", util.table.unpack(entity:get_area()))
+```

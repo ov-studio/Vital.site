@@ -1,0 +1,35 @@
+---
+title: self:set_spot_angle
+description: Sets the angular radius of the spot light cone in degrees
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_spot_angle(
+    angle
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | angle | Cone angle to apply in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the cone angle of a spot light"
+local entity = light.spot_light.create()
+
+entity:set_spot_angle(45.0)
+```

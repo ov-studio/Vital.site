@@ -1,0 +1,35 @@
+---
+title: self:set_projector
+description: Applies a texture as a projector on the directional light, casting its pattern into the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_projector(
+    path
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the texture to use as a projector |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a projector texture to a directional light"
+local entity = light.directional_light.create()
+
+entity:set_projector("textures/gobo_pattern.png")
+```
