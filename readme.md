@@ -56,17 +56,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site locally. Ch
 
 | Path | Description |
 |---|---|
-| `app/(home)` | Landing page and top-level routes |
-| `app/docs` | Documentation layout and MDX pages |
-| `app/api` | API routes — masterlist, search, stats, contributors, build, vault |
-| `content/docs` | MDX source files for all documentation |
-| `components` | Shared UI components |
-| `lib` | Content source adapter, Redis client, and shared utilities |
 | `configs` | Site-wide configuration files |
+| `lib` | Content source adapter, Redis client, and shared utilities |
+| `components` | Shared UI components |
+| `app/(home)` | Landing page and top-level routes |
+| `app/api` | API routes — masterlist, search, stats, contributors, build, vault |
+| `app/docs` | Documentation layout and MDX pages |
+| `content/docs` | MDX source files for all documentation |
 
-Only the `masterlist` routes touch Redis or the environment variables above — `search`, `stats`, `contributors`, `build`, and `vault` just call the public GitHub API (no token needed) and are cached in-memory per `configs/site.tsx` (`api.cache_ttl_ms`). All routes are rate-limited per IP when Redis is configured (`ratelimit.requests_per_window` in the same config).
-
-Masterlist servers are expected to heartbeat roughly every 5 minutes; a listing expires after ~11 minutes without one.
 
 ## Contributing
 
