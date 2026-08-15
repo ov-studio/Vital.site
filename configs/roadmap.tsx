@@ -930,7 +930,7 @@ export const Roadmap: RoadmapSection[] = build([
     cards: [
       {
         label: 'Directional Light',
-        desc:  'Infinite-range parallel light source simulating sunlight or moonlight, with cascade shadow maps, sky interaction, and angular softness control from Lua',
+        desc:  'Infinite parallel light simulating sun or moon — cascade shadows and sky interaction from Lua',
         icon:  <lucide.Sun {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] Enum: light.directional_light.shadow_mode',                         status: 'completed' },
@@ -1039,7 +1039,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Point Light',
-        desc:  'Omnidirectional light that emits in all directions with configurable range and attenuation, supporting dual-paraboloid or cube-map shadow rendering from Lua',
+        desc:  'Omnidirectional point emitter with range, attenuation, and shadow rendering from Lua',
         icon:  <lucide.Lightbulb {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: light.point_light.create',                               status: 'completed' },
@@ -1134,7 +1134,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Spot Light',
-        desc:  'Cone-shaped directional light with configurable angle and edge attenuation, suitable for torches, headlights, and focused illumination from Lua',
+        desc:  'Cone-shaped emitter with configurable angle and edge falloff control from Lua',
         icon:  <lucide.Cone {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: light.spot_light.create',                               status: 'completed' },
@@ -1226,12 +1226,12 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Client] API: self<spot_light>:look_at',                              status: 'completed' },
           { label:  '[Client] API: self<spot_light>:look_at_from_position',                status: 'completed' },
           { label:  '[Client] API: self<spot_light>:to_global',                            status: 'completed' },
-          { label:  '[Client] API: self<spot_light>:to_local',                             status: 'completed' }
+          { label:  '[Client] API: self<spot_light>:to_local',                             status: 'completed' },
         ]
       },
       {
         label: 'Area Light',
-        desc:  'Rectangular soft light source that emits across a defined surface area with optional texture modulation and energy normalization from Lua',
+        desc:  'Rectangular soft emitter with area size, texture modulation, and energy control from Lua',
         icon:  <lucide.Square {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: light.area_light.create',                               status: 'completed' },
