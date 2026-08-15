@@ -6,23 +6,11 @@ badge: client
 
 ### Values
 
----
-
-#### `light.directional_light.shadow_mode.ORTHOGONAL`
-
-Renders the entire scene's shadow map from a single orthogonal view. Fastest mode but may result in blurrier shadows on close objects.
-
----
-
-#### `light.directional_light.shadow_mode.PARALLEL_2_SPLITS`
-
-Splits the view frustum into 2 areas, each with its own shadow map. A balance between `ORTHOGONAL` and `PARALLEL_4_SPLITS`.
-
----
-
-#### `light.directional_light.shadow_mode.PARALLEL_4_SPLITS`
-
-Splits the view frustum into 4 areas, each with its own shadow map. Highest quality directional shadows, most expensive to render.
+| Constant | Description |
+|----------|-------------|
+| `light.directional_light.shadow_mode.ORTHOGONAL` | Renders the entire scene's shadow map from a single orthogonal view. Fastest mode but may result in blurrier shadows on close objects |
+| `light.directional_light.shadow_mode.PARALLEL_2_SPLITS` | Splits the view frustum into 2 areas, each with its own shadow map. A balance between `ORTHOGONAL` and `PARALLEL_4_SPLITS` |
+| `light.directional_light.shadow_mode.PARALLEL_4_SPLITS` | Splits the view frustum into 4 areas, each with its own shadow map. Highest quality directional shadows, most expensive to render |
 
 ---
 
