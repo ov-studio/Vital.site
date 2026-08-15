@@ -82,7 +82,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Splash Screen',
-        desc:  'Animated boot screen rendered in a Godot WebView — Vital.sandbox and Godot logo reveals with retro CRT-style effects, shown while the engine starts up',
+        desc:  'Godot WebView boot screen — animated Vital.sandbox and Godot logo reveals with CRT-style effects',
         icon:  <lucide.Sparkles {...config_site.info.lucide}/>,
         items: [
           { label:  'Vital.sandbox logo reveal (SVG stroke-draw animation)',          status: 'completed' },
