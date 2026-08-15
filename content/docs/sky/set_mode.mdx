@@ -16,7 +16,7 @@ local status = gfx.sky.set_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | mode | Sky material type to apply<br/>Refer [**Modes**](#modes) section |
+| [`gfx.sky.mode`](/docs/sky/enum/mode) | mode | Sky material type to apply |
 
 ### Returns
 
@@ -26,18 +26,8 @@ local status = gfx.sky.set_mode(
 
 ---
 
-### Modes
-
-| Mode | Description |
-|------|-------------|
-| `"panorama"` | Panorama sky material |
-| `"procedural"` | Procedural sky material |
-| `"physical"` | Physical sky material |
-
----
-
 ### Examples
 
 ```lua lineNumbers title="Set sky material type to procedural"
-gfx.sky.set_mode("procedural")
+gfx.sky.set_mode(gfx.sky.mode.PROCEDURAL)
 ```
