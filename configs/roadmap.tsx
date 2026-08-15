@@ -1018,6 +1018,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Sky material mode, FOV, rotation, radiance size, and process mode control from Lua',
         icon:  <lucide.CloudSun {...config_site.info.lucide}/>,
         items: [
+          { label:  '[Client] Enum: gfx.sky.mode',             status: 'completed' },
           { label:  '[Client] Enum: gfx.sky.radiance_size',    status: 'completed' },
           { label:  '[Client] Enum: gfx.sky.process_mode',     status: 'completed' },
           { label:  '[Client] API: gfx.sky.get_mode',          status: 'completed' },
