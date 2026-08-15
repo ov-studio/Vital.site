@@ -13,14 +13,14 @@ nav::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: hsla(250, 20%, 4%, 0);
+  background: var(--bg);
   border-bottom: 1px solid transparent;
   pointer-events: none;
   transition: background .4s, border-color .4s;
 }
 
 nav.s::after {
-  background: hsla(250, 20%, 4%, .92);
+  background: var(--bg4);
   border-color: var(--rule);
   backdrop-filter: blur(20px);
 }
