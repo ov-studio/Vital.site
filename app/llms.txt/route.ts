@@ -9,9 +9,9 @@ export async function GET() {
   for (const page of lib_source.source.getPages()) {
     lines.push(`- [${page.data.title}](${page.url}): ${page.data.description}`);
   }
-  
+
   return new Response(lines.join('\n'), { 
-    headers:  {
+    headers: {
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
     }
   });
