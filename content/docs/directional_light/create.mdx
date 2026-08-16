@@ -1,5 +1,5 @@
 ---
-title: light.directional_light.create
+title: light.directional.create
 description: Creates a new directional light instance and adds it to the scene
 badge: client
 ---
@@ -7,7 +7,7 @@ badge: client
 ### Syntax
 
 ```lua
-local instance = light.directional_light.create()
+local instance = light.directional.create()
 ```
 
 ### Parameters
@@ -19,14 +19,14 @@ local instance = light.directional_light.create()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `directional_light` | instance | Created directional light instance |
+| `directional` | instance | Created directional light instance |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Create a directional light instance"
-local entity = light.directional_light.create()
+local entity = light.directional.create()
 
 entity:set_color({1, 1, 1})
 entity:set_energy(1.0)

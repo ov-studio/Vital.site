@@ -16,7 +16,7 @@ local status = self:set_sky_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Sky mode enum value — refer to [`light.directional_light.sky_mode`](/docs/directional_light/enum/sky_mode) |
+| `int` | mode | Sky mode enum value — refer to [`light.directional.sky_mode`](/docs/directional_light/enum/sky_mode) |
 
 ### Returns
 
@@ -29,7 +29,7 @@ local status = self:set_sky_mode(
 ### Examples
 
 ```lua lineNumbers title="Set a directional light to affect geometry only"
-local entity = light.directional_light.create()
+local entity = light.directional.create()
 
-entity:set_sky_mode(light.directional_light.sky_mode.LIGHT_ONLY)
+entity:set_sky_mode(light.directional.sky_mode.LIGHT_ONLY)
 ```

@@ -16,7 +16,7 @@ local status = self:set_shadow_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Shadow mode enum value — refer to [`light.directional_light.shadow_mode`](/docs/directional_light/enum/shadow_mode) |
+| `int` | mode | Shadow mode enum value — refer to [`light.directional.shadow_mode`](/docs/directional_light/enum/shadow_mode) |
 
 ### Returns
 
@@ -29,7 +29,7 @@ local status = self:set_shadow_mode(
 ### Examples
 
 ```lua lineNumbers title="Enable 4-split cascade shadows on a directional light"
-local entity = light.directional_light.create()
+local entity = light.directional.create()
 
-entity:set_shadow_mode(light.directional_light.shadow_mode.PARALLEL_4_SPLITS)
+entity:set_shadow_mode(light.directional.shadow_mode.PARALLEL_4_SPLITS)
 ```

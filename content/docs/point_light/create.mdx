@@ -1,5 +1,5 @@
 ---
-title: light.point_light.create
+title: light.point.create
 description: Creates a new point light instance and adds it to the scene
 badge: client
 ---
@@ -7,7 +7,7 @@ badge: client
 ### Syntax
 
 ```lua
-local instance = light.point_light.create()
+local instance = light.point.create()
 ```
 
 ### Parameters
@@ -19,14 +19,14 @@ local instance = light.point_light.create()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `point_light` | instance | Created point light instance |
+| `point` | instance | Created point light instance |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Create a point light instance"
-local entity = light.point_light.create()
+local entity = light.point.create()
 
 entity:set_color({1, 1, 1})
 entity:set_energy(1.0)

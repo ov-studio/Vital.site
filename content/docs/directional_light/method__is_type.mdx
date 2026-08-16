@@ -29,8 +29,8 @@ local result = self:is_type(
 ### Examples
 
 ```lua lineNumbers title="Check the type of a directional light instance"
-local entity = light.directional_light.create()
+local entity = light.directional.create()
 
-core.engine.print("info", entity:is_type("directional_light")) -- true
+core.engine.print("info", entity:is_type("directional")) -- true
 core.engine.print("info", entity:is_type("model"))    -- false
 ```

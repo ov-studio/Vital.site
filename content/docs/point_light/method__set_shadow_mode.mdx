@@ -16,7 +16,7 @@ local status = self:set_shadow_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Shadow mode enum value — refer to [`light.point_light.shadow_mode`](/docs/point_light/enum/shadow_mode) |
+| `int` | mode | Shadow mode enum value — refer to [`light.point.shadow_mode`](/docs/point_light/enum/shadow_mode) |
 
 ### Returns
 
@@ -29,7 +29,7 @@ local status = self:set_shadow_mode(
 ### Examples
 
 ```lua lineNumbers title="Set the shadow mode of a point light to cube map"
-local entity = light.point_light.create()
+local entity = light.point.create()
 
-entity:set_shadow_mode(light.point_light.shadow_mode.CUBE)
+entity:set_shadow_mode(light.point.shadow_mode.CUBE)
 ```
