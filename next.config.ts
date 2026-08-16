@@ -38,6 +38,10 @@ const config: next.NextConfig = {
       {
         source: '/robots.txt',
         headers: [{ key: 'Cache-Control', value: STATIC_CONTENT_CACHE_CONTROL }]
+      },
+      {
+        source: '/opengraph-image',
+        headers: [{ key: 'Cache-Control', value: STATIC_CONTENT_CACHE_CONTROL }]
       }
     ];
   },
