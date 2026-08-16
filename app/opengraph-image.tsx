@@ -1,6 +1,6 @@
 import * as next_og from 'next/og';
-import * as fs      from 'fs/promises';
-import * as path    from 'path';
+import * as fs from 'fs/promises';
+import * as path from 'path';
 
 export const runtime = 'nodejs';
 export const size = { width: 1000, height: 300 };
@@ -12,65 +12,65 @@ const dim = 'hsl(220, 10%, 70%)';
 const rule = 'hsl(220, 18%, 9%)';
 
 export default async function OGImage() {
-    const [logosvg, rajdhani] = await Promise.all([
-        fs.readFile(path.join(process.cwd(), 'public/logo.svg')), 
-        fs.readFile(path.join(process.cwd(), 'public/font/Rajdhani-Bold.ttf'))
-    ]);
-    const logo = logosvg.toString().replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
-    const logosrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
+  const [logosvg, rajdhani] = await Promise.all([
+    fs.readFile(path.join(process.cwd(), 'public/logo.svg')),
+    fs.readFile(path.join(process.cwd(), 'public/font/Rajdhani-Bold.ttf'))
+  ]);
+  const logo = logosvg.toString().replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
+  const logosrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
 
-    return new next_og.ImageResponse(
-        (
-            <div style={{
-                background: bg,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-            }}>
-                <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    backgroundImage: `linear-gradient(${rule} 1px, transparent 1px), linear-gradient(90deg, ${rule} 1px, transparent 1px)`,
-                    backgroundSize: '48px 48px',
-                    opacity: 0.8,
-                    display: 'flex',
-                }}/>
+  return new next_og.ImageResponse(
+    (
+      <div style={{
+        background: bg,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `linear-gradient(${rule} 1px, transparent 1px), linear-gradient(90deg, ${rule} 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+          opacity: 0.8,
+          display: 'flex',
+        }} />
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-                        <img src={logosrc} width={'140'}/>
-                    </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+            <img src={logosrc} width={'140'} />
+          </div>
 
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '25px',
-                        marginTop: '49px',
-                        fontSize: '1.0rem',
-                        fontFamily: 'Rajdhani, sans-serif',
-                        fontWeight: 600,
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                    }}>
-                        <span style={{ color: 'hsl(220, 10%, 55%)' }}>Script It</span>
-                        <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
-                        <span style={{ color: 'hsl(0, 0%, 97%)' }}>Ship It</span>
-                        <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
-                        <span style={{ color: 'hsl(220, 10%, 55%)' }}>Limitless</span>
-                    </div>
-                </div>
-            </div>
-        ),
-        { 
-            ...size, 
-            fonts: [{ name: 'Rajdhani', data: rajdhani, weight: 700, style: 'normal' }], 
-            headers: {
-                'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-            }
-        }
-    );
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '25px',
+            marginTop: '49px',
+            fontSize: '1.0rem',
+            fontFamily: 'Rajdhani, sans-serif',
+            fontWeight: 600,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+          }}>
+            <span style={{ color: 'hsl(220, 10%, 55%)' }}>Script It</span>
+            <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
+            <span style={{ color: 'hsl(0, 0%, 97%)' }}>Ship It</span>
+            <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
+            <span style={{ color: 'hsl(220, 10%, 55%)' }}>Limitless</span>
+          </div>
+        </div>
+      </div>
+    ),
+    {
+      ...size,
+      fonts: [{ name: 'Rajdhani', data: rajdhani, weight: 700, style: 'normal' }],
+      headers: {
+        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+      }
+    }
+  );
 }
