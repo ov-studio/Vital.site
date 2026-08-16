@@ -30,6 +30,14 @@ const config: next.NextConfig = {
       {
         source: '/llms.mdx/:path*',
         headers: [{ key: 'Cache-Control', value: STATIC_CONTENT_CACHE_CONTROL }]
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [{ key: 'Cache-Control', value: STATIC_CONTENT_CACHE_CONTROL }]
+      },
+      {
+        source: '/robots.txt',
+        headers: [{ key: 'Cache-Control', value: STATIC_CONTENT_CACHE_CONTROL }]
       }
     ];
   },
