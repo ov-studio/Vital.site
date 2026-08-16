@@ -9,16 +9,17 @@ function site_url(): string {
 
 export default function sitemap(): next.MetadataRoute.Sitemap {
   const SITE_URL = site_url();
-
-  const pages = lib_source.source.getPages().map((page) => ({
-    url: `${SITE_URL}${page.url}`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7
-  }));
+  const pages = lib_source.source.getPages().map((page) => {
+    const is_docs_root = page.url === '/docs';
+    return {
+      url: `${SITE_URL}${page.url}`,
+      changeFrequency: (is_docs_root ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
+      priority: is_docs_root ? 0.9 : 0.7
+    };
+  });
 
   return [
     { url: SITE_URL, changeFrequency: 'weekly' as const, priority: 1 },
-    { url: `${SITE_URL}/docs`, changeFrequency: 'weekly' as const, priority: 0.9 },
     ...pages
   ];
 }
