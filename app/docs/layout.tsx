@@ -28,6 +28,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
         tree={lib_source.source.getPageTree()}
         sidebar={{
           collapsible: true,
+          prefetch: false
         }}
       >
         {children}
