@@ -933,9 +933,9 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Infinite parallel light simulating sun or moon — cascade shadows and sky interaction from Lua',
         icon:  <lucide.Sun {...config_site.info.lucide}/>,
         items: [
-          { label:  '[Client] Enum: light.directional_light.shadow_mode',                         status: 'completed' },
-          { label:  '[Client] Enum: light.directional_light.sky_mode',                            status: 'completed' },
-          { label:  '[Client] API: light.directional_light.create',                               status: 'completed' },
+          { label:  '[Client] Enum: light.directional.shadow_mode',                               status: 'completed' },
+          { label:  '[Client] Enum: light.directional.sky_mode',                                  status: 'completed' },
+          { label:  '[Client] API: light.directional.create',                                     status: 'completed' },
           { label:  '[Client] API: self<directional_light>:is_type',                              status: 'completed' },
           { label:  '[Client] API: self<directional_light>:is_remote',                            status: 'completed' },
           { label:  '[Client] API: self<directional_light>:is_streamed',                          status: 'completed' },
@@ -1042,7 +1042,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Omnidirectional point emitter with range, attenuation, and shadow rendering from Lua',
         icon:  <lucide.Lightbulb {...config_site.info.lucide}/>,
         items: [
-          { label:  '[Client] API: light.point_light.create',                               status: 'completed' },
+          { label:  '[Client] API: light.point.create',                                     status: 'completed' },
           { label:  '[Client] API: self<point_light>:is_type',                              status: 'completed' },
           { label:  '[Client] API: self<point_light>:is_remote',                            status: 'completed' },
           { label:  '[Client] API: self<point_light>:is_streamed',                          status: 'completed' },
@@ -1137,7 +1137,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Cone-shaped emitter with configurable angle and edge falloff control from Lua',
         icon:  <lucide.Cone {...config_site.info.lucide}/>,
         items: [
-          { label:  '[Client] API: light.spot_light.create',                               status: 'completed' },
+          { label:  '[Client] API: light.spot.create',                                     status: 'completed' },
           { label:  '[Client] API: self<spot_light>:is_type',                              status: 'completed' },
           { label:  '[Client] API: self<spot_light>:is_remote',                            status: 'completed' },
           { label:  '[Client] API: self<spot_light>:is_streamed',                          status: 'completed' },
@@ -1234,7 +1234,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Rectangular soft emitter with area size, texture modulation, and energy control from Lua',
         icon:  <lucide.Square {...config_site.info.lucide}/>,
         items: [
-          { label:  '[Client] API: light.area_light.create',                               status: 'completed' },
+          { label:  '[Client] API: light.area.create',                                     status: 'completed' },
           { label:  '[Client] API: self<area_light>:is_type',                              status: 'completed' },
           { label:  '[Client] API: self<area_light>:is_remote',                            status: 'completed' },
           { label:  '[Client] API: self<area_light>:is_streamed',                          status: 'completed' },
