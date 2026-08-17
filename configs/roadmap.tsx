@@ -57,12 +57,14 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Backend',
-        desc:  'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, and server listings',
+        desc:  'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, stats, vault and server listings',
         icon:  <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
-          { label:  'GET /api/build — latest build info',        status: 'completed' },
-          { label:  'GET /api/contributors — contributor list',  status: 'completed' },
-          { label:  'GET /api/masterlist — live server list',    status: 'pending'   }
+          { label:  'GET /api/build — latest build info',              status: 'completed' },
+          { label:  'GET /api/contributors — contributor list',        status: 'completed' },
+          { label:  'GET /api/stats — aggregated GitHub repo stats',   status: 'completed' },
+          { label:  'GET /api/vault — community vault resource list',  status: 'completed' },
+          { label:  'GET /api/masterlist — live server list',          status: 'completed' }
         ]
       }
     ]
@@ -167,7 +169,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Client] Manifest-driven asset sync with hash verification',           status: 'completed' },
           { label:  '[Client] Concurrent threaded downloads with cancellation',             status: 'completed' }
         ]
-      },
+      }
     ]
   },
 
