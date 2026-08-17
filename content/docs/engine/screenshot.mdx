@@ -39,6 +39,5 @@ core.engine.screenshot("screenshots/capture.png")
 ```
 
 ```lua lineNumbers title="Captures a screenshot with a timestamp tag in the filename"
-local tag = core.engine.get_timestamp_tag()
-core.engine.screenshot("screenshots/capture_" .. tag .. ".png")
+core.engine.screenshot("screenshots/capture_" .. core.engine.get_timestamp_tag() .. ".png")
 ```
