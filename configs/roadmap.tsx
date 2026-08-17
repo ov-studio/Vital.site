@@ -86,12 +86,12 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Vital.wry powered splash screen — animated Vital and Godot logo reveals with CRT-style effects',
         icon:  <lucide.Sparkles {...config_site.info.lucide}/>,
         items: [
-          { label:  'Vital logo reveal (SVG stroke-draw animation)',        status: 'completed' },
+          { label:  'Vital logo reveal (SVG stroke-draw animation)',                status: 'completed' },
           { label:  'Godot logo reveal (SVG stroke-draw animation)',                status: 'completed' },
           { label:  'Flash / ripple / particle burst transition effects',           status: 'completed' },
           { label:  'Ambient CRT flicker, vignette & scanline overlay',             status: 'completed' },
-          { label:  'Three-stage exit — fade to black, hold, fade to transparent',  status: 'completed' },
           { label:  'Configurable timing (delays, hold durations, stroke speed)',   status: 'completed' },
+          { label:  'Three-stage exit — fade to black, hold, fade to transparent',  status: 'completed' },
           { label:  'Godot WebView IPC handshake (ready / init / hide)',            status: 'completed' },
           { label:  'Boot lifecycle integration — wire into kit startup',           status: 'completed' }
         ]
