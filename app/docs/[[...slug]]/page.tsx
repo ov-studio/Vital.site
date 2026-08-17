@@ -18,7 +18,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 
   const MDX = page.data.body;
   return (
-    <fumadocs_layout_notebook_page.DocsPage breadcrumb={{ enabled: false }} toc={page.data.toc} full={page.data.full}>
+    <fumadocs_layout_notebook_page.DocsPage breadcrumb={{ enabled: false }} footer={{ enabled: false }} toc={page.data.toc} full={page.data.full}>
       <div className="flex flex-col border-b">
         <div className="flex flex-row gap-2 items-center justify-between">
           <fumadocs_layout_notebook_page.DocsTitle className="text-2xl">{page.data.title}</fumadocs_layout_notebook_page.DocsTitle>
