@@ -44,13 +44,13 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Public-facing Next.js + Fumadocs site — homepage, vault, docs, and live roadmap, powered by the backend routes',
         icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
-          { label:  'Homepage — hero, features, ethos section',    status: 'completed' },
-          { label:  'Homepage — live release/build info widget',          status: 'completed' },
-          { label:  'Homepage — live GitHub repo stats',                  status: 'completed' },
-          { label:  'Homepage — live contributors',                       status: 'completed' },
-          { label:  'Vault — community resource browser with filtering',  status: 'completed' },
-          { label:  'Docs — apis / enums / signals / guides',             status: 'completed' },
-          { label:  'Roadmap — this page, live status breakdown',         status: 'completed' },
+          { label:  'Homepage - hero, features, ethos section',           status: 'completed' },
+          { label:  'Homepage - live release/build info widget',          status: 'completed' },
+          { label:  'Homepage - live GitHub repo stats',                  status: 'completed' },
+          { label:  'Homepage - live contributors',                       status: 'completed' },
+          { label:  'Vault - community resource browser with filtering',  status: 'completed' },
+          { label:  'Docs - apis / enums / signals / guides',             status: 'completed' },
+          { label:  'Roadmap - this page, live status breakdown',         status: 'completed' },
           { label:  'Terms of Service page',                              status: 'completed' }
         ]
       },
@@ -59,11 +59,11 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, stats, vault and server listings',
         icon:  <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
-          { label:  'GET /api/build — latest build info',              status: 'completed' },
-          { label:  'GET /api/contributors — contributor list',        status: 'completed' },
-          { label:  'GET /api/stats — aggregated GitHub repo stats',   status: 'completed' },
-          { label:  'GET /api/vault — community vault resource list',  status: 'completed' },
-          { label:  'GET /api/masterlist — live server list',          status: 'completed' }
+          { label:  'GET /api/build - latest build info',              status: 'completed' },
+          { label:  'GET /api/contributors - contributor list',        status: 'completed' },
+          { label:  'GET /api/stats - aggregated GitHub repo stats',   status: 'completed' },
+          { label:  'GET /api/vault - community vault resource list',  status: 'completed' },
+          { label:  'GET /api/masterlist - live server list',          status: 'completed' }
         ]
       }
     ]
@@ -88,12 +88,12 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label:  'Vital logo reveal (SVG stroke-draw animation)',                status: 'completed' },
           { label:  'Godot logo reveal (SVG stroke-draw animation)',                status: 'completed' },
-          { label:  'Flash / ripple / particle burst transition effects',           status: 'completed' },
+          { label:  'Transition effects - flash / ripple / particle burst',         status: 'completed' },
           { label:  'Ambient CRT flicker, vignette & scanline overlay',             status: 'completed' },
-          { label:  'Configurable timing (delays, hold durations, stroke speed)',   status: 'completed' },
-          { label:  'Three-stage exit — fade to black, hold, fade to transparent',  status: 'completed' },
-          { label:  'Godot WebView IPC handshake (ready / init / hide)',            status: 'completed' },
-          { label:  'Boot lifecycle integration — wire into kit startup',           status: 'completed' }
+          { label:  'Configurable timing - delays, hold durations, stroke speed',   status: 'completed' },
+          { label:  'Three-stage exit - fade to black, hold, fade to transparent',  status: 'completed' },
+          { label:  'Godot WebView IPC handshake - ready / init / hide',            status: 'completed' },
+          { label:  'Boot lifecycle integration - wire into kit startup',           status: 'completed' }
         ]
       },
       {
@@ -369,6 +369,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Lifecycle hooks',                                   status: 'completed' },
           { label:  'Vital.kit\'s JS module injection',                  status: 'completed' },
           { label:  'Bidirectional Lua - JS messaging',                  status: 'completed' },
+          { label:  'Overlay mode - input passthrough',                  status: 'completed' },
+          { label:  'Offscreen mode - render-to-texture surface',        status: 'pending'   },
           { label:  'Serve webview files over HTTP instead of file://',  status: 'completed' },
           { label:  '[Client] API: core.webview.create',                 status: 'completed' },
           { label:  '[Client] API: self:is_type',                        status: 'completed' },
@@ -1706,7 +1708,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Float / vec2 / vec3 / color uniforms',                                                   status: 'pending' },
           { label:  'Per-instance uniform override',                                                          status: 'pending' },
           { label:  'Auto-bind model textures to shader uniforms (albedo / normal / ORM)',                    status: 'pending' },
-          { label:  'ShaderMaterial — replace BaseMaterial3D on surface while preserving original textures',  status: 'pending' },
+          { label:  'ShaderMaterial - replace BaseMaterial3D on surface while preserving original textures',  status: 'pending' },
         ]
       },
       {
@@ -1746,8 +1748,8 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Atom {...config_site.info.lucide}/>,
         items: [
           { label:  'PhysicsServer3D singleton access',         status: 'pending' },
-          { label:  'RigidBody3D — apply_force / impulse',      status: 'pending' },
-          { label:  'RigidBody3D — linear / angular velocity',  status: 'pending' },
+          { label:  'RigidBody3D - apply_force / impulse',      status: 'pending' },
+          { label:  'RigidBody3D - linear / angular velocity',  status: 'pending' },
           { label:  'Raycast (intersect_ray)',                  status: 'pending' },
           { label:  'Shapecast (intersect_shape)',              status: 'pending' },
           { label:  'Collision layer / mask queries',           status: 'pending' },
@@ -1802,9 +1804,9 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label:  'MultiplayerAPI setup',                                       status: 'completed' },
           { label:  'MultiplayerSpawner with custom spawn delegate',              status: 'completed' },
-          { label:  'MultiplayerSynchronizer — position & rotation replication',  status: 'completed' },
+          { label:  'MultiplayerSynchronizer - position & rotation replication',  status: 'completed' },
           { label:  'Synced model spawn with per-peer authority assignment',      status: 'completed' },
-          { label:  'Spawn queue — deferred spawn until asset is ready',          status: 'completed' },
+          { label:  'Spawn queue - deferred spawn until asset is ready',          status: 'completed' },
           { label:  'Lua RPC bindings',                                           status: 'pending'   },
         ]
       },
