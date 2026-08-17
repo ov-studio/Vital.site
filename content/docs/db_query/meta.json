@@ -1,6 +1,6 @@
 {
     "title": "Database Query",
-    "icon": "TableProperties",
+    "icon": "DatabaseZap",
     "pages": [
         "---⁝⁝Lifecycle---",
         "method__is_type",
