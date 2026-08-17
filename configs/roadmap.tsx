@@ -49,7 +49,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Homepage — live GitHub repo stats',                  status: 'completed' },
           { label:  'Homepage — live contributors',                       status: 'completed' },
           { label:  'Vault — community resource browser with filtering',  status: 'completed' },
-          { label:  'Docs — apis / enums / signals / guides',              status: 'completed' },
+          { label:  'Docs — apis / enums / signals / guides',             status: 'completed' },
           { label:  'Roadmap — this page, live status breakdown',         status: 'completed' },
           { label:  'Terms of Service page',                              status: 'completed' }
         ]
