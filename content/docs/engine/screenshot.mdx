@@ -1,0 +1,36 @@
+---
+title: core.engine.screenshot
+description: Captures a screenshot and saves it to the specified path
+badge: client
+---
+
+### Syntax
+
+```lua
+core.engine.screenshot(path)
+```
+
+### Parameters
+
+| Type | Name | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `string` | path | ✓ | — | Destination file path to save the screenshot |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | Returns `true` on success |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Captures a screenshot to a fixed path"
+core.engine.screenshot("screenshots/capture.png")
+```
+
+```lua lineNumbers title="Captures a screenshot with a timestamp tag in the filename"
+local tag = core.engine.get_timestamp_tag()
+core.engine.screenshot("screenshots/capture_" .. tag .. ".png")
+```

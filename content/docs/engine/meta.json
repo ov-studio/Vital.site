@@ -15,6 +15,7 @@
         "get_version",
         "get_platform",
         "get_timestamp",
+        "get_timestamp_tag",
         "get_resolution",
         "get_serial",
         "get_entity_types",
@@ -26,6 +27,7 @@
         "inspect",
         "compile_string",
         "load_string",
+        "screenshot",
 
         "---Canvas---",
         "world_to_screen",
