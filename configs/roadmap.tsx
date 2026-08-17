@@ -67,7 +67,7 @@ export const Roadmap: RoadmapSection[] = build([
       }
     ]
   },
-  
+
   {
     name: 'Sandbox',
     cards: [
@@ -210,7 +210,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Database',
-        desc:  'Embedded database interface for persistent structured data storage and retrieval',
+        desc:  'Embedded database interface — connection lifecycle, schema definition, and table handle creation',
         icon:  <lucide.Database {...config_site.info.lucide}/>,
         items: [
           { label:  'Lifecycle hooks',                           status: 'completed' },
@@ -224,20 +224,27 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Server] API: self<database>:is_connected', status: 'completed' },
           { label:  '[Server] API: self<database>:define',       status: 'completed' },
           { label:  '[Server] API: self<database>:sync',         status: 'completed' },
-          { label:  '[Server] API: self<database>:table',        status: 'completed' },
-          { label:  '[Shared] API: self<db_query>:is_type',      status: 'completed' },
-          { label:  '[Shared] API: self<db_query>:get_type',     status: 'completed' },
-          { label:  '[Shared] API: self<db_query>:destroy',      status: 'completed' },
-          { label:  '[Server] API: self<db_query>:fetch',        status: 'completed' },
-          { label:  '[Server] API: self<db_query>:alter',        status: 'completed' },
-          { label:  '[Server] API: self<db_query>:drop',         status: 'completed' },
-          { label:  '[Server] API: self<db_query>:truncate',     status: 'completed' },
-          { label:  '[Server] API: self<db_query>:execute',      status: 'completed' },
-          { label:  '[Server] API: self<db_query>:select',       status: 'completed' },
-          { label:  '[Server] API: self<db_query>:where',        status: 'completed' },
-          { label:  '[Server] API: self<db_query>:insert',       status: 'completed' },
-          { label:  '[Server] API: self<db_query>:delete',       status: 'completed' },
-          { label:  '[Server] API: self<db_query>:update',       status: 'completed' }
+          { label:  '[Server] API: self<database>:table',        status: 'completed' }
+        ]
+      },
+      {
+        label: 'Database Query',
+        desc:  'Chainable query builder on a table handle — select, filter, insert, update, delete, and schema ops',
+        icon:  <lucide.DatabaseZap {...config_site.info.lucide}/>,
+        items: [
+          { label:  '[Shared] API: self<db_query>:is_type',  status: 'completed' },
+          { label:  '[Shared] API: self<db_query>:get_type', status: 'completed' },
+          { label:  '[Shared] API: self<db_query>:destroy',  status: 'completed' },
+          { label:  '[Server] API: self<db_query>:fetch',    status: 'completed' },
+          { label:  '[Server] API: self<db_query>:alter',    status: 'completed' },
+          { label:  '[Server] API: self<db_query>:drop',     status: 'completed' },
+          { label:  '[Server] API: self<db_query>:truncate', status: 'completed' },
+          { label:  '[Server] API: self<db_query>:execute',  status: 'completed' },
+          { label:  '[Server] API: self<db_query>:select',   status: 'completed' },
+          { label:  '[Server] API: self<db_query>:where',    status: 'completed' },
+          { label:  '[Server] API: self<db_query>:insert',   status: 'completed' },
+          { label:  '[Server] API: self<db_query>:delete',   status: 'completed' },
+          { label:  '[Server] API: self<db_query>:update',   status: 'completed' }
         ]
       },
       {
@@ -1528,7 +1535,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Client] API: gfx.glow.set_map_strength',        status: 'completed' },
           { label:  '[Client] API: gfx.glow.set_map',                 status: 'completed' },
           { label:  '[Client] API: gfx.glow.reset_map',               status: 'completed' }
-
         ]
       },
       {
