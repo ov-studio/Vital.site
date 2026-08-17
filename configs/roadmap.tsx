@@ -44,13 +44,12 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Public-facing Next.js + Fumadocs site — homepage, vault, docs, and live roadmap, powered by the backend routes',
         icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
-          { label:  'Homepage — hero, feature pillars, ethos section',    status: 'completed' },
+          { label:  'Homepage — hero, features, ethos section',    status: 'completed' },
           { label:  'Homepage — live release/build info widget',          status: 'completed' },
           { label:  'Homepage — live GitHub repo stats',                  status: 'completed' },
           { label:  'Homepage — live contributors',                       status: 'completed' },
           { label:  'Vault — community resource browser with filtering',  status: 'completed' },
-          { label:  'Docs — Fumadocs sidebar nav + Cmd+K search',         status: 'completed' },
-          { label:  'Docs — building / server / manifest guides',         status: 'completed' },
+          { label:  'Docs — apis / enums / signals / guides',              status: 'completed' },
           { label:  'Roadmap — this page, live status breakdown',         status: 'completed' },
           { label:  'Terms of Service page',                              status: 'completed' }
         ]
