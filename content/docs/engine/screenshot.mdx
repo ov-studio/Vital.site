@@ -10,17 +10,25 @@ badge: client
 core.engine.screenshot(path)
 ```
 
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to save screenshots into another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/screenshots/capture.png` saves `screenshots/capture.png` inside `resource_a`.
+</Callout>
+
 ### Parameters
 
-| Type | Name | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `string` | path | ✓ | — | Destination file path to save the screenshot |
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | Destination file path to save the screenshot |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | status | Returns `true` on success |
+| `bool` | result | `true` on successful capture, `false` otherwise |
 
 ---
 
