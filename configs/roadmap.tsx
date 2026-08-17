@@ -197,6 +197,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Shared] API: core.engine.inspect',                status: 'completed' },
           { label:  '[Shared] API: core.engine.compile_string',         status: 'completed' },
           { label:  '[Shared] API: core.engine.load_string',            status: 'completed' },
+          { label:  '[Client] API: core.engine.screenshot',             status: 'completed' },
+          { label:  '[Client] API: core.engine.quit',                   status: 'pending'   },
           { label:  '[Client] API: core.engine.world_to_screen',        status: 'completed' },
           { label:  '[Client] API: core.engine.screen_to_world',        status: 'completed' },
           { label:  '[Client] API: core.engine.draw_line',              status: 'completed' },
@@ -204,9 +206,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Client] API: core.engine.draw_rectangle',         status: 'completed' },
           { label:  '[Client] API: core.engine.draw_circle',            status: 'completed' },
           { label:  '[Client] API: core.engine.draw_image',             status: 'completed' },
-          { label:  '[Client] API: core.engine.draw_text',              status: 'completed' },
-          { label:  '[Client] API: core.engine.quit',                   status: 'pending'   },
-          { label:  '[Client] API: core.engine.screenshot',             status: 'pending'   }
+          { label:  '[Client] API: core.engine.draw_text',              status: 'completed' }
         ]
       },
       {
