@@ -28,8 +28,3 @@ local result = core.engine.get_timestamp_tag()
 ```lua lineNumbers title="Prints current timestamp tag"
 core.engine.print("info", "Current timestamp tag:", core.engine.get_timestamp_tag())
 ```
-
-```lua lineNumbers title="Uses timestamp tag as a filename suffix"
-local tag = core.engine.get_timestamp_tag()
-core.engine.print("info", "Saving file as: " .. "report_" .. tag .. ".log")
-```
