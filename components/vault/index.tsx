@@ -169,7 +169,8 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   if (typeof document === 'undefined') return null;
   return react_dom.createPortal(
     <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
-      <div className={`vault-modal${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
+      <div className={`vault-modal-frame${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
+      <div className="vault-modal">
         <div className="vault-modal-controls">
           <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Share">
             {copied ? <lucide.Check size={14} strokeWidth={2.5}/> : <lucide.Link size={14} strokeWidth={2.5}/>}
@@ -231,6 +232,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
           </div>
           {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
         </div>
+      </div>
       </div>
     </div>,
     document.body

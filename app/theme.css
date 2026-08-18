@@ -55,8 +55,9 @@
 
 
   /* ── Selection ── */
-  --selection-bg: hsl(220, 40%, 40%);
   --selection-text: var(--white);
+  --selection-bg: hsl(220, 40%, 40%);
+  --selection-border: hsl(232, 19%, 15%);
 
 
   /* ── Brand ── */

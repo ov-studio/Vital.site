@@ -224,20 +224,30 @@
   animation: fade-in .25s ease forwards;
 }
 
-.vault-modal {
+.vault-modal-frame {
   position: relative;
   width: 100%;
   max-width: 780px;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  background: var(--bg7);
-  border: 2px solid var(--b10);
-  clip-path: polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);
-  isolation: isolate;
+  background: var(--selection-border);
+  clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   transform: translateZ(0);
   animation: slide-up .35s ease forwards;
+}
+
+.vault-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  margin: 2px;
+  overflow: hidden;
+  background: var(--bg7);
+  clip-path: polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px);
+  isolation: isolate;
 }
 
 .vault-modal-body {
@@ -320,7 +330,7 @@
   pointer-events: none;
 }
 
-.vault-modal.closing {
+.vault-modal-frame.closing {
   animation: slide-down .205s ease forwards;
 }
 
@@ -374,7 +384,8 @@
   #vault                   { padding: calc(100px + var(--nav-h) * .25) 0; }
   .vault-intro             { flex-direction: column; }
   .vault-grid              { grid-template-columns: 1fr; }
-  .vault-modal             { clip-path: none; }
+  .vault-modal-frame       { clip-path: none; }
+  .vault-modal             { clip-path: none; margin: 0; }
   .vault-modal-body        { padding: 24px 20px 28px; }
   .vault-modal-name        { font-size: 1.5rem; }
   .vault-filters           { flex-direction: column; align-items: stretch; }
