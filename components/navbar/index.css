@@ -61,22 +61,6 @@ nav.s::after {
 .nl li a:hover,
 .nl li a.active { color: var(--white) }
 
-.ncta {
-  padding: 9px 26px;
-  font-family: 'Geist', sans-serif;
-  font-size: .8rem;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: var(--blue);
-  border: 1px solid var(--blue);
-  text-decoration: none;
-  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
-  transition: background .2s, opacity .2s;
-}
-.ncta:hover { opacity: .8 }
-
 
 /* ── @media ── */
 @media (max-width: 960px) {
