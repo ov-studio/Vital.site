@@ -1,0 +1,41 @@
+---
+title: util.easing.linear
+description: Returns the progress value unchanged — a straight line from 0 to 1
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.easing.linear(
+    progress
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | progress | Interpolation factor, typically in the range [0, 1] |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | The same value as `progress` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Linear easing at midpoint"
+local result = util.easing.linear(0.5)
+
+core.engine.print("info", result) -- 0.5
+```
+
+```lua lineNumbers title="Use with lerp for a constant-speed animation"
+local result = util.easing.lerp(0, 100, util.easing.linear(0.75))
+
+core.engine.print("info", result) -- 75.0
+```

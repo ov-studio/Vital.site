@@ -1,0 +1,60 @@
+---
+title: util.easing.sine_in_out
+description: Applies a sinusoidal ease-in-out — slow at both ends, fast in the middle
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.easing.sine_in_out(
+    progress
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | progress | Interpolation factor, typically in the range [0, 1] |
+
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Eased progress value |
+
+<Callout type="info">
+    Smooth and gentle — the softest of all easing curves.
+</Callout>
+
+---
+
+### Examples
+
+```lua lineNumbers title="Sample output at key progress values"
+core.engine.print("info", util.easing.sine_in_out(0.0)) -- 0.0 — at rest
+core.engine.print("info", util.easing.sine_in_out(0.25)) -- early
+core.engine.print("info", util.easing.sine_in_out(0.5)) -- midpoint
+core.engine.print("info", util.easing.sine_in_out(0.75)) -- late
+core.engine.print("info", util.easing.sine_in_out(1.0)) -- 1.0 — complete
+```
+
+```lua lineNumbers title="Animate a value from 0 to 100"
+local result = util.easing.lerp(0, 100, util.easing.sine_in_out(0.5))
+
+core.engine.print("info", result)
+```
+
+```lua lineNumbers title="Drive with elapsed time"
+local elapsed = 0.0
+local duration = 1.5
+
+-- called each frame
+elapsed = elapsed + delta
+local t = math.min(elapsed / duration, 1.0)
+local value = util.easing.lerp(0, 500, util.easing.sine_in_out(t))
+
+core.engine.print("info", value)
+```

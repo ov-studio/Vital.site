@@ -32,6 +32,7 @@
         "timer",
         "promise",
         "thread",
+        "easing",
         "file",
         "http",
         "crypto",
