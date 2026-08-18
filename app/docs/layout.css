@@ -17,9 +17,9 @@
 
 .dark {
   --color-fd-primary:    var(--blue);
-  --color-fd-background: var(--bg);
+  --color-fd-background: var(--bg2);
 }
-.dark #nd-sidebar { background-color: var(--bg4); }
+.dark #nd-sidebar { background-color: var(--bg7); }
 
 .prose a { text-decoration: none; }
 
