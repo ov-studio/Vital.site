@@ -203,7 +203,7 @@
   justify-content: space-between;
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--b10);
 }
 
 .vault-card-tags,
@@ -283,7 +283,7 @@
 
 .vault-modal-divider {
   border: none;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--b10);
   margin: 24px 0;
   flex-shrink: 0;
 }
