@@ -246,7 +246,7 @@
   margin: 2px;
   overflow: hidden;
   background: var(--bg7);
-  clip-path: polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px);
+  clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   isolation: isolate;
 }
 
