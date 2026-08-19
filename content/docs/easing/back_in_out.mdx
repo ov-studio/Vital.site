@@ -9,14 +9,14 @@ badge: shared
 ```lua
 local result = util.easing.back_in_out(
     progress,
-    overshoot
+    overshoot = 1.70158
 )
 ```
 
 <Callout type="info">
   **Back easing anticipates motion by briefly exceeding the [0, 1] range before settling.**
 
-  - **`overshoot` parameter** — controls how far the curve pulls back or overshoots. Defaults to `1.70158`.
+  - **`overshoot` parameter** — controls how far the curve pulls back or overshoots.
   - **Best for** — playful UI elements, cartoon-style movement, and elastic button presses.
 </Callout>
 
@@ -25,7 +25,7 @@ local result = util.easing.back_in_out(
 | Type | Name | Description |
 |------|------|-------------|
 | `float` | progress | Interpolation factor, typically in the range [0, 1] |
-| `float` | overshoot | Overshoot magnitude applied to both ends. Defaults to `1.70158` |
+| `float` | overshoot | Overshoot magnitude applied to both ends. |
 
 ### Returns
 

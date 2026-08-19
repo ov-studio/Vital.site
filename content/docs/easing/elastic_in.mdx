@@ -9,8 +9,8 @@ badge: shared
 ```lua
 local result = util.easing.elastic_in(
     progress,
-    amplitude,
-    period
+    amplitude = 1.0,
+    period = 0.3
 )
 ```
 
@@ -26,8 +26,8 @@ local result = util.easing.elastic_in(
 | Type | Name | Description |
 |------|------|-------------|
 | `float` | progress | Interpolation factor, typically in the range [0, 1] |
-| `float` | amplitude | Oscillation scale. Values below `1.0` are clamped to `1.0`. Defaults to `1.0` |
-| `float` | period | Oscillation frequency. Smaller = faster oscillation. Defaults to `0.3` |
+| `float` | amplitude | Oscillation scale. Values below `1.0` are clamped to `1.0`. |
+| `float` | period | Oscillation frequency. Smaller = faster oscillation. |
 
 ### Returns
 

@@ -17,7 +17,7 @@ local result = util.easing.lerp(
 <Callout type="info">
   **`util.easing.lerp` is the standard pairing for all easing functions.**
 
-  - **Pair with any easing curve** — pass an eased `progress` value as the third argument to translate a [0, 1] curve into any value range.
+  - **Pair with any easing curve** — wrap `progress` in any `util.easing.*` function to drive the interpolation.
   - **Best for** — animating positions, sizes, colors, or any numeric value between two points.
 </Callout>
 
