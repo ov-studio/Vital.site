@@ -1,6 +1,6 @@
 ---
 title: util.easing.sine_out
-description: Applies a sinusoidal ease-out — starts fast and decelerates
+description: Applies a sinusoidal ease-out — starts fast and decelerates toward the end
 badge: shared
 ---
 
@@ -12,12 +12,18 @@ local result = util.easing.sine_out(
 )
 ```
 
+<Callout type="info">
+  **Sine easing follows the curve of a trigonometric sine wave.**
+
+  - **Smoothest of all curve families** — produces the most gradual, organic-feeling acceleration.
+  - **Best for** — subtle UI transitions, floating or breathing animations, and gentle fades.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
 | `float` | progress | Interpolation factor, typically in the range [0, 1] |
-
 
 ### Returns
 
@@ -25,35 +31,34 @@ local result = util.easing.sine_out(
 |------|------|-------------|
 | `float` | result | Eased progress value |
 
-<Callout type="info">
-    Smooth and gentle — the softest of all easing curves.
-</Callout>
-
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Sample output at key progress values"
-core.engine.print("info", util.easing.sine_out(0.0)) -- 0.0 — at rest
-core.engine.print("info", util.easing.sine_out(0.5)) -- midpoint
+core.engine.print("info", util.easing.sine_out(0.0))  -- 0.0
+core.engine.print("info", util.easing.sine_out(0.25)) -- near start
+core.engine.print("info", util.easing.sine_out(0.5))  -- midpoint
 core.engine.print("info", util.easing.sine_out(0.75)) -- near end
-core.engine.print("info", util.easing.sine_out(1.0)) -- 1.0 — complete
+core.engine.print("info", util.easing.sine_out(1.0))  -- 1.0
 ```
 
-```lua lineNumbers title="Animate a value from 0 to 100"
+```lua lineNumbers title="Pair with lerp to animate a value"
 local result = util.easing.lerp(0, 100, util.easing.sine_out(0.5))
 
 core.engine.print("info", result)
 ```
 
-```lua lineNumbers title="Drive with elapsed time"
-local elapsed = 0.0
+```lua lineNumbers title="Animate a circle across the screen"
+local resolution = core.engine.get_resolution()
 local duration = 1.5
+local start_tick = core.engine.get_tick()
 
--- called each frame
-elapsed = elapsed + delta
-local t = math.min(elapsed / duration, 1.0)
-local value = util.easing.lerp(0, 500, util.easing.sine_out(t))
+util.event.on("sandbox:draw", function()
+    local elapsed = (core.engine.get_tick() - start_tick) / 1000.0
+    local t = math.min(elapsed / duration, 1.0)
+    local x = util.easing.lerp(0, resolution[1], util.easing.sine_out(t))
 
-core.engine.print("info", value)
+    core.engine.draw_circle({x, resolution[2]*0.5}, 16, {1, 1, 1, 1})
+end)
 ```

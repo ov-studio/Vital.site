@@ -14,6 +14,13 @@ local result = util.easing.lerp(
 )
 ```
 
+<Callout type="info">
+  **`util.easing.lerp` is the standard pairing for all easing functions.**
+
+  - **Pair with any easing curve** — pass an eased `progress` value as the third argument to translate a [0, 1] curve into any value range.
+  - **Best for** — animating positions, sizes, colors, or any numeric value between two points.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -38,29 +45,22 @@ local result = util.easing.lerp(0, 100, 0.5)
 core.engine.print("info", result) -- 50.0
 ```
 
-```lua lineNumbers title="Interpolate between two positions"
-local start_x = 10
-local end_x = 90
-local result = util.easing.lerp(start_x, end_x, 0.25)
+```lua lineNumbers title="Pair with an easing curve"
+local result = util.easing.lerp(0, 100, util.easing.cubic_in_out(0.5))
 
-core.engine.print("info", result) -- 30.0
+core.engine.print("info", result)
 ```
 
-```lua lineNumbers title="Combine with an easing curve"
-local progress = util.easing.cubic_in_out(0.5)
-local result = util.easing.lerp(0, 200, progress)
-
-core.engine.print("info", result) -- 100.0
-```
-
-```lua lineNumbers title="Animate a value over time"
-local elapsed = 0.0
+```lua lineNumbers title="Animate a value across the screen"
+local resolution = core.engine.get_resolution()
 local duration = 2.0
+local start_tick = core.engine.get_tick()
 
--- called each frame
-elapsed = elapsed + delta
-local t = math.min(elapsed / duration, 1.0)
-local x = util.easing.lerp(0, 500, util.easing.sine_in_out(t))
+util.event.on("sandbox:draw", function()
+    local elapsed = (core.engine.get_tick() - start_tick) / 1000.0
+    local t = math.min(elapsed / duration, 1.0)
+    local x = util.easing.lerp(0, resolution[1], util.easing.sine_in_out(t))
 
-core.engine.print("info", x)
+    core.engine.draw_circle({x, resolution[2]*0.5}, 16, {1, 1, 1, 1})
+end)
 ```
