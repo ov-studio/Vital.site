@@ -1,4 +1,4 @@
-import * as config_site from '@/shared/configs/site';
+import * as config_site from '@/configs/site';
 import * as lucide      from 'lucide-react';
 
 type CardInput = Omit<RoadmapCard, 'id'>;

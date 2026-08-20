@@ -1,4 +1,4 @@
-import * as config_site from '@/shared/configs/site';
+import * as config_site from '@/configs/site';
 
 export interface TOSSection {
   id:      string;
