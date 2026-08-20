@@ -54,7 +54,3 @@ Full details, including all env vars, are in each project's readme.
 Documentation improvements, corrections, new guides, and API contributions are all welcome. If you find an error, a missing API, or an outdated example, opening a pull request is the fastest way to get it fixed. For larger structural changes, open an issue first to align on scope before investing time in a draft.
 
 Frontend content lives under `frontend/content/docs` as MDX. Backend routes follow the existing caching/rate-limit patterns in `backend/lib`. See each project's readme for specifics.
-
-## License
-
-GNU General Public License v3.0 — see [`frontend/license`](./frontend/license).
