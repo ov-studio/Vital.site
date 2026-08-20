@@ -56,7 +56,7 @@ function use_vault_resources() {
 }
 
 async function download_directory_zip(folder: string): Promise<void> {
-  const res = await fetch(lib_api_url.api_url('/api/vault'), { cache: 'no-store' });
+  const res = await fetch(lib_api_url.api_url('/api/vault/tree'), { cache: 'no-store' });
   if (!res.ok) throw new Error(`tree fetch ${res.status}`);
 
   const tree_data: { tree: { path: string; type: string }[] } = await res.json();
