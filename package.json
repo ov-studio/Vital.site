@@ -10,8 +10,6 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "@upstash/ratelimit": "^2.0.6",
-    "@upstash/redis": "^1.35.5",
     "fumadocs-core": "16.5.0",
     "fumadocs-mdx": "14.2.6",
     "fumadocs-ui": "16.5.0",
