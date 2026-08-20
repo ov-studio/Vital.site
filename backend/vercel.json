@@ -12,32 +12,5 @@
       "source": "/api/:path*",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=300, s-maxage=300, stale-while-revalidate=600" }]
     }
-  ],
-
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "kofi.vital-sandbox.com" }],
-      "destination": "https://ko-fi.com/ovstudio",
-      "permanent": false
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "github.vital-sandbox.com" }],
-      "destination": "https://github.com/ov-studio",
-      "permanent": false
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "discord.vital-sandbox.com" }],
-      "destination": "http://discord.gg/sVCnxPW",
-      "permanent": false
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "youtube.vital-sandbox.com" }],
-      "destination": "https://www.youtube.com/@ov-community",
-      "permanent": false
-    }
   ]
 }
