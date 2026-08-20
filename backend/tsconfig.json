@@ -21,7 +21,8 @@
     "incremental": true,
     "allowImportingTsExtensions": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/configs/*": ["../shared/*"]
     },
     "plugins": [
       { "name": "next" }
