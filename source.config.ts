@@ -13,11 +13,11 @@ export const docs = fumadocs_config.defineDocs({
   },
   meta: {
     schema: fumadocs_config.metaSchema,
-  },
+  }
 });
 
 export default fumadocs_config.defineConfig({
   mdxOptions: {
     remarkPlugins: [],
-  },
+  }
 });
