@@ -21,17 +21,11 @@
     "incremental": true,
     "allowImportingTsExtensions": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "fumadocs-mdx:collections/*": [
-        ".source/*"
-      ]
+      "@/*": ["./*"],
+      "@/configs/*": ["../configs/*"]
     },
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ]
   },
 
@@ -42,7 +36,7 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  
+
   "exclude": [
     "node_modules"
   ]
