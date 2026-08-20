@@ -20,32 +20,5 @@
       "source": "/robots.txt",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }]
     }
-  ],
-
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "kofi.vital-sandbox.com" }],
-      "destination": "https://ko-fi.com/ovstudio",
-      "permanent": false
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "github.vital-sandbox.com" }],
-      "destination": "https://github.com/ov-studio",
-      "permanent": false
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "discord.vital-sandbox.com" }],
-      "destination": "http://discord.gg/sVCnxPW",
-      "permanent": false
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "youtube.vital-sandbox.com" }],
-      "destination": "https://www.youtube.com/@ov-community",
-      "permanent": false
-    }
   ]
 }
