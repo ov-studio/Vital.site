@@ -1,5 +1,6 @@
 import * as config_site                from '@/configs/site';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
+import * as lib_api_url                from '@/lib/api_url';
 import * as next                       from 'next';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
@@ -22,13 +23,10 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
-const SITE_HOST = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
-const SITE_URL  = SITE_HOST ? `https://${SITE_HOST}` : 'http://localhost:3000';
-const API_URL   = process.env.NEXT_PUBLIC_API_URL ?? (SITE_HOST ? `https://api.${SITE_HOST}` : 'http://localhost:3001');
-const OG_IMAGE_URL = `${API_URL}/og`;
+const OG_IMAGE_URL = lib_api_url.api_url('/og');
 
 export const metadata: next.Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(lib_api_url.get_site_url()),
   title: {
     template: `%s - ${config_site.info.name}`,
     default: config_site.info.name,

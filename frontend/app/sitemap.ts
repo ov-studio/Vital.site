@@ -1,16 +1,11 @@
-import * as next       from 'next';
-import * as lib_source from '@/lib/source';
+import * as lib_api_url from '@/lib/api_url';
+import * as lib_source  from '@/lib/source';
+import * as next        from 'next';
 
 export const dynamic = 'force-static';
 
-function site_url(): string {
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return 'http://localhost:3000';
-}
-
 export default function sitemap(): next.MetadataRoute.Sitemap {
-  const SITE_URL = site_url();
+  const SITE_URL = lib_api_url.get_site_url();
   const pages = lib_source.source.getPages().map((page) => {
     const is_docs_root = page.url === '/docs';
     return {
