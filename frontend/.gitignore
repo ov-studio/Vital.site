@@ -27,4 +27,10 @@ next-env.d.ts
 # <sync:shared>
 # Auto-copied from shared/ by sync.js — do not edit this block manually
 configs/site.tsx
+public/font/Rajdhani-Bold.ttf
+public/font/Rajdhani-Light.ttf
+public/font/Rajdhani-Medium.ttf
+public/font/Rajdhani-Regular.ttf
+public/font/Rajdhani-SemiBold.ttf
+public/logo.svg
 # </sync:shared>
