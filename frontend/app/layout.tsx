@@ -25,12 +25,16 @@ const rajdhani = Rajdhani({
 const OG_IMAGE_URL = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001'}/og`;
 
 export const metadata: next.Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ? 
+    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'
+  ),
   title: {
     template: `%s - ${config_site.info.name}`,
     default: config_site.info.name,
   },
   description: config_site.info.description,
-
   openGraph: {
     title: config_site.info.name,
     description: config_site.info.description,
