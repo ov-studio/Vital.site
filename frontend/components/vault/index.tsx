@@ -1,5 +1,5 @@
 'use client';
-import * as config_site     from '@/shared/configs/site';
+import * as config_site     from '@/configs/site';
 import * as config_vault    from '@/configs/vault';
 import * as lib_api_url     from '@/lib/api_url';
 import * as react           from 'react';
