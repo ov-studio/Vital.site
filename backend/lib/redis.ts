@@ -1,4 +1,4 @@
-import * as config_site   from '@/configs/site';
+import * as config_site   from '@/shared/configs/site';
 import * as upstash_redis from '@upstash/redis';
 
 export const redis_configured = Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);

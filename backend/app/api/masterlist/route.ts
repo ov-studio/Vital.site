@@ -1,4 +1,4 @@
-import * as config_site   from '@/configs/site';
+import * as config_site   from '@/shared/configs/site';
 import * as lib_redis     from '@/lib/redis';
 import * as lib_ratelimit from '@/lib/ratelimit';
 

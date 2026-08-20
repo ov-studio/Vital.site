@@ -1,5 +1,5 @@
 'use client';
-import * as config_site from '@/configs/site';
+import * as config_site from '@/shared/configs/site';
 import './index.css';
 
 type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';

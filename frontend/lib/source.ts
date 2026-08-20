@@ -1,4 +1,4 @@
-import * as config_site          from '@/configs/site';
+import * as config_site          from '@/shared/configs/site';
 import * as react                from 'react';
 import * as lucide               from 'lucide-react';
 import * as fumadocs_core_source from 'fumadocs-core/source';
