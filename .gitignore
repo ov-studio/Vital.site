@@ -8,7 +8,6 @@ node_modules
 coverage
 .next/
 out/
-build
 *.tsbuildinfo
 
 # misc
