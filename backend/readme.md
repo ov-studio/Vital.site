@@ -29,7 +29,7 @@ MASTERLIST_STRICT_IP=false
 |---|---|---|
 | `UPSTASH_REDIS_REST_URL` | Yes* | REST endpoint for your Upstash Redis database. |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
-| `MASTERLIST_ADMIN_SECRET` | Yes | Bearer secret required to call `POST /api/masterlist/register`. Generate a long random value (e.g. `openssl rand -hex 32`) and don't reuse it elsewhere. |
+| `MASTERLIST_ADMIN_SECRET` | Yes | Bearer secret required to call `POST /masterlist/register`. Generate a long random value (e.g. `openssl rand -hex 32`) and don't reuse it elsewhere. |
 | `MASTERLIST_STRICT_IP` | No | When `true` (default), a heartbeat is rejected if the reporting server's IP doesn't match the IP it claims. Set to `false` for local development, since localhost/tunnels rarely present a stable, matching IP. Leave it `true` (or unset) in production. |
 
 <sub>* If Redis isn't configured, the service still builds and runs — masterlist and rate-limiting endpoints just respond as unavailable and log a warning, instead of the app crashing.</sub>
@@ -60,12 +60,12 @@ Open [http://localhost:3001](http://localhost:3001) (or whatever port you run it
 |---|---|
 | `configs` | Site-wide configuration files (shared `git`/API/ratelimit settings) |
 | `lib` | Redis client, in-memory cache wrapper, and rate-limit helper |
-| `app/api/build` | GitHub Releases-backed — latest client/server download links, cached |
-| `app/api/stats` | GitHub-backed — aggregated repo stars/forks/issues/commits, cached |
-| `app/api/contributors` | GitHub-backed — contributor list across repos, cached |
-| `app/api/vault` | Proxies `Vital.vault`'s `vault.json` resource index, cached |
-| `app/api/vault/tree` | Proxies the vault repo's git tree (used for per-resource zip downloads), cached |
-| `app/api/masterlist` | Redis-backed live server list (`GET`, plus `register`/`heartbeat` for server owners) |
+| `app/build` | GitHub Releases-backed — latest client/server download links, cached |
+| `app/stats` | GitHub-backed — aggregated repo stars/forks/issues/commits, cached |
+| `app/contributors` | GitHub-backed — contributor list across repos, cached |
+| `app/vault` | Proxies `Vital.vault`'s `vault.json` resource index, cached |
+| `app/vault/tree` | Proxies the vault repo's git tree (used for per-resource zip downloads), cached |
+| `app/masterlist` | Redis-backed live server list (`GET`, plus `register`/`heartbeat` for server owners) |
 
 ## Contributing
 
