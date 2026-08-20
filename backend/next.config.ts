@@ -1,4 +1,4 @@
-import *      as config_site from './configs/site';
+import *      as config_site from './configs/site.tsx';
 import type * as next        from 'next';
 
 const ALLOWED_ORIGIN = 'https://vital-sandbox.com';
