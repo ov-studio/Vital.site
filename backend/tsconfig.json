@@ -21,14 +21,14 @@
     "incremental": true,
     "allowImportingTsExtensions": true,
     "paths": {
-      "@/*": ["./*"],
-      "@/configs/*": ["../shared/*"]
+      "@/*": ["./*"]
     },
     "plugins": [
-      { "name": "next" }
+      {
+        "name": "next"
+      }
     ]
   },
-
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -36,7 +36,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-
   "exclude": [
     "node_modules"
   ]
