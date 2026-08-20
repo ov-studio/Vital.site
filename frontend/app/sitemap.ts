@@ -1,5 +1,7 @@
-import * as next from 'next';
+import * as next       from 'next';
 import * as lib_source from '@/lib/source';
+
+export const dynamic = 'force-static';
 
 function site_url(): string {
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
