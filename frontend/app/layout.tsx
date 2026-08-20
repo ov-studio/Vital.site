@@ -22,14 +22,13 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
-const OG_IMAGE_URL = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001'}/og`;
+const SITE_HOST = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+const SITE_URL  = SITE_HOST ? `https://${SITE_HOST}` : 'http://localhost:3000';
+const API_URL   = process.env.NEXT_PUBLIC_API_URL ?? (SITE_HOST ? `https://api.${SITE_HOST}` : 'http://localhost:3001');
+const OG_IMAGE_URL = `${API_URL}/og`;
 
 export const metadata: next.Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ? 
-    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 
-    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     template: `%s - ${config_site.info.name}`,
     default: config_site.info.name,
