@@ -1,14 +1,9 @@
 import type * as next from 'next';
-import *      as path from 'path';
 
 const ALLOWED_ORIGIN = 'https://vital-sandbox.com';
 
 const config: next.NextConfig = {
   reactStrictMode: true,
-  webpack(cfg) {
-    cfg.resolve.alias['@/configs'] = path.resolve(__dirname, '../configs');
-    return cfg;
-  },
   async headers() {
     return [
       {

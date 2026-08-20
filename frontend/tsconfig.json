@@ -22,7 +22,6 @@
     "allowImportingTsExtensions": true,
     "paths": {
       "@/*": ["./*"],
-      "@/configs/*": ["../configs/*"],
       "fumadocs-mdx:collections/*": [".source/*"]
     },
     "plugins": [
