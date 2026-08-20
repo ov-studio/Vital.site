@@ -9,7 +9,7 @@ const config: next.NextConfig = {
   async headers() {
     return [
       {
-        source: '/api/:path*',
+        source: '/:path*',
         headers: [
           { key: 'Access-Control-Allow-Origin',  value: ALLOWED_ORIGIN },
           { key: 'Access-Control-Allow-Methods', value: 'GET, POST, DELETE, OPTIONS' },
@@ -21,6 +21,15 @@ const config: next.NextConfig = {
         headers: [
           { key: 'Access-Control-Allow-Origin', value: ALLOWED_ORIGIN }
         ]
+      }
+    ];
+  },
+
+  async rewrites() {
+    return [
+      {
+        source:      '/:path*',
+        destination: '/api/:path*'
       }
     ];
   },

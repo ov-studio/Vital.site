@@ -34,7 +34,7 @@ function use_vault_resources() {
     async function load() {
       set_state('loading');
       try {
-        const res = await fetch(lib_api_url.api_url('/api/vault'));
+        const res = await fetch(lib_api_url.api_url('/vault'));
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
         const index: config_vault.VaultIndex = await res.json();
         const cleaned = (index.resources ?? []).map(r => ({ ...r, tags: valid_tags(r.tags) }));
@@ -56,7 +56,7 @@ function use_vault_resources() {
 }
 
 async function download_directory_zip(folder: string): Promise<void> {
-  const res = await fetch(lib_api_url.api_url('/api/vault/tree'), { cache: 'no-store' });
+  const res = await fetch(lib_api_url.api_url('/vault/tree'), { cache: 'no-store' });
   if (!res.ok) throw new Error(`tree fetch ${res.status}`);
 
   const tree_data: { tree: { path: string; type: string }[] } = await res.json();

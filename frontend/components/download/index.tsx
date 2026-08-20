@@ -16,7 +16,7 @@ export function Download() {
   const [info, setInfo] = react.useState<ReleaseInfo | null>(null);
 
   react.useEffect(() => {
-    fetch(lib_api_url.api_url('/api/build'))
+    fetch(lib_api_url.api_url('/build'))
       .then((r) => r.json())
       .then(setInfo)
       .catch(() => setInfo({ tag: '', client_url: null, server_url: null, client_size: null, server_size: null }));

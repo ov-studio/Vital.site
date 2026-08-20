@@ -17,7 +17,7 @@ export function Contributors() {
   const [list, setList] = react.useState<ContributorInfo[] | null>(null);
 
   react.useEffect(() => {
-    fetch(lib_api_url.api_url('/api/contributors'))
+    fetch(lib_api_url.api_url('/contributors'))
       .then((r) => r.json())
       .then((data) => setList(Array.isArray(data) ? data : []))
       .catch(() => setList([]));
