@@ -1,5 +1,3 @@
-import * as config_site                   from '@/configs/site';
-import * as component_docai               from '@/components/docai';
 import * as component_badge               from '@/components/badge';
 import * as lib_source                    from '@/lib/source';
 import * as next                          from 'next';
@@ -22,13 +20,11 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       <div className="flex flex-col border-b">
         <div className="flex flex-row gap-2 items-center justify-between">
           <fumadocs_layout_notebook_page.DocsTitle className="text-2xl">{page.data.title}</fumadocs_layout_notebook_page.DocsTitle>
-          <div className="inline-flex items-center gap-2 font-semibold">
-            {page.data.badge && <component_badge.Badge type={page.data.badge}/>}
-            <component_docai.DocAI
-              md_url={`${page.url}.mdx`}
-              git_url={`https://github.com/${config_site.info.git.site.user}/${config_site.info.git.site.repo}/blob/${config_site.info.git.site.branch}/content/docs/${page.path}`}
-            />
-          </div>
+          {page.data.badge && (
+            <div className="inline-flex items-center gap-2 font-semibold">
+              <component_badge.Badge type={page.data.badge}/>
+            </div>
+          )}
         </div>
         <fumadocs_layout_notebook_page.DocsDescription className="mt-4 mb-5 text-base">{page.data.description}</fumadocs_layout_notebook_page.DocsDescription>
       </div>
