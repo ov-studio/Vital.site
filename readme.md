@@ -16,7 +16,7 @@ The frontend has no API routes of its own beyond a build-time static search inde
 Each half has its own install, env vars, and dev server — see their individual readmes:
 
 - **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, `NEXT_PUBLIC_API_URL`, static export/build
-- **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, CORS (`SITE_ORIGIN`), masterlist admin secret
+- **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, masterlist admin secret
 
 To run the full site locally, start the backend first (defaults to `http://localhost:3001`), then the frontend (defaults to `http://localhost:3000`) — the frontend falls back to `http://localhost:3001` for `NEXT_PUBLIC_API_URL` if it isn't set, so a local backend is picked up automatically.
 
@@ -43,7 +43,7 @@ See each project's own readme for a full breakdown of its internal structure.
 
 The two projects deploy independently and don't share a build step:
 
-1. Deploy `backend` first, as its own project — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `MASTERLIST_ADMIN_SECRET`, and `SITE_ORIGIN` (set to the frontend's eventual domain).
+1. Deploy `backend` first, as its own project — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `MASTERLIST_ADMIN_SECRET`
 2. Note the backend's deployed URL.
 3. Deploy `frontend` as its own static project, with `NEXT_PUBLIC_API_URL` set to that backend URL at **build time**.
 

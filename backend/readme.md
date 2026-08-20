@@ -23,7 +23,6 @@ UPSTASH_REDIS_REST_URL=""
 UPSTASH_REDIS_REST_TOKEN=""
 MASTERLIST_ADMIN_SECRET=""
 MASTERLIST_STRICT_IP=false
-SITE_ORIGIN=""
 ```
 
 | Variable | Required | Description |
@@ -32,7 +31,6 @@ SITE_ORIGIN=""
 | `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
 | `MASTERLIST_ADMIN_SECRET` | Yes | Bearer secret required to call `POST /api/masterlist/register`. Generate a long random value (e.g. `openssl rand -hex 32`) and don't reuse it elsewhere. |
 | `MASTERLIST_STRICT_IP` | No | When `true` (default), a heartbeat is rejected if the reporting server's IP doesn't match the IP it claims. Set to `false` for local development, since localhost/tunnels rarely present a stable, matching IP. Leave it `true` (or unset) in production. |
-| `SITE_ORIGIN` | Recommended | The frontend's origin, e.g. `https://vital-sandbox.com`, so CORS (`Access-Control-Allow-Origin`) only allows that origin. Left unset, it defaults to `*` and a warning is logged at boot in production — set this before going live. |
 
 <sub>* If Redis isn't configured, the service still builds and runs — masterlist and rate-limiting endpoints just respond as unavailable and log a warning, instead of the app crashing.</sub>
 
@@ -53,7 +51,7 @@ Open [http://localhost:3001](http://localhost:3001) (or whatever port you run it
 ### 4. Deploy
 
 1. Push this folder as its own project, separate from the frontend.
-2. Set the env vars above, in particular `SITE_ORIGIN` and `MASTERLIST_ADMIN_SECRET`.
+2. Set the env vars above, in particular `MASTERLIST_ADMIN_SECRET`.
 3. Note the deployed URL/domain (e.g. `api.vital-sandbox.com`). Put this into the frontend's `NEXT_PUBLIC_API_URL` env var and rebuild the frontend — it's inlined at build time, so redeploy the frontend after changing it.
 
 ## Structure
