@@ -115,6 +115,11 @@ export async function DELETE(req: Request) {
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
   const id = id_of(token);
+  if (ratelimit) {
+    const { success } = await ratelimit.limit(id);
+    if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
+  }
+
   const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
   if (!ok) return Response.json({ error: 'unknown token' }, { status: 401 });
 

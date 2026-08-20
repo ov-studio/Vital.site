@@ -1,5 +1,6 @@
-import * as lib_redis from '@/lib/redis';
-import * as crypto    from 'crypto';
+import * as lib_redis     from '@/lib/redis';
+import * as lib_ratelimit from '@/lib/ratelimit';
+import * as crypto        from 'crypto';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -13,6 +14,9 @@ function safe_equal(a: string, b: string): boolean {
 }
 
 export async function POST(req: Request) {
+  const limited = await lib_ratelimit.check(req);
+  if (limited) return limited;
+
   const admin_secret = process.env.MASTERLIST_ADMIN_SECRET;
   if (!admin_secret) return Response.json({ error: 'MASTERLIST_ADMIN_SECRET not configured' }, { status: 500 });
 
