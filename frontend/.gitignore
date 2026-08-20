@@ -26,6 +26,8 @@ next-env.d.ts
 
 # <sync:shared>
 # Auto-copied from shared/ by sync.js — do not edit this block manually
+app/global.css
+app/theme.css
 configs/site.tsx
 public/font/Rajdhani-Bold.ttf
 public/font/Rajdhani-Light.ttf
