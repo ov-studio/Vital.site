@@ -1,0 +1,32 @@
+---
+title: self:is_autoplayed
+description: Checks whether the audio-2d instance is autoplayed
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_autoplayed()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if autoplayed, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check autoplay state of an audio-2d instance"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Autoplay:", entity:is_autoplayed())
+```

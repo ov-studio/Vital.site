@@ -1,0 +1,35 @@
+---
+title: self:set_visible
+description: Sets the visibility of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_visible(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to show the spot light, `false` to hide it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Hide a spot light"
+local entity = light.spot.create()
+
+entity:set_visible(false)
+```

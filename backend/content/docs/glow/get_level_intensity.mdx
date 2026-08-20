@@ -1,0 +1,33 @@
+---
+title: gfx.glow.get_level_intensity
+description: Retrieves the current intensity of a specific level of the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.glow.get_level_intensity(
+    idx
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | idx | Level index to target |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current intensity of the specified level |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print intensity of a specific level"
+core.engine.print("info", "Level 1 intensity:", gfx.glow.get_level_intensity(1))
+```

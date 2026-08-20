@@ -1,0 +1,97 @@
+---
+title: Building sandbox
+description: Build Vital.sandbox from source, extend its functionality, or contribute to the project
+---
+
+## Essentials
+
+If you plan to build from source, extend existing functionality, or contribute to Vital.sandbox, this guide walks you through compiling and running the project locally.
+
+Before starting, ensure your development environment is properly configured. Vital.sandbox is written in **C++17**, requiring a compatible compiler and all necessary dependencies.
+
+#### Requirements
+
+- A **C++17-compatible compiler** (MSVC on Windows, GCC or Clang on Linux)
+- All **project dependencies** installed and configured
+- The **repository cloned** locally
+
+---
+
+## Builds
+
+#### Command
+
+| Platform | Command |
+|---|---|
+| Windows | `build --[client/server/all] --[debug/release]` |
+| Linux | `bash build.sh --[client/server/all] --[debug/release]` |
+
+#### Arguments
+
+| Argument | Option | Description |
+|---|---|---|
+| **Target** | `--client` | Builds the client |
+| | `--server` | Builds the server |
+| | `--all` | Builds both client and server |
+| **Configuration** | `--debug` | Includes debug symbols and logging; suitable for development |
+| | `--release` | Optimized for production use |
+
+#### Optional Flags
+
+| Flag | Description |
+|---|---|
+| `--skip-export` | Skips the Godot project export step |
+| `--rebuild-godot` | Forces a full rebuild of `godot-cpp` (only needed after updating the submodule) |
+| `--verbose` | Streams full compiler output live as the build progresses |
+
+---
+
+## Artifacts
+
+After a successful build, output files are generated under `.dist/[Configuration]/[Target]`:
+
+| Target | Output Directory |
+|---|---|
+| `--client` | `.dist/[debug\|release]/client` |
+| `--server` | `.dist/[debug\|release]/server` |
+| `--all` | Both of the above |
+
+Each output directory is self-contained and includes all required runtime components.
+
+---
+
+## Debugging
+
+Vital.sandbox supports native debugging on Windows via Visual Studio. Debug symbols are generated automatically for `--debug` builds and can be loaded at runtime using the steps below.
+
+#### Attaching Visual Studio to a Running Process
+
+1. In Visual Studio, open **Debug → Attach to Process**
+2. Select the target executable and click **Attach**
+
+#### Loading Debug Symbols
+
+Once attached, load the PDB files for the extension module:
+
+1. Open **Debug → Windows → Modules**
+2. Right-click the `vital.sdk` entry in the module list
+3. Select **Load Symbols** and navigate to the appropriate build directory
+
+| Target | PDB Directory |
+|---|---|
+| `--client` | `.dist/debug/client` |
+| `--server` | `.dist/debug/server` |
+
+---
+
+## Contributions
+
+Building from source also enables you to contribute to the project. Whether you are implementing new features, improving existing systems, or fixing issues, contributions are encouraged.
+
+#### Guidelines
+
+* **Maintain modularity** — Keep changes self-contained and avoid unnecessary coupling
+* **Validate in debug** — Test changes using a `debug` build before producing a `release` build
+* **Follow existing patterns** — Review current modules to ensure consistency in structure and style
+
+Once your changes are ready, open a pull request in the official ov-studio repository for review.

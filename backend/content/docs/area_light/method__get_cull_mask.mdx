@@ -1,0 +1,32 @@
+---
+title: self:get_cull_mask
+description: Retrieves the cull mask of the area light, which controls which layers are affected by this light
+badge: client
+---
+
+### Syntax
+
+```lua
+local mask = self:get_cull_mask()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Current cull mask bitmask |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get cull mask of a area light"
+local entity = light.area.create()
+
+core.engine.print("info", entity:get_cull_mask())
+```

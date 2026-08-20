@@ -1,0 +1,55 @@
+---
+title: self:add_fx
+description: Adds an audio effect to the audio-3d instance's effect chain
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:add_fx(
+    name,
+    effect,
+    parameters = {}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Unique name for this effect slot |
+| [`core.audio_3d.effect`](/docs/audio_3d/enum/effect) | effect | Effect to instantiate |
+| `table` | parameters | Parameters specific to the assigned effect<br/>Omitted keys fall back to the engine's default value |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful addition, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Add a reverb effect to an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:add_fx("my_reverb", core.audio_3d.effect.REVERB, {
+    room_size = 0.8,
+    wet = 0.5,
+    dry = 0.5
+})
+
+entity:play()
+```
+
+```lua lineNumbers title="Add a 10-band EQ effect to an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:add_fx("my_eq", core.audio_3d.effect.EQ10, {
+    bands = { 0.0, 0.0, -3.0, -3.0, 0.0, 0.0, 2.0, 2.0, 0.0, 0.0 }
+})
+
+entity:play()
+```

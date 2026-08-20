@@ -1,0 +1,35 @@
+---
+title: self:set_energy
+description: Sets the energy (brightness multiplier) of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_energy(
+    energy
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | energy | Energy value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply energy on a spot light"
+local entity = light.spot.create()
+
+entity:set_energy(1.0)
+```

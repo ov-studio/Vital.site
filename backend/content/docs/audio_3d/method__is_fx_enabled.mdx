@@ -1,0 +1,37 @@
+---
+title: self:is_fx_enabled
+description: Checks whether an audio effect on the audio-3d instance's effect chain is enabled
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_fx_enabled(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the effect to check for |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the effect is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether an effect is enabled on an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:add_fx("my_reverb", "reverb", { wet = 0.5 })
+
+core.engine.print("info", entity:is_fx_enabled("my_reverb")) -- true
+```

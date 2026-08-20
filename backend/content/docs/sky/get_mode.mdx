@@ -1,0 +1,30 @@
+---
+title: gfx.sky.get_mode
+description: Retrieves the current material type of the sky
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.sky.get_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.sky.mode`](/docs/sky/enum/mode) \| `bool` | result | Current sky material type, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current sky material type"
+core.engine.print("info", "Sky mode:", gfx.sky.get_mode())
+```

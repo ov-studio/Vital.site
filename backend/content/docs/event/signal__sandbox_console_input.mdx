@@ -1,0 +1,37 @@
+---
+title: sandbox:console_input
+description: Fired when an unrecognised console command is entered
+badge: shared
+---
+
+### Signal
+
+```lua
+"sandbox:console_input"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | command | The command name that was entered |
+| `table` | args | Array of additional arguments passed after the command |
+
+<Callout type="info">
+  **Only fires for commands not handled by the engine itself.**
+
+  - Built-in commands (`version`, `help`, `clear`, `start`, `stop`, etc.) are consumed internally and will not reach this signal.
+  - Use this to implement custom console commands in Lua.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Add a custom console command"
+util.event.on("sandbox:console_input", function(command, args)
+    if command == "greet" then
+        core.engine.print("info", "Hello, " .. (args[1] or "world") .. "!")
+    end
+end)
+```

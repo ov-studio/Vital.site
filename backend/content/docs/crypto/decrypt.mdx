@@ -1,0 +1,45 @@
+---
+title: util.crypto.decrypt
+description: Decodes a cryptographically encrypted string
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.crypto.decrypt(
+    mode,
+    input,
+    key,
+    iv
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | mode | Encryption mode<br/>Refer [**Modes**](#modes) section |
+| `string` | input | Encrypted string to decrypt |
+| `string` | key | Key to use for decryption |
+| `string` | iv | Generated initialization vector |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Decrypted string on successful execution, `false` otherwise |
+
+---
+
+<include>./encrypt.mdx#modes</include>
+
+### Examples
+
+```lua lineNumbers title="Decrypts an input string"
+local key = "MySecretKey12345"
+local input, iv = util.crypto.encrypt("aes256", "Hello World", key)
+
+core.engine.print("info", "Input:", input)
+core.engine.print("info", "Decrypted:", util.crypto.decrypt("aes256", input, key, iv))
+```

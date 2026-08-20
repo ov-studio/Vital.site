@@ -1,0 +1,18 @@
+{
+    "title": "Antialiasing",
+    "icon": "Blend",
+    "pages": [
+        "---Enum---",
+        "enum__mode",
+        "enum__msaa_mode",
+
+        "---Getter---",
+        "get_mode",
+        "get_msaa_mode",
+
+        "---Setter---",
+        "set_mode",
+        "set_msaa_mode",
+        "..."
+    ]
+}

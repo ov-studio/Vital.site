@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Retrieves the type name of the instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Type of the instance, `false` if unavailable |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a area light instance"
+local entity = light.area.create()
+
+core.engine.print("info", entity:get_type()) -- 'area'
+```

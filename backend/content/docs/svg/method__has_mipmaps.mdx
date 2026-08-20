@@ -1,0 +1,42 @@
+---
+title: self:has_mipmaps
+description: Checks whether the SVG has a generated mipmap chain
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:has_mipmaps()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the svg has a mipmap chain, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check before applying a mipmap-based filter"
+local entity = core.svg.create("assets/icon.svg")
+
+if entity:has_mipmaps() then
+    entity:set_filter(core.svg.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
+end
+```
+
+```lua lineNumbers title="Create with mipmaps and verify before filtering"
+local entity = core.svg.create("assets/icon.svg", true)
+
+if entity:has_mipmaps() then
+    entity:set_filter(core.svg.svg_filter.NEAREST_MIPMAP)
+end
+```

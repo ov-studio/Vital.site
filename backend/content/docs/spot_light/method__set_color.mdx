@@ -1,0 +1,35 @@
+---
+title: self:set_color
+description: Sets the color of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_color(
+    color
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Light color to apply as `{r, g, b}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply color on a spot light"
+local entity = light.spot.create()
+
+entity:set_color({1, 1, 1})
+```

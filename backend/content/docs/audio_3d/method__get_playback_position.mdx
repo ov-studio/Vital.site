@@ -1,0 +1,32 @@
+---
+title: self:get_playback_position
+description: Retrieves the current playback position of the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_playback_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current playback position in seconds |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current playback position"
+local entity = core.audio_3d.create("sounds/ambient.ogg", true)
+
+core.engine.print("info", "Playback position:", entity:get_playback_position())
+```

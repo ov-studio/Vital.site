@@ -1,0 +1,77 @@
+---
+title: util.math.abs
+description: Returns the absolute value of a number
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.abs(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Number to get the absolute value of |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Absolute (non-negative) value of the input |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Absolute value of a negative number"
+local result = util.math.abs(-5)
+
+core.engine.print("info", result) -- 5
+```
+
+```lua lineNumbers title="Absolute value of a positive number"
+local result = util.math.abs(42)
+
+core.engine.print("info", result) -- 42
+```
+
+```lua lineNumbers title="Absolute value of zero"
+local result = util.math.abs(0)
+
+core.engine.print("info", result) -- 0
+```
+
+```lua lineNumbers title="Absolute value of a negative float"
+local result = util.math.abs(-3.14)
+
+core.engine.print("info", result) -- 3.14
+```
+
+```lua lineNumbers title="Calculate distance between two numbers"
+local a = 10
+local b = 35
+local distance = util.math.abs(a - b)
+
+core.engine.print("info", distance) -- 25
+```
+
+```lua lineNumbers title="Clamp a delta to avoid overshoot"
+local delta = -0.75
+local speed = util.math.abs(delta)*10
+
+core.engine.print("info", speed) -- 7.5
+```
+
+```lua lineNumbers title="Check if a value is within tolerance"
+local value = -0.0001
+local tolerance = 0.001
+
+if util.math.abs(value) < tolerance then
+    core.engine.print("info", "Within tolerance")
+end
+```

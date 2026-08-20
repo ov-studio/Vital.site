@@ -1,0 +1,32 @@
+---
+title: self:get_vertical_offset
+description: Retrieves the camera's vertical offset
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_vertical_offset()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current vertical offset of the camera |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the vertical offset"
+local entity = core.camera.create()
+
+core.engine.print("info", entity:get_vertical_offset())
+```

@@ -1,0 +1,132 @@
+---
+title: util.table.move
+description: Moves elements from one table to another
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.table.move(
+    from,
+    start_at,
+    end_at,
+    move_at,
+    to = from
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | from | Table to copy from |
+| `int` | start_at | Position where moving starts |
+| `int` | end_at | Position where moving ends |
+| `int` | move_at | Position where its moving at |
+| `table` | to | Table to move into |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Altered destination table |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Copy elements to another table"
+local src = {1, 2, 3, 4, 5}
+local dest = {}
+util.table.move(src, 1, 3, 1, dest)
+
+core.engine.print("info", util.table.concat(dest, ", ")) -- '1, 2, 3'
+```
+
+```lua lineNumbers title="Move elements within the same table"
+local t = {10, 20, 30, 40, 50}
+util.table.move(t, 1, 2, 4)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- '10, 20, 30, 10, 20'
+```
+
+```lua lineNumbers title="Shift elements right within a table"
+local t = {1, 2, 3, 4}
+util.table.move(t, 1, 4, 2)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- '1, 1, 2, 3, 4'
+```
+
+```lua lineNumbers title="Copy a subset of elements to a new position"
+local t = {"a", "b", "c", "d", "e"}
+util.table.move(t, 2, 4, 6)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- 'a, b, c, d, e, b, c, d'
+```
+
+```lua lineNumbers title="Clone an entire table using move"
+local original = {1, 2, 3}
+local clone = {}
+util.table.move(original, 1, util.table.len(original), 1, clone)
+
+core.engine.print("info", util.table.concat(clone, ", ")) -- '1, 2, 3'
+```
+
+```lua lineNumbers title="Insert at the beginning by shifting right"
+local t = {2, 3, 4}
+util.table.move(t, 1, util.table.len(t), 2)
+t[1] = 1
+
+core.engine.print("info", util.table.concat(t, ", ")) -- '1, 2, 3, 4'
+```
+
+```lua lineNumbers title="Append elements from another table"
+local t1 = {1, 2, 3}
+local t2 = {4, 5, 6}
+util.table.move(t2, 1, util.table.len(t2), util.table.len(t1) + 1, t1)
+
+core.engine.print("info", util.table.concat(t1, ", ")) -- '1, 2, 3, 4, 5, 6'
+```
+
+```lua lineNumbers title="Remove an element by shifting left"
+local t = {1, 2, 3, 4, 5}
+util.table.move(t, 3, 5, 2)
+util.table.remove(t)
+util.table.remove(t)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- '1, 3, 4, 5'
+```
+
+```lua lineNumbers title="Duplicate a range of elements"
+local t = {"x", "y", "z"}
+util.table.move(t, 1, 3, 4)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- 'x, y, z, x, y, z'
+```
+
+```lua lineNumbers title="Copy a partial range into a destination table"
+local src = {10, 20, 30, 40, 50}
+local dest = {0, 0, 0, 0, 0}
+util.table.move(src, 2, 4, 1, dest)
+
+core.engine.print("info", util.table.concat(dest, ", ")) -- '20, 30, 40, 0, 0'
+```
+
+```lua lineNumbers title="Copy elements in reverse order"
+local src = {1, 2, 3, 4}
+local dest = {}
+for i = util.table.len(src), 1, -1 do
+    util.table.move(src, i, i, util.table.len(src) - i + 1, dest)
+end
+
+core.engine.print("info", util.table.concat(dest, ", ")) -- '4, 3, 2, 1'
+```
+
+```lua lineNumbers title="Efficiently extend an array with another"
+local base = {1, 2, 3}
+local extension = {4, 5, 6, 7, 8}
+util.table.move(extension, 1, util.table.len(extension), util.table.len(base) + 1, base)
+
+core.engine.print("info", util.table.concat(base, ", ")) -- '1, 2, 3, 4, 5, 6, 7, 8'
+```

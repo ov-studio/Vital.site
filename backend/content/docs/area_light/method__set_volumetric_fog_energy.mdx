@@ -1,0 +1,35 @@
+---
+title: self:set_volumetric_fog_energy
+description: Sets the volumetric fog energy multiplier of the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_volumetric_fog_energy(
+    energy
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | energy | Volumetric fog energy multiplier to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply volumetric fog energy on a area light"
+local entity = light.area.create()
+
+entity:set_volumetric_fog_energy(1.0)
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_caster_mask
+description: Sets the shadow caster mask of the point light, controlling which layers cast shadows
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_caster_mask(
+    mask
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Shadow caster mask bitmask to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow caster mask on a point light"
+local entity = light.point.create()
+
+entity:set_shadow_caster_mask(1)
+```

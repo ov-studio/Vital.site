@@ -1,0 +1,32 @@
+---
+title: self:is_zoomable
+description: Retrieves whether zoom hotkeys are enabled on the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_zoomable()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if zoom hotkeys are enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if zoom hotkeys are enabled on a webview"
+local entity = core.webview.create()
+
+core.engine.print("info", "Webview zoomable:", entity:is_zoomable())
+```

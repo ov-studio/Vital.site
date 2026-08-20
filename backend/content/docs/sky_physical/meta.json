@@ -1,0 +1,33 @@
+{
+    "title": "Sky Physical",
+    "icon": "Atom",
+    "pages": [
+        "---Getter---",
+        "get_rayleigh_coefficient",
+        "get_rayleigh_color",
+        "get_mie_coefficient",
+        "get_mie_eccentricity",
+        "get_mie_color",
+        "get_turbidity",
+        "get_sun_disk_scale",
+        "get_ground_color",
+        "get_energy_multiplier",
+        "get_use_debanding",
+        "get_night_sky",
+
+        "---Setter---",
+        "set_rayleigh_coefficient",
+        "set_rayleigh_color",
+        "set_mie_coefficient",
+        "set_mie_eccentricity",
+        "set_mie_color",
+        "set_turbidity",
+        "set_sun_disk_scale",
+        "set_ground_color",
+        "set_energy_multiplier",
+        "set_use_debanding",
+        "set_night_sky",
+        "reset_night_sky",
+        "..."
+    ]
+}

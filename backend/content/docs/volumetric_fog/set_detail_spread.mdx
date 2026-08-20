@@ -1,0 +1,33 @@
+---
+title: gfx.vol_fog.set_detail_spread
+description: Sets the detail spread of the volumetric fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.vol_fog.set_detail_spread(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Detail spread value to apply<br/>Controls how detail samples are distributed across the fog volume. Higher values spread detail more unevenly, concentrating finer detail near the camera and coarser detail further away |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Concentrate fog detail near the camera"
+gfx.vol_fog.set_detail_spread(2.0)
+```

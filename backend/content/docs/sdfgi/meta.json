@@ -1,0 +1,37 @@
+{
+    "title": "SDFGI",
+    "icon": "Sun",
+    "pages": [
+        "---Enum---",
+        "enum__y_scale",
+
+        "---Checker---",
+        "is_enabled",
+        "is_using_occlusion",
+        "is_reading_sky_light",
+
+        "---Getter---",
+        "get_cascades",
+        "get_min_cell_size",
+        "get_max_distance",
+        "get_y_scale",
+        "get_bounce_feedback",
+        "get_energy",
+        "get_normal_bias",
+        "get_probe_bias",
+
+        "---Setter---",
+        "set_enabled",
+        "set_cascades",
+        "set_min_cell_size",
+        "set_max_distance",
+        "set_y_scale",
+        "set_use_occlusion",
+        "set_bounce_feedback",
+        "set_read_sky_light",
+        "set_energy",
+        "set_normal_bias",
+        "set_probe_bias",
+        "..."
+    ]
+}

@@ -1,0 +1,35 @@
+---
+title: self:set_distance_fade_shadow
+description: Sets the distance at which shadow casting begins to fade on the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_distance_fade_shadow(
+    distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Shadow fade begin distance in world units |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply distance fade shadow on a directional light"
+local entity = light.directional.create()
+
+entity:set_distance_fade_shadow(1.0)
+```

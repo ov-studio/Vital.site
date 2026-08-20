@@ -1,0 +1,34 @@
+---
+title: self:get_transform
+description: Retrieves the camera's current world-space transform
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_transform()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | Camera's current world-space transform containing:<br/>• `basis` - table with `x`, `y`, `z` as `vector3`<br/>• `origin` - `vector3` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the camera transform"
+local entity = core.camera.create()
+
+entity:set_active()
+core.engine.print("info", "Camera transform:")
+core.engine.iprint(entity:get_transform())
+```

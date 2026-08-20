@@ -1,0 +1,33 @@
+---
+title: gfx.sdfgi.set_cascades
+description: Sets the number of cascades of SDFGI post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sdfgi.set_cascades(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Number of cascades to apply<br/>Higher values extend the range of the global illumination by adding more levels of detail at increasing distances from the camera, at the cost of performance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a high cascade count for large open environments"
+gfx.sdfgi.set_cascades(8)
+```

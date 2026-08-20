@@ -1,0 +1,32 @@
+---
+title: self:is_connected
+description: Checks whether the database instance has an active connection
+badge: server
+---
+
+### Syntax
+
+```lua
+local result = self:is_connected()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the connection is active, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether the database connection is active"
+local entity = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+core.engine.print("info", entity:is_connected()) -- true
+```

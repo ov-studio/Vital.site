@@ -1,0 +1,32 @@
+---
+title: self:is_negative
+description: Checks whether the area light is set to negative mode, which subtracts light from the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_negative()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the light is in negative mode, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check is negative on a area light"
+local entity = light.area.create()
+
+core.engine.print("info", entity:is_negative())
+```

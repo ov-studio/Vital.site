@@ -1,0 +1,32 @@
+---
+title: self:get_angular_distance
+description: Retrieves the angular distance of the directional light in degrees, which controls the softness of shadows by simulating a light source with angular size
+badge: client
+---
+
+### Syntax
+
+```lua
+local degrees = self:get_angular_distance()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | degrees | Current angular distance in degrees |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the angular distance of a directional light"
+local entity = light.directional.create()
+
+core.engine.print("info", entity:get_angular_distance())
+```

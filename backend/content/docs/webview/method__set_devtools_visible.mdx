@@ -1,0 +1,39 @@
+---
+title: self:set_devtools_visible
+description: Toggles the developer tools panel on the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_devtools_visible(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines the devtools visibility:<br/>• When `true` - the devtools panel is opened<br/>• When `false` - the devtools panel is closed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle devtools's visibility on a webview"
+local entity = core.webview.create()
+
+-- Open devtools
+entity:set_devtools_visible(true)
+
+-- Close devtools
+entity:set_devtools_visible(false)
+```

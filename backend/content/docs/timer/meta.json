@@ -1,0 +1,15 @@
+{
+    "title": "Timer",
+    "icon": "Timer",
+    "pages": [
+        "---Base---",
+        "create",
+        "next_tick",
+        "...",
+
+        "---⁝⁝Lifecycle---",
+        "method__is_type",
+        "method__get_type",
+        "method__destroy"
+    ]
+}

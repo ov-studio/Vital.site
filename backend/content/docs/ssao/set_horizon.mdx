@@ -1,0 +1,33 @@
+---
+title: gfx.ssao.set_horizon
+description: Sets the horizon threshold of the SSAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssao.set_horizon(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Horizon value to apply<br/>Controls how much occlusion is applied to surfaces facing away from the camera, reducing halo artifacts on silhouettes |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reduce silhouette halos"
+gfx.ssao.set_horizon(0.06)
+```

@@ -1,0 +1,33 @@
+---
+title: gfx.ssil.set_sharpness
+description: Sets the sharpness of SSIL post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssil.set_sharpness(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sharpness value to apply<br/>Higher values preserve edge detail and prevent indirect light from bleeding across geometry boundaries |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Preserve sharp indirect light edges"
+gfx.ssil.set_sharpness(0.98)
+```

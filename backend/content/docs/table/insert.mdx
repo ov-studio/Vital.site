@@ -1,0 +1,109 @@
+---
+title: util.table.insert
+description: Inserts an element into a table at a specified position
+badge: shared
+---
+
+### Syntax
+
+```lua
+util.table.insert(
+    input,
+    value,
+    index = util.table.len(input) + 1
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to insert into |
+| `any` | value | Value to insert |
+| `int` | index | Index where the element should be inserted |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+
+---
+
+### Examples
+
+```lua lineNumbers title="Append an element to the end of a table"
+local t = {1, 2, 3}
+util.table.insert(t, 4)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- '1, 2, 3, 4'
+```
+
+```lua lineNumbers title="Insert an element at a specific position"
+local t = {"a", "c", "d"}
+util.table.insert(t, 2, "b")
+
+core.engine.print("info", util.table.concat(t, ", ")) -- 'a, b, c, d'
+```
+
+```lua lineNumbers title="Insert an element at the beginning"
+local t = {2, 3, 4}
+util.table.insert(t, 1, 1)
+
+core.engine.print("info", util.table.concat(t, ", ")) -- '1, 2, 3, 4'
+```
+
+```lua lineNumbers title="Build an array dynamically with a loop"
+local numbers = {}
+for i = 1, 5 do
+    util.table.insert(numbers, i*10)
+end
+
+core.engine.print("info", util.table.concat(numbers, ", ")) -- '10, 20, 30, 40, 50'
+```
+
+```lua lineNumbers title="Append multiple strings to a table"
+local words = {"hello"}
+util.table.insert(words, "world")
+util.table.insert(words, "lua")
+
+core.engine.print("info", util.table.concat(words, " ")) -- 'hello world lua'
+```
+
+```lua lineNumbers title="Insert an element at a middle position"
+local colors = {"red", "green", "blue"}
+util.table.insert(colors, 2, "yellow")
+
+core.engine.print("info", util.table.concat(colors, ", ")) -- 'red, yellow, green, blue'
+```
+
+```lua lineNumbers title="Insert into an empty table"
+local t = {}
+util.table.insert(t, "first")
+
+core.engine.print("info", t[1]) -- 'first'
+```
+
+```lua lineNumbers title="Push elements onto a stack"
+local stack = {}
+util.table.insert(stack, "item1")
+util.table.insert(stack, "item2")
+util.table.insert(stack, "item3")
+
+core.engine.print("info", #stack) -- 3
+```
+
+```lua lineNumbers title="Build a list by inserting from another table"
+local names = {}
+local inputs = {"Alice", "Bob", "Charlie"}
+
+for _, name in ipairs(inputs) do
+    util.table.insert(names, name)
+end
+```
+
+```lua lineNumbers title="Insert a table as a nested element"
+local lists = {{1, 2}, {3, 4}}
+util.table.insert(lists, {5, 6})
+
+core.engine.print("info", #lists) -- 3
+```

@@ -1,0 +1,35 @@
+---
+title: webview:preload
+description: Fired when a webview begins loading a new page, before it finishes
+badge: client
+---
+
+### Signal
+
+```lua
+"webview:preload"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | webview | The webview instance triggering the event |
+| `string` | url | The URL being loaded |
+
+<Callout type="info">
+  **Fires at the start of a page load, before the page is ready.**
+
+  - Kit JS modules are injected into the page at this point.
+  - Use this to perform setup before the page content is available.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Detect webview page start"
+util.event.on("webview:preload", function(webview, url)
+    core.engine.print("info", "Webview loading:", url)
+end)
+```

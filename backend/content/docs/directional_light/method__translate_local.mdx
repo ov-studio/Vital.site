@@ -1,0 +1,35 @@
+---
+title: self:translate_local
+description: Moves the directional light by the given offset relative to its local axes
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:translate_local(
+    offset
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | offset | Local-space offset to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Move a directional light forward along its local Z axis"
+local entity = light.directional.create()
+
+entity:translate_local({0, 0, 2})
+```

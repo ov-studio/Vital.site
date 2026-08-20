@@ -1,0 +1,32 @@
+---
+title: self:reset_texture
+description: Removes the currently active texture from the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:reset_texture()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove the texture from an area light"
+local entity = light.area.create()
+
+entity:reset_texture()
+```

@@ -1,0 +1,89 @@
+---
+title: core.engine.draw_circle
+description: Draws a filled circle on the canvas
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.engine.draw_circle(
+    position, 
+    radius, 
+    color = {1, 1, 1, 1}, 
+    stroke = 0, 
+    stroke_color = {1, 1, 1, 1}, 
+    rotation = 0, 
+    pivot = {0, 0}
+)
+```
+
+<Callout type="warn">
+  **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
+
+  - **Inside the event** — executes as expected, rendering the filled circle to the canvas each frame.
+  - **Outside the event** — the call will be silently ignored and nothing will be drawn.
+  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Center point of the circle |
+| `float` | radius | Radius of the circle in pixels |
+| `color` | color | Fill color of the circle |
+| `float` | stroke | Outline thickness in pixels<br/>Set to `0` to disable |
+| `color` | stroke_color | Color of the outline |
+| `float` | rotation | Rotation angle in degrees |
+| `vector2` | pivot | Pivot point for rotation, relative to the circle's position |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw a plain circle at the center"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_circle(
+        {center[1], center[2]},
+        50
+    )
+end)
+```
+
+```lua lineNumbers title="Draw a filled circle with an outline"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_circle(
+        {center[1] + 150, center[2]},
+        50,
+        {1, 0, 0, 1},
+        3,
+        {0.2, 0, 0, 1}
+    )
+end)
+```
+
+```lua lineNumbers title="Draw a semi-transparent circle"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_circle(
+        {center[1] - 150, center[2]},
+        50,
+        {0, 0.5, 1, 0.5}
+    )
+end)
+```

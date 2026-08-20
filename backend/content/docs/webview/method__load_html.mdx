@@ -1,0 +1,35 @@
+---
+title: self:load_html
+description: Loads raw HTML content into the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:load_html(
+    html
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | html | Raw HTML string to load into the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Load raw HTML into a webview"
+local entity = core.webview.create()
+
+entity:load_html("<h1>Hello World</h1>")
+```

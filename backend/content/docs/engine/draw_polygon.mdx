@@ -1,0 +1,101 @@
+---
+title: core.engine.draw_polygon
+description: Draws a filled polygon from a series of 2D points on the canvas
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.engine.draw_polygon(
+    points, 
+    color = {1, 1, 1, 1}, 
+    stroke = 0, 
+    stroke_color = {1, 1, 1, 1}, 
+    rotation = 0, 
+    pivot = {0, 0}
+)
+```
+
+<Callout type="warn">
+  **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
+
+  - **Inside the event** — executes as expected, rendering the filled polygon to the canvas each frame.
+  - **Outside the event** — the call will be silently ignored and nothing will be drawn.
+  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2[]` | points | Array of 2D points defining the polygon vertices |
+| `color` | color | Fill color of the polygon |
+| `float` | stroke | Outline thickness in pixels<br/>Set to `0` to disable |
+| `color` | stroke_color | Color of the outline |
+| `float` | rotation | Rotation angle in degrees |
+| `vector2` | pivot | Pivot point for rotation, relative to the polygon's origin |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw a plain white triangle"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_polygon(
+        {
+            {center[1],       center[2] - 220},
+            {center[1] + 80,  center[2] - 80},
+            {center[1] - 80,  center[2] - 80}
+        }
+    )
+end)
+```
+
+```lua lineNumbers title="Draw a filled triangle with a colored outline"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_polygon(
+        {
+            {center[1],       center[2] - 80},
+            {center[1] + 80,  center[2] + 60},
+            {center[1] - 80,  center[2] + 60}
+        },
+        {0, 0, 1, 1},
+        3,
+        {1, 0, 0, 1}
+    )
+end)
+```
+
+```lua lineNumbers title="Draw a polygon rotated around a pivot point"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_polygon(
+        {
+            {center[1] - 50, center[2] + 100},
+            {center[1] + 50, center[2] + 100},
+            {center[1] + 50, center[2] + 200},
+            {center[1] - 50, center[2] + 200}
+        },
+        {1, 1, 0, 1},
+        0,
+        {1, 1, 1, 1},
+        45,
+        {center[1], center[2] + 150}
+    )
+end)
+```

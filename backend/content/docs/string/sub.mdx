@@ -1,0 +1,174 @@
+---
+title: util.string.sub
+description: Extracts a substring from a string
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.string.sub(
+    input,
+    start_at,
+    end_at = -1
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to extract from |
+| `int` | start_at | Character position where extraction begins - negative counts from end |
+| `int` | end_at | Character position where extraction ends - negative counts from end |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Extracted substring within string's specified range |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Extract a substring by start and end position"
+local result = util.string.sub("hello world", 1, 5)
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Extract from a position to the end"
+local result = util.string.sub("hello world", 7)
+
+core.engine.print("info", result) -- 'world'
+```
+
+```lua lineNumbers title="Get the last characters using a negative index"
+local result = util.string.sub("hello", -3)
+
+core.engine.print("info", result) -- 'llo'
+```
+
+```lua lineNumbers title="Use a negative end position"
+local result = util.string.sub("hello world", 1, -7)
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Extract the middle portion of a string"
+local result = util.string.sub("hello world", 2, -2)
+
+core.engine.print("info", result) -- 'ello worl'
+```
+
+```lua lineNumbers title="Extract a single character"
+local char = util.string.sub("hello", 1, 1)
+
+core.engine.print("info", char) -- 'h'
+```
+
+```lua lineNumbers title="Extract the last character"
+local last = util.string.sub("hello", -1)
+
+core.engine.print("info", last) -- 'o'
+```
+
+```lua lineNumbers title="Extract a file extension"
+local filename = "document.txt"
+local ext = util.string.sub(filename, -3)
+
+core.engine.print("info", ext) -- 'txt'
+```
+
+```lua lineNumbers title="Extract the first word from a string"
+local text = "hello world"
+local space = util.string.find(text, " ")
+local firstWord = util.string.sub(text, 1, space - 1)
+
+core.engine.print("info", firstWord) -- 'hello'
+```
+
+```lua lineNumbers title="Remove the first and last character"
+local str = "[hello]"
+local inner = util.string.sub(str, 2, -2)
+
+core.engine.print("info", inner) -- 'hello'
+```
+
+```lua lineNumbers title="Sub with full range returns the entire string"
+local str = "hello"
+local copy = util.string.sub(str, 1, -1)
+
+core.engine.print("info", copy) -- 'hello'
+```
+
+```lua lineNumbers title="Return empty string when start exceeds end"
+local result = util.string.sub("hello", 5, 3)
+
+core.engine.print("info", result) -- ''
+```
+
+```lua lineNumbers title="Clamped to string length when end exceeds bounds"
+local result = util.string.sub("hello", 1, 100)
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Use a negative start position"
+local result = util.string.sub("hello", -5, -1)
+
+core.engine.print("info", result) -- 'hello'
+```
+
+```lua lineNumbers title="Extract the year from a date string"
+local date = "2024-01-15"
+local year = util.string.sub(date, 1, 4)
+
+core.engine.print("info", year) -- '2024'
+```
+
+```lua lineNumbers title="Extract the month from a date string"
+local date = "2024-01-15"
+local month = util.string.sub(date, 6, 7)
+
+core.engine.print("info", month) -- '01'
+```
+
+```lua lineNumbers title="Split a string into fixed-size chunks"
+local str = "abcdefgh"
+for i = 1, #str, 2 do
+    local chunk = util.string.sub(str, i, i + 1)
+    core.engine.print("info", chunk)
+end
+
+--[[
+Output: 
+'ab'
+'cd'
+'ef'
+'gh'
+]]
+```
+
+```lua lineNumbers title="Truncate a long string with ellipsis"
+local long = "This is a very long string"
+local short = util.string.sub(long, 1, 10).."..."
+
+core.engine.print("info", short) -- 'This is a ...'
+```
+
+```lua lineNumbers title="Check if a string starts with a prefix"
+local str = "hello world"
+
+if util.string.sub(str, 1, 5) == "hello" then
+    core.engine.print("info", "Starts with hello")
+end
+```
+
+```lua lineNumbers title="Extract content between known indices"
+local str = "prefix_content_suffix"
+local content = util.string.sub(str, 8, 14)
+
+core.engine.print("info", content) -- 'content'
+```

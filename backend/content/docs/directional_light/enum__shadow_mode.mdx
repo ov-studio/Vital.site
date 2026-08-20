@@ -1,0 +1,23 @@
+---
+title: light.directional.shadow_mode
+description: Enumeration of shadow rendering modes available for the directional light
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `light.directional.shadow_mode.ORTHOGONAL` | Renders the entire scene's shadow map from a single orthogonal view. Fastest mode but may result in blurrier shadows on close objects |
+| `light.directional.shadow_mode.PARALLEL_2_SPLITS` | Splits the view frustum into 2 areas, each with its own shadow map. A balance between `ORTHOGONAL` and `PARALLEL_4_SPLITS` |
+| `light.directional.shadow_mode.PARALLEL_4_SPLITS` | Splits the view frustum into 4 areas, each with its own shadow map. Highest quality directional shadows, most expensive to render |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set directional light shadow mode to 4-split cascades"
+local entity = light.directional.create()
+
+entity:set_shadow_mode(light.directional.shadow_mode.PARALLEL_4_SPLITS)
+```

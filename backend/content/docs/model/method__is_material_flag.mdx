@@ -1,0 +1,45 @@
+---
+title: self:is_material_flag
+description: Retrieves whether a specific rendering flag is enabled on a material
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_material_flag(
+    component,
+    material,
+    flag
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component containing the material |
+| `string` | material | Name of the material to check |
+| `int` | flag | Flag index to query<br/>Refer [Flags](#flags) section |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the flag is enabled, `false` otherwise |
+
+---
+
+<include>./method__set_material_flag.mdx#flags</include>
+
+### Examples
+
+```lua lineNumbers title="Check if certain flags are enabled on a material"
+local entity = core.model.create("character")
+
+-- Check if depth test is disabled on a material
+core.engine.print("info", "Depth test disabled:", entity:is_material_flag("Skeleton3D/Body", "outline", 0))
+
+-- Check if the material ignores shadows
+core.engine.print("info", "Shadows disabled:", entity:is_material_flag("Skeleton3D/Head", "face", 13))
+```

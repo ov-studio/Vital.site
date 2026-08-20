@@ -1,0 +1,32 @@
+---
+title: self:is_shadow_enabled
+description: Checks whether shadow casting is enabled on the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_shadow_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if shadow casting is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check is shadow enabled on a spot light"
+local entity = light.spot.create()
+
+core.engine.print("info", entity:is_shadow_enabled())
+```

@@ -1,0 +1,36 @@
+---
+title: self:set_z_index
+description: Sets the stacking order of the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_z_index(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Stacking order to set<br/>Silently clamped to `0`–`10000` (values above are reserved for engine UI like the console) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the z-index of a webview"
+local entity = core.webview.create()
+
+-- Move webview above other webviews
+entity:set_z_index(100)
+```

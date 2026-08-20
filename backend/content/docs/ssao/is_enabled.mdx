@@ -1,0 +1,30 @@
+---
+title: gfx.ssao.is_enabled
+description: Retrieves whether the SSAO post-processing effect is currently enabled
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.ssao.is_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if SSAO is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print whether ssao is currently enabled"
+core.engine.print("info", "SSAO enabled:", gfx.ssao.is_enabled())
+```

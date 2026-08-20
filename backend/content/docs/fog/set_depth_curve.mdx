@@ -1,0 +1,40 @@
+---
+title: gfx.fog.set_depth_curve
+description: Sets the depth curve of the fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_depth_curve(
+    value
+)
+```
+
+<Callout type="warn">
+  **Only available when the fog mode is set to depth mode.** Refer [`gfx.fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
+
+  - **Depth mode required** — calling this function in any other fog mode will have no effect.
+  - **Recommended usage** — combine with [`gfx.fog.set_depth_begin`](/docs/fog/set_depth_begin) and [`gfx.fog.set_depth_end`](/docs/fog/set_depth_end) to fully control the fog transition shape.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Depth curve value to apply<br/>Controls the rate at which fog density increases between the depth begin and end points. Higher values cause fog to build up more aggressively near the end distance, while lower values spread the transition more evenly |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply an aggressive fog falloff toward the far end"
+gfx.fog.set_depth_curve(1.5)
+```

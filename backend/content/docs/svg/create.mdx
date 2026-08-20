@@ -1,0 +1,48 @@
+---
+title: core.svg.create
+description: Creates a new SVG instance from a file path
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = core.svg.create(
+    path,
+    mipmaps = false
+)
+```
+
+<Callout type="info">
+  **Only needed if you already know a mipmap-based filter is coming.**
+
+  - **Use it when** — the SVG is going to use `NEAREST_MIPMAP`, `LINEAR_MIPMAP`, or an `ANISOTROPIC` variant.
+  - **Before compressing** — if both mipmaps and compression are needed, pass `true` here; [`self:compress`](/docs/texture/method/compress) cannot generate mipmaps, so this is the only opportunity.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to the SVG asset |
+| `bool` | mipmaps | Determines whether to generate a mipmap chain for the underlying svg texture |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `svg` | instance | Created SVG instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create an SVG instance from a file"
+local entity = core.svg.create("assets/icon.svg")
+```
+
+```lua lineNumbers title="Create an SVG with mipmaps for mipmap-based filtering"
+local entity = core.svg.create("assets/icon.svg", true)
+
+entity:set_filter(core.svg.svg_filter.LINEAR_MIPMAP_ANISOTROPIC)
+```

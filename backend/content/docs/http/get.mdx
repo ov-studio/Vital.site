@@ -1,0 +1,82 @@
+---
+title: util.http.get
+description: Executes a GET request on specified url
+badge: shared
+---
+
+### Syntax
+
+```lua
+local promise = util.http.get(
+    url,
+    headers = {
+        "Content-Type: application/json"
+    },
+    timeout = 60
+)
+```
+
+<Callout type="info">
+  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Inside a thread** — `self:await(util.http.get(...))` yields until the response is received, then returns the resolved values.
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | url | Request URL to query |
+| `table` | headers | Request headers for query |
+| `int` | timeout | Read timeout in seconds |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` | promise | Refer [**Settlements**](#settlements) section |
+
+---
+
+### Settlements
+
+| Type | Name | Description |
+|---------|------|-------------|
+| `bool` | status | `true` on success, `false` otherwise |
+| `string` | resolved | Response body returned by the server |
+| `string` | rejected | Error message describing the failure |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Send a basic GET request"
+util.thread.create(function(self)
+    local ok, result = self:await(util.http.get("https://api.example.com/info"))
+    
+    if ok then
+        core.engine.print("info", "Response:", result)
+    else
+        core.engine.print("error", "Request failed:", result)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Send a GET with custom headers and timeout"
+util.thread.create(function(self)
+    local ok, result = self:await(util.http.get("https://api.example.com/data",
+        {
+            "User-Agent: MyApp",
+            "Accept: application/json"
+        },
+        30
+    ))
+
+    if ok then
+        core.engine.print("info", "Response:", result)
+    else
+        core.engine.print("error", "Request failed:", result)
+    end
+end):resume()
+```

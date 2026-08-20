@@ -1,0 +1,35 @@
+---
+title: self:set_transmittance_bias
+description: Sets the transmittance bias of the directional light used for subsurface scattering
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_transmittance_bias(
+    bias
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | bias | Transmittance bias value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply transmittance bias on a directional light"
+local entity = light.directional.create()
+
+entity:set_transmittance_bias(1.0)
+```

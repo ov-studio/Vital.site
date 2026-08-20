@@ -1,0 +1,30 @@
+---
+title: gfx.vol_fog.get_density
+description: Retrieves the current density of the volumetric fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.vol_fog.get_density()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current density value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current volumetric fog density"
+core.engine.print("info", "Volumetric fog density:", gfx.vol_fog.get_density())
+```

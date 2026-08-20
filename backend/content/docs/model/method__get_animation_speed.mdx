@@ -1,0 +1,32 @@
+---
+title: self:get_animation_speed
+description: Retrieves the current playback speed of the model's animation
+badge: shared
+---
+
+### Syntax
+
+```lua
+local speed = self:get_animation_speed()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | speed | Current animation playback speed multiplier |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current animation playback speed"
+local entity = core.model.create("character")
+
+core.engine.print("info", "Animation speed:", entity:get_animation_speed())
+```

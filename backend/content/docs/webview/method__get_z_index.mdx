@@ -1,0 +1,32 @@
+---
+title: self:get_z_index
+description: Retrieves the current stacking order of the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local z_index = self:get_z_index()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | z_index | Current stacking order of the webview |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the z-index of a webview"
+local entity = core.webview.create()
+
+core.engine.print("info", "Webview z-index:", entity:get_z_index())
+```

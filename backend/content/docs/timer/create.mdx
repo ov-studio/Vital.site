@@ -1,0 +1,61 @@
+---
+title: util.timer.create
+description: Creates a new timer instance that executes specified function on a given interval
+badge: shared
+---
+
+### Syntax
+
+```lua
+local instance = util.timer.create(
+    exec,
+    interval,
+    executions
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | exec | Function to execute by the timer |
+| `int` | interval | Interval in milliseconds between each execution<br/>Must be >= `0` |
+| `int` | executions | Number of times to execute (`0` means infinite)<br/>Must be >= `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `timer` | instance | Created timer instance |
+
+---
+
+### Callback: `exec`
+
+```lua
+exec(count)
+```
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | count | Number of times the timer has executed |
+
+---
+
+```lua lineNumbers title="Create a one-shot timer"
+local entity = util.timer.create(function(count)
+    core.engine.print("info", "Counter:", count)
+end, 1000, 1)
+```
+
+```lua lineNumbers title="Create a repeating timer"
+local entity = util.timer.create(function(count)
+    core.engine.print("info", "Counter:", count)
+end, 500, 0)
+```
+
+```lua lineNumbers title="Create a timer that fires 3 times then auto-destroys"
+local entity = util.timer.create(function(count)
+    core.engine.print("info", count.."/3")
+end, 1000, 3)
+```

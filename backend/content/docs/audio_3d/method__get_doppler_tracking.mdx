@@ -1,0 +1,32 @@
+---
+title: self:get_doppler_tracking
+description: Retrieves the doppler tracking mode of the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_doppler_tracking()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.audio_3d.doppler_tracking`](/docs/audio_3d/enum/doppler_tracking) | result | Current Doppler tracking mode |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the Doppler tracking mode of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+core.engine.print("info", "Doppler tracking:", entity:get_doppler_tracking())
+```

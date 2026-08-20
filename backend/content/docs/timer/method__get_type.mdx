@@ -1,0 +1,34 @@
+---
+title: self:get_type
+description: Retrieves the type name of the instance
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Type of the instance, `false` if unavailable |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a timer instance"
+local entity = util.timer.create(function(count)
+    core.engine.print("info", "Counter:", count)
+end, 1000, 1)
+
+core.engine.print("info", entity:get_type()) -- 'timer'
+```

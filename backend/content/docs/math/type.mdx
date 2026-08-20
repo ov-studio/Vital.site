@@ -1,0 +1,79 @@
+---
+title: util.math.type
+description: Returns the numeric subtype of a value as a string, or false if the value is not a number
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.type(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | value | Value to check the numeric subtype of |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Numeric subtype of value: <br/>• `"integer"` - when value is an integer <br/>• `"float"` - when value is a float <br/>• `false` - when value is not a number |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Integer literal returns 'integer'"
+local result = util.math.type(1)
+
+core.engine.print("info", result) -- 'integer'
+```
+
+```lua lineNumbers title="Float literal returns 'float'"
+local result = util.math.type(1.0)
+
+core.engine.print("info", result) -- 'float'
+```
+
+```lua lineNumbers title="Non-number returns false"
+local result = util.math.type("hello")
+
+core.engine.print("info", result) -- false
+```
+
+```lua lineNumbers title="Result of integer division is integer"
+local result = util.math.type(10 // 3)
+
+core.engine.print("info", result) -- 'integer'
+```
+
+```lua lineNumbers title="Result of float division is float"
+local result = util.math.type(10/3)
+
+core.engine.print("info", result) -- 'float'
+```
+
+```lua lineNumbers title="Distinguish integer from float with the same value"
+core.engine.print("info", util.math.type(1))   -- 'integer'
+core.engine.print("info", util.math.type(1.0)) -- 'float'
+```
+
+```lua lineNumbers title="Branch logic by numeric subtype"
+local values = {1, 2.5, 3, 4.0, "hi"}
+
+for _, v in ipairs(values) do
+    local subtype = util.math.type(v)
+    if subtype == "integer" then
+        core.engine.print("info", v, "is an integer")
+    elseif subtype == "float" then
+        core.engine.print("info", v, "is a float")
+    else
+        core.engine.print("info", v, "is not a number")
+    end
+end
+```

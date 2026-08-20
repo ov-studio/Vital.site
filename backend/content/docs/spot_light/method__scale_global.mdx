@@ -1,0 +1,35 @@
+---
+title: self:scale_global
+description: Scales the spot light in world space by the given factor
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:scale_global(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale factor to apply in world space as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Scale a spot light uniformly in world space"
+local entity = light.spot.create()
+
+entity:scale_global({2, 2, 2})
+```

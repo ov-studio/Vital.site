@@ -1,0 +1,33 @@
+---
+title: self:get_bones
+description: Retrieves a list of all bone names in the model's skeleton
+badge: shared
+---
+
+### Syntax
+
+```lua
+local bones = self:get_bones()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | bones | Array of bone name strings |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print all bone names in a model's skeleton"
+local entity = core.model.create("character")
+local bones = entity:get_bones()
+
+core.engine.iprint(bones)
+```

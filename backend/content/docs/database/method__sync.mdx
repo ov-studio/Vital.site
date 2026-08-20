@@ -1,0 +1,61 @@
+---
+title: self:sync
+description: Synchronises all defined table schemas with the database, creating any tables that do not already exist
+badge: server
+---
+
+### Syntax
+
+```lua
+local promise = self:sync()
+```
+
+<Callout type="info">
+  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Inside a thread** — `self:await(database:sync())` yields until the sync completes, then returns the resolved values.
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` | promise | Refer [**Settlements**](#settlements) section |
+
+---
+
+### Settlements
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on success, `false` otherwise |
+| `bool` | resolved | true |
+| `string` | rejected | Error message describing the failure |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Define and sync the 'players' table"
+local entity = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+entity:define("players", {
+    id = { type = "INT UNSIGNED", primary = true, autoincrement = true, nullable = false },
+    name = { type = "VARCHAR(64)", nullable = false },
+    score = { type = "INT", nullable = true }
+})
+
+util.thread.create(function(self)
+    local ok, err = self:await(entity:sync())
+
+    if not ok then
+        core.engine.print("error", err)
+    end
+end):resume()
+```

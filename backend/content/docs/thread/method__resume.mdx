@@ -1,0 +1,50 @@
+---
+title: self:resume
+description: Resumes a suspended thread instance
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:resume()
+```
+
+<Callout type="warn">
+  **A thread cannot be resumed while it is sleeping or awaiting a promise.** Both states must be cleared before `self:resume` can run successfully.
+
+  - **Sleeping** — the thread is currently inside a [`self:sleep`](/docs/thread/method/sleep) call and has not yet woken up.
+  - **Awaiting** — the thread is currently suspended inside a [`self:await`](/docs/thread/method/await) call waiting for a promise to settle.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create and resume a basic thread"
+local entity = util.thread.create(function(self)
+    core.engine.print("info", "Hello from thread")
+end)
+
+entity:resume()
+```
+
+```lua lineNumbers title="Attempt to resume a sleeping thread"
+local entity = util.thread.create(function(self)
+    self:sleep(5000)
+end)
+
+entity:resume()
+core.engine.print("info", entity:resume()) -- false
+```

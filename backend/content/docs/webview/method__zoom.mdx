@@ -1,0 +1,42 @@
+---
+title: self:zoom
+description: Sets the zoom level of the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:zoom(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Zoom level to apply. `1.0` is the default zoom level |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set various zoom levels on a webview"
+local entity = core.webview.create()
+
+-- Reset to default zoom
+entity:zoom(1.0)
+
+-- Zoom in
+entity:zoom(1.5)
+
+-- Zoom out
+entity:zoom(0.75)
+```

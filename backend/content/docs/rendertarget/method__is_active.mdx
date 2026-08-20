@@ -1,0 +1,33 @@
+---
+title: self:is_active
+description: Checks whether this instance is the currently active rendertarget
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_active()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if this instance is the active rendertarget, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a rendertarget is currently active"
+local entity = core.rendertarget.create(1920, 1080, false)
+
+entity:set_active()
+core.engine.print("info", "Is rendertarget active:", entity:is_active()) -- true
+```

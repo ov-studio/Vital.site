@@ -1,0 +1,30 @@
+---
+title: gfx.vol_fog.get_gi_inject
+description: Retrieves the current GI injection amount of the volumetric fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.vol_fog.get_gi_inject()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current GI inject value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current volumetric fog GI inject amount"
+core.engine.print("info", "Volumetric fog GI inject:", gfx.vol_fog.get_gi_inject())
+```

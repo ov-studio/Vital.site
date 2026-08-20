@@ -1,0 +1,35 @@
+---
+title: self:set_position
+description: Sets the local position of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_position(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Position to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the local position of a spot light"
+local entity = light.spot.create()
+
+entity:set_position({0, 5, 0})
+```

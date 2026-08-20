@@ -1,0 +1,85 @@
+---
+title: util.string.find
+description: Searches for a pattern in a string and returns its position
+badge: shared
+---
+
+### Syntax
+
+```lua
+local start_at, end_at, ... = util.string.find(
+    input,
+    pattern,
+    start_at = 1,
+    plain_text = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | String to search in |
+| `string` | pattern | Pattern to search for (supports Lua patterns unless plain_text is true) |
+| `int` | start_at | Position to start searching from - negative counts from end |
+| `bool` | plain_text | When true - pattern is treated as plain text, not a pattern |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | start_at | Starting index of the match, or `nil` if not found |
+| `int` | end_at | Ending index of the match, or `nil` if not found |
+| `any` | ... | Any captured substrings from the pattern |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Find the position of a substring"
+local s, e = util.string.find("hello world", "world")
+
+core.engine.print("info", s, e) -- 7  11
+```
+
+```lua lineNumbers title="Find the first occurrence of a character"
+local pos = util.string.find("hello", "l")
+
+core.engine.print("info", pos) -- 3
+```
+
+```lua lineNumbers title="Search starting from a specific position"
+local s, e = util.string.find("hello hello", "hello", 7)
+
+core.engine.print("info", s, e) -- 7  11
+```
+
+```lua lineNumbers title="Find a pattern match position"
+local s, e = util.string.find("Price: $25.99", "%d+")
+
+core.engine.print("info", s, e) -- 9  10
+```
+
+```lua lineNumbers title="Find a pattern and capture a group"
+local s, e, num = util.string.find("hello 123 world", "(%d+)")
+
+core.engine.print("info", s, e, num) -- 7  9  123
+```
+
+```lua lineNumbers title="Use plain text search to disable pattern matching"
+local s, e = util.string.find("Cost: $5.00", "$", 1, true)
+
+core.engine.print("info", s, e) -- 7  7
+```
+
+```lua lineNumbers title="Find a pattern and capture multiple groups"
+local s, e, word1, word2 = util.string.find("hello world", "(%a+) (%a+)")
+
+core.engine.print("info", word1, word2) -- hello  world
+```
+
+```lua lineNumbers title="Search from the end using a negative index"
+local s, e = util.string.find("hello", "l", -3)
+
+core.engine.print("info", s, e) -- 3  3
+```

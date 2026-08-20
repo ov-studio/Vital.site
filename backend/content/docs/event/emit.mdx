@@ -1,0 +1,111 @@
+---
+title: util.event.emit
+description: Fires an event, invoking all registered handlers with the supplied arguments
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = util.event.emit(
+    name,
+    options = nil,
+    ...
+)
+```
+
+<Callout type="info">
+  **`options` is positional — pass `nil` or omit it entirely when no routing is needed.**
+
+  - **When routing options are needed** — pass the options table as the second argument.
+  - **When no routing options are needed** — omit `options` and pass arguments directly after `name`.
+</Callout>
+
+<Callout type="warn">
+  **Only serializable values survive remote transmission. Non-serializable values are silently dropped.**
+
+  - **Safe to send** — `nil`, `bool`, `number`, `string`, `table` (including nested tables).
+  - **Silently dropped** — functions, userdata, threads, and any other non-serializable Lua values.
+  - **Local-only emit** (`remote = false`) — no serialization occurs; all Lua values are forwarded as-is.
+  - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the event to fire |
+| `table` | options | Routing options table<br/>Refer [Options](#options) section |
+| `any` | ... | Arguments forwarded to every handler |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Options
+
+| Type | Key | Default | Side | Description |
+|------|-----|---------|------|-------------|
+| `bool` | remote | `false` | Shared | • When `true` - transmits the event to the remote side; client sends to server, server broadcasts to all peers<br/>• When `false` - fires handlers on the current side only |
+| `int` | peer | `0` | Server | Target peer-id for directed server-side remote dispatch (ignored on client)<br/>• When `0` - broadcasts to all connected peers<br/>• When `> 0` - sends to that specific peer only |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Fire a local event with arguments"
+util.event.on("on_damage", function(amount)
+    core.engine.print("info", "Damage received:", amount)
+end)
+
+util.event.emit("on_damage", 50)
+```
+
+```lua lineNumbers title="Emit an event from client to server"
+if core.engine.get_platform() == "client" then
+    util.event.emit("on_player_ready", { remote = true }, "Tron", "sandstorm")
+else
+    util.event.on("on_player_ready", function(name, map)
+        core.engine.print("info", "Player ready:", name, map)
+    end)
+end
+```
+
+```lua lineNumbers title="Broadcast an event from server to all clients"
+if core.engine.get_platform() == "client" then
+    util.event.on("on_round_start", function(round, map)
+        core.engine.print("info", "Round started:", round, map)
+    end)
+else
+    util.event.emit("on_round_start", { remote = true }, 1, "sandstorm")
+end
+```
+
+```lua lineNumbers title="Emit an event from server to a specific client"
+if core.engine.get_platform() == "client" then
+    util.event.on("on_kick_notice", function(reason)
+        core.engine.print("warn", "Kicked:", reason)
+    end)
+else
+    util.event.emit("on_kick_notice", { remote = true, peer = 1963414407 }, "You were kicked")
+end
+```
+
+```lua lineNumbers title="Emit a event from client to server and pass a table payload"
+if core.engine.get_platform() == "client" then
+    util.event.emit("on_player_spawn", { remote = true }, {
+        name = "Tron",
+        position  = { x = 0, y = 0, z = 0 },
+        team = "blue"
+    })
+else
+    util.event.on("on_player_spawn", function(data)
+        core.engine.print("info", "Player spawned:", data.name, data.team)
+        core.engine.iprint(data)
+    end)
+end
+```

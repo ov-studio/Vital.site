@@ -1,0 +1,43 @@
+---
+title: sandbox:process
+description: Fired every engine tick — the main update loop for game logic
+badge: shared
+---
+
+### Signal
+
+```lua
+"sandbox:process"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | delta | Time in seconds elapsed since the last tick |
+
+<Callout type="info">
+  **This is the global tick hook for all game logic.**
+
+  - Use `delta` to keep movement and timers framerate-independent.
+  - Do not make `core.engine.draw_*` calls here — use [`sandbox:draw`](/docs/event/signal/sandbox_draw) for all rendering.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Per-tick game logic"
+util.event.on("sandbox:process", function(delta)
+    core.engine.print("info", "Tick delta:", delta)
+end)
+```
+
+```lua lineNumbers title="Framerate-independent movement"
+local speed = 5.0
+local x = 0.0
+
+util.event.on("sandbox:process", function(delta)
+    x = x + speed * delta
+end)
+```

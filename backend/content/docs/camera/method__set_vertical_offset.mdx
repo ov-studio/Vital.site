@@ -1,0 +1,35 @@
+---
+title: self:set_vertical_offset
+description: Sets the camera's vertical offset
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_vertical_offset(
+    offset
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | offset | Vertical offset to apply to the camera view |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the vertical offset"
+local entity = core.camera.create()
+
+entity:set_vertical_offset(0.5)
+```

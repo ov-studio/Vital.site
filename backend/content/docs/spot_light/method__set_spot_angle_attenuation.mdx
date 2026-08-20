@@ -1,0 +1,35 @@
+---
+title: self:set_spot_angle_attenuation
+description: Sets the spot light cone attenuation, which controls how sharply the edges of the cone fall off
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_spot_angle_attenuation(
+    attenuation
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | attenuation | Cone edge attenuation value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Soften the cone edges of a spot light"
+local entity = light.spot.create()
+
+entity:set_spot_angle_attenuation(0.5)
+```

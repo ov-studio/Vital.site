@@ -1,0 +1,32 @@
+---
+title: self:reset_projector
+description: Removes the currently active projector texture from the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:reset_projector()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove the projector texture from a directional light"
+local entity = light.directional.create()
+
+entity:reset_projector()
+```

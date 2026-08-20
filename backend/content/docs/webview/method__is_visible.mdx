@@ -1,0 +1,32 @@
+---
+title: self:is_visible
+description: Retrieves whether the webview is currently visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the webview is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a webview is currently visible"
+local entity = core.webview.create()
+
+core.engine.print("info", "Webview visible:", entity:is_visible())
+```

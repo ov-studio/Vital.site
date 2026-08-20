@@ -1,0 +1,22 @@
+{
+    "title": "Database",
+    "icon": "Database",
+    "pages": [
+        "---Base---",
+        "create",
+        "...",
+
+        "---⁝⁝Lifecycle---",
+        "method__is_type",
+        "method__get_type",
+        "method__destroy",
+
+        "---⁝⁝Checker---",
+        "method__is_connected",
+        
+        "---⁝⁝Misc---",
+        "method__define",
+        "method__sync",
+        "method__table"
+    ]
+}

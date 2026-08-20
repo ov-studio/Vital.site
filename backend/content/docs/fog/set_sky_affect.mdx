@@ -1,0 +1,33 @@
+---
+title: gfx.fog.set_sky_affect
+description: Sets the sky influence amount of the fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.fog.set_sky_affect(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Sky influence value to apply<br/>Controls how much the fog blends into and affects the appearance of the sky. A value of `0` leaves the sky unaffected while higher values cause the fog to visibly tint and obscure the skybox |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Allow fog to partially tint the sky"
+gfx.fog.set_sky_affect(0.5)
+```

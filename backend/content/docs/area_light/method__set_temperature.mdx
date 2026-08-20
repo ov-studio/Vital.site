@@ -1,0 +1,35 @@
+---
+title: self:set_temperature
+description: Sets the color temperature of the area light in Kelvin
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_temperature(
+    kelvin
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | kelvin | Color temperature in Kelvin to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply temperature on a area light"
+local entity = light.area.create()
+
+entity:set_temperature(1.0)
+```

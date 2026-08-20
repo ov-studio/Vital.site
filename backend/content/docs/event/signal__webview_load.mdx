@@ -1,0 +1,34 @@
+---
+title: webview:load
+description: Fired when a webview finishes loading a page
+badge: client
+---
+
+### Signal
+
+```lua
+"webview:load"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | webview | The webview instance triggering the event |
+| `string` | url | The URL that finished loading |
+
+<Callout type="info">
+  **Fires once the page has fully loaded.**
+
+  - Safe to interact with page content or send initial messages after this fires.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Detect webview page load"
+util.event.on("webview:load", function(webview, url)
+    core.engine.print("info", "Webview loaded:", url)
+end)
+```

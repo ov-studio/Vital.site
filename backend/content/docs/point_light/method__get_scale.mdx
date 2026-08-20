@@ -1,0 +1,32 @@
+---
+title: self:get_scale
+description: Retrieves the local scale of the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local scale = self:get_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Current local scale as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local scale of a point light"
+local entity = light.point.create()
+
+core.engine.print("info", util.table.unpack(entity:get_scale()))
+```

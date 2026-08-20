@@ -1,0 +1,167 @@
+---
+title: core.engine.draw_text
+description: Draws text within a bounding box on the canvas
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.engine.draw_text(
+    text, 
+    start_at, 
+    end_at, 
+    font, 
+    font_size, 
+    color = {1, 1, 1, 1}, 
+    horizontal_alignment = core.engine.horizontal_alignment.LEFT,
+    vertical_alignment = core.engine.vertical_alignment.TOP,
+    clip = false, 
+    wordwrap = false, 
+    stroke = 0, 
+    stroke_color = {1, 1, 1, 1}, 
+    rotation = 0, 
+    pivot = {0, 0}
+)
+```
+
+<Callout type="warn">
+  **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
+
+  - **Inside the event** — executes as expected, rendering text to the canvas each frame.
+  - **Outside the event** — the call will be silently ignored and nothing will be drawn.
+  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | text | Text string to draw |
+| `vector2` | start_at | Top-left corner of the bounding box |
+| `vector2` | end_at | Bottom-right corner of the bounding box |
+| `font` | font | Font to render the text with |
+| `int` | font_size | Font size in points |
+| `color` | color | Color of the text |
+| [`core.engine.horizontal_alignment`](/docs/engine/enum/horizontal_alignment) | horizontal_alignment | Horizontal alignment of the text within the bounding box |
+| [`core.engine.vertical_alignment`](/docs/engine/enum/vertical_alignment) | vertical_alignment | Vertical alignment of the text within the bounding box |
+| `bool` | clip | When `true`, text is clipped to the bounding box |
+| `bool` | wordwrap | When `true`, text wraps at the bounding box width |
+| `int` | stroke | Outline thickness in pixels<br/>Set to `0` to disable |
+| `color` | stroke_color | Color of the text outline |
+| `float` | rotation | Rotation angle in degrees |
+| `vector2` | pivot | Pivot point for rotation, relative to `start_at` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw simple left-aligned text"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+local font = core.font.create("fonts/Roboto-Regular.ttf")
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_text(
+        "Hello World",
+        {center[1] - 150, center[2] - 250},
+        {center[1] + 150, center[2] - 200},
+        font,
+        24
+    )
+end)
+```
+
+```lua lineNumbers title="Draw centered text with a custom color"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+local font = core.font.create("fonts/Roboto-Regular.ttf")
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_text(
+        "Centered",
+        {center[1] - 200, center[2] - 150},
+        {center[1] + 200, center[2] - 90},
+        font,
+        32,
+        {1, 1, 0, 1},
+        core.engine.horizontal_alignment.CENTER,
+        core.engine.vertical_alignment.CENTER
+    )
+end)
+```
+
+```lua lineNumbers title="Draw word-wrapped text clipped to a bounding box"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+local font = core.font.create("fonts/Roboto-Regular.ttf")
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_text(
+        "This is a long string that will wrap inside its bounding box.",
+        {center[1] - 400, center[2] - 20},
+        {center[1] - 150, center[2] + 180},
+        font,
+        18,
+        {1, 1, 1, 1},
+        core.engine.horizontal_alignment.LEFT,
+        core.engine.vertical_alignment.TOP,
+        true,
+        true
+    )
+end)
+```
+
+```lua lineNumbers title="Draw text with an outline stroke"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+local font = core.font.create("fonts/Roboto-Regular.ttf")
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_text(
+        "Outlined",
+        {center[1] + 100, center[2] - 20},
+        {center[1] + 400, center[2] + 60},
+        font,
+        28,
+        {1, 1, 1, 1},
+        core.engine.horizontal_alignment.CENTER,
+        core.engine.vertical_alignment.CENTER,
+        false,
+        false,
+        2,
+        {0, 0, 0, 1}
+    )
+end)
+```
+
+```lua lineNumbers title="Draw rotated text around a pivot point"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+local font = core.font.create("fonts/Roboto-Regular.ttf")
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_text(
+        "Rotated",
+        {center[1] - 100, center[2] + 120},
+        {center[1] + 100, center[2] + 170},
+        font,
+        20,
+        {1, 1, 1, 1},
+        core.engine.horizontal_alignment.LEFT,
+        core.engine.vertical_alignment.TOP,
+        false,
+        false,
+        0,
+        {1, 1, 1, 1},
+        15,
+        {0, 0}
+    )
+end)
+```

@@ -1,0 +1,54 @@
+---
+title: util.monitor.get
+description: Retrieves the current value of a stat, either native or custom
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = util.monitor.get(
+    id
+)
+```
+
+<Callout type="warn">
+  **The stat must exist before reading it.**
+
+  - **Native stats** — pass a [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) enum value; throws an error if the value is not a valid native stat.
+  - **Custom stats** — pass a `string` id registered via [`util.monitor.register`](/docs/monitor/register); returns `false` if the stat does not exist.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) \| `string` | id | Stat to read:<br/>• When [`util.monitor.stat_native`](/docs/monitor/enum/stat_native) - reads a native stat by enum value<br/>• When `string` - reads a custom stat by its registered id |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` \| `bool` | result | Current sampled value of the stat, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Read the current FPS"
+core.engine.print("info", "FPS:", util.monitor.get(util.monitor.stat_native.TIME_FPS))
+```
+
+```lua lineNumbers title="Read static memory usage"
+core.engine.print("info", "Memory (bytes):", util.monitor.get(util.monitor.stat_native.MEMORY_STATIC))
+```
+
+```lua lineNumbers title="Read a custom stat"
+core.engine.print("info", "Entity count:", util.monitor.get("my_resource:entity_count"))
+```
+
+```lua lineNumbers title="Safely read a custom stat with an existence check"
+if util.monitor.has("my_resource:cache_size") then
+    core.engine.print("info", "Cache size (bytes):", util.monitor.get("my_resource:cache_size"))
+end
+```

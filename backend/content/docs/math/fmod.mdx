@@ -1,0 +1,76 @@
+---
+title: util.math.fmod
+description: Returns the remainder of a division between two numbers
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.math.fmod(
+    dividend,
+    divisor
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | dividend | Number to divide |
+| `float` | divisor | Number to divide by |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Remainder of `dividend/divisor` with the same sign as dividend |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remainder of integer division"
+local result = util.math.fmod(10, 3)
+
+core.engine.print("info", result) -- 1.0
+```
+
+```lua lineNumbers title="Remainder of float division"
+local result = util.math.fmod(5.5, 2.0)
+
+core.engine.print("info", result) -- 1.5
+```
+
+```lua lineNumbers title="Remainder with a negative dividend"
+local result = util.math.fmod(-10, 3)
+
+core.engine.print("info", result) -- -1.0
+```
+
+```lua lineNumbers title="Remainder of division by itself is zero"
+local result = util.math.fmod(7, 7)
+
+core.engine.print("info", result) -- 0.0
+```
+
+```lua lineNumbers title="Wrap an angle to the range -360 to 360"
+local angle = 450.0
+local wrapped = util.math.fmod(angle, 360)
+
+core.engine.print("info", wrapped) -- 90.0
+```
+
+```lua lineNumbers title="Keep a timer looping within a period"
+local elapsed = 7.3
+local period = 2.0
+local phase = util.math.fmod(elapsed, period)
+
+core.engine.print("info", phase) -- 1.3
+```
+
+```lua lineNumbers title="Difference from the % operator on floats"
+local a, b = 7.5, 2.5
+
+core.engine.print("info", util.math.fmod(a, b)) -- 0.0
+```

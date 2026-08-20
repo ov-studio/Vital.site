@@ -1,0 +1,74 @@
+---
+title: util.math.randomseed
+description: Sets the seed for the pseudo-random number generator
+badge: shared
+---
+
+### Syntax
+
+```lua
+util.math.randomseed(
+    seed,
+    seed_extra = nil
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | seed | Primary seed value |
+| `int` | seed_extra | Optional secondary seed value for a wider seed range |
+
+### Returns
+
+This function does not return any values.
+
+---
+
+### Examples
+
+```lua lineNumbers title="Seed with a fixed value for reproducibility"
+util.math.randomseed(42)
+
+core.engine.print("info", util.math.random(100)) -- always the same value
+```
+
+```lua lineNumbers title="Seed with the current time for unique sequences"
+util.math.randomseed(os.time())
+
+core.engine.print("info", util.math.random(100)) -- varies per run
+```
+
+```lua lineNumbers title="Two seeds with the same value produce the same sequence"
+util.math.randomseed(1234)
+local a = util.math.random(1000)
+
+util.math.randomseed(1234)
+local b = util.math.random(1000)
+
+core.engine.print("info", a == b) -- true
+```
+
+```lua lineNumbers title="Seed before generating a reproducible shuffle"
+util.math.randomseed(7)
+
+local deck = {}
+
+for i = 1, 10 do
+    deck[i] = i
+end
+
+for i = #deck, 2, -1 do
+    local j = util.math.random(i)
+    deck[i], deck[j] = deck[j], deck[i]
+end
+
+core.engine.iprint(deck)
+```
+
+```lua lineNumbers title="Use two seed components for a broader range"
+util.math.randomseed(os.time(), os.clock()*1e9)
+
+core.engine.print("info", util.math.random()) -- 0.74392 (varies)
+```

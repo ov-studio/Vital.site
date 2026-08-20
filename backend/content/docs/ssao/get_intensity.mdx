@@ -1,0 +1,30 @@
+---
+title: gfx.ssao.get_intensity
+description: Retrieves the current intensity of the SSAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.ssao.get_intensity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current intensity value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current ssao intensity"
+core.engine.print("info", "SSAO intensity:", gfx.ssao.get_intensity())
+```

@@ -1,0 +1,33 @@
+---
+title: self:get_rotation
+description: Retrieves the local rotation of the point light
+badge: client
+---
+
+### Syntax
+
+```lua
+local rotation = self:get_rotation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Current local rotation in degrees as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local rotation of a point light"
+local entity = light.point.create()
+local rotation = entity:get_rotation()
+
+core.engine.print("info", "Rotation:", util.table.unpack(rotation))
+```

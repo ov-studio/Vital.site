@@ -1,0 +1,33 @@
+---
+title: util.timer.next_tick
+description: Schedules a function to execute on the next engine tick
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = util.timer.next_tick(exec)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | exec | Function to execute on the next engine tick |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if the callback was successfully scheduled, `false` otherwise |
+
+---
+
+```lua lineNumbers title="Execute after resource starts"
+util.resource.start("my_resource")
+
+util.timer.next_tick(function()
+    core.engine.print("info", "Resource running?:", util.resource.is_running("my_resource"))
+end)
+```

@@ -1,0 +1,41 @@
+---
+title: util.monitor.unregister
+description: Removes a previously registered custom stat
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = util.monitor.unregister(
+    id
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | id | Unique identifier of the custom stat to remove |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` if the stat was found and removed, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Unregister a custom stat"
+util.monitor.unregister("my_resource:entity_count")
+```
+
+```lua lineNumbers title="Replace a stat by unregistering and re-registering"
+util.monitor.unregister("my_resource:tick_rate")
+
+util.monitor.register("my_resource:tick_rate", "Tick Rate (Updated)", function()
+    return tick_system.get_rate()
+end, util.monitor.stat_format.QUANTITY)
+```

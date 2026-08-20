@@ -1,0 +1,49 @@
+---
+title: self:get_bone_position
+description: Retrieves the current position of a skeleton bone
+badge: shared
+---
+
+### Syntax
+
+```lua
+local position = self:get_bone_position(
+    bone
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | bone | Name of the bone to retrieve the position of |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current world-space position of the bone as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the world-space position of a bone"
+local entity = core.model.create("character")
+local position = entity:get_bone_position("Head")
+
+core.engine.print("info", "Bone position:", util.table.unpack(position))
+```
+
+```lua lineNumbers title="Draw a screen-space marker at a bone's world position"
+local entity = core.model.create("character")
+local bone = "Head"
+
+util.event.on("sandbox:draw", function()
+    local position = entity:get_bone_position(bone)
+    local screen, distance = core.engine.world_to_screen(position)
+    if screen[1] == -1 then return false end
+
+    core.engine.draw_circle(screen, 5, {1, 0, 0, 1})
+end)
+```

@@ -1,0 +1,44 @@
+---
+title: gfx.env.set_background_color
+description: Sets the background color of the environment
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.env.set_background_color(
+    color
+)
+```
+
+```lua
+local status = gfx.env.set_background_color(
+    hex
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Background color as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment background color using a color table"
+gfx.env.set_background_color({0.1, 0.2, 0.4, 1.0})
+```
+
+```lua lineNumbers title="Set environment background color using a hex string"
+gfx.env.set_background_color("#1a3366")
+```

@@ -1,0 +1,30 @@
+---
+title: gfx.ssao.get_direct_light_affect
+description: Retrieves the current direct lighting influence of the SSAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.ssao.get_direct_light_affect()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current direct light influence value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current ssao direct light affect"
+core.engine.print("info", "SSAO direct light affect:", gfx.ssao.get_direct_light_affect())
+```

@@ -1,0 +1,33 @@
+---
+title: self:get_animations
+description: Retrieves a list of all available animations on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local animations = self:get_animations()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | animations | Array of animation name strings |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print all available animations on a model"
+local entity = core.model.create("character")
+local animations = entity:get_animations()
+
+core.engine.iprint(animations)
+```

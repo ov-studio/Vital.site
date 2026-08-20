@@ -1,0 +1,37 @@
+---
+title: core.rendertarget.create
+description: Creates a new rendertarget instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = core.rendertarget.create(
+    size,
+    transparent = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | size | Size of the rendertarget as `{width, height}` |
+| `bool` | transparent | Determines whether the rendertarget has a transparent background:<br/>• When `true` - the background is transparent<br/>• When `false` - the background is opaque |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `rendertarget` | instance | Created rendertarget instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a rendertarget and set it as active"
+local entity = core.rendertarget.create({1920, 1080}, false)
+
+entity:set_active()
+```

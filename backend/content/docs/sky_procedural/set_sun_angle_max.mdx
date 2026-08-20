@@ -1,0 +1,33 @@
+---
+title: gfx.sky.procedural.set_sun_angle_max
+description: Sets the maximum sun angle of the procedural sky material
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sky.procedural.set_sun_angle_max(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Maximum sun angle of the procedural sky material to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky sun angle max"
+gfx.sky.procedural.set_sun_angle_max(30.0)
+```
