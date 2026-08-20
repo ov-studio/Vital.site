@@ -16,7 +16,13 @@ npm install
 
 ### 2. Configure environment variables
 
-Create a `.env.local` file in this directory — it's already covered by `.gitignore`, so it will never be committed:
+No environment variables are required to deploy this to Vercel. The API's base URL is resolved automatically by `lib/api_url.ts` at both build time and in the browser:
+
+- On Vercel, it reads the `VERCEL_PROJECT_PRODUCTION_URL` (falling back to `VERCEL_URL`) system environment variable — set automatically by Vercel on every deployment, on every plan including Hobby, no dashboard configuration needed — and requests `https://api.<that host>`. So a production deploy on `vital-sandbox.com` automatically points at `https://api.vital-sandbox.com`.
+- In the browser, it derives the same thing from `window.location.hostname`, so it self-corrects even if the build-time value is ever stale.
+- Locally (`npm run dev`), with no Vercel env present, it falls back to `http://localhost:3001`.
+
+If you ever need to point at something other than `api.<host>` — a separate staging API, for instance — you can still override it with a `.env.local` file (already covered by `.gitignore`):
 
 ```dotenv
 NEXT_PUBLIC_API_URL=""
@@ -24,9 +30,9 @@ NEXT_PUBLIC_API_URL=""
 
 | Variable | Required | Description |
 |---|---|---|
-| `NEXT_PUBLIC_API_URL` | Yes | Base URL of the deployed API service (e.g. `https://api.vital-sandbox.com`). Used for every client-side fetch — masterlist, stats, contributors, vault, build info. This is inlined into the JS bundle at **build time**, so it must be set before `npm run build` runs, not just present on the host at runtime. Falls back to `http://localhost:3001` for local development against a locally-running API. |
+| `NEXT_PUBLIC_API_URL` | No | Manual override for the API base URL (e.g. `https://api.vital-sandbox.com`). Only needed if the automatic `api.<current host>` detection isn't correct for your setup. Inlined into the JS bundle at **build time** when set. |
 
-Redis credentials, the masterlist admin secret, and CORS config all live on the API service now — see its readme, not this one.
+Redis credentials, the masterlist admin secret, and CORS config all live on the API service now — see its readme, not this one. Note the API's CORS is locked to a single allowed origin (`https://vital-sandbox.com`), so this auto-detection is most useful for the real production domain; preview/`*.vercel.app` deployments will still be CORS-blocked unless the API's allowed origin is widened.
 
 ### 3. Run the dev server
 
@@ -46,14 +52,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site locally. Ch
 npm run build
 ```
 
-Outputs a fully static site to `out/`, ready to deploy to any static host. `NEXT_PUBLIC_API_URL` must be set in the build environment for this step — see above.
+Outputs a fully static site to `out/`, ready to deploy to any static host. No environment variables need to be set for this step — see above.
 
 ## Structure
 
 | Path | Description |
 |---|---|
 | `configs` | Site-wide configuration files |
-| `lib` | Content source adapter and shared utilities (`api_url` for reaching the backend) |
+| `lib` | Content source adapter and shared utilities (`api_url` — resolves both the API base URL and the site's own URL, used for reaching the backend and by `layout.tsx`/`robots.ts`/`sitemap.ts`) |
 | `components` | Shared UI components |
 | `app/(home)` | Landing page and top-level routes |
 | `app/api/search` | Static search index, built at compile time and queried client-side — the only route here that isn't proxied to the backend |
