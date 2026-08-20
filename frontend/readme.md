@@ -2,7 +2,7 @@
 
 Official documentation and resource hub for Vital.sandbox — covering API references, scripting guides, and everything needed to build with confidence.
 
-Vital.site is built on Next.js and powered by Fumadocs, providing a fast, searchable, and version-aware documentation experience. All content is authored in MDX, keeping docs close to the codebase and easy to contribute to. It also hosts the Vital.sandbox **masterlist**, a live server directory backed by Upstash Redis.
+Vital.site is built on Next.js and powered by Fumadocs, providing a fast, searchable, and version-aware documentation experience. All content is authored in MDX, keeping docs close to the codebase and easy to contribute to. This is the **frontend half** of the project: a fully static export (`output: 'export'`) with no server-side rendering and no API routes of its own beyond a build-time search index. Everything that needs a live server — masterlist, GitHub-backed stats, vault data — is served by the sibling [`Vital.site-api`](../backend) project and fetched client-side.
 
 ## Getting Started
 
@@ -10,35 +10,23 @@ Vital.site is built on Next.js and powered by Fumadocs, providing a fast, search
 
 ```bash
 git clone https://github.com/ov-studio/Vital.site.git
-cd Vital.site
+cd Vital.site/frontend
 npm install
 ```
 
 ### 2. Configure environment variables
 
-Create a `.env.local` file in the project root — it's already covered by `.gitignore`, so it will never be committed:
+Create a `.env.local` file in this directory — it's already covered by `.gitignore`, so it will never be committed:
 
 ```dotenv
-UPSTASH_REDIS_REST_URL=""
-UPSTASH_REDIS_REST_TOKEN=""
-MASTERLIST_ADMIN_SECRET=""
-MASTERLIST_STRICT_IP=false
+NEXT_PUBLIC_API_URL=""
 ```
 
 | Variable | Required | Description |
 |---|---|---|
-| `UPSTASH_REDIS_REST_URL` | Yes* | REST endpoint for your Upstash Redis database. |
-| `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
-| `MASTERLIST_ADMIN_SECRET` | Yes | Bearer secret required to call `POST /api/masterlist/register`. Generate a long random value (e.g. `openssl rand -hex 32`) and don't reuse it elsewhere. |
-| `MASTERLIST_STRICT_IP` | No | When `true` (default), a heartbeat is rejected if the reporting server's IP doesn't match the IP it claims. Set to `false` for local development, since localhost/tunnels rarely present a stable, matching IP. Leave it `true` (or unset) in production. |
+| `NEXT_PUBLIC_API_URL` | Yes | Base URL of the deployed API service (e.g. `https://api.vital-sandbox.com`). Used for every client-side fetch — masterlist, stats, contributors, vault, build info. This is inlined into the JS bundle at **build time**, so it must be set before `npm run build` runs, not just present on the host at runtime. Falls back to `http://localhost:3001` for local development against a locally-running API. |
 
-<sub>* If Redis isn't configured, the site still builds and runs — masterlist and rate-limiting endpoints just respond as unavailable and log a warning, instead of the app crashing.</sub>
-
-**Getting your Upstash credentials:**
-
-1. Create a free database at [upstash.com](https://upstash.com).
-2. Open the database, then go to the **REST API** tab.
-3. Copy the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` values into `.env.local`.
+Redis credentials, the masterlist admin secret, and CORS config all live on the API service now — see its readme, not this one.
 
 ### 3. Run the dev server
 
@@ -50,20 +38,27 @@ pnpm dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site locally. Changes to MDX files and components hot-reload automatically.
+Open [http://localhost:3000](http://localhost:3000) to view the site locally. Changes to MDX files and components hot-reload automatically. For masterlist/stats/vault data to load locally, the API service needs to be running too (defaults to `http://localhost:3001`).
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+Outputs a fully static site to `out/`, ready to deploy to any static host. `NEXT_PUBLIC_API_URL` must be set in the build environment for this step — see above.
 
 ## Structure
 
 | Path | Description |
 |---|---|
 | `configs` | Site-wide configuration files |
-| `lib` | Content source adapter, Redis client, and shared utilities |
+| `lib` | Content source adapter and shared utilities (`api_url` for reaching the backend) |
 | `components` | Shared UI components |
 | `app/(home)` | Landing page and top-level routes |
-| `app/api` | API routes — masterlist, search, stats, contributors, build, vault |
+| `app/api/search` | Static search index, built at compile time and queried client-side — the only route here that isn't proxied to the backend |
 | `app/docs` | Documentation layout and MDX pages |
 | `content/docs` | MDX source files for all documentation |
-
 
 ## Contributing
 
