@@ -22,6 +22,8 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
+const OG_IMAGE_URL = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001'}/og`;
+
 export const metadata: next.Metadata = {
   title: {
     template: `%s - ${config_site.info.name}`,
@@ -33,7 +35,8 @@ export const metadata: next.Metadata = {
     title: config_site.info.name,
     description: config_site.info.description,
     siteName: config_site.info.name,
-    type: 'website'
+    type: 'website',
+    images: [{ url: OG_IMAGE_URL, width: 1000, height: 300 }]
   }
 };
 
