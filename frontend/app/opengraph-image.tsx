@@ -2,7 +2,6 @@ import * as next_og from 'next/og';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
-export const runtime = 'nodejs';
 export const size = { width: 1000, height: 300 };
 export const contentType = 'image/png';
 

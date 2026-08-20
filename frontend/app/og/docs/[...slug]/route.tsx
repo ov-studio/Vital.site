@@ -14,13 +14,7 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
 
   return new next_og.ImageResponse(
     <fumadocs_og.generate title={page.data.title} description={page.data.description} site={config_site.info.name}/>,
-    {
-      width: 1200,
-      height: 630,
-      headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-      }
-    }
+    { width: 1200, height: 630 }
   );
 }
 
