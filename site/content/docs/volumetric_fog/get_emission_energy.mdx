@@ -1,0 +1,30 @@
+---
+title: gfx.vol_fog.get_emission_energy
+description: Retrieves the current emission energy of the volumetric fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.vol_fog.get_emission_energy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current emission energy value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current volumetric fog emission energy"
+core.engine.print("info", "Volumetric fog emission energy:", gfx.vol_fog.get_emission_energy())
+```

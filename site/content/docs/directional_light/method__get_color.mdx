@@ -1,0 +1,32 @@
+---
+title: self:get_color
+description: Retrieves the color of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local color = self:get_color()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Current light color as `{r, g, b}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get color of a directional light"
+local entity = light.directional.create()
+
+core.engine.print("info", entity:get_color())
+```

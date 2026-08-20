@@ -1,0 +1,30 @@
+---
+title: gfx.fog.get_mode
+description: Retrieves the current fog mode of the fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.fog.get_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.fog.fog_mode`](/docs/fog/enum/fog_mode) | result | Current fog mode |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current fog mode"
+core.engine.print("info", "Fog mode:", gfx.fog.get_mode())
+```

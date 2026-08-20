@@ -1,0 +1,35 @@
+---
+title: self:translate
+description: Moves the directional light by the given offset in world space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:translate(
+    offset
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | offset | World-space offset to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Move a directional light 2 units upward"
+local entity = light.directional.create()
+
+entity:translate({0, 2, 0})
+```

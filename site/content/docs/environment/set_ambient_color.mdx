@@ -1,0 +1,44 @@
+---
+title: gfx.env.set_ambient_color
+description: Sets the ambient light color of the environment
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.env.set_ambient_color(
+    color
+)
+```
+
+```lua
+local status = gfx.env.set_ambient_color(
+    hex
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Ambient light color as `{r, g, b, a}` |
+| `string` | hex | Alternatively, a valid HTML hex color string (e.g. `"#ffffff"`) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment ambient color using a color table"
+gfx.env.set_ambient_color({1.0, 1.0, 1.0, 1.0})
+```
+
+```lua lineNumbers title="Set environment ambient color using a hex string"
+gfx.env.set_ambient_color("#ffffff")
+```

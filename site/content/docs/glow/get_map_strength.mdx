@@ -1,0 +1,30 @@
+---
+title: gfx.glow.get_map_strength
+description: Retrieves the current glow map strength of the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.glow.get_map_strength()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current glow map strength value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print glow map strength"
+core.engine.print("info", "Glow map strength:", gfx.glow.get_map_strength())
+```

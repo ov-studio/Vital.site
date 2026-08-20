@@ -1,0 +1,33 @@
+---
+title: gfx.env.set_reflection_source
+description: Sets the reflection source of the environment
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.env.set_reflection_source(
+    source
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.env.reflection_source`](/docs/environment/enum/reflection_source) | source | Reflection source to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment reflection source to background"
+gfx.env.set_reflection_source(gfx.env.reflection_source.BG)
+```

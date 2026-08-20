@@ -1,0 +1,30 @@
+---
+title: gfx.vol_fog.get_anisotropy
+description: Retrieves the current anisotropy of the volumetric fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.vol_fog.get_anisotropy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current anisotropy value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current volumetric fog anisotropy"
+core.engine.print("info", "Volumetric fog anisotropy:", gfx.vol_fog.get_anisotropy())
+```

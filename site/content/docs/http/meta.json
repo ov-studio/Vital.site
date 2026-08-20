@@ -1,0 +1,10 @@
+{
+    "title": "HTTP",
+    "icon": "Globe",
+    "pages": [
+        "---Base---",
+        "get",
+        "post",
+        "..."
+    ]
+}

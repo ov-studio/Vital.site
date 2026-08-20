@@ -1,0 +1,33 @@
+---
+title: self:destroy
+description: Destroys the database query and frees its resources
+badge: server
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a query builder instance and free its resources"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+local query = db:table("players")
+
+query:destroy()
+```

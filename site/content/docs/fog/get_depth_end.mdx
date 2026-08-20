@@ -1,0 +1,37 @@
+---
+title: gfx.fog.get_depth_end
+description: Retrieves the current depth end distance of the fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.fog.get_depth_end()
+```
+
+<Callout type="warn">
+  **Only available when the fog mode is set to depth mode.** Refer [`gfx.fog.set_mode`](/docs/fog/set_mode) to configure the active fog mode.
+
+  - **Depth mode required** — calling this function in any other fog mode will return an unexpected result.
+  - **Recommended usage** — use alongside [`gfx.fog.get_depth_begin`](/docs/fog/get_depth_begin) to inspect the full fog transition range.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current depth end value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current fog depth end distance"
+core.engine.print("info", "Fog depth end:", gfx.fog.get_depth_end())
+```

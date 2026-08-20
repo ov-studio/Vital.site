@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_blur
+description: Sets the shadow blur amount of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_blur(
+    blur
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | blur | Shadow blur amount to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow blur on a directional light"
+local entity = light.directional.create()
+
+entity:set_shadow_blur(1.0)
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_transmittance_bias
+description: Retrieves the transmittance bias of the spot light used for subsurface scattering
+badge: client
+---
+
+### Syntax
+
+```lua
+local bias = self:get_transmittance_bias()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | bias | Current transmittance bias value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get transmittance bias of a spot light"
+local entity = light.spot.create()
+
+core.engine.print("info", entity:get_transmittance_bias())
+```

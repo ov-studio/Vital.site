@@ -1,0 +1,33 @@
+---
+title: gfx.env.set_ambient_source
+description: Sets the ambient light source of the environment
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.env.set_ambient_source(
+    source
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.env.ambient_source`](/docs/environment/enum/ambient_source) | source | Ambient light source to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment ambient source to background"
+gfx.env.set_ambient_source(gfx.env.ambient_source.BG)
+```

@@ -1,0 +1,32 @@
+---
+title: self:is_remote
+description: Checks whether the instance is remotely owned
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_remote()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance is remotely owned, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a area light instance is remote"
+local entity = light.area.create()
+
+core.engine.print("info", entity:is_remote())
+```

@@ -1,0 +1,30 @@
+---
+title: core.engine.get_serial
+description: Retrieves current serial
+badge: client
+---
+
+### Syntax
+
+```lua
+local serial = core.engine.get_serial()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | serial | Current serial |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current serial"
+core.engine.print("info", "Current serial:", core.engine.get_serial())
+```

@@ -1,0 +1,119 @@
+---
+title: self:where
+description: Appends a filter condition to the query
+badge: server
+---
+
+### Syntax
+
+```lua
+local query = self:where(
+    column,
+    operator,
+    value
+)
+```
+
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:fetch`](/docs/database/query/fetch) or [`db_query:execute`](/docs/db_query/method/execute) at the end to retrieve or commit the results.
+
+  - **Chaining** — compatible with `:select`, `:update`, and `:delete` query builders.
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | column | Name of the column to filter on |
+| `string` | operator | Comparison operator to apply<br/>Refer [**Operators**](#operators) section |
+| `string` \| `number` | value | Value to compare the column against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `db_query` \| `bool` | query | Query builder instance on successful execution, `false` otherwise |
+
+---
+
+### Operators
+
+| Operator | Description |
+|----------|-------------|
+| `"="` | Equal to |
+| `"!="` | Not equal to |
+| `">"` | Greater than |
+| `"<"` | Less than |
+| `">="` | Greater than or equal to |
+| `"<="` | Less than or equal to |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Filter rows with a single condition"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :select("id", "name", "score")
+        :where("score", ">", 100)
+        :fetch())
+
+    if ok then
+        for i = 1, #rows do
+            core.engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Chain multiple conditions to filter rows"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, rows = self:await(db:table("players")
+        :select("id", "name", "score")
+        :where("name", "=", "aviril")
+        :where("score", ">=", 500)
+        :fetch())
+
+    if ok then
+        for i = 1, #rows do
+            core.engine.print("info", rows[i].id, rows[i].name, rows[i].score)
+        end
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Update rows with a single condition"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 500 })
+        :where("name", "=", "aviril")
+        :execute())
+
+    if not ok then
+        core.engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Chain multiple conditions to update rows"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 0 })
+        :where("status", "=", "active")
+        :where("score", "<", 50)
+        :execute())
+
+    if not ok then
+        core.engine.print("error", err)
+    end
+end):resume()
+```

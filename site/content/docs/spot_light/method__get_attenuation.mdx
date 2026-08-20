@@ -1,0 +1,32 @@
+---
+title: self:get_attenuation
+description: Retrieves the attenuation curve exponent of the spot light, which controls how light intensity falls off with distance
+badge: client
+---
+
+### Syntax
+
+```lua
+local attenuation = self:get_attenuation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | attenuation | Current attenuation exponent |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the attenuation of a spot light"
+local entity = light.spot.create()
+
+core.engine.print("info", entity:get_attenuation())
+```

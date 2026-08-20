@@ -1,0 +1,33 @@
+---
+title: gfx.glow.set_mix
+description: Sets the mix amount of the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.glow.set_mix(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Mix value to apply<br/>Controls the blend ratio between the glow effect and the original scene when the blend mode is set to mix. A value of `0` shows only the original scene while `1` shows only the glow result |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Blend glow at 50% with the original scene"
+gfx.glow.set_mix(0.5)
+```

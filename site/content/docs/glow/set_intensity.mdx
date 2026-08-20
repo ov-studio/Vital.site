@@ -1,0 +1,33 @@
+---
+title: gfx.glow.set_intensity
+description: Sets the overall intensity of the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.glow.set_intensity(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Intensity value to apply<br/>Controls the overall brightness multiplier of the glow effect. Higher values produce a more pronounced and brighter glow across all active levels |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a strong overall glow intensity"
+gfx.glow.set_intensity(1.5)
+```

@@ -1,0 +1,58 @@
+---
+title: util.easing.linear
+description: Returns the progress value unchanged — a straight-line curve from 0 to 1
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.easing.linear(
+    progress
+)
+```
+
+<Callout type="info">
+  **`util.easing.linear` applies no easing — the output equals the input.**
+
+  - **Constant speed** — motion starts and ends at the same speed with no acceleration or deceleration.
+  - **Best for** — mechanical or technical motion where a consistent rate of change is required.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | progress | Interpolation factor, typically in the range [0, 1] |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | The same value as `progress` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Linear easing returns progress unchanged"
+core.engine.print("info", util.easing.linear(0.0))  -- 0.0
+core.engine.print("info", util.easing.linear(0.25)) -- 0.25
+core.engine.print("info", util.easing.linear(0.5))  -- 0.5
+core.engine.print("info", util.easing.linear(0.75)) -- 0.75
+core.engine.print("info", util.easing.linear(1.0))  -- 1.0
+```
+
+```lua lineNumbers title="Animate a value at constant speed"
+local resolution = core.engine.get_resolution()
+local duration = 2.0
+local start_tick = core.engine.get_tick()
+
+util.event.on("sandbox:draw", function()
+    local elapsed = (core.engine.get_tick() - start_tick) / 1000.0
+    local t = math.min(elapsed / duration, 1.0)
+    local x = util.easing.lerp(0, resolution[1], util.easing.linear(t))
+
+    core.engine.draw_circle({x, resolution[2]*0.5}, 16, {1, 1, 1, 1})
+end)
+```

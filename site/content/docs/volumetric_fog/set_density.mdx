@@ -1,0 +1,33 @@
+---
+title: gfx.vol_fog.set_density
+description: Sets the density of the volumetric fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.vol_fog.set_density(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Density value to apply<br/>Controls the base thickness of the volumetric gfx.fog. Higher values produce denser, more opaque fog that scatters and absorbs light more strongly throughout the volume |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a moderate volumetric fog density"
+gfx.vol_fog.set_density(0.05)
+```

@@ -1,0 +1,42 @@
+---
+title: util.thread.current
+description: Retrieves the currently running thread instance
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.thread.current()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` \| `bool` | result | Currently running `thread` instance, `false` if no thread is active |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Retrieve the currently running thread from within a thread"
+local entity = util.thread.create(function(self)
+    core.engine.print("info", "Running thread:", util.thread.current())
+end)
+
+entity:resume()
+```
+
+```lua lineNumbers title="Check whether code is running inside a thread"
+local running = util.thread.current()
+
+if not running then
+    core.engine.print("info", "Not inside a thread")
+end
+```

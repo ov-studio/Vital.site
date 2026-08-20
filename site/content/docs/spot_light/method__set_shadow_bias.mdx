@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_bias
+description: Sets the shadow bias of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_bias(
+    bias
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | bias | Shadow bias value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply shadow bias on a spot light"
+local entity = light.spot.create()
+
+entity:set_shadow_bias(1.0)
+```

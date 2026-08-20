@@ -1,0 +1,38 @@
+---
+title: self:look_at
+description: Rotates the point light so its -Z axis points toward the given world-space target
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:look_at(
+    target,
+    up
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | target | World-space position to look at as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Point a point light at the world origin"
+local entity = light.point.create()
+entity:set_position({0, 10, 0})
+
+entity:look_at({0, 0, 0}, {0, 1, 0})
+```

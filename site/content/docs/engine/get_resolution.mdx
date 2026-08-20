@@ -1,0 +1,39 @@
+---
+title: core.engine.get_resolution
+description: Retrieves the current screen resolution in absolute pixels
+badge: client
+---
+
+### Syntax
+
+```lua
+local resolution = core.engine.get_resolution()
+```
+
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | resolution | Current screen-space resolution in pixels as `{width, height}` |
+
+---
+
+### Examples
+```lua lineNumbers title="Draw a rectangle centered on the screen"
+local resolution = core.engine.get_resolution()
+local size = {200, 100}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_rectangle(
+        {(resolution[1] - size[1])*0.5, (resolution[2] - size[2])*0.5},
+        {size[1], size[2]},
+        {1, 1, 1, 1}
+    )
+end)
+```

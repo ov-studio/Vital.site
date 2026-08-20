@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_split_3_offset
+description: Retrieves the split 3 offset of the directional light's cascade shadow map, as a proportion of the shadow max distance
+badge: client
+---
+
+### Syntax
+
+```lua
+local offset = self:get_shadow_split_3_offset()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | offset | Current split 3 offset, from `0.0` to `1.0` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get split 3 offset of a directional light"
+local entity = light.directional.create()
+
+core.engine.print("info", entity:get_shadow_split_3_offset())
+```

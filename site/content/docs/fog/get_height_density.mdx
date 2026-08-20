@@ -1,0 +1,30 @@
+---
+title: gfx.fog.get_height_density
+description: Retrieves the current height density of the fog post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.fog.get_height_density()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current height density value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current fog height density"
+core.engine.print("info", "Fog height density:", gfx.fog.get_height_density())
+```

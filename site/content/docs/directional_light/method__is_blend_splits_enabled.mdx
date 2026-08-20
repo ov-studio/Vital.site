@@ -1,0 +1,32 @@
+---
+title: self:is_blend_splits_enabled
+description: Checks whether blend splits is enabled on the directional light, which blends between shadow cascade levels to reduce visible seams
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_blend_splits_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if blend splits is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check blend splits on a directional light"
+local entity = light.directional.create()
+
+core.engine.print("info", entity:is_blend_splits_enabled())
+```

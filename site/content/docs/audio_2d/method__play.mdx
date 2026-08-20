@@ -1,0 +1,41 @@
+---
+title: self:play
+description: Starts playback of the audio-2d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:play(
+    position = 0.0
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | position | Position in seconds to start playback from |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Play an audio-2d instance from the beginning"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+entity:play()
+```
+
+```lua lineNumbers title="Play an audio-2d instance from a specific position"
+local entity = core.audio_2d.create("sounds/ambient.ogg")
+
+entity:play(5.0)
+```

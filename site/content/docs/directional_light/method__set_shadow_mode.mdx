@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_mode
+description: Sets the shadow rendering mode of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Shadow mode enum value — refer to [`light.directional.shadow_mode`](/docs/directional_light/enum/shadow_mode) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable 4-split cascade shadows on a directional light"
+local entity = light.directional.create()
+
+entity:set_shadow_mode(light.directional.shadow_mode.PARALLEL_4_SPLITS)
+```

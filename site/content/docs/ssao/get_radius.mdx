@@ -1,0 +1,30 @@
+---
+title: gfx.ssao.get_radius
+description: Retrieves the current sampling radius of the SSAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.ssao.get_radius()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current radius value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current ssao sampling radius"
+core.engine.print("info", "SSAO radius:", gfx.ssao.get_radius())
+```

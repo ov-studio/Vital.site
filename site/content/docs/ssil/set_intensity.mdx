@@ -1,0 +1,33 @@
+---
+title: gfx.ssil.set_intensity
+description: Sets the intensity of SSIL post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssil.set_intensity(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Intensity value to apply<br/>Higher values produce stronger indirect light contributions, making bounced light more visible across surfaces |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a strong indirect illumination intensity"
+gfx.ssil.set_intensity(2.0)
+```

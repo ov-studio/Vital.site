@@ -1,0 +1,16 @@
+{
+    "title": "Monitor",
+    "icon": "ChartLine",
+    "pages": [
+        "---Enum---",
+        "enum__stat_native",
+        "enum__stat_format",
+
+        "---Base---",
+        "register",
+        "unregister",
+        "has",
+        "get",
+        "list"
+    ]
+}

@@ -1,0 +1,35 @@
+---
+title: self:get_type
+description: Retrieves the type name of the instance
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Type of the instance, `false` if unavailable |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a thread instance"
+local entity = util.thread.create(function(self)
+    self:sleep(2000)
+end)
+
+entity:resume()
+core.engine.print("info", self:get_type()) -- 'thread'
+```

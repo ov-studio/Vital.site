@@ -1,0 +1,97 @@
+---
+title: core.engine.iprint
+description: Prints a human-readable representation of any value on console
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = core.engine.iprint(
+    value, 
+    show_hidden = false, 
+    depth_limit = 0
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `any` | value | Value to print on console |
+| `bool` | show_hidden | Determines inspection depth:<br/>• When `true` - includes hidden elements such as metatables in the output<br/>• When `false` - displays only visible table contents |
+| `int` | depth_limit | Maximum nesting depth to display (0 = unlimited) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print a simple table"
+local t = {a = 1, b = 2, c = 3}
+
+core.engine.iprint(t)
+
+--[[
+Output:
+{
+    a: 1
+    b: 2
+    c: 3
+}
+]]
+```
+
+```lua lineNumbers title="Print an array"
+local colors = {"red", "green", "blue"}
+
+core.engine.iprint(colors)
+
+--[[
+Output:
+{
+    1: 'red'
+    2: 'green'
+    3: 'blue'
+}
+]]
+```
+
+```lua lineNumbers title="Print with a depth limit"
+local deep = {a = {b = {c = {d = 1}}}}
+
+core.engine.iprint(deep, false, 2) -- Shows only 2 levels deep
+```
+
+```lua lineNumbers title="Debug a config table"
+local config = {width = 800, height = 600}
+
+core.engine.iprint(config) -- Quick way to see table contents
+```
+
+```lua lineNumbers title="Print primitive values"
+-- Print string
+core.engine.iprint("hello world") -- 'hello world'
+
+-- Print number
+core.engine.iprint(42) -- 42
+```
+
+```lua lineNumbers title="Print with metatable visible"
+local t = {x = 10}
+setmetatable(t, {__tostring = function() return "custom" end})
+
+core.engine.iprint(t, true) -- Shows metatable when show_hidden = true
+```
+
+```lua lineNumbers title="iprint vs tostring for tables"
+local t = {x = 1, y = 2} -- Better than tostring for tables
+
+core.engine.print(tostring(t)) -- 'table: 0x...'
+core.engine.iprint(t) -- Readable format
+```

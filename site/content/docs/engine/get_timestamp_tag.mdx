@@ -1,0 +1,30 @@
+---
+title: core.engine.get_timestamp_tag
+description: Retrieves current timestamp as a formatted tag string
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = core.engine.get_timestamp_tag()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Current timestamp formatted as `YYYYMMDD_HHMMSS` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current timestamp tag"
+core.engine.print("info", "Current timestamp tag:", core.engine.get_timestamp_tag())
+```

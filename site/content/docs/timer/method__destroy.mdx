@@ -1,0 +1,34 @@
+---
+title: self:destroy
+description: Destroys the timer instance and frees its resources
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a timer instance"
+local entity = util.timer.create(function(count)
+    core.engine.print("info", "Tick: "..core.engine.get_tick())
+end, 500, 0)
+
+entity:destroy()
+```

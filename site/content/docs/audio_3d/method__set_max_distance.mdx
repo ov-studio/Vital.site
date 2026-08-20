@@ -1,0 +1,35 @@
+---
+title: self:set_max_distance
+description: Sets the maximum distance at which the audio-3d instance can be heard
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_max_distance(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Maximum audible distance in meters<br/>Beyond this distance, the audio becomes completely inaudible |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the max audible distance of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_max_distance(50.0)
+```

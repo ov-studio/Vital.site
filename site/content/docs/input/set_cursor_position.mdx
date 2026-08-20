@@ -1,0 +1,33 @@
+---
+title: util.input.set_cursor_position
+description: Moves the cursor to a specific position relative to the root viewport
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = util.input.set_cursor_position(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Screen-space cursor position to move the cursor to, as `{x, y}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Snap the cursor to a fixed position"
+util.input.set_cursor_position({100, 100})
+```

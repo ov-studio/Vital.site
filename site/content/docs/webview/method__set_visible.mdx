@@ -1,0 +1,39 @@
+---
+title: self:set_visible
+description: Toggles the visibility of the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_visible(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines the webview's visibility:<br/>• When `true` - the webview is shown<br/>• When `false` - the webview is hidden |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle the visibility of a webview"
+local entity = core.webview.create()
+
+-- Show the webview
+entity:set_visible(true)
+
+-- Hide the webview
+entity:set_visible(false)
+```

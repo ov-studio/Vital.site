@@ -1,0 +1,84 @@
+---
+title: self:update
+description: Appends a row update to the query
+badge: server
+---
+
+### Syntax
+
+```lua
+local query = self:update(
+    data
+)
+```
+
+<Callout type="info">
+  **This function only prepares the query and does not execute it.** Chain [`db_query:execute`](/docs/db_query/method/execute) at the end to commit the query to the core.database.
+
+  - **Chaining** — compatible with `:where` to target specific rows for updating.
+  - **Multiple updates** — chain multiple `:update` calls to append additional column updates.
+  - **Multiple conditions** — chain multiple `:where` calls to apply additional filters to the update.
+  - **Without conditions** — omitting `:where` will update all rows in the table.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | data | A key-value table defining the columns to update<br/>• Keys represent column names<br/>• Values represent the new data to apply - accepted types are `string` and `number` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `db_query` \| `bool` | query | Query builder instance on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Update a column for a specific row in the 'players' table"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 500 })
+        :where("name", "=", "aviril")
+        :execute())
+
+    if not ok then
+        core.engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Update all rows in the 'players' table without a condition"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 0 })
+        :execute())
+
+    if not ok then
+        core.engine.print("error", err)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Chain multiple updates and multiple conditions in a single execution"
+local db = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
+
+util.thread.create(function(self)
+    local ok, err = self:await(db:table("players")
+        :update({ score = 1000 })
+        :update({ rank = "elite" })
+        :where("name", "=", "aviril")
+        :where("score", ">=", 500)
+        :execute())
+
+    if not ok then
+        core.engine.print("error", err)
+    end
+end):resume()
+```

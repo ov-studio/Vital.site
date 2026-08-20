@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_caster_mask
+description: Retrieves the shadow caster mask of the point light, which controls which layers cast shadows
+badge: client
+---
+
+### Syntax
+
+```lua
+local mask = self:get_shadow_caster_mask()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Current shadow caster mask bitmask |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get shadow caster mask of a point light"
+local entity = light.point.create()
+
+core.engine.print("info", entity:get_shadow_caster_mask())
+```

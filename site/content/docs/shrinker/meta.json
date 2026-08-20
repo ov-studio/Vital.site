@@ -1,0 +1,10 @@
+{
+    "title": "Shrinker",
+    "icon": "Package",
+    "pages": [
+        "---Base---",
+        "compress",
+        "decompress",
+        "..."
+    ]
+}

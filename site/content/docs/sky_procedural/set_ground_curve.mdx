@@ -1,0 +1,33 @@
+---
+title: gfx.sky.procedural.set_ground_curve
+description: Sets the curve blend factor of the procedural ground
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sky.procedural.set_ground_curve(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Curve blend factor of the procedural ground to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set procedural sky ground curve"
+gfx.sky.procedural.set_ground_curve(0.02)
+```

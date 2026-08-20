@@ -1,0 +1,30 @@
+---
+title: core.engine.get_tick
+description: Retrieves current tickcount
+badge: shared
+---
+
+### Syntax
+
+```lua
+local tick = core.engine.get_tick()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | tick | Current tickcount |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current tickcount"
+core.engine.print("info", "Current tickcount:", core.engine.get_tick())
+```

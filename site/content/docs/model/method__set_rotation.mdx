@@ -1,0 +1,35 @@
+---
+title: self:set_rotation
+description: Sets the rotation of the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_rotation(
+    rotation
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | World-space rotation in degrees to apply to the model, as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a model 25 degrees on the Y axis"
+local entity = core.model.create("character")
+
+entity:set_rotation({0, 25, 0})
+```

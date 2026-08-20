@@ -1,0 +1,35 @@
+---
+title: self:set_attenuation_filter_cutoff_hz
+description: Sets the attenuation filter cutoff frequency of the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_attenuation_filter_cutoff_hz(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Low-pass filter cutoff frequency in Hz applied as the source moves away<br/>Lower values produce a more muffled sound at distance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Muffle a distant audio-3d source"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_attenuation_filter_cutoff_hz(4000.0)
+```

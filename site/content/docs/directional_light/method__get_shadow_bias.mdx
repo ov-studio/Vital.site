@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_bias
+description: Retrieves the shadow bias of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local bias = self:get_shadow_bias()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | bias | Current shadow bias value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get shadow bias of a directional light"
+local entity = light.directional.create()
+
+core.engine.print("info", entity:get_shadow_bias())
+```

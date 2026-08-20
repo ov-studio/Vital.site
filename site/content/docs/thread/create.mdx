@@ -1,0 +1,59 @@
+---
+title: util.thread.create
+description: Creates a new thread instance with specified function in suspended state
+badge: shared
+---
+
+### Syntax
+
+```lua
+local instance = util.thread.create(
+    exec
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `function` | exec | Function to execute by the thread |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` \| `bool` | instance | Created `thread` instance on successful execution, `false` otherwise |
+
+---
+
+### Callback: `exec`
+
+```lua
+exec(self)
+```
+
+| Type | Name | Description |
+|------|------|-------------|
+| `thread` | self | Running thread instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create and resume a basic thread"
+local entity = util.thread.create(function(self)
+    core.engine.print("info", "Hello from thread")
+end)
+
+entity:resume()
+```
+
+```lua lineNumbers title="Create a thread and sleep inside it"
+local entity = util.thread.create(function(self)
+    core.engine.print("info", "Sleeping for 2 seconds")
+    self:sleep(2000)
+    core.engine.print("info", "Awake now")
+end)
+
+entity:resume()
+```

@@ -1,0 +1,36 @@
+---
+title: util.crypto.decode
+description: Decodes a base64 string
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.crypto.decode(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Encoded string to decode |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Decoded string on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Decodes an input string"
+local input = "SGVsbG8gV29ybGQ="
+
+core.engine.print("info", "Input:", input)
+core.engine.print("info", "Decoded:", util.crypto.decode(input))
+```

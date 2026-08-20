@@ -1,0 +1,56 @@
+---
+title: self:load_url
+description: Loads a URL in the webview
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:load_url(
+    url
+)
+```
+
+<Callout type="idea">
+  **Pass a resource-scoped path instead of a URL to load a file straight out of a resource.**
+
+  - **`http://` / `https://`** — passed straight through and loaded as-is.
+  - **Local path** — anything else resolves relative to the current resource's directory and is served over the client's local HTTP server.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/web/index.html` loads `web/index.html` from inside `resource_a`.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | url | A full `http(s)://` url, or a resource-scoped file path to load |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Load an external URL in a webview"
+local entity = core.webview.create()
+
+entity:load_url("https://google.com")
+```
+
+```lua lineNumbers title="Load a file from the current resource"
+local entity = core.webview.create()
+
+entity:load_url("web/index.html")
+```
+
+```lua lineNumbers title="Load a file from another running resource"
+local entity = core.webview.create()
+
+entity:load_url(":resource_a/web/index.html")
+```

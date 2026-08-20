@@ -1,0 +1,33 @@
+---
+title: gfx.env.set_ambient_energy
+description: Sets the ambient light energy of the environment
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.env.set_ambient_energy(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Ambient light energy to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set environment ambient energy"
+gfx.env.set_ambient_energy(1.0)
+```

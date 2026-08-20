@@ -1,0 +1,93 @@
+---
+title: util.table.len
+description: Retrieves the length of a table
+badge: shared
+---
+
+### Syntax
+
+```lua
+local length = util.table.len(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | input | Table to measure |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | length | Length of the table |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the length of a regular table"
+local t = {1, 2, 3, 4, 5}
+local len = util.table.len(t)
+
+core.engine.print("info", len) -- 5
+```
+
+```lua lineNumbers title="Get the length of a packed table using n field"
+local packed = util.table.pack(1, nil, 3, nil, 5)
+local len = util.table.len(packed)
+
+core.engine.print("info", len) -- 5
+```
+
+```lua lineNumbers title="Length of a table with holes may vary"
+local t = {1, 2, nil, 4}
+local len = util.table.len(t)
+
+core.engine.print("info", len) -- 4 (may vary, depends on #)
+```
+
+```lua lineNumbers title="Get the length of an empty table"
+local t = {}
+local len = util.table.len(t)
+
+core.engine.print("info", len) -- 0
+```
+
+```lua lineNumbers title="Compare util.table.len with the # operator"
+local t = {1, 2, 3}
+
+core.engine.print("info", util.table.len(t)) -- 3
+core.engine.print("info", #t) -- 3
+```
+
+```lua lineNumbers title="util.table.len is reliable with nil holes"
+local args = util.table.pack("a", nil, "b", nil, "c")
+
+core.engine.print("info", #args) -- May be incorrect with nil holes
+core.engine.print("info", util.table.len(args)) -- 5 (always correct)
+```
+
+```lua lineNumbers title="Use util.table.len for safe iteration"
+local t = util.table.pack(1, nil, 2, nil, 3)
+
+for i = 1, util.table.len(t) do
+    core.engine.print("info", i, t[i])
+end
+```
+
+```lua lineNumbers title="Check if a table is empty"
+local t = {}
+if util.table.len(t) == 0 then
+    core.engine.print("info", "Table is empty")
+end
+```
+
+```lua lineNumbers title="util.table.len only counts the array part"
+local t = {10, 20, 30, key = "value"}
+local len = util.table.len(t)
+
+core.engine.print("info", len) -- 3 (only counts array part)
+```

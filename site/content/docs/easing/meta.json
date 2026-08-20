@@ -1,0 +1,61 @@
+{
+    "title": "Easing",
+    "icon": "TrendingUp",
+    "pages": [
+        "---Base---",
+        "lerp",
+        "linear",
+
+        "---Sine---",
+        "sine_in",
+        "sine_out",
+        "sine_in_out",
+
+        "---Quad---",
+        "quad_in",
+        "quad_out",
+        "quad_in_out",
+
+        "---Cubic---",
+        "cubic_in",
+        "cubic_out",
+        "cubic_in_out",
+
+        "---Quart---",
+        "quart_in",
+        "quart_out",
+        "quart_in_out",
+
+        "---Quint---",
+        "quint_in",
+        "quint_out",
+        "quint_in_out",
+
+        "---Expo---",
+        "expo_in",
+        "expo_out",
+        "expo_in_out",
+
+        "---Circ---",
+        "circ_in",
+        "circ_out",
+        "circ_in_out",
+
+        "---Back---",
+        "back_in",
+        "back_out",
+        "back_in_out",
+
+        "---Elastic---",
+        "elastic_in",
+        "elastic_out",
+        "elastic_in_out",
+
+        "---Bounce---",
+        "bounce_in",
+        "bounce_out",
+        "bounce_in_out",
+
+        "..."
+    ]
+}

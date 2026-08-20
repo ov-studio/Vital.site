@@ -1,0 +1,33 @@
+---
+title: gfx.sky.physical.set_turbidity
+description: Sets the atmospheric turbidity of the physical sky material
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sky.physical.set_turbidity(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Atmospheric turbidity to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set physical sky turbidity"
+gfx.sky.physical.set_turbidity(10.0)
+```

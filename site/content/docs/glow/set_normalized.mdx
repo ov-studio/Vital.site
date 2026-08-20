@@ -1,0 +1,37 @@
+---
+title: gfx.glow.set_normalized
+description: Toggles level normalization for the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.glow.set_normalized(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines whether levels are normalized:<br/>• When `true` - level intensities are normalized so their combined contribution always sums to `1.0`, preventing the overall brightness from increasing as more levels are enabled<br/>• When `false` - normalization is disabled and each level contributes independently |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle level normalization"
+-- Enable normalization to keep consistent brightness
+gfx.glow.set_normalized(true)
+
+-- Disable normalization
+gfx.glow.set_normalized(false)
+```

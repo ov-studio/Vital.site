@@ -1,0 +1,32 @@
+---
+title: self:get_bake_mode
+description: Retrieves the bake mode of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_bake_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Current bake mode enum value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get bake mode of a directional light"
+local entity = light.directional.create()
+
+core.engine.print("info", entity:get_bake_mode())
+```

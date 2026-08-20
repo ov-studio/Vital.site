@@ -1,0 +1,33 @@
+---
+title: gfx.ssao.set_intensity
+description: Sets the intensity of the SSAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.ssao.set_intensity(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Intensity value to apply<br/>Higher values produce darker and more pronounced occlusion shadows |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a strong occlusion intensity"
+gfx.ssao.set_intensity(3.0)
+```

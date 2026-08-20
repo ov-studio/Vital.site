@@ -1,0 +1,29 @@
+{
+    "title": "Input",
+    "icon": "Keyboard",
+    "pages": [
+        "---Enum---",
+        "enum__key",
+        "enum__cursor_mode",
+
+        "---Checker---",
+        "is_pressed",
+
+        "---Getter---",
+        "get_cursor_mode",
+        "get_cursor_position",
+        "get_cursor_velocity",
+
+        "---Setter---",
+        "set_cursor_mode",
+        "set_cursor_position",
+
+        "---Misc---",
+        "bind",
+        "unbind",
+        "register",
+        "unregister",
+        "list",
+        "execute"
+    ]
+}

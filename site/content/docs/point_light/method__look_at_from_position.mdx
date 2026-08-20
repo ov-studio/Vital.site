@@ -1,0 +1,39 @@
+---
+title: self:look_at_from_position
+description: Moves the point light to the given position and rotates it to look at the target
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:look_at_from_position(
+    position,
+    target,
+    up
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | World-space position to move to as `{x, y, z}` |
+| `vector3` | target | World-space position to look at as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Position and orient a point light in one call"
+local entity = light.point.create()
+
+entity:look_at_from_position({0, 10, 0}, {0, 0, 0}, {0, 1, 0})
+```

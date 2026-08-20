@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_normal_bias
+description: Retrieves the shadow normal bias of the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local bias = self:get_shadow_normal_bias()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | bias | Current shadow normal bias value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get shadow normal bias of a area light"
+local entity = light.area.create()
+
+core.engine.print("info", entity:get_shadow_normal_bias())
+```

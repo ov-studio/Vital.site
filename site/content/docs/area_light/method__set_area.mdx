@@ -1,0 +1,35 @@
+---
+title: self:set_area
+description: Sets the dimensions of the area light's rectangular emitting surface
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_area(
+    size
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | size | Area dimensions to apply as `{width, height}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the dimensions of an area light"
+local entity = light.area.create()
+
+entity:set_area({4, 2})
+```

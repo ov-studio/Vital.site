@@ -1,0 +1,37 @@
+---
+title: self:set_emission_angle_enabled
+description: Enables or disables the emission angle cone on the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_emission_angle_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines whether the emission angle cone is active:<br/>• When `true` - audio is only emitted within the configured cone angle<br/>• When `false` - audio is emitted in all directions equally |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable directional emission on an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_emission_angle_enabled(true)
+entity:set_emission_angle(45.0)
+entity:play()
+```

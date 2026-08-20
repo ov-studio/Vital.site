@@ -1,0 +1,33 @@
+---
+title: gfx.sdfgi.set_max_distance
+description: Sets the maximum draw distance of SDFGI post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.sdfgi.set_max_distance(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Maximum distance value to apply<br/>Defines how far from the camera SDFGI global illumination is computed. Larger values cover greater distances but require more cascades to maintain detail |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Extend GI coverage for large outdoor scenes"
+gfx.sdfgi.set_max_distance(500.0)
+```

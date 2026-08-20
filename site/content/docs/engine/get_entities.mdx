@@ -1,0 +1,45 @@
+---
+title: core.engine.get_entities
+description: Retrieves all registered entities of a specified category
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = core.engine.get_entities(
+    category, 
+    streamed = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | category | Entity category to query<br/>Refer [**Entity Types**](#entity-types) section |
+| `boolean` | streamed | Determines which entities to include:<br/>• When `true` - returns only entities currently streamed into the camera frustum<br/>• When `false` - returns all entities regardless of streaming state |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | result | A table containing all matching entities of the specified category |
+
+---
+
+<include>./get_entity_types.mdx#entity-types</include>
+
+### Examples
+
+```lua lineNumbers title="Prints all entities of a given category"
+core.engine.iprint(core.engine.get_entities("texture"))
+```
+
+```lua lineNumbers title="Counts entities of a given category"
+core.engine.print("info", "Total webviews:", #core.engine.get_entities("webview"))
+```
+
+```lua lineNumbers title="Counts only streamed-in models"
+core.engine.print("info", "Streamed models:", #core.engine.get_entities("model", true))
+```

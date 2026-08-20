@@ -1,0 +1,32 @@
+---
+title: self:get_intensity
+description: Retrieves the physical intensity of the area light in lumens or lux when physical light units are enabled
+badge: client
+---
+
+### Syntax
+
+```lua
+local intensity = self:get_intensity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | intensity | Current physical intensity value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get intensity of a area light"
+local entity = light.area.create()
+
+core.engine.print("info", entity:get_intensity())
+```

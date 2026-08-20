@@ -1,0 +1,35 @@
+---
+title: core.model.create
+description: Creates a model instance from a previously loaded model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local entity = core.model.create(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the loaded model to instantiate |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `model` | instance | Created model instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create an instance from a loaded model"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+```

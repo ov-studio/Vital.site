@@ -1,0 +1,35 @@
+---
+title: self:set_shadow_max_distance
+description: Sets the maximum distance at which the directional light renders shadows
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shadow_max_distance(
+    distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Shadow max distance in world units |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the shadow max distance of a directional light"
+local entity = light.directional.create()
+
+entity:set_shadow_max_distance(100.0)
+```

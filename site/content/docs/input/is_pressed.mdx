@@ -1,0 +1,48 @@
+---
+title: util.input.is_pressed
+description: Checks whether a keyboard or mouse button is currently held down
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = util.input.is_pressed(
+    key
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`util.input.key`](/docs/input/enum/key) | key | Key or button to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the key or button is currently held down, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if the W key is held"
+if util.input.is_pressed(util.input.key.W) then
+    core.engine.print("info", "W is held")
+end
+```
+
+```lua lineNumbers title="Check if the left mouse button is held"
+if util.input.is_pressed(util.input.key.MOUSE_LEFT) then
+    core.engine.print("info", "Left mouse button is held")
+end
+```
+
+```lua lineNumbers title="Check multiple keys for a sprint condition"
+local moving = util.input.is_pressed(util.input.key.W)
+local sprinting = moving and util.input.is_pressed(util.input.key.SHIFT)
+
+core.engine.print("info", "Sprinting:", sprinting)
+```

@@ -1,0 +1,30 @@
+---
+title: core.discord.reset_application
+description: Resets the Discord client to the default application-id and activity
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.discord.reset_application()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reset the discord client to its default application"
+core.discord.reset_application()
+```

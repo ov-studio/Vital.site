@@ -1,0 +1,38 @@
+{
+    "title": "Volumetric Fog",
+    "icon": "CloudHail",
+    "pages": [
+        "---Checker---",
+        "is_enabled",
+        "is_temporal_reprojection_enabled",
+
+        "---Getter---",
+        "get_emission",
+        "get_albedo",
+        "get_density",
+        "get_emission_energy",
+        "get_anisotropy",
+        "get_length",
+        "get_detail_spread",
+        "get_gi_inject",
+        "get_ambient_inject",
+        "get_sky_affect",
+        "get_temporal_reprojection_amount",
+        
+        "---Setter---",
+        "set_enabled",
+        "set_emission",
+        "set_albedo",
+        "set_density",
+        "set_emission_energy",
+        "set_anisotropy",
+        "set_length",
+        "set_detail_spread",
+        "set_gi_inject",
+        "set_ambient_inject",
+        "set_sky_affect",
+        "set_temporal_reprojection_enabled",
+        "set_temporal_reprojection_amount",
+        "..."
+    ]
+}

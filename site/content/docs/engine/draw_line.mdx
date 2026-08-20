@@ -1,0 +1,90 @@
+---
+title: core.engine.draw_line
+description: Draws a polyline through a series of 2D points on the canvas
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.engine.draw_line(
+    points, 
+    thickness, 
+    color = {1, 1, 1, 1}
+)
+```
+
+<Callout type="warn">
+  **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
+
+  - **Inside the event** — executes as expected, rendering the polyline to the canvas each frame.
+  - **Outside the event** — the call will be silently ignored and nothing will be drawn.
+  - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2[]` | points | Array of 2D points defining the line path |
+| `float` | thickness | Line thickness in pixels |
+| `color` | color | Color of the line |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw a simple horizontal line"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_line(
+        {
+            {center[1] - 200, center[2] - 100},
+            {center[1] + 200, center[2] - 100}
+        },
+        2
+    )
+end)
+```
+
+```lua lineNumbers title="Draw a thick colored diagonal line"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_line(
+        {
+            {center[1] - 100, center[2]},
+            {center[1] + 100, center[2] + 100}
+        },
+        4,
+        {1, 0, 0, 1}
+    )
+end)
+```
+
+```lua lineNumbers title="Draw a multi-segment polyline"
+local resolution = core.engine.get_resolution()
+local center = {resolution[1]*0.5, resolution[2]*0.5}
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_line(
+        {
+            {center[1] - 150, center[2] + 150},
+            {center[1] - 50,  center[2] + 80},
+            {center[1] + 50,  center[2] + 150},
+            {center[1] + 150, center[2] + 80}
+        },
+        2,
+        {0, 1, 0, 1}
+    )
+end)
+```

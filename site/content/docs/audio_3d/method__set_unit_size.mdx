@@ -1,0 +1,35 @@
+---
+title: self:set_unit_size
+description: Sets the unit size of the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_unit_size(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Reference distance at which the audio plays at full volume<br/>Increasing this value makes the audio audible at greater distances |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the unit size of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg")
+
+entity:set_unit_size(10.0)
+```

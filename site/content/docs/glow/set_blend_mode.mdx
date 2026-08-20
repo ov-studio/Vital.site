@@ -1,0 +1,37 @@
+---
+title: gfx.glow.set_blend_mode
+description: Sets the blend mode of the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.glow.set_blend_mode(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.glow.blend_mode`](/docs/glow/enum/blend_mode) | value | Blend mode to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set glow blend mode"
+-- Set additive blend mode
+gfx.glow.set_blend_mode(gfx.glow.blend_mode.ADDITIVE)
+
+-- Set mix blend mode
+gfx.glow.set_blend_mode(gfx.glow.blend_mode.MIX)
+```

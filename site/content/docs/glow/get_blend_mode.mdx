@@ -1,0 +1,30 @@
+---
+title: gfx.glow.get_blend_mode
+description: Retrieves the current blend mode of the glow post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.glow.get_blend_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.glow.blend_mode`](/docs/glow/enum/blend_mode) | result | Current blend mode |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print glow blend mode"
+core.engine.print("info", "Glow blend mode:", gfx.glow.get_blend_mode())
+```

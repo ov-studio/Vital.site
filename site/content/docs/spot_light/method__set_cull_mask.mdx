@@ -1,0 +1,35 @@
+---
+title: self:set_cull_mask
+description: Sets the cull mask of the spot light, controlling which layers are affected by this light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_cull_mask(
+    mask
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Cull mask bitmask to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply cull mask on a spot light"
+local entity = light.spot.create()
+
+entity:set_cull_mask(1)
+```

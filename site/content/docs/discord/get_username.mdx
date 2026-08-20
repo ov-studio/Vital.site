@@ -1,0 +1,32 @@
+---
+title: core.discord.get_username
+description: Retrieves the username of the currently connected Discord account
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = core.discord.get_username()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | Username of the connected Discord account, `false` if not connected |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the username of the connected discord account"
+local username = core.discord.get_username()
+
+core.engine.print("info", "Discord username:", username)
+```

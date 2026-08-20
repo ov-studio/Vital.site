@@ -1,0 +1,32 @@
+---
+title: self:get_shadow_blur
+description: Retrieves the shadow blur amount of the area light
+badge: client
+---
+
+### Syntax
+
+```lua
+local blur = self:get_shadow_blur()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | blur | Current shadow blur amount |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get shadow blur of a area light"
+local entity = light.area.create()
+
+core.engine.print("info", entity:get_shadow_blur())
+```

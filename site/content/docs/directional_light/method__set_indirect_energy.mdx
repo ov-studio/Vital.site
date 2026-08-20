@@ -1,0 +1,35 @@
+---
+title: self:set_indirect_energy
+description: Sets the indirect energy multiplier of the directional light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_indirect_energy(
+    energy
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | energy | Indirect energy multiplier to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply indirect energy on a directional light"
+local entity = light.directional.create()
+
+entity:set_indirect_energy(1.0)
+```

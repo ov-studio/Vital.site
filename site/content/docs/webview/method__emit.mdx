@@ -1,0 +1,36 @@
+---
+title: self:emit
+description: Posts a message from Lua to the webview's JavaScript context
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:emit(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Message string to post to the webview |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Send a message from Lua to the webview"
+local entity = core.webview.create()
+
+-- Send a JSON payload to the webview
+entity:emit('{"event":"ready","data":{"user":"aviril"}}')
+```

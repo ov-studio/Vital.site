@@ -1,0 +1,36 @@
+---
+title: util.shrinker.decompress
+description: Decompresses a compressed string using zstd library
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = util.shrinker.decompress(
+    input
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | input | Compressed string to decompress |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` \| `bool` | result | Decompressed string on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Decompresses an input string"
+local input = util.shrinker.compress("Hello World")
+
+core.engine.print("info", "Input:", input)
+core.engine.print("info", "Decompressed:", util.shrinker.decompress(input))
+```

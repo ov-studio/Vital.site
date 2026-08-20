@@ -1,0 +1,32 @@
+---
+title: self:get_correlated_color
+description: Retrieves the correlated color of the area light derived from its temperature setting
+badge: client
+---
+
+### Syntax
+
+```lua
+local color = self:get_correlated_color()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Correlated color as `{r, g, b}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get correlated color of a area light"
+local entity = light.area.create()
+
+core.engine.print("info", entity:get_correlated_color())
+```
