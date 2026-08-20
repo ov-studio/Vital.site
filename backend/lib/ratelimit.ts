@@ -13,8 +13,22 @@ const ratelimit = lib_redis.redis_configured
     })
   : null;
 
+function strip_port(address: string): string {
+  if (address.startsWith('[')) {
+    const closing = address.indexOf(']');
+    return closing !== -1 ? address.slice(1, closing) : address;
+  }
+  if (address.split(':').length > 2) return address;
+  const colon_index = address.indexOf(':');
+  return colon_index !== -1 ? address.slice(0, colon_index) : address;
+}
+
 export function get_ip(req: Request): string {
-  return req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+  const forwarded = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
+  if (forwarded) return strip_port(forwarded);
+  const real_ip = req.headers.get('x-real-ip')?.trim();
+  if (real_ip) return strip_port(real_ip);
+  return 'unknown';
 }
 
 export async function check(req: Request): Promise<Response | null> {
