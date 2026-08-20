@@ -1,6 +1,7 @@
 'use client';
 import * as config_site     from '@/configs/site';
 import * as config_vault    from '@/configs/vault';
+import * as lib_api_url     from '@/lib/api_url';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
 import * as react_dom       from 'react-dom';
@@ -33,7 +34,7 @@ function use_vault_resources() {
     async function load() {
       set_state('loading');
       try {
-        const res = await fetch('/api/vault');
+        const res = await fetch(lib_api_url.api_url('/api/vault'));
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
         const index: config_vault.VaultIndex = await res.json();
         const cleaned = (index.resources ?? []).map(r => ({ ...r, tags: valid_tags(r.tags) }));

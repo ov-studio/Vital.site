@@ -1,5 +1,6 @@
 'use client';
 import * as config_site from '@/configs/site';
+import * as lib_api_url from '@/lib/api_url';
 import * as react       from 'react';
 import * as lucide      from 'lucide-react';
 import './index.css';
@@ -16,7 +17,7 @@ export function Contributors() {
   const [list, setList] = react.useState<ContributorInfo[] | null>(null);
 
   react.useEffect(() => {
-    fetch('/api/contributors')
+    fetch(lib_api_url.api_url('/api/contributors'))
       .then((r) => r.json())
       .then((data) => setList(Array.isArray(data) ? data : []))
       .catch(() => setList([]));

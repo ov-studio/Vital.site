@@ -1,4 +1,5 @@
 import * as config_site                from '@/configs/site';
+import * as lib_api_url                from '@/lib/api_url';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
 import * as next                       from 'next';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
@@ -46,7 +47,10 @@ export default function Layout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex flex-col min-h-screen font-sans">
         <component_atom_tabtrap.TabTrap/>
-        <fumadocs_provider_next.RootProvider theme={{ enabled: true, forcedTheme: 'dark' }}>
+        <fumadocs_provider_next.RootProvider
+          theme={{ enabled: true, forcedTheme: 'dark' }}
+          search={{ options: { api: lib_api_url.api_url('/api/search') } }}
+        >
           {children}
         </fumadocs_provider_next.RootProvider>
       </body>

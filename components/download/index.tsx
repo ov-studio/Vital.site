@@ -1,6 +1,7 @@
 'use client';
-import * as react from 'react';
-import * as lucide from 'lucide-react';
+import * as lib_api_url from '@/lib/api_url';
+import * as react       from 'react';
+import * as lucide      from 'lucide-react';
 import './index.css';
 
 interface ReleaseInfo {
@@ -15,7 +16,7 @@ export function Download() {
   const [info, setInfo] = react.useState<ReleaseInfo | null>(null);
 
   react.useEffect(() => {
-    fetch('/api/build')
+    fetch(lib_api_url.api_url('/api/build'))
       .then((r) => r.json())
       .then(setInfo)
       .catch(() => setInfo({ tag: '', client_url: null, server_url: null, client_size: null, server_size: null }));

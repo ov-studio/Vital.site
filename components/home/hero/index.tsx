@@ -1,6 +1,7 @@
 'use client';
 import * as component_brand    from '@/components/brand';
 import * as component_download from '@/components/download';
+import * as lib_api_url        from '@/lib/api_url';
 import * as react              from 'react';
 import * as lucide             from 'lucide-react';
 import './index.css';
@@ -27,7 +28,7 @@ export function Hero() {
   const [data, setData] = react.useState<StatsInfo | null>(null);
 
   react.useEffect(() => {
-    fetch('/api/stats')
+    fetch(lib_api_url.api_url('/api/stats'))
       .then((r) => r.json())
       .then(setData)
       .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0 }));
