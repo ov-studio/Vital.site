@@ -5,19 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "postinstall": "fumadocs-mdx"
+    "start": "next start"
   },
   "dependencies": {
     "@upstash/ratelimit": "^2.0.6",
     "@upstash/redis": "^1.35.5",
-    "fumadocs-core": "16.5.0",
-    "fumadocs-mdx": "14.2.6",
-    "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "zod": "^4.3.5"
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13",
