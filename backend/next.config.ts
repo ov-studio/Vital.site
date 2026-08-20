@@ -25,15 +25,6 @@ const config: next.NextConfig = {
     ];
   },
 
-  async rewrites() {
-    return [
-      {
-        source:      '/:path*',
-        destination: '/api/:path*'
-      }
-    ];
-  },
-
   async redirects() {
     return Object.entries(config_site.info.social).map(([key, { href }]) => ({
       source:      '/:path*',
