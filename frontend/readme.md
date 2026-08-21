@@ -14,26 +14,6 @@ cd Vital.site/frontend
 npm install
 ```
 
-### 2. Configure environment variables
-
-No environment variables are required to deploy to Vercel. The API base URL is resolved automatically by `shared/lib/api_url.ts`:
-
-- On Vercel, it reads `VERCEL_PROJECT_PRODUCTION_URL` (falling back to `VERCEL_URL`) — set automatically on every deployment — and requests `https://api.<that host>`.
-- In the browser, it derives the same from `window.location.hostname`.
-- Locally, with no Vercel env present, it falls back to `http://localhost:3001`.
-
-If you need to point at something other than `api.<host>`, override it with a `.env.local` file (already in `.gitignore`):
-
-```dotenv
-NEXT_PUBLIC_API_URL=""
-```
-
-| Variable | Required | Description |
-|---|---|---|
-| `NEXT_PUBLIC_API_URL` | No | Manual override for the API base URL. Only needed if the automatic `api.<host>` detection isn't correct for your setup. Inlined into the bundle at **build time** when set. |
-
-Note: the backend's CORS is locked to `https://vital-sandbox.com`, so preview deployments on `*.vercel.app` will be CORS-blocked unless the backend's allowed origin is widened.
-
 ### 3. Run the dev server
 
 ```bash
