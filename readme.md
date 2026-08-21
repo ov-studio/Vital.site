@@ -1,6 +1,8 @@
 ## Overview
 
-Vital.site is the documentation and resource hub for Vital.sandbox. It covers API references, scripting guides, the community vault, and the live server masterlist.
+The official documentation and resource hub for Vital.sandbox.
+
+Vital.site covers the full API reference, scripting guides, the community vault, and the live server masterlist — everything needed to build with the sandbox from day one.
 
 ## Getting Started
 
