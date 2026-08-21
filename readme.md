@@ -13,44 +13,41 @@ The frontend has no API routes of its own beyond a build-time static search inde
 
 ## Getting Started
 
-Each half has its own install, env vars, and dev server — see their individual readmes:
-
-- **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, `NEXT_PUBLIC_API_URL`, static export/build
-- **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, masterlist admin secret
-
-To run the full site locally, start the backend first (defaults to `http://localhost:3001`), then the frontend (defaults to `http://localhost:3000`) — the frontend falls back to `http://localhost:3001` for `NEXT_PUBLIC_API_URL` if it isn't set, so a local backend is picked up automatically.
-
 ```bash
 git clone https://github.com/ov-studio/Vital.site.git
 cd Vital.site
-
-cd backend && npm install && npm run dev
-# in a second terminal
-cd frontend && npm install && npm run dev
+python dev.py
 ```
+
+`dev.py` installs dependencies automatically on first run, then starts backend (`:3001`) and frontend (`:3000`) together. `Ctrl+C` stops both.
+
+For env var setup and deployment details, see each project's readme:
+
+- **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, `NEXT_PUBLIC_API_URL`, static export
+- **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, masterlist admin secret
 
 ## Structure
 
 ```
 Vital.site/
 ├── frontend/   # static docs + marketing site (Next.js, output: export)
-└── backend/    # API service (masterlist, stats, contributors, vault, build)
+├── backend/    # API service (masterlist, stats, contributors, vault, build)
+├── shared/     # CSS, config, and utilities synced into both projects at build time
+└── dev.py      # development launcher
 ```
-
-See each project's own readme for a full breakdown of its internal structure.
 
 ## Deployment
 
-The two projects deploy independently and don't share a build step:
+The two projects deploy independently:
 
-1. Deploy `backend` first, as its own project — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `MASTERLIST_ADMIN_SECRET`
+1. Deploy `backend` first — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, and `MASTERLIST_ADMIN_SECRET`.
 2. Note the backend's deployed URL.
-3. Deploy `frontend` as its own static project, with `NEXT_PUBLIC_API_URL` set to that backend URL at **build time**.
+3. Deploy `frontend` as a static project. On Vercel, `NEXT_PUBLIC_API_URL` is resolved automatically from the deployment hostname — no manual config needed for production. Set it explicitly only if deploying elsewhere.
 
 Full details, including all env vars, are in each project's readme.
 
 ## Contributing
 
-Documentation improvements, corrections, new guides, and API contributions are all welcome. If you find an error, a missing API, or an outdated example, opening a pull request is the fastest way to get it fixed. For larger structural changes, open an issue first to align on scope before investing time in a draft.
+Documentation improvements, corrections, new guides, and API contributions are all welcome. If you find an error, a missing API, or an outdated example, opening a pull request is the fastest way to get it fixed. For larger structural changes, open an issue first.
 
-Frontend content lives under `frontend/content/docs` as MDX. Backend routes follow the existing caching/rate-limit patterns in `backend/lib`. See each project's readme for specifics.
+Frontend content lives under `frontend/content/docs` as MDX. Backend routes follow the existing caching/rate-limit patterns in `backend/lib`.
