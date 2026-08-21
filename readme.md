@@ -4,12 +4,10 @@ Vital.site is the documentation and resource hub for Vital.sandbox — an open-s
 
 This repo is split into two independently deployed projects:
 
-| Project | What it is | Deploys as |
-|---|---|---|
-| [`frontend`](./frontend) | Docs, marketing pages, vault UI — Next.js with Fumadocs, built as a fully static export | Static host (no server) |
-| [`backend`](./backend) | Everything that needs a live server — Redis-backed masterlist, cached GitHub-backed endpoints | Normal Next.js server deployment |
+- **[`frontend`](./frontend)** — docs, marketing pages, and vault UI built with Next.js and Fumadocs; ships as a fully static export with no server.
+- **[`backend`](./backend)** — everything that needs a live server: Redis-backed masterlist and cached GitHub-backed endpoints for stats, contributors, vault, and build info.
 
-The frontend has no API routes of its own beyond a build-time static search index; every other data need (masterlist, stats, contributors, vault, build info) is fetched client-side from the backend over `NEXT_PUBLIC_API_URL`.
+The frontend has no API routes of its own beyond a build-time static search index; every other data need is fetched client-side from the backend over `NEXT_PUBLIC_API_URL`.
 
 ## Getting Started
 
@@ -28,13 +26,10 @@ For env var setup and deployment details, see each project's readme:
 
 ## Structure
 
-```
-Vital.site/
-├── frontend/   # static docs + marketing site (Next.js, output: export)
-├── backend/    # API service (masterlist, stats, contributors, vault, build)
-├── shared/     # CSS, config, and utilities synced into both projects at build time
-└── dev.py      # development launcher
-```
+- **`frontend/`** — static docs + marketing site (Next.js, output: export)
+- **`backend/`** — API service (masterlist, stats, contributors, vault, build)
+- **`shared/`** — CSS, config, and utilities synced into both projects at build time
+- **`dev.py`** — development launcher
 
 ## Deployment
 
