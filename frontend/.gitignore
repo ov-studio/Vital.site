@@ -29,10 +29,4 @@ next-env.d.ts
 app/global.css
 app/theme.css
 configs/site.tsx
-public/font/Rajdhani-Bold.ttf
-public/font/Rajdhani-Light.ttf
-public/font/Rajdhani-Medium.ttf
-public/font/Rajdhani-Regular.ttf
-public/font/Rajdhani-SemiBold.ttf
-public/logo.svg
 # </sync:shared>
