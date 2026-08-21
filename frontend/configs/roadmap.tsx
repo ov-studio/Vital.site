@@ -1832,18 +1832,6 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         // TODO: WIP
-        label: 'WebSocket',
-        desc:  'Full-duplex WebSocket client and server for real-time browser and service communication',
-        icon:  <lucide.Wifi {...config_site.info.lucide}/>,
-        items: [
-          { label:  'WebSocketPeer.connect_to_url',       status: 'pending' },
-          { label:  'send / receive (text & binary)',     status: 'pending' },
-          { label:  'WebSocketServer (listen / accept)',  status: 'pending' },
-          { label:  'TLS / WSS support',                  status: 'pending' },
-        ]
-      },
-      {
-        // TODO: WIP
         label: 'VoIP',
         desc:  'In-game voice communication — capture, encode, transmit, and decode player audio in real time',
         icon:  <lucide.Mic {...config_site.info.lucide}/>,
