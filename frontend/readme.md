@@ -52,19 +52,17 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 
 ## Structure
 
-| Path | Description |
-|---|---|
-| `app/(home)` | Landing page |
-| `app/docs` | Documentation layout and MDX pages |
-| `app/vault` | Vault browser UI |
-| `app/roadmap` | Roadmap page |
-| `app/tos` | Terms of service page |
-| `app/api/search` | Static search index, built at compile time and queried client-side |
-| `app/og` | OG image generation for docs pages |
-| `components` | Shared UI components |
-| `configs` | Page-level configuration (footer, home, roadmap, tos, vault) |
-| `content/docs` | MDX source files for all documentation |
-| `lib` | Shared utilities (`source.ts`, `cn.ts`, `layout.shared.tsx`) |
+- **`app/(home)`** — landing page
+- **`app/docs`** — documentation layout and MDX pages
+- **`app/vault`** — vault browser UI
+- **`app/roadmap`** — roadmap page
+- **`app/tos`** — terms of service page
+- **`app/api/search`** — static search index, built at compile time and queried client-side
+- **`app/og`** — OG image generation for docs pages
+- **`components`** — shared UI components
+- **`configs`** — page-level configuration (footer, home, roadmap, tos, vault)
+- **`content/docs`** — MDX source files for all documentation
+- **`lib`** — shared utilities (`source.ts`, `cn.ts`, `layout.shared.tsx`)
 
 ## Contributing
 
