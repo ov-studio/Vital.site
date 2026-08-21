@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). For masterlist, stats, and vault data to load locally, the backend needs to be running too (defaults to `http://localhost:3001`).
+Open [http://localhost:3000](http://localhost:3000). For masterlist, stats, and vault data to load locally, the backend needs to be running too.
 
 ### 4. Build for production
 
