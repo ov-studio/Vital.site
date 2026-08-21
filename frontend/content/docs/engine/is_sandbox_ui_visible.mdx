@@ -1,0 +1,30 @@
+---
+title: core.engine.is_sandbox_ui_visible
+description: Retrieves whether any sandbox UI is currently visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = core.engine.is_sandbox_ui_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if any sandbox UI is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Checks if any sandbox UI is currently visible"
+core.engine.print("info", "Sandbox UI visible:", core.engine.is_sandbox_ui_visible())
+```

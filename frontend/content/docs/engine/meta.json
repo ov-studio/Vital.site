@@ -7,6 +7,7 @@
         "enum__vertical_alignment",
 
         "---Checker---",
+        "is_sandbox_ui_visible",
         "is_splash_visible",
         "is_console_visible",
 
