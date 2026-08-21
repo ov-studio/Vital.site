@@ -30,7 +30,7 @@ The two projects deploy independently:
 
 1. Deploy `backend` first — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, and `MASTERLIST_ADMIN_SECRET`.
 2. Note the backend's deployed URL.
-3. Deploy `frontend` as a static project. The backend URL is resolved automatically from the deployment hostname — no manual config needed.
+3. Deploy `frontend` as a static project. The backend URL is resolved automatically from the deployment hostname.
 
 Full details, including all env vars, are in each project's readme.
 
