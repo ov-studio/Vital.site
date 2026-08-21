@@ -56,16 +56,14 @@ Starts on [http://localhost:3001](http://localhost:3001). Point the frontend's `
 
 ## Structure
 
-| Path | Description |
-|---|---|
-| `lib` | Redis client, in-memory cache wrapper, and rate-limit helper |
-| `app/build` | Latest client/server download links — GitHub Releases-backed, cached |
-| `app/stats` | Aggregated repo stars/forks/issues/commits — GitHub-backed, cached |
-| `app/contributors` | Contributor list across repos — GitHub-backed, cached |
-| `app/vault` | Proxies `Vital.vault`'s resource index, cached |
-| `app/vault/tree` | Proxies the vault repo's git tree (used for per-resource zip downloads), cached |
-| `app/masterlist` | Redis-backed live server list (`GET`, plus `register`/`heartbeat` for server owners) |
-| `app/og` | OG image generation |
+- **`lib`** — Redis client, in-memory cache wrapper, and rate-limit helper
+- **`app/build`** — latest client/server download links, GitHub Releases-backed and cached
+- **`app/stats`** — aggregated repo stars/forks/issues/commits, GitHub-backed and cached
+- **`app/contributors`** — contributor list across repos, GitHub-backed and cached
+- **`app/vault`** — proxies `Vital.vault`'s resource index, cached
+- **`app/vault/tree`** — proxies the vault repo's git tree for per-resource zip downloads, cached
+- **`app/masterlist`** — Redis-backed live server list (`GET`, plus `register`/`heartbeat` for server owners)
+- **`app/og`** — OG image generation
 
 ## Contributing
 
