@@ -1,7 +1,10 @@
 import *      as config_site from './configs/site.tsx';
+import *      as lib_api_url from './lib/api_url.ts';
 import type * as next        from 'next';
 
-const ALLOWED_ORIGIN = 'https://vital-sandbox.com';
+const SITE_URL       = lib_api_url.get_site_url();
+const SITE_HOST      = new URL(SITE_URL).hostname;
+const ALLOWED_ORIGIN = SITE_URL;
 
 const config: next.NextConfig = {
   reactStrictMode: true,
@@ -28,7 +31,7 @@ const config: next.NextConfig = {
   async redirects() {
     return Object.entries(config_site.info.social).map(([key, { href }]) => ({
       source:      '/:path*',
-      has:         [{ type: 'host' as const, value: `${key}.vital-sandbox.com` }],
+      has:         [{ type: 'host' as const, value: `${key}.${SITE_HOST}` }],
       destination: href.startsWith('http') ? href : `https://${href}`,
       permanent:   false
     }));
