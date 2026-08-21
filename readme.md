@@ -1,8 +1,6 @@
 ## Overview
 
-Vital.site is the documentation and resource hub for Vital.sandbox — an open-source, high-performance sandbox built on Godot and powered by C++17 and Lua. It covers API references, scripting guides, the community vault, and the live server masterlist.
-
-This repo is split into two independently deployed projects — see **[`frontend/readme.md`](./frontend/readme.md)** and **[`backend/readme.md`](./backend/readme.md)** for details on each.
+Vital.site is the documentation and resource hub for Vital.sandbox. It covers API references, scripting guides, the community vault, and the live server masterlist.
 
 ## Getting Started
 
