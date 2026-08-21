@@ -29,4 +29,5 @@ next-env.d.ts
 app/global.css
 app/theme.css
 configs/site.tsx
+lib/api_url.ts
 # </sync:shared>
