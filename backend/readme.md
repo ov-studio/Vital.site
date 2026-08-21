@@ -69,4 +69,4 @@ Starts on [http://localhost:3001](http://localhost:3001). Point the frontend's `
 
 Bug reports and pull requests for new or improved endpoints are welcome. Keep new routes consistent with the existing pattern: cache GitHub-backed data with `lib/api_cache`, and document any new env var here.
 
-**Rate limiting lives in `middleware.ts`, not in individual routes.** Cached routes send a `public, s-maxage=...` Cache-Control header that Vercel's CDN honors — repeat requests within that window never reach the handler, so a `lib/ratelimit.check()` call inside the handler would silently stop firing once cached. `middleware.ts` runs before the CDN cache lookup and enforces the limit regardless. If you add a new cached GET route, add its path to the `matcher` array in `middleware.ts` instead of calling `lib/ratelimit` from the route itself.
+Rate limiting lives in `middleware.ts`, not in individual routes — add new cached GET routes to the `matcher` array there instead of calling `lib/ratelimit` from the route itself.
