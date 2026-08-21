@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "predev": "node ../shared/sync.js",
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "prebuild": "node ../shared/sync.js",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx"
   },
