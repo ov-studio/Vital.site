@@ -12,13 +12,11 @@ function base_domain(): string | undefined {
 }
 
 export function get_frontend_url(): string {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
   const domain = base_domain();
   return domain ? `https://${domain}` : LOCAL_FRONTEND_URL;
 }
 
 export function get_backend_url(): string {
-  if (process.env.NEXT_PUBLIC_API_URL) return process.env.NEXT_PUBLIC_API_URL;
   const domain = base_domain();
   return domain ? `https://api.${domain}` : LOCAL_BACKEND_URL;
 }
