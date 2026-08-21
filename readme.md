@@ -2,12 +2,7 @@
 
 Vital.site is the documentation and resource hub for Vital.sandbox — an open-source, high-performance sandbox built on Godot and powered by C++17 and Lua. It covers API references, scripting guides, the community vault, and the live server masterlist.
 
-This repo is split into two independently deployed projects:
-
-- **[`frontend`](./frontend)** — docs, marketing pages, and vault UI built with Next.js and Fumadocs; ships as a fully static export with no server.
-- **[`backend`](./backend)** — everything that needs a live server: Redis-backed masterlist and cached GitHub-backed endpoints for stats, contributors, vault, and build info.
-
-The frontend has no API routes of its own beyond a build-time static search index; every other data need is fetched client-side from the backend over `NEXT_PUBLIC_API_URL`.
+This repo is split into two independently deployed projects — see **[`frontend/readme.md`](./frontend/readme.md)** and **[`backend/readme.md`](./backend/readme.md)** for details on each.
 
 ## Getting Started
 
