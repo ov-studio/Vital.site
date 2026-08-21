@@ -5,7 +5,7 @@ import * as next        from 'next';
 export const dynamic = 'force-static';
 
 export default function sitemap(): next.MetadataRoute.Sitemap {
-  const SITE_URL = lib_api_url.get_site_url();
+  const SITE_URL = lib_api_url.get_frontend_url();
   const pages = lib_source.source.getPages().map((page) => {
     const is_docs_root = page.url === '/docs';
     return {

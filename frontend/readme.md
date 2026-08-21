@@ -59,7 +59,7 @@ Outputs a fully static site to `out/`, ready to deploy to any static host. No en
 | Path | Description |
 |---|---|
 | `configs` | Site-wide configuration files |
-| `lib` | Content source adapter and shared utilities (`api_url` — resolves both the API base URL and the site's own URL, used for reaching the backend and by `layout.tsx`/`robots.ts`/`sitemap.ts`) |
+| `lib` | Content source adapter and shared utilities (`get_api_url` — resolves both the API base URL and the site's own URL, used for reaching the backend and by `layout.tsx`/`robots.ts`/`sitemap.ts`) |
 | `components` | Shared UI components |
 | `app/(home)` | Landing page and top-level routes |
 | `app/api/search` | Static search index, built at compile time and queried client-side — the only route here that isn't proxied to the backend |

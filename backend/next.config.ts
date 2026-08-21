@@ -2,7 +2,7 @@ import *      as config_site from './configs/site.tsx';
 import *      as lib_api_url from './lib/api_url.ts';
 import type * as next        from 'next';
 
-const SITE_URL       = lib_api_url.get_site_url();
+const SITE_URL       = lib_api_url.get_frontend_url();
 const SITE_HOST      = new URL(SITE_URL).hostname;
 const ALLOWED_ORIGIN = SITE_URL;
 

@@ -1,7 +1,7 @@
 import * as lib_api_url from '@/lib/api_url';
 import * as next_og from 'next/og';
 
-const SITE_URL = lib_api_url.get_site_url();
+const SITE_URL = lib_api_url.get_frontend_url();
 
 const bg   = 'hsl(250, 25%, 2%)';
 const blue = 'hsl(220, 95%, 76%)';

@@ -23,10 +23,10 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
-const OG_IMAGE_URL = lib_api_url.api_url('/og');
+const OG_IMAGE_URL = lib_api_url.get_api_url('/og');
 
 export const metadata: next.Metadata = {
-  metadataBase: new URL(lib_api_url.get_site_url()),
+  metadataBase: new URL(lib_api_url.get_frontend_url()),
   title: {
     template: `%s - ${config_site.info.name}`,
     default: config_site.info.name,

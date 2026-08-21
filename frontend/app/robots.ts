@@ -12,6 +12,6 @@ export default function robots(): next.MetadataRoute.Robots {
         disallow: ['/api/']
       }
     ],
-    sitemap: `${lib_api_url.get_site_url()}/sitemap.xml`
+    sitemap: `${lib_api_url.get_frontend_url()}/sitemap.xml`
   };
 }

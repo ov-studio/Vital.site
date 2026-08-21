@@ -28,7 +28,7 @@ export function Hero() {
   const [data, setData] = react.useState<StatsInfo | null>(null);
 
   react.useEffect(() => {
-    fetch(lib_api_url.api_url('/stats'))
+    fetch(lib_api_url.get_api_url('/stats'))
       .then((r) => r.json())
       .then(setData)
       .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0 }));
