@@ -52,7 +52,7 @@ Starts on [http://localhost:3001](http://localhost:3001) — the frontend picks 
 
 1. Deploy this folder as its own project, separate from the frontend.
 2. Set the env vars above — `MASTERLIST_ADMIN_SECRET` in particular.
-3. Note the deployed URL and set it as `NEXT_PUBLIC_API_URL` in the frontend's build environment.
+3. The frontend resolves the backend URL automatically from the deployment hostname — no additional config needed.
 
 ## Structure
 

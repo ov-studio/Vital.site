@@ -16,7 +16,7 @@ python dev.py
 
 For env var setup and deployment details, see each project's readme:
 
-- **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, `NEXT_PUBLIC_API_URL`, static export
+- **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, static export
 - **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, masterlist admin secret
 
 ## Structure
@@ -32,7 +32,7 @@ The two projects deploy independently:
 
 1. Deploy `backend` first — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, and `MASTERLIST_ADMIN_SECRET`.
 2. Note the backend's deployed URL.
-3. Deploy `frontend` as a static project. On Vercel, `NEXT_PUBLIC_API_URL` is resolved automatically from the deployment hostname — no manual config needed for production. Set it explicitly only if deploying elsewhere.
+3. Deploy `frontend` as a static project. The backend URL is resolved automatically from the deployment hostname — no manual config needed.
 
 Full details, including all env vars, are in each project's readme.
 
