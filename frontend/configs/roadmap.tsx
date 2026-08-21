@@ -92,7 +92,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Ambient CRT flicker, vignette & scanline overlay',             status: 'completed' },
           { label:  'Configurable timing - delays, hold durations, stroke speed',   status: 'completed' },
           { label:  'Three-stage exit - fade to black, hold, fade to transparent',  status: 'completed' },
-          { label:  'Godot WebView IPC handshake - ready / init / hide',            status: 'completed' },
+          { label:  'WebView IPC handshake - ready / init / hide',            status: 'completed' },
           { label:  'Boot lifecycle integration - wire into kit startup',           status: 'completed' }
         ]
       },
