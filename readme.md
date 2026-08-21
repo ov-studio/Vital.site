@@ -43,6 +43,4 @@ Full details, including all env vars, are in each project's readme.
 
 ## Contributing
 
-Documentation improvements, corrections, new guides, and API contributions are all welcome. If you find an error, a missing API, or an outdated example, opening a pull request is the fastest way to get it fixed. For larger structural changes, open an issue first.
-
-Frontend content lives under `frontend/content/docs` as MDX. Backend routes follow the existing caching/rate-limit patterns in `backend/lib`.
+Pull requests are welcome. For larger structural changes, open an issue first. See each project's readme for specifics on content conventions and route patterns.
