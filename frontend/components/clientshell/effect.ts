@@ -3,7 +3,7 @@ import * as react from 'react';
 
 type ActiveBest = { id: string; gap: number };
 
-export function Effect() {
+export function useClientShellEffect() {
   react.useEffect(() => {
     const cur = document.getElementById('cur');
     const co = document.getElementById('cur-outer');
