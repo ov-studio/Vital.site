@@ -1,6 +1,5 @@
 import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
-import * as lib_ratelimit from '@/lib/ratelimit';
 
 const RAW_URL = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/vault.json`;
 
@@ -20,9 +19,6 @@ const cached_GET = lib_api_cache.create_cached_route<unknown>({
   fallback_error: 'Failed to load vault data'
 });
 
-export async function GET(req: Request) {
-  const limited = await lib_ratelimit.check(req);
-  if (limited) return limited;
-  
+export async function GET() {
   return cached_GET();
 }

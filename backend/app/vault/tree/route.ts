@@ -1,6 +1,5 @@
 import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
-import * as lib_ratelimit from '@/lib/ratelimit';
 
 const TREE_URL = `https://api.github.com/repos/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/git/trees/main?recursive=1`;
 
@@ -34,9 +33,6 @@ const cached_GET = lib_api_cache.create_cached_route<TreeInfo>({
   fallback_error: 'Failed to load vault tree'
 });
 
-export async function GET(req: Request) {
-  const limited = await lib_ratelimit.check(req);
-  if (limited) return limited;
-
+export async function GET() {
   return cached_GET();
 }

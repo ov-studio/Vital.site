@@ -1,6 +1,5 @@
 import * as config_site   from '@/configs/site';
 import * as lib_redis     from '@/lib/redis';
-import * as lib_ratelimit from '@/lib/ratelimit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -21,9 +20,7 @@ export interface ServerInfo {
   lastSeen:    number;
 }
 
-export async function GET(req: Request) {
-  const limited = await lib_ratelimit.check(req);
-  if (limited) return limited;
+export async function GET() {
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
   const keys = await lib_redis.redis!.keys('masterlist:server:*');
