@@ -46,7 +46,7 @@ MASTERLIST_STRICT_IP=false
 npm run dev
 ```
 
-Starts on [http://localhost:3001](http://localhost:3001). Point the frontend's `NEXT_PUBLIC_API_URL` here when developing locally (it falls back to this automatically if the env var isn't set).
+Starts on [http://localhost:3001](http://localhost:3001) — the frontend picks this up automatically when running locally.
 
 ### 4. Deploy
 
