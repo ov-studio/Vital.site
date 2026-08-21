@@ -1,16 +1,15 @@
 import * as lib_api_url from '@/lib/api_url';
 import * as next_og from 'next/og';
 
-const SITE_URL = lib_api_url.get_frontend_url();
-
-const bg   = 'hsl(250, 25%, 2%)';
+const bg = 'hsl(250, 25%, 2%)';
 const blue = 'hsl(220, 95%, 76%)';
 const rule = 'hsl(220, 18%, 9%)';
 
 export async function GET() {
+  const frontend_url = lib_api_url.get_frontend_url();
   const [logosvg, rajdhani] = await Promise.all([
-    fetch(`${SITE_URL}/logo.svg`).then(r => r.text()),
-    fetch(`${SITE_URL}/font/Rajdhani-Bold.ttf`).then(r => r.arrayBuffer())
+    fetch(`${frontend_url}/logo.svg`).then(r => r.text()),
+    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then(r => r.arrayBuffer())
   ]);
 
   const logo    = logosvg.replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
