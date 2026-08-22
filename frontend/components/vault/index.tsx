@@ -210,7 +210,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
           </div>
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
-              <ui_tagpill.TagPill key={t} label={t} className="vault-modal-tag" />
+              <ui_tagpill.TagPill key={t} label={t} className="vault-modal-tag"/>
             ))}
           </div>
 
@@ -253,7 +253,7 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
       layout="stack"
       className={`vault-card rev${resource.featured ? ' featured' : ''}`}
       onClick={onClick}
-      coverNode={<Banner src={resource.banner} size="card" />}
+      coverNode={<Banner src={resource.banner} size="card"/>}
       topRight={resource.featured && <span className="vault-card-featured-badge">Featured</span>}
       bodyClassName="vault-card-body"
       bodyContent={
@@ -267,7 +267,7 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
           <div className="vault-card-footer">
             <div className="vault-card-tags">
               {resource.tags.slice(0, 2).map(t => (
-                <ui_tagpill.TagPill key={t} label={t} />
+                <ui_tagpill.TagPill key={t} label={t}/>
               ))}
             </div>
           </div>
