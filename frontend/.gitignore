@@ -8,4 +8,5 @@ configs/site.tsx
 lib/api_url.ts
 public/cdn/theme.css
 public/cdn/global.css
+public/cdn/ui/
 # </sync:shared>
