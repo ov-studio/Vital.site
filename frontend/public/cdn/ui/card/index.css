@@ -1,0 +1,30 @@
+.ui-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.ui-card--interactive { cursor: pointer; }
+.ui-card-cover { position: absolute; inset: 0; overflow: hidden; }
+.ui-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ui-card-cover-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.ui-card-scrim { position: absolute; inset: 0; pointer-events: none; }
+.ui-card-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 4;
+}
+.ui-card-body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; }
+.ui-card-title,
+.ui-card-subtitle,
+.ui-card-desc,
+.ui-card-footer { display: block; }
+
+.ui-card.ui-card--stack {
+  display: flex;
+  flex-direction: column;
+}
+.ui-card.ui-card--stack .ui-card-cover { position: static; }
+.ui-card.ui-card--stack .ui-card-body  { position: static; display: flex; flex-direction: column; }

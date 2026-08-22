@@ -1,28 +1,4 @@
-# deps
-node_modules
 
-# generated content
-.source
-
-# test & build
-coverage
-.next/
-out/
-*.tsbuildinfo
-
-# misc
-.DS_Store
-*.pem
-.pnp
-.pnp.js
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# others
-.env*.local
-.vercel
-next-env.d.ts
 
 # <sync:shared>
 # Auto-copied from shared/ by sync.js — do not edit this block manually
@@ -30,16 +6,6 @@ app/global.css
 app/theme.css
 configs/site.tsx
 lib/api_url.ts
-ui/card/index.css
-ui/card/index.jsx
-ui/filter/index.css
-ui/filter/index.jsx
-ui/iconbutton/index.css
-ui/iconbutton/index.jsx
-ui/search/index.css
-ui/search/index.jsx
-ui/tagpill/index.jsx
 public/cdn/theme.css
 public/cdn/global.css
-public/cdn/ui/
 # </sync:shared>

@@ -1,0 +1,16 @@
+.ui-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--w14, rgba(255,255,255,.14));
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.ui-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font: inherit;
+  min-width: 0;
+}
