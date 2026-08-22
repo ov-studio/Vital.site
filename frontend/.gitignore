@@ -35,4 +35,7 @@ ui/FilterBar.jsx
 ui/IconButton.jsx
 ui/TagPill.jsx
 ui/ui.css
+public/cdn/theme.css
+public/cdn/global.css
+public/cdn/ui/
 # </sync:shared>
