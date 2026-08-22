@@ -1,6 +1,9 @@
 'use client';
 import * as config_site     from '@/configs/site';
 import * as config_vault    from '@/configs/vault';
+import * as ui_tagpill      from '@/ui/TagPill';
+import * as ui_iconbutton   from '@/ui/IconButton';
+import * as ui_card         from '@/ui/Card';
 import * as lib_api_url     from '@/lib/api_url';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
@@ -169,12 +172,20 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
       <div className={`vault-modal-frame${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
       <div className="vault-modal">
         <div className="vault-modal-controls">
-          <button className={`vault-modal-share${copied ? ' copied' : ''}`} onClick={handle_share} aria-label="Share">
-            {copied ? <lucide.Check size={14} strokeWidth={2.5}/> : <lucide.Link size={14} strokeWidth={2.5}/>}
-          </button>
-          <button className="vault-modal-close" onClick={on_close} aria-label="Close">
-            <lucide.X size={14} strokeWidth={2.5}/>
-          </button>
+          <ui_iconbutton.IconButton
+            className={`vault-modal-share${copied ? ' copied' : ''}`}
+            icon={copied ? lucide.Check : lucide.Link}
+            iconProps={{ size: 14, strokeWidth: 2.5 }}
+            title="Share"
+            onClick={handle_share}
+          />
+          <ui_iconbutton.IconButton
+            className="vault-modal-close"
+            icon={lucide.X}
+            iconProps={{ size: 14, strokeWidth: 2.5 }}
+            title="Close"
+            onClick={on_close}
+          />
         </div>
 
         <Banner src={resource.banner} size="modal"/>
@@ -199,7 +210,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
           </div>
           <div className="vault-modal-tags">
             {resource.tags.map(t => (
-              <span key={t} className="tag-pill vault-modal-tag">#{t}</span>
+              <ui_tagpill.TagPill key={t} label={t} className="vault-modal-tag" />
             ))}
           </div>
 
@@ -238,33 +249,31 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
 
 function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource; onClick: () => void }) {
   return (
-    <div
+    <ui_card.Card
+      layout="stack"
       className={`vault-card rev${resource.featured ? ' featured' : ''}`}
       onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
-    >
-      <Banner src={resource.banner} size="card"/>
-
-      {resource.featured && <span className="vault-card-featured-badge">Featured</span>}
-
-      <div className="vault-card-body">
-        <div className="vault-card-meta">
-          <span className="vault-card-author">{resource.author}</span>
-          <span className="vault-card-version">v{resource.version}</span>
-        </div>
-        <div className="vault-card-name">{resource.name}</div>
-        <div className="vault-card-tagline">{resource.tagline}</div>
-        <div className="vault-card-footer">
-          <div className="vault-card-tags">
-            {resource.tags.slice(0, 2).map(t => (
-              <span key={t} className="tag-pill">#{t}</span>
-            ))}
+      coverNode={<Banner src={resource.banner} size="card" />}
+      topRight={resource.featured && <span className="vault-card-featured-badge">Featured</span>}
+      bodyClassName="vault-card-body"
+      bodyContent={
+        <>
+          <div className="vault-card-meta">
+            <span className="vault-card-author">{resource.author}</span>
+            <span className="vault-card-version">v{resource.version}</span>
           </div>
-        </div>
-      </div>
-    </div>
+          <div className="vault-card-name">{resource.name}</div>
+          <div className="vault-card-tagline">{resource.tagline}</div>
+          <div className="vault-card-footer">
+            <div className="vault-card-tags">
+              {resource.tags.slice(0, 2).map(t => (
+                <ui_tagpill.TagPill key={t} label={t} />
+              ))}
+            </div>
+          </div>
+        </>
+      }
+    />
   );
 }
 
