@@ -3,7 +3,7 @@ import './index.css';
 export function Filter({
   tags = [],
   active = null,
-  onChange,
+  onChange = undefined,
   allLabel = 'All',
   disabled = false,
   className = '',

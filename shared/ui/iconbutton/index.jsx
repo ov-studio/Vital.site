@@ -5,11 +5,11 @@ import './index.css';
 // 'function'` is false for them. Don't gate on typeof — anything that
 // isn't already a rendered element is treated as a component type.
 export function IconButton({
-  icon,
+  icon = null,
   iconProps = {},
-  title,
-  label,
-  onClick,
+  title = undefined,
+  label = undefined,
+  onClick = undefined,
   className = '',
   disabled = false,
   type = 'button',

@@ -2,9 +2,9 @@ import './index.css';
 
 export function Search({
   value = '',
-  onChange,
+  onChange = undefined,
   placeholder = 'Search…',
-  icon,
+  icon = undefined,
   disabled = false,
   className = '',
 }) {
