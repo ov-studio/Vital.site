@@ -68,7 +68,7 @@ function update_gitignore(target_dir, rel_paths) {
 }
 
 const CDN_TARGET_DIR = path.resolve(__dirname, '../frontend/public/cdn');
-const UI_SRC_DIR = path.resolve(__dirname, '../frontend/components/ui');
+const UI_SRC_DIR = path.resolve(__dirname, '../frontend/ui');
 
 const CDN_CSS_FILES = [
   { src: path.join(SHARED_DIR, 'app', 'theme.css'), dest: path.join(CDN_TARGET_DIR, 'theme.css') },
