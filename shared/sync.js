@@ -75,6 +75,45 @@ function update_gitignore(target_dir, rel_paths) {
   console.log(`  gitignore updated: ${path.relative(process.cwd(), gitignore_path)}`);
 }
 
+// Also mirror the CDN-facing assets — stylesheets and shared/ui components —
+// into frontend/public/cdn/ so they're exported as static files and served
+// directly off the site's own domain (vital-sandbox.com/cdn/...) instead of
+// external consumers (Vital.kit, Vital.vault) relying on jsDelivr, or on
+// having this repo checked out locally, to reach them.
+const CDN_TARGET_DIR = path.resolve(__dirname, '../frontend/public/cdn');
+
+const CDN_CSS_FILES = [
+  { src: path.join(SHARED_DIR, 'app', 'theme.css'),  dest: path.join(CDN_TARGET_DIR, 'theme.css') },
+  { src: path.join(SHARED_DIR, 'app', 'global.css'), dest: path.join(CDN_TARGET_DIR, 'global.css') },
+];
+
+function sync_cdn_assets() {
+  fs.mkdirSync(CDN_TARGET_DIR, { recursive: true });
+
+  for (const { src, dest } of CDN_CSS_FILES) {
+    if (!fs.existsSync(src)) {
+      console.warn(`[sync] cdn source missing, skipping: ${path.relative(SHARED_DIR, src)}`);
+      continue;
+    }
+    fs.copyFileSync(src, dest);
+    console.log(`  synced (cdn): ${path.relative(SHARED_DIR, src)} -> frontend/public/cdn/${path.basename(dest)}`);
+  }
+
+  // shared/ui/*.jsx + ui.css -> frontend/public/cdn/ui/  (fetched at build
+  // time by Vital.kit/Vital.vault via scripts/sync-ui.mjs)
+  const ui_src_dir  = path.join(SHARED_DIR, 'ui');
+  const ui_dest_dir = path.join(CDN_TARGET_DIR, 'ui');
+  if (fs.existsSync(ui_src_dir)) {
+    fs.mkdirSync(ui_dest_dir, { recursive: true });
+    for (const entry of fs.readdirSync(ui_src_dir, { withFileTypes: true })) {
+      if (!entry.isFile()) continue;
+      if (!/\.(jsx?|css)$/.test(entry.name)) continue;
+      fs.copyFileSync(path.join(ui_src_dir, entry.name), path.join(ui_dest_dir, entry.name));
+      console.log(`  synced (cdn): ui/${entry.name} -> frontend/public/cdn/ui/${entry.name}`);
+    }
+  }
+}
+
 // ── main ────────────────────────────────────────────────────────────────────
 
 const rel_paths = collect_paths(SHARED_DIR);
@@ -93,5 +132,7 @@ for (const target of TARGETS) {
   copy_dir(SHARED_DIR, target);
   update_gitignore(target, rel_paths);
 }
+
+sync_cdn_assets();
 
 console.log('[sync] done');
