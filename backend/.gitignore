@@ -30,9 +30,13 @@ app/global.css
 app/theme.css
 configs/site.tsx
 lib/api_url.ts
-ui/Card.jsx
-ui/FilterBar.jsx
-ui/IconButton.jsx
-ui/TagPill.jsx
-ui/ui.css
+ui/card/index.css
+ui/card/index.jsx
+ui/filter/index.css
+ui/filter/index.jsx
+ui/iconbutton/index.css
+ui/iconbutton/index.jsx
+ui/search/index.css
+ui/search/index.jsx
+ui/tagpill/index.jsx
 # </sync:shared>
