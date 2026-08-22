@@ -75,12 +75,19 @@ function update_gitignore(target_dir, rel_paths) {
   console.log(`  gitignore updated: ${path.relative(process.cwd(), gitignore_path)}`);
 }
 
-// Also mirror the CDN-facing assets — stylesheets and shared/ui components —
-// into frontend/public/cdn/ so they're exported as static files and served
-// directly off the site's own domain (vital-sandbox.com/cdn/...) instead of
-// external consumers (Vital.kit, Vital.vault) relying on jsDelivr, or on
-// having this repo checked out locally, to reach them.
+// Also mirror the theme stylesheets and the frontend's own UI component
+// set into frontend/public/cdn/ so they're exported as static files and
+// served directly off the site's own domain (vital-sandbox.com/cdn/...)
+// instead of external consumers (Vital.kit, Vital.vault) relying on
+// jsDelivr, or on having this repo checked out locally, to reach them.
+//
+// NOTE: frontend/components/ui/ is real, directly-committed source (not
+// something sync.js copies FROM shared/) — it lives in frontend/ because
+// it's a frontend-only concern (React components); backend never renders
+// them, so there's no reason for them to live in shared/ and get mirrored
+// into backend/ like configs/lib/theme actually need to.
 const CDN_TARGET_DIR = path.resolve(__dirname, '../frontend/public/cdn');
+const UI_SRC_DIR      = path.resolve(__dirname, '../frontend/components/ui');
 
 const CDN_CSS_FILES = [
   { src: path.join(SHARED_DIR, 'app', 'theme.css'),  dest: path.join(CDN_TARGET_DIR, 'theme.css') },
@@ -102,12 +109,12 @@ function sync_cdn_assets() {
     console.log(`  synced (cdn): ${path.relative(SHARED_DIR, src)} -> frontend/public/cdn/${path.basename(dest)}`);
   }
 
-  // shared/ui/**/*.{jsx,css} -> frontend/public/cdn/ui/  (fetched at build
-  // time by Vital.kit/Vital.vault via scripts/sync-ui.mjs). Recursive since
-  // each component now lives in its own folder (ui/card/index.jsx, etc).
-  const ui_src_dir  = path.join(SHARED_DIR, 'ui');
+  // frontend/components/ui/**/*.{jsx,css} -> frontend/public/cdn/ui/
+  // (fetched at build time by Vital.kit/Vital.vault via scripts/sync-ui.mjs)
   const ui_dest_dir = path.join(CDN_TARGET_DIR, 'ui');
-  if (fs.existsSync(ui_src_dir)) {
+  if (!fs.existsSync(UI_SRC_DIR)) {
+    console.warn(`[sync] ui source missing, skipping: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)} does not exist`);
+  } else {
     let copied_any = false;
     const copy_ui_recursive = (src, dest) => {
       fs.mkdirSync(dest, { recursive: true });
@@ -118,14 +125,17 @@ function sync_cdn_assets() {
           copy_ui_recursive(src_path, dest_path);
         } else if (/\.(jsx?|css)$/.test(entry.name)) {
           fs.copyFileSync(src_path, dest_path);
-          console.log(`  synced (cdn): ui/${path.relative(ui_src_dir, src_path).split(path.sep).join('/')} -> frontend/public/cdn/ui/${path.relative(ui_dest_dir, dest_path).split(path.sep).join('/')}`);
+          console.log(`  synced (cdn): components/ui/${path.relative(UI_SRC_DIR, src_path).split(path.sep).join('/')} -> frontend/public/cdn/ui/${path.relative(ui_dest_dir, dest_path).split(path.sep).join('/')}`);
           copied_any = true;
         }
       }
     };
-    copy_ui_recursive(ui_src_dir, ui_dest_dir);
-    // Whole-folder ignore (not per-file) so newly added shared/ui/* files
-    // and folders are covered automatically without touching this again.
+    copy_ui_recursive(UI_SRC_DIR, ui_dest_dir);
+    if (!copied_any) {
+      console.warn(`[sync] ui source exists but contained no .jsx/.css files: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)}`);
+    }
+    // Whole-folder ignore (not per-file) so newly added components/ui/*
+    // files and folders are covered automatically without touching this again.
     if (copied_any) cdn_rel_paths.push('public/cdn/ui/');
   }
 
