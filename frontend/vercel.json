@@ -2,6 +2,7 @@
   "git": {
     "deploymentEnabled": true
   },
+  
   "headers": [
     {
       "source": "/_next/static/:path*",
