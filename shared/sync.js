@@ -4,11 +4,11 @@
  * mirroring the directory structure. Run automatically via predev/prebuild.
  */
 
-const fs = require('fs');
+const fs   = require('fs');
 const path = require('path');
 
-const SHARED_DIR = __dirname;
-const TARGETS = [
+const SHARED_DIR  = __dirname;
+const TARGETS     = [
   path.resolve(__dirname, '../frontend'),
   path.resolve(__dirname, '../backend'),
 ];
@@ -20,7 +20,7 @@ function copy_dir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     if (SKIP.has(entry.name)) continue;
-    const src_path = path.join(src, entry.name);
+    const src_path  = path.join(src,  entry.name);
     const dest_path = path.join(dest, entry.name);
     if (entry.isDirectory()) {
       copy_dir(src_path, dest_path);
@@ -49,9 +49,9 @@ function collect_paths(src, base = '') {
 // Write .gitignore entries for synced files into each target
 function update_gitignore(target_dir, rel_paths) {
   const gitignore_path = path.join(target_dir, '.gitignore');
-  const marker_start = '# <sync:shared>';
-  const marker_end = '# </sync:shared>';
-  const block = [
+  const marker_start   = '# <sync:shared>';
+  const marker_end     = '# </sync:shared>';
+  const block          = [
     marker_start,
     '# Auto-copied from shared/ by sync.js — do not edit this block manually',
     ...rel_paths,
@@ -65,10 +65,10 @@ function update_gitignore(target_dir, rel_paths) {
 
   // Replace existing block or append
   if (existing.includes(marker_start)) {
-    const re = new RegExp(`${marker_start}[\\s\\S]*?${marker_end}`, 'm');
-    existing = existing.replace(re, block);
+    const re  = new RegExp(`${marker_start}[\\s\\S]*?${marker_end}`, 'm');
+    existing  = existing.replace(re, block);
   } else {
-    existing = existing.trimEnd() + '\n\n' + block + '\n';
+    existing  = existing.trimEnd() + '\n\n' + block + '\n';
   }
 
   fs.writeFileSync(gitignore_path, existing, 'utf8');
@@ -83,7 +83,7 @@ function update_gitignore(target_dir, rel_paths) {
 const CDN_TARGET_DIR = path.resolve(__dirname, '../frontend/public/cdn');
 
 const CDN_CSS_FILES = [
-  { src: path.join(SHARED_DIR, 'app', 'theme.css'), dest: path.join(CDN_TARGET_DIR, 'theme.css') },
+  { src: path.join(SHARED_DIR, 'app', 'theme.css'),  dest: path.join(CDN_TARGET_DIR, 'theme.css') },
   { src: path.join(SHARED_DIR, 'app', 'global.css'), dest: path.join(CDN_TARGET_DIR, 'global.css') },
 ];
 
@@ -102,22 +102,30 @@ function sync_cdn_assets() {
     console.log(`  synced (cdn): ${path.relative(SHARED_DIR, src)} -> frontend/public/cdn/${path.basename(dest)}`);
   }
 
-  // shared/ui/*.jsx + ui.css -> frontend/public/cdn/ui/  (fetched at build
-  // time by Vital.kit/Vital.vault via scripts/sync-ui.mjs)
-  const ui_src_dir = path.join(SHARED_DIR, 'ui');
+  // shared/ui/**/*.{jsx,css} -> frontend/public/cdn/ui/  (fetched at build
+  // time by Vital.kit/Vital.vault via scripts/sync-ui.mjs). Recursive since
+  // each component now lives in its own folder (ui/card/index.jsx, etc).
+  const ui_src_dir  = path.join(SHARED_DIR, 'ui');
   const ui_dest_dir = path.join(CDN_TARGET_DIR, 'ui');
   if (fs.existsSync(ui_src_dir)) {
-    fs.mkdirSync(ui_dest_dir, { recursive: true });
     let copied_any = false;
-    for (const entry of fs.readdirSync(ui_src_dir, { withFileTypes: true })) {
-      if (!entry.isFile()) continue;
-      if (!/\.(jsx?|css)$/.test(entry.name)) continue;
-      fs.copyFileSync(path.join(ui_src_dir, entry.name), path.join(ui_dest_dir, entry.name));
-      console.log(`  synced (cdn): ui/${entry.name} -> frontend/public/cdn/ui/${entry.name}`);
-      copied_any = true;
-    }
-    // Whole-folder ignore (not per-file) so newly added shared/ui/* files are
-    // covered automatically without needing this list touched again.
+    const copy_ui_recursive = (src, dest) => {
+      fs.mkdirSync(dest, { recursive: true });
+      for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+        const src_path  = path.join(src, entry.name);
+        const dest_path = path.join(dest, entry.name);
+        if (entry.isDirectory()) {
+          copy_ui_recursive(src_path, dest_path);
+        } else if (/\.(jsx?|css)$/.test(entry.name)) {
+          fs.copyFileSync(src_path, dest_path);
+          console.log(`  synced (cdn): ui/${path.relative(ui_src_dir, src_path).split(path.sep).join('/')} -> frontend/public/cdn/ui/${path.relative(ui_dest_dir, dest_path).split(path.sep).join('/')}`);
+          copied_any = true;
+        }
+      }
+    };
+    copy_ui_recursive(ui_src_dir, ui_dest_dir);
+    // Whole-folder ignore (not per-file) so newly added shared/ui/* files
+    // and folders are covered automatically without touching this again.
     if (copied_any) cdn_rel_paths.push('public/cdn/ui/');
   }
 
@@ -145,7 +153,7 @@ for (const target of TARGETS) {
   console.log(`[sync] → ${path.basename(target)}/`);
   copy_dir(SHARED_DIR, target);
 
-  const is_frontend = path.basename(target) === 'frontend';
+  const is_frontend  = path.basename(target) === 'frontend';
   const gitignore_paths = is_frontend ? [...rel_paths, ...cdn_rel_paths] : rel_paths;
   update_gitignore(target, gitignore_paths);
 }

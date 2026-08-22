@@ -1,9 +1,11 @@
 'use client';
 import * as config_site     from '@/configs/site';
 import * as config_vault    from '@/configs/vault';
-import * as ui_tagpill      from '@/ui/TagPill';
-import * as ui_iconbutton   from '@/ui/IconButton';
-import * as ui_card         from '@/ui/Card';
+import * as ui_tagpill      from '@/ui/tagpill';
+import * as ui_iconbutton   from '@/ui/iconbutton';
+import * as ui_card         from '@/ui/card';
+import * as ui_filter       from '@/ui/filter';
+import * as ui_search       from '@/ui/search';
 import * as lib_api_url     from '@/lib/api_url';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
@@ -299,36 +301,22 @@ function VaultHead() {
 function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disabled }: config_vault.VaultFiltersProps) {
   return (
     <div className="vault-filters">
-      <div className="vault-filter-tags">
-        <button
-          className={`vault-filter-btn${active_tag === null ? ' active' : ''}`}
-          onClick={disabled ? undefined : () => on_tag?.(null)}
-          disabled={disabled}
-        >All</button>
-        {config_vault.ALL_TAGS.map(tag => (
-          <button
-            key={tag}
-            className={`vault-filter-btn${active_tag === tag ? ' active' : ''}`}
-            onClick={disabled ? undefined : () => on_tag?.(tag === active_tag ? null : tag)}
-            disabled={disabled}
-          >{tag}</button>
-        ))}
-      </div>
-
-      <div className="vault-search">
-        <lucide.Search size={14} strokeWidth={2.5}/>
-        <input
-          type="text"
-          value={disabled ? undefined : search}
-          onChange={disabled ? undefined : e => on_search?.(e.target.value)}
-          placeholder="Search resources…"
-          aria-label="Search"
-          spellCheck={false}
-          autoCorrect="off"
-          autoCapitalize="off"
-          disabled={disabled}
-        />
-      </div>
+      <ui_filter.Filter
+        className="vault-filter-tags"
+        buttonClassName="vault-filter-btn"
+        tags={config_vault.ALL_TAGS as unknown as string[]}
+        active={active_tag}
+        onChange={on_tag}
+        disabled={disabled}
+      />
+      <ui_search.Search
+        className="vault-search"
+        value={search}
+        onChange={on_search}
+        placeholder="Search resources…"
+        icon={<lucide.Search size={14} strokeWidth={2.5}/>}
+        disabled={disabled}
+      />
     </div>
   );
 }
