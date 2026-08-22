@@ -1,5 +1,37 @@
 import './index.css';
 
+/**
+ * @param {Object} props
+ * @param {'overlay' | 'stack'} [props.layout]
+ * @param {boolean} [props.scrim]
+ * @param {string} [props.cover]
+ * @param {string} [props.coverAlt]
+ * @param {Function} [props.onCoverError]
+ * @param {import('react').ReactNode} [props.coverPlaceholder]
+ * @param {import('react').ReactNode} [props.coverNode]
+ * @param {import('react').ReactNode} [props.topLeft]
+ * @param {import('react').ReactNode} [props.topRight]
+ * @param {import('react').ReactNode} [props.title]
+ * @param {import('react').ReactNode} [props.subtitle]
+ * @param {import('react').ReactNode} [props.description]
+ * @param {import('react').ReactNode} [props.footer]
+ * @param {import('react').ReactNode} [props.bodyContent]
+ * @param {boolean} [props.featured]
+ * @param {Function} [props.onClick]
+ * @param {Object} [props.style]
+ * @param {string} [props.className]
+ * @param {string} [props.coverClassName]
+ * @param {string} [props.scrimClassName]
+ * @param {string} [props.topClassName]
+ * @param {string} [props.topLeftClassName]
+ * @param {string} [props.topRightClassName]
+ * @param {string} [props.bodyClassName]
+ * @param {string} [props.titleClassName]
+ * @param {string} [props.subtitleClassName]
+ * @param {string} [props.descriptionClassName]
+ * @param {string} [props.footerClassName]
+ * @param {boolean} [props.interactive]
+ */
 export function Card({
   layout = 'overlay',
   scrim = layout === 'overlay',

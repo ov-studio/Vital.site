@@ -1,5 +1,15 @@
 import './index.css';
 
+/**
+ * @param {Object} props
+ * @param {string[]} [props.tags]
+ * @param {string | null} [props.active]
+ * @param {Function} [props.onChange]
+ * @param {string} [props.allLabel]
+ * @param {boolean} [props.disabled]
+ * @param {string} [props.className]
+ * @param {string} [props.buttonClassName]
+ */
 export function Filter({
   tags = [],
   active = null,

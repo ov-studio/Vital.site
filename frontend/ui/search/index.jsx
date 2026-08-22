@@ -1,5 +1,14 @@
 import './index.css';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.value]
+ * @param {Function} [props.onChange]
+ * @param {string} [props.placeholder]
+ * @param {import('react').ReactNode} [props.icon]
+ * @param {boolean} [props.disabled]
+ * @param {string} [props.className]
+ */
 export function Search({
   value = '',
   onChange = undefined,
