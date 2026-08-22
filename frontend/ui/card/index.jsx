@@ -43,13 +43,13 @@ export function Card({
       {coverNode ?? (
         <div className={`ui-card-cover${coverClassName ? ` ${coverClassName}` : ''}`}>
           {cover
-            ? <img src={cover} alt={coverAlt} onError={onCoverError} />
-            : (coverPlaceholder ?? <div className="ui-card-cover-placeholder" />)
+            ? <img src={cover} alt={coverAlt} onError={onCoverError}/>
+            : (coverPlaceholder ?? <div className="ui-card-cover-placeholder"/>)
           }
         </div>
       )}
 
-      {scrim && <div className={`ui-card-scrim${scrimClassName ? ` ${scrimClassName}` : ''}`} />}
+      {scrim && <div className={`ui-card-scrim${scrimClassName ? ` ${scrimClassName}` : ''}`}/>}
 
       {(topLeft || topRight) && (
         <div className={`ui-card-top${topClassName ? ` ${topClassName}` : ''}`}>
