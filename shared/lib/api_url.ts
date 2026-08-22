@@ -6,7 +6,7 @@ function vercel_host(): string | undefined {
 }
 
 function base_domain(): string | undefined {
-  const host = typeof window !== 'undefined' ? window.location.hostname : vercel_host();
+  const host = vercel_host();
   if (!host || host === 'localhost' || host === '127.0.0.1') return undefined;
   return host.replace(/^api\./, '');
 }
