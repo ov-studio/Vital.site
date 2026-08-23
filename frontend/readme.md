@@ -40,6 +40,7 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 - **`app/api/search`** — static search index, built at compile time and queried client-side
 - **`app/og`** — OG image generation for docs pages
 - **`components`** — shared UI components
+- **`ui`** — generic UI primitives, mirrored to `public/cdn/ui/` for reuse by `Vital.kit`/`Vital.vault`
 - **`configs`** — page-level configuration (footer, home, roadmap, tos, vault)
 - **`content/docs`** — MDX source files for all documentation
 - **`lib`** — shared utilities (`source.ts`, `cn.ts`, `layout.shared.tsx`)
