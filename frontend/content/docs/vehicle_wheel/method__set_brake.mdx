@@ -1,0 +1,36 @@
+---
+title: self:set_brake
+description: Sets the per-wheel brake force override
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_brake(
+    brake
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | brake | Per-wheel brake force override to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the brake force of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_brake(10)
+```

@@ -1,0 +1,37 @@
+---
+title: self:rotate
+description: Rotates the character body around an axis in the parent's coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:rotate(
+    axis,
+    degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | axis | Axis to rotate around as `{x, y, z}` |
+| `float` | degrees | Angle to rotate by in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a character body"
+local entity = physics.character.create()
+
+entity:rotate({0, 1, 0}, 45)
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_slide_on_ceiling_enabled
+description: Sets whether the character body slides along ceilings instead of stopping abruptly when its head hits one
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_slide_on_ceiling_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to slide on ceilings, `false` to stop abruptly |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable slide on ceiling for a character body"
+local entity = physics.character.create()
+
+entity:set_slide_on_ceiling_enabled(true)
+```

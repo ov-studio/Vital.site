@@ -1,0 +1,32 @@
+---
+title: self:is_on_ceiling
+description: Checks whether the character body is currently touching a ceiling
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_on_ceiling()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a character body is on the ceiling"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:is_on_ceiling())
+```

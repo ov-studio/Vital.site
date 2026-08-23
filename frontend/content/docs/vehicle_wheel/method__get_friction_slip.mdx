@@ -1,0 +1,33 @@
+---
+title: self:get_friction_slip
+description: Retrieves the tire friction slip value of the wheel, controlling grip
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_friction_slip()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current friction slip |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the friction slip of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_friction_slip())
+```

@@ -1,0 +1,35 @@
+---
+title: self:is_type
+description: Checks whether this instance is of the given type name
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_type(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type name to compare against, e.g. "physics.vehicle" |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type name, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the type of a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:is_type("physics.vehicle"))
+```

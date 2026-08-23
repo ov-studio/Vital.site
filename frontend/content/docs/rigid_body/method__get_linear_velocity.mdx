@@ -1,0 +1,32 @@
+---
+title: self:get_linear_velocity
+description: Retrieves the linear velocity of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local velocity = self:get_linear_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Current linear velocity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the linear velocity of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_linear_velocity())
+```

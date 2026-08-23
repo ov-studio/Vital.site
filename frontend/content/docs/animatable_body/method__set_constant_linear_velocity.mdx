@@ -1,0 +1,35 @@
+---
+title: self:set_constant_linear_velocity
+description: Sets the constant linear velocity the animatable body applies to bodies resting on it, such as a conveyor surface
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_constant_linear_velocity(
+    velocity
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Velocity to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the constant linear velocity of a animatable body"
+local entity = physics.animatable.create()
+
+entity:set_constant_linear_velocity({2, 0, 0})
+```

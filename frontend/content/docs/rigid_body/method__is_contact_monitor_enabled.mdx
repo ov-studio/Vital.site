@@ -1,0 +1,32 @@
+---
+title: self:is_contact_monitor_enabled
+description: Checks whether contact monitoring is enabled on the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_contact_monitor_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check contact monitoring on a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:is_contact_monitor_enabled())
+```

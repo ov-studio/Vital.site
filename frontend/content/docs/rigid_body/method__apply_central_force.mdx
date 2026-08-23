@@ -1,0 +1,35 @@
+---
+title: self:apply_central_force
+description: Applies a continuous force to the rigid body's center of mass for the current physics step
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_central_force(
+    force
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | force | Force vector to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a central force"
+local entity = physics.rigid.create()
+
+entity:apply_central_force({0, 20, 0})
+```

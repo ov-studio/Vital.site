@@ -1,0 +1,35 @@
+---
+title: self:set_gravity_scale
+description: Sets the gravity scale multiplier of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_gravity_scale(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | scale | Gravity scale multiplier to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the gravity scale of a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_gravity_scale(1.5)
+```

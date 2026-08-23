@@ -1,0 +1,35 @@
+---
+title: self:set_max_contacts_reported
+description: Sets the maximum number of contacts tracked by the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_max_contacts_reported(
+    amount
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | amount | Maximum number of contacts to track |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set max contacts reported on a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_max_contacts_reported(4)
+```

@@ -1,0 +1,35 @@
+---
+title: self:to_local
+description: Converts a world-space point into the rigid body's local coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local local_point = self:to_local(
+    global_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | global_point | World-space point to convert as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | local_point | Converted point in local space as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Convert a point to local space"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:to_local({0, 0, 0}))
+```

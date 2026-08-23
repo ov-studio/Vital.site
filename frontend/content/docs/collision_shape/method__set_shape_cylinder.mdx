@@ -1,0 +1,38 @@
+---
+title: self:set_shape_cylinder
+description: Assigns a cylinder shape to the collision shape
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shape_cylinder(
+    radius,
+    height
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | radius | Cylinder radius to apply |
+| `float` | height | Cylinder height to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a cylinder shape on a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_shape_cylinder(0.4, 1.8)
+```

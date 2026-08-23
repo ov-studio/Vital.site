@@ -1,0 +1,37 @@
+---
+title: self:set_collision_mask_value
+description: Sets a specific bit on the character body's collision mask
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_collision_mask_value(
+    layer_number,
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer_number | Mask bit index to set (1-32) |
+| `bool` | value | `true` to enable the bit, `false` to disable it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a collision mask bit on a character body"
+local entity = physics.character.create()
+
+entity:set_collision_mask_value(2, true)
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Retrieves the type name of this static body instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local type = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | type | Type name of the instance, e.g. "physics.static" |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a static body"
+local entity = physics.static.create()
+
+core.engine.print("info", entity:get_type())
+```

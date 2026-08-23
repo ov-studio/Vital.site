@@ -1,0 +1,32 @@
+---
+title: self:is_using_continuous_collision_detection
+description: Checks whether continuous collision detection (CCD) is enabled on the rigid body, preventing fast-moving bodies from tunneling through thin geometry
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_using_continuous_collision_detection()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check CCD on a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:is_using_continuous_collision_detection())
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_priority
+description: Retrieves the priority of the area, used to resolve overlapping area override order
+badge: client
+---
+
+### Syntax
+
+```lua
+local priority = self:get_priority()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | priority | Current priority |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the priority of an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:get_priority())
+```

@@ -1,0 +1,32 @@
+---
+title: self:is_able_to_sleep
+description: Checks whether the rigid body is allowed to sleep when at rest
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_able_to_sleep()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a rigid body can sleep"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:is_able_to_sleep())
+```

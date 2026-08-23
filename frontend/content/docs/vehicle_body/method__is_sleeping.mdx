@@ -1,0 +1,32 @@
+---
+title: self:is_sleeping
+description: Checks whether the vehicle body is currently sleeping
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_sleeping()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a vehicle body is sleeping"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:is_sleeping())
+```

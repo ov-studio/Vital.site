@@ -1,0 +1,26 @@
+---
+title: physics.animatable.axis
+description: Enumeration of movement axes that can be individually locked on a physics body
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.animatable.axis.LINEAR_X` | Linear motion along the X axis |
+| `physics.animatable.axis.LINEAR_Y` | Linear motion along the Y axis |
+| `physics.animatable.axis.LINEAR_Z` | Linear motion along the Z axis |
+| `physics.animatable.axis.ANGULAR_X` | Angular rotation around the X axis |
+| `physics.animatable.axis.ANGULAR_Y` | Angular rotation around the Y axis |
+| `physics.animatable.axis.ANGULAR_Z` | Angular rotation around the Z axis |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Lock the X linear axis on a body"
+local entity = physics.animatable.create()
+
+entity:set_axis_lock(physics.animatable.axis.LINEAR_X, true)
+```

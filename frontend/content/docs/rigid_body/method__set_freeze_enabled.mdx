@@ -1,0 +1,35 @@
+---
+title: self:set_freeze_enabled
+description: Sets whether the rigid body is frozen
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_freeze_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to freeze the body, `false` to unfreeze it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Freeze a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_freeze_enabled(true)
+```

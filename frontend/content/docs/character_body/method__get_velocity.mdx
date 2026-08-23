@@ -1,0 +1,32 @@
+---
+title: self:get_velocity
+description: Retrieves the current velocity of the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local velocity = self:get_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Current velocity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the velocity of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_velocity())
+```

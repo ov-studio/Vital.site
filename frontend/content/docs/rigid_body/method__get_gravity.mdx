@@ -1,0 +1,32 @@
+---
+title: self:get_gravity
+description: Retrieves the current combined gravity vector affecting the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local gravity = self:get_gravity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | gravity | Current gravity vector as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the gravity affecting a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_gravity())
+```

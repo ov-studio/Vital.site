@@ -1,0 +1,35 @@
+---
+title: self:set_platform_on_leave
+description: Sets the platform-leave velocity behavior of the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_platform_on_leave(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Platform-on-leave enum value — refer to [`physics.character.platform_on_leave`](/docs/character_body/enum/platform_on_leave) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set platform on leave for a character body"
+local entity = physics.character.create()
+
+entity:set_platform_on_leave(physics.character.platform_on_leave.ADD_VELOCITY)
+```

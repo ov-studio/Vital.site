@@ -1,0 +1,32 @@
+---
+title: self:get_angular_damp
+description: Retrieves the angular damping of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_angular_damp()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current angular damping |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the angular damp of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_angular_damp())
+```

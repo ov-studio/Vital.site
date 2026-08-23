@@ -1,0 +1,35 @@
+---
+title: self:set_scale
+description: Sets the local scale of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_scale(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the local scale of a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_scale({1, 1, 1})
+```

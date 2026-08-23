@@ -1,0 +1,20 @@
+---
+title: physics.rigid.damp_mode
+description: Enumeration of modes controlling how a rigid body's damping combines with project defaults
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.rigid.damp_mode.COMBINE` | Damping is combined with the value defined in the default project physics settings |
+| `physics.rigid.damp_mode.REPLACE` | Damping entirely replaces the value defined in the default project physics settings |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reference the damp mode enum"
+core.engine.print("info", physics.rigid.damp_mode.REPLACE)
+```

@@ -1,0 +1,36 @@
+---
+title: self:set_steering
+description: Sets the per-wheel steering angle override
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_steering(
+    steering
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | steering | Per-wheel steering angle override to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the steering of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_steering(0.3)
+```

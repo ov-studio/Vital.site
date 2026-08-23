@@ -1,0 +1,35 @@
+---
+title: physics.vehicle.create
+description: Creates a new vehicle body instance and adds it to the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = physics.vehicle.create()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | instance | Created vehicle body instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a vehicle body instance"
+local entity = physics.vehicle.create()
+
+local shape = physics.collision_shape.create(entity)
+shape:set_shape_box({2, 1, 4})
+
+entity:set_engine_force(50)
+```

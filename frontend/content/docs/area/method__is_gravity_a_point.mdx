@@ -1,0 +1,32 @@
+---
+title: self:is_gravity_a_point
+description: Checks whether the area's gravity is set to point mode, pulling toward a center instead of a fixed direction
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_gravity_a_point()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check point gravity on an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:is_gravity_a_point())
+```

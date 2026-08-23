@@ -1,0 +1,32 @@
+---
+title: self:get_floor_max_angle
+description: Retrieves the maximum angle, in radians, considered a walkable floor by the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local radians = self:get_floor_max_angle()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | radians | Current floor max angle in radians |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the floor max angle of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_floor_max_angle())
+```

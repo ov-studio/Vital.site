@@ -1,0 +1,32 @@
+---
+title: self:get_gravity_point_center
+description: Retrieves the point gravity center of the area, used when gravity is set to point mode
+badge: client
+---
+
+### Syntax
+
+```lua
+local center = self:get_gravity_point_center()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | center | Current gravity point center as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the gravity point center of an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:get_gravity_point_center())
+```

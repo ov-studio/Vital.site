@@ -1,0 +1,35 @@
+---
+title: self:scale_local
+description: Scales the static body in its own local coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:scale_local(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale factor to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Scale a static body locally"
+local entity = physics.static.create()
+
+entity:scale_local({2, 2, 2})
+```

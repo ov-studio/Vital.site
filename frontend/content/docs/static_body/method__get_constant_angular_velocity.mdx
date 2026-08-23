@@ -1,0 +1,32 @@
+---
+title: self:get_constant_angular_velocity
+description: Retrieves the constant angular velocity applied by the static body to bodies resting on it
+badge: client
+---
+
+### Syntax
+
+```lua
+local velocity = self:get_constant_angular_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Current constant angular velocity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the constant angular velocity of a static body"
+local entity = physics.static.create()
+
+core.engine.print("info", entity:get_constant_angular_velocity())
+```

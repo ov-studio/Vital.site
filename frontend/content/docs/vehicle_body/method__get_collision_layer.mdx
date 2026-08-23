@@ -1,0 +1,32 @@
+---
+title: self:get_collision_layer
+description: Retrieves the collision layer bitmask of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local layer = self:get_collision_layer()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Current collision layer bitmask |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the collision layer of a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:get_collision_layer())
+```

@@ -1,0 +1,33 @@
+---
+title: self:is_used_as_steering
+description: Checks whether the wheel is used as a steering wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_used_as_steering()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check steering on a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:is_used_as_steering())
+```

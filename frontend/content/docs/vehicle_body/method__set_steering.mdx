@@ -1,0 +1,35 @@
+---
+title: self:set_steering
+description: Sets the whole-chassis steering angle of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_steering(
+    steering
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | steering | Steering angle to apply across the whole chassis |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Steer a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_steering(0.3)
+```

@@ -1,0 +1,33 @@
+---
+title: self:get_contact_body
+description: Retrieves the physics body/area instance the wheel is currently in contact with
+badge: client
+---
+
+### Syntax
+
+```lua
+local body = self:get_contact_body()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | body | Instance the wheel is touching, or `false` if not in contact |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the contact body of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_contact_body())
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_gravity_direction
+description: Sets the gravity direction of the area
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_gravity_direction(
+    direction
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | direction | Direction gravity should pull toward as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the gravity direction of an area"
+local entity = physics.area.create()
+
+entity:set_gravity_direction({0, -1, 0})
+```

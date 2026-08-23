@@ -1,0 +1,32 @@
+---
+title: self:get_collision_mask
+description: Retrieves the collision mask bitmask of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local mask = self:get_collision_mask()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Current collision mask bitmask |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the collision mask of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_collision_mask())
+```

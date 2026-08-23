@@ -1,0 +1,37 @@
+---
+title: self:set_axis_lock
+description: Locks or unlocks a specific movement axis on the static body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_axis_lock(
+    axis,
+    lock
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | axis | Axis enum value — refer to [`physics.static.axis`](/docs/static_body/enum/axis) |
+| `bool` | lock | `true` to lock the axis, `false` to unlock it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Lock an axis on a static body"
+local entity = physics.static.create()
+
+entity:set_axis_lock(physics.static.axis.LINEAR_X, true)
+```

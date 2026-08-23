@@ -1,0 +1,41 @@
+---
+title: self:set_physics_material
+description: Applies a physics material to the rigid body, controlling friction and bounce behavior
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_physics_material(
+    friction,
+    bounce,
+    rough,
+    absorbent
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | friction | Friction coefficient to apply |
+| `float` | bounce | Bounce (restitution) coefficient to apply |
+| `bool` | rough | Whether friction combining should favor the rougher surface — defaults to `false` |
+| `bool` | absorbent | Whether bounce combining should favor the less bouncy surface — defaults to `false` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a physics material on a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_physics_material(0.5, 0.2)
+```

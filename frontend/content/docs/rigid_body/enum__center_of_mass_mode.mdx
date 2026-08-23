@@ -1,0 +1,20 @@
+---
+title: physics.rigid.center_of_mass_mode
+description: Enumeration of modes controlling how a rigid body's center of mass is determined
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.rigid.center_of_mass_mode.AUTO` | Center of mass is calculated automatically from the attached collision shapes |
+| `physics.rigid.center_of_mass_mode.CUSTOM` | Center of mass is set manually |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reference the center of mass mode enum"
+core.engine.print("info", physics.rigid.center_of_mass_mode.AUTO)
+```

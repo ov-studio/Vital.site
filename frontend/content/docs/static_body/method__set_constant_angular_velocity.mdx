@@ -1,0 +1,35 @@
+---
+title: self:set_constant_angular_velocity
+description: Sets the constant angular velocity the static body applies to bodies resting on it
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_constant_angular_velocity(
+    velocity
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Angular velocity to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the constant angular velocity of a static body"
+local entity = physics.static.create()
+
+entity:set_constant_angular_velocity({0, 1, 0})
+```

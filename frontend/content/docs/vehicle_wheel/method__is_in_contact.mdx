@@ -1,0 +1,33 @@
+---
+title: self:is_in_contact
+description: Checks whether the wheel is currently in contact with the ground
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_in_contact()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check ground contact on a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:is_in_contact())
+```

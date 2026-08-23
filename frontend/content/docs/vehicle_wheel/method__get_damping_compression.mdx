@@ -1,0 +1,33 @@
+---
+title: self:get_damping_compression
+description: Retrieves the suspension compression damping of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_damping_compression()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current compression damping |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the compression damping of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_damping_compression())
+```

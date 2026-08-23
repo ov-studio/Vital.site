@@ -1,0 +1,32 @@
+---
+title: self:get_steering
+description: Retrieves the whole-chassis steering angle of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_steering()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current steering value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the steering of a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:get_steering())
+```

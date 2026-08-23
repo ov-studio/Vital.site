@@ -1,0 +1,36 @@
+---
+title: physics.collision_shape.create
+description: Creates a new collision shape instance and attaches it to a physics body or area
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = physics.collision_shape.create(
+    owner
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | owner | Physics body or area instance to attach the shape to |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | instance | Created collision shape instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a collision shape instance"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_shape_box({1, 1, 1})
+```

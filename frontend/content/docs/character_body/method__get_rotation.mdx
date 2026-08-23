@@ -1,0 +1,32 @@
+---
+title: self:get_rotation
+description: Retrieves the local rotation of the character body in degrees
+badge: client
+---
+
+### Syntax
+
+```lua
+local rotation = self:get_rotation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Current local rotation in degrees as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local rotation of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_rotation())
+```

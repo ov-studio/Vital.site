@@ -1,0 +1,33 @@
+---
+title: physics.static.create
+description: Creates a new static body instance and adds it to the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = physics.static.create()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | instance | Created static body instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a static body instance"
+local entity = physics.static.create()
+
+local shape = physics.collision_shape.create(entity)
+shape:set_shape_box({10, 1, 10})
+```

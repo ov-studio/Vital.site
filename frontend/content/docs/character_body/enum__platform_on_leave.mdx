@@ -1,0 +1,23 @@
+---
+title: physics.character.platform_on_leave
+description: Enumeration of behaviors controlling velocity handling when a character body leaves a moving platform
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.character.platform_on_leave.ADD_VELOCITY` | Retains the platform's velocity when leaving it, carrying momentum forward |
+| `physics.character.platform_on_leave.ADD_UPWARD_VELOCITY` | Retains only the platform's upward velocity when leaving it |
+| `physics.character.platform_on_leave.DO_NOTHING` | Discards the platform's velocity entirely when leaving it |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reference the platform on leave enum"
+local entity = physics.character.create()
+
+entity:set_platform_on_leave(physics.character.platform_on_leave.DO_NOTHING)
+```

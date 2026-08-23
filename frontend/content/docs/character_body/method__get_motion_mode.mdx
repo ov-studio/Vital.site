@@ -1,0 +1,32 @@
+---
+title: self:get_motion_mode
+description: Retrieves the motion mode of the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_motion_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Current motion mode enum value — refer to [`physics.character.motion_mode`](/docs/character_body/enum/motion_mode) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the motion mode of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_motion_mode())
+```

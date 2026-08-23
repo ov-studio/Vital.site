@@ -1,0 +1,32 @@
+---
+title: self:has_overlapping_areas
+description: Checks whether any other areas currently overlap the area
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:has_overlapping_areas()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check overlapping areas on an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:has_overlapping_areas())
+```

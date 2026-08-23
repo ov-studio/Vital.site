@@ -1,0 +1,35 @@
+---
+title: self:set_contact_monitor
+description: Sets whether contact monitoring is enabled on the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_contact_monitor(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable contact monitoring, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable contact monitoring on a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_contact_monitor(true)
+```

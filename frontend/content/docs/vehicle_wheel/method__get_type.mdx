@@ -1,0 +1,33 @@
+---
+title: self:get_type
+description: Retrieves the type name of this vehicle wheel instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local type = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | type | Type name of the instance, e.g. "physics.vehicle_wheel" |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a vehicle wheel"
+local entity = local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_type())
+```

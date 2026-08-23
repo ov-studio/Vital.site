@@ -1,0 +1,35 @@
+---
+title: self:set_monitoring
+description: Sets whether the area monitors for other bodies/areas entering or leaving it
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_monitoring(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable monitoring, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable monitoring on an area"
+local entity = physics.area.create()
+
+entity:set_monitoring(true)
+```

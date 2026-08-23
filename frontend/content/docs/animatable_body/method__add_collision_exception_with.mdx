@@ -1,0 +1,36 @@
+---
+title: self:add_collision_exception_with
+description: Adds another physics body to this animatable body's collision exception list so the two no longer collide with each other
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:add_collision_exception_with(
+    body
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | body | Physics body instance to exclude from collision — must be the same physics type as this instance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Add a collision exception on a animatable body"
+local a = physics.animatable.create()
+local b = physics.animatable.create()
+
+a:add_collision_exception_with(b)
+```

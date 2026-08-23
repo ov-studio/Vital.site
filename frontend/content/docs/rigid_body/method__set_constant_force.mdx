@@ -1,0 +1,35 @@
+---
+title: self:set_constant_force
+description: Overwrites the rigid body's persistent constant force
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_constant_force(
+    force
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | force | Force vector to set as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Overwrite the constant force"
+local entity = physics.rigid.create()
+
+entity:set_constant_force({0, 0, 0})
+```

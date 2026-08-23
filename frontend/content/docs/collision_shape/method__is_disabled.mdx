@@ -1,0 +1,33 @@
+---
+title: self:is_disabled
+description: Checks whether the collision shape is currently disabled
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_disabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if disabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a collision shape is disabled"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+core.engine.print("info", entity:is_disabled())
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_floor_max_angle
+description: Sets the maximum angle, in radians, considered a walkable floor by the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_floor_max_angle(
+    radians
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | radians | Maximum floor angle to apply in radians |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the floor max angle of a character body"
+local entity = physics.character.create()
+
+entity:set_floor_max_angle(0.785)
+```

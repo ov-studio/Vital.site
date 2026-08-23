@@ -1,0 +1,32 @@
+---
+title: self:get_platform_angular_velocity
+description: Retrieves the angular velocity of the moving platform the character body is currently standing on
+badge: client
+---
+
+### Syntax
+
+```lua
+local velocity = self:get_platform_angular_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Platform angular velocity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the platform angular velocity of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_platform_angular_velocity())
+```

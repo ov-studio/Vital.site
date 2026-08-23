@@ -1,0 +1,33 @@
+---
+title: self:get_skidinfo
+description: Retrieves the current skid amount of the wheel, where 0 is full traction loss and 1 is full traction
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_skidinfo()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current skid info |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the skid info of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_skidinfo())
+```

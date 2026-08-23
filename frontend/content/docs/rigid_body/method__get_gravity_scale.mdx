@@ -1,0 +1,32 @@
+---
+title: self:get_gravity_scale
+description: Retrieves the gravity scale multiplier of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_gravity_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current gravity scale multiplier |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the gravity scale of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_gravity_scale())
+```

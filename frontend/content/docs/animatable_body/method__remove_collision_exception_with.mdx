@@ -1,0 +1,37 @@
+---
+title: self:remove_collision_exception_with
+description: Removes a previously added collision exception from the animatable body, restoring collision between the two bodies
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:remove_collision_exception_with(
+    body
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | body | Physics body instance to remove from the exception list — must be the same physics type as this instance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove a collision exception on a animatable body"
+local a = physics.animatable.create()
+local b = physics.animatable.create()
+a:add_collision_exception_with(b)
+
+a:remove_collision_exception_with(b)
+```

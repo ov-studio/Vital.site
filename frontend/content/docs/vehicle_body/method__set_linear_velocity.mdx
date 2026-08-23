@@ -1,0 +1,35 @@
+---
+title: self:set_linear_velocity
+description: Sets the linear velocity of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_linear_velocity(
+    velocity
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Velocity to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the linear velocity of a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_linear_velocity({0, 0, -5})
+```

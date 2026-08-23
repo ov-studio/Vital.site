@@ -1,0 +1,32 @@
+---
+title: self:get_type
+description: Retrieves the type name of this rigid body instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local type = self:get_type()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | type | Type name of the instance, e.g. "physics.rigid" |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the type of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_type())
+```

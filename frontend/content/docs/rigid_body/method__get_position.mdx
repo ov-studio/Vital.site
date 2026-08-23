@@ -1,0 +1,32 @@
+---
+title: self:get_position
+description: Retrieves the local position of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local position = self:get_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current local position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local position of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_position())
+```

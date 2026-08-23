@@ -1,0 +1,32 @@
+---
+title: self:get_wall_normal
+description: Retrieves the normal of the wall the character body is currently touching
+badge: client
+---
+
+### Syntax
+
+```lua
+local normal = self:get_wall_normal()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | normal | Wall normal as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the wall normal of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_wall_normal())
+```

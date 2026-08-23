@@ -1,0 +1,32 @@
+---
+title: self:destroy
+description: Destroys the animatable body instance and removes it from the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a animatable body instance"
+local entity = physics.animatable.create()
+
+entity:destroy()
+```

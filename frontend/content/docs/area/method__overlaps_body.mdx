@@ -1,0 +1,36 @@
+---
+title: self:overlaps_body
+description: Checks whether a specific physics body currently overlaps the area
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:overlaps_body(
+    body
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | body | Physics body instance to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the body overlaps the area, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a body overlaps an area"
+local entity = physics.area.create()
+local player = physics.character.create()
+
+core.engine.print("info", entity:overlaps_body(player))
+```

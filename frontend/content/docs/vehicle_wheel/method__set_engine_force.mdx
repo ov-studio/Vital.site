@@ -1,0 +1,36 @@
+---
+title: self:set_engine_force
+description: Sets the per-wheel engine force override
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_engine_force(
+    force
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | force | Per-wheel engine force override to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the engine force of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_engine_force(50)
+```

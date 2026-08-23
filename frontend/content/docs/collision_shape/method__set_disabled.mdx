@@ -1,0 +1,36 @@
+---
+title: self:set_disabled
+description: Sets whether the collision shape is disabled, temporarily excluding it from collision detection
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_disabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to disable the shape, `false` to enable it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Disable a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_disabled(true)
+```

@@ -1,0 +1,33 @@
+---
+title: self:destroy
+description: Destroys the vehicle wheel instance and removes it from the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a vehicle wheel instance"
+local entity = local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:destroy()
+```

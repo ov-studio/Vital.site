@@ -1,0 +1,33 @@
+---
+title: self:get_roll_influence
+description: Retrieves the roll influence of the wheel, controlling how much it affects vehicle body roll
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_roll_influence()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current roll influence |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the roll influence of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_roll_influence())
+```

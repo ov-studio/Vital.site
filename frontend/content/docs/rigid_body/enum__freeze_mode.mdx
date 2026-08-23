@@ -1,0 +1,23 @@
+---
+title: physics.rigid.freeze_mode
+description: Enumeration of behaviors applied to a rigid body while frozen
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.rigid.freeze_mode.STATIC` | Body becomes fully immovable, behaving like a static body while frozen |
+| `physics.rigid.freeze_mode.KINEMATIC` | Body can still be moved manually (e.g. via position) while frozen, but is not affected by physics forces |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Freeze a rigid body in kinematic mode"
+local entity = physics.rigid.create()
+
+entity:set_freeze_mode(physics.rigid.freeze_mode.KINEMATIC)
+entity:set_freeze_enabled(true)
+```

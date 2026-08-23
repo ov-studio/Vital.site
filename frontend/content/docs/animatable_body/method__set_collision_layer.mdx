@@ -1,0 +1,35 @@
+---
+title: self:set_collision_layer
+description: Sets the collision layer bitmask of the animatable body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_collision_layer(
+    layer
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Collision layer bitmask to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the collision layer of a animatable body"
+local entity = physics.animatable.create()
+
+entity:set_collision_layer(1)
+```

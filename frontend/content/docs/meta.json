@@ -64,6 +64,17 @@
         "ssao",
         "fog",
         "volumetric_fog",
+
+        "---Physics---",
+        "rigid_body",
+        "static_body",
+        "character_body",
+        "animatable_body",
+        "area",
+        "vehicle_body",
+        "vehicle_wheel",
+        "collision_shape",
+        "space",
         "..."
     ]
 }

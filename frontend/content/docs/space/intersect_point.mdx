@@ -1,0 +1,39 @@
+---
+title: physics.space.intersect_point
+description: Queries the physics world for all colliders overlapping an exact world-space point
+badge: client
+---
+
+### Syntax
+
+```lua
+local results = physics.space.intersect_point(
+    point,
+    options
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | point | World-space point to query as `{x, y, z}` |
+| `table` | options | Optional table with `mask`, `exclude`, `max_results`, `collide_bodies`, and `collide_areas` fields — defaults to `{}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | results | Array of tables, each with a `collider` field |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Query colliders at a point"
+local results = physics.space.intersect_point({0, 1, 0})
+
+for i, hit in ipairs(results) do
+    core.engine.print("info", hit.collider)
+end
+```

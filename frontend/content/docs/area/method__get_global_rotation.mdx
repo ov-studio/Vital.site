@@ -1,0 +1,32 @@
+---
+title: self:get_global_rotation
+description: Retrieves the global rotation of the area in degrees
+badge: client
+---
+
+### Syntax
+
+```lua
+local rotation = self:get_global_rotation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Current global rotation in degrees as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the global rotation of a area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:get_global_rotation())
+```

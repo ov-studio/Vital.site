@@ -1,0 +1,35 @@
+---
+title: self:set_freeze_mode
+description: Sets the freeze mode of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_freeze_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Freeze mode enum value — refer to [`physics.vehicle.freeze_mode`](/docs/vehicle_body/enum/freeze_mode) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the freeze mode of a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_freeze_mode(physics.vehicle.freeze_mode.KINEMATIC)
+```

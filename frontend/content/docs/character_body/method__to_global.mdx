@@ -1,0 +1,35 @@
+---
+title: self:to_global
+description: Converts a local-space point into the character body's world coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local global_point = self:to_global(
+    local_point
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | local_point | Local-space point to convert as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | global_point | Converted point in world space as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Convert a point to world space"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:to_global({0, 0, 1}))
+```

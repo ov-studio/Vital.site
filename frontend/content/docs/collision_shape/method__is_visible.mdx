@@ -1,0 +1,32 @@
+---
+title: self:is_visible
+description: Checks whether the collision shape is visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check visibility of a collision shape"
+local entity = physics.collision_shape.create()
+
+core.engine.print("info", entity:is_visible())
+```

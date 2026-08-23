@@ -1,0 +1,36 @@
+---
+title: self:set_suspension_stiffness
+description: Sets the suspension stiffness of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_suspension_stiffness(
+    stiffness
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | stiffness | Suspension stiffness to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the suspension stiffness of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_suspension_stiffness(20)
+```

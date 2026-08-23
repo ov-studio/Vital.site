@@ -1,0 +1,22 @@
+---
+title: physics.character.motion_mode
+description: Enumeration of movement modes controlling how a character body interacts with surfaces
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.character.motion_mode.GROUNDED` | Standard ground-based movement — the body slides along floors, walls, and ceilings |
+| `physics.character.motion_mode.FLOATING` | Free movement with no floor/wall/ceiling distinction — useful for flying or swimming characters |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a character body to floating motion mode"
+local entity = physics.character.create()
+
+entity:set_motion_mode(physics.character.motion_mode.FLOATING)
+```

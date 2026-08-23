@@ -1,0 +1,33 @@
+---
+title: self:get_rpm
+description: Retrieves the current rotational speed of the wheel in revolutions per minute
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_rpm()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current RPM |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the RPM of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_rpm())
+```

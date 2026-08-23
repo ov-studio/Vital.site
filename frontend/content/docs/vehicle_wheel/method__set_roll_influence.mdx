@@ -1,0 +1,36 @@
+---
+title: self:set_roll_influence
+description: Sets the roll influence of the wheel, controlling how much it affects vehicle body roll
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_roll_influence(
+    influence
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | influence | Roll influence value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the roll influence of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_roll_influence(0.1)
+```

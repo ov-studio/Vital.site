@@ -1,0 +1,35 @@
+---
+title: self:set_brake
+description: Sets the whole-chassis brake force of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_brake(
+    brake
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | brake | Brake force to apply across the whole chassis |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply the brakes on a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_brake(10)
+```

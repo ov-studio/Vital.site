@@ -1,0 +1,35 @@
+---
+title: self:scale_global
+description: Scales the area in the global coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:scale_global(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale factor to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Scale a area globally"
+local entity = physics.area.create()
+
+entity:scale_global({2, 2, 2})
+```

@@ -1,0 +1,37 @@
+---
+title: self:set_collision_layer_value
+description: Sets a specific bit on the area's collision layer
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_collision_layer_value(
+    layer_number,
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer_number | Layer bit index to set (1-32) |
+| `bool` | value | `true` to enable the bit, `false` to disable it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a collision layer bit on a area"
+local entity = physics.area.create()
+
+entity:set_collision_layer_value(2, true)
+```

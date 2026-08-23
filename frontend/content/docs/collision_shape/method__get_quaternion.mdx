@@ -1,0 +1,32 @@
+---
+title: self:get_quaternion
+description: Retrieves the local rotation of the collision shape as a quaternion
+badge: client
+---
+
+### Syntax
+
+```lua
+local quaternion = self:get_quaternion()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector4` | quaternion | Current rotation as `{x, y, z, w}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the quaternion of a collision shape"
+local entity = physics.collision_shape.create()
+
+core.engine.print("info", entity:get_quaternion())
+```

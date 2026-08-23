@@ -1,0 +1,36 @@
+---
+title: self:set_shape_separation_ray
+description: Assigns a separation ray shape to the collision shape, which helps a body smoothly stay on top of geometry without catching on edges
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shape_separation_ray(
+    length
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | length | Ray length to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a separation ray shape on a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_shape_separation_ray(1.0)
+```

@@ -1,0 +1,10 @@
+{
+    "title": "Space Query",
+    "icon": "Crosshair",
+    "pages": [
+        "raycast",
+        "intersect_point",
+        "intersect_shape",
+        "cast_motion"
+    ]
+}

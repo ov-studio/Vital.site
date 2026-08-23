@@ -1,0 +1,35 @@
+---
+title: self:set_gravity_point_center
+description: Sets the point gravity center of the area
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_gravity_point_center(
+    center
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | center | Point to pull toward as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the gravity point center of an area"
+local entity = physics.area.create()
+
+entity:set_gravity_point_center({0, 0, 0})
+```

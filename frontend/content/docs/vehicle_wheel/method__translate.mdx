@@ -1,0 +1,35 @@
+---
+title: self:translate
+description: Translates the vehicle wheel by an offset in the parent's coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:translate(
+    offset
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | offset | Offset to translate by as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Translate a vehicle wheel"
+local entity = physics.vehicle_wheel.create()
+
+entity:translate({0, 1, 0})
+```

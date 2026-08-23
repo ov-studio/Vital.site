@@ -1,0 +1,32 @@
+---
+title: self:get_constant_linear_velocity
+description: Retrieves the constant linear velocity applied by the animatable body to bodies resting on it, such as a conveyor surface
+badge: client
+---
+
+### Syntax
+
+```lua
+local velocity = self:get_constant_linear_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Current constant linear velocity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the constant linear velocity of a animatable body"
+local entity = physics.animatable.create()
+
+core.engine.print("info", entity:get_constant_linear_velocity())
+```

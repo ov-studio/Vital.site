@@ -1,0 +1,32 @@
+---
+title: self:get_angular_damp
+description: Retrieves the angular damping of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_angular_damp()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current angular damping |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the angular damp of a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:get_angular_damp())
+```

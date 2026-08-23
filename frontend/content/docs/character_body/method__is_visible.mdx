@@ -1,0 +1,32 @@
+---
+title: self:is_visible
+description: Checks whether the character body is visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check visibility of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:is_visible())
+```

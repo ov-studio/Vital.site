@@ -1,0 +1,32 @@
+---
+title: self:get_real_velocity
+description: Retrieves the actual velocity the character body moved with during the last physics step, including platform influence
+badge: client
+---
+
+### Syntax
+
+```lua
+local velocity = self:get_real_velocity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | velocity | Real velocity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the real velocity of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_real_velocity())
+```

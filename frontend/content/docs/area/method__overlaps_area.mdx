@@ -1,0 +1,36 @@
+---
+title: self:overlaps_area
+description: Checks whether a specific area currently overlaps this area
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:overlaps_area(
+    area
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | area | Area instance to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the areas overlap, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if two areas overlap"
+local a = physics.area.create()
+local b = physics.area.create()
+
+core.engine.print("info", a:overlaps_area(b))
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_linear_damp
+description: Retrieves the linear damping of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_linear_damp()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current linear damping |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the linear damp of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_linear_damp())
+```

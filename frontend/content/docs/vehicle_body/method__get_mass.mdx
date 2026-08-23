@@ -1,0 +1,32 @@
+---
+title: self:get_mass
+description: Retrieves the mass of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_mass()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current mass |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the mass of a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:get_mass())
+```

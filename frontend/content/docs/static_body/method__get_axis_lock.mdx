@@ -1,0 +1,35 @@
+---
+title: self:get_axis_lock
+description: Checks whether a specific movement axis is locked on the static body
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_axis_lock(
+    axis
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | axis | Axis enum value — refer to [`physics.static.axis`](/docs/static_body/enum/axis) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the axis is locked, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check an axis lock on a static body"
+local entity = physics.static.create()
+
+core.engine.print("info", entity:get_axis_lock(physics.static.axis.LINEAR_X))
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_gravity_direction
+description: Retrieves the gravity direction of the area, used when gravity is not in point mode
+badge: client
+---
+
+### Syntax
+
+```lua
+local direction = self:get_gravity_direction()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | direction | Current gravity direction as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the gravity direction of an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:get_gravity_direction())
+```

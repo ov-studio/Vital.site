@@ -1,0 +1,33 @@
+---
+title: self:get_brake
+description: Retrieves the per-wheel brake force override
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_brake()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current per-wheel brake force |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the brake force of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_brake())
+```

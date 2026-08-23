@@ -1,0 +1,35 @@
+---
+title: self:set_floor_snap_length
+description: Sets the distance the character body will snap down to stay attached to the floor when walking down slopes or steps
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_floor_snap_length(
+    length
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | length | Snap length to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the floor snap length of a character body"
+local entity = physics.character.create()
+
+entity:set_floor_snap_length(0.1)
+```

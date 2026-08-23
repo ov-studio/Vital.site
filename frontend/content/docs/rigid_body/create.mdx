@@ -1,0 +1,35 @@
+---
+title: physics.rigid.create
+description: Creates a new rigid body instance and adds it to the scene
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = physics.rigid.create()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | instance | Created rigid body instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a rigid body instance"
+local entity = physics.rigid.create()
+
+local shape = physics.collision_shape.create(entity)
+shape:set_shape_box({1, 1, 1})
+
+entity:set_position({0, 5, 0})
+```

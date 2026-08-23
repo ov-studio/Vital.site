@@ -1,0 +1,35 @@
+---
+title: self:add_constant_central_force
+description: Adds a persistent force to the rigid body's center of mass, applied every physics step until cleared
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:add_constant_central_force(
+    force
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | force | Force vector to add as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Add a constant central force"
+local entity = physics.rigid.create()
+
+entity:add_constant_central_force({0, 9.8, 0})
+```

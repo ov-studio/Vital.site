@@ -1,0 +1,35 @@
+---
+title: self:get_collision_layer_value
+description: Checks whether a specific bit is set on the static body's collision layer
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_collision_layer_value(
+    layer_number
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer_number | Layer bit index to check (1-32) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the layer bit is set, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check a collision layer bit on a static body"
+local entity = physics.static.create()
+
+core.engine.print("info", entity:get_collision_layer_value(1))
+```

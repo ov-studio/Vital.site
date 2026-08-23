@@ -1,0 +1,32 @@
+---
+title: self:get_engine_force
+description: Retrieves the whole-chassis engine force of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_engine_force()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current engine force |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the engine force of a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:get_engine_force())
+```

@@ -1,0 +1,37 @@
+---
+title: self:rotate_local
+description: Rotates the area around an axis in its own local coordinate space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:rotate_local(
+    axis,
+    degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | axis | Axis to rotate around as `{x, y, z}` |
+| `float` | degrees | Angle to rotate by in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a area locally"
+local entity = physics.area.create()
+
+entity:rotate_local({0, 1, 0}, 45)
+```

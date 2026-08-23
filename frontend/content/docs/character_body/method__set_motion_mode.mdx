@@ -1,0 +1,35 @@
+---
+title: self:set_motion_mode
+description: Sets the motion mode of the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_motion_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Motion mode enum value — refer to [`physics.character.motion_mode`](/docs/character_body/enum/motion_mode) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the motion mode of a character body"
+local entity = physics.character.create()
+
+entity:set_motion_mode(physics.character.motion_mode.GROUNDED)
+```

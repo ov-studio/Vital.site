@@ -1,0 +1,35 @@
+---
+title: self:get_collision_mask_value
+description: Checks whether a specific bit is set on the character body's collision mask
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_collision_mask_value(
+    layer_number
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer_number | Mask bit index to check (1-32) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the mask bit is set, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check a collision mask bit on a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", entity:get_collision_mask_value(1))
+```

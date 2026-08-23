@@ -1,0 +1,37 @@
+---
+title: self:apply_impulse
+description: Applies an instantaneous impulse to the rigid body at a specific position, inducing torque
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_impulse(
+    impulse,
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | impulse | Impulse vector to apply as `{x, y, z}` |
+| `vector3` | position | World-space position offset to apply the impulse at — defaults to `{0, 0, 0}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply an off-center impulse"
+local entity = physics.rigid.create()
+
+entity:apply_impulse({0, 5, 0}, {1, 0, 0})
+```

@@ -1,0 +1,33 @@
+---
+title: self:get_suspension_stiffness
+description: Retrieves the suspension stiffness of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_suspension_stiffness()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current suspension stiffness |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the suspension stiffness of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_suspension_stiffness())
+```

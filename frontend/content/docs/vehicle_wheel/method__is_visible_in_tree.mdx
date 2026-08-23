@@ -1,0 +1,32 @@
+---
+title: self:is_visible_in_tree
+description: Checks whether the vehicle wheel is visible in the current scene tree, accounting for parent visibility
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible_in_tree()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if visible in the tree, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check tree visibility of a vehicle wheel"
+local entity = physics.vehicle_wheel.create()
+
+core.engine.print("info", entity:is_visible_in_tree())
+```

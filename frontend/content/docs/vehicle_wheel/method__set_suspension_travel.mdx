@@ -1,0 +1,36 @@
+---
+title: self:set_suspension_travel
+description: Sets the maximum suspension travel distance of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_suspension_travel(
+    length
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | length | Suspension travel distance to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the suspension travel of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_suspension_travel(0.2)
+```

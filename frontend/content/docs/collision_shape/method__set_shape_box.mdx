@@ -1,0 +1,36 @@
+---
+title: self:set_shape_box
+description: Assigns a box shape to the collision shape
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shape_box(
+    size
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | size | Box dimensions to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a box shape on a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_shape_box({1, 1, 1})
+```

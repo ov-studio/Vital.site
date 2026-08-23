@@ -1,0 +1,37 @@
+---
+title: physics.vehicle_wheel.create
+description: Creates a new vehicle wheel instance and attaches it to a vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = physics.vehicle_wheel.create(
+    owner
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | owner | Vehicle body instance to attach the wheel to |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `object` | instance | Created vehicle wheel instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a vehicle wheel instance"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_position({-1, -0.5, 1.5})
+entity:set_use_as_traction(true)
+```

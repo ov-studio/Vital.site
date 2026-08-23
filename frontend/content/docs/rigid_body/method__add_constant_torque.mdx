@@ -1,0 +1,35 @@
+---
+title: self:add_constant_torque
+description: Adds a persistent torque to the rigid body, applied every physics step until cleared
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:add_constant_torque(
+    torque
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | torque | Torque vector to add as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Add a constant torque"
+local entity = physics.rigid.create()
+
+entity:add_constant_torque({0, 1, 0})
+```

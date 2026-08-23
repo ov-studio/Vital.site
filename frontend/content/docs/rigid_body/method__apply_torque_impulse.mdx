@@ -1,0 +1,35 @@
+---
+title: self:apply_torque_impulse
+description: Applies an instantaneous rotational impulse to the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_torque_impulse(
+    impulse
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | impulse | Torque impulse to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a torque impulse"
+local entity = physics.rigid.create()
+
+entity:apply_torque_impulse({0, 1, 0})
+```

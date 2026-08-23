@@ -1,0 +1,35 @@
+---
+title: self:set_quaternion
+description: Sets the local rotation of the character body using a quaternion
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_quaternion(
+    quaternion
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector4` | quaternion | Rotation to apply as `{x, y, z, w}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the quaternion of a character body"
+local entity = physics.character.create()
+
+entity:set_quaternion({0, 0, 0, 1})
+```

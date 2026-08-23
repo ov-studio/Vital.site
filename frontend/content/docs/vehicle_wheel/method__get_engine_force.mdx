@@ -1,0 +1,33 @@
+---
+title: self:get_engine_force
+description: Retrieves the per-wheel engine force override
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_engine_force()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current per-wheel engine force |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the engine force of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_engine_force())
+```

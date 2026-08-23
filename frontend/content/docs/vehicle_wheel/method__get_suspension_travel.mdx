@@ -1,0 +1,33 @@
+---
+title: self:get_suspension_travel
+description: Retrieves the maximum suspension travel distance of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_suspension_travel()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current suspension travel |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the suspension travel of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_suspension_travel())
+```

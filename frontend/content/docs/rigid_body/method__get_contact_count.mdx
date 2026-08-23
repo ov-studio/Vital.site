@@ -1,0 +1,32 @@
+---
+title: self:get_contact_count
+description: Retrieves the number of contacts currently recorded on the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local count = self:get_contact_count()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | count | Current contact count |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get contact count on a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_contact_count())
+```

@@ -1,0 +1,25 @@
+---
+title: physics.area.space_override
+description: Enumeration of modes controlling how an area's gravity and damping combine with the physics space
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.area.space_override.DISABLED` | This area does not affect gravity/damping in its space |
+| `physics.area.space_override.COMBINE` | Adds this area's gravity/damping to the calculation, combined with other overriding areas and the default space |
+| `physics.area.space_override.COMBINE_REPLACE` | Adds this area's gravity/damping, then ignores all further (lower priority) areas |
+| `physics.area.space_override.REPLACE` | Replaces the space's gravity/damping entirely with this area's values, combined with other replacing areas |
+| `physics.area.space_override.REPLACE_COMBINE` | Replaces the space's gravity/damping entirely with this area's values, then ignores all further (lower priority) areas |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set an area to replace gravity entirely"
+local entity = physics.area.create()
+
+entity:set_gravity_space_override_mode(physics.area.space_override.REPLACE)
+```

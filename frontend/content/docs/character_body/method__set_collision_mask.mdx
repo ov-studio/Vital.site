@@ -1,0 +1,35 @@
+---
+title: self:set_collision_mask
+description: Sets the collision mask bitmask of the character body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_collision_mask(
+    mask
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mask | Collision mask bitmask to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the collision mask of a character body"
+local entity = physics.character.create()
+
+entity:set_collision_mask(1)
+```

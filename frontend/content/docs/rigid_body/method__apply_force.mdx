@@ -1,0 +1,37 @@
+---
+title: self:apply_force
+description: Applies a continuous force to the rigid body at a specific position, inducing torque, for the current physics step
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_force(
+    force,
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | force | Force vector to apply as `{x, y, z}` |
+| `vector3` | position | World-space position offset to apply the force at — defaults to `{0, 0, 0}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply an off-center force"
+local entity = physics.rigid.create()
+
+entity:apply_force({0, 20, 0}, {1, 0, 0})
+```

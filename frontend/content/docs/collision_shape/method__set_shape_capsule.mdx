@@ -1,0 +1,38 @@
+---
+title: self:set_shape_capsule
+description: Assigns a capsule shape to the collision shape — the standard shape for humanoid character controllers
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shape_capsule(
+    radius,
+    height
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | radius | Capsule radius to apply |
+| `float` | height | Capsule height to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a capsule shape on a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_shape_capsule(0.4, 1.8)
+```

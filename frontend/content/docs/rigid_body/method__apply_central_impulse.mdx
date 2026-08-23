@@ -1,0 +1,35 @@
+---
+title: self:apply_central_impulse
+description: Applies an instantaneous impulse to the rigid body's center of mass
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_central_impulse(
+    impulse
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | impulse | Impulse vector to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a central impulse"
+local entity = physics.rigid.create()
+
+entity:apply_central_impulse({0, 5, 0})
+```

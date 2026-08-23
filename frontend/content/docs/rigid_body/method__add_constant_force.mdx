@@ -1,0 +1,37 @@
+---
+title: self:add_constant_force
+description: Adds a persistent force to the rigid body at a specific position, applied every physics step until cleared
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:add_constant_force(
+    force,
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | force | Force vector to add as `{x, y, z}` |
+| `vector3` | position | World-space position offset to apply the force at — defaults to `{0, 0, 0}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Add a constant off-center force"
+local entity = physics.rigid.create()
+
+entity:add_constant_force({0, 9.8, 0}, {1, 0, 0})
+```

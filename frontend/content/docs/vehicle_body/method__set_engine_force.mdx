@@ -1,0 +1,35 @@
+---
+title: self:set_engine_force
+description: Sets the whole-chassis engine force of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_engine_force(
+    force
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | force | Engine force to apply across the whole chassis |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the engine force of a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_engine_force(50)
+```

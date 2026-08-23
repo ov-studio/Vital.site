@@ -1,0 +1,32 @@
+---
+title: self:is_monitoring
+description: Checks whether the area is monitoring for other bodies/areas entering or leaving it
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_monitoring()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check monitoring on an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:is_monitoring())
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_mass
+description: Sets the mass of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_mass(
+    mass
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | mass | Mass to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the mass of a rigid body"
+local entity = physics.rigid.create()
+
+entity:set_mass(5.0)
+```

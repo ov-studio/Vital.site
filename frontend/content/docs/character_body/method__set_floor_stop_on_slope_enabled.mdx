@@ -1,0 +1,35 @@
+---
+title: self:set_floor_stop_on_slope_enabled
+description: Sets whether the character body stops moving on steep slopes instead of sliding down
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_floor_stop_on_slope_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to stop on slopes, `false` to allow sliding |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable stop on slope for a character body"
+local entity = physics.character.create()
+
+entity:set_floor_stop_on_slope_enabled(true)
+```

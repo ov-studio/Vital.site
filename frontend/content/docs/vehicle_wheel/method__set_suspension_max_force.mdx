@@ -1,0 +1,36 @@
+---
+title: self:set_suspension_max_force
+description: Sets the maximum force the suspension can exert on the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_suspension_max_force(
+    force
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | force | Maximum suspension force to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the suspension max force of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_suspension_max_force(6000)
+```

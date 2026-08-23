@@ -1,0 +1,44 @@
+---
+title: physics.space.cast_motion
+description: Predicts how far a shape could travel along a motion vector before colliding, without actually moving anything
+badge: client
+---
+
+### Syntax
+
+```lua
+local motion_result = physics.space.cast_motion(
+    shape,
+    position,
+    motion,
+    options
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | shape | Shape descriptor table: `{type = "box"/"sphere"/"capsule"/"cylinder", ...}` with shape-specific fields such as `size`, `radius`, or `height` |
+| `vector3` | position | World-space starting position of the shape as `{x, y, z}` |
+| `vector3` | motion | Motion vector to test as `{x, y, z}` |
+| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, and `collide_areas` fields — defaults to `{}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | motion_result | Table with `safe` and `unsafe` fractions of the motion that can be traveled, or `false` if the query failed |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Predict a capsule's movement"
+local motion_result = physics.space.cast_motion(
+    { type = "capsule", radius = 0.4, height = 1.8 },
+    position, {0, 0, -2}
+)
+
+core.engine.print("info", motion_result.safe)
+```

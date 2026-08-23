@@ -1,0 +1,35 @@
+---
+title: self:set_collision_priority
+description: Sets the collision priority of the vehicle body, used to resolve overlapping collision resolution
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_collision_priority(
+    priority
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | priority | Collision priority to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the collision priority of a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_collision_priority(1.0)
+```

@@ -1,0 +1,35 @@
+---
+title: self:move_and_slide
+description: Moves the character body using its current velocity, automatically sliding along floors, walls, and ceilings according to its motion mode
+badge: client
+---
+
+### Syntax
+
+```lua
+local collided = self:move_and_slide()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | collided | `true` if the body collided with something during the move, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Move a character body every frame"
+local entity = physics.character.create()
+
+util.event.on("sandbox:draw", function()
+    entity:set_velocity({0, -9.8, 0})
+    entity:move_and_slide()
+end)
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_gravity_space_override_mode
+description: Sets the gravity space override mode of the area
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_gravity_space_override_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Space override enum value — refer to [`physics.area.space_override`](/docs/area/enum/space_override) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the gravity space override mode of an area"
+local entity = physics.area.create()
+
+entity:set_gravity_space_override_mode(physics.area.space_override.REPLACE)
+```

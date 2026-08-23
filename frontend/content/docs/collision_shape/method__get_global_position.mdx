@@ -1,0 +1,32 @@
+---
+title: self:get_global_position
+description: Retrieves the global position of the collision shape
+badge: client
+---
+
+### Syntax
+
+```lua
+local position = self:get_global_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current global position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the global position of a collision shape"
+local entity = physics.collision_shape.create()
+
+core.engine.print("info", entity:get_global_position())
+```

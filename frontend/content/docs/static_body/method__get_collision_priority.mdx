@@ -1,0 +1,32 @@
+---
+title: self:get_collision_priority
+description: Retrieves the collision priority of the static body, used to resolve overlapping collision resolution
+badge: client
+---
+
+### Syntax
+
+```lua
+local priority = self:get_collision_priority()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | priority | Current collision priority |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the collision priority of a static body"
+local entity = physics.static.create()
+
+core.engine.print("info", entity:get_collision_priority())
+```

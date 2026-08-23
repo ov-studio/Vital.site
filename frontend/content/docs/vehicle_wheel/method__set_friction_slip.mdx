@@ -1,0 +1,36 @@
+---
+title: self:set_friction_slip
+description: Sets the tire friction slip value of the wheel, controlling grip
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_friction_slip(
+    slip
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | slip | Friction slip value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the friction slip of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_friction_slip(10.5)
+```

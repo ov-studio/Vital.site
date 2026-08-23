@@ -1,0 +1,35 @@
+---
+title: self:set_angular_damp
+description: Sets the angular damping of the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_angular_damp(
+    damp
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | damp | Angular damping value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the angular damp of a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_angular_damp(0.1)
+```

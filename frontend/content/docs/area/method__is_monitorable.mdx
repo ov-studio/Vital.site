@@ -1,0 +1,32 @@
+---
+title: self:is_monitorable
+description: Checks whether the area can be detected by other monitoring areas
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_monitorable()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the condition is met, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check monitorable on an area"
+local entity = physics.area.create()
+
+core.engine.print("info", entity:is_monitorable())
+```

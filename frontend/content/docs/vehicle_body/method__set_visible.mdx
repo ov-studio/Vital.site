@@ -1,0 +1,35 @@
+---
+title: self:set_visible
+description: Sets whether the vehicle body is visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_visible(
+    visible
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | visible | `true` to show the entity, `false` to hide it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle visibility of a vehicle body"
+local entity = physics.vehicle.create()
+
+entity:set_visible(false)
+```

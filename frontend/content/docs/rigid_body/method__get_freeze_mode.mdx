@@ -1,0 +1,32 @@
+---
+title: self:get_freeze_mode
+description: Retrieves the freeze mode of the rigid body
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_freeze_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | mode | Current freeze mode enum value — refer to [`physics.rigid.freeze_mode`](/docs/rigid_body/enum/freeze_mode) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the freeze mode of a rigid body"
+local entity = physics.rigid.create()
+
+core.engine.print("info", entity:get_freeze_mode())
+```

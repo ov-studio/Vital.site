@@ -1,0 +1,35 @@
+---
+title: self:set_gravity_is_point
+description: Sets whether the area's gravity is point-based
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_gravity_is_point(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to make gravity pull toward a point, `false` to use a fixed direction |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable point gravity on an area"
+local entity = physics.area.create()
+
+entity:set_gravity_is_point(true)
+```

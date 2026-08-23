@@ -1,0 +1,32 @@
+---
+title: self:apply_floor_snap
+description: Immediately snaps the character body to the floor if it is within snapping distance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_floor_snap()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply floor snap on a character body"
+local entity = physics.character.create()
+
+entity:apply_floor_snap()
+```

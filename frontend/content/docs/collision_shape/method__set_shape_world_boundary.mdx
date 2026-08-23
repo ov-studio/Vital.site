@@ -1,0 +1,38 @@
+---
+title: self:set_shape_world_boundary
+description: Assigns an infinite boundary plane shape to the collision shape — useful for kill-floors or world edges
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_shape_world_boundary(
+    plane_normal,
+    plane_distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | plane_normal | Normal of the infinite boundary plane as `{x, y, z}` |
+| `float` | plane_distance | Distance of the plane from the origin along its normal — defaults to `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a world boundary shape on a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+entity:set_shape_world_boundary({0, 1, 0}, 0)
+```

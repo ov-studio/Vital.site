@@ -1,0 +1,36 @@
+---
+title: self:set_use_as_traction
+description: Sets whether the wheel is used as a traction (driven) wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_use_as_traction(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to make this a driven wheel, `false` otherwise |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable traction on a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_use_as_traction(true)
+```

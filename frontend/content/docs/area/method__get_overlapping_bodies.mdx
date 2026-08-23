@@ -1,0 +1,34 @@
+---
+title: self:get_overlapping_bodies
+description: Retrieves all physics bodies currently overlapping the area
+badge: client
+---
+
+### Syntax
+
+```lua
+local bodies = self:get_overlapping_bodies()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | bodies | Array of overlapping physics body instances |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get overlapping bodies on an area"
+local entity = physics.area.create()
+
+for i, body in ipairs(entity:get_overlapping_bodies()) do
+    core.engine.print("info", body)
+end
+```

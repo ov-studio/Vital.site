@@ -1,0 +1,33 @@
+---
+title: self:get_suspension_rest_length
+description: Retrieves the suspension's resting length of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local value = self:get_suspension_rest_length()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Current suspension rest length |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the suspension rest length of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", entity:get_suspension_rest_length())
+```

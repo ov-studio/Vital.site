@@ -1,0 +1,36 @@
+---
+title: self:set_damping_compression
+description: Sets the suspension compression damping of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_damping_compression(
+    damping
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | damping | Compression damping to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the compression damping of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_damping_compression(0.83)
+```

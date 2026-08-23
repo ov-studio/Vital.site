@@ -1,0 +1,22 @@
+---
+title: physics.vehicle.freeze_mode
+description: Enumeration of behaviors applied to the vehicle body while frozen
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `physics.vehicle.freeze_mode.STATIC` | Body becomes fully immovable, behaving like a static body while frozen |
+| `physics.vehicle.freeze_mode.KINEMATIC` | Body can still be moved manually while frozen, but is not affected by physics forces |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Freeze a vehicle body in kinematic mode"
+local entity = physics.vehicle.create()
+
+entity:set_freeze_mode(physics.vehicle.freeze_mode.KINEMATIC)
+```

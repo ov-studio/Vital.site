@@ -1,0 +1,36 @@
+---
+title: self:set_suspension_rest_length
+description: Sets the suspension's resting length of the wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_suspension_rest_length(
+    length
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | length | Suspension rest length to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the suspension rest length of a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_suspension_rest_length(0.3)
+```
