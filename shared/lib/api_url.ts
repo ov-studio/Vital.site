@@ -2,7 +2,12 @@ const LOCAL_FRONTEND_URL = 'http://localhost:3000';
 const LOCAL_BACKEND_URL  = 'http://localhost:3001';
 
 function vercel_host(): string | undefined {
-  return process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  return (
+    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.VERCEL_URL
+  );
 }
 
 function base_domain(): string | undefined {
