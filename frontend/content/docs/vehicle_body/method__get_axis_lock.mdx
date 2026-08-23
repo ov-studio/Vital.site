@@ -1,0 +1,35 @@
+---
+title: self:get_axis_lock
+description: Checks whether a specific movement axis is locked on the vehicle body
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_axis_lock(
+    axis
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | axis | Axis enum value — refer to [`physics.vehicle.axis`](/docs/vehicle_body/enum/axis) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the axis is locked, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check an axis lock on a vehicle body"
+local entity = physics.vehicle.create()
+
+core.engine.print("info", entity:get_axis_lock(physics.vehicle.axis.LINEAR_X))
+```

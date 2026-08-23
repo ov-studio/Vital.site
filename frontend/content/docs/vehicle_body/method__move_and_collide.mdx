@@ -1,0 +1,40 @@
+---
+title: self:move_and_collide
+description: Moves the vehicle body by a motion vector, stopping and reporting the first collision encountered along the way
+badge: client
+---
+
+### Syntax
+
+```lua
+local collision = self:move_and_collide(
+    motion,
+    test_only
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | motion | Motion vector to move by as `{x, y, z}` |
+| `bool` | test_only | If `true`, only tests the motion without actually moving the body — defaults to `false` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | collision | Table with `position`, `normal`, `travel`, `remainder`, and `depth` fields, or `false` if no collision occurred |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Move a vehicle body and detect collisions"
+local entity = physics.vehicle.create()
+
+local collision = entity:move_and_collide({0, 0, -1})
+if collision then
+    core.engine.print("info", collision.normal)
+end
+```
