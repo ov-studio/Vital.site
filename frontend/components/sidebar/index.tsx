@@ -1,6 +1,7 @@
 'use client';
-import * as react  from 'react';
-import * as lucide from 'lucide-react';
+import * as ui_iconbutton from '@/ui/iconbutton';
+import * as react         from 'react';
+import * as lucide        from 'lucide-react';
 import './index.css';
 
 export function SidebarToggle() {
@@ -15,8 +16,12 @@ export function SidebarToggle() {
   };
 
   return (
-    <button className="sidebar-toggle-btn" onClick={toggle}>
-      <lucide.PanelLeft size={18} strokeWidth={2.5}/>
-    </button>
+    <ui_iconbutton.IconButton
+      className="sidebar-toggle-btn"
+      icon={lucide.PanelLeft}
+      iconProps={{ size: 18, strokeWidth: 2.5 }}
+      onClick={toggle}
+      title="Toggle sidebar"
+    />
   );
 }
