@@ -4,14 +4,17 @@
     "pages": [
         "---Base---",
         "create",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
         "method__is_sync_to_physics_enabled",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -29,6 +32,7 @@
         "method__get_axis_lock",
         "method__get_constant_linear_velocity",
         "method__get_constant_angular_velocity",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -49,6 +53,7 @@
         "method__set_constant_linear_velocity",
         "method__set_constant_angular_velocity",
         "method__set_sync_to_physics",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",

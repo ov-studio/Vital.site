@@ -4,10 +4,12 @@
     "pages": [
         "---Base---",
         "create",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
@@ -17,6 +19,7 @@
         "method__is_using_continuous_collision_detection",
         "method__is_lock_rotation_enabled",
         "method__is_freeze_enabled",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -42,6 +45,7 @@
         "method__get_contact_count",
         "method__get_freeze_mode",
         "method__get_colliding_bodies",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -73,6 +77,7 @@
         "method__set_linear_velocity",
         "method__set_angular_velocity",
         "method__set_freeze_mode",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",

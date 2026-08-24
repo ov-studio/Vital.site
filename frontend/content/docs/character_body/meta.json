@@ -4,16 +4,19 @@
     "pages": [
         "---Base---",
         "create",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
         "method__is_on_floor",
         "method__is_on_ceiling",
         "method__is_on_wall",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -38,6 +41,7 @@
         "method__get_real_velocity",
         "method__get_platform_velocity",
         "method__get_platform_angular_velocity",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -62,6 +66,7 @@
         "method__set_floor_snap_length",
         "method__set_floor_stop_on_slope_enabled",
         "method__set_slide_on_ceiling_enabled",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",

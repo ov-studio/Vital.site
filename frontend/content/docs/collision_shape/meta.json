@@ -5,15 +5,18 @@
         "---Base---",
         "create",
         "set_debug_all",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
         "method__is_disabled",
         "method__is_debug_visible",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -22,6 +25,7 @@
         "method__get_rotation",
         "method__get_global_rotation",
         "method__get_quaternion",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -38,6 +42,7 @@
         "method__set_shape_cylinder",
         "method__set_shape_world_boundary",
         "method__set_shape_separation_ray",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",

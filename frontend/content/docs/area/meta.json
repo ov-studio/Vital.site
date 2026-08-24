@@ -4,10 +4,12 @@
     "pages": [
         "---Base---",
         "create",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
@@ -16,6 +18,7 @@
         "method__is_monitorable",
         "method__has_overlapping_bodies",
         "method__has_overlapping_areas",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -37,6 +40,7 @@
         "method__get_overlapping_areas",
         "method__overlaps_body",
         "method__overlaps_area",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -57,6 +61,7 @@
         "method__set_priority",
         "method__set_monitoring",
         "method__set_monitorable",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",
