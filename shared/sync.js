@@ -102,7 +102,7 @@ function sync_cdn_assets() {
           copy_ui_recursive(src_path, dest_path);
         } else if (/\.(jsx?|css)$/.test(entry.name)) {
           fs.copyFileSync(src_path, dest_path);
-          console.log(`  synced (cdn): components/ui/${path.relative(UI_SRC_DIR, src_path).split(path.sep).join('/')} -> frontend/public/cdn/ui/${path.relative(ui_dest_dir, dest_path).split(path.sep).join('/')}`);
+          console.log(`  synced (cdn): ui/${path.relative(UI_SRC_DIR, src_path).split(path.sep).join('/')} -> frontend/public/cdn/ui/${path.relative(ui_dest_dir, dest_path).split(path.sep).join('/')}`);
           copied_any = true;
         }
       }
