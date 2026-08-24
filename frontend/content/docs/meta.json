@@ -70,9 +70,9 @@
         "static_body",
         "character_body",
         "animatable_body",
-        "area",
         "vehicle_body",
         "vehicle_wheel",
+        "area",
         "collision_shape",
         "space",
         "..."
