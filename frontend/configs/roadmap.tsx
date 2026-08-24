@@ -1764,7 +1764,7 @@ export const Roadmap: RoadmapSection[] = build([
     cards: [
       {
         label: 'Character Body',
-        desc:  'Player and NPC controller — velocity-driven movement with floor/wall/ceiling detection and slide-based collision resolution',
+        desc:  'Player and NPC controller — velocity-driven movement with floor, wall, and ceiling collision',
         icon:  <lucide.PersonStanding {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.character.create',                        status: 'completed' },
@@ -1934,7 +1934,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Static Body',
-        desc:  'Immovable collision surface — constant velocity conveyance, physics material, and layer/mask control from Lua',
+        desc:  'Immovable collision surface — constant velocity conveyance and physics material control from Lua',
         icon:  <lucide.Square {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.static.create',                           status: 'completed' },
@@ -1992,7 +1992,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Animatable Body',
-        desc:  'Code-driven kinematic body — position/rotation moved by script each frame while correctly pushing other physics bodies',
+        desc:  'Code-driven kinematic body — moved by script each frame while correctly pushing other physics bodies',
         icon:  <lucide.Ship {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.animatable.create',                       status: 'completed' },
@@ -2202,7 +2202,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Collision Shape',
-        desc:  'Attach primitive collision volumes to physics bodies — box, sphere, capsule, cylinder, world boundary, and separation ray',
+        desc:  'Attach primitive collision volumes to physics bodies — box, sphere, capsule, and cylinder shapes',
         icon:  <lucide.Shapes {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.collision_shape.create',                  status: 'completed' },
@@ -2250,7 +2250,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Area',
-        desc:  'Overlap detection zone — monitor bodies and areas entering/leaving, override gravity, and query overlaps from Lua',
+        desc:  'Overlap detection zone — monitor bodies/areas entering or leaving, and override gravity from Lua',
         icon:  <lucide.Radar {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.area.create',                             status: 'completed' },
