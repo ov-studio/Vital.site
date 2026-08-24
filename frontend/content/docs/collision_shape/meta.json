@@ -2,6 +2,7 @@
     "title": "Collision Shape",
     "icon": "Shapes",
     "pages": [
+        "---Base---",
         "create",
         "set_debug_all",
         "---⁝⁝Lifecycle---",

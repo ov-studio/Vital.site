@@ -2,6 +2,7 @@
     "title": "Animatable Body",
     "icon": "Ship",
     "pages": [
+        "---Base---",
         "create",
         "---⁝⁝Lifecycle---",
         "method__is_type",
