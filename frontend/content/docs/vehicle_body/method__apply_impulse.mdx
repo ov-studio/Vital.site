@@ -9,7 +9,7 @@ badge: client
 ```lua
 local status = self:apply_impulse(
     impulse,
-    position
+    position = {0, 0, 0}
 )
 ```
 
@@ -18,7 +18,7 @@ local status = self:apply_impulse(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector3` | impulse | Impulse vector to apply as `{x, y, z}` |
-| `vector3` | position | World-space position offset to apply the impulse at — defaults to `{0, 0, 0}` |
+| `vector3` | position | World-space position offset to apply the impulse at |
 
 ### Returns
 

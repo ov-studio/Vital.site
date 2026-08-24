@@ -10,8 +10,8 @@ badge: client
 local status = self:set_physics_material(
     friction,
     bounce,
-    rough,
-    absorbent
+    rough = false,
+    absorbent = false
 )
 ```
 
@@ -21,8 +21,8 @@ local status = self:set_physics_material(
 |------|------|-------------|
 | `float` | friction | Friction coefficient to apply |
 | `float` | bounce | Bounce (restitution) coefficient to apply |
-| `bool` | rough | Whether friction combining should favor the rougher surface — defaults to `false` |
-| `bool` | absorbent | Whether bounce combining should favor the less bouncy surface — defaults to `false` |
+| `bool` | rough | Whether friction combining should favor the rougher surface |
+| `bool` | absorbent | Whether bounce combining should favor the less bouncy surface |
 
 ### Returns
 

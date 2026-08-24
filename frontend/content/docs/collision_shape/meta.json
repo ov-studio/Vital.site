@@ -3,6 +3,7 @@
     "icon": "Shapes",
     "pages": [
         "create",
+        "set_debug_all",
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
@@ -11,6 +12,7 @@
         "method__is_visible",
         "method__is_visible_in_tree",
         "method__is_disabled",
+        "method__is_debug_visible",
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -28,6 +30,7 @@
         "method__set_quaternion",
         "method__set_visible",
         "method__set_disabled",
+        "method__set_debug_visible",
         "method__set_shape_box",
         "method__set_shape_sphere",
         "method__set_shape_capsule",

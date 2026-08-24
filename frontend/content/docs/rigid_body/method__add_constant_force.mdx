@@ -9,7 +9,7 @@ badge: client
 ```lua
 local status = self:add_constant_force(
     force,
-    position
+    position = {0, 0, 0}
 )
 ```
 
@@ -18,7 +18,7 @@ local status = self:add_constant_force(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector3` | force | Force vector to add as `{x, y, z}` |
-| `vector3` | position | World-space position offset to apply the force at — defaults to `{0, 0, 0}` |
+| `vector3` | position | World-space position offset to apply the force at |
 
 ### Returns
 

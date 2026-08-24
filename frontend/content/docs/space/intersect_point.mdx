@@ -9,7 +9,7 @@ badge: client
 ```lua
 local results = physics.space.intersect_point(
     point,
-    options
+    options = {}
 )
 ```
 
@@ -18,7 +18,7 @@ local results = physics.space.intersect_point(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector3` | point | World-space point to query as `{x, y, z}` |
-| `table` | options | Optional table with `mask`, `exclude`, `max_results`, `collide_bodies`, and `collide_areas` fields — defaults to `{}` |
+| `table` | options | Optional table with `mask`, `exclude`, `max_results`, `collide_bodies`, and `collide_areas` fields |
 
 ### Returns
 

@@ -11,7 +11,7 @@ local motion_result = physics.space.cast_motion(
     shape,
     position,
     motion,
-    options
+    options = {}
 )
 ```
 
@@ -22,7 +22,7 @@ local motion_result = physics.space.cast_motion(
 | `table` | shape | Shape descriptor table: `{type = "box"/"sphere"/"capsule"/"cylinder", ...}` with shape-specific fields such as `size`, `radius`, or `height` |
 | `vector3` | position | World-space starting position of the shape as `{x, y, z}` |
 | `vector3` | motion | Motion vector to test as `{x, y, z}` |
-| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, and `collide_areas` fields — defaults to `{}` |
+| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, and `collide_areas` fields |
 
 ### Returns
 

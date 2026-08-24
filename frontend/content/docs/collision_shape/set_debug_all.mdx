@@ -1,0 +1,33 @@
+---
+title: physics.collision_shape.set_debug_all
+description: Shows or hides the debug wireframe on every collision shape that currently exists, and sets the default for any collision shape created afterward — useful for a single global debug toggle
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = physics.collision_shape.set_debug_all(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to show wireframes on all collision shapes, `false` to hide them |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle debug wireframes globally"
+physics.collision_shape.set_debug_all(true)
+```

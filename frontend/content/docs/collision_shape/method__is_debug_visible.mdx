@@ -1,0 +1,33 @@
+---
+title: self:is_debug_visible
+description: Checks whether the debug wireframe of the collision shape is currently visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_debug_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the debug wireframe is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check debug wireframe visibility on a collision shape"
+local body = physics.rigid.create()
+local entity = physics.collision_shape.create(body)
+
+core.engine.print("info", entity:is_debug_visible())
+```

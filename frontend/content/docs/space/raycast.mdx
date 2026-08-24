@@ -10,7 +10,7 @@ badge: client
 local hit = physics.space.raycast(
     from,
     to,
-    options
+    options = {}
 )
 ```
 
@@ -20,7 +20,7 @@ local hit = physics.space.raycast(
 |------|------|-------------|
 | `vector3` | from | World-space start position of the ray as `{x, y, z}` |
 | `vector3` | to | World-space end position of the ray as `{x, y, z}` |
-| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, `collide_areas`, `hit_from_inside`, and `hit_back_faces` fields — defaults to `{}` |
+| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, `collide_areas`, `hit_from_inside`, and `hit_back_faces` fields |
 
 ### Returns
 

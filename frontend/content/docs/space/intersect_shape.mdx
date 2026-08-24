@@ -10,7 +10,7 @@ badge: client
 local results = physics.space.intersect_shape(
     shape,
     position,
-    options
+    options = {}
 )
 ```
 
@@ -20,7 +20,7 @@ local results = physics.space.intersect_shape(
 |------|------|-------------|
 | `table` | shape | Shape descriptor table: `{type = "box"/"sphere"/"capsule"/"cylinder", ...}` with shape-specific fields such as `size`, `radius`, or `height` |
 | `vector3` | position | World-space position to test the shape at as `{x, y, z}` |
-| `table` | options | Optional table with `mask`, `exclude`, `max_results`, `margin`, `collide_bodies`, and `collide_areas` fields — defaults to `{}` |
+| `table` | options | Optional table with `mask`, `exclude`, `max_results`, `margin`, `collide_bodies`, and `collide_areas` fields |
 
 ### Returns
 

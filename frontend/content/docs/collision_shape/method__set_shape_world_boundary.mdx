@@ -9,7 +9,7 @@ badge: client
 ```lua
 local status = self:set_shape_world_boundary(
     plane_normal,
-    plane_distance
+    plane_distance = 0
 )
 ```
 
@@ -18,7 +18,7 @@ local status = self:set_shape_world_boundary(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector3` | plane_normal | Normal of the infinite boundary plane as `{x, y, z}` |
-| `float` | plane_distance | Distance of the plane from the origin along its normal — defaults to `0` |
+| `float` | plane_distance | Distance of the plane from the origin along its normal |
 
 ### Returns
 

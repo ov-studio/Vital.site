@@ -9,7 +9,7 @@ badge: client
 ```lua
 local collision = self:move_and_collide(
     motion,
-    test_only
+    test_only = false
 )
 ```
 
@@ -18,7 +18,7 @@ local collision = self:move_and_collide(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector3` | motion | Motion vector to move by as `{x, y, z}` |
-| `bool` | test_only | If `true`, only tests the motion without actually moving the body — defaults to `false` |
+| `bool` | test_only | If `true`, only tests the motion without actually moving the body |
 
 ### Returns
 
