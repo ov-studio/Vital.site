@@ -1,6 +1,6 @@
 ---
 title: Server configuration
-description: Configure a Vital.sandbox server — its identity, ports, bootstrapper, socials, and master-list — via config.yaml
+description: Configure a Vital.sandbox server — its identity, ports, sync rate, bootstrapper, socials, and master-list — via config.yaml
 ---
 
 ## Overview
@@ -43,6 +43,7 @@ server:
 network:
   port: 7777
   max_peers: 32
+  sync_rate: 20
 
 http:
   port: 7778
@@ -96,19 +97,30 @@ Controls the ENet multiplayer transport layer. Clients connect to the port defin
 network:
   port: 7777
   max_peers: 32
+  sync_rate: 20
 ```
 
 <Callout type="warn">
-  **Both values directly affect client connectivity — change them with care.**
+  **`port` and `max_peers` directly affect client connectivity — change them with care.**
 
   - **`port`** — clients and any firewall or port-forwarding rules must be updated to match.
   - **`max_peers`** — once the limit is reached, incoming connections are refused until a slot becomes available.
 </Callout>
 
+<Callout type="info">
+  **Tuning `sync_rate` for your game type.**
+
+  - **Action / FPS** — `30` or higher for responsive movement at the cost of more bandwidth.
+  - **General / RPG** — `20` is the default and suits most use cases.
+  - **Strategy / turn-based** — `5`–`10` is sufficient and reduces server load significantly.
+  - Clamped internally to the range `1`–`128`. Values outside this range are silently corrected.
+</Callout>
+
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `port` | `integer` | `7777` | UDP/TCP port the ENet multiplayer server listens on |
+| `port` | `integer` | `7777` | UDP port the ENet multiplayer server listens on |
 | `max_peers` | `integer` | `32` | Maximum number of concurrent client connections |
+| `sync_rate` | `integer` | `20` | Entity sync rate in Hz (1–128) |
 
 ---
 
