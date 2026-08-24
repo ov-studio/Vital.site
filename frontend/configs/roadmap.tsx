@@ -2333,36 +2333,44 @@ export const Roadmap: RoadmapSection[] = build([
     name: 'Network',
     cards: [
       {
-        // TODO: WIP
         label: 'ENet Transport',
-        desc:  'Low-level ENet UDP transport — reliable, sequenced, and unreliable packet delivery',
+        desc:  'ENet UDP transport layer — reliable RPC and unreliable-ordered sync delivery with auto-reconnect',
         icon:  <lucide.Network {...config_site.info.lucide}/>,
         items: [
-          { label:  'ENet client connect / disconnect',                     status: 'completed' },
-          { label:  'ENet server host / close',                             status: 'completed' },
-          { label:  'Peer join / leave tracking',                           status: 'completed' },
-          { label:  'Peer ID management',                                   status: 'completed' },
-          { label:  'Reliable RPC transport',                               status: 'completed' },
-          { label:  'Unreliable / sequenced channels',                      status: 'pending'   },
-          { label:  'Auto-reconnect with configurable attempts and delay',  status: 'completed' },
-          { label:  'Bandwidth limiting',                                   status: 'pending'   },
-          { label:  'send / broadcast API',                                 status: 'completed' },
-          { label:  'Peer handshake on connect',                            status: 'completed' },
-          { label:  'Ping & round-trip time',                               status: 'pending'   },
+          { label:  'Client connect / disconnect',             status: 'completed' },
+          { label:  'Server host / close',                     status: 'completed' },
+          { label:  'Peer join / leave tracking',              status: 'completed' },
+          { label:  'Peer ID management',                      status: 'completed' },
+          { label:  'Reliable RPC channel',                    status: 'completed' },
+          { label:  'Unreliable-ordered sync channel',         status: 'completed' },
+          { label:  'Auto-reconnect with attempts and delay',  status: 'completed' },
+          { label:  'send / broadcast API',                    status: 'completed' },
+          { label:  'Peer handshake on connect',               status: 'completed' },
+          { label:  'Bandwidth limiting',                      status: 'pending'   },
+          { label:  'Ping & round-trip time',                  status: 'pending'   }
         ]
       },
       {
-        // TODO: WIP
-        label: 'Multiplayer API',
-        desc:  'High-level RPC, entity spawning, and state synchronization from Lua',
+        label: 'Model Sync',
+        desc:  'Batched low-level model replication — position, rotation, spawn, and authority over custom ENet RPC methods',
         icon:  <lucide.Users {...config_site.info.lucide}/>,
         items: [
-          { label:  'MultiplayerAPI setup',                                       status: 'completed' },
-          { label:  'MultiplayerSpawner with custom spawn delegate',              status: 'completed' },
-          { label:  'MultiplayerSynchronizer - position & rotation replication',  status: 'completed' },
-          { label:  'Synced model spawn with per-peer authority assignment',      status: 'completed' },
-          { label:  'Spawn queue - deferred spawn until asset is ready',          status: 'completed' },
-          { label:  'Lua RPC bindings',                                           status: 'pending'   },
+          { label:  'Spawn / destroy replication',               status: 'completed' },
+          { label:  'Batched VSST sync packet (one per frame)',   status: 'completed' },
+          { label:  'Server-auth broadcast',                      status: 'completed' },
+          { label:  'Client-auth upload and server relay',        status: 'completed' },
+          { label:  'Late-join state dump (reliable)',            status: 'completed' },
+          { label:  'Sleep suppression for static models',        status: 'completed' },
+          { label:  'O(1) net_id registry and dispatch',          status: 'completed' },
+          { label:  'Deferred add_child registration queue',      status: 'completed' },
+          { label:  'Per-object authority via set_syncer(peer)',  status: 'completed' },
+          { label:  'Late-join spawn and transform replay',       status: 'completed' },
+          { label:  'Configurable sync rate in config.yaml',      status: 'completed' },
+          { label:  'Client-side transform interpolation',        status: 'pending'   },
+          { label:  'Blendshape replication',                     status: 'pending'   },
+          { label:  'Animation state replication',                status: 'pending'   },
+          { label:  'Material override replication',              status: 'pending'   },
+          { label:  'Lua RPC bindings',                           status: 'pending'   }
         ]
       },
       {
@@ -2377,7 +2385,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Per-peer 3D positional playback',            status: 'pending' },
           { label:  'Mute / unmute (local & remote)',             status: 'pending' },
           { label:  'Voice activity detection (VAD)',             status: 'pending' },
-          { label:  'Volume per speaker',                         status: 'pending' },
+          { label:  'Volume per speaker',                         status: 'pending' }
         ]
       }
     ]
