@@ -27,6 +27,7 @@ local direction = self:get_up_direction()
 
 ```lua lineNumbers title="Get the up direction of a character body"
 local entity = physics.character.create()
+local direction = entity:get_up_direction()
 
-core.engine.print("info", entity:get_up_direction())
+core.engine.print("info", "Direction:", util.table.unpack(direction))
 ```

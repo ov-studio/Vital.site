@@ -31,5 +31,5 @@ local result = self:get_axis_lock(
 ```lua lineNumbers title="Check an axis lock on a character body"
 local entity = physics.character.create()
 
-core.engine.print("info", entity:get_axis_lock(physics.character.axis.LINEAR_X))
+core.engine.print("info", "Axis Lock:", entity:get_axis_lock(physics.character.axis.LINEAR_X))
 ```

@@ -27,6 +27,7 @@ local velocity = self:get_real_velocity()
 
 ```lua lineNumbers title="Get the real velocity of a character body"
 local entity = physics.character.create()
+local velocity = entity:get_real_velocity()
 
-core.engine.print("info", entity:get_real_velocity())
+core.engine.print("info", "Velocity:", util.table.unpack(velocity))
 ```

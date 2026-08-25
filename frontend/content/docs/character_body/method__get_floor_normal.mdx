@@ -27,6 +27,7 @@ local normal = self:get_floor_normal()
 
 ```lua lineNumbers title="Get the floor normal of a character body"
 local entity = physics.character.create()
+local normal = entity:get_floor_normal()
 
-core.engine.print("info", entity:get_floor_normal())
+core.engine.print("info", "Normal:", util.table.unpack(normal))
 ```

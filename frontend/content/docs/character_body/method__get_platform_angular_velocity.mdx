@@ -27,6 +27,7 @@ local velocity = self:get_platform_angular_velocity()
 
 ```lua lineNumbers title="Get the platform angular velocity of a character body"
 local entity = physics.character.create()
+local velocity = entity:get_platform_angular_velocity()
 
-core.engine.print("info", entity:get_platform_angular_velocity())
+core.engine.print("info", "Velocity:", util.table.unpack(velocity))
 ```
