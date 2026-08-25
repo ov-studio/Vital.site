@@ -101,8 +101,6 @@ function sync_cdn_assets() {
     };
     copy_ui_recursive(UI_SRC_DIR, ui_dest_dir);
 
-    // Auto-generated manifest so kit (and others) can discover components
-    // without maintaining a hardcoded file list.
     ui_files.sort();
     const components = {};
     for (const rel of ui_files) {
@@ -118,7 +116,7 @@ function sync_cdn_assets() {
         name,
         files: components[name].sort(),
       })),
-      files: ui_files, // flat list for simple consumers
+      files: ui_files
     };
     const manifest_path = path.join(ui_dest_dir, 'manifest.json');
     fs.writeFileSync(manifest_path, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
