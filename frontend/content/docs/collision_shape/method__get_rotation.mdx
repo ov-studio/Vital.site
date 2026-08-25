@@ -27,6 +27,7 @@ local rotation = self:get_rotation()
 
 ```lua lineNumbers title="Get the local rotation of a collision shape"
 local entity = physics.collision_shape.create()
+local rotation = entity:get_rotation()
 
-core.engine.print("info", entity:get_rotation())
+core.engine.print("info", "Rotation:", util.table.unpack(rotation))
 ```
