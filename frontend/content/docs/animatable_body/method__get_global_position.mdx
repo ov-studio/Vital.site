@@ -27,6 +27,7 @@ local position = self:get_global_position()
 
 ```lua lineNumbers title="Get the global position of a animatable body"
 local entity = physics.animatable.create()
+local position = entity:get_global_position()
 
-core.engine.print("info", entity:get_global_position())
+core.engine.print("info", "Position:", util.table.unpack(position))
 ```

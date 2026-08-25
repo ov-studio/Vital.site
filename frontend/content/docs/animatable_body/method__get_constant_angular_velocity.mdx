@@ -27,6 +27,7 @@ local velocity = self:get_constant_angular_velocity()
 
 ```lua lineNumbers title="Get the constant angular velocity of a animatable body"
 local entity = physics.animatable.create()
+local velocity = entity:get_constant_angular_velocity()
 
-core.engine.print("info", entity:get_constant_angular_velocity())
+core.engine.print("info", "Velocity:", util.table.unpack(velocity))
 ```

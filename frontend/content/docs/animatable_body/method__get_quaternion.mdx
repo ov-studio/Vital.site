@@ -27,6 +27,7 @@ local quaternion = self:get_quaternion()
 
 ```lua lineNumbers title="Get the quaternion of a animatable body"
 local entity = physics.animatable.create()
+local quaternion = entity:get_quaternion()
 
-core.engine.print("info", entity:get_quaternion())
+core.engine.print("info", "Quaternion:", util.table.unpack(quaternion))
 ```
