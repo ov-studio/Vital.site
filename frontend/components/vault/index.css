@@ -18,19 +18,12 @@
   gap: 2px;
 }
 
+/* layout only — visual styles live in ui/filter + ui/search */
 .ui-filter.vault-filter-tags {
   flex: 1;
   min-width: 0;
 }
 
-.vault-divider {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--rule);
-}
 
 .vault-grid {
   display: grid;

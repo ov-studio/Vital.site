@@ -6,6 +6,7 @@ import * as ui_iconbutton   from '@/ui/iconbutton';
 import * as ui_card         from '@/ui/card';
 import * as ui_filter       from '@/ui/filter';
 import * as ui_search       from '@/ui/search';
+import * as ui_divider      from '@/ui/divider';
 import * as lib_api_url     from '@/lib/api_url';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
@@ -327,7 +328,7 @@ function VaultSkeleton() {
       <div className="sw">
         <VaultHead/>
         <VaultFilters disabled/>
-        <div className="vault-divider"/>
+        <ui_divider.Divider/>
         <div className="vault-loading">
           <lucide.Loader2 size={32} strokeWidth={2} className="vault-spin"/>
         </div>
@@ -411,7 +412,7 @@ function VaultInner() {
             on_tag={set_active_tag}
           />
           
-          <div className="vault-divider"/>
+          <ui_divider.Divider/>
 
           {state === 'loading' && (
             <div className="vault-loading">
