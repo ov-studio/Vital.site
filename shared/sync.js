@@ -124,19 +124,16 @@ function sync_cdn_assets() {
     if (!copied_any) console.warn(`[sync] ui source exists but contained no .jsx/.css files: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)}`);
     if (copied_any) cdn_rel_paths.push('public/cdn/ui/');
   }
-
   return cdn_rel_paths;
 }
 
 const rel_paths = collect_paths(SHARED_DIR);
-
 if (rel_paths.length === 0) {
   console.log('[sync] nothing in shared/ to copy');
   process.exit(0);
 }
 
 const cdn_rel_paths = sync_cdn_assets();
-
 for (const target of TARGETS) {
   if (!fs.existsSync(target)) {
     console.warn(`[sync] target not found, skipping: ${target}`);
