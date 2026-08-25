@@ -15,9 +15,8 @@ function copy_dir(src, dest) {
     if (SKIP.has(entry.name)) continue;
     const src_path = path.join(src, entry.name);
     const dest_path = path.join(dest, entry.name);
-    if (entry.isDirectory()) {
-      copy_dir(src_path, dest_path);
-    } else {
+    if (entry.isDirectory()) copy_dir(src_path, dest_path);
+    else {
       fs.copyFileSync(src_path, dest_path);
       console.log(`  synced: ${path.relative(SHARED_DIR, src_path)}`);
     }
@@ -29,11 +28,8 @@ function collect_paths(src, base = '') {
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     if (SKIP.has(entry.name)) continue;
     const rel = base ? `${base}/${entry.name}` : entry.name;
-    if (entry.isDirectory()) {
-      result.push(...collect_paths(path.join(src, entry.name), rel));
-    } else {
-      result.push(rel);
-    }
+    if (entry.isDirectory()) result.push(...collect_paths(path.join(src, entry.name), rel));
+    else result.push(rel);
   }
   return result;
 }
@@ -50,17 +46,12 @@ function update_gitignore(target_dir, rel_paths) {
   ].join('\n');
 
   let existing = '';
-  if (fs.existsSync(gitignore_path)) {
-    existing = fs.readFileSync(gitignore_path, 'utf8');
-  }
-
+  if (fs.existsSync(gitignore_path)) existing = fs.readFileSync(gitignore_path, 'utf8');
   if (existing.includes(marker_start)) {
     const re = new RegExp(`${marker_start}[\\s\\S]*?${marker_end}`, 'm');
     existing = existing.replace(re, block);
-  } else {
-    existing = existing.trimEnd() + '\n\n' + block + '\n';
   }
-
+  else existing = existing.trimEnd() + '\n\n' + block + '\n';
   fs.writeFileSync(gitignore_path, existing, 'utf8');
   console.log(`  gitignore updated: ${path.relative(process.cwd(), gitignore_path)}`);
 }
@@ -89,28 +80,50 @@ function sync_cdn_assets() {
   }
 
   const ui_dest_dir = path.join(CDN_TARGET_DIR, 'ui');
-  if (!fs.existsSync(UI_SRC_DIR)) {
-    console.warn(`[sync] ui source missing, skipping: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)} does not exist`);
-  } else {
+  if (!fs.existsSync(UI_SRC_DIR)) console.warn(`[sync] ui source missing, skipping: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)} does not exist`);
+  else {
     let copied_any = false;
+    const ui_files = []; // relative paths like "card/index.jsx"
     const copy_ui_recursive = (src, dest) => {
       fs.mkdirSync(dest, { recursive: true });
       for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
         const src_path = path.join(src, entry.name);
         const dest_path = path.join(dest, entry.name);
-        if (entry.isDirectory()) {
-          copy_ui_recursive(src_path, dest_path);
-        } else if (/\.(jsx?|css)$/.test(entry.name)) {
+        if (entry.isDirectory()) copy_ui_recursive(src_path, dest_path);
+        else if (/\.(jsx?|css)$/.test(entry.name)) {
           fs.copyFileSync(src_path, dest_path);
-          console.log(`  synced (cdn): ui/${path.relative(UI_SRC_DIR, src_path).split(path.sep).join('/')} -> frontend/public/cdn/ui/${path.relative(ui_dest_dir, dest_path).split(path.sep).join('/')}`);
+          const rel = path.relative(UI_SRC_DIR, src_path).split(path.sep).join('/');
+          ui_files.push(rel);
+          console.log(`  synced (cdn): ui/${rel} -> frontend/public/cdn/ui/${rel}`);
           copied_any = true;
         }
       }
     };
     copy_ui_recursive(UI_SRC_DIR, ui_dest_dir);
-    if (!copied_any) {
-      console.warn(`[sync] ui source exists but contained no .jsx/.css files: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)}`);
+
+    // Auto-generated manifest so kit (and others) can discover components
+    // without maintaining a hardcoded file list.
+    ui_files.sort();
+    const components = {};
+    for (const rel of ui_files) {
+      const parts = rel.split('/');
+      if (parts.length < 2) continue;
+      const name = parts[0];
+      (components[name] ||= []).push(parts.slice(1).join('/'));
     }
+    const manifest = {
+      version: 1,
+      generated: new Date().toISOString(),
+      components: Object.keys(components).sort().map(name => ({
+        name,
+        files: components[name].sort(),
+      })),
+      files: ui_files, // flat list for simple consumers
+    };
+    const manifest_path = path.join(ui_dest_dir, 'manifest.json');
+    fs.writeFileSync(manifest_path, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+    console.log(`  synced (cdn): ui/manifest.json (${ui_files.length} files, ${Object.keys(components).length} components)`);
+    if (!copied_any) console.warn(`[sync] ui source exists but contained no .jsx/.css files: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)}`);
     if (copied_any) cdn_rel_paths.push('public/cdn/ui/');
   }
 
