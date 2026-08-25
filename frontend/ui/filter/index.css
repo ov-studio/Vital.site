@@ -4,7 +4,30 @@
   gap: 8px;
   flex-wrap: wrap;
 }
+
 .ui-filter-btn {
   cursor: pointer;
   font: inherit;
+  padding: 6px 12px;
+  font-family: 'Geist', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 2px solid var(--rule);
+  border-radius: 4px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+
+.ui-filter-btn:hover {
+  color: var(--blue);
+  border-color: var(--b30);
+}
+
+.ui-filter-btn.active {
+  color: var(--blue);
+  border-color: var(--blue);
+  background: var(--b05);
 }
