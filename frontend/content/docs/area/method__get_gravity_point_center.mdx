@@ -27,6 +27,7 @@ local center = self:get_gravity_point_center()
 
 ```lua lineNumbers title="Get the gravity point center of an area"
 local entity = physics.area.create()
+local center = entity:get_gravity_point_center()
 
-core.engine.print("info", entity:get_gravity_point_center())
+core.engine.print("info", "Center:", util.table.unpack(center))
 ```

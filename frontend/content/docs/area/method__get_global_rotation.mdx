@@ -27,6 +27,7 @@ local rotation = self:get_global_rotation()
 
 ```lua lineNumbers title="Get the global rotation of a area"
 local entity = physics.area.create()
+local rotation = entity:get_global_rotation()
 
-core.engine.print("info", entity:get_global_rotation())
+core.engine.print("info", "Rotation:", util.table.unpack(rotation))
 ```

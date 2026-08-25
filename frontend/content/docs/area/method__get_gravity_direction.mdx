@@ -27,6 +27,7 @@ local direction = self:get_gravity_direction()
 
 ```lua lineNumbers title="Get the gravity direction of an area"
 local entity = physics.area.create()
+local direction = entity:get_gravity_direction()
 
-core.engine.print("info", entity:get_gravity_direction())
+core.engine.print("info", "Direction:", util.table.unpack(direction))
 ```
