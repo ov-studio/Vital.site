@@ -37,7 +37,6 @@ export function IconButton({
     <button
       type={type}
       className={`ui-icon-btn${className ? ` ${className}` : ''}`}
-      title={resolved_title}
       aria-label={resolved_title}
       onClick={onClick}
       disabled={disabled}
