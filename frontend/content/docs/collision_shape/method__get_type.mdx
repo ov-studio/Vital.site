@@ -1,13 +1,13 @@
 ---
 title: self:get_type
-description: Retrieves the type name of this collision shape instance
+description: Retrieves the type name of the instance
 badge: client
 ---
 
 ### Syntax
 
 ```lua
-local type = self:get_type()
+local result = self:get_type()
 ```
 
 ### Parameters
@@ -19,15 +19,15 @@ local type = self:get_type()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | type | Type name of the instance, e.g. "physics.collision_shape" |
+| `string | bool` | result | Type of the instance, `false` if unavailable |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the type of a collision shape"
+```lua lineNumbers title="Get the type of a collision shape instance"
 local body = physics.rigid.create()
 local entity = physics.collision_shape.create(body)
 
-core.engine.print("info", entity:get_type())
+core.engine.print("info", entity:get_type()) -- 'physics.collision_shape'
 ```

@@ -1,13 +1,13 @@
 ---
 title: self:get_type
-description: Retrieves the type name of this character body instance
+description: Retrieves the type name of the instance
 badge: client
 ---
 
 ### Syntax
 
 ```lua
-local type = self:get_type()
+local result = self:get_type()
 ```
 
 ### Parameters
@@ -19,14 +19,14 @@ local type = self:get_type()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | type | Type name of the instance, e.g. "physics.character" |
+| `string | bool` | result | Type of the instance, `false` if unavailable |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the type of a character body"
+```lua lineNumbers title="Get the type of a character body instance"
 local entity = physics.character.create()
 
-core.engine.print("info", entity:get_type())
+core.engine.print("info", entity:get_type()) -- 'physics.character'
 ```

@@ -1,6 +1,6 @@
 ---
 title: self:is_type
-description: Checks whether this instance is of the given type name
+description: Checks whether the instance belongs to the specified type
 badge: client
 ---
 
@@ -16,20 +16,21 @@ local result = self:is_type(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | name | Type name to compare against, e.g. "physics.rigid" |
+| `string` | name | Type to check against |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | `true` if the instance matches the given type name, `false` otherwise |
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Check the type of a rigid body"
+```lua lineNumbers title="Check the type of a rigid body instance"
 local entity = physics.rigid.create()
 
-core.engine.print("info", entity:is_type("physics.rigid"))
+core.engine.print("info", entity:is_type("physics.rigid")) -- true
+core.engine.print("info", entity:is_type("model"))  -- false
 ```
