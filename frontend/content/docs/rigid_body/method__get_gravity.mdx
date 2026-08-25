@@ -27,6 +27,7 @@ local gravity = self:get_gravity()
 
 ```lua lineNumbers title="Get the gravity affecting a rigid body"
 local entity = physics.rigid.create()
+local gravity = entity:get_gravity()
 
-core.engine.print("info", entity:get_gravity())
+core.engine.print("info", "Gravity:", util.table.unpack(gravity))
 ```

@@ -27,6 +27,7 @@ local velocity = self:get_angular_velocity()
 
 ```lua lineNumbers title="Get the angular velocity of a rigid body"
 local entity = physics.rigid.create()
+local velocity = entity:get_angular_velocity()
 
-core.engine.print("info", entity:get_angular_velocity())
+core.engine.print("info", "Velocity:", util.table.unpack(velocity))
 ```
