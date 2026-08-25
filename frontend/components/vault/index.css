@@ -18,7 +18,7 @@
   gap: 2px;
 }
 
-.vault-filter-tags {
+.ui-filter.vault-filter-tags {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -27,7 +27,7 @@
   min-width: 0;
 }
 
-.vault-filter-btn {
+.ui-filter-btn.vault-filter-btn {
   padding: 6px 12px;
   font-family: 'Geist', sans-serif;
   font-size: .68rem;
@@ -40,24 +40,28 @@
   border-radius: 4px;
   transition: color .2s, border-color .2s, background .2s;
 }
-.vault-filter-btn:hover  { color: var(--blue); border-color: var(--b30); }
-.vault-filter-btn.active { color: var(--blue); border-color: var(--blue); background: var(--b05); }
+.ui-filter-btn.vault-filter-btn:hover  { color: var(--blue); border-color: var(--b30); }
+.ui-filter-btn.vault-filter-btn.active { color: var(--blue); border-color: var(--blue); background: var(--b05); }
 
-.vault-search {
+.ui-search.vault-search {
   position: relative;
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  gap: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
 }
 
-.vault-search svg {
+.ui-search.vault-search svg {
   position: absolute;
   left: 10px;
   color: var(--text-faint);
   pointer-events: none;
 }
 
-.vault-search input {
+.ui-search.vault-search input {
   width: 200px;
   padding: 6px 12px 6px 30px;
   font-family: 'Geist', sans-serif;
@@ -70,8 +74,8 @@
   outline: none;
   transition: width .2s, border-color .2s;
 }
-.vault-search input::placeholder { color: var(--text-faint); }
-.vault-search input:focus { border-color: var(--b10); width: 250px; }
+.ui-search.vault-search input::placeholder { color: var(--text-faint); }
+.ui-search.vault-search input:focus { border-color: var(--b10); width: 250px; }
 
 .vault-divider {
   display: flex;
