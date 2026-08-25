@@ -28,6 +28,7 @@ local point = self:get_contact_point()
 ```lua lineNumbers title="Get the contact point of a vehicle wheel"
 local car = physics.vehicle.create()
 local entity = physics.vehicle_wheel.create(car)
+local point = entity:get_contact_point()
 
-core.engine.print("info", entity:get_contact_point())
+core.engine.print("info", "Point:", util.table.unpack(point))
 ```

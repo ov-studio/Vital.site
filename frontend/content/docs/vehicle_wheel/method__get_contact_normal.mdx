@@ -28,6 +28,7 @@ local normal = self:get_contact_normal()
 ```lua lineNumbers title="Get the contact normal of a vehicle wheel"
 local car = physics.vehicle.create()
 local entity = physics.vehicle_wheel.create(car)
+local normal = entity:get_contact_normal()
 
-core.engine.print("info", entity:get_contact_normal())
+core.engine.print("info", "Normal:", util.table.unpack(normal))
 ```

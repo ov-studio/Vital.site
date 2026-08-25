@@ -27,6 +27,7 @@ local scale = self:get_scale()
 
 ```lua lineNumbers title="Get the local scale of a vehicle wheel"
 local entity = physics.vehicle_wheel.create()
+local scale = entity:get_scale()
 
-core.engine.print("info", entity:get_scale())
+core.engine.print("info", "Scale:", util.table.unpack(scale))
 ```
