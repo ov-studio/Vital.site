@@ -32,5 +32,5 @@ local result = self:is_position_in_frustum(
 local entity = core.camera.create()
 
 entity:set_active()
-core.engine.print("info", entity:is_position_in_frustum({0, 0, -5})) -- true
+core.engine.print("info", "Position In Frustum:", entity:is_position_in_frustum({0, 0, -5})) -- true
 ```

@@ -28,5 +28,5 @@ local result = self:is_connected()
 ```lua lineNumbers title="Check whether the database connection is active"
 local entity = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-core.engine.print("info", entity:is_connected()) -- true
+core.engine.print("info", "Connected:", entity:is_connected()) -- true
 ```
