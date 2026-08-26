@@ -1,8 +1,8 @@
 'use client';
-import * as config_roadmap          from '@/configs/roadmap';
-import * as lib_source              from '@/lib/source';
-import * as component_iconwallpaper from '@/components/iconwallpaper';
-import * as react                   from 'react';
+import * as config_roadmap from '@/configs/roadmap';
+import * as ui_wallpaper   from '@/ui/wallpaper';
+import * as lib_source     from '@/lib/source';
+import * as react          from 'react';
 import './index.css';
 
 const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
@@ -172,7 +172,7 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
 export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[] }) {
   return (
     <section id="roadmap">
-      <component_iconwallpaper.IconWallpaper
+      <ui_wallpaper.Wallpaper
         seed={10}
         vignette={false}
       />

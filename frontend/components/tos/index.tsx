@@ -1,13 +1,13 @@
 'use client';
-import * as config_site             from '@/configs/site';
-import * as config_tos              from '@/configs/tos';
-import * as component_iconwallpaper from '@/components/iconwallpaper';
+import * as config_site  from '@/configs/site';
+import * as config_tos   from '@/configs/tos';
+import * as ui_wallpaper from '@/ui/wallpaper';
 import './index.css';
 
 export function TOS() {
   return (
     <section id="tos">
-      <component_iconwallpaper.IconWallpaper
+      <ui_wallpaper.Wallpaper
         seed={11}
         vignette={false}
       />
