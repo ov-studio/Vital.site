@@ -6,8 +6,5 @@ app/global.css
 app/theme.css
 configs/site.tsx
 lib/api_url.ts
-public/cdn/theme.css
-public/cdn/global.css
-public/cdn/ui/
-public/cdn/wallpaper/
+public/cdn/
 # </sync:shared>

@@ -65,7 +65,6 @@ const CDN_CSS_FILES = [
 
 function sync_cdn_assets() {
   fs.mkdirSync(CDN_TARGET_DIR, { recursive: true });
-  const cdn_rel_paths = [];
 
   for (const { src, dest } of CDN_CSS_FILES) {
     if (!fs.existsSync(src)) {
@@ -73,14 +72,13 @@ function sync_cdn_assets() {
       continue;
     }
     fs.copyFileSync(src, dest);
-    const rel = path.relative(path.resolve(CDN_TARGET_DIR, '..', '..'), dest).split(path.sep).join('/');
-    cdn_rel_paths.push(rel);
     console.log(`  synced (cdn): ${path.relative(SHARED_DIR, src)} -> frontend/public/cdn/${path.basename(dest)}`);
   }
 
   const ui_dest_dir = path.join(CDN_TARGET_DIR, 'ui');
-  if (!fs.existsSync(UI_SRC_DIR)) console.warn(`[sync] ui source missing, skipping: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)} does not exist`);
-  else {
+  if (!fs.existsSync(UI_SRC_DIR)) {
+    console.warn(`[sync] ui source missing, skipping: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)} does not exist`);
+  } else {
     let copied_any = false;
     const ui_files = []; // relative paths like "card/index.jsx"
     const copy_ui_recursive = (src, dest) => {
@@ -121,9 +119,8 @@ function sync_cdn_assets() {
     fs.writeFileSync(manifest_path, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
     console.log(`  synced (cdn): ui/manifest.json (${ui_files.length} files, ${Object.keys(components).length} components)`);
     if (!copied_any) console.warn(`[sync] ui source exists but contained no .jsx/.css files: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)}`);
-    if (copied_any) cdn_rel_paths.push('public/cdn/ui/');
   }
-  return cdn_rel_paths;
+  return ['public/cdn/'];
 }
 
 const rel_paths = collect_paths(SHARED_DIR);
