@@ -43,7 +43,8 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 - **`ui`** — generic UI primitives, mirrored to `public/cdn/ui/` for reuse by `Vital.kit`/`Vital.vault`
 - **`configs`** — page-level configuration (footer, home, roadmap, tos, vault)
 - **`content/docs`** — MDX source files for all documentation
-- **`lib`** — shared utilities (`source.ts`, `cn.ts`, `layout.shared.tsx`)
+- **`lib`** — shared utilities
+- **`scripts`** — build helpers
 
 ## Contributing
 
