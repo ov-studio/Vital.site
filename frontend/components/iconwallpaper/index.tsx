@@ -14,7 +14,7 @@ export interface IconWallpaperProps {
   vignette?: boolean;
 }
 
-const BRAND = '#94b2fc'; 
+const BRAND = 'hsl(220, 40%, 40%)'; 
 
 function hash(i: number, j: number, seed: number) {
   let n = (i + seed * 97) * 374761393 + (j + seed * 13) * 668265263;
@@ -133,7 +133,7 @@ export function IconWallpaper({
   seed = 0,
   size = 36,
   gap = 100,
-  opacity = 0.08,
+  opacity = 0.225,
   vignette = true,
 }: IconWallpaperProps) {
   const wrapRef = react.useRef<HTMLDivElement>(null);

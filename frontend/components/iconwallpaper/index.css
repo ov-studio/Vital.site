@@ -19,25 +19,6 @@
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      var(--bg2) 0%,
-      transparent 18%,
-      transparent 82%,
-      var(--bg2) 100%
-    ),
-    linear-gradient(
-      to right,
-      var(--bg2) 0%,
-      transparent 8%,
-      transparent 92%,
-      var(--bg2) 100%
-    ),
-    radial-gradient(
-      ellipse 90% 75% at 50% 45%,
-      transparent 35%,
-      var(--bg2) 100%
-    );
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 15%, hsla(250, 30%, 1.5%, .75) 80%);
   pointer-events: none;
 }
