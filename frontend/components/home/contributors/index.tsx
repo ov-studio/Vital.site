@@ -1,9 +1,9 @@
 'use client';
-import * as config_site             from '@/configs/site';
-import * as component_iconwallpaper from '@/components/iconwallpaper';
-import * as lib_api_url             from '@/lib/api_url';
-import * as react                   from 'react';
-import * as lucide                  from 'lucide-react';
+import * as config_site  from '@/configs/site';
+import * as ui_wallpaper from '@/ui/wallpaper';
+import * as lib_api_url  from '@/lib/api_url';
+import * as react        from 'react';
+import * as lucide       from 'lucide-react';
 import './index.css';
 
 interface ContributorInfo {
@@ -26,7 +26,7 @@ export function Contributors() {
 
   return (
     <section id="contributors">
-      <component_iconwallpaper.IconWallpaper
+      <ui_wallpaper.Wallpaper
         seed={3}
       />
       <div className="sw">
