@@ -4,11 +4,12 @@ import type { LucideIcon } from 'lucide-react';
 import './index.css';
 
 export interface IconWallpaperProps {
-  icons:    LucideIcon[];
-  seed?:    number;
-  size?:    number;
-  gap?:     number;
-  opacity?: number;
+  icons:     LucideIcon[];
+  seed?:     number;
+  size?:     number;
+  gap?:      number;
+  opacity?:  number;
+  vignette?: boolean;
 }
 
 function hash(i: number, j: number, seed: number) {
@@ -57,7 +58,8 @@ export function IconWallpaper({
   seed = 0,
   size = 36,
   gap = 100,
-  opacity = 0.2
+  opacity = 0.2,
+  vignette = true,
 }: IconWallpaperProps) {
   const wrapRef = react.useRef<HTMLDivElement>(null);
   const [cells, setCells] = react.useState<Cell[]>([]);
@@ -71,9 +73,8 @@ export function IconWallpaper({
     const h = el.clientHeight;
     if (w < 1 || h < 1) return;
 
-    // Cap density so we never spawn hundreds of SVGs on large screens
-    const cols = Math.min(Math.ceil(w / gap) + 2, 18);
-    const rows = Math.min(Math.ceil(h / gap) + 2, 14);
+    const cols = Math.ceil(w / gap) + 2;
+    const rows = Math.ceil(h / gap) + 2;
     const next: Cell[] = [];
 
     for (let row = -1; row < rows; row++) {
@@ -113,7 +114,8 @@ export function IconWallpaper({
     if (!el) return;
 
     const ro = new ResizeObserver(scheduleRebuild);
-    ro.observe(el.parentElement || el);
+    ro.observe(el);
+    if (el.parentElement) ro.observe(el.parentElement);
     window.addEventListener('resize', scheduleRebuild, { passive: true });
     const t1 = setTimeout(rebuild, 120);
 
@@ -126,7 +128,11 @@ export function IconWallpaper({
   }, [rebuild, scheduleRebuild]);
 
   return (
-    <div className="icon-wallpaper" ref={wrapRef} aria-hidden="true">
+    <div
+      className={`icon-wallpaper${vignette ? ' icon-wallpaper--vignette' : ''}`}
+      ref={wrapRef}
+      aria-hidden="true"
+    >
       {cells.map(({ key, ...rest }) => (
         <WallpaperIcon key={key} {...rest}/>
       ))}
