@@ -72,7 +72,7 @@ function rasterizeIcon(Icon: LucideIcon, px: number): Promise<HTMLImageElement> 
         createElement(Icon, {
           size: px,
           color: BRAND,
-          strokeWidth: 1.4,
+          strokeWidth: 1,
           absoluteStrokeWidth: false,
         }),
       );
