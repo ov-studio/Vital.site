@@ -3,7 +3,7 @@
  * Bakes static SVG wallpapers (3440×1440, outline).
  * Reads icon path nodes from lucide-react files as text (no React import).
  *
- *   node scripts/bake-iconwallpaper.mjs
+ *   node scripts/bake-wallpaper.mjs
  */
 
 import fs from 'node:fs';
@@ -14,7 +14,7 @@ import vm from 'node:vm';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** frontend/ (script lives in frontend/scripts/) */
 const FRONTEND = path.resolve(__dirname, '..');
-const OUT_DIR = path.join(FRONTEND, 'public/cdn/iconwallpaper');
+const OUT_DIR = path.join(FRONTEND, 'public/cdn/wallpaper');
 
 const TILE_W = 3440;
 const TILE_H = 1440;
@@ -51,7 +51,7 @@ function findIconsDir() {
     if (fs.existsSync(c)) return c;
   }
   console.error(`
-[bake-iconwallpaper] lucide-react not found under node_modules.
+[bake-wallpaper] lucide-react not found under node_modules.
   cd frontend && npm install
 `);
   process.exit(1);
@@ -180,8 +180,8 @@ ${groups.join('\n')}
 function main() {
   const t0 = Date.now();
   const iconsDir = findIconsDir();
-  console.log(`[bake-iconwallpaper] ${TILE_W}×${TILE_H}`);
-  console.log(`[bake-iconwallpaper] icons: ${iconsDir}`);
+  console.log(`[bake-wallpaper] ${TILE_W}×${TILE_H}`);
+  console.log(`[bake-wallpaper] icons: ${iconsDir}`);
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   for (const [s, names] of Object.entries(SEEDS)) {
@@ -196,10 +196,10 @@ function main() {
       height: TILE_H,
       generated: new Date().toISOString(),
       files: Object.keys(SEEDS).map((s) => `seed-${s}.svg`),
-      base: '/cdn/iconwallpaper',
+      base: '/cdn/wallpaper',
     }, null, 2),
   );
-  console.log(`[bake-iconwallpaper] done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  console.log(`[bake-wallpaper] done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 }
 
 main();

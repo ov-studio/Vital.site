@@ -1,9 +1,6 @@
 import * as react from 'react';
 import './index.css';
 
-// lucide-react icons are React.forwardRef components, so `typeof Icon ===
-// 'function'` is false for them. Don't gate on typeof — anything that
-// isn't already a rendered element is treated as a component type.
 /**
  * @param {Object} props
  * @param {import('react').ElementType | import('react').ReactElement | null} [props.icon] Icon component (e.g. a lucide-react icon) or a pre-rendered element.
