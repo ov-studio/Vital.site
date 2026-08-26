@@ -1,6 +1,8 @@
 #roadmap {
-  position: relative; 
-  padding: calc(100px + var(--nav-h)) 0; 
+  position: relative;
+  padding: calc(100px + var(--nav-h)) 0;
+  isolation: isolate;
+  z-index: 0;
 }
 
 .roadmap-summary { margin-bottom: 80px; }
@@ -68,6 +70,8 @@
   scroll-margin-top: calc(var(--nav-h) + 24px);
   animation: rcategory-in .45s ease forwards;
   animation-delay: calc(var(--ci, 0) * 70ms);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
 }
 
 .rcategory-head {
@@ -100,6 +104,7 @@
   width: 100%;
   background: var(--bg7);
   transition: background .3s;
+  contain: layout style;
 }
 
 .rcard-body {
@@ -107,6 +112,7 @@
   user-select: none;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .rcard-header { display: flex; align-items: flex-start; gap: 20px; }
@@ -176,17 +182,31 @@
 .rcard--partial   .rcard-pct { color: hsl(45,80%,58%); }
 .rcard--pending   .rcard-pct { color: var(--text-dim2); }
 
+/* Performant accordion: grid 0fr→1fr (no max-height, no JS measure) */
 .rcard-items-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .22s cubic-bezier(.4, 0, .2, 1);
   overflow: hidden;
-  max-height: 0;
-  transition: max-height .25s cubic-bezier(.4, 0, .2, 1);
+}
+
+.rcard--open .rcard-items-wrap {
+  grid-template-rows: 1fr;
 }
 
 .rcard-items {
+  min-height: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding: 0 22px;
+  border-top: 1px solid transparent;
+  transition: padding .22s cubic-bezier(.4, 0, .2, 1), border-color .22s;
+}
+
+.rcard--open .rcard-items {
   padding: 8px 22px 28px;
-  border-top: 1px solid var(--rule);
+  border-top-color: var(--rule);
 }
 
 .ritem {

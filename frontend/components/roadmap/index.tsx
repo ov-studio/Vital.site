@@ -73,14 +73,8 @@ function RoadmapSummary({ sections, intro }: { sections: config_roadmap.RoadmapS
 
 function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapCard; mobile_order?: number; }) {
   const [open, setOpen] = react.useState(false);
-  const innerRef        = react.useRef<HTMLDivElement>(null);
-  const [height, setHeight] = react.useState(0);
   const pct    = card_progress(card);
   const status = card_status(card);
-
-  react.useEffect(() => {
-    if (innerRef.current) setHeight(innerRef.current.scrollHeight);
-  }, [card.items]);
 
   return (
     <div
@@ -121,8 +115,8 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
       </div>
 
       {card.items.length > 0 && (
-        <div className="rcard-items-wrap" style={{ maxHeight: open ? `${height}px` : '0px' }}>
-          <div ref={innerRef} className="rcard-items">
+        <div className="rcard-items-wrap">
+          <div className="rcard-items">
             {card.items.map((item, i) => (
               <div key={i} className={`ritem ritem--${item.status}`}>
                 <span className="ritem-dot"/>
