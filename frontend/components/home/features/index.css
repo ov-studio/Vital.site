@@ -11,14 +11,12 @@
 .feat-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
   align-items: center;
 }
 
 .feat-clusters { 
   display: flex; 
-  flex-direction: 
-  column; 
+  flex-direction: column; 
   gap: 0; 
   width: 100%; 
 }
@@ -26,6 +24,7 @@
 .fcluster {
   position: relative;
   overflow: hidden;
+  padding: 2px 0px 2px 0px;
   background: var(--bg2);
   border-left: 2px solid var(--rule);
   transition: border-color .3s, background .3s;
@@ -37,8 +36,8 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 16px 8px;
+  gap: 9px;
+  padding: 14px 14px 10px;
   cursor: default;
 }
 
