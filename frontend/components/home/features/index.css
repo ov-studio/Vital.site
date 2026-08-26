@@ -1,9 +1,9 @@
 #features {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  padding: calc(100px + var(--nav-h)) 0 100px;
   border-top: 1px solid var(--rule);
   scroll-margin-top: var(--nav-h);
 }
@@ -196,3 +196,5 @@
 @media (max-width: 640px) { 
   #features { padding: 56px 0 } 
 }
+
+#features > .sw { position: relative; z-index: 1; }

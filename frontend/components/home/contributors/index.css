@@ -1,11 +1,12 @@
 #contributors {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 100px 0;
   border-top: 1px solid var(--rule);
   scroll-margin-top: var(--nav-h);
 }
-#contributors > .sw { width: 100%; }
+#contributors > .sw { width: 100%; position: relative; z-index: 1; }
 
 .studio-note {
   display: flex;
@@ -101,7 +102,7 @@
 }
 
 @media (max-width: 640px) {
-  #contributors   { padding: calc(56px + var(--nav-h) * 0.5) 0 56px; }
+  #contributors   { padding: 56px 0; }
   .contrib-avatar { width: 40px; height: 40px }
   .studio-note    { margin-bottom: 32px }
 }
