@@ -44,19 +44,6 @@ export function Hero() {
 
   return (
     <section id="hero">
-      <component_iconwallpaper.IconWallpaper
-        seed={0}
-        icons={[
-          lucide.Rocket,
-          lucide.Code2,
-          lucide.Terminal,
-          lucide.Zap,
-          lucide.Box,
-          lucide.Sparkles,
-          lucide.Layers,
-          lucide.Cpu,
-        ]}
-      />
       <div className="hbg">
         <div className="hbg-grid"/>
         <div className="hbg-scanline"/>
