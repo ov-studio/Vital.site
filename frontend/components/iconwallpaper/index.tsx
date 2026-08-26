@@ -131,7 +131,7 @@ function rasterizeIcon(Icon: LucideIcon, px: number): Promise<HTMLImageElement> 
 export function IconWallpaper({
   icons,
   seed = 0,
-  size = 40,
+  size = 36,
   gap = 100,
   opacity = 0.25,
   vignette = true,
