@@ -31,7 +31,7 @@ local status = core.engine.draw_image(
 |------|------|-------------|
 | `vector2` | position | Top-left position to draw the image |
 | `vector2` | size | Width and height to render the image at |
-| `string` \| `texture` \| `svg` \| `rendertarget` | material | Image source:<br/>• `string` - file path to an image asset<br/>• `texture` - pre-loaded texture instance<br/>• `rendertarget` - rendertarget instance<br/>• `svg` - svg instance |
+| `string` \| `image` \| `svg` \| `rendertarget` | material | Image source:<br/>• `string` - file path to an image asset<br/>• `image` - pre-loaded image instance<br/>• `rendertarget` - rendertarget instance<br/>• `svg` - svg instance |
 | `float` | rotation | Rotation angle in degrees |
 | `vector2` | pivot | Pivot point for rotation, relative to the image's position |
 | `color` | color | Tint color to multiply over the image |
@@ -90,16 +90,16 @@ util.event.on("sandbox:draw", function()
 end)
 ```
 
-```lua lineNumbers title="Draw from a texture instance"
+```lua lineNumbers title="Draw from an image instance"
 local resolution = core.engine.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
-local texture = core.texture.create("assets/logo.png")
+local image = core.image.create("assets/logo.png")
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_image(
         {center[1] - 128, center[2] - 128},
         {256, 256},
-        texture
+        image
     )
 end)
 ```
