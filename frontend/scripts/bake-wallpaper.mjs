@@ -176,10 +176,17 @@ ${groups.join('\n')}
   return { svg, spots: spots.length };
 }
 
+async function bakeOne(iconsDir, seed, names) {
+  const { svg, spots } = bakeSeed(iconsDir, seed, names);
+  const { webpKb } = await rasterize(Buffer.from(svg), seed);
+  console.log(`  seed-${seed}.webp  (${webpKb} KB, ${spots} marks)`);
+  return `seed-${seed}.webp`;
+}
+
 async function main() {
   const t0 = Date.now();
   const iconsDir = findIconsDir();
-  console.log(`[bake-wallpaper] ${TILE_W}×${TILE_H} → WebP only`);
+  console.log(`[bake-wallpaper] ${TILE_W}×${TILE_H} → WebP only (parallel)`);
   console.log(`[bake-wallpaper] icons: ${iconsDir}`);
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -191,14 +198,11 @@ async function main() {
     process.exit(1);
   }
 
-  const files = [];
-  for (const [s, names] of Object.entries(SEEDS)) {
-    const seed = Number(s);
-    const { svg, spots } = bakeSeed(iconsDir, seed, names);
-    const { webpKb } = await rasterize(Buffer.from(svg), seed);
-    console.log(`  seed-${seed}.webp  (${webpKb} KB, ${spots} marks)`);
-    files.push(`seed-${seed}.webp`);
-  }
+  const entries = Object.entries(SEEDS);
+  const files = await Promise.all(
+    entries.map(([s, names]) => bakeOne(iconsDir, Number(s), names)),
+  );
+  files.sort();
 
   fs.writeFileSync(
     path.join(OUT_DIR, 'manifest.json'),
