@@ -21,7 +21,7 @@ export function Ethos() {
           lucide.Gift,
           lucide.Rainbow,
           lucide.Clover,
-          lucide.Smile,
+          lucide.Smile
         ]}
       />
       <div className="sw">

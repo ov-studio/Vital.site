@@ -40,7 +40,7 @@ export function Contributors() {
           lucide.Smile,
           lucide.ThumbsUp,
           lucide.Sparkles,
-          lucide.MessageCircle,
+          lucide.MessageCircle
         ]}
       />
       <div className="sw">

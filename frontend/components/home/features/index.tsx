@@ -144,7 +144,7 @@ export function Features() {
           lucide.Cuboid,
           lucide.Joystick,
           lucide.Orbit,
-          lucide.Cat,
+          lucide.Cat
         ]}
       />
       <div className="sw">
