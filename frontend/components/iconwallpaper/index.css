@@ -19,6 +19,6 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 15%, hsla(250, 30%, 1.5%, .75) 80%);
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 15%, var(--bg2) 80%);
   pointer-events: none;
 }
