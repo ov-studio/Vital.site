@@ -1,18 +1,9 @@
-#!/usr/bin/env node
-/**
- * Bakes static SVG wallpapers (3440×1440, outline).
- * Reads icon path nodes from lucide-react files as text (no React import).
- *
- *   node scripts/bake-wallpaper.mjs
- */
-
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-/** frontend/ (script lives in frontend/scripts/) */
 const FRONTEND = path.resolve(__dirname, '..');
 const OUT_DIR = path.join(FRONTEND, 'public/cdn/wallpaper');
 
@@ -21,7 +12,6 @@ const TILE_H = 1440;
 const BRAND = 'hsl(220, 95%, 76%)';
 const DEFAULT_GAP = 100;
 const DEFAULT_SIZE = 60;
-
 const SEEDS = {
   0:  ['rocket', 'code-xml', 'terminal', 'zap', 'box', 'sparkles', 'layers', 'cpu'],
   1:  ['sparkles', 'rocket', 'gamepad-2', 'wand', 'puzzle', 'ghost', 'coffee', 'flame', 'cuboid', 'joystick', 'orbit', 'cat'],
@@ -29,12 +19,12 @@ const SEEDS = {
   3:  ['heart', 'star', 'users', 'coffee', 'cat', 'bird', 'flower-2', 'party-popper', 'thumbs-up', 'sparkles', 'message-circle', 'handshake'],
   10: ['map', 'flag', 'milestone', 'target', 'compass', 'route', 'calendar', 'circle-check', 'clock', 'rocket', 'trending-up', 'map-pin'],
   11: ['scale', 'file-text', 'scroll-text', 'book-open', 'gavel', 'shield', 'lock', 'badge-check', 'eye', 'landmark', 'file-check', 'book-marked'],
-  12: ['package', 'archive', 'box', 'folder-open', 'layers', 'database', 'key-round', 'lock', 'package-open', 'boxes', 'cuboid', 'library'],
+  12: ['package', 'archive', 'box', 'folder-open', 'layers', 'database', 'key-round', 'lock', 'package-open', 'boxes', 'cuboid', 'library']
 };
 
 function hash(i, j, seed) {
   let n = (i + seed * 97) * 374761393 + (j + seed * 13) * 668265263;
-  n = (n ^ (n >> 13)) * 1274126177;
+  n = (n ^ (n >> 13)) * 1274126177
   return ((n ^ (n >> 16)) >>> 0) / 4294967295;
 }
 
@@ -43,7 +33,6 @@ function findIconsDir() {
   const candidates = [
     path.join(FRONTEND, 'node_modules/lucide-react/dist/esm/icons'),
     path.join(FRONTEND, 'node_modules/lucide/dist/esm/icons'),
-    // monorepo hoist
     path.join(FRONTEND, '../node_modules/lucide-react/dist/esm/icons'),
     path.join(FRONTEND, '../node_modules/lucide/dist/esm/icons'),
   ];
@@ -57,16 +46,12 @@ function findIconsDir() {
   process.exit(1);
 }
 
-/**
- * Extract __iconNode / default icon array from lucide source without importing React.
- */
 function loadIconNodes(iconsDir, name) {
   for (const ext of ['.js', '.mjs']) {
     const file = path.join(iconsDir, `${name}${ext}`);
     if (!fs.existsSync(file)) continue;
     const src = fs.readFileSync(file, 'utf8');
 
-    // lucide-react: const __iconNode = [ ... ];
     let m = src.match(/const\s+__iconNode\s*=\s*(\[[\s\S]*?\]);/);
     if (m) {
       try {
@@ -77,7 +62,6 @@ function loadIconNodes(iconsDir, name) {
       }
     }
 
-    // lucide package: const Name = [ ... ]; export { Name as default }
     m = src.match(/const\s+\w+\s*=\s*(\[[\s\S]*?\]);\s*\n\s*export/);
     if (m) {
       try {
