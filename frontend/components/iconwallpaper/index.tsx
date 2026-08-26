@@ -187,9 +187,9 @@ function buildScatter(
 export function IconWallpaper({
   icons,
   seed = 0,
-  size = 70,
-  gap = 150,
-  opacity = 0.14,
+  size = 60,
+  gap = 100,
+  opacity = 0.2,
   vignette = true,
 }: IconWallpaperProps) {
   const wrapRef = react.useRef<HTMLDivElement>(null);
