@@ -138,6 +138,24 @@ function buildScatter(seed, iconCount, gap, size) {
   return spots;
 }
 
+async function rasterize(svgBuf, seed) {
+  let sharp;
+  try {
+    sharp = (await import('sharp')).default;
+  } catch {
+    return null;
+  }
+
+  const webpPath = path.join(OUT_DIR, `seed-${seed}.webp`);
+  await sharp(svgBuf, { density: 72 })
+    .resize(TILE_W, TILE_H)
+    .webp({ quality: 82, alphaQuality: 90, effort: 4 })
+    .toFile(webpPath);
+
+  const webpKb = (fs.statSync(webpPath).size / 1024).toFixed(0);
+  return { webpKb };
+}
+
 function bakeSeed(iconsDir, seed, names) {
   const loaded = [];
   for (const name of names) {
@@ -163,33 +181,57 @@ function bakeSeed(iconsDir, seed, names) {
 ${groups.join('\n')}
 </svg>
 `;
-  fs.writeFileSync(path.join(OUT_DIR, `seed-${seed}.svg`), svg);
-  console.log(`  seed-${seed}.svg  (${(Buffer.byteLength(svg) / 1024).toFixed(1)} KB, ${spots.length} marks)`);
+  return { svg, spots: spots.length };
 }
 
-function main() {
+async function main() {
   const t0 = Date.now();
   const iconsDir = findIconsDir();
-  console.log(`[bake-wallpaper] ${TILE_W}×${TILE_H}`);
+  console.log(`[bake-wallpaper] ${TILE_W}×${TILE_H} → WebP only`);
   console.log(`[bake-wallpaper] icons: ${iconsDir}`);
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
+  // Require sharp — WebP-only output
+  try {
+    await import('sharp');
+  } catch {
+    console.error(`[bake-wallpaper] sharp is required (WebP-only pipeline).
+  cd frontend && npm i -D sharp && node scripts/bake-wallpaper.mjs`);
+    process.exit(1);
+  }
+
+  // Clean old svg/png leftovers from previous bakes
+  for (const f of fs.readdirSync(OUT_DIR)) {
+    if (f.endsWith('.svg') || f.endsWith('.png')) {
+      fs.unlinkSync(path.join(OUT_DIR, f));
+    }
+  }
+
+  const files = [];
   for (const [s, names] of Object.entries(SEEDS)) {
-    bakeSeed(iconsDir, Number(s), names);
+    const seed = Number(s);
+    const { svg, spots } = bakeSeed(iconsDir, seed, names);
+    const raster = await rasterize(Buffer.from(svg), seed);
+    console.log(`  seed-${seed}.webp  (${raster.webpKb} KB, ${spots} marks)`);
+    files.push(`seed-${seed}.webp`);
   }
 
   fs.writeFileSync(
     path.join(OUT_DIR, 'manifest.json'),
     JSON.stringify({
-      version: 2,
+      version: 4,
       width: TILE_W,
       height: TILE_H,
+      format: 'webp',
       generated: new Date().toISOString(),
-      files: Object.keys(SEEDS).map((s) => `seed-${s}.svg`),
+      files,
       base: '/cdn/wallpaper',
     }, null, 2),
   );
   console.log(`[bake-wallpaper] done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 }
 
-main();
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
