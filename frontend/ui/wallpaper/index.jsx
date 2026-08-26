@@ -5,7 +5,7 @@ import './index.css';
  * @param {number}  [props.seed=0]
  * @param {number}  [props.opacity=0.09]
  * @param {boolean} [props.vignette=true]
- * @param {string}  [props.src] - Override tile URL (kit CDN). Default: /cdn/wallpaper/seed-{seed}.svg
+ * @param {string}  [props.src] - Override tile URL
  */
 export function Wallpaper({
   seed = 0,
@@ -13,7 +13,7 @@ export function Wallpaper({
   vignette = true,
   src,
 }) {
-  const url = src ?? `/cdn/wallpaper/seed-${seed}.svg`;
+  const url = src ?? `/cdn/wallpaper/seed-${seed}.webp`;
   return (
     <div
       className={`ui-wallpaper${vignette ? ' ui-wallpaper--vignette' : ''}`}
