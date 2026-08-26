@@ -188,7 +188,7 @@ export function IconWallpaper({
   icons,
   seed = 0,
   size = 60,
-  gap = 100,
+  gap = 160,
   opacity = 0.2,
   vignette = true,
 }: IconWallpaperProps) {
