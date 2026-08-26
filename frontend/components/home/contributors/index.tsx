@@ -28,19 +28,6 @@ export function Contributors() {
     <section id="contributors">
       <component_iconwallpaper.IconWallpaper
         seed={3}
-        icons={[
-          lucide.Heart,
-          lucide.Star,
-          lucide.Coffee,
-          lucide.Cat,
-          lucide.Bird,
-          lucide.Flower2,
-          lucide.PartyPopper,
-          lucide.Smile,
-          lucide.ThumbsUp,
-          lucide.Sparkles,
-          lucide.MessageCircle
-        ]}
       />
       <div className="sw">
         <div className="sec-head">

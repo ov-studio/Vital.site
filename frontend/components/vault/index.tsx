@@ -329,20 +329,6 @@ function VaultSkeleton() {
       <component_iconwallpaper.IconWallpaper
         seed={12}
         vignette={false}
-        icons={[
-          lucide.Package,
-          lucide.Archive,
-          lucide.Box,
-          lucide.FolderOpen,
-          lucide.Layers,
-          lucide.Database,
-          lucide.KeyRound,
-          lucide.Lock,
-          lucide.PackageOpen,
-          lucide.Boxes,
-          lucide.Cuboid,
-          lucide.Library
-        ]}
       />
       <div className="sw">
         <VaultHead/>
@@ -424,20 +410,6 @@ function VaultInner() {
       <component_iconwallpaper.IconWallpaper
         seed={12}
         vignette={false}
-        icons={[
-          lucide.Package,
-          lucide.Archive,
-          lucide.Box,
-          lucide.FolderOpen,
-          lucide.Layers,
-          lucide.Database,
-          lucide.KeyRound,
-          lucide.Lock,
-          lucide.PackageOpen,
-          lucide.Boxes,
-          lucide.Cuboid,
-          lucide.Library
-        ]}
       />
         <div className="sw">
           <VaultHead/>

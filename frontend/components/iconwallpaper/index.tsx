@@ -1,12 +1,8 @@
 'use client';
-import * as lucide from 'lucide-react';
 import './index.css';
 
 export interface IconWallpaperProps {
-  icons?:    lucide.LucideIcon[];
   seed?:     number;
-  size?:     number;
-  gap?:      number;
   opacity?:  number;
   vignette?: boolean;
   src?:      string;

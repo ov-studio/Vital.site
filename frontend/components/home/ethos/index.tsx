@@ -1,7 +1,6 @@
 'use client';
 import * as config_home             from '@/configs/home';
 import * as component_iconwallpaper from '@/components/iconwallpaper';
-import * as lucide                  from 'lucide-react';
 import './index.css';
 
 export function Ethos() {
@@ -9,19 +8,6 @@ export function Ethos() {
     <section id="ethos">
       <component_iconwallpaper.IconWallpaper
         seed={2}
-        icons={[
-          lucide.Heart,
-          lucide.Star,
-          lucide.Flower2,
-          lucide.Sun,
-          lucide.Leaf,
-          lucide.Feather,
-          lucide.Gem,
-          lucide.Gift,
-          lucide.Rainbow,
-          lucide.Clover,
-          lucide.Smile
-        ]}
       />
       <div className="sw">
         <div className="sec-head rev">

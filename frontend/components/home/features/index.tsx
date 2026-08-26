@@ -2,7 +2,6 @@
 import * as config_home             from '@/configs/home';
 import * as component_iconwallpaper from '@/components/iconwallpaper';
 import * as react                   from 'react';
-import * as lucide                  from 'lucide-react';
 import './index.css';
 
 interface NodeRef { el: HTMLDivElement | null }
@@ -132,18 +131,6 @@ export function Features() {
     <section id="features">
       <component_iconwallpaper.IconWallpaper
         seed={1}
-        icons={[
-          lucide.Sparkles,
-          lucide.Rocket,
-          lucide.Gamepad2,
-          lucide.Wand2,
-          lucide.Puzzle,
-          lucide.Flame,
-          lucide.Cuboid,
-          lucide.Joystick,
-          lucide.Orbit,
-          lucide.Cat
-        ]}
       />
       <div className="sw">
         <div className="sec-head">

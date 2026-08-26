@@ -3,7 +3,6 @@ import * as config_roadmap          from '@/configs/roadmap';
 import * as lib_source              from '@/lib/source';
 import * as component_iconwallpaper from '@/components/iconwallpaper';
 import * as react                   from 'react';
-import * as lucide                  from 'lucide-react';
 import './index.css';
 
 const STATUS_WEIGHT: Record<config_roadmap.FeatureStatus, number> = {
@@ -176,20 +175,6 @@ export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[
       <component_iconwallpaper.IconWallpaper
         seed={10}
         vignette={false}
-        icons={[
-          lucide.Map,
-          lucide.Flag,
-          lucide.Milestone,
-          lucide.Target,
-          lucide.Compass,
-          lucide.Route,
-          lucide.Calendar,
-          lucide.CheckCircle2,
-          lucide.Clock,
-          lucide.Rocket,
-          lucide.TrendingUp,
-          lucide.MapPin
-        ]}
       />
       <div className="sw">
         <div className="page-head">
