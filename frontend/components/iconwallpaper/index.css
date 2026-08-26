@@ -9,19 +9,10 @@
   contain: layout paint style;
 }
 
-.icon-wallpaper-item {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(148, 178, 252);
-}
-
-.icon-wallpaper-item svg {
+.icon-wallpaper-canvas {
   display: block;
   width: 100%;
   height: 100%;
-  shape-rendering: geometricPrecision;
 }
 
 .icon-wallpaper--vignette::after {
