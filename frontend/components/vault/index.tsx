@@ -328,6 +328,7 @@ function VaultSkeleton() {
     <section id="vault">
       <component_iconwallpaper.IconWallpaper
         seed={12}
+        vignette={false}
         icons={[
           lucide.Package,
           lucide.Archive,
@@ -422,6 +423,7 @@ function VaultInner() {
       <section id="vault">
       <component_iconwallpaper.IconWallpaper
         seed={12}
+        vignette={false}
         icons={[
           lucide.Package,
           lucide.Archive,
