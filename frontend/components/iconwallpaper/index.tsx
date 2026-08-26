@@ -22,7 +22,6 @@ function hash(i: number, j: number, seed: number) {
   return ((n ^ (n >> 16)) >>> 0) / 4294967295;
 }
 
-/** Shared cache: solid brand-colored icon bitmaps (transparent bg). */
 const iconBitmapCache = new Map<string, Promise<HTMLImageElement>>();
 
 function iconKey(Icon: LucideIcon, px: number) {
@@ -49,7 +48,7 @@ function rasterizeIcon(Icon: LucideIcon, px: number): Promise<HTMLImageElement> 
     let settled = false;
 
     const cleanup = () => {
-      try { root?.unmount(); } catch { /* */ }
+      try { root?.unmount(); } catch { }
       host.remove();
     };
 
@@ -124,16 +123,73 @@ function rasterizeIcon(Icon: LucideIcon, px: number): Promise<HTMLImageElement> 
 
     requestAnimationFrame(trySerialize);
   });
+
   iconBitmapCache.set(key, promise);
   return promise;
+}
+
+type Spot = {
+  x: number;
+  y: number;
+  rot: number;
+  s: number;
+  a: number;
+  iconIndex: number;
+};
+
+function buildScatter(
+  w: number,
+  h: number,
+  gap: number,
+  size: number,
+  seed: number,
+  iconCount: number,
+): Spot[] {
+  const spots: Spot[] = [];
+
+  const cols = Math.ceil(w / gap) + 3;
+  const rows = Math.ceil(h / gap) + 3;
+
+  for (let row = -1; row < rows; row++) {
+    for (let col = -1; col < cols; col++) {
+      if (hash(col, row, seed + 99) < 0.12) continue;
+
+      const x = col * gap + hash(col, row, seed) * gap;
+      const y = row * gap + hash(col + 3, row + 5, seed) * gap;
+      const rot = hash(col + 7, row + 11, seed) * Math.PI * 2;
+      const s = size * (0.55 + hash(col + 13, row + 17, seed) * 0.7);
+      const a = 0.45 + hash(col + 19, row + 23, seed) * 0.55;
+      const iconIndex = Math.floor(hash(col + 29, row + 31, seed) * iconCount) % iconCount;
+      spots.push({ x, y, rot, s, a, iconIndex });
+    }
+  }
+
+  const gap2 = gap * 1.35;
+  const cols2 = Math.ceil(w / gap2) + 2;
+  const rows2 = Math.ceil(h / gap2) + 2;
+  for (let row = -1; row < rows2; row++) {
+    for (let col = -1; col < cols2; col++) {
+      if (hash(col, row, seed + 50) > 0.4) continue;
+      const x = col * gap2 + hash(col, row, seed + 3) * gap2;
+      const y = row * gap2 + hash(col + 2, row + 4, seed + 3) * gap2;
+      const rot = hash(col + 6, row + 8, seed + 3) * Math.PI * 2;
+      const s = size * (0.35 + hash(col + 10, row + 12, seed + 3) * 0.4);
+      const a = 0.3 + hash(col + 14, row + 16, seed + 3) * 0.4;
+      const iconIndex =
+        Math.floor(hash(col + 18, row + 20, seed + 3) * iconCount) % iconCount;
+      spots.push({ x, y, rot, s, a, iconIndex });
+    }
+  }
+
+  return spots;
 }
 
 export function IconWallpaper({
   icons,
   seed = 0,
-  size = 36,
-  gap = 100,
-  opacity = 0.1,
+  size = 70,
+  gap = 150,
+  opacity = 0.14,
   vignette = true,
 }: IconWallpaperProps) {
   const wrapRef = react.useRef<HTMLDivElement>(null);
@@ -152,7 +208,7 @@ export function IconWallpaper({
 
     const gen = ++genRef.current;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const glyphPx = Math.max(32, Math.round(size * dpr));
+    const glyphPx = Math.max(32, Math.round(size * dpr * 1.15));
 
     let bitmaps: HTMLImageElement[];
     try {
@@ -175,30 +231,18 @@ export function IconWallpaper({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    const cols = Math.ceil(w / gap) + 2;
-    const rows = Math.ceil(h / gap) + 2;
+    const spots = buildScatter(w, h, gap, size, seed, bitmaps.length);
 
-    for (let row = -1; row < rows; row++) {
-      for (let col = -1; col < cols; col++) {
-        const r = hash(col, row, seed);
-        const img = bitmaps[Math.floor(r * bitmaps.length) % bitmaps.length];
-        if (!img || !img.complete || img.naturalWidth < 1) continue;
+    for (const spot of spots) {
+      const img = bitmaps[spot.iconIndex];
+      if (!img || !img.complete || img.naturalWidth < 1) continue;
 
-        const ox = (hash(col + 7, row + 3, seed) - 0.5) * 40;
-        const oy = (hash(col + 11, row + 5, seed) - 0.5) * 40;
-        const rot = ((hash(col + 13, row + 17, seed) - 0.5) * 36 * Math.PI) / 180;
-        const a = 0.55 + hash(col + 19, row + 23, seed) * 0.45;
-        const s = size * (0.85 + hash(col + 29, row + 31, seed) * 0.4);
-        const x = col * gap + gap / 2 + ox;
-        const y = row * gap + gap / 2 + oy + (col % 2 === 0 ? gap * 0.32 : 0);
-
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(rot);
-        ctx.globalAlpha = a;
-        ctx.drawImage(img, -s / 2, -s / 2, s, s);
-        ctx.restore();
-      }
+      ctx.save();
+      ctx.translate(spot.x, spot.y);
+      ctx.rotate(spot.rot);
+      ctx.globalAlpha = spot.a;
+      ctx.drawImage(img, -spot.s / 2, -spot.s / 2, spot.s, spot.s);
+      ctx.restore();
     }
   }, [icons, seed, size, gap]);
 
@@ -218,8 +262,8 @@ export function IconWallpaper({
     ro.observe(el);
     if (el.parentElement) ro.observe(el.parentElement);
     window.addEventListener('resize', schedulePaint, { passive: true });
-    const t1 = setTimeout(() => void paint(), 150);
-    const t2 = setTimeout(() => void paint(), 500);
+    const t1 = setTimeout(() => void paint(), 100);
+    const t2 = setTimeout(() => void paint(), 400);
 
     return () => {
       ro.disconnect();
