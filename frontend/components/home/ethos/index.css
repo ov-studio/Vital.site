@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  padding: 100px 0;
+  padding: calc(100px + var(--nav-h)) 0 100px;
   border-top: 1px solid var(--rule);
 }
 
@@ -80,11 +80,11 @@
 }
 
 @media (max-width: 960px) {
-  #ethos { padding: 72px 0; }
+  #ethos { padding: calc(72px + var(--nav-h)) 0 72px; }
 }
 
 @media (max-width: 640px) {
-  #ethos      { padding: 56px 0; }
+  #ethos      { padding: calc(56px + var(--nav-h)) 0 56px; }
   .ethos-grid { grid-template-columns: 1fr; }
   .ecard      { padding: 24px 20px 22px; }
 }
