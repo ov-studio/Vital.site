@@ -31,7 +31,7 @@ export interface RoadmapCard {
 }
 
 export interface RoadmapSection {
-  name: string;
+  name:  string;
   cards: RoadmapCard[];
 }
 
