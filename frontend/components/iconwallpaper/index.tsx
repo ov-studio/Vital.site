@@ -185,7 +185,7 @@ export function IconWallpaper({
   seed = 0,
   size = 60,
   gap = 100,
-  opacity = 0.085,
+  opacity = 0.09,
   vignette = true,
 }: IconWallpaperProps) {
   const wrapRef = react.useRef<HTMLDivElement>(null);
