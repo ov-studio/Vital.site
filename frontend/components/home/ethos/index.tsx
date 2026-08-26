@@ -1,12 +1,12 @@
 'use client';
-import * as config_home             from '@/configs/home';
-import * as component_iconwallpaper from '@/components/iconwallpaper';
+import * as config_home  from '@/configs/home';
+import * as ui_wallpaper from '@/ui/wallpaper';
 import './index.css';
 
 export function Ethos() {
   return (
     <section id="ethos">
-      <component_iconwallpaper.IconWallpaper
+      <ui_wallpaper.Wallpaper
         seed={2}
       />
       <div className="sw">
