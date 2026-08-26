@@ -14,14 +14,14 @@ nav::after {
   position: absolute;
   inset: 0;
   background: var(--bg2);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule7);
   pointer-events: none;
   transition: background .4s, border-color .4s;
 }
 
 nav.s::after {
   background: var(--bg7);
-  border-color: var(--rule);
+  border-color: var(--bg);
   backdrop-filter: blur(20px);
 }
 
