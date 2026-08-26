@@ -1,10 +1,30 @@
-import * as config_site from '@/configs/site';
-import * as config_tos  from '@/configs/tos';
+'use client';
+import * as config_site             from '@/configs/site';
+import * as config_tos              from '@/configs/tos';
+import * as component_iconwallpaper from '@/components/iconwallpaper';
+import * as lucide                  from 'lucide-react';
 import './index.css';
 
 export function TOS() {
   return (
     <section id="tos">
+      <component_iconwallpaper.IconWallpaper
+        seed={11}
+        icons={[
+          lucide.Scale,
+          lucide.FileText,
+          lucide.ScrollText,
+          lucide.BookOpen,
+          lucide.Gavel,
+          lucide.Shield,
+          lucide.Lock,
+          lucide.BadgeCheck,
+          lucide.Eye,
+          lucide.Landmark,
+          lucide.FileCheck,
+          lucide.BookMarked
+        ]}
+      />
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">

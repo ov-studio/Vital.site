@@ -1,4 +1,7 @@
-#roadmap { padding: calc(100px + var(--nav-h)) 0; }
+#roadmap {
+  position: relative; 
+  padding: calc(100px + var(--nav-h)) 0; 
+}
 
 .roadmap-summary { margin-bottom: 80px; }
 
@@ -238,4 +241,9 @@
   .rcategory-col      { display: contents; }
   .rcard              { order: var(--mobile-order, 0); width: 100%; flex-shrink: 0; }
   .rcard-body         { padding: 20px 18px 16px; }
+}
+
+#roadmap > .sw {
+  position: relative;
+  z-index: 1;
 }
