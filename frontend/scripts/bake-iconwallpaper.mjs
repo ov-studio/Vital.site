@@ -12,8 +12,9 @@ import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-const OUT_DIR = path.join(ROOT, 'frontend/public/cdn/iconwallpaper');
+/** frontend/ (script lives in frontend/scripts/) */
+const FRONTEND = path.resolve(__dirname, '..');
+const OUT_DIR = path.join(FRONTEND, 'public/cdn/iconwallpaper');
 
 const TILE_W = 3440;
 const TILE_H = 1440;
@@ -40,16 +41,17 @@ function hash(i, j, seed) {
 function findIconsDir() {
   if (process.env.LUCIDE_ICONS_DIR) return process.env.LUCIDE_ICONS_DIR;
   const candidates = [
-    path.join(ROOT, 'frontend/node_modules/lucide-react/dist/esm/icons'),
-    path.join(ROOT, 'node_modules/lucide-react/dist/esm/icons'),
-    path.join(ROOT, 'frontend/node_modules/lucide/dist/esm/icons'),
-    path.join(ROOT, 'node_modules/lucide/dist/esm/icons'),
+    path.join(FRONTEND, 'node_modules/lucide-react/dist/esm/icons'),
+    path.join(FRONTEND, 'node_modules/lucide/dist/esm/icons'),
+    // monorepo hoist
+    path.join(FRONTEND, '../node_modules/lucide-react/dist/esm/icons'),
+    path.join(FRONTEND, '../node_modules/lucide/dist/esm/icons'),
   ];
   for (const c of candidates) {
     if (fs.existsSync(c)) return c;
   }
   console.error(`
-[bake-iconwallpaper] lucide-react not found under frontend/node_modules.
+[bake-iconwallpaper] lucide-react not found under node_modules.
   cd frontend && npm install
 `);
   process.exit(1);
