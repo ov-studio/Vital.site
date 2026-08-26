@@ -55,9 +55,9 @@ const WallpaperIcon = react.memo(function WallpaperIcon({
 export function IconWallpaper({
   icons,
   seed = 0,
-  size = 40,
-  gap = 148,
-  opacity = 0.12
+  size = 36,
+  gap = 100,
+  opacity = 0.2
 }: IconWallpaperProps) {
   const wrapRef = react.useRef<HTMLDivElement>(null);
   const [cells, setCells] = react.useState<Cell[]>([]);
