@@ -1,10 +1,9 @@
 'use client';
-import * as component_brand         from '@/components/brand';
-import * as component_download      from '@/components/download';
-import * as component_iconwallpaper from '@/components/iconwallpaper';
-import * as lib_api_url             from '@/lib/api_url';
-import * as react                   from 'react';
-import * as lucide                  from 'lucide-react';
+import * as component_brand    from '@/components/brand';
+import * as component_download from '@/components/download';
+import * as lib_api_url        from '@/lib/api_url';
+import * as react              from 'react';
+import * as lucide             from 'lucide-react';
 import './index.css';
 
 interface StatsInfo {
