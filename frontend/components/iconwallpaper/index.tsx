@@ -40,8 +40,7 @@ function rasterizeIcon(Icon: LucideIcon, px: number): Promise<HTMLImageElement> 
   const promise = new Promise<HTMLImageElement>((resolve, reject) => {
     const host = document.createElement('div');
     host.setAttribute('aria-hidden', 'true');
-    host.style.cssText =
-      'position:fixed;left:-99999px;top:0;width:64px;height:64px;overflow:hidden;pointer-events:none;opacity:0;';
+    host.style.cssText = 'position:fixed;left:-99999px;top:0;width:64px;height:64px;overflow:hidden;pointer-events:none;opacity:0;';
     document.body.appendChild(host);
 
     let root: Root | null = null;
