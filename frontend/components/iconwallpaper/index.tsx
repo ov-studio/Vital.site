@@ -14,7 +14,7 @@ export interface IconWallpaperProps {
   vignette?: boolean;
 }
 
-const BRAND = 'hsl(220, 95%, 76%)'; 
+const BRAND = 'hsl(220, 95%, 76%)';
 
 function hash(i: number, j: number, seed: number) {
   let n = (i + seed * 97) * 374761393 + (j + seed * 13) * 668265263;
