@@ -31,7 +31,6 @@ export function Contributors() {
         icons={[
           lucide.Heart,
           lucide.Star,
-          lucide.Users,
           lucide.Coffee,
           lucide.Cat,
           lucide.Bird,

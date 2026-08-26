@@ -138,8 +138,6 @@ export function Features() {
           lucide.Gamepad2,
           lucide.Wand2,
           lucide.Puzzle,
-          lucide.Ghost,
-          lucide.Coffee,
           lucide.Flame,
           lucide.Cuboid,
           lucide.Joystick,

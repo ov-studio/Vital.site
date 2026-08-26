@@ -11,7 +11,6 @@ export function Ethos() {
         seed={2}
         icons={[
           lucide.Heart,
-          lucide.Sparkles,
           lucide.Star,
           lucide.Flower2,
           lucide.Sun,
