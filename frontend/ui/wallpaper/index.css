@@ -10,6 +10,7 @@
   background-position: center top;
   background-size: 3440px 1440px;
   contain: strict;
+  transform: translateZ(0);
 }
 
 @media (min-width: 3441px) {
