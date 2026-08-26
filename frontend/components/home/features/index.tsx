@@ -2,10 +2,8 @@
 import * as config_home             from '@/configs/home';
 import * as component_iconwallpaper from '@/components/iconwallpaper';
 import * as react                   from 'react';
+import * as lucide                  from 'lucide-react';
 import './index.css';
-import {
-  Box, Code2, Cpu, Gamepad2, Layers, Network, Package, Shield, Terminal, Zap,
-} from 'lucide-react';
 
 interface NodeRef { el: HTMLDivElement | null }
 interface NodeState {
@@ -134,7 +132,20 @@ export function Features() {
     <section id="features">
       <component_iconwallpaper.IconWallpaper
         seed={1}
-        icons={[Box, Code2, Cpu, Gamepad2, Layers, Network, Package, Shield, Terminal, Zap]}
+        icons={[
+          lucide.Sparkles,
+          lucide.Rocket,
+          lucide.Gamepad2,
+          lucide.Wand2,
+          lucide.Puzzle,
+          lucide.Ghost,
+          lucide.Coffee,
+          lucide.Flame,
+          lucide.Cuboid,
+          lucide.Joystick,
+          lucide.Orbit,
+          lucide.Cat,
+        ]}
       />
       <div className="sw">
         <div className="sec-head">

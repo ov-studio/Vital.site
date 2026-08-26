@@ -29,14 +29,18 @@ export function Contributors() {
       <component_iconwallpaper.IconWallpaper
         seed={3}
         icons={[
-          lucide.Users,
-          lucide.GitFork,
-          lucide.GitPullRequest,
           lucide.Heart,
           lucide.Star,
+          lucide.Users,
+          lucide.Coffee,
+          lucide.Cat,
+          lucide.Bird,
+          lucide.Flower2,
+          lucide.PartyPopper,
+          lucide.Smile,
+          lucide.ThumbsUp,
+          lucide.Sparkles,
           lucide.MessageCircle,
-          lucide.Handshake,
-          lucide.Globe,
         ]}
       />
       <div className="sw">
