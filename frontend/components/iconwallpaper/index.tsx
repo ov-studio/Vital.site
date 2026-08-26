@@ -145,14 +145,12 @@ function buildScatter(
   iconCount: number,
 ): Spot[] {
   const spots: Spot[] = [];
-
   const cols = Math.ceil(w / gap) + 3;
   const rows = Math.ceil(h / gap) + 3;
 
   for (let row = -1; row < rows; row++) {
     for (let col = -1; col < cols; col++) {
       if (hash(col, row, seed + 99) < 0.12) continue;
-
       const x = col * gap + hash(col, row, seed) * gap;
       const y = row * gap + hash(col + 3, row + 5, seed) * gap;
       const rot = hash(col + 7, row + 11, seed) * Math.PI * 2;
@@ -179,7 +177,6 @@ function buildScatter(
       spots.push({ x, y, rot, s, a, iconIndex });
     }
   }
-
   return spots;
 }
 
@@ -231,7 +228,6 @@ export function IconWallpaper({
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const spots = buildScatter(w, h, gap, size, seed, bitmaps.length);
-
     for (const spot of spots) {
       const img = bitmaps[spot.iconIndex];
       if (!img || !img.complete || img.naturalWidth < 1) continue;
