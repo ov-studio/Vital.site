@@ -139,21 +139,13 @@ function buildScatter(seed, iconCount, gap, size) {
 }
 
 async function rasterize(svgBuf, seed) {
-  let sharp;
-  try {
-    sharp = (await import('sharp')).default;
-  } catch {
-    return null;
-  }
-
+  const sharp = (await import('sharp')).default;
   const webpPath = path.join(OUT_DIR, `seed-${seed}.webp`);
   await sharp(svgBuf, { density: 72 })
     .resize(TILE_W, TILE_H)
     .webp({ quality: 82, alphaQuality: 90, effort: 4 })
     .toFile(webpPath);
-
-  const webpKb = (fs.statSync(webpPath).size / 1024).toFixed(0);
-  return { webpKb };
+  return { webpKb: (fs.statSync(webpPath).size / 1024).toFixed(0) };
 }
 
 function bakeSeed(iconsDir, seed, names) {
@@ -191,28 +183,20 @@ async function main() {
   console.log(`[bake-wallpaper] icons: ${iconsDir}`);
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  // Require sharp — WebP-only output
   try {
     await import('sharp');
   } catch {
-    console.error(`[bake-wallpaper] sharp is required (WebP-only pipeline).
+    console.error(`[bake-wallpaper] sharp is required.
   cd frontend && npm i -D sharp && node scripts/bake-wallpaper.mjs`);
     process.exit(1);
-  }
-
-  // Clean old svg/png leftovers from previous bakes
-  for (const f of fs.readdirSync(OUT_DIR)) {
-    if (f.endsWith('.svg') || f.endsWith('.png')) {
-      fs.unlinkSync(path.join(OUT_DIR, f));
-    }
   }
 
   const files = [];
   for (const [s, names] of Object.entries(SEEDS)) {
     const seed = Number(s);
     const { svg, spots } = bakeSeed(iconsDir, seed, names);
-    const raster = await rasterize(Buffer.from(svg), seed);
-    console.log(`  seed-${seed}.webp  (${raster.webpKb} KB, ${spots} marks)`);
+    const { webpKb } = await rasterize(Buffer.from(svg), seed);
+    console.log(`  seed-${seed}.webp  (${webpKb} KB, ${spots} marks)`);
     files.push(`seed-${seed}.webp`);
   }
 
