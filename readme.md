@@ -39,4 +39,3 @@ Full details, including all env vars, are in each project's readme.
 ## Contributing
 
 Pull requests are welcome. For larger structural changes, open an issue first. See each project's readme for specifics on content conventions and route patterns.
-
