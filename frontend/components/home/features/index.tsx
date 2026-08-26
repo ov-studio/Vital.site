@@ -1,7 +1,7 @@
 'use client';
-import * as config_home             from '@/configs/home';
-import * as component_iconwallpaper from '@/components/iconwallpaper';
-import * as react                   from 'react';
+import * as config_home  from '@/configs/home';
+import * as ui_wallpaper from '@/ui/wallpaper';
+import * as react        from 'react';
 import './index.css';
 
 interface NodeRef { el: HTMLDivElement | null }
@@ -129,7 +129,7 @@ export function Features() {
 
   return (
     <section id="features">
-      <component_iconwallpaper.IconWallpaper
+      <ui_wallpaper.Wallpaper
         seed={1}
       />
       <div className="sw">
