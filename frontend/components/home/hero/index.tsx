@@ -1,9 +1,10 @@
 'use client';
-import * as component_brand    from '@/components/brand';
-import * as component_download from '@/components/download';
-import * as lib_api_url        from '@/lib/api_url';
-import * as react              from 'react';
-import * as lucide             from 'lucide-react';
+import * as component_brand         from '@/components/brand';
+import * as component_download      from '@/components/download';
+import * as component_iconwallpaper from '@/components/iconwallpaper';
+import * as lib_api_url             from '@/lib/api_url';
+import * as react                   from 'react';
+import * as lucide                  from 'lucide-react';
 import './index.css';
 
 interface StatsInfo {
@@ -43,6 +44,19 @@ export function Hero() {
 
   return (
     <section id="hero">
+      <component_iconwallpaper.IconWallpaper
+        seed={0}
+        icons={[
+          lucide.Rocket,
+          lucide.Code2,
+          lucide.Terminal,
+          lucide.Zap,
+          lucide.Box,
+          lucide.Sparkles,
+          lucide.Layers,
+          lucide.Cpu,
+        ]}
+      />
       <div className="hbg">
         <div className="hbg-grid"/>
         <div className="hbg-scanline"/>

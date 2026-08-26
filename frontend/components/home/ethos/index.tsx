@@ -1,10 +1,18 @@
 'use client';
-import * as config_home from '@/configs/home';
+import * as config_home             from '@/configs/home';
+import * as component_iconwallpaper from '@/components/iconwallpaper';
 import './index.css';
+import {
+  GitFork, Heart, Lock, Scale, Shield, Sparkles, Unlock, Users,
+} from 'lucide-react';
 
 export function Ethos() {
   return (
     <section id="ethos">
+      <component_iconwallpaper.IconWallpaper
+        seed={2}
+        icons={[GitFork, Heart, Lock, Scale, Shield, Sparkles, Unlock, Users]}
+      />
       <div className="sw">
         <div className="sec-head rev">
           <div>

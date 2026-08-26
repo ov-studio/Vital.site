@@ -1,7 +1,11 @@
 'use client';
-import * as config_home from '@/configs/home';
-import * as react       from 'react';
+import * as config_home             from '@/configs/home';
+import * as component_iconwallpaper from '@/components/iconwallpaper';
+import * as react                   from 'react';
 import './index.css';
+import {
+  Box, Code2, Cpu, Gamepad2, Layers, Network, Package, Shield, Terminal, Zap,
+} from 'lucide-react';
 
 interface NodeRef { el: HTMLDivElement | null }
 interface NodeState {
@@ -128,6 +132,10 @@ export function Features() {
 
   return (
     <section id="features">
+      <component_iconwallpaper.IconWallpaper
+        seed={1}
+        icons={[Box, Code2, Cpu, Gamepad2, Layers, Network, Package, Shield, Terminal, Zap]}
+      />
       <div className="sw">
         <div className="sec-head">
           <div className="rev">

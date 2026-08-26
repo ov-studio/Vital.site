@@ -1,8 +1,9 @@
 'use client';
-import * as config_site from '@/configs/site';
-import * as lib_api_url from '@/lib/api_url';
-import * as react       from 'react';
-import * as lucide      from 'lucide-react';
+import * as config_site             from '@/configs/site';
+import * as component_iconwallpaper from '@/components/iconwallpaper';
+import * as lib_api_url             from '@/lib/api_url';
+import * as react                   from 'react';
+import * as lucide                  from 'lucide-react';
 import './index.css';
 
 interface ContributorInfo {
@@ -25,6 +26,19 @@ export function Contributors() {
 
   return (
     <section id="contributors">
+      <component_iconwallpaper.IconWallpaper
+        seed={3}
+        icons={[
+          lucide.Users,
+          lucide.GitFork,
+          lucide.GitPullRequest,
+          lucide.Heart,
+          lucide.Star,
+          lucide.MessageCircle,
+          lucide.Handshake,
+          lucide.Globe,
+        ]}
+      />
       <div className="sw">
         <div className="sec-head">
           <div className="rev">

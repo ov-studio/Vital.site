@@ -14,7 +14,7 @@ export const metadata: next.Metadata = {
 export default function VaultPage() {
   return (
     <component_clientshell.ClientShell>
-      <component_overlay.Overlay />
+      <component_overlay.Overlay/>
       <component_navbar.Navbar links={[
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }

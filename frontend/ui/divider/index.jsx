@@ -6,5 +6,5 @@ import './index.css';
  * @param {string} [props.className]
  */
 export function Divider({ className = '' }) {
-  return <div className={`ui-divider${className ? ` ${className}` : ''}`} />;
+  return <div className={`ui-divider${className ? ` ${className}` : ''}`}/>;
 }
