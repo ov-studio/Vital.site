@@ -1,6 +1,6 @@
 ---
 title: self:is_compressed
-description: Checks whether the texture has been GPU block-compressed
+description: Checks whether the image has been GPU block-compressed
 badge: client
 ---
 
@@ -19,24 +19,24 @@ local result = self:is_compressed()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | `true` if the texture is GPU block-compressed, `false` otherwise |
+| `bool` | result | `true` if the image is GPU block-compressed, `false` otherwise |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Check compression state before compressing"
-local entity = core.texture.create("assets/diffuse.png")
+local entity = core.image.create("assets/diffuse.png")
 
 if not entity:is_compressed() then
-    entity:compress(core.texture.compression_mode.S3TC)
+    entity:compress(core.image.compression_mode.S3TC)
 end
 ```
 
-```lua lineNumbers title="Guard a convert call against compressed textures"
-local entity = core.texture.create("assets/sprite.png")
+```lua lineNumbers title="Guard a convert call against compressed images"
+local entity = core.image.create("assets/sprite.png")
 
 if not entity:is_compressed() then
-    entity:convert(core.texture.texel_format.RGBA8)
+    entity:convert(core.image.texel_format.RGBA8)
 end
 ```

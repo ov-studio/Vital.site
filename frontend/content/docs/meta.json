@@ -19,7 +19,7 @@
         "camera",
         "webview",
         "font",
-        "texture",
+        "image",
         "svg",
         "rendertarget",
         "audio_2d",

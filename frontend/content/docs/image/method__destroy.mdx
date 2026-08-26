@@ -1,6 +1,6 @@
 ---
 title: self:destroy
-description: Destroys the texture instance and frees its resources
+description: Destroys the image instance and frees its resources
 badge: client
 ---
 
@@ -25,8 +25,8 @@ local status = self:destroy()
 
 ### Examples
 
-```lua lineNumbers title="Destroy a texture instance"
-local entity = core.texture.create("assets/sprite.png")
+```lua lineNumbers title="Destroy an image instance"
+local entity = core.image.create("assets/sprite.png")
 
 entity:destroy()
 ```

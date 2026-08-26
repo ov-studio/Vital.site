@@ -1,6 +1,6 @@
 ---
 title: self:get_size
-description: Retrieves the current size of the texture
+description: Retrieves the current size of the image
 badge: client
 ---
 
@@ -19,15 +19,15 @@ local size = self:get_size()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector2` | size | Current size of the texture as `{width, height}` |
+| `vector2` | size | Current size of the image as `{width, height}` |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the size of a texture"
-local entity = core.texture.create("assets/sprite.png")
+```lua lineNumbers title="Get the size of an image"
+local entity = core.image.create("assets/sprite.png")
 local size = entity:get_size()
 
-core.engine.print("info", "Texture size:", util.table.unpack(size))
+core.engine.print("info", "Image size:", util.table.unpack(size))
 ```

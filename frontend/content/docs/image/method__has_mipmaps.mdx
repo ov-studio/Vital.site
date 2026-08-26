@@ -1,6 +1,6 @@
 ---
 title: self:has_mipmaps
-description: Checks whether the texture has a generated mipmap chain
+description: Checks whether the image has a generated mipmap chain
 badge: client
 ---
 
@@ -19,25 +19,25 @@ local result = self:has_mipmaps()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | result | `true` if the texture has a mipmap chain, `false` otherwise |
+| `bool` | result | `true` if the image has a mipmap chain, `false` otherwise |
 
 ---
 
 ### Examples
 
 ```lua lineNumbers title="Check before applying a mipmap-based filter"
-local entity = core.texture.create("assets/diffuse.png")
+local entity = core.image.create("assets/diffuse.png")
 
 if entity:has_mipmaps() then
-    entity:set_filter(core.texture.texture_filter.LINEAR_MIPMAP_ANISOTROPIC)
+    entity:set_filter(core.image.texture_filter.LINEAR_MIPMAP_ANISOTROPIC)
 end
 ```
 
 ```lua lineNumbers title="Guard a compress call that requires mipmaps"
-local entity = core.texture.create("assets/terrain/cliff_diffuse.png")
+local entity = core.image.create("assets/terrain/cliff_diffuse.png")
 
 if entity:has_mipmaps() then
-    entity:set_filter(core.texture.texture_filter.LINEAR_MIPMAP)
-    entity:compress(core.texture.compression_mode.BPTC)
+    entity:set_filter(core.image.texture_filter.LINEAR_MIPMAP)
+    entity:compress(core.image.compression_mode.BPTC)
 end
 ```

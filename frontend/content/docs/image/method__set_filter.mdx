@@ -1,0 +1,62 @@
+---
+title: self:set_filter
+description: Sets the sampling filter of the image
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_filter(
+    mode
+)
+```
+
+<Callout type="warn">
+  **Mipmap-based filters require the image to already have a mipmap chain — no chain is generated on demand.**<br/>`NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the image was created without mipmaps.
+
+  - **Generating mipmaps** — pass `mipmaps = true` to [`core.image.create`](/docs/image/create) upfront.
+  - **Survives format changes** — [`self:convert`](/docs/image/method/convert) and [`self:compress`](/docs/image/method/compress) update the image in place, so filter override stays applied.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.image.texture_filter`](/docs/image/enum/texture_filter) | mode | Sampling filter to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Force crisp nearest-neighbour sampling for pixel art"
+local entity = core.image.create("assets/tiles/grass0.png")
+
+entity:set_filter(core.image.texture_filter.NEAREST)
+```
+
+```lua lineNumbers title="Reset an image back to the inherited default filter"
+local entity = core.image.create("assets/sprite.png")
+
+entity:set_filter(core.image.texture_filter.NEAREST)
+entity:set_filter(core.image.texture_filter.DEFAULT)
+```
+
+```lua lineNumbers title="Apply a mipmap filter"
+local entity = core.image.create("assets/terrain/cliff_diffuse.png", true)
+
+entity:set_filter(core.image.texture_filter.LINEAR_MIPMAP_ANISOTROPIC)
+```
+
+```lua lineNumbers title="Set filter before compressing - override carries through"
+local entity = core.image.create("assets/terrain/cliff_diffuse.png", true)
+
+entity:set_filter(core.image.texture_filter.LINEAR_MIPMAP)
+entity:compress(core.image.compression_mode.BPTC)
+```

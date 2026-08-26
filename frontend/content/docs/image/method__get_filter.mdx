@@ -1,0 +1,42 @@
+---
+title: self:get_filter
+description: Retrieves the current sampling filter of the image
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_filter()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.image.texture_filter`](/docs/image/enum/texture_filter) | mode | Current sampling filter of the image |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check an image's filter before overriding it"
+local entity = core.image.create("assets/sprite.png")
+
+if entity:get_filter() == core.image.texture_filter.DEFAULT then
+    entity:set_filter(core.image.texture_filter.NEAREST)
+end
+```
+
+```lua lineNumbers title="Copy one image's filter onto another"
+local source = core.image.create("assets/tiles/grass0.png")
+source:set_filter(core.image.texture_filter.NEAREST)
+
+local target = core.image.create("assets/tiles/stone0.png")
+target:set_filter(source:get_filter())
+```

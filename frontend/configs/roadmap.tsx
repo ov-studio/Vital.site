@@ -425,8 +425,8 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        label: 'Texture',
-        desc:  'Runtime image texture loading, unloading, and rendering with implicit cache for draw calls',
+        label: 'Image',
+        desc:  'Runtime image loading, unloading, and rendering with implicit cache for draw calls',
         icon:  <lucide.Image {...config_site.info.lucide}/>,
         items: [
           { label:  'Lifecycle hooks',                               status: 'completed' },
@@ -437,10 +437,10 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Format: DDS',                                   status: 'completed' },
           { label:  'Format: KTX',                                   status: 'completed' },
           { label:  'Format: EXR',                                   status: 'completed' },
-          { label:  '[Client] Enum: core.texture.texel_format',      status: 'completed' },
-          { label:  '[Client] Enum: core.texture.filter',            status: 'completed' },
-          { label:  '[Client] Enum: core.texture.compression_mode',  status: 'completed' },
-          { label:  '[Client] API: core.texture.create',             status: 'completed' },
+          { label:  '[Client] Enum: core.image.texel_format',        status: 'completed' },
+          { label:  '[Client] Enum: core.image.filter',              status: 'completed' },
+          { label:  '[Client] Enum: core.image.compression_mode',    status: 'completed' },
+          { label:  '[Client] API: core.image.create',               status: 'completed' },
           { label:  '[Client] API: self:is_type',                    status: 'completed' },
           { label:  '[Client] API: self:get_type',                   status: 'completed' },
           { label:  '[Client] API: self:destroy',                    status: 'completed' },

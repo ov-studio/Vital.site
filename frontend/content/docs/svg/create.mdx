@@ -17,7 +17,6 @@ local instance = core.svg.create(
   **Only needed if you already know a mipmap-based filter is coming.**
 
   - **Use it when** — the SVG is going to use `NEAREST_MIPMAP`, `LINEAR_MIPMAP`, or an `ANISOTROPIC` variant.
-  - **Before compressing** — if both mipmaps and compression are needed, pass `true` here; [`self:compress`](/docs/texture/method/compress) cannot generate mipmaps, so this is the only opportunity.
 </Callout>
 
 ### Parameters
