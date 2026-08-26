@@ -2,7 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
+  justify-content: center;
+  min-height: 100vh;
   border-top: 1px solid var(--rule);
   scroll-margin-top: var(--nav-h);
 }
