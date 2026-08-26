@@ -5,6 +5,7 @@
   min-height: 100vh;
   padding: calc(100px + var(--nav-h)) 0 100px;
   border-top: 1px solid var(--rule);
+  scroll-margin-top: var(--nav-h);
 }
 
 .ethos-grid {
@@ -80,11 +81,14 @@
 }
 
 @media (max-width: 960px) {
-  #ethos { padding: calc(72px + var(--nav-h)) 0 72px; }
+  #ethos {
+    padding: 72px 0;
+    min-height: unset;
+  }
 }
 
 @media (max-width: 640px) {
-  #ethos      { padding: calc(56px + var(--nav-h)) 0 56px; }
+  #ethos      { padding: 56px 0; }
   .ethos-grid { grid-template-columns: 1fr; }
   .ecard      { padding: 24px 20px 22px; }
 }
