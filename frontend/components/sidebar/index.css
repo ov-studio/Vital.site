@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  border: none;
+  border: none !important;
   background: transparent;
   color: var(--color-fd-muted-foreground);
   transition: color .2s;

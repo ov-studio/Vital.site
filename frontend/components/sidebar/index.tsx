@@ -19,7 +19,7 @@ export function SidebarToggle() {
     <ui_iconbutton.IconButton
       className="sidebar-toggle-btn"
       icon={lucide.PanelLeft}
-      iconProps={{ size: 18, strokeWidth: 2.5 }}
+      iconProps={{ size: 18, strokeWidth: 2.2 }}
       onClick={toggle}
       title="Toggle sidebar"
     />
