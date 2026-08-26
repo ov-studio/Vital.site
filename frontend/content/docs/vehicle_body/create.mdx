@@ -27,9 +27,8 @@ local instance = physics.vehicle.create()
 
 ```lua lineNumbers title="Create a vehicle body instance"
 local entity = physics.vehicle.create()
-
 local shape = physics.collision_shape.create(entity)
-shape:set_shape_box({2, 1, 4})
 
+shape:set_shape_box({2, 1, 4})
 entity:set_engine_force(50)
 ```

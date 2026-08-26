@@ -27,9 +27,8 @@ local instance = physics.animatable.create()
 
 ```lua lineNumbers title="Create a animatable body instance"
 local entity = physics.animatable.create()
-
 local shape = physics.collision_shape.create(entity)
-shape:set_shape_box({4, 1, 8})
 
+shape:set_shape_box({4, 1, 8})
 entity:set_sync_to_physics(true)
 ```

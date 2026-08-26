@@ -27,9 +27,8 @@ local instance = physics.area.create()
 
 ```lua lineNumbers title="Create a area instance"
 local entity = physics.area.create()
-
 local shape = physics.collision_shape.create(entity)
-shape:set_shape_box({4, 4, 4})
 
+shape:set_shape_box({4, 4, 4})
 entity:set_monitoring(true)
 ```
