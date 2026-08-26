@@ -10,6 +10,7 @@ export function TOS() {
     <section id="tos">
       <component_iconwallpaper.IconWallpaper
         seed={11}
+        vignette={false}
         icons={[
           lucide.Scale,
           lucide.FileText,

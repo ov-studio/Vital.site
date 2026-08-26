@@ -175,6 +175,7 @@ export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[
     <section id="roadmap">
       <component_iconwallpaper.IconWallpaper
         seed={10}
+        vignette={false}
         icons={[
           lucide.Map,
           lucide.Flag,
