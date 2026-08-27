@@ -69,7 +69,6 @@ export function Navbar({ links = [] }: NavbarProps) {
               className="nav-auth-icon"
               onClick={login}
               aria-label="Sign in with GitHub"
-              title="Sign in"
             >
               <lucide.Fingerprint className="nav-auth-svg" size={18} strokeWidth={2}/>
             </button>
