@@ -90,7 +90,7 @@ nav.s::after {
   position: relative;
   display: flex;
   align-items: center;
-  margin-right: 4px;
+  margin-left: 4px;
 }
 
 .nav-avatar-btn {
