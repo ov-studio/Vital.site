@@ -22,7 +22,9 @@ Create a `.env.local` file in this directory (already in `.gitignore`):
 UPSTASH_REDIS_REST_URL=""
 UPSTASH_REDIS_REST_TOKEN=""
 MASTERLIST_STRICT_IP=false
+GITHUB_CLIENT_ID=""
 GITHUB_CLIENT_SECRET=""
+STAFF_GITHUB_LOGINS=""
 ```
 
 | Variable | Required | Description |
