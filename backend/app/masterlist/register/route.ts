@@ -1,7 +1,7 @@
-import * as lib_redis      from '@/lib/redis';
-import * as lib_ratelimit  from '@/lib/ratelimit';
-import * as lib_staff_auth from '@/lib/staff_auth';
-import * as crypto         from 'crypto';
+import * as lib_redis     from '@/lib/redis';
+import * as lib_ratelimit from '@/lib/ratelimit';
+import * as lib_auth      from '@/lib/auth';
+import * as crypto        from 'crypto';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -14,10 +14,10 @@ export async function OPTIONS() {
 export async function POST(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  if (!lib_staff_auth.staff_auth_configured()) return Response.json({ error: 'Staff auth is not configured' }, { status: 503 });
+  if (!lib_auth.auth_configured()) return Response.json({ error: 'Auth is not configured' }, { status: 503 });
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
-  const staff = await lib_staff_auth.authorize_register(req.headers.get('authorization'));
-  if (!staff) return Response.json({ error: 'unauthorized' }, { status: 401 });
+  const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
+  if (!session?.isStaff) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
   const name: string | undefined = typeof body?.name === 'string' ? body.name.trim() : undefined;
