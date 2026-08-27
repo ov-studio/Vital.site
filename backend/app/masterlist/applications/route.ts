@@ -20,13 +20,18 @@ export async function GET(req: Request) {
   const body: {
     application: lib_applications.Application | null;
     pending?:    ReturnType<typeof lib_applications.sanitize_for_staff>[];
+    tokens?:     ReturnType<typeof lib_applications.sanitize_for_staff>[];
   } = {
     application: mine ? lib_applications.sanitize_for_owner(mine) : null
   };
 
   if (session.isStaff) {
-    const pending = await lib_applications.list_pending();
-    body.pending  = pending.map(lib_applications.sanitize_for_staff);
+    const [pending, approved] = await Promise.all([
+      lib_applications.list_pending(),
+      lib_applications.list_approved()
+    ]);
+    body.pending = pending.map(lib_applications.sanitize_for_staff);
+    body.tokens  = approved.map(lib_applications.sanitize_for_staff);
   }
   return Response.json(body);
 }

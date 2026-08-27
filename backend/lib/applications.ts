@@ -57,7 +57,20 @@ export async function list_pending(): Promise<Application[]> {
   return out;
 }
 
-/** Public shape for the applicant (hides token after claimed). */
+export async function list_approved(): Promise<Application[]> {
+  if (!lib_redis.redis) return [];
+  const keys = await lib_redis.redis.keys('masterlist:application:*');
+  if (!keys.length) return [];
+  const values = await lib_redis.redis.mget<unknown[]>(...keys);
+  const out: Application[] = [];
+  for (const v of values) {
+    const app = parse_application(v);
+    if (app && app.status === 'approved' && app.id) out.push(app);
+  }
+  out.sort((a, b) => (b.decidedAt ?? b.createdAt) - (a.decidedAt ?? a.createdAt));
+  return out;
+}
+
 export function sanitize_for_owner(app: Application): Application {
   if (app.tokenClaimed) {
     const { token: _t, ...rest } = app;
@@ -66,7 +79,6 @@ export function sanitize_for_owner(app: Application): Application {
   return app;
 }
 
-/** Staff list shape — never include raw token. */
 export function sanitize_for_staff(app: Application): Omit<Application, 'token'> {
   const { token: _t, ...rest } = app;
   return rest;
@@ -147,7 +159,6 @@ export async function reject_application(
   return { app };
 }
 
-/** Applicant marks token as seen — clears secret from Redis. */
 export async function claim_token(login: string): Promise<{ ok: true } | { error: string }> {
   const existing = await get_application(login);
   if (!existing) return { error: 'No application found' };
