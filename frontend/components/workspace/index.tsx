@@ -3,6 +3,7 @@ import * as react            from 'react';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as ui_wallpaper     from '@/ui/wallpaper';
+import * as ui_search        from '@/ui/search';
 import './index.css';
 
 type Application = {
@@ -39,7 +40,6 @@ export function Workspace() {
   const [mintName, setMintName] = react.useState('');
   const [mintResult, setMintResult] = react.useState<{ token: string; id: string; name: string | null; note: string } | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
-  const [menu, setMenu] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'pending' | 'tokens' | 'mint'>('pending');
   const [q, setQ] = react.useState('');
 
@@ -95,12 +95,6 @@ export function Workspace() {
     return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
   }, [refresh_session, load]);
 
-  react.useEffect(() => {
-    if (!menu) return;
-    const close = () => setMenu(null);
-    window.addEventListener('click', close);
-    return () => window.removeEventListener('click', close);
-  }, [menu]);
 
   const login = react.useCallback(() => {
     window.location.href = lib_api_url.get_api_url('/auth/github');
@@ -145,7 +139,7 @@ export function Workspace() {
   }, [auth_headers, load]);
 
   const decide = react.useCallback(async (login: string, action: 'approve' | 'reject' | 'revoke') => {
-    setBusy(true); setError(null); setMenu(null);
+    setBusy(true); setError(null);
     try {
       const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications/decide'), {
         method: 'POST', headers: auth_headers(),
@@ -336,12 +330,11 @@ export function Workspace() {
                       </button>
                     </div>
                     {(tab === 'pending' || tab === 'tokens') && (
-                      <input
-                        className="ws-search"
-                        type="search"
+                      <ui_search.Search
+                        className="ws-search-ui"
                         placeholder="Search name or author…"
                         value={q}
-                        onChange={(e) => setQ(e.target.value)}
+                        onChange={setQ}
                       />
                     )}
                   </div>
@@ -371,21 +364,9 @@ export function Workspace() {
                                 <td className="ws-muted">{fmt_date(p.createdAt)}</td>
                                 <td><span className="ws-badge ws-badge--pending">Pending</span></td>
                                 <td className="ws-actions-cell">
-                                  <div className="ws-menu-wrap">
-                                    <button
-                                      type="button"
-                                      className="ws-menu-btn"
-                                      disabled={busy}
-                                      onClick={(e) => { e.stopPropagation(); setMenu(menu === p.login ? null : p.login); }}
-                                    >
-                                      Actions ▾
-                                    </button>
-                                    {menu === p.login && (
-                                      <div className="ws-menu" onClick={(e) => e.stopPropagation()}>
-                                        <button type="button" onClick={() => decide(p.login, 'approve')}>Approve</button>
-                                        <button type="button" className="ws-menu-danger" onClick={() => decide(p.login, 'reject')}>Reject</button>
-                                      </div>
-                                    )}
+                                  <div className="ws-inline-actions">
+                                    <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.login, 'approve')}>Approve</button>
+                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(p.login, 'reject')}>Reject</button>
                                   </div>
                                 </td>
                               </tr>
@@ -421,25 +402,13 @@ export function Workspace() {
                                 <td className="ws-muted">{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
                                 <td className="ws-muted">{fmt_date(t.decidedAt ?? t.createdAt)}</td>
                                 <td className="ws-actions-cell">
-                                  <div className="ws-menu-wrap">
-                                    <button
-                                      type="button"
-                                      className="ws-menu-btn"
-                                      disabled={busy}
-                                      onClick={(e) => { e.stopPropagation(); setMenu(menu === `t:${t.login}` ? null : `t:${t.login}`); }}
-                                    >
-                                      Actions ▾
-                                    </button>
-                                    {menu === `t:${t.login}` && (
-                                      <div className="ws-menu" onClick={(e) => e.stopPropagation()}>
-                                        {t.id && (
-                                          <button type="button" onClick={() => copy(`tid-${t.login}`, t.id!)}>
-                                            {copied === `tid-${t.login}` ? 'Copied ID' : 'Copy ID'}
-                                          </button>
-                                        )}
-                                        <button type="button" className="ws-menu-danger" onClick={() => decide(t.login, 'revoke')}>Revoke</button>
-                                      </div>
+                                  <div className="ws-inline-actions">
+                                    {t.id && (
+                                      <button type="button" className="ws-action-btn" disabled={busy} onClick={() => copy(`tid-${t.login}`, t.id!)}>
+                                        {copied === `tid-${t.login}` ? 'Copied' : 'Copy ID'}
+                                      </button>
                                     )}
+                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(t.login, 'revoke')}>Revoke</button>
                                   </div>
                                 </td>
                               </tr>
