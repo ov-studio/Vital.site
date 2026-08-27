@@ -14,11 +14,11 @@ export async function OPTIONS() {
 export async function POST(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  if (!process.env.MASTERLIST_ADMIN_SECRET && !lib_staff_auth.staff_auth_configured()) return Response.json({ error: 'No register auth configured' }, { status: 500 });
-
-  const auth = req.headers.get('authorization');
-  if (!lib_staff_auth.authorize_register(auth)) return Response.json({ error: 'unauthorized' }, { status: 401 });
+  if (!lib_staff_auth.staff_auth_configured()) return Response.json({ error: 'Staff auth is not configured' }, { status: 503 });
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
+  const staff = await lib_staff_auth.authorize_register(req.headers.get('authorization'));
+  if (!staff) return Response.json({ error: 'unauthorized' }, { status: 401 });
+
   const body = await req.json().catch(() => ({}));
   const name: string | undefined = typeof body?.name === 'string' ? body.name.trim() : undefined;
   if (name !== undefined && name.length > 64) return Response.json({ error: 'name too long (max 64)' }, { status: 400 });
