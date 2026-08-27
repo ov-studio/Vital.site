@@ -100,7 +100,7 @@ export const Roadmap: RoadmapSection[] = build([
         // TODO: WIP
         label: 'Main Menu',
         desc:  'Client entry point — play, browse/filter/join servers, configure window/display/input/audio, credits, and quit',
-        icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
+        icon:  <lucide.Menu {...config_site.info.lucide}/>,
         items: [
           { label:  'Main menu scene & layout',                          status: 'pending' },
           { label:  'Play / browse servers flow',                        status: 'pending' },
@@ -253,7 +253,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Discord',
         desc:  'Native Discord Rich Presence — dynamic activity state, user identity, images, and invite links',
-        icon:  <lucide.Gamepad2 {...config_site.info.lucide}/>,
+        icon:  <lucide.MessageCircle {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: core.discord.is_connected',        status: 'completed' },
           { label:  '[Client] API: core.discord.get_userid',          status: 'completed' },
@@ -489,6 +489,21 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  '[Client] API: self:is_active',                status: 'completed' },
           { label:  '[Client] API: self:get_size',                 status: 'completed' },
           { label:  '[Client] API: self:set_active',               status: 'completed' }
+        ]
+      },
+      {
+        // TODO: WIP
+        label: 'Shader',
+        desc:  'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
+        icon:  <lucide.Sliders {...config_site.info.lucide}/>,
+        items: [
+          { label:  'Custom shader authoring and compilation from Lua',                                       status: 'pending' },
+          { label:  'ShaderMaterial.set_shader_parameter',                                                    status: 'pending' },
+          { label:  'Texture uniform binding',                                                                status: 'pending' },
+          { label:  'Float / vec2 / vec3 / color uniforms',                                                   status: 'pending' },
+          { label:  'Per-instance uniform override',                                                          status: 'pending' },
+          { label:  'Auto-bind model textures to shader uniforms (albedo / normal / ORM)',                    status: 'pending' },
+          { label:  'ShaderMaterial - replace BaseMaterial3D on surface while preserving original textures',  status: 'pending' },
         ]
       },
       {
@@ -884,7 +899,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Export',
         desc:  'Cross-resource function registry — expose and consume APIs across resource boundaries',
-        icon:  <lucide.Blocks {...config_site.info.lucide}/>,
+        icon:  <lucide.Share2 {...config_site.info.lucide}/>,
         items: [
           { label:  '[Shared] API: util.export.register',  status: 'completed' },
           { label:  '[Shared] API: util.export.list',      status: 'completed' },
@@ -1449,7 +1464,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Sky Panorama',
         desc:  'Panoramically-mapped texture, filtering, and energy control from Lua',
-        icon:  <lucide.Image {...config_site.info.lucide}/>,
+        icon:  <lucide.Mountain {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: gfx.sky_panorama.is_filtering_enabled',   status: 'completed' },
           { label:  '[Client] API: gfx.sky_panorama.get_texture',            status: 'completed' },
@@ -1529,7 +1544,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Glow',
         desc:  'Bloom-style glow intensity, blending, and HDR bleed control from Lua',
-        icon:  <lucide.CircleDot {...config_site.info.lucide}/>,
+        icon:  <lucide.Aperture {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] Enum: gfx.glow.blend_mode',              status: 'completed' },
           { label:  '[Client] API: gfx.glow.is_enabled',               status: 'completed' },
@@ -1564,7 +1579,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'SSR',
         desc:  'Screen-space reflection step count and fade control from Lua',
-        icon:  <lucide.Sparkles {...config_site.info.lucide}/>,
+        icon:  <lucide.Waves {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: gfx.ssr.is_enabled',           status: 'completed' },
           { label:  '[Client] API: gfx.ssr.get_max_steps',        status: 'completed' },
@@ -1581,7 +1596,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'SSIL',
         desc:  'Screen-space indirect lighting radius and intensity control from Lua',
-        icon:  <lucide.Lightbulb {...config_site.info.lucide}/>,
+        icon:  <lucide.Flashlight {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: gfx.ssil.is_enabled',            status: 'completed' },
           { label:  '[Client] API: gfx.ssil.get_radius',            status: 'completed' },
@@ -1598,7 +1613,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'SDFGI',
         desc:  'Signed distance field global illumination cascades and quality control from Lua',
-        icon:  <lucide.Sun {...config_site.info.lucide}/>,
+        icon:  <lucide.Sparkle {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] Enum: gfx.sdfgi.y_scale',              status: 'completed' },
           { label:  '[Client] API: gfx.sdfgi.is_enabled',            status: 'completed' },
@@ -1628,7 +1643,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'SSAO',
         desc:  'Screen-space ambient occlusion radius, power, and channel control from Lua',
-        icon:  <lucide.Layers {...config_site.info.lucide}/>,
+        icon:  <lucide.Contrast {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: gfx.ssao.is_enabled',               status: 'completed' },
           { label:  '[Client] API: gfx.ssao.get_radius',               status: 'completed' },
@@ -1719,21 +1734,6 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         // TODO: WIP
-        label: 'Shader',
-        desc:  'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
-        icon:  <lucide.Sliders {...config_site.info.lucide}/>,
-        items: [
-          { label:  'Custom shader authoring and compilation from Lua',                                       status: 'pending' },
-          { label:  'ShaderMaterial.set_shader_parameter',                                                    status: 'pending' },
-          { label:  'Texture uniform binding',                                                                status: 'pending' },
-          { label:  'Float / vec2 / vec3 / color uniforms',                                                   status: 'pending' },
-          { label:  'Per-instance uniform override',                                                          status: 'pending' },
-          { label:  'Auto-bind model textures to shader uniforms (albedo / normal / ORM)',                    status: 'pending' },
-          { label:  'ShaderMaterial - replace BaseMaterial3D on surface while preserving original textures',  status: 'pending' },
-        ]
-      },
-      {
-        // TODO: WIP
         label: 'Decals',
         desc:  'Project textures onto surfaces at runtime — bullet holes, footprints, and damage overlays',
         icon:  <lucide.Stamp {...config_site.info.lucide}/>,
@@ -1765,7 +1765,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Rigid Body',
         desc:  'Fully physics-simulated object — force, impulse, torque, velocity, mass, damping, and freeze control from Lua',
-        icon:  <lucide.Box {...config_site.info.lucide}/>,
+        icon:  <lucide.Weight {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.rigid.create',                          status: 'completed' },
           { label:  '[Client] API: self:is_type',                                  status: 'completed' },
@@ -1860,7 +1860,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Static Body',
         desc:  'Immovable collision surface — constant velocity conveyance and physics material control from Lua',
-        icon:  <lucide.Square {...config_site.info.lucide}/>,
+        icon:  <lucide.Anchor {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.static.create',                 status: 'completed' },
           { label:  '[Client] API: self:is_type',                          status: 'completed' },
@@ -2270,7 +2270,7 @@ export const Roadmap: RoadmapSection[] = build([
       {
         label: 'Collision Shape',
         desc:  'Attach primitive collision volumes to physics bodies — box, sphere, capsule, and cylinder shapes',
-        icon:  <lucide.Shapes {...config_site.info.lucide}/>,
+        icon:  <lucide.Cylinder {...config_site.info.lucide}/>,
         items: [
           { label:  '[Client] API: physics.collision_shape.create',         status: 'completed' },
           { label:  '[Client] API: physics.collision_shape.set_debug_all',  status: 'completed' },
