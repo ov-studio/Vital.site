@@ -76,6 +76,14 @@
   border-radius: 4px;
 }
 
+.ws-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
 .ws-stat-label {
   font-family: 'Geist', sans-serif;
   font-size: 0.72rem;
@@ -83,7 +91,12 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-soft, rgba(255, 255, 255, 0.45));
-  margin-bottom: 8px;
+  margin: 0;
+}
+
+.ws-stat-icon {
+  color: var(--text-soft, rgba(255, 255, 255, 0.35));
+  flex-shrink: 0;
 }
 
 .ws-stat-value {
@@ -137,10 +150,18 @@
 
 .ws-panel-title {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'Geist', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--white, #fff);
+}
+
+.ws-panel-title svg {
+  color: var(--blue);
+  flex-shrink: 0;
 }
 
 .ws-panel-body {
@@ -158,6 +179,9 @@
 }
 
 .ws-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: 'Geist', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
@@ -168,6 +192,15 @@
   border-radius: 4px;
   cursor: pointer;
   transition: color 0.15s, background 0.15s;
+}
+
+.ws-tab svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.ws-tab--active svg {
+  opacity: 1;
 }
 
 .ws-tab:hover {
@@ -248,22 +281,36 @@
 
 .ws-empty {
   margin: 0;
-  padding: 32px 20px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   text-align: center;
   font-size: 0.9rem;
   color: var(--text-soft, rgba(255, 255, 255, 0.45));
+}
+
+.ws-empty svg {
+  opacity: 0.35;
 }
 
 /* Badges */
 .ws-badge {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   padding: 3px 10px;
   font-family: 'Geist', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   border-radius: 999px;
   white-space: nowrap;
+}
+
+.ws-badge svg {
+  flex-shrink: 0;
 }
 
 .ws-badge--pending {
@@ -519,4 +566,82 @@
   color: #ffb0b0;
   border-color: rgba(255, 80, 80, 0.45);
   background: rgba(255, 60, 60, 0.08);
+}
+
+.ws-text--icon {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.ws-text--icon svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--blue);
+  opacity: 0.85;
+}
+
+.ws-spoiler {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.ws-spoiler:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ws-spoiler code {
+  flex: 1;
+  min-width: 0;
+  letter-spacing: 0.04em;
+}
+
+.ws-spoiler:not(.ws-spoiler--open) code {
+  filter: blur(0);
+  user-select: none;
+  color: var(--text-soft, rgba(255, 255, 255, 0.45));
+}
+
+.ws-spoiler-hint {
+  flex-shrink: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.ws-mint-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.ws-mint-form .ws-input {
+  width: 100%;
+}
+
+.ws-mint-form .ws-btn {
+  margin-top: 4px;
+}
+
+/* Token row kv when spoiler is present */
+.ws-kv:has(.ws-spoiler) {
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
 }

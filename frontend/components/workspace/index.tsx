@@ -4,6 +4,7 @@ import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_search        from '@/ui/search';
+import * as lucide           from 'lucide-react';
 import './index.css';
 
 type Application = {
@@ -42,6 +43,7 @@ export function Workspace() {
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'pending' | 'tokens' | 'mint'>('pending');
   const [q, setQ] = react.useState('');
+  const [revealToken, setRevealToken] = react.useState(false);
 
   const refresh_session = react.useCallback(() => {
     setSession(lib_auth_session.read_auth_session());
@@ -224,7 +226,10 @@ export function Workspace() {
             {/* Member: application panel */}
             <div className="ws-panel">
               <div className="ws-panel-head">
-                <h3 className="ws-panel-title">Your application</h3>
+                <h3 className="ws-panel-title">
+                  <lucide.Server size={16} strokeWidth={2} />
+                  Your application
+                </h3>
               </div>
               <div className="ws-panel-body">
                 {!app && (
@@ -250,7 +255,7 @@ export function Workspace() {
                 )}
                 {app?.status === 'pending' && (
                   <div className="ws-status-row">
-                    <span className="ws-badge ws-badge--pending">Pending</span>
+                    <span className="ws-badge ws-badge--pending"><lucide.Clock size={11} strokeWidth={2.5} />Pending</span>
                     <span className="ws-text"><strong>{app.name}</strong> — waiting for staff review.</span>
                     <button type="button" className="btn-secondary ws-btn-sm" onClick={cancel} disabled={busy}>Cancel</button>
                   </div>
@@ -272,9 +277,12 @@ export function Workspace() {
                     <button type="button" className="btn-secondary ws-btn" onClick={apply} disabled={busy}>Apply again</button>
                   </div>
                 )}
-                {app?.status === 'approved' && app.token && (
+                {app?.status === 'approved' && (
                   <div className="ws-result">
-                    <p className="ws-text">Approved — store this token in config.yaml. It will not be shown again after you dismiss it.</p>
+                    <div className="ws-status-row">
+                      <span className="ws-badge ws-badge--active"><lucide.Check size={11} strokeWidth={2.5} />Approved</span>
+                      <span className="ws-text"><strong>{app.name}</strong>{app.id ? ` · ${app.id.slice(0, 8)}…` : ''}</span>
+                    </div>
                     {app.id && (
                       <div className="ws-kv">
                         <span className="ws-k">ID</span>
@@ -282,21 +290,32 @@ export function Workspace() {
                         <button type="button" className="ws-copy" onClick={() => copy('id', app.id!)}>{copied === 'id' ? 'Copied' : 'Copy'}</button>
                       </div>
                     )}
-                    <div className="ws-kv">
-                      <span className="ws-k">Token</span>
-                      <code className="ws-v ws-v--secret">{app.token}</code>
-                      <button type="button" className="ws-copy" onClick={() => copy('token', app.token!)}>{copied === 'token' ? 'Copied' : 'Copy'}</button>
-                    </div>
-                    <button type="button" className="btn-secondary ws-btn" onClick={claim} disabled={busy}>I saved it — dismiss</button>
-                  </div>
-                )}
-                {app?.status === 'approved' && !app.token && (
-                  <div className="ws-status-row">
-                    <span className="ws-badge ws-badge--active">Approved</span>
-                    <span className="ws-text">
-                      {app.name}{app.id ? ` · ${app.id.slice(0, 8)}…` : ''}. Token already revealed.
-                      {!session.isStaff && ' Contact staff if you need a re-issue.'}
-                    </span>
+                    {app.token ? (
+                      <div className="ws-kv">
+                        <span className="ws-k">Token</span>
+                        <button
+                          type="button"
+                          className={`ws-spoiler${revealToken ? ' ws-spoiler--open' : ''}`}
+                          onClick={() => setRevealToken(v => !v)}
+                          title={revealToken ? 'Click to hide' : 'Click to reveal'}
+                        >
+                          <code className="ws-v ws-v--secret">
+                            {revealToken ? app.token : '•'.repeat(Math.min(48, app.token.length))}
+                          </code>
+                          <span className="ws-spoiler-hint">{revealToken ? 'Hide' : 'Reveal'}</span>
+                        </button>
+                        {revealToken && (
+                          <button type="button" className="ws-copy" onClick={() => copy('token', app.token!)}>{copied === 'token' ? 'Copied' : 'Copy'}</button>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="ws-text">Token is no longer stored on the server. Contact staff if you need a re-issue.</p>
+                    )}
+                    {app.token && !app.tokenClaimed && (
+                      <button type="button" className="btn-secondary ws-btn" onClick={async () => { await claim(); setRevealToken(false); }} disabled={busy}>
+                        Mark as saved
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
@@ -307,11 +326,17 @@ export function Workspace() {
               <>
                 <div className="ws-stats">
                   <div className="ws-stat">
-                    <div className="ws-stat-label">Pending</div>
+                    <div className="ws-stat-top">
+                      <div className="ws-stat-label">Pending</div>
+                      <lucide.Clock size={16} strokeWidth={2} className="ws-stat-icon" />
+                    </div>
                     <div className="ws-stat-value">{pending.length}</div>
                   </div>
                   <div className="ws-stat">
-                    <div className="ws-stat-label">Issued tokens</div>
+                    <div className="ws-stat-top">
+                      <div className="ws-stat-label">Issued tokens</div>
+                      <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon" />
+                    </div>
                     <div className="ws-stat-value">{tokens.length}</div>
                   </div>
                 </div>
@@ -320,12 +345,15 @@ export function Workspace() {
                   <div className="ws-panel-head ws-panel-head--tabs">
                     <div className="ws-tabs">
                       <button type="button" className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`} onClick={() => setTab('pending')}>
+                        <lucide.Inbox size={14} strokeWidth={2} />
                         Pending{pending.length ? ` (${pending.length})` : ''}
                       </button>
                       <button type="button" className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`} onClick={() => setTab('tokens')}>
+                        <lucide.KeyRound size={14} strokeWidth={2} />
                         Tokens{tokens.length ? ` (${tokens.length})` : ''}
                       </button>
                       <button type="button" className={`ws-tab${tab === 'mint' ? ' ws-tab--active' : ''}`} onClick={() => setTab('mint')}>
+                        <lucide.Sparkles size={14} strokeWidth={2} />
                         Mint
                       </button>
                     </div>
@@ -335,6 +363,7 @@ export function Workspace() {
                         placeholder="Search name or author…"
                         value={q}
                         onChange={setQ}
+                        icon={<lucide.Search size={14} strokeWidth={2} />}
                       />
                     )}
                   </div>
@@ -342,7 +371,10 @@ export function Workspace() {
                   {tab === 'pending' && (
                     <div className="ws-table-wrap">
                       {filtered_pending.length === 0 ? (
-                        <p className="ws-empty">No pending requests.</p>
+                        <div className="ws-empty">
+                          <lucide.Inbox size={28} strokeWidth={1.5} />
+                          <span>No pending requests.</span>
+                        </div>
                       ) : (
                         <table className="ws-table">
                           <thead>
@@ -362,7 +394,7 @@ export function Workspace() {
                                 </td>
                                 <td className="ws-muted">@{p.login}</td>
                                 <td className="ws-muted">{fmt_date(p.createdAt)}</td>
-                                <td><span className="ws-badge ws-badge--pending">Pending</span></td>
+                                <td><span className="ws-badge ws-badge--pending"><lucide.Clock size={11} strokeWidth={2.5} />Pending</span></td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
                                     <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.login, 'approve')}>Approve</button>
@@ -380,7 +412,10 @@ export function Workspace() {
                   {tab === 'tokens' && (
                     <div className="ws-table-wrap">
                       {filtered_tokens.length === 0 ? (
-                        <p className="ws-empty">No issued tokens.</p>
+                        <div className="ws-empty">
+                          <lucide.KeyRound size={28} strokeWidth={1.5} />
+                          <span>No issued tokens.</span>
+                        </div>
                       ) : (
                         <table className="ws-table">
                           <thead>
@@ -421,20 +456,22 @@ export function Workspace() {
 
                   {tab === 'mint' && (
                     <div className="ws-panel-body">
-                      <p className="ws-text">Staff giveaway — creates a token immediately (not tied to an application).</p>
-                      <div className="ws-form-row">
-                        <div className="ws-form-grow">
-                          <label className="ws-label" htmlFor="mint-name">Server name (optional)</label>
-                          <input
-                            id="mint-name"
-                            className="ws-input"
-                            type="text"
-                            maxLength={64}
-                            value={mintName}
-                            onChange={(e) => setMintName(e.target.value)}
-                            disabled={busy}
-                          />
-                        </div>
+                      <p className="ws-text ws-text--icon">
+                        <lucide.Sparkles size={15} strokeWidth={2} />
+                        Staff giveaway — creates a token immediately (not tied to an application).
+                      </p>
+                      <div className="ws-mint-form">
+                        <label className="ws-label" htmlFor="mint-name">Server name (optional)</label>
+                        <input
+                          id="mint-name"
+                          className="ws-input"
+                          type="text"
+                          maxLength={64}
+                          value={mintName}
+                          onChange={(e) => setMintName(e.target.value)}
+                          disabled={busy}
+                          placeholder="e.g. Night City RP"
+                        />
                         <button type="button" className="btn-secondary ws-btn" onClick={mint} disabled={busy}>
                           Mint token
                         </button>
