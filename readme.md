@@ -30,7 +30,7 @@ For env var setup and deployment details, see each project's readme:
 
 The two projects deploy independently:
 
-1. Deploy `backend` first — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, and `MASTERLIST_ADMIN_SECRET`.
+1. Deploy `backend` first — it needs `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and `STAFF_GITHUB_LOGINS`.
 2. Note the backend's deployed URL.
 3. Deploy `frontend` as a static project. The backend URL is resolved automatically from the deployment hostname.
 
