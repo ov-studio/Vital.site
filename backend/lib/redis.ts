@@ -6,7 +6,7 @@ export const redis_configured = Boolean(process.env.UPSTASH_REDIS_REST_URL && pr
 if (!redis_configured) {
   console.error(
     '[Redis] Missing UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN.' +
-    'Redis-backed features (ratelimit, masterlist, staff auth) are disabled until these are set in the deployment environment.'
+    'Redis-backed features (ratelimit, masterlist, auth) are disabled until these are set in the deployment environment.'
   );
 }
 
@@ -24,10 +24,16 @@ export function token_key(id: string) {
   return `masterlist:token:${id}`;
 }
 
-export function staff_session_key(session_token: string) {
-  return `staff:session:${session_token}`;
+export function auth_session_key(session_token: string) {
+  return `auth:session:${session_token}`;
 }
 
-export function staff_oauth_state_key(state: string) {
-  return `staff:oauth:state:${state}`;
+export function auth_oauth_state_key(state: string) {
+  return `auth:oauth:state:${state}`;
 }
+
+export function application_key(login: string) {
+  return `masterlist:application:${login.toLowerCase()}`;
+}
+
+export const applications_pending_key = 'masterlist:applications:pending';
