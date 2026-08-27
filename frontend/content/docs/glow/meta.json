@@ -1,6 +1,6 @@
 {
     "title": "Glow",
-    "icon": "CircleDot",
+    "icon": "Aperture",
     "pages": [
         "---Enum---",
         "enum__blend_mode",

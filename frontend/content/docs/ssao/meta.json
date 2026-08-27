@@ -1,6 +1,6 @@
 {
     "title": "SSAO",
-    "icon": "Layers",
+    "icon": "Contrast",
     "pages": [
         "---Checker---",
         "is_enabled",

@@ -1,6 +1,6 @@
 {
     "title": "Discord",
-    "icon": "Gamepad2",
+    "icon": "MessageCircle",
     "pages": [
         "---Checker---",
         "is_connected",

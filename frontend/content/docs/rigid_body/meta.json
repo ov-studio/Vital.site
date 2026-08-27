@@ -1,6 +1,6 @@
 {
     "title": "Rigid Body",
-    "icon": "Box",
+    "icon": "Weight",
     "pages": [
         "---Base---",
         "create",

@@ -1,6 +1,6 @@
 {
     "title": "Collision Shape",
-    "icon": "Shapes",
+    "icon": "Cylinder",
     "pages": [
         "---Base---",
         "create",
