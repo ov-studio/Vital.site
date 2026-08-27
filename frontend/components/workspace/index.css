@@ -1,0 +1,234 @@
+.ws-page {
+  min-height: 60vh;
+}
+
+.ws-lead {
+  margin-top: 16px;
+  max-width: 42rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.ws-lead code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.85em;
+  color: var(--blue);
+}
+
+.ws-card {
+  max-width: 36rem;
+  padding: 28px 28px 32px;
+  background: var(--bg, #0c0e12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ws-card-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.ws-card-text--tight {
+  margin: 0;
+}
+
+.ws-card-text code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.85em;
+  color: var(--blue);
+}
+
+.ws-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ws-row--between {
+  justify-content: space-between;
+}
+
+.ws-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.ws-optional {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-soft, rgba(255, 255, 255, 0.45));
+}
+
+.ws-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.95rem;
+  color: var(--white, #fff);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.ws-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.ws-input:focus {
+  border-color: var(--blue);
+}
+
+.ws-input:disabled {
+  opacity: 0.6;
+}
+
+.ws-btn {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.ws-btn:disabled {
+  opacity: 0.55;
+  transform: none;
+}
+
+.ws-btn-ghost {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 6px 0;
+  font-size: 0.8rem;
+}
+
+.ws-error {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #ff8a8a;
+  background: rgba(255, 60, 60, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  border-radius: 4px;
+}
+
+.ws-result {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ws-result-note {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.ws-kv {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 8px 12px;
+  align-items: start;
+}
+
+.ws-k {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft, rgba(255, 255, 255, 0.45));
+  padding-top: 4px;
+}
+
+.ws-v {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  word-break: break-all;
+  color: var(--white, #fff);
+  padding: 4px 0;
+}
+
+.ws-v--secret {
+  color: var(--blue);
+}
+
+.ws-copy {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-soft, rgba(255, 255, 255, 0.55));
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.ws-copy:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+@media (max-width: 640px) {
+  .ws-card {
+    padding: 20px;
+  }
+
+  .ws-kv {
+    grid-template-columns: 1fr;
+  }
+
+  .ws-copy {
+    justify-self: start;
+  }
+}
+
+.ws-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ws-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  object-fit: cover;
+}
+
+.ws-user-login {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white, #fff);
+}
+
+.ws-user-role {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue);
+}

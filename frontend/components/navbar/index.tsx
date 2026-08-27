@@ -1,52 +1,53 @@
 'use client';
-import * as component_brand   from '@/components/brand';
-import * as component_social  from '@/components/social';
-import * as lib_api_url       from '@/lib/api_url';
-import * as lib_staff_session from '@/lib/staff_session';
-import { useCallback, useEffect, useState } from 'react';
-import * as lucide from 'lucide-react';
+import * as component_brand  from '@/components/brand';
+import * as component_social from '@/components/social';
+import * as lib_api_url      from '@/lib/api_url';
+import * as lib_auth_session from '@/lib/auth_session';
+import * as react            from 'react';
+import * as lucide           from 'lucide-react';
 import './index.css';
 
 interface NavLink {
   label: string;
-  href: string;
+  href:  string;
 }
 
 interface NavbarProps {
   links?: NavLink[];
-  showStaffAuth?: boolean;
 }
 
-export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
-  const [session, setSession] = useState<lib_staff_session.StaffSession | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+export function Navbar({ links = [] }: NavbarProps) {
+  const [session, setSession]   = react.useState<lib_auth_session.AuthSession | null>(null);
+  const [menuOpen, setMenuOpen] = react.useState(false);
 
-  const refresh = useCallback(() => {
-    setSession(lib_staff_session.read_staff_session());
+  const refresh = react.useCallback(() => {
+    setSession(lib_auth_session.read_auth_session());
   }, []);
 
-  useEffect(() => {
-    lib_staff_session.capture_oauth_hash();
+  react.useEffect(() => {
+    lib_auth_session.capture_oauth_hash();
     refresh();
     const on_storage = (e: StorageEvent) => {
-      if (e.key === lib_staff_session.STAFF_TOKEN_KEY || e.key === null) refresh();
+      if (
+        e.key === lib_auth_session.AUTH_TOKEN_KEY ||
+        e.key === lib_auth_session.AUTH_LOGIN_KEY ||
+        e.key === null
+      ) refresh();
     };
-    window.addEventListener(lib_staff_session.STAFF_SESSION_EVENT, refresh);
+    window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, refresh);
     window.addEventListener('storage', on_storage);
     return () => {
-      window.removeEventListener(lib_staff_session.STAFF_SESSION_EVENT, refresh);
+      window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, refresh);
       window.removeEventListener('storage', on_storage);
     };
   }, [refresh]);
 
-  const showSignIn = (showStaffAuth ?? true) && !session;
-
-  const login = useCallback(() => {
+  const login = react.useCallback(() => {
     window.location.href = lib_api_url.get_api_url('/auth/github');
   }, []);
 
-  const logout = useCallback(() => {
-    lib_staff_session.clear_staff_session();
+  const logout = react.useCallback(() => {
+    lib_auth_session.clear_auth_session();
     setSession(null);
     setMenuOpen(false);
   }, []);
@@ -54,17 +55,15 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
   return (
     <nav id="nav">
       <div className="ni">
-        <component_brand.Brand size="xs" variant="full" className="nav-brand" href="/#" />
+        <component_brand.Brand size="xs" variant="full" className="nav-brand" href="/#"/>
         <ul className="nl">
           {links.map(({ label, href }) => (
-            <li key={href}>
-              <a href={href}>{label}</a>
-            </li>
+            <li key={href}><a href={href}>{label}</a></li>
           ))}
         </ul>
         <div className="nav-end">
-          <component_social.Social />
-          {showSignIn && (
+          <component_social.Social/>
+          {!session ? (
             <button
               type="button"
               className="nav-auth-icon"
@@ -72,10 +71,9 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
               aria-label="Sign in with GitHub"
               title="Sign in"
             >
-              <lucide.Fingerprint className="nav-auth-svg" size={18} strokeWidth={2} />
+              <lucide.Fingerprint className="nav-auth-svg" size={18} strokeWidth={2}/>
             </button>
-          )}
-          {session && (
+          ) : (
             <div className="nav-staff">
               <button
                 type="button"
@@ -113,11 +111,11 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
                       />
                       <div>
                         <div className="nav-staff-login">@{session.login}</div>
-                        <div className="nav-staff-role">Staff</div>
+                        <div className="nav-staff-role">{session.isStaff ? 'Staff' : 'Member'}</div>
                       </div>
                     </div>
-                    <a className="nav-staff-item" href="/staff" role="menuitem" onClick={() => setMenuOpen(false)}>
-                      Mint token
+                    <a className="nav-staff-item" href="/workspace" role="menuitem" onClick={() => setMenuOpen(false)}>
+                      Workspace
                     </a>
                     <button type="button" className="nav-staff-item nav-staff-item--btn" role="menuitem" onClick={logout}>
                       Sign out
@@ -132,4 +130,3 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
     </nav>
   );
 }
-

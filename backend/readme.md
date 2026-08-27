@@ -31,23 +31,17 @@ STAFF_GITHUB_LOGINS=""
 |---|---|---|
 | `UPSTASH_REDIS_REST_URL` | Yes* | REST endpoint for your Upstash Redis database. |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
-| `MASTERLIST_STRICT_IP` | No | When `true` (default in production), a heartbeat is rejected if the server's IP doesn't match the IP it registered with. Set to `false` locally — localhost and tunnels rarely present a stable matching IP. |
-| `GITHUB_CLIENT_ID` | Yes† | GitHub OAuth App client ID (staff mint UI). |
+| `MASTERLIST_STRICT_IP` | No | When `true` (default in production), a heartbeat is rejected if the server's IP doesn't match the IP it registered with. Set to `false` locally. |
+| `GITHUB_CLIENT_ID` | Yes† | GitHub OAuth App client ID (workspace login). |
 | `GITHUB_CLIENT_SECRET` | Yes† | GitHub OAuth App client secret. |
-| `STAFF_GITHUB_LOGINS` | Yes† | Comma-separated GitHub usernames allowed to mint masterlist tokens via `/staff`. |
+| `STAFF_GITHUB_LOGINS` | No† | Comma-separated GitHub usernames with staff powers (approve applications, direct mint). Other users can still log in and apply. |
 
-<sub>* If Redis isn't configured, the service still starts — masterlist, rate-limiting, and staff auth respond as unavailable and log a warning instead of crashing.</sub>
+<sub>* Without Redis, masterlist / rate-limit / auth respond as unavailable.</sub>
+<sub>† Required for `/workspace` login. Sessions are opaque tokens stored in Redis — no shared admin bearer secret.</sub>
 
-**Getting your Upstash credentials:**
-1. Create a free database at [upstash.com](https://upstash.com).
-2. Open the database → **REST API** tab.
-3. Copy `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` into `.env.local`.
+**Upstash:** create a free DB at [upstash.com](https://upstash.com) → REST API tab → copy URL + token.
 
-**GitHub OAuth App (staff mint):**
-1. Create an OAuth App at [GitHub Developer settings](https://github.com/settings/developers).
-2. Homepage: frontend URL (e.g. `http://localhost:3000`).
-3. Authorization callback URL: `http://localhost:3001/auth/github/callback` (prod: `https://api.<domain>/auth/github/callback`).
-4. Put Client ID / secret and allowlisted logins in `.env.local`.
+**GitHub OAuth App:** [Developer settings](https://github.com/settings/developers) — callback `http://localhost:3001/auth/github/callback` (prod: `https://api.<domain>/auth/github/callback`).
 
 ### 3. Run the dev server
 
@@ -55,28 +49,23 @@ STAFF_GITHUB_LOGINS=""
 npm run dev
 ```
 
-Starts on [http://localhost:3001](http://localhost:3001) — the frontend picks this up automatically when running locally.
+Starts on [http://localhost:3001](http://localhost:3001).
 
 ### 4. Deploy
 
-1. Deploy this folder as its own project, separate from the frontend.
-2. Set the env vars above.
-3. The frontend resolves the backend URL automatically from the deployment hostname.
+Deploy this folder separately from the frontend. Set Redis + GitHub env vars. Frontend resolves the API host from the deployment hostname.
+
+## Masterlist applications
+
+Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. Staff may also **direct mint** via `POST /masterlist/register` for giveaways.
 
 ## Structure
 
-- **`lib`** — Redis client, in-memory cache wrapper, rate-limit and staff OAuth/session helpers
-- **`app/auth/github`** — staff GitHub OAuth start + callback
-- **`app/build`** — latest client/server download links, GitHub Releases-backed and cached
-- **`app/stats`** — aggregated repo stars/forks/issues/commits, GitHub-backed and cached
-- **`app/contributors`** — contributor list across repos, GitHub-backed and cached
-- **`app/vault`** — proxies `Vital.vault`'s resource index, cached
-- **`app/vault/tree`** — proxies the vault repo's git tree for per-resource zip downloads, cached
-- **`app/masterlist`** — Redis-backed live server list (`GET`, plus `register`/`heartbeat` for server owners)
-- **`app/og`** — OG image generation
+- **`lib`** — Redis, cache, rate-limit, auth sessions, applications
+- **`app/auth/github`** — OAuth start + callback
+- **`app/masterlist`** — live list, heartbeat, register, applications
+- **`app/build` / `stats` / `contributors` / `vault` / `og`** — cached GitHub-backed routes
 
 ## Contributing
 
-Bug reports and pull requests for new or improved endpoints are welcome. Keep new routes consistent with the existing pattern: cache GitHub-backed data with `lib/api_cache`, and document any new env var here.
-
-Rate limiting lives in `middleware.ts`, not in individual routes — add new cached GET routes to the `matcher` array there instead of calling `lib/ratelimit` from the route itself.
+Keep new routes consistent with existing patterns. Document new env vars here. Rate limiting lives in `middleware.ts` for cached GET routes.
