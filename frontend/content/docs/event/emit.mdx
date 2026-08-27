@@ -19,6 +19,7 @@ local status = util.event.emit(
 
   - **When routing options are needed** — pass the options table as the second argument.
   - **When no routing options are needed** — omit `options` and pass arguments directly after `name`.
+  - **Handler invocation order** — handlers are invoked in [`priority`](/docs/event/on#config) order, highest first; handlers sharing the same priority fire in registration order.
 </Callout>
 
 <Callout type="warn">
