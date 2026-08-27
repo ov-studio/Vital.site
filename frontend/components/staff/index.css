@@ -1,0 +1,234 @@
+.staff-page {
+  min-height: 60vh;
+}
+
+.staff-lead {
+  margin-top: 16px;
+  max-width: 42rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.staff-lead code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.85em;
+  color: var(--blue);
+}
+
+.staff-card {
+  max-width: 36rem;
+  padding: 28px 28px 32px;
+  background: var(--bg, #0c0e12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.staff-card-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.staff-card-text--tight {
+  margin: 0;
+}
+
+.staff-card-text code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.85em;
+  color: var(--blue);
+}
+
+.staff-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.staff-row--between {
+  justify-content: space-between;
+}
+
+.staff-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.staff-optional {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-soft, rgba(255, 255, 255, 0.45));
+}
+
+.staff-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.95rem;
+  color: var(--white, #fff);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.staff-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.staff-input:focus {
+  border-color: var(--blue);
+}
+
+.staff-input:disabled {
+  opacity: 0.6;
+}
+
+.staff-btn {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.staff-btn:disabled {
+  opacity: 0.55;
+  transform: none;
+}
+
+.staff-btn-ghost {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 6px 0;
+  font-size: 0.8rem;
+}
+
+.staff-error {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #ff8a8a;
+  background: rgba(255, 60, 60, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  border-radius: 4px;
+}
+
+.staff-result {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.staff-result-note {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.staff-kv {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 8px 12px;
+  align-items: start;
+}
+
+.staff-k {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft, rgba(255, 255, 255, 0.45));
+  padding-top: 4px;
+}
+
+.staff-v {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  word-break: break-all;
+  color: var(--white, #fff);
+  padding: 4px 0;
+}
+
+.staff-v--secret {
+  color: var(--blue);
+}
+
+.staff-copy {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-soft, rgba(255, 255, 255, 0.55));
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.staff-copy:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+@media (max-width: 640px) {
+  .staff-card {
+    padding: 20px;
+  }
+
+  .staff-kv {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-copy {
+    justify-self: start;
+  }
+}
+
+.staff-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.staff-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  object-fit: cover;
+}
+
+.staff-user-login {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white, #fff);
+}
+
+.staff-user-role {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
