@@ -125,16 +125,12 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     if (!is_dir || downloading) return;
     set_downloading(true);
     set_dl_error(null);
-    try {
-      await download_directory_zip(folder);
-    }
+    try { await download_directory_zip(folder); }
     catch (err) {
       console.error('[Vault] directory zip failed', err);
       set_dl_error('Could not prepare the download. Please try again.');
     }
-    finally {
-      set_downloading(false);
-    }
+    finally { set_downloading(false); }
   }, [is_dir, folder, downloading]);
 
   react.useEffect(() => {

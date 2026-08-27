@@ -45,10 +45,7 @@ function findIconsDir() {
   for (const c of candidates) {
     if (fs.existsSync(c)) return c;
   }
-  console.error(`
-[bake-wallpaper] lucide-react not found under node_modules.
-  cd frontend && npm install
-`);
+  console.error(`[bake-wallpaper] lucide-react not found under node_modules. cd frontend && npm install`);
   process.exit(1);
 }
 
