@@ -1,9 +1,10 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
 import * as component_brand from '@/components/brand';
 import * as component_social from '@/components/social';
 import * as lib_api_url from '@/lib/api_url';
 import * as lib_staff_session from '@/lib/staff_session';
+import { useCallback, useEffect, useState } from 'react';
+import * as lucide from 'lucide-react';
 import './index.css';
 
 interface NavLink {
@@ -73,7 +74,7 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
               aria-label="Sign in with GitHub"
               title="Sign in"
             >
-              <KeyIcon className="nav-auth-svg" />
+              <lucide.Fingerprint className="nav-auth-svg" size={18} strokeWidth={2} />
             </button>
           )}
           {session && (
@@ -135,18 +136,3 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
   );
 }
 
-function KeyIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      width="18"
-      height="18"
-      fill="currentColor"
-      aria-hidden
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
-    </svg>
-  );
-}
