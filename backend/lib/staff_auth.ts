@@ -1,14 +1,11 @@
-import * as lib_api_url from '@/lib/api_url';
 import * as crypto      from 'crypto';
+import * as lib_api_url from '@/lib/api_url';
+import * as lib_redis   from '@/lib/redis';
 
-const STAFF_TOKEN_TTL_SECONDS = 60 * 60 * 8; // 8 hours
+const STAFF_SESSION_TTL_SECONDS = 60 * 60 * 8; // 8 hours
 const GITHUB_AUTHORIZE = 'https://github.com/login/oauth/authorize';
 const GITHUB_TOKEN = 'https://github.com/login/oauth/access_token';
 const GITHUB_USER = 'https://api.github.com/user';
-
-function staff_secret(): string | null {
-  return process.env.STAFF_JWT_SECRET || process.env.MASTERLIST_ADMIN_SECRET || null;
-}
 
 function staff_logins(): Set<string> {
   const raw = process.env.STAFF_GITHUB_LOGINS ?? '';
@@ -24,8 +21,8 @@ export function staff_auth_configured(): boolean {
   return Boolean(
     process.env.GITHUB_CLIENT_ID &&
     process.env.GITHUB_CLIENT_SECRET &&
-    staff_secret() &&
-    staff_logins().size > 0
+    staff_logins().size > 0 &&
+    lib_redis.redis_configured
   );
 }
 
@@ -33,68 +30,52 @@ export function is_staff_login(login: string): boolean {
   return staff_logins().has(login.toLowerCase());
 }
 
-function b64url(buf: Buffer | string): string {
-  const b = typeof buf === 'string' ? Buffer.from(buf, 'utf8') : buf;
-  return b.toString('base64url');
+export function make_oauth_state(): string {
+  return crypto.randomBytes(24).toString('hex');
 }
 
-function timing_safe_equal_str(a: string, b: string): boolean {
-  const ba = Buffer.from(a);
-  const bb = Buffer.from(b);
-  if (ba.length !== bb.length) return false;
-  return crypto.timingSafeEqual(ba, bb);
+export async function store_oauth_state(state: string): Promise<void> {
+  if (!lib_redis.redis) throw new Error('Redis not configured');
+  await lib_redis.redis.set(lib_redis.staff_oauth_state_key(state), '1', { ex: 600 });
 }
 
-export function issue_staff_token(login: string): string {
-  const secret = staff_secret();
-  if (!secret) throw new Error('staff secret not configured');
-  const payload = {
-    sub: login.toLowerCase(),
-    iat: Math.floor(Date.now() / 1000),
-    exp: Math.floor(Date.now() / 1000) + STAFF_TOKEN_TTL_SECONDS,
-    typ: 'staff'
-  };
-  const body = b64url(JSON.stringify(payload));
-  const sig = crypto.createHmac('sha256', secret).update(body).digest();
-  return `${body}.${b64url(sig)}`;
+export async function consume_oauth_state(state: string): Promise<boolean> {
+  if (!lib_redis.redis) return false;
+  const key = lib_redis.staff_oauth_state_key(state);
+  const ok = await lib_redis.redis.get(key);
+  if (!ok) return false;
+  await lib_redis.redis.del(key);
+  return true;
 }
 
-export function verify_staff_token(token: string): { login: string } | null {
-  const secret = staff_secret();
-  if (!secret) return null;
-  const parts = token.split('.');
-  if (parts.length !== 2) return null;
-  const [body, sig] = parts;
-  const expected = b64url(crypto.createHmac('sha256', secret).update(body).digest());
-  if (!timing_safe_equal_str(sig, expected)) return null;
+export async function issue_staff_session(login: string): Promise<string> {
+  if (!lib_redis.redis) throw new Error('Redis not configured');
+  const session_token = crypto.randomBytes(32).toString('hex');
+  await lib_redis.redis.set(
+    lib_redis.staff_session_key(session_token),
+    JSON.stringify({ login: login.toLowerCase() }),
+    { ex: STAFF_SESSION_TTL_SECONDS }
+  );
+  return session_token;
+}
+
+export async function verify_staff_session(session_token: string): Promise<{ login: string } | null> {
+  if (!lib_redis.redis || !session_token) return null;
+  const raw = await lib_redis.redis.get(lib_redis.staff_session_key(session_token));
+  if (!raw) return null;
   try {
-    const payload = JSON.parse(Buffer.from(body, 'base64url').toString('utf8')) as {
-      sub?: string;
-      exp?: number;
-      typ?: string;
-    };
-    if (payload.typ !== 'staff' || typeof payload.sub !== 'string') return null;
-    if (typeof payload.exp !== 'number' || payload.exp < Math.floor(Date.now() / 1000)) return null;
-    if (!is_staff_login(payload.sub)) return null;
-    return { login: payload.sub };
-  } catch {
-    return null;
+    const data = (typeof raw === 'string' ? JSON.parse(raw) : raw) as { login?: string };
+    if (typeof data.login !== 'string' || !is_staff_login(data.login)) return null;
+    return { login: data.login };
   }
+  catch { return null; }
 }
 
-export function authorize_register(auth_header: string | null): boolean {
-  if (!auth_header?.startsWith('Bearer ')) return false;
+export async function authorize_register(auth_header: string | null): Promise<{ login: string } | null> {
+  if (!auth_header?.startsWith('Bearer ')) return null;
   const token = auth_header.slice(7).trim();
-  if (!token) return false;
-
-  const admin = process.env.MASTERLIST_ADMIN_SECRET;
-  if (admin) {
-    const expected = `Bearer ${admin}`;
-    const a = Buffer.from(auth_header);
-    const b = Buffer.from(expected);
-    if (a.length === b.length && crypto.timingSafeEqual(a, b)) return true;
-  }
-  return verify_staff_token(token) !== null;
+  if (!token) return null;
+  return verify_staff_session(token);
 }
 
 export function github_authorize_url(state: string): string {
@@ -148,13 +129,13 @@ export async function fetch_github_login(access_token: string): Promise<{ login:
   return { login: data.login };
 }
 
-export function make_oauth_state(): string {
-  return crypto.randomBytes(24).toString('hex');
-}
-
-export function staff_frontend_callback_url(staff_token: string): string {
+export function staff_frontend_callback_url(session_token: string, login: string): string {
   const base = lib_api_url.get_frontend_url();
-  return `${base}/staff#staff_token=${encodeURIComponent(staff_token)}`;
+  const params = new URLSearchParams({
+    staff_token: session_token,
+    login: login.toLowerCase()
+  });
+  return `${base}/staff#${params.toString()}`;
 }
 
 export function staff_frontend_error_url(message: string): string {
