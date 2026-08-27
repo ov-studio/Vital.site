@@ -21,15 +21,14 @@ Create a `.env.local` file in this directory (already in `.gitignore`):
 ```dotenv
 UPSTASH_REDIS_REST_URL=""
 UPSTASH_REDIS_REST_TOKEN=""
-MASTERLIST_ADMIN_SECRET=""
 MASTERLIST_STRICT_IP=false
+GITHUB_CLIENT_SECRET=""
 ```
 
 | Variable | Required | Description |
 |---|---|---|
 | `UPSTASH_REDIS_REST_URL` | Yes* | REST endpoint for your Upstash Redis database. |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
-| `MASTERLIST_ADMIN_SECRET` | Yes | Bearer secret required to call `POST /masterlist/register`. Generate a long random value (e.g. `openssl rand -hex 32`). |
 | `MASTERLIST_STRICT_IP` | No | When `true` (default in production), a heartbeat is rejected if the server's IP doesn't match the IP it registered with. Set to `false` locally — localhost and tunnels rarely present a stable matching IP. |
 
 <sub>* If Redis isn't configured, the service still starts — masterlist and rate-limiting endpoints respond as unavailable and log a warning instead of crashing.</sub>
