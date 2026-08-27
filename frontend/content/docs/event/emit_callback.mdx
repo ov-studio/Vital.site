@@ -21,6 +21,13 @@ local result = util.event.emit_callback(
   - **When no routing options are needed** — omit `options` and pass arguments directly after `name`.
 </Callout>
 
+<Callout type="info">
+  **Handlers are invoked in [`priority`](/docs/event/on#config) order, highest first.**
+
+  - **Different priority** — the handler with the higher `priority` fires first.
+  - **Same priority** — handlers fire in registration order.
+</Callout>
+
 <Callout type="warn">
   **Only serializable values survive remote transmission. Non-serializable values are silently dropped.**
 
