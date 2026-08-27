@@ -32,6 +32,9 @@ STAFF_GITHUB_LOGINS=""
 | `UPSTASH_REDIS_REST_URL` | Yes* | REST endpoint for your Upstash Redis database. |
 | `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
 | `MASTERLIST_STRICT_IP` | No | When `true` (default in production), a heartbeat is rejected if the server's IP doesn't match the IP it registered with. Set to `false` locally — localhost and tunnels rarely present a stable matching IP. |
+| `GITHUB_CLIENT_ID` | Yes† | GitHub OAuth App client ID (staff mint UI). |
+| `GITHUB_CLIENT_SECRET` | Yes† | GitHub OAuth App client secret. |
+| `STAFF_GITHUB_LOGINS` | Yes† | Comma-separated GitHub usernames allowed to mint masterlist tokens via `/staff`. |
 
 <sub>* If Redis isn't configured, the service still starts — masterlist and rate-limiting endpoints respond as unavailable and log a warning instead of crashing.</sub>
 
@@ -57,7 +60,8 @@ Starts on [http://localhost:3001](http://localhost:3001) — the frontend picks 
 
 ## Structure
 
-- **`lib`** — Redis client, in-memory cache wrapper, and rate-limit helper
+- **`lib`** — Redis client, in-memory cache wrapper, rate-limit and staff OAuth/session helpers
+- **`app/auth/github`** — staff GitHub OAuth start + callback
 - **`app/build`** — latest client/server download links, GitHub Releases-backed and cached
 - **`app/stats`** — aggregated repo stars/forks/issues/commits, GitHub-backed and cached
 - **`app/contributors`** — contributor list across repos, GitHub-backed and cached
