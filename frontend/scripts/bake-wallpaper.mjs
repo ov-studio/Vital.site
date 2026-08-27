@@ -60,9 +60,8 @@ function loadIconNodes(iconsDir, name) {
 
     let m = src.match(/const\s+__iconNode\s*=\s*(\[[\s\S]*?\]);/);
     if (m) {
-      try {
-        return vm.runInNewContext(`(${m[1]})`);
-      } catch (e) {
+      try { return vm.runInNewContext(`(${m[1]})`); } 
+      catch (e) {
         console.warn(`  [parse fail] ${name}`, e.message);
         return null;
       }
@@ -70,9 +69,8 @@ function loadIconNodes(iconsDir, name) {
 
     m = src.match(/const\s+\w+\s*=\s*(\[[\s\S]*?\]);\s*\n\s*export/);
     if (m) {
-      try {
-        return vm.runInNewContext(`(${m[1]})`);
-      } catch (e) {
+      try { return vm.runInNewContext(`(${m[1]})`); } 
+      catch (e) {
         console.warn(`  [parse fail] ${name}`, e.message);
         return null;
       }
@@ -190,9 +188,8 @@ async function main() {
   console.log(`[bake-wallpaper] icons: ${iconsDir}`);
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  try {
-    await import('sharp');
-  } catch {
+  try { await import('sharp'); } 
+  catch {
     console.error(`[bake-wallpaper] sharp is required. cd frontend && npm i -D sharp && node scripts/bake-wallpaper.mjs`);
     process.exit(1);
   }
