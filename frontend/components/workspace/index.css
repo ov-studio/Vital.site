@@ -1,5 +1,16 @@
 .ws-page {
-  min-height: 60vh;
+  position: relative;
+  min-height: 100dvh;
+  padding: calc(100px + var(--nav-h)) 0;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.ws-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 36rem;
 }
 
 .ws-lead {
@@ -210,7 +221,7 @@
   gap: 12px;
 }
 
-.ws-user-avatar {
+.ws-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -218,17 +229,63 @@
   object-fit: cover;
 }
 
-.ws-user-login {
+.ws-login {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--white, #fff);
 }
 
-.ws-user-role {
+.ws-role {
   margin-top: 2px;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--blue);
+}
+
+.ws-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+}
+
+.ws-pending-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ws-pending-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ws-pending-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white, #fff);
+}
+
+.ws-pending-meta {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: var(--text-soft, rgba(255, 255, 255, 0.5));
+}
+
+.ws-pending-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ws-btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
 }

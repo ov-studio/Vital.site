@@ -1,7 +1,8 @@
 'use client';
-import * as react            from 'react';
+import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
+import * as react            from 'react';
 import './index.css';
 
 type Application = {
@@ -200,7 +201,11 @@ export function Workspace() {
   const app = data?.application ?? null;
 
   return (
-    <main className="ws-page sec-pad-sm">
+    <main className="ws-page">
+      <ui_wallpaper.Wallpaper
+        seed={8}
+        vignette={false}
+      />
       <div className="sw">
         <div className="page-head">
           <div className="slabel">Account</div>
@@ -219,7 +224,7 @@ export function Workspace() {
             </button>
           </div>
         ) : (
-          <>
+          <div className="ws-widgets">
             <div className="ws-card">
               <div className="ws-user">
                 <img className="ws-avatar" src={session.avatarUrl} alt="" width={40} height={40} referrerPolicy="no-referrer"/>
@@ -376,7 +381,7 @@ export function Workspace() {
                 </div>
               </>
             )}
-          </>
+          </div>
         )}
       </div>
     </main>
