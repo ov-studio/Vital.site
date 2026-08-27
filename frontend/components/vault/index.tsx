@@ -176,14 +176,12 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
             className={`vault-modal-share${copied ? ' copied' : ''}`}
             icon={copied ? lucide.Check : lucide.Link}
             iconProps={{ size: 14, strokeWidth: 2.5 }}
-            title="Share"
             onClick={handle_share}
           />
           <ui_iconbutton.IconButton
             className="vault-modal-close"
             icon={lucide.X}
             iconProps={{ size: 14, strokeWidth: 2.5 }}
-            title="Close"
             onClick={on_close}
           />
         </div>

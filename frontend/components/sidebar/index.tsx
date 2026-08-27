@@ -21,7 +21,6 @@ export function SidebarToggle() {
       icon={lucide.PanelLeft}
       iconProps={{ size: 18, strokeWidth: 2.2 }}
       onClick={toggle}
-      title="Toggle sidebar"
     />
   );
 }
