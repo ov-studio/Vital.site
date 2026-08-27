@@ -55,7 +55,7 @@ Starts on [http://localhost:3001](http://localhost:3001) — the frontend picks 
 ### 4. Deploy
 
 1. Deploy this folder as its own project, separate from the frontend.
-2. Set the env vars above — `MASTERLIST_ADMIN_SECRET` in particular.
+2. Set the env vars above.
 3. The frontend resolves the backend URL automatically from the deployment hostname.
 
 ## Structure
