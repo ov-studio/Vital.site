@@ -320,10 +320,6 @@ export function Workspace() {
                     <div className="ws-stat-label">Issued tokens</div>
                     <div className="ws-stat-value">{tokens.length}</div>
                   </div>
-                  <div className="ws-stat">
-                    <div className="ws-stat-label">Your role</div>
-                    <div className="ws-stat-value ws-stat-value--sm">Staff</div>
-                  </div>
                 </div>
 
                 <div className="ws-panel">

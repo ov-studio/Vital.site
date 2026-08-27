@@ -6,6 +6,11 @@
   z-index: 0;
 }
 
+.ws-page > .sw {
+  position: relative;
+  z-index: 1;
+}
+
 .ws-lead {
   margin-top: 16px;
   max-width: 42rem;
@@ -61,8 +66,12 @@
 }
 
 .ws-stat {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
   padding: 18px 20px;
   background: var(--bg7, #0c0e12);
+  background-color: var(--bg7, #0c0e12);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 4px;
 }
@@ -93,7 +102,11 @@
 
 /* Panels */
 .ws-panel {
-  background: var(--bg7);
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  background: var(--bg7, #0c0e12);
+  background-color: var(--bg7, #0c0e12);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 4px;
   margin-bottom: 20px;
