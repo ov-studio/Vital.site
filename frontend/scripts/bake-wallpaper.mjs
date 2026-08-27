@@ -193,8 +193,7 @@ async function main() {
   try {
     await import('sharp');
   } catch {
-    console.error(`[bake-wallpaper] sharp is required.
-  cd frontend && npm i -D sharp && node scripts/bake-wallpaper.mjs`);
+    console.error(`[bake-wallpaper] sharp is required. cd frontend && npm i -D sharp && node scripts/bake-wallpaper.mjs`);
     process.exit(1);
   }
 
