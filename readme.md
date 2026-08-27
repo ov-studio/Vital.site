@@ -17,7 +17,7 @@ python dev.py
 For env var setup and deployment details, see each project's readme:
 
 - **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, static export
-- **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, masterlist admin secret
+- **[`backend/readme.md`](./backend/readme.md)** — API service setup, Redis/Upstash config, staff GitHub OAuth for masterlist token minting
 
 ## Structure
 

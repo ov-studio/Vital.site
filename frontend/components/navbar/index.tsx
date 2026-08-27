@@ -1,7 +1,7 @@
 'use client';
-import * as component_brand from '@/components/brand';
-import * as component_social from '@/components/social';
-import * as lib_api_url from '@/lib/api_url';
+import * as component_brand   from '@/components/brand';
+import * as component_social  from '@/components/social';
+import * as lib_api_url       from '@/lib/api_url';
 import * as lib_staff_session from '@/lib/staff_session';
 import { useCallback, useEffect, useState } from 'react';
 import * as lucide from 'lucide-react';
@@ -19,7 +19,6 @@ interface NavbarProps {
 
 export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
   const [session, setSession] = useState<lib_staff_session.StaffSession | null>(null);
-  const [onStaffPage, setOnStaffPage] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const refresh = useCallback(() => {
@@ -29,8 +28,6 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
   useEffect(() => {
     lib_staff_session.capture_oauth_hash();
     refresh();
-    setOnStaffPage(window.location.pathname.replace(/\/$/, '') === '/staff');
-
     const on_storage = (e: StorageEvent) => {
       if (e.key === lib_staff_session.STAFF_TOKEN_KEY || e.key === null) refresh();
     };
@@ -42,7 +39,7 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
     };
   }, [refresh]);
 
-  const showSignIn = (showStaffAuth ?? onStaffPage) && !session;
+  const showSignIn = (showStaffAuth ?? true) && !session;
 
   const login = useCallback(() => {
     window.location.href = lib_api_url.get_api_url('/auth/github');
@@ -66,6 +63,7 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
           ))}
         </ul>
         <div className="nav-end">
+          <component_social.Social />
           {showSignIn && (
             <button
               type="button"
@@ -129,7 +127,6 @@ export function Navbar({ links = [], showStaffAuth }: NavbarProps) {
               )}
             </div>
           )}
-          <component_social.Social />
         </div>
       </div>
     </nav>

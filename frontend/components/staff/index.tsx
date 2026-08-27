@@ -101,8 +101,8 @@ export function StaffMint() {
         {!session ? (
           <div className="staff-card">
             <p className="staff-card-text">
-              Use <strong>Sign in</strong> in the navbar (GitHub). Only allowlisted accounts can mint.
-              Automation can still use <code>MASTERLIST_ADMIN_SECRET</code> via curl.
+              Use the fingerprint icon in the navbar to sign in with GitHub. Only allowlisted
+              accounts can mint server tokens.
             </p>
             {error && (
               <p className="staff-error" role="alert">

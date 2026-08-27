@@ -36,13 +36,18 @@ STAFF_GITHUB_LOGINS=""
 | `GITHUB_CLIENT_SECRET` | Yes† | GitHub OAuth App client secret. |
 | `STAFF_GITHUB_LOGINS` | Yes† | Comma-separated GitHub usernames allowed to mint masterlist tokens via `/staff`. |
 
-<sub>* If Redis isn't configured, the service still starts — masterlist and rate-limiting endpoints respond as unavailable and log a warning instead of crashing.</sub>
+<sub>* If Redis isn't configured, the service still starts — masterlist, rate-limiting, and staff auth respond as unavailable and log a warning instead of crashing.</sub>
 
 **Getting your Upstash credentials:**
-
 1. Create a free database at [upstash.com](https://upstash.com).
 2. Open the database → **REST API** tab.
 3. Copy `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` into `.env.local`.
+
+**GitHub OAuth App (staff mint):**
+1. Create an OAuth App at [GitHub Developer settings](https://github.com/settings/developers).
+2. Homepage: frontend URL (e.g. `http://localhost:3000`).
+3. Authorization callback URL: `http://localhost:3001/auth/github/callback` (prod: `https://api.<domain>/auth/github/callback`).
+4. Put Client ID / secret and allowlisted logins in `.env.local`.
 
 ### 3. Run the dev server
 
