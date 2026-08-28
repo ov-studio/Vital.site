@@ -1,0 +1,31 @@
+{
+    "title": "Shader",
+    "icon": "Sliders",
+    "pages": [
+        "---Enum---",
+        "enum__shader_mode",
+
+        "---Base---",
+        "create",
+        "create_from_raw",
+        "...",
+
+        "---⁝⁝Lifecycle---",
+        "method__is_type",
+        "method__get_type",
+        "method__destroy",
+
+        "---⁝⁝Getter---",
+        "method__get_mode",
+        "method__get_code",
+
+        "---⁝⁝Setter---",
+        "method__set_param",
+        "method__set_param_color",
+        "method__set_param_texture",
+        "method__set_param_rt",
+
+        "---⁝⁝Misc---",
+        "method__apply_to_model"
+    ]
+}

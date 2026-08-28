@@ -1,0 +1,32 @@
+---
+title: self:get_code
+description: Retrieves the compiled GLSL source code of the shader
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_code()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | result | The full GLSL source code of the shader as a string |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the source code of a shader"
+local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+core.engine.print("info", "Shader code:", entity:get_code())
+```

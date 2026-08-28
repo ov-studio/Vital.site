@@ -1,0 +1,43 @@
+---
+title: self:set_param_color
+description: Sets a color uniform parameter on the shader by name
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_param_color(
+    name,
+    color
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the uniform parameter as declared in the GLSL source |
+| `color` | color | RGBA color value to assign |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a color uniform on a shader"
+local entity = core.shader.create("assets/shaders/tint.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+entity:set_param_color("tint_color", {1.0, 0.2, 0.2, 1.0})
+```
+
+```lua lineNumbers title="Set an emissive color on a spatial shader"
+local entity = core.shader.create("assets/shaders/emissive.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:set_param_color("emission_color", {0.0, 0.5, 1.0, 1.0})
+```

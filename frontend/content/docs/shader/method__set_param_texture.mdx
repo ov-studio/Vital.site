@@ -1,0 +1,45 @@
+---
+title: self:set_param_texture
+description: Binds an image instance to a sampler uniform on the shader
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_param_texture(
+    name,
+    texture
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the sampler uniform as declared in the GLSL source |
+| `image` | texture | Image instance to bind — refer to [`core.image.create`](/docs/image/create) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Bind a texture to a canvas-item shader"
+local entity = core.shader.create("assets/shaders/distort.glsl", core.shader.shader_mode.CANVAS_ITEM)
+local tex = core.image.create("assets/textures/noise.png")
+
+entity:set_param_texture("noise_tex", tex)
+```
+
+```lua lineNumbers title="Bind a diffuse map to a spatial shader"
+local entity = core.shader.create("assets/shaders/pbr_custom.glsl", core.shader.shader_mode.SPATIAL)
+local diffuse = core.image.create("assets/materials/rock_diffuse.png")
+
+entity:set_param_texture("albedo_tex", diffuse)
+```

@@ -86,7 +86,7 @@ function nodesToInnerSvg(nodes, size) {
     delete a.key;
     a.fill = 'none';
     a.stroke = BRAND;
-    a['stroke-width'] = '1.5';
+    a['stroke-width'] = '1';
     a['stroke-linecap'] = 'round';
     a['stroke-linejoin'] = 'round';
     const attrStr = Object.entries(a)

@@ -1,0 +1,32 @@
+---
+title: self:destroy
+description: Destroys the shader instance and frees its resources
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a shader instance"
+local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+entity:destroy()
+```

@@ -1,0 +1,49 @@
+---
+title: self:set_param
+description: Sets a uniform parameter on the shader by name
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_param(
+    name,
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the uniform parameter as declared in the GLSL source |
+| `bool` \| `number` \| `vector2` \| `vector3` | value | Value to assign — must match the uniform's declared type |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a float uniform on a shader"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:set_param("dissolve_amount", 0.75)
+```
+
+```lua lineNumbers title="Set a vector2 uniform on a shader"
+local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+entity:set_param("wave_direction", {1.0, 0.5})
+```
+
+```lua lineNumbers title="Set a bool uniform on a shader"
+local entity = core.shader.create("assets/shaders/outline.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:set_param("show_outline", true)
+```

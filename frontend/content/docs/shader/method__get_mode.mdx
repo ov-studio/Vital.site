@@ -1,0 +1,32 @@
+---
+title: self:get_mode
+description: Retrieves the rendering pipeline mode the shader was compiled for
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:get_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Mode enum value — refer to [`core.shader.shader_mode`](/docs/shader/enum/shader_mode) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the mode of a shader instance"
+local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+core.engine.print("info", "Shader mode:", entity:get_mode())
+```

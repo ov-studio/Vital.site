@@ -1,0 +1,45 @@
+---
+title: self:set_param_rt
+description: Binds a rendertarget's viewport texture to a sampler uniform on the shader
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_param_rt(
+    name,
+    rendertarget
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the sampler uniform as declared in the GLSL source |
+| `rendertarget` | rendertarget | Rendertarget instance whose viewport texture will be bound — refer to [`core.rendertarget.create`](/docs/rendertarget/create) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Bind a rendertarget to a post-process shader"
+local rt = core.rendertarget.create({1920, 1080})
+local entity = core.shader.create("assets/shaders/postfx.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+entity:set_param_rt("screen_tex", rt)
+```
+
+```lua lineNumbers title="Pipe a rendertarget into a spatial shader for screen-space effects"
+local rt = core.rendertarget.create({512, 512})
+local entity = core.shader.create("assets/shaders/reflection.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:set_param_rt("reflection_tex", rt)
+```

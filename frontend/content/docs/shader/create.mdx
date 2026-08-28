@@ -1,0 +1,42 @@
+---
+title: core.shader.create
+description: Creates a new shader instance by loading GLSL source from a file path
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = core.shader.create(
+    path,
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | path | File path to a `.glsl` shader asset |
+| `int` | mode | Rendering pipeline the shader targets — refer to [`core.shader.shader_mode`](/docs/shader/enum/shader_mode) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `shader` | instance | Created shader instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Load a canvas-item shader from a file"
+local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
+```
+
+```lua lineNumbers title="Load a spatial shader and apply it to a model"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+local mdl = core.model.create("assets/props/rock.glb")
+
+entity:apply_to_model(mdl)
+```

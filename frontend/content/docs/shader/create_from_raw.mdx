@@ -1,0 +1,56 @@
+---
+title: core.shader.create_from_raw
+description: Creates a new shader instance directly from a GLSL source string
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = core.shader.create_from_raw(
+    raw,
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | raw | Raw GLSL shader source code as a string |
+| `int` | mode | Rendering pipeline the shader targets — refer to [`core.shader.shader_mode`](/docs/shader/enum/shader_mode) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `shader` | instance | Created shader instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Compile a canvas-item shader from an inline source string"
+local src = [[
+    shader_type canvas_item;
+    void fragment() {
+        COLOR = vec4(UV, 0.0, 1.0);
+    }
+]]
+
+local entity = core.shader.create_from_raw(src, core.shader.shader_mode.CANVAS_ITEM)
+```
+
+```lua lineNumbers title="Compile a spatial shader from a raw source string"
+local src = [[
+    shader_type spatial;
+    uniform float dissolve_amount : hint_range(0.0, 1.0) = 0.0;
+    void fragment() {
+        ALBEDO = vec3(dissolve_amount);
+    }
+]]
+
+local entity = core.shader.create_from_raw(src, core.shader.shader_mode.SPATIAL)
+
+entity:set_param("dissolve_amount", 0.5)
+```

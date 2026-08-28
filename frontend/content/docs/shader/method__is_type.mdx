@@ -1,0 +1,36 @@
+---
+title: self:is_type
+description: Checks whether the instance belongs to the specified type
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_type(
+    name
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Type to check against |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the instance matches the given type, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the type of a shader instance"
+local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
+
+core.engine.print("info", entity:is_type("shader")) -- true
+core.engine.print("info", entity:is_type("image"))  -- false
+```

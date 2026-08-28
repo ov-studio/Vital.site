@@ -1,0 +1,44 @@
+---
+title: self:apply_to_model
+description: Applies the shader's material to a model instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:apply_to_model(
+    model
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `model` | model | Model instance to apply the shader material to — refer to [`core.model.create`](/docs/model/create) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a dissolve shader to a model"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+local mdl = core.model.create("assets/props/crate.glb")
+
+entity:set_param("dissolve_amount", 0.0)
+entity:apply_to_model(mdl)
+```
+
+```lua lineNumbers title="Apply a toon-shading shader to a character model"
+local entity = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
+local mdl = core.model.create("assets/characters/hero.glb")
+
+entity:apply_to_model(mdl)
+```

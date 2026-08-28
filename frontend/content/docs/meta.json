@@ -22,6 +22,7 @@
         "image",
         "svg",
         "rendertarget",
+        "shader",
         "audio_2d",
         "audio_3d",
 
