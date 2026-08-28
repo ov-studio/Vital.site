@@ -2369,8 +2369,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Auto-reconnect with attempts and delay',  status: 'completed' },
           { label: 'send / broadcast API',                    status: 'completed' },
           { label: 'Peer handshake on connect',               status: 'completed' },
-          { label: 'Bandwidth limiting',                      status: 'pending'   },
-          { label: 'Ping & round-trip time',                  status: 'pending'   }
+          { label: 'Ping & round-trip time',                  status: 'completed' }
         ]
       },
       {
