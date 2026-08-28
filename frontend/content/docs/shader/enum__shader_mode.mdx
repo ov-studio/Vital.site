@@ -8,17 +8,5 @@ badge: client
 
 | Constant | Description |
 |----------|-------------|
-| `core.shader.shader_mode.CANVAS_ITEM` | 2D canvas-based rendering pipeline — use for sprites, UI elements, and screen-space effects |
+| `core.shader.shader_mode.CANVAS_ITEM` | 2D canvas-based rendering pipeline — use for sprites, UI, and screen-space effects |
 | `core.shader.shader_mode.SPATIAL` | 3D spatial rendering pipeline — use for meshes, materials, and world-space effects |
-
----
-
-### Examples
-
-```lua lineNumbers title="Create a 2D canvas shader"
-local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
-```
-
-```lua lineNumbers title="Create a 3D spatial shader"
-local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
-```
