@@ -31,15 +31,15 @@ local status = self:set_param_rt(
 ### Examples
 
 ```lua lineNumbers title="Bind a rendertarget to a post-process shader"
-local rt = core.rendertarget.create({1920, 1080})
 local entity = core.shader.create("assets/shaders/postfx.glsl", core.shader.shader_mode.CANVAS_ITEM)
+local rendertarget = core.rendertarget.create({1920, 1080})
 
-entity:set_param_rt("screen_tex", rt)
+entity:set_param_rt("screen_tex", rendertarget)
 ```
 
 ```lua lineNumbers title="Pipe a rendertarget into a spatial shader for screen-space effects"
-local rt = core.rendertarget.create({512, 512})
 local entity = core.shader.create("assets/shaders/reflection.glsl", core.shader.shader_mode.SPATIAL)
+local rendertarget = core.rendertarget.create({512, 512})
 
-entity:set_param_rt("reflection_tex", rt)
+entity:set_param_rt("reflection_tex", rendertarget)
 ```
