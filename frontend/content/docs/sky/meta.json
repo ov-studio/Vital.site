@@ -3,7 +3,7 @@
     "icon": "CloudSun",
     "pages": [
         "---Enum---",
-        "enum__mode",
+        "enum__sky_mode",
         "enum__radiance_size",
         "enum__process_mode",
 
