@@ -3,7 +3,7 @@
     "icon": "Blend",
     "pages": [
         "---Enum---",
-        "enum__mode",
+        "enum__aa_mode",
         "enum__msaa_mode",
 
         "---Getter---",
