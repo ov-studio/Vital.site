@@ -515,18 +515,26 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
-        // TODO: WIP
         label: 'Shader',
-        desc:  'Runtime shader compilation and ShaderMaterial parameter/uniform control from Lua',
-        icon:  <lucide.Sliders {...config_site.info.lucide}/>,
+        desc:  'GLSL shader compilation from file or raw source, with full uniform control and model/rendertarget binding from Lua',
+        icon:  <lucide.Sliders  {...config_site.info.lucide}/>,
         items: [
-          { label: 'Custom shader authoring and compilation from Lua',                                       status: 'pending' },
-          { label: 'ShaderMaterial.set_shader_parameter',                                                    status: 'pending' },
-          { label: 'Texture uniform binding',                                                                status: 'pending' },
-          { label: 'Float / vec2 / vec3 / color uniforms',                                                   status: 'pending' },
-          { label: 'Per-instance uniform override',                                                          status: 'pending' },
-          { label: 'Auto-bind model textures to shader uniforms (albedo / normal / ORM)',                    status: 'pending' },
-          { label: 'ShaderMaterial - replace BaseMaterial3D on surface while preserving original textures',  status: 'pending' },
+          { label: 'Lifecycle hooks',                              status: 'completed' },
+          { label: 'Canvas 2D rendering mode',                           status: 'completed' },
+          { label: 'Spatial 3D rendering mode',                               status: 'completed' },
+          { label: '[Client] Enum: core.shader.shader_mode',       status: 'completed' },
+          { label: '[Client] API: core.shader.create',             status: 'completed' },
+          { label: '[Client] API: core.shader.create_from_raw',    status: 'completed' },
+          { label: '[Client] API: self:is_type',                   status: 'completed' },
+          { label: '[Client] API: self:get_type',                  status: 'completed' },
+          { label: '[Client] API: self:destroy',                   status: 'completed' },
+          { label: '[Client] API: self:get_mode',                  status: 'completed' },
+          { label: '[Client] API: self:get_code',                  status: 'completed' },
+          { label: '[Client] API: self:set_param',                 status: 'completed' },
+          { label: '[Client] API: self:set_param_color',           status: 'completed' },
+          { label: '[Client] API: self:set_param_texture',         status: 'completed' },
+          { label: '[Client] API: self:set_param_rt',              status: 'completed' },
+          { label: '[Client] API: self:apply_to_model',            status: 'completed' },
         ]
       },
       {
