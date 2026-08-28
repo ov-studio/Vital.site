@@ -30,15 +30,15 @@ local status = self:apply_to_model(
 
 ```lua lineNumbers title="Apply a dissolve shader to a model"
 local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
-local mdl = core.model.create("assets/props/crate.glb")
+local model = core.model.create("assets/props/crate.glb")
 
 entity:set_param("dissolve_amount", 0.0)
-entity:apply_to_model(mdl)
+entity:apply_to_model(model)
 ```
 
 ```lua lineNumbers title="Apply a toon-shading shader to a character model"
 local entity = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
-local mdl = core.model.create("assets/characters/hero.glb")
+local model = core.model.create("assets/characters/hero.glb")
 
-entity:apply_to_model(mdl)
+entity:apply_to_model(model)
 ```
