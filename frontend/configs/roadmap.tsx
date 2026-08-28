@@ -535,7 +535,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:set_param_texture',         status: 'completed' },
           { label: '[Client] API: self:set_param_rt',              status: 'completed' },
           { label: '[Client] API: self:apply_to_model',            status: 'completed' },
-          { label: '[Client] API: self:apply_to_material',         status: 'pending'   },
+          { label: '[Client] API: self:apply_to_material',         status: 'pending'   }
         ]
       },
       {
