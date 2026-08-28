@@ -1,0 +1,37 @@
+---
+title: self:project_ray_origin
+description: Returns the world-space origin of a ray cast from the camera through a viewport position
+badge: client
+---
+
+### Syntax
+
+```lua
+local origin = self:project_ray_origin(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Viewport position to project from as `{x, y}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | origin | World-space ray origin as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the ray origin from a viewport position"
+local entity = core.camera.create()
+entity:set_active()
+
+local origin = entity:project_ray_origin({960, 540})
+core.engine.print("info", "Ray origin:", util.table.unpack(origin))
+```

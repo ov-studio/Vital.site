@@ -1,0 +1,40 @@
+---
+title: self:look_at_from_position
+description: Moves the camera to the given position and rotates it to look at the target
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:look_at_from_position(
+    position,
+    target,
+    up
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | World-space position to place the camera at as `{x, y, z}` |
+| `vector3` | target | World-space position to look at as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Position a camera and aim it at a target"
+local entity = core.camera.create()
+
+entity:look_at_from_position({0, 10, 10}, {0, 0, 0}, {0, 1, 0})
+entity:set_active()
+```

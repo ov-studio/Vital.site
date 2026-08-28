@@ -1,0 +1,32 @@
+---
+title: self:get_doppler_tracking
+description: Retrieves the current Doppler tracking mode of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_doppler_tracking()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.camera.doppler_tracking`](/docs/camera/enum/doppler_tracking) | mode | Current Doppler tracking mode |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the Doppler tracking mode of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "Doppler tracking:", entity:get_doppler_tracking())
+```

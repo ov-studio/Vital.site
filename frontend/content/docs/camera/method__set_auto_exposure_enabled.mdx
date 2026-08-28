@@ -1,0 +1,35 @@
+---
+title: self:set_auto_exposure_enabled
+description: Enables or disables auto exposure on the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_auto_exposure_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to enable auto exposure, `false` to disable |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable auto exposure on a camera"
+local entity = core.camera.create()
+
+entity:set_auto_exposure_enabled(true)
+```

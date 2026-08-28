@@ -1,0 +1,36 @@
+---
+title: self:is_position_in_frustum
+description: Checks whether a world-space position is within the camera's view frustum
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_position_in_frustum(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | World-space position to check as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the position is inside the frustum, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check if a point is visible to the camera"
+local entity = core.camera.create()
+entity:set_active()
+
+core.engine.print("info", entity:is_position_in_frustum({0, 0, -5}))
+```

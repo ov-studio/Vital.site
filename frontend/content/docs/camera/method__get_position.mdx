@@ -1,0 +1,33 @@
+---
+title: self:get_position
+description: Retrieves the local position of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local position = self:get_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current local position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local position of a camera"
+local entity = core.camera.create()
+local position = entity:get_position()
+
+core.engine.print("info", "Camera position:", util.table.unpack(position))
+```

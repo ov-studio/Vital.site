@@ -1,0 +1,32 @@
+---
+title: self:get_fov
+description: Retrieves the field of view of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local fov = self:get_fov()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | fov | Current field of view in degrees |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the field of view of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "FOV:", entity:get_fov())
+```

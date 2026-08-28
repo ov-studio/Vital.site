@@ -1,0 +1,32 @@
+---
+title: self:get_size
+description: Retrieves the orthogonal size of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local size = self:get_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | size | Current orthogonal size of the camera |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the orthogonal size of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "Size:", entity:get_size())
+```

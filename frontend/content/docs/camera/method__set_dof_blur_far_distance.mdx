@@ -1,0 +1,36 @@
+---
+title: self:set_dof_blur_far_distance
+description: Sets the far depth-of-field blur distance of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_far_distance(
+    distance
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Far DOF blur distance to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the far DOF blur distance of a camera"
+local entity = core.camera.create()
+
+entity:set_dof_blur_far_enabled(true)
+entity:set_dof_blur_far_distance(20)
+```

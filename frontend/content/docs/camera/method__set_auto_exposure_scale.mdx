@@ -1,0 +1,36 @@
+---
+title: self:set_auto_exposure_scale
+description: Sets the auto exposure scale of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_auto_exposure_scale(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | scale | Auto exposure scale value to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the auto exposure scale of a camera"
+local entity = core.camera.create()
+
+entity:set_auto_exposure_enabled(true)
+entity:set_auto_exposure_scale(1.0)
+```

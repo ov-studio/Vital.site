@@ -1,0 +1,32 @@
+---
+title: self:get_projection
+description: Retrieves the current projection mode of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_projection()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`core.camera.projection`](/docs/camera/enum/projection) | mode | Current projection mode of the camera |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the projection mode of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "Projection:", entity:get_projection())
+```

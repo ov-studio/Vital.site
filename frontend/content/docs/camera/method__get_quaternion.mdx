@@ -1,0 +1,33 @@
+---
+title: self:get_quaternion
+description: Retrieves the rotation of the camera as a quaternion
+badge: client
+---
+
+### Syntax
+
+```lua
+local quaternion = self:get_quaternion()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector4` | quaternion | Current rotation quaternion as `{x, y, z, w}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the quaternion rotation of a camera"
+local entity = core.camera.create()
+local quaternion = entity:get_quaternion()
+
+core.engine.print("info", "Camera quaternion:", util.table.unpack(quaternion))
+```

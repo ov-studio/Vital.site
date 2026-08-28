@@ -1,0 +1,39 @@
+---
+title: self:project_position
+description: Returns the world-space position of a point at a given depth from a viewport position
+badge: client
+---
+
+### Syntax
+
+```lua
+local world_position = self:project_position(
+    position,
+    depth
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Viewport position to project from as `{x, y}` |
+| `float` | depth | Depth distance along the ray from the camera |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | world_position | Resulting world-space position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Project a viewport position to world space at a given depth"
+local entity = core.camera.create()
+entity:set_active()
+
+local world_pos = entity:project_position({960, 540}, 10)
+core.engine.print("info", "World position:", util.table.unpack(world_pos))
+```

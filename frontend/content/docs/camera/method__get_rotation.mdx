@@ -1,0 +1,33 @@
+---
+title: self:get_rotation
+description: Retrieves the local rotation of the camera in Euler degrees
+badge: client
+---
+
+### Syntax
+
+```lua
+local rotation = self:get_rotation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Current local rotation as Euler degrees `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local rotation of a camera"
+local entity = core.camera.create()
+local rotation = entity:get_rotation()
+
+core.engine.print("info", "Camera rotation:", util.table.unpack(rotation))
+```

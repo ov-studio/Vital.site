@@ -1,0 +1,33 @@
+---
+title: self:get_global_position
+description: Retrieves the global world-space position of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local position = self:get_global_position()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current global position as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the global position of a camera"
+local entity = core.camera.create()
+local position = entity:get_global_position()
+
+core.engine.print("info", "Camera global position:", util.table.unpack(position))
+```

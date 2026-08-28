@@ -1,0 +1,32 @@
+---
+title: self:get_auto_exposure_max_sensitivity
+description: Retrieves the maximum sensitivity for auto exposure
+badge: client
+---
+
+### Syntax
+
+```lua
+local sensitivity = self:get_auto_exposure_max_sensitivity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | sensitivity | Current maximum auto exposure sensitivity |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the maximum auto exposure sensitivity"
+local entity = core.camera.create()
+
+core.engine.print("info", "Max sensitivity:", entity:get_auto_exposure_max_sensitivity())
+```

@@ -1,0 +1,33 @@
+---
+title: self:get_scale
+description: Retrieves the local scale of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local scale = self:get_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Current local scale as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local scale of a camera"
+local entity = core.camera.create()
+local scale = entity:get_scale()
+
+core.engine.print("info", "Camera scale:", util.table.unpack(scale))
+```

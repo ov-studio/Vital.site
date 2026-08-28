@@ -1,0 +1,35 @@
+---
+title: self:set_dof_blur_amount
+description: Sets the depth-of-field blur amount of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dof_blur_amount(
+    amount
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | amount | DOF blur amount to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the DOF blur amount of a camera"
+local entity = core.camera.create()
+
+entity:set_dof_blur_amount(0.1)
+```

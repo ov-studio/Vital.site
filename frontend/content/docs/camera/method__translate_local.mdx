@@ -1,0 +1,35 @@
+---
+title: self:translate_local
+description: Translates the camera by an offset relative to its own local axes
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:translate_local(
+    offset
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | offset | Translation offset to apply in local space as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Translate a camera along its local forward axis"
+local entity = core.camera.create()
+
+entity:translate_local({0, 0, -1})
+```

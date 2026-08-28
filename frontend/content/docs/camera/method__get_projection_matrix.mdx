@@ -1,0 +1,33 @@
+---
+title: self:get_projection_matrix
+description: Retrieves the camera's current projection matrix
+badge: client
+---
+
+### Syntax
+
+```lua
+local matrix = self:get_projection_matrix()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `projection` | matrix | Current camera projection matrix |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the projection matrix of a camera"
+local entity = core.camera.create()
+
+local matrix = entity:get_projection_matrix()
+core.engine.print("info", "Projection matrix:", matrix)
+```

@@ -1,0 +1,36 @@
+---
+title: self:set_auto_exposure_speed
+description: Sets the auto exposure adjustment speed of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_auto_exposure_speed(
+    speed
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | speed | Auto exposure adjustment speed to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the auto exposure speed of a camera"
+local entity = core.camera.create()
+
+entity:set_auto_exposure_enabled(true)
+entity:set_auto_exposure_speed(0.5)
+```

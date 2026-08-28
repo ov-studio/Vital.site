@@ -1,0 +1,32 @@
+---
+title: self:get_far_clip
+description: Retrieves the far clipping plane distance of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local z_far = self:get_far_clip()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | z_far | Current far clipping distance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the far clip distance of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "Far clip:", entity:get_far_clip())
+```

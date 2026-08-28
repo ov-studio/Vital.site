@@ -1,0 +1,37 @@
+---
+title: self:project_ray_normal
+description: Returns the normalised direction of a ray cast from the camera through a viewport position in world space
+badge: client
+---
+
+### Syntax
+
+```lua
+local normal = self:project_ray_normal(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | position | Viewport position to project the ray from as `{x, y}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | normal | Normalised ray direction in world space as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get a ray direction from viewport center"
+local entity = core.camera.create()
+entity:set_active()
+
+local ray = entity:project_ray_normal({960, 540})
+core.engine.print("info", "Ray direction:", util.table.unpack(ray))
+```

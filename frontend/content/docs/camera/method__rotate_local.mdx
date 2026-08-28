@@ -1,0 +1,37 @@
+---
+title: self:rotate_local
+description: Rotates the camera around the given axis in its own local space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:rotate_local(
+    axis,
+    degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | axis | Local-space axis to rotate around as `{x, y, z}` |
+| `float` | degrees | Angle to rotate in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a camera locally around its up axis"
+local entity = core.camera.create()
+
+entity:rotate_local({0, 1, 0}, 30)
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_dof_blur_far_distance
+description: Retrieves the far depth-of-field blur distance of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local distance = self:get_dof_blur_far_distance()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | distance | Current far DOF blur distance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the far DOF blur distance"
+local entity = core.camera.create()
+
+core.engine.print("info", "Far DOF distance:", entity:get_dof_blur_far_distance())
+```

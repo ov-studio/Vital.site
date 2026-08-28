@@ -1,0 +1,22 @@
+---
+title: core.camera.keep_aspect
+description: Enumeration of aspect ratio preservation modes available for the camera
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `core.camera.keep_aspect.WIDTH` | Preserves the camera's width when the viewport is resized |
+| `core.camera.keep_aspect.HEIGHT` | Preserves the camera's height when the viewport is resized |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the keep aspect mode on a camera"
+local entity = core.camera.create()
+
+entity:set_keep_aspect(core.camera.keep_aspect.HEIGHT)
+```

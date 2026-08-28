@@ -1,0 +1,35 @@
+---
+title: self:scale_local
+description: Scales the camera in local object space
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:scale_local(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale to apply in local space as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Scale a camera in local space"
+local entity = core.camera.create()
+
+entity:scale_local({1, 1, 2})
+```

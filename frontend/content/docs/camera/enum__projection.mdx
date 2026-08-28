@@ -1,0 +1,22 @@
+---
+title: core.camera.projection
+description: Enumeration of projection modes available for the camera
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `core.camera.projection.PERSPECTIVE` | Renders the scene with perspective projection, simulating depth perception |
+| `core.camera.projection.ORTHOGONAL` | Renders the scene with orthogonal projection, with no perspective distortion |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a camera to perspective projection"
+local entity = core.camera.create()
+
+entity:set_projection(core.camera.projection.PERSPECTIVE)
+```

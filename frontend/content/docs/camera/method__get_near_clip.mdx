@@ -1,0 +1,32 @@
+---
+title: self:get_near_clip
+description: Retrieves the near clipping plane distance of the camera
+badge: client
+---
+
+### Syntax
+
+```lua
+local z_near = self:get_near_clip()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | z_near | Current near clipping distance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the near clip distance of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "Near clip:", entity:get_near_clip())
+```

@@ -1,0 +1,37 @@
+---
+title: self:unproject_position
+description: Returns the viewport position corresponding to a world-space position
+badge: client
+---
+
+### Syntax
+
+```lua
+local screen_position = self:unproject_position(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | World-space position to unproject as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | screen_position | Resulting viewport position as `{x, y}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Convert a world position to screen space"
+local entity = core.camera.create()
+entity:set_active()
+
+local screen_pos = entity:unproject_position({0, 0, 0})
+core.engine.print("info", "Screen position:", util.table.unpack(screen_pos))
+```
