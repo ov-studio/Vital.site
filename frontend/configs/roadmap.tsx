@@ -1455,7 +1455,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Screen-space FXAA, temporal TAA, and MSAA antialiasing mode control from Lua',
         icon:  <lucide.Blend {...config_site.info.lucide}/>,
         items: [
-          { label: '[Client] Enum: gfx.antialiasing.mode',          status: 'completed' },
+          { label: '[Client] Enum: gfx.antialiasing.aa_mode',       status: 'completed' },
           { label: '[Client] Enum: gfx.antialiasing.msaa_mode',     status: 'completed' },
           { label: '[Client] API: gfx.antialiasing.get_mode',       status: 'completed' },
           { label: '[Client] API: gfx.antialiasing.get_msaa_mode',  status: 'completed' },
@@ -1468,7 +1468,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Sky material mode, FOV, rotation, radiance size, and process mode control from Lua',
         icon:  <lucide.CloudSun {...config_site.info.lucide}/>,
         items: [
-          { label: '[Client] Enum: gfx.sky.mode',              status: 'completed' },
+          { label: '[Client] Enum: gfx.sky.sky_mode',          status: 'completed' },
           { label: '[Client] Enum: gfx.sky.radiance_size',     status: 'completed' },
           { label: '[Client] Enum: gfx.sky.process_mode',      status: 'completed' },
           { label: '[Client] API: gfx.sky.get_mode',           status: 'completed' },
