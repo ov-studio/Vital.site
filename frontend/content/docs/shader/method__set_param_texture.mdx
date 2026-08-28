@@ -32,9 +32,9 @@ local status = self:set_param_texture(
 
 ```lua lineNumbers title="Bind a texture to a canvas-item shader"
 local entity = core.shader.create("assets/shaders/distort.glsl", core.shader.shader_mode.CANVAS_ITEM)
-local tex = core.image.create("assets/textures/noise.png")
+local image = core.image.create("assets/textures/noise.png")
 
-entity:set_param_texture("noise_tex", tex)
+entity:set_param_texture("noise_tex", image)
 ```
 
 ```lua lineNumbers title="Bind a diffuse map to a spatial shader"
