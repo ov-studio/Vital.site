@@ -2372,9 +2372,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label:  'Teleport snap on large gaps',                status: 'completed' },
           { label:  'Velocity extrapolation',                     status: 'completed' },
           { label:  'Blendshape replication',                     status: 'pending'   },
-          { label:  'Animation state replication',                status: 'pending'   },
-          { label:  'Material override replication',              status: 'pending'   },
-          { label:  'Lua RPC bindings',                           status: 'pending'   }
+          { label:  'Animation state replication',                status: 'pending'   }
         ]
       },
       {
