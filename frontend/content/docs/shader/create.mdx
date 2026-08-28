@@ -32,11 +32,8 @@ local instance = core.shader.create(
 
 ```lua lineNumbers title="Load a canvas-item shader from a file"
 local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shader_mode.CANVAS_ITEM)
-```
 
-```lua lineNumbers title="Load a spatial shader and apply it to a model"
-local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
-local mdl = core.model.create("assets/props/rock.glb")
-
-entity:apply_to_model(mdl)
+util.event.on("sandbox:draw", function()
+    core.engine.draw_shader({0, 0}, core.engine.get_resolution(), entity, 0, {0, 0}, {1, 1, 1, 1})
+end)
 ```
