@@ -31,26 +31,32 @@ local instance = core.shader.create_from_raw(
 ### Examples
 
 ```lua lineNumbers title="Compile a canvas-item shader from an inline source string"
-local src = [[
-    shader_type canvas_item;
+local raw = [[
     void fragment() {
         COLOR = vec4(UV, 0.0, 1.0);
     }
 ]]
 
-local entity = core.shader.create_from_raw(src, core.shader.shader_mode.CANVAS_ITEM)
+local entity = core.shader.create_from_raw(raw, core.shader.shader_mode.CANVAS_ITEM)
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_shader(
+        {0, 0}, 
+        core.engine.get_resolution(), 
+        entity
+    )
+end)
 ```
 
 ```lua lineNumbers title="Compile a spatial shader from a raw source string"
-local src = [[
-    shader_type spatial;
+local raw = [[
     uniform float dissolve_amount : hint_range(0.0, 1.0) = 0.0;
+
     void fragment() {
         ALBEDO = vec3(dissolve_amount);
     }
 ]]
 
-local entity = core.shader.create_from_raw(src, core.shader.shader_mode.SPATIAL)
-
+local entity = core.shader.create_from_raw(raw, core.shader.shader_mode.SPATIAL)
 entity:set_param("dissolve_amount", 0.5)
 ```
