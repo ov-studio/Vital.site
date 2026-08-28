@@ -1,6 +1,6 @@
 ---
 title: self:set_param_rt
-description: Binds a rendertarget's viewport texture to a sampler uniform on the shader
+description: Binds a rendertarget instance to a sampler uniform on the shader
 badge: client
 ---
 
@@ -18,7 +18,7 @@ local status = self:set_param_rt(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name of the sampler uniform as declared in the GLSL source |
-| `rendertarget` | rendertarget | Rendertarget instance whose viewport texture will be bound — refer to [`core.rendertarget.create`](/docs/rendertarget/create) |
+| `rendertarget` | rendertarget | Rendertarget instance to bind — refer to [`core.rendertarget.create`](/docs/rendertarget/create) |
 
 ### Returns
 
