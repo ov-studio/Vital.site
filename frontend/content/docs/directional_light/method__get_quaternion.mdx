@@ -28,5 +28,5 @@ local quaternion = self:get_quaternion()
 ```lua lineNumbers title="Get the quaternion rotation of a directional light"
 local entity = light.directional.create()
 
-core.engine.print("info", "Quaternion:", util.table.unpack(entity:get_quaternion()))
+core.engine.print("info", "Directional light quaternion:", util.table.unpack(entity:get_quaternion()))
 ```

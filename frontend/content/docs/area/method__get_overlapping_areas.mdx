@@ -29,6 +29,6 @@ local areas = self:get_overlapping_areas()
 local entity = physics.area.create()
 
 for i, other in ipairs(entity:get_overlapping_areas()) do
-    core.engine.print("info", other)
+    core.engine.print("info", "Area overlapping areas:", other)
 end
 ```

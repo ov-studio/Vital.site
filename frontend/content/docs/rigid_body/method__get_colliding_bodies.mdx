@@ -29,6 +29,6 @@ local bodies = self:get_colliding_bodies()
 local entity = physics.rigid.create()
 
 for i, body in ipairs(entity:get_colliding_bodies()) do
-    core.engine.print("info", body)
+    core.engine.print("info", "Rigid body colliding bodies:", body)
 end
 ```

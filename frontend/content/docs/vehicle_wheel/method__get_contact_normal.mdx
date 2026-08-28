@@ -30,5 +30,5 @@ local car = physics.vehicle.create()
 local entity = physics.vehicle_wheel.create(car)
 local normal = entity:get_contact_normal()
 
-core.engine.print("info", "Normal:", util.table.unpack(normal))
+core.engine.print("info", "Vehicle wheel normal:", util.table.unpack(normal))
 ```
