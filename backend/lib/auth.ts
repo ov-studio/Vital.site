@@ -6,7 +6,7 @@ import * as crypto      from 'crypto';
 const SESSION_TTL_SECONDS = 60 * 60 * 8;
 const GITHUB_AUTHORIZE = 'https://github.com/login/oauth/authorize';
 const GITHUB_TOKEN = 'https://github.com/login/oauth/access_token';
-const GITHUB_USER  = 'https://api.github.com/user';
+const GITHUB_USER = 'https://api.github.com/user';
 
 export type AuthSession = {
   login:   string;
@@ -22,7 +22,7 @@ export function auth_configured(): boolean {
 }
 
 export function is_staff_login(login: string): boolean {
-  return lib_staffs.is_staff_login(login);
+  return lib_staff.is_staff_login(login);
 }
 
 export function make_oauth_state(): string {

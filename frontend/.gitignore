@@ -5,6 +5,7 @@
 app/global.css
 app/theme.css
 configs/site.tsx
+configs/staff.json
 lib/api_url.ts
 public/cdn/
 # </sync:shared>

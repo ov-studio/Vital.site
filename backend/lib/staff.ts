@@ -19,7 +19,7 @@ function read_staff_list(): Set<string> {
 
   try {
     const parsed: unknown = JSON.parse(raw);
-    if (!Array.isArray(parsed)) throw new Error('staffs.json must be a JSON array of GitHub logins');
+    if (!Array.isArray(parsed)) throw new Error('staff.json must be a JSON array of GitHub logins');
     return new Set(
       parsed
         .map((login) => String(login).trim().toLowerCase())
