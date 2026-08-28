@@ -22,7 +22,6 @@
 
        "---⁝⁝Getter---",
         "method__get_size",
-        "method__get_active",
 
        "---⁝⁝Setter---",
         "method__set_active"
