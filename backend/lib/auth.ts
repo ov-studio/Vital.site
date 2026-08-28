@@ -1,5 +1,6 @@
 import * as lib_api_url from '@/lib/api_url';
 import * as lib_redis   from '@/lib/redis';
+import * as lib_staff   from '@/lib/staff';
 import * as crypto      from 'crypto';
 
 const SESSION_TTL_SECONDS = 60 * 60 * 8;
@@ -12,16 +13,6 @@ export type AuthSession = {
   isStaff: boolean;
 };
 
-function staff_logins(): Set<string> {
-  const raw = process.env.STAFF_GITHUB_LOGINS ?? '';
-  return new Set(
-    raw
-      .split(',')
-      .map((s) => s.trim().toLowerCase())
-      .filter(Boolean)
-  );
-}
-
 export function auth_configured(): boolean {
   return Boolean(
     process.env.GITHUB_CLIENT_ID &&
@@ -31,7 +22,7 @@ export function auth_configured(): boolean {
 }
 
 export function is_staff_login(login: string): boolean {
-  return staff_logins().has(login.toLowerCase());
+  return lib_staffs.is_staff_login(login);
 }
 
 export function make_oauth_state(): string {
