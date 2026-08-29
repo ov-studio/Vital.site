@@ -1,0 +1,32 @@
+---
+title: physics.collision_shape.is_debug_all
+description: Checks the current global debug-wireframe default set by the last set_debug_all() call
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = physics.collision_shape.is_debug_all()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the global debug default is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the global debug default"
+physics.collision_shape.set_debug_all(true)
+
+core.engine.print("info", "Collision shape debug-all enabled:", physics.collision_shape.is_debug_all())
+```

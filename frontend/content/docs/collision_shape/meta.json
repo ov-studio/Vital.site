@@ -4,6 +4,11 @@
     "pages": [
         "---Base---",
         "create",
+
+        "---Checker---",
+        "is_debug_all",
+
+        "---Setter---",
         "set_debug_all",
 
         "---⁝⁝Lifecycle---",
