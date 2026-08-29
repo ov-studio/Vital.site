@@ -15,7 +15,7 @@ export const redis = redis_configured
   : null;
 
 export const masterlist_ttl_seconds = Math.floor(config_site.info.masterlist.ttl_ms/1000);
-export const masterlist_token_ttl_seconds = Math.floor(config_site.info.masterlist.token_ttl_ms / 1000);
+export const applications_approved_ttl_seconds = Math.floor(config_site.info.applications.approved_ttl_ms / 1000);
 
 export function server_key(id: string) {
   return `masterlist:server:${id}`;

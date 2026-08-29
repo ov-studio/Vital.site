@@ -50,11 +50,11 @@ export const info = {
     heartbeat_interval_ms: 5 * 60 * 1000,  // 5 minutes — servers should heartbeat at or below this
     ttl_ms:                11 * 60 * 1000, // ~2x interval — tolerates one missed heartbeat before delisting
     cache_s_maxage_ms:     15 * 1000,    // edge cache freshness window for GET /masterlist
-    cache_swr_multiplier:  4,           // stale-while-revalidate = s_maxage * this
-    token_ttl_ms:          14 * 24 * 60 * 60 * 1000 // 2 weeks — a minted/approved token not yet used to heartbeat expires; each successful heartbeat slides this window forward, so an actively-running server's token never expires
+    cache_swr_multiplier:  4           // stale-while-revalidate = s_maxage * this
   },
 
   applications: {
-    pending_ttl_ms: 14 * 24 * 60 * 60 * 1000 // 14 days — undecided applications auto-expire so staff/applicant can re-apply
+    pending_ttl_ms:  14 * 24 * 60 * 60 * 1000, // 14 days — undecided applications auto-expire so staff/applicant can re-apply
+    approved_ttl_ms: 14 * 24 * 60 * 60 * 1000  // 2 weeks — a minted/approved token not yet used to heartbeat expires; each successful heartbeat slides this window forward, so an actively-running server's token never expires
   }
 };

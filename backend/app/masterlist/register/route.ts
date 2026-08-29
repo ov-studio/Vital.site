@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   if (name.length > 64) return Response.json({ error: 'name too long (max 64)' }, { status: 400 });
   const token = crypto.randomBytes(32).toString('hex');
   const id = crypto.createHash('sha256').update(token).digest('hex');
-  await lib_redis.redis!.set(lib_redis.token_key(id), Date.now(), { ex: lib_redis.masterlist_token_ttl_seconds });
+  await lib_redis.redis!.set(lib_redis.token_key(id), Date.now(), { ex: lib_redis.applications_approved_ttl_seconds });
 
   return Response.json({
     token,

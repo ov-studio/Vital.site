@@ -99,7 +99,7 @@ export async function POST(req: Request) {
   const ok = await lib_redis.redis!.eval(
     HEARTBEAT_SCRIPT,
     [lib_redis.token_key(id), lib_redis.server_key(id)],
-    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.masterlist_token_ttl_seconds)]
+    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.applications_approved_ttl_seconds)]
   );
   if (!ok) return Response.json({ error: 'unknown token — register first' }, { status: 401 });
 
