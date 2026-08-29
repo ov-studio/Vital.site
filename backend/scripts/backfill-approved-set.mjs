@@ -1,19 +1,18 @@
-import { Redis } from '@upstash/redis';
+import * as upstash_redis from '@upstash/redis';
 
-const url   = process.env.UPSTASH_REDIS_REST_URL;
+const url = process.env.UPSTASH_REDIS_REST_URL;
 const token = process.env.UPSTASH_REDIS_REST_TOKEN;
 if (!url || !token) {
   console.error('Missing UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN in the environment.');
   process.exit(1);
 }
 
-const redis = new Redis({ url, token });
+const redis = new upstash_redis.Redis({ url, token });
 
 const APPROVED_SET = 'masterlist:applications:approved';
 
 const keys = await redis.keys('masterlist:application:*');
 console.log(`Found ${keys.length} application key(s).`);
-
 if (keys.length === 0) {
   console.log('Nothing to backfill.');
   process.exit(0);
@@ -21,7 +20,6 @@ if (keys.length === 0) {
 
 const values = await redis.mget(...keys);
 const approved_logins = [];
-
 keys.forEach((key, i) => {
   const raw = values[i];
   if (!raw) return;

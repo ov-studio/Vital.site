@@ -30,6 +30,7 @@ const ratelimit = lib_redis.redis_configured
 
 const HEARTBEAT_SCRIPT = `
   if redis.call('EXISTS', KEYS[1]) == 1 then
+    redis.call('EXPIRE', KEYS[1], ARGV[3])
     redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
     return 1
   else
@@ -98,7 +99,7 @@ export async function POST(req: Request) {
   const ok = await lib_redis.redis!.eval(
     HEARTBEAT_SCRIPT,
     [lib_redis.token_key(id), lib_redis.server_key(id)],
-    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds)]
+    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.masterlist_token_ttl_seconds)]
   );
   if (!ok) return Response.json({ error: 'unknown token — register first' }, { status: 401 });
 
