@@ -216,10 +216,10 @@ export function Workspace() {
             {/* Profile strip */}
             <div className="ws-profile">
               <div className="ws-user">
-                <img className="ws-avatar" src={session.avatarUrl} alt="" width={40} height={40} referrerPolicy="no-referrer" />
+                <img className="ws-avatar" src={session.avatar} alt="" width={40} height={40} referrerPolicy="no-referrer" />
                 <div>
                   <div className="ws-login">@{session.login}</div>
-                  <div className="ws-role">{session.isStaff ? 'Staff' : 'Member'}</div>
+                  <div className="ws-role">{session.staff ? 'Staff' : 'Member'}</div>
                 </div>
               </div>
               {error && <p className="ws-error" role="alert">{error}</p>}
@@ -324,7 +324,7 @@ export function Workspace() {
             </div>
 
             {/* Staff dashboard */}
-            {session.isStaff && (
+            {session.staff && (
               <>
                 <div className="ws-stats">
                   <div className="ws-stat">

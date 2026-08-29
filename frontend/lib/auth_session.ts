@@ -4,10 +4,10 @@ export const AUTH_STAFF_KEY = 'vital_auth_staff';
 export const AUTH_SESSION_EVENT = 'vital-auth-session';
 
 export type AuthSession = {
-  token:     string;
-  login:     string;
-  isStaff:   boolean;
-  avatarUrl: string;
+  token:  string;
+  login:  string;
+  staff:  boolean;
+  avatar: string;
 };
 
 function avatar_for(login: string): string {
@@ -24,8 +24,8 @@ export function session_from_parts(
   return {
     token,
     login:     normalized,
-    isStaff:   staff_flag === '1' || staff_flag === 'true',
-    avatarUrl: avatar_for(normalized)
+    staff:   staff_flag === '1' || staff_flag === 'true',
+    avatar: avatar_for(normalized)
   };
 }
 
@@ -47,7 +47,7 @@ export function write_auth_session(token: string, login: string, is_staff: boole
   }
   sessionStorage.setItem(AUTH_TOKEN_KEY, session.token);
   sessionStorage.setItem(AUTH_LOGIN_KEY, session.login);
-  sessionStorage.setItem(AUTH_STAFF_KEY, session.isStaff ? '1' : '0');
+  sessionStorage.setItem(AUTH_STAFF_KEY, session.staff ? '1' : '0');
   window.dispatchEvent(new Event(AUTH_SESSION_EVENT));
   return session;
 }

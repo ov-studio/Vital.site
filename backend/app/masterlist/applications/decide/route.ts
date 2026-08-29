@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   if (limited) return limited;
   if (!lib_auth.auth_configured() || !lib_redis.redis_configured) return Response.json({ error: 'Unavailable' }, { status: 503 });
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
-  if (!session?.isStaff) return Response.json({ error: 'unauthorized' }, { status: 401 });
+  if (!session?.staff) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
   const body   = await req.json().catch(() => ({}));
   const action = typeof body?.action === 'string' ? body.action : '';

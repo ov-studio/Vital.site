@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   if (!lib_auth.auth_configured()) return Response.json({ error: 'Auth is not configured' }, { status: 503 });
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
-  if (!session?.isStaff) return Response.json({ error: 'unauthorized' }, { status: 401 });
+  if (!session?.staff) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
   const name: string = typeof body?.name === 'string' ? body.name.trim() : '';

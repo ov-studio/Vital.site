@@ -27,7 +27,7 @@ export async function GET(req: Request) {
     application: mine ? lib_applications.sanitize_for_owner(mine) : null
   };
 
-  if (session.isStaff) {
+  if (session.staff) {
     const [pending, approved] = await Promise.all([
       lib_applications.list_pending(),
       lib_applications.list_approved()

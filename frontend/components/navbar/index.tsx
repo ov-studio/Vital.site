@@ -83,7 +83,7 @@ export function Navbar({ links = [] }: NavbarProps) {
               >
                 <img
                   className="nav-avatar"
-                  src={session.avatarUrl}
+                  src={session.avatar}
                   alt=""
                   width={28}
                   height={28}
@@ -102,7 +102,7 @@ export function Navbar({ links = [] }: NavbarProps) {
                     <div className="nav-staff-meta">
                       <img
                         className="nav-avatar nav-avatar--sm"
-                        src={session.avatarUrl}
+                        src={session.avatar}
                         alt=""
                         width={28}
                         height={28}
@@ -110,7 +110,7 @@ export function Navbar({ links = [] }: NavbarProps) {
                       />
                       <div>
                         <div className="nav-staff-login">@{session.login}</div>
-                        <div className="nav-staff-role">{session.isStaff ? 'Staff' : 'Member'}</div>
+                        <div className="nav-staff-role">{session.staff ? 'Staff' : 'Member'}</div>
                       </div>
                     </div>
                     <a className="nav-staff-item" href="/workspace" role="menuitem" onClick={() => setMenuOpen(false)}>

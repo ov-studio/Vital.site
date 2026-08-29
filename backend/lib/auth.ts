@@ -9,8 +9,8 @@ const GITHUB_TOKEN = 'https://github.com/login/oauth/access_token';
 const GITHUB_USER = 'https://api.github.com/user';
 
 export type AuthSession = {
-  login:   string;
-  isStaff: boolean;
+  login: string;
+  staff: boolean;
 };
 
 export function auth_configured(): boolean {
@@ -48,7 +48,7 @@ export async function issue_session(login: string): Promise<string> {
   const session_token = crypto.randomBytes(32).toString('hex');
   const payload: AuthSession = {
     login:   login.toLowerCase(),
-    isStaff: is_staff_login(login)
+    staff: is_staff_login(login)
   };
   await lib_redis.redis.set(
     lib_redis.auth_session_key(session_token),
@@ -67,7 +67,7 @@ export async function verify_session(session_token: string): Promise<AuthSession
     if (typeof data.login !== 'string') return null;
     return {
       login:   data.login.toLowerCase(),
-      isStaff: Boolean(data.isStaff) || is_staff_login(data.login)
+      staff: Boolean(data.staff) || is_staff_login(data.login)
     };
   }
   catch { return null; }
