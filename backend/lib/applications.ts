@@ -1,5 +1,6 @@
-import * as crypto    from 'crypto';
-import * as lib_redis from '@/lib/redis';
+import * as crypto      from 'crypto';
+import * as config_site from '@/configs/site';
+import * as lib_redis   from '@/lib/redis';
 
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected';
 
@@ -31,15 +32,19 @@ export async function get_application(login: string): Promise<Application | null
   return parse_application(raw);
 }
 
-export async function set_application(app: Application): Promise<void> {
+export async function set_application(app: Application, ttl_seconds?: number): Promise<void> {
   if (!lib_redis.redis) throw new Error('Redis not configured');
-  await lib_redis.redis.set(lib_redis.application_key(app.login), JSON.stringify(app));
+  const key = lib_redis.application_key(app.login);
+  if (ttl_seconds) await lib_redis.redis.set(key, JSON.stringify(app), { ex: ttl_seconds });
+  else await lib_redis.redis.set(key, JSON.stringify(app));
 }
 
 export async function delete_application(login: string): Promise<void> {
   if (!lib_redis.redis) return;
-  await lib_redis.redis.del(lib_redis.application_key(login));
-  await lib_redis.redis.srem(lib_redis.applications_pending_key, login.toLowerCase());
+  const l = login.toLowerCase();
+  await lib_redis.redis.del(lib_redis.application_key(l));
+  await lib_redis.redis.srem(lib_redis.applications_pending_key, l);
+  await lib_redis.redis.srem(lib_redis.applications_approved_key, l);
 }
 
 export async function list_pending(): Promise<Application[]> {
@@ -49,24 +54,31 @@ export async function list_pending(): Promise<Application[]> {
   const keys   = logins.map((l) => lib_redis.application_key(String(l)));
   const values = await lib_redis.redis.mget<unknown[]>(...keys);
   const out: Application[] = [];
-  for (const v of values) {
+  const stale: string[] = [];
+  values.forEach((v, i) => {
     const app = parse_application(v);
-    if (app && app.status === 'pending') out.push(app);
-  }
+    if (!app || app.status !== 'pending') { stale.push(String(logins[i])); return; }
+    out.push(app);
+  });
+  if (stale.length) await lib_redis.redis.srem(lib_redis.applications_pending_key, ...stale);
   out.sort((a, b) => a.createdAt - b.createdAt);
   return out;
 }
 
 export async function list_approved(): Promise<Application[]> {
   if (!lib_redis.redis) return [];
-  const keys = await lib_redis.redis.keys('masterlist:application:*');
-  if (!keys.length) return [];
+  const logins = await lib_redis.redis.smembers(lib_redis.applications_approved_key);
+  if (!logins.length) return [];
+  const keys   = logins.map((l) => lib_redis.application_key(String(l)));
   const values = await lib_redis.redis.mget<unknown[]>(...keys);
   const out: Application[] = [];
-  for (const v of values) {
+  const stale: string[] = [];
+  values.forEach((v, i) => {
     const app = parse_application(v);
-    if (app && app.status === 'approved' && app.id) out.push(app);
-  }
+    if (!app || app.status !== 'approved' || !app.id) { stale.push(String(logins[i])); return; }
+    out.push(app);
+  });
+  if (stale.length) await lib_redis.redis.srem(lib_redis.applications_approved_key, ...stale);
   out.sort((a, b) => (b.decidedAt ?? b.createdAt) - (a.decidedAt ?? a.createdAt));
   return out;
 }
@@ -99,7 +111,8 @@ export async function create_pending(login: string, name: string): Promise<Appli
     status:    'pending',
     createdAt: Date.now()
   };
-  await set_application(app);
+  const ttl_seconds = Math.floor(config_site.info.applications.pending_ttl_ms / 1000);
+  await set_application(app, ttl_seconds);
   await lib_redis.redis!.sadd(lib_redis.applications_pending_key, app.login);
   return app;
 }
@@ -135,6 +148,7 @@ export async function approve_application(
   };
   await set_application(app);
   await lib_redis.redis!.srem(lib_redis.applications_pending_key, app.login);
+  await lib_redis.redis!.sadd(lib_redis.applications_approved_key, app.login);
   return { app };
 }
 

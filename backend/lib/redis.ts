@@ -37,3 +37,4 @@ export function application_key(login: string) {
 }
 
 export const applications_pending_key = 'masterlist:applications:pending';
+export const applications_approved_key = 'masterlist:applications:approved';

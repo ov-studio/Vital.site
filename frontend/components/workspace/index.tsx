@@ -39,7 +39,7 @@ export function Workspace() {
   const [busy, setBusy] = react.useState(false);
   const [error, setError] = react.useState<string | null>(null);
   const [mintName, setMintName] = react.useState('');
-  const [mintResult, setMintResult] = react.useState<{ token: string; id: string; name: string | null; note: string } | null>(null);
+  const [mintResult, setMintResult] = react.useState<{ token: string; id: string; name: string; note: string } | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'pending' | 'tokens' | 'mint'>('pending');
   const [q, setQ] = react.useState('');
@@ -155,11 +155,13 @@ export function Workspace() {
   }, [auth_headers, load]);
 
   const mint = react.useCallback(async () => {
+    const trimmed = mintName.trim();
+    if (!trimmed) { setError('Server name is required'); return; }
     setBusy(true); setError(null); setMintResult(null);
     try {
       const res  = await fetch(lib_api_url.get_api_url('/masterlist/register'), {
         method: 'POST', headers: auth_headers(),
-        body: JSON.stringify({ name: mintName.trim() || undefined })
+        body: JSON.stringify({ name: trimmed })
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Mint failed'); return; }
@@ -461,7 +463,7 @@ export function Workspace() {
                         Staff giveaway — creates a token immediately (not tied to an application).
                       </p>
                       <div className="ws-mint-form">
-                        <label className="ws-label" htmlFor="mint-name">Server name (optional)</label>
+                        <label className="ws-label" htmlFor="mint-name">Server name</label>
                         <input
                           id="mint-name"
                           className="ws-input"
@@ -472,7 +474,7 @@ export function Workspace() {
                           disabled={busy}
                           placeholder="e.g. Night City RP"
                         />
-                        <button type="button" className="btn-secondary ws-btn" onClick={mint} disabled={busy}>
+                        <button type="button" className="btn-secondary ws-btn" onClick={mint} disabled={busy || !mintName.trim()}>
                           Mint token
                         </button>
                       </div>

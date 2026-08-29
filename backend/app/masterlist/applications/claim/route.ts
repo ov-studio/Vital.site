@@ -1,4 +1,5 @@
 import * as lib_redis        from '@/lib/redis';
+import * as lib_ratelimit    from '@/lib/ratelimit';
 import * as lib_auth         from '@/lib/auth';
 import * as lib_applications from '@/lib/applications';
 
@@ -11,6 +12,8 @@ export async function OPTIONS() {
 }
 
 export async function POST(req: Request) {
+  const limited = await lib_ratelimit.check(req);
+  if (limited) return limited;
   if (!lib_auth.auth_configured() || !lib_redis.redis_configured) return Response.json({ error: 'Unavailable' }, { status: 503 });
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });

@@ -12,9 +12,9 @@ export const info = {
   },
 
   social: {
-    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio' },
-    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio' },
-    discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW' },
+    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio'            },
+    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio'          },
+    discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW'             },
     youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community' }
   },
 
@@ -51,5 +51,9 @@ export const info = {
     ttl_ms:                11 * 60 * 1000, // ~2x interval — tolerates one missed heartbeat before delisting
     cache_s_maxage_ms:     15 * 1000,    // edge cache freshness window for GET /masterlist
     cache_swr_multiplier:  4           // stale-while-revalidate = s_maxage * this
+  },
+
+  applications: {
+    pending_ttl_ms: 14 * 24 * 60 * 60 * 1000 // 14 days — undecided applications auto-expire so staff/applicant can re-apply
   }
 };

@@ -20,8 +20,9 @@ export async function POST(req: Request) {
   if (!session?.isStaff) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
-  const name: string | undefined = typeof body?.name === 'string' ? body.name.trim() : undefined;
-  if (name !== undefined && name.length > 64) return Response.json({ error: 'name too long (max 64)' }, { status: 400 });
+  const name: string = typeof body?.name === 'string' ? body.name.trim() : '';
+  if (!name) return Response.json({ error: 'name is required' }, { status: 400 });
+  if (name.length > 64) return Response.json({ error: 'name too long (max 64)' }, { status: 400 });
   const token = crypto.randomBytes(32).toString('hex');
   const id = crypto.createHash('sha256').update(token).digest('hex');
   await lib_redis.redis!.set(lib_redis.token_key(id), Date.now());
@@ -29,7 +30,7 @@ export async function POST(req: Request) {
   return Response.json({
     token,
     id,
-    name: name ?? null,
+    name,
     note: "Store this token in that server's config.yaml now — it will not be shown again."
   });
 }
