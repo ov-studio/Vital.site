@@ -9,7 +9,7 @@ import './index.css';
  */
 export function Wallpaper({
   seed = 0,
-  opacity = 0.09,
+  opacity = 0.12,
   vignette = true,
   src,
 }) {

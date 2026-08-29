@@ -10,7 +10,7 @@ const OUT_DIR = path.join(FRONTEND, 'public/cdn/wallpaper');
 const TILE_W = 3440;
 const TILE_H = 1440;
 const BRAND = 'hsl(220, 95%, 76%)';
-const DEFAULT_GAP = 100;
+const DEFAULT_GAP = 120;
 const DEFAULT_SIZE = 60;
 const SEEDS = {
   0: ['rocket', 'code-xml', 'terminal', 'zap', 'box', 'layers', 'cpu'], // Dev / tech / home hero
