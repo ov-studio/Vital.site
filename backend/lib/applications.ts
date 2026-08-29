@@ -135,7 +135,7 @@ export async function approve_application(
 
   const token = crypto.randomBytes(32).toString('hex');
   const id    = crypto.createHash('sha256').update(token).digest('hex');
-  await lib_redis.redis!.set(lib_redis.token_key(id), Date.now(), { ex: lib_redis.masterlist_token_ttl_seconds });
+  await lib_redis.redis!.set(lib_redis.token_key(id), Date.now(), { ex: lib_redis.applications_approved_ttl_seconds });
 
   const app: Application = {
     ...existing,
