@@ -13,10 +13,10 @@ const BRAND = 'hsl(220, 95%, 76%)';
 const DEFAULT_GAP = 100;
 const DEFAULT_SIZE = 60;
 const SEEDS = {
-  0: ['rocket', 'code-xml', 'terminal', 'zap', 'box', 'sparkles', 'layers', 'cpu'], // Dev / tech / home hero
-  1: ['sparkles', 'rocket', 'gamepad-2', 'wand', 'puzzle', 'ghost', 'coffee', 'flame', 'cuboid', 'joystick', 'orbit', 'cat'], // Fun / playful / creative
-  2: ['heart', 'sparkles', 'star', 'flower-2', 'sun', 'leaf', 'feather', 'gem', 'gift', 'rainbow', 'clover', 'party-popper'], // Nature / celebration / warm
-  3: ['heart', 'star', 'users', 'coffee', 'cat', 'bird', 'flower-2', 'party-popper', 'thumbs-up', 'sparkles', 'message-circle', 'handshake'], // Social / positive / community vibe
+  0: ['rocket', 'code-xml', 'terminal', 'zap', 'box', 'layers', 'cpu'], // Dev / tech / home hero
+  1: ['rocket', 'gamepad-2', 'wand', 'puzzle', 'ghost', 'coffee', 'flame', 'cuboid', 'joystick', 'orbit', 'cat'], // Fun / playful / creative
+  2: ['heart', 'star', 'flower-2', 'sun', 'leaf', 'feather', 'gem', 'gift', 'rainbow', 'clover', 'party-popper'], // Nature / celebration / warm
+  3: ['heart', 'star', 'users', 'coffee', 'cat', 'bird', 'flower-2', 'party-popper', 'thumbs-up', 'message-circle', 'handshake'], // Social / positive / community vibe
   4: ['book-open', 'lightbulb', 'graduation-cap', 'notebook-pen', 'search', 'brain', 'highlighter', 'bookmark', 'file-text', 'library', 'pen-tool', 'scroll'], // Docs / knowledge / learning
   5: ['vault', 'lock', 'key-round', 'shield', 'fingerprint', 'eye-off', 'database', 'hard-drive', 'folder-lock', 'key', 'lock-keyhole', 'shield-check'], // Vault / security / private
   6: ['map', 'flag', 'milestone', 'target', 'route', 'calendar', 'trending-up', 'compass', 'goal', 'rocket', 'check-circle', 'arrow-up-right'], // Roadmap / progress / goals
