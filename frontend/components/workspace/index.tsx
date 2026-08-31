@@ -39,10 +39,8 @@ export function Workspace() {
   const [name, setName] = react.useState('');
   const [busy, setBusy] = react.useState(false);
   const [error, setError] = react.useState<string | null>(null);
-  const [mintName, setMintName] = react.useState('');
-  const [mintResult, setMintResult] = react.useState<{ token: string; name: string; note: string } | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
-  const [tab, setTab] = react.useState<'pending' | 'tokens' | 'mint'>('pending');
+  const [tab, setTab] = react.useState<'pending' | 'tokens'>('pending');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
 
@@ -160,25 +158,6 @@ export function Workspace() {
     } catch { setError('Network error'); }
     finally { setBusy(false); }
   }, [auth_headers, load]);
-
-  const mint = react.useCallback(async () => {
-    const trimmed = mintName.trim();
-    if (!trimmed) { setError('Server name is required'); return; }
-    setBusy(true); setError(null); setMintResult(null);
-    try {
-      const res  = await fetch(lib_api_url.get_api_url('/masterlist/register'), {
-        method: 'POST', headers: auth_headers(),
-        body: JSON.stringify({ name: trimmed })
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Mint failed'); return; }
-      // Never surface internal id to client
-      setMintResult({ token: json.token, name: json.name, note: json.note });
-      setMintName('');
-      await load();
-    } catch { setError('Network error'); }
-    finally { setBusy(false); }
-  }, [mintName, auth_headers, load]);
 
   const copy = react.useCallback(async (label: string, value: string) => {
     try {
@@ -396,10 +375,6 @@ export function Workspace() {
                         <lucide.KeyRound size={14} strokeWidth={2} />
                         Tokens{staffTokens.length ? ` (${staffTokens.length})` : ''}
                       </button>
-                      <button type="button" className={`ws-tab${tab === 'mint' ? ' ws-tab--active' : ''}`} onClick={() => setTab('mint')}>
-                        <lucide.Sparkles size={14} strokeWidth={2} />
-                        Mint
-                      </button>
                     </div>
                     {(tab === 'pending' || tab === 'tokens') && (
                       <ui_search.Search
@@ -487,41 +462,6 @@ export function Workspace() {
                             ))}
                           </tbody>
                         </table>
-                      )}
-                    </div>
-                  )}
-
-                  {tab === 'mint' && (
-                    <div className="ws-panel-body">
-                      <p className="ws-text ws-text--icon">
-                        <lucide.Sparkles size={15} strokeWidth={2} />
-                        Staff giveaway — creates a token immediately (not tied to an application).
-                      </p>
-                      <div className="ws-mint-form">
-                        <label className="ws-label" htmlFor="mint-name">Server name</label>
-                        <input
-                          id="mint-name"
-                          className="ws-input"
-                          type="text"
-                          maxLength={64}
-                          value={mintName}
-                          onChange={(e) => setMintName(e.target.value)}
-                          disabled={busy}
-                          placeholder="e.g. Night City RP"
-                        />
-                        <button type="button" className="btn-secondary ws-btn" onClick={mint} disabled={busy || !mintName.trim()}>
-                          Mint token
-                        </button>
-                      </div>
-                      {mintResult && (
-                        <div className="ws-result">
-                          <p className="ws-text">{mintResult.note}</p>
-                          <div className="ws-kv">
-                            <span className="ws-k">Token</span>
-                            <code className="ws-v ws-v--secret">{mintResult.token}</code>
-                            <button type="button" className="ws-copy" onClick={() => copy('mt', mintResult.token)}>{copied === 'mt' ? 'Copied' : 'Copy'}</button>
-                          </div>
-                        </div>
                       )}
                     </div>
                   )}
