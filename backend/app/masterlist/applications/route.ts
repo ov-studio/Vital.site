@@ -18,13 +18,17 @@ export async function GET(req: Request) {
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
-  const mine = await lib_applications.get_application(session.login);
+  const pendingMine = await lib_applications.get_user_pending(session.login);
+  const approvedMine = await lib_applications.list_user_approved(session.login);
+
   const body: {
-    application: lib_applications.Application | null;
-    pending?:    ReturnType<typeof lib_applications.sanitize_for_staff>[];
-    tokens?:     ReturnType<typeof lib_applications.sanitize_for_staff>[];
+    pending:      ReturnType<typeof lib_applications.sanitize_for_owner> | null;
+    applications: ReturnType<typeof lib_applications.sanitize_for_owner>[];
+    staffPending?: ReturnType<typeof lib_applications.sanitize_for_staff>[];
+    staffTokens?:  ReturnType<typeof lib_applications.sanitize_for_staff>[];
   } = {
-    application: mine ? lib_applications.sanitize_for_owner(mine) : null
+    pending:      pendingMine ? lib_applications.sanitize_for_owner(pendingMine) : null,
+    applications: approvedMine.map(lib_applications.sanitize_for_owner)
   };
 
   if (session.staff) {
@@ -32,8 +36,8 @@ export async function GET(req: Request) {
       lib_applications.list_pending(),
       lib_applications.list_approved()
     ]);
-    body.pending = pending.map(lib_applications.sanitize_for_staff);
-    body.tokens  = approved.map(lib_applications.sanitize_for_staff);
+    body.staffPending = pending.map(lib_applications.sanitize_for_staff);
+    body.staffTokens  = approved.map(lib_applications.sanitize_for_staff);
   }
   return Response.json(body);
 }
@@ -57,7 +61,9 @@ export async function DELETE(req: Request) {
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
-  const result = await lib_applications.cancel_pending(session.login);
+  const body = await req.json().catch(() => ({}));
+  const appId = typeof body?.appId === 'string' ? body.appId : undefined;
+  const result = await lib_applications.cancel_pending(session.login, appId);
   if ('error' in result) return Response.json({ error: result.error }, { status: 400 });
   return Response.json({ ok: true });
 }

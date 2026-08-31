@@ -18,7 +18,11 @@ export async function POST(req: Request) {
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
-  const result = await lib_applications.claim_token(session.login);
+  const body = await req.json().catch(() => ({}));
+  const appId = typeof body?.appId === 'string' ? body.appId.trim() : '';
+  if (!appId) return Response.json({ error: 'missing appId' }, { status: 400 });
+
+  const result = await lib_applications.claim_token(session.login, appId);
   if ('error' in result) return Response.json({ error: result.error }, { status: 400 });
   return Response.json({ ok: true });
 }

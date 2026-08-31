@@ -33,8 +33,12 @@ export function auth_oauth_state_key(state: string) {
   return `auth:oauth:state:${state}`;
 }
 
-export function application_key(login: string) {
-  return `masterlist:application:${login.toLowerCase()}`;
+export function application_key(appId: string) {
+  return `masterlist:app:${appId}`;
+}
+
+export function user_apps_key(login: string) {
+  return `masterlist:user:${login.toLowerCase()}:apps`;
 }
 
 export const applications_pending_key = 'masterlist:applications:pending';

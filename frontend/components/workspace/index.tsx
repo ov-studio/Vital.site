@@ -8,6 +8,7 @@ import * as lucide           from 'lucide-react';
 import './index.css';
 
 type Application = {
+  appId:         string;
   login:         string;
   name:          string;
   status:        'pending' | 'approved' | 'rejected';
@@ -15,14 +16,14 @@ type Application = {
   decidedAt?:    number;
   decidedBy?:    string;
   token?:        string;
-  id?:           string;
   tokenClaimed?: boolean;
 };
 
 type ApiState = {
-  application: Application | null;
-  pending?:    Application[];
-  tokens?:     Application[];
+  pending:       Application | null;
+  applications:  Application[];
+  staffPending?: Application[];
+  staffTokens?:  Application[];
 };
 
 function fmt_date(ts?: number) {
@@ -39,11 +40,11 @@ export function Workspace() {
   const [busy, setBusy] = react.useState(false);
   const [error, setError] = react.useState<string | null>(null);
   const [mintName, setMintName] = react.useState('');
-  const [mintResult, setMintResult] = react.useState<{ token: string; id: string; name: string; note: string } | null>(null);
+  const [mintResult, setMintResult] = react.useState<{ token: string; name: string; note: string } | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'pending' | 'tokens' | 'mint'>('pending');
   const [q, setQ] = react.useState('');
-  const [revealToken, setRevealToken] = react.useState(false);
+  const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
 
   const refresh_session = react.useCallback(() => {
     setSession(lib_auth_session.read_auth_session());
@@ -97,7 +98,6 @@ export function Workspace() {
     return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
   }, [refresh_session, load]);
 
-
   const login = react.useCallback(() => {
     window.location.href = lib_api_url.get_api_url('/auth/github');
   }, []);
@@ -117,11 +117,12 @@ export function Workspace() {
     finally { setBusy(false); }
   }, [name, auth_headers, load]);
 
-  const cancel = react.useCallback(async () => {
+  const cancel = react.useCallback(async (appId?: string) => {
     setBusy(true); setError(null);
     try {
       const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), {
-        method: 'DELETE', headers: auth_headers()
+        method: 'DELETE', headers: auth_headers(),
+        body: JSON.stringify(appId ? { appId } : {})
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Cancel failed'); return; }
@@ -130,22 +131,28 @@ export function Workspace() {
     finally { setBusy(false); }
   }, [auth_headers, load]);
 
-  const claim = react.useCallback(async () => {
+  const claim = react.useCallback(async (appId: string) => {
     setBusy(true);
     try {
       await fetch(lib_api_url.get_api_url('/masterlist/applications/claim'), {
-        method: 'POST', headers: auth_headers()
+        method: 'POST', headers: auth_headers(),
+        body: JSON.stringify({ appId })
+      });
+      setRevealed((prev) => {
+        const next = { ...prev };
+        delete next[appId];
+        return next;
       });
       await load();
     } finally { setBusy(false); }
   }, [auth_headers, load]);
 
-  const decide = react.useCallback(async (login: string, action: 'approve' | 'reject' | 'revoke') => {
+  const decide = react.useCallback(async (appId: string, action: 'approve' | 'reject' | 'revoke') => {
     setBusy(true); setError(null);
     try {
       const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications/decide'), {
         method: 'POST', headers: auth_headers(),
-        body: JSON.stringify({ login, action })
+        body: JSON.stringify({ appId, action })
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Action failed'); return; }
@@ -165,7 +172,8 @@ export function Workspace() {
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Mint failed'); return; }
-      setMintResult(json);
+      // Never surface internal id to client
+      setMintResult({ token: json.token, name: json.name, note: json.note });
       setMintName('');
       await load();
     } catch { setError('Network error'); }
@@ -180,16 +188,23 @@ export function Workspace() {
     } catch { setError('Clipboard write failed'); }
   }, []);
 
-  const app = data?.application ?? null;
-  const pending = data?.pending ?? [];
-  const tokens  = data?.tokens ?? [];
+  const toggleReveal = react.useCallback((key: string) => {
+    setRevealed((prev) => ({ ...prev, [key]: !prev[key] }));
+  }, []);
+
+  const pendingApp = data?.pending ?? null;
+  const myApps = data?.applications ?? [];
+  const staffPending = data?.staffPending ?? [];
+  const staffTokens  = data?.staffTokens ?? [];
   const ql = q.trim().toLowerCase();
   const filtered_pending = ql
-    ? pending.filter(p => p.name.toLowerCase().includes(ql) || p.login.toLowerCase().includes(ql))
-    : pending;
+    ? staffPending.filter(p => p.name.toLowerCase().includes(ql) || p.login.toLowerCase().includes(ql))
+    : staffPending;
   const filtered_tokens = ql
-    ? tokens.filter(t => t.name.toLowerCase().includes(ql) || t.login.toLowerCase().includes(ql) || (t.id ?? '').toLowerCase().includes(ql))
-    : tokens;
+    ? staffTokens.filter(t => t.name.toLowerCase().includes(ql) || t.login.toLowerCase().includes(ql))
+    : staffTokens;
+
+  const canApply = !pendingApp;
 
   return (
     <main className="ws-page">
@@ -225,17 +240,18 @@ export function Workspace() {
               {error && <p className="ws-error" role="alert">{error}</p>}
             </div>
 
-            {/* Member: application panel */}
+            {/* Member: applications */}
             <div className="ws-panel">
               <div className="ws-panel-head">
                 <h3 className="ws-panel-title">
                   <lucide.Server size={16} strokeWidth={2} />
-                  Your application
+                  Your applications
                 </h3>
               </div>
               <div className="ws-panel-body">
-                {!app && (
-                  <div className="ws-form-row">
+                {/* Apply form — only when no pending */}
+                {canApply && (
+                  <div className="ws-form-row" style={{ marginBottom: myApps.length || pendingApp ? 16 : 0 }}>
                     <div className="ws-form-grow">
                       <label className="ws-label" htmlFor="app-name">Server name</label>
                       <input
@@ -255,70 +271,96 @@ export function Workspace() {
                     </button>
                   </div>
                 )}
-                {app?.status === 'pending' && (
-                  <div className="ws-status-row">
+
+                {/* Pending banner */}
+                {pendingApp && (
+                  <div className="ws-status-row" style={{ marginBottom: myApps.length ? 16 : 0 }}>
                     <span className="ws-badge ws-badge--pending"><lucide.Clock size={11} strokeWidth={2.5} />Pending</span>
-                    <span className="ws-text"><strong>{app.name}</strong> — waiting for staff review.</span>
-                    <button type="button" className="btn-secondary ws-btn-sm" onClick={cancel} disabled={busy}>Cancel</button>
+                    <span className="ws-text"><strong>{pendingApp.name}</strong> — waiting for staff review.</span>
+                    <button type="button" className="btn-secondary ws-btn-sm" onClick={() => cancel(pendingApp.appId)} disabled={busy}>Cancel</button>
                   </div>
                 )}
-                {app?.status === 'rejected' && (
-                  <div className="ws-form-row">
-                    <p className="ws-text">Last application for <strong>{app.name}</strong> was rejected. Apply again:</p>
-                    <div className="ws-form-grow">
-                      <input
-                        className="ws-input"
-                        type="text"
-                        maxLength={64}
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        disabled={busy}
-                        placeholder="Server name"
-                      />
-                    </div>
-                    <button type="button" className="btn-secondary ws-btn" onClick={apply} disabled={busy}>Apply again</button>
+
+                {/* Approved tokens grid (same table format as staff bottom list) */}
+                {myApps.length > 0 ? (
+                  <div className="ws-table-wrap">
+                    <table className="ws-table">
+                      <thead>
+                        <tr>
+                          <th>Server</th>
+                          <th>Status</th>
+                          <th>Approved</th>
+                          <th>Token</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {myApps.map((app) => {
+                          const isOpen = !!revealed[app.appId];
+                          return (
+                            <tr key={app.appId}>
+                              <td>
+                                <div className="ws-cell-title">{app.name}</div>
+                              </td>
+                              <td>
+                                <span className="ws-badge ws-badge--active">
+                                  <lucide.Check size={11} strokeWidth={2.5} />Approved
+                                </span>
+                              </td>
+                              <td className="ws-muted">{fmt_date(app.decidedAt ?? app.createdAt)}</td>
+                              <td>
+                                {app.token ? (
+                                  <button
+                                    type="button"
+                                    className={`ws-spoiler${isOpen ? ' ws-spoiler--open' : ''}`}
+                                    onClick={() => toggleReveal(app.appId)}
+                                    title={isOpen ? 'Click to hide' : 'Click to reveal'}
+                                  >
+                                    <code className="ws-v ws-v--secret">
+                                      {isOpen ? app.token : '•'.repeat(Math.min(48, app.token.length))}
+                                    </code>
+                                    <span className="ws-spoiler-hint">{isOpen ? 'Hide' : 'Reveal'}</span>
+                                  </button>
+                                ) : (
+                                  <span className="ws-muted">Saved (no longer stored)</span>
+                                )}
+                              </td>
+                              <td className="ws-actions-cell">
+                                <div className="ws-inline-actions">
+                                  {app.token && isOpen && (
+                                    <button
+                                      type="button"
+                                      className="ws-action-btn"
+                                      onClick={() => copy(`tok-${app.appId}`, app.token!)}
+                                    >
+                                      {copied === `tok-${app.appId}` ? 'Copied' : 'Copy'}
+                                    </button>
+                                  )}
+                                  {app.token && !app.tokenClaimed && (
+                                    <button
+                                      type="button"
+                                      className="ws-action-btn"
+                                      disabled={busy}
+                                      onClick={() => claim(app.appId)}
+                                    >
+                                      Mark as saved
+                                    </button>
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
                   </div>
-                )}
-                {app?.status === 'approved' && (
-                  <div className="ws-result">
-                    <div className="ws-status-row">
-                      <span className="ws-badge ws-badge--active"><lucide.Check size={11} strokeWidth={2.5} />Approved</span>
-                      <span className="ws-text"><strong>{app.name}</strong>{app.id ? ` · ${app.id.slice(0, 8)}…` : ''}</span>
+                ) : (
+                  !pendingApp && (
+                    <div className="ws-empty" style={{ padding: '24px 20px' }}>
+                      <lucide.KeyRound size={24} strokeWidth={1.5} />
+                      <span>No approved servers yet. Apply above to get a token.</span>
                     </div>
-                    {app.id && (
-                      <div className="ws-kv">
-                        <span className="ws-k">ID</span>
-                        <code className="ws-v">{app.id}</code>
-                        <button type="button" className="ws-copy" onClick={() => copy('id', app.id!)}>{copied === 'id' ? 'Copied' : 'Copy'}</button>
-                      </div>
-                    )}
-                    {app.token ? (
-                      <div className="ws-kv">
-                        <span className="ws-k">Token</span>
-                        <button
-                          type="button"
-                          className={`ws-spoiler${revealToken ? ' ws-spoiler--open' : ''}`}
-                          onClick={() => setRevealToken(v => !v)}
-                          title={revealToken ? 'Click to hide' : 'Click to reveal'}
-                        >
-                          <code className="ws-v ws-v--secret">
-                            {revealToken ? app.token : '•'.repeat(Math.min(48, app.token.length))}
-                          </code>
-                          <span className="ws-spoiler-hint">{revealToken ? 'Hide' : 'Reveal'}</span>
-                        </button>
-                        {revealToken && (
-                          <button type="button" className="ws-copy" onClick={() => copy('token', app.token!)}>{copied === 'token' ? 'Copied' : 'Copy'}</button>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="ws-text">Token is no longer stored on the server. Contact staff if you need a re-issue.</p>
-                    )}
-                    {app.token && !app.tokenClaimed && (
-                      <button type="button" className="btn-secondary ws-btn" onClick={async () => { await claim(); setRevealToken(false); }} disabled={busy}>
-                        Mark as saved
-                      </button>
-                    )}
-                  </div>
+                  )
                 )}
               </div>
             </div>
@@ -332,14 +374,14 @@ export function Workspace() {
                       <div className="ws-stat-label">Pending</div>
                       <lucide.Clock size={16} strokeWidth={2} className="ws-stat-icon" />
                     </div>
-                    <div className="ws-stat-value">{pending.length}</div>
+                    <div className="ws-stat-value">{staffPending.length}</div>
                   </div>
                   <div className="ws-stat">
                     <div className="ws-stat-top">
                       <div className="ws-stat-label">Issued tokens</div>
                       <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon" />
                     </div>
-                    <div className="ws-stat-value">{tokens.length}</div>
+                    <div className="ws-stat-value">{staffTokens.length}</div>
                   </div>
                 </div>
 
@@ -348,11 +390,11 @@ export function Workspace() {
                     <div className="ws-tabs">
                       <button type="button" className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`} onClick={() => setTab('pending')}>
                         <lucide.Inbox size={14} strokeWidth={2} />
-                        Pending{pending.length ? ` (${pending.length})` : ''}
+                        Pending{staffPending.length ? ` (${staffPending.length})` : ''}
                       </button>
                       <button type="button" className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`} onClick={() => setTab('tokens')}>
                         <lucide.KeyRound size={14} strokeWidth={2} />
-                        Tokens{tokens.length ? ` (${tokens.length})` : ''}
+                        Tokens{staffTokens.length ? ` (${staffTokens.length})` : ''}
                       </button>
                       <button type="button" className={`ws-tab${tab === 'mint' ? ' ws-tab--active' : ''}`} onClick={() => setTab('mint')}>
                         <lucide.Sparkles size={14} strokeWidth={2} />
@@ -390,7 +432,7 @@ export function Workspace() {
                           </thead>
                           <tbody>
                             {filtered_pending.map((p) => (
-                              <tr key={p.login}>
+                              <tr key={p.appId}>
                                 <td>
                                   <div className="ws-cell-title">{p.name}</div>
                                 </td>
@@ -399,8 +441,8 @@ export function Workspace() {
                                 <td><span className="ws-badge ws-badge--pending"><lucide.Clock size={11} strokeWidth={2.5} />Pending</span></td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
-                                    <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.login, 'approve')}>Approve</button>
-                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(p.login, 'reject')}>Reject</button>
+                                    <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</button>
+                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</button>
                                   </div>
                                 </td>
                               </tr>
@@ -424,7 +466,6 @@ export function Workspace() {
                             <tr>
                               <th>Server</th>
                               <th>Author</th>
-                              <th>Token ID</th>
                               <th>Approved by</th>
                               <th>Date</th>
                               <th></th>
@@ -432,20 +473,14 @@ export function Workspace() {
                           </thead>
                           <tbody>
                             {filtered_tokens.map((t) => (
-                              <tr key={t.login}>
+                              <tr key={t.appId}>
                                 <td><div className="ws-cell-title">{t.name}</div></td>
                                 <td className="ws-muted">@{t.login}</td>
-                                <td className="ws-mono">{t.id ? `${t.id.slice(0, 12)}…` : '—'}</td>
                                 <td className="ws-muted">{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
                                 <td className="ws-muted">{fmt_date(t.decidedAt ?? t.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
-                                    {t.id && (
-                                      <button type="button" className="ws-action-btn" disabled={busy} onClick={() => copy(`tid-${t.login}`, t.id!)}>
-                                        {copied === `tid-${t.login}` ? 'Copied' : 'Copy ID'}
-                                      </button>
-                                    )}
-                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(t.login, 'revoke')}>Revoke</button>
+                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</button>
                                   </div>
                                 </td>
                               </tr>
@@ -481,11 +516,6 @@ export function Workspace() {
                       {mintResult && (
                         <div className="ws-result">
                           <p className="ws-text">{mintResult.note}</p>
-                          <div className="ws-kv">
-                            <span className="ws-k">ID</span>
-                            <code className="ws-v">{mintResult.id}</code>
-                            <button type="button" className="ws-copy" onClick={() => copy('mid', mintResult.id)}>{copied === 'mid' ? 'Copied' : 'Copy'}</button>
-                          </div>
                           <div className="ws-kv">
                             <span className="ws-k">Token</span>
                             <code className="ws-v ws-v--secret">{mintResult.token}</code>

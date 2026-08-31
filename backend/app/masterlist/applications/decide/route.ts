@@ -20,23 +20,23 @@ export async function POST(req: Request) {
 
   const body   = await req.json().catch(() => ({}));
   const action = typeof body?.action === 'string' ? body.action : '';
-  const login  = typeof body?.login === 'string' ? body.login.trim().toLowerCase() : '';
-  if (!login) return Response.json({ error: 'missing login' }, { status: 400 });
+  const appId  = typeof body?.appId === 'string' ? body.appId.trim() : '';
+  if (!appId) return Response.json({ error: 'missing appId' }, { status: 400 });
 
   if (action === 'approve') {
-    const result = await lib_applications.approve_application(login, session.login);
+    const result = await lib_applications.approve_application(appId, session.login);
     if ('error' in result) return Response.json({ error: result.error }, { status: 400 });
     return Response.json({ application: lib_applications.sanitize_for_staff(result.app) });
   }
 
   if (action === 'reject') {
-    const result = await lib_applications.reject_application(login, session.login);
+    const result = await lib_applications.reject_application(appId, session.login);
     if ('error' in result) return Response.json({ error: result.error }, { status: 400 });
     return Response.json({ application: lib_applications.sanitize_for_staff(result.app) });
   }
 
   if (action === 'revoke') {
-    const result = await lib_applications.revoke_token(login, session.login);
+    const result = await lib_applications.revoke_token(appId, session.login);
     if ('error' in result) return Response.json({ error: result.error }, { status: 400 });
     return Response.json({ ok: true });
   }
