@@ -1,7 +1,7 @@
 import * as fs   from 'fs';
 import * as path from 'path';
 
-const STAFFS_PATH  = path.join(process.cwd(), 'configs', 'staffs.json');
+const STAFFS_PATH  = path.join(process.cwd(), 'configs', 'staff.json');
 const CACHE_TTL_MS = 10_000;
 
 let cached_logins: Set<string> = new Set();
