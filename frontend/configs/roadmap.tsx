@@ -2401,6 +2401,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Jitter-adaptive render delay',               status: 'completed' },
           { label: 'Teleport snap on large gaps',                status: 'completed' },
           { label: 'Velocity extrapolation',                     status: 'completed' },
+          { label: 'Physics body shape replication',             status: 'completed' },
+          { label: 'Deferred shape sync replay',                 status: 'completed' },
+          { label: 'Vehicle wheel spawn replication',            status: 'completed' },
+          { label: 'Vehicle wheel config sync',                  status: 'completed' },
+          { label: 'Vehicle wheel transform sync',               status: 'completed' },
           { label: 'Blendshape replication',                     status: 'pending'   },
           { label: 'Animation state replication',                status: 'pending'   }
         ]
