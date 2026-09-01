@@ -207,7 +207,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: core.engine.draw_polygon',           status: 'completed' },
           { label: '[Client] API: core.engine.draw_rectangle',         status: 'completed' },
           { label: '[Client] API: core.engine.draw_circle',            status: 'completed' },
-          { label: '[Client] API: core.engine.draw_image',             status: 'completed' },
+          { label: '[Client] API: core.engine.draw_material',          status: 'completed' },
           { label: '[Client] API: core.engine.draw_text',              status: 'completed' }
         ]
       },

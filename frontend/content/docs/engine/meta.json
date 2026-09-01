@@ -37,7 +37,7 @@
         "draw_polygon",
         "draw_rectangle",
         "draw_circle",
-        "draw_image",
+        "draw_material",
         "draw_text",
         "..."
     ]
