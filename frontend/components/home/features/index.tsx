@@ -115,10 +115,13 @@ function diagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
 export function Features() {
   const canvasRef = react.useRef<HTMLCanvasElement>(null);
   const nodeRefs = react.useRef<NodeRef[]>(config_home.Features.map(() => ({ el: null })));
-  const [hoveredId, setHoveredId] = react.useState<string | null>(null);
+  const [selectedId, setSelectedId] = react.useState<string>(
+    () => config_home.Features[0]?.id ?? ''
+  );
 
-  const handleEnter = react.useCallback((id: string) => setHoveredId(id), []);
-  const handleLeave = react.useCallback(() => setHoveredId(null), []);
+  const select = react.useCallback((id: string) => {
+    setSelectedId(id);
+  }, []);
 
   react.useEffect(() => {
     const canvas = canvasRef.current;
@@ -144,22 +147,33 @@ export function Features() {
         </div>
 
         <div className="feat-body">
-          <div className="feat-clusters rev-l">
-            {config_home.Features.map((c, ci) => (
-              <div
-                key={c.id}
-                className={`fcluster${hoveredId === c.id ? ' is-active' : ''}`}
-                style={{ '--ci': ci } as React.CSSProperties}
-                onMouseEnter={() => handleEnter(c.id)}
-                onMouseLeave={handleLeave}
-              >
-                <div className="fcluster-head">
-                  <span className="fcluster-dot"/>
-                  <span className="fcluster-label">{c.label}</span>
+          <div className="feat-clusters rev-l" role="listbox" aria-label="Features">
+            {config_home.Features.map((c, ci) => {
+              const active = selectedId === c.id;
+              return (
+                <div
+                  key={c.id}
+                  role="option"
+                  aria-selected={active}
+                  tabIndex={0}
+                  className={`fcluster${active ? ' is-active' : ''}`}
+                  style={{ '--ci': ci } as React.CSSProperties}
+                  onClick={() => select(c.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      select(c.id);
+                    }
+                  }}
+                >
+                  <div className="fcluster-head">
+                    <span className="fcluster-dot"/>
+                    <span className="fcluster-label">{c.label}</span>
+                  </div>
+                  <p className="fcluster-desc">{c.desc}</p>
                 </div>
-                <p className="fcluster-desc">{c.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="feat-diagram rev-r">
@@ -177,7 +191,7 @@ export function Features() {
               {config_home.Features.map((c, i) => (
                 <div
                   key={c.id}
-                  className={`fnode-group${hoveredId === c.id ? ' is-active' : ''}`}
+                  className={`fnode-group${selectedId === c.id ? ' is-active' : ''}`}
                   ref={el => { nodeRefs.current[i].el = el; }}
                 >
                   <div className="fnode">{c.label}</div>
