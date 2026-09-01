@@ -41,12 +41,14 @@ body:has(a:hover) #cur-outer,
 body:has(button:hover) #cur-outer,
 body:has(input:hover) #cur-outer,
 body:has(.vault-card:hover) #cur-outer,
+body:has(.fcluster:hover) #cur-outer,
 body:has([role="button"]:hover) #cur-outer { width: 52px; height: 52px; border-color: var(--blue) }
 
 body:has(a:hover) #cur-inner,
 body:has(button:hover) #cur-inner,
 body:has(input:hover) #cur-inner,
 body:has(.vault-card:hover) #cur-inner,
+body:has(.fcluster:hover) #cur-inner,
 body:has([role="button"]:hover) #cur-inner { transform: scale(1.6) }
 
 
