@@ -25,6 +25,13 @@ local status = core.engine.draw_material(
   - **Recommended usage** — register a handler via `util.event.on("sandbox:draw", ...)` and place all draw calls inside it.
 </Callout>
 
+<Callout type="info">
+  **Custom `fragment()` shaders may ignore `color`.** It's set as the vertex color and passed in as `uniform vec4 modulate`.
+
+  - **Honored** — `fragment()` never touches `COLOR`, or uses `COLOR *= modulate;`.
+  - **Ignored** — `fragment()` bare-assigns `COLOR`, e.g. `COLOR = vec4(...);`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
