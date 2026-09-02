@@ -145,8 +145,7 @@
   position: relative;
   z-index: 1;
   isolation: isolate;
-  background: var(--bg7, #0c0e12);
-  background-color: var(--bg7);
+  background: var(--bg6);
   border: 2px solid var(--b10);
   border-radius: 4px;
   margin-bottom: 20px;
@@ -167,7 +166,7 @@
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 2px solid var(--b10);
   flex-wrap: wrap;
 }
 
@@ -257,7 +256,6 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: var(--bg7, #0c0e12);
   border-bottom: 1px solid var(--b05);
   white-space: nowrap;
 }
@@ -274,7 +272,7 @@
 }
 
 .ws-table tbody tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--b05);
 }
 
 .ws-cell-title {
