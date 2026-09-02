@@ -191,10 +191,14 @@ export function Workspace() {
       <ui_wallpaper.Wallpaper seed={8} vignette={false} />
       <div className="sw">
         <div className="page-head">
-          <div className="slabel">Account</div>
-          <h2>Work<span>space</span></h2>
+          <div className="sec-head sec-head--intro">
+            <div className="rev">
+              <div className="slabel">Workspace</div>
+              <h2>Your servers.<br/>Managed in one <span>place.</span></h2>
+            </div>
+          </div>
           <p className="ws-lead">
-            Apply for a masterlist server token, track status, or manage community applications if you are staff.
+            Apply for masterlist tokens, track application status, and review community requests if you are staff.
           </p>
         </div>
 

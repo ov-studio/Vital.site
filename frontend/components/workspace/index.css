@@ -12,11 +12,12 @@
 }
 
 .ws-lead {
-  margin-top: 16px;
-  max-width: 42rem;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  max-width: 36rem;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: var(--text-soft, rgba(255, 255, 255, 0.65));
+  color: var(--text-soft, rgba(255, 255, 255, 0.55));
 }
 
 /* Profile strip */
