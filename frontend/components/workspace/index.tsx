@@ -212,7 +212,6 @@ export function Workspace() {
           </div>
         ) : (
           <>
-            {/* Profile strip */}
             <div className="ws-profile">
               <div className="ws-user">
                 <div className="ws-avatar">
@@ -228,7 +227,6 @@ export function Workspace() {
               {error && <p className="ws-error" role="alert">{error}</p>}
             </div>
 
-            {/* Member: applications */}
             <div className="slabel ws-section-title">Manage your applications</div>
             <ui_divider.Divider/>
             <div className="ws-panel">
@@ -344,7 +342,6 @@ export function Workspace() {
               </div>
             </div>
 
-            {/* Staff dashboard */}
             {session.staff && (
               <>
                 <div className="slabel ws-section-title">Review community applications</div>
