@@ -145,7 +145,7 @@
   position: relative;
   z-index: 1;
   isolation: isolate;
-  background: var(--bg6);
+  background: var(--bg7);
   border: 2px solid var(--b10);
   border-radius: 4px;
   margin-bottom: 20px;
