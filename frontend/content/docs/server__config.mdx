@@ -1,6 +1,6 @@
 ---
 title: Server configuration
-description: Configure a Vital.sandbox server — its identity, ports, sync rate, bootstrapper, socials, and master-list — via config.yaml
+description: Configure a Vital.sandbox server — its identity, ports, sync tuning, bootstrapper, socials, and master-list — via config.yaml
 ---
 
 ## Overview
@@ -13,7 +13,7 @@ If the config file is absent or malformed, the server falls back to built-in def
   **Where the config lives**
 
   - **Fixed location** — `config.yaml` must sit at the root of your `Vital.server/` directory.
-  - **Single file** — all sections (`server`, `network`, `http`, `bootstrap`, `social`, `masterlist`) live in this one file.
+  - **Single file** — all sections (`server`, `network`, `http`, `sync`, `bootstrap`, `social`, `masterlist`) live in this one file.
   - **Restart to apply** — changes are not hot-reloaded; a server restart is required for any edit to take effect.
 </Callout>
 
@@ -43,10 +43,16 @@ server:
 network:
   port: 7777
   max_peers: 32
-  sync_rate: 20
+  physics_tick_rate: 60
 
 http:
   port: 7778
+
+sync:
+  #rate: 60
+  buffer_delay_max: 0.30
+  jitter_margin: 1.5
+  snap_threshold: 5.0
 
 bootstrap:
   #- "runcode"
@@ -56,7 +62,7 @@ social:
   website: ""
 
 masterlist:
-  enabled: true
+  enabled: false
   token: ""
   url: "https://api.vital-sandbox.com/masterlist"
 ```
@@ -84,20 +90,20 @@ server:
 | Key | Type | Default | Description |
 |---|---|---|---|
 | `name` | `string` | `"Vital.sandbox Server"` | Display name shown in the master-list |
-| `version` | `string` | `"1.0.0"` | Free-text version identifier - not validated or compared |
+| `version` | `string` | `"1.0.0"` | Free-text version identifier — not validated or compared |
 | `description` | `string` | `""` | Optional description shown in the master-list |
 
 ---
 
 #### Network
 
-Controls the ENet multiplayer transport layer. Clients connect to the port defined here.
+Controls the ENet multiplayer transport layer and physics simulation rate.
 
 ```yaml
 network:
   port: 7777
   max_peers: 32
-  sync_rate: 20
+  physics_tick_rate: 60
 ```
 
 <Callout type="warn">
@@ -107,20 +113,11 @@ network:
   - **`max_peers`** — once the limit is reached, incoming connections are refused until a slot becomes available.
 </Callout>
 
-<Callout type="info">
-  **Tuning `sync_rate` for your game type.**
-
-  - **Action / FPS** — `30` or higher for responsive movement at the cost of more bandwidth.
-  - **General / RPG** — `20` is the default and suits most use cases.
-  - **Strategy / turn-based** — `5`–`10` is sufficient and reduces server load significantly.
-  - Clamped internally to the range `1`–`128`. Values outside this range are silently corrected.
-</Callout>
-
 | Key | Type | Default | Description |
 |---|---|---|---|
 | `port` | `integer` | `7777` | UDP port the ENet multiplayer server listens on |
 | `max_peers` | `integer` | `32` | Maximum number of concurrent client connections |
-| `sync_rate` | `integer` | `20` | Entity sync rate in Hz (1–128) |
+| `physics_tick_rate` | `integer` | `60` | Physics simulation steps per second (1–120). Sets the ceiling for `sync.rate` |
 
 ---
 
@@ -146,9 +143,39 @@ http:
 
 ---
 
+#### Sync
+
+Controls entity interpolation behaviour on connected clients. All values are transmitted to clients on connect — no client recompile needed.
+
+```yaml
+sync:
+  #rate: 60
+  buffer_delay_max: 0.30
+  jitter_margin: 1.5
+  snap_threshold: 5.0
+```
+
+<Callout type="info">
+  **Tuning sync for your server type.**
+
+  - **LAN / relay-only** — `buffer_delay_max: 0.10`, `jitter_margin: 1.0` for the tightest possible latency.
+  - **Mixed or global** — leave defaults (`0.30` / `1.5`), which handle typical internet jitter comfortably.
+  - **Lossy / satellite links** — raise `buffer_delay_max` to `0.50`+ and `jitter_margin` to `2.0`–`3.0`.
+  - **Large open worlds** — raise `snap_threshold` so fast-moving entities don't teleport on authority transfer.
+</Callout>
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `rate` | `integer` | tracks `physics_tick_rate` | Entity transform broadcast rate in Hz (1–128). Capped to `physics_tick_rate` |
+| `buffer_delay_max` | `float` | `0.30` | Adaptive jitter buffer ceiling in seconds (0.05–1.0) |
+| `jitter_margin` | `float` | `1.5` | Stddev multiplier for adaptive buffer growth (0.5–5.0) |
+| `snap_threshold` | `float` | `5.0` | Distance in world units beyond which the client teleports instead of interpolating (0.5–100.0) |
+
+---
+
 #### Bootstrap
 
-Defines resources that are automatically started after the initial resource scan on server boot. Entries are processed in order and respect full dependency resolution — if a bootstrap resource depends on another resource, that dependency is started first.
+Defines resources that are automatically started after the initial resource scan on server boot. Entries are processed in order and respect full dependency resolution.
 
 ```yaml
 bootstrap:
@@ -190,11 +217,11 @@ social:
 
 #### Masterlist
 
-Controls whether this server is listed on the public Vital.sandbox master-list and how often it reports in.
+Controls whether this server is listed on the public Vital.sandbox master-list.
 
 ```yaml
 masterlist:
-  enabled: true
+  enabled: false
   token: "your-token-here"
   url: "https://api.vital-sandbox.com/masterlist"
 ```
@@ -209,6 +236,6 @@ masterlist:
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `enabled` | `boolean` | `true` | When `true`, the server reports itself to the public master-list |
+| `enabled` | `boolean` | `false` | When `true`, the server reports itself to the public master-list |
 | `token` | `string` | `""` | API token obtained from a staff member |
 | `url` | `string` | `"https://api.vital-sandbox.com/masterlist"` | Base URL of the master-list API |
