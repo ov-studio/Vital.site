@@ -110,9 +110,10 @@ nav.s::after {
 
 .nav-avatar {
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--rule);
   object-fit: cover;
 }
 .nav-avatar--sm {
