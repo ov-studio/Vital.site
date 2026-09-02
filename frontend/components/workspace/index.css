@@ -320,7 +320,10 @@
 
 .ws-badge--active {
   color: #6ee7a8;
-  background: rgba(52, 180, 120, 0.12);
+  background: transparent;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Actions menu */
