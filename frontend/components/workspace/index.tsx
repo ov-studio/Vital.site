@@ -211,7 +211,11 @@ export function Workspace() {
             {/* Profile strip */}
             <div className="ws-profile">
               <div className="ws-user">
-                <img className="ws-avatar" src={session.avatar} alt="" width={40} height={40} referrerPolicy="no-referrer" />
+                <div className="ws-avatar">
+                  <div className="ws-avatar-img">
+                    <img src={session.avatar} alt="" width={56} height={56} referrerPolicy="no-referrer" />
+                  </div>
+                </div>
                 <div>
                   <div className="ws-login">@{session.login}</div>
                   <div className="ws-role">{session.staff ? 'Staff' : 'Member'}</div>
@@ -220,11 +224,12 @@ export function Workspace() {
               {error && <p className="ws-error" role="alert">{error}</p>}
             </div>
 
+            <ui_divider.Divider className="ws-profile-divider" />
+
             {/* Member: applications */}
             <div className="ws-panel">
               <div className="ws-panel-head">
                 <h3 className="ws-panel-title">
-                  <lucide.Server size={16} strokeWidth={2} />
                   Your applications
                 </h3>
               </div>
