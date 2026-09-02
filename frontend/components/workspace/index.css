@@ -32,14 +32,13 @@
 .ws-user {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
 }
 
 .ws-avatar {
   position: relative;
   display: block;
-  width: 56px;
-  height: 56px;
+  width: 48px;
   flex-shrink: 0;
 }
 
@@ -50,7 +49,7 @@
   border-radius: 50%;
   overflow: hidden;
   background: var(--bg5, #12151a);
-  box-shadow: 0 0 0 4px var(--rule2, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 0 0 4px var(--blue);
   transition: box-shadow 0.25s ease;
 }
 
@@ -70,19 +69,19 @@
 }
 
 .ws-login {
-  font-size: 0.95rem;
+  font-size: 1.0rem;
   font-weight: 600;
   line-height: 1.2;
-  color: var(--white, #fff);
+  color: var(--blue);
 }
 
 .ws-role {
   margin-top: 8px;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--text-muted);
 }
 
 /* Stats row */
