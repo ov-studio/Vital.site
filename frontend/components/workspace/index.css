@@ -703,11 +703,7 @@
   padding-bottom: 12px;
 }
 
-
-.ws-staff-divider.ui-divider,
-.ws-staff-divider {
-  margin-top: 32px;
-  margin-bottom: 20px;
-  padding-bottom: 0;
-  border-bottom: 1px solid var(--rule);
+.ws-section-title {
+  margin-top: 45px;
+  margin-bottom: 0px;
 }
