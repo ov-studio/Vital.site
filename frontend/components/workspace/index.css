@@ -589,7 +589,7 @@
   font-weight: 500;
   color: var(--text-soft, rgba(255, 255, 255, 0.65));
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--b05);
   border-radius: 4px;
   padding: 7px 14px;
   cursor: pointer;
