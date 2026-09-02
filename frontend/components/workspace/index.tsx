@@ -228,17 +228,11 @@ export function Workspace() {
               {error && <p className="ws-error" role="alert">{error}</p>}
             </div>
 
-            <ui_divider.Divider className="ws-profile-divider" />
-
             {/* Member: applications */}
+            <div className="slabel ws-section-title">Manage your applications</div>
+            <ui_divider.Divider/>
             <div className="ws-panel">
-              <div className="ws-panel-head">
-                <h3 className="ws-panel-title">
-                  Your applications
-                </h3>
-              </div>
-              <div className="ws-panel-body">
-                {/* Apply form — only when no pending */}
+              <div className="ws-panel-body m-">
                 {canApply && (
                   <div className="ws-apply" style={{ marginBottom: myApps.length || pendingApp ? 4 : 0 }}>
                     <label className="ws-label" htmlFor="app-name">Server name</label>
@@ -258,7 +252,6 @@ export function Workspace() {
                   </div>
                 )}
 
-                {/* Pending banner */}
                 {pendingApp && (
                   <div className="ws-status-row">
                     <span className="ws-text">
@@ -268,7 +261,6 @@ export function Workspace() {
                   </div>
                 )}
 
-                {/* Approved tokens grid (same table format as staff bottom list) */}
                 {myApps.length > 0 ? (
                   <div className="ws-table-wrap">
                     <table className="ws-table">
@@ -355,7 +347,8 @@ export function Workspace() {
             {/* Staff dashboard */}
             {session.staff && (
               <>
-                <ui_divider.Divider className="ws-staff-divider" />
+                <div className="slabel ws-section-title">Review community applications</div>
+                <ui_divider.Divider/>
                 <div className="ws-stats">
                   <div className="ws-stat">
                     <div className="ws-stat-top">
