@@ -384,7 +384,7 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--text-soft);
 }
 
 .ws-input {
