@@ -575,7 +575,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: nowrap;
 }
 
@@ -587,7 +587,7 @@
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid var(--b05);
   border-radius: 4px;
-  padding: 7px 14px;
+  padding: 5px 10px;
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
