@@ -212,8 +212,8 @@
   font-family: 'Geist', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--text-soft, rgba(255, 255, 255, 0.5));
-  background: transparent;
+  color: var(--text-muted);
+  background: var(--b10);
   border: none;
   padding: 8px 14px;
   border-radius: 4px;
@@ -221,23 +221,9 @@
   transition: color 0.15s, background 0.15s;
 }
 
-.ws-tab svg {
-  flex-shrink: 0;
-  opacity: 0.7;
-}
-
-.ws-tab--active svg {
-  opacity: 1;
-}
-
-.ws-tab:hover {
-  color: var(--white, #fff);
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .ws-tab--active {
-  color: var(--white, #fff);
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--selection-text);
+  background: var(--selection-bg);
 }
 
 
