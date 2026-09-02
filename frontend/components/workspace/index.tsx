@@ -343,7 +343,7 @@ export function Workspace() {
                   </div>
                 ) : (
                   !pendingApp && (
-                    <div className="ws-empty" style={{ padding: '24px 20px' }}>
+                      <div className="state-empty" style={{ padding: '24px 20px' }}>
                       <lucide.KeyRound size={24} strokeWidth={1.5} />
                       <span>No approved servers yet. Apply above to get a token.</span>
                     </div>
@@ -399,7 +399,7 @@ export function Workspace() {
                   {tab === 'pending' && (
                     <div className="ws-table-wrap">
                       {filtered_pending.length === 0 ? (
-                        <div className="ws-empty">
+                        <div className="state-empty">
                           <lucide.Inbox size={28} strokeWidth={1.5} />
                           <span>No pending requests.</span>
                         </div>
@@ -440,7 +440,7 @@ export function Workspace() {
                   {tab === 'tokens' && (
                     <div className="ws-table-wrap">
                       {filtered_tokens.length === 0 ? (
-                        <div className="ws-empty">
+                        <div className="state-empty">
                           <lucide.KeyRound size={28} strokeWidth={1.5} />
                           <span>No issued tokens.</span>
                         </div>

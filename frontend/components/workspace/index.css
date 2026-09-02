@@ -311,22 +311,6 @@
   color: var(--text-soft);
 }
 
-.ws-empty {
-  margin: 0;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-soft, rgba(255, 255, 255, 0.45));
-}
-
-.ws-empty svg {
-  opacity: 0.35;
-}
 
 /* Badges */
 .ws-badge {
@@ -335,7 +319,7 @@
   gap: 4px;
   padding: 0;
   font-family: 'Geist', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 600;
   border-radius: 0;
   background: transparent;
