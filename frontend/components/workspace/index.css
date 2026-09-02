@@ -60,14 +60,6 @@
   display: block;
 }
 
-.ws-profile-divider.ui-divider,
-.ws-profile-divider {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 0;
-  border-bottom: 1px solid var(--rule);
-}
-
 .ws-login {
   font-size: 1.0rem;
   font-weight: 600;
