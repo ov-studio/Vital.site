@@ -410,7 +410,6 @@
 }
 
 .ws-btn {
-  align-self: flex-start;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -524,6 +523,55 @@
   flex-shrink: 0;
 }
 
+/* Apply form — search theme, full width */
+.ws-apply {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ws-apply-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.ws-apply-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.ws-apply-search.ui-search {
+  width: 100%;
+}
+
+.ws-apply-search.ui-search input,
+.ws-apply-search input {
+  width: 100% !important;
+  max-width: none;
+  padding: 8px 12px 8px 32px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.ws-apply-search.ui-search input:focus,
+.ws-apply-search input:focus {
+  width: 100% !important;
+  border-color: var(--b10);
+}
+
+.ws-apply-btn {
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .ws-inline-actions {
   display: flex;
   align-items: center;
@@ -534,13 +582,13 @@
 
 .ws-action-btn {
   font-family: 'Geist', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--text-soft, rgba(255, 255, 255, 0.65));
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
-  padding: 5px 10px;
+  padding: 7px 14px;
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.15s, border-color 0.15s, background 0.15s;

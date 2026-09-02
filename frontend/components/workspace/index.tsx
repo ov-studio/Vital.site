@@ -230,24 +230,21 @@ export function Workspace() {
               <div className="ws-panel-body">
                 {/* Apply form — only when no pending */}
                 {canApply && (
-                  <div className="ws-form-row" style={{ marginBottom: myApps.length || pendingApp ? 16 : 0 }}>
-                    <div className="ws-form-grow">
-                      <label className="ws-label" htmlFor="app-name">Server name</label>
-                      <input
-                        id="app-name"
-                        className="ws-input"
-                        type="text"
-                        maxLength={64}
+                  <div className="ws-apply" style={{ marginBottom: myApps.length || pendingApp ? 4 : 0 }}>
+                    <label className="ws-label" htmlFor="app-name">Server name</label>
+                    <div className="ws-apply-row">
+                      <ui_search.Search
+                        className="ws-apply-search"
                         placeholder="e.g. Night City RP"
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(v) => setName(String(v).slice(0, 64))}
                         disabled={busy}
-                        autoComplete="off"
+                        icon={<lucide.Server size={14} strokeWidth={2} />}
                       />
+                      <button type="button" className="btn-secondary ws-btn ws-apply-btn" onClick={apply} disabled={busy}>
+                        {busy ? 'Submitting…' : 'Apply'}
+                      </button>
                     </div>
-                    <button type="button" className="btn-secondary ws-btn" onClick={apply} disabled={busy}>
-                      {busy ? 'Submitting…' : 'Apply'}
-                    </button>
                   </div>
                 )}
 
