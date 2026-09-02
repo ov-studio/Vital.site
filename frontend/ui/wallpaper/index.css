@@ -25,14 +25,14 @@
   inset: 0;
   background:
     linear-gradient(to bottom,
-        var(--bg2) 0%,
+        var(--bg3) 0%,
         transparent 18%,
         transparent 82%,
-        var(--bg2) 100%),
+        var(--bg3) 100%),
       linear-gradient(to right,
-        var(--bg2) 0%,
+        var(--bg3) 0%,
         transparent 8%,
         transparent 92%,
-        var(--bg2) 100%);
+        var(--bg3) 100%);
   pointer-events: none;
 }

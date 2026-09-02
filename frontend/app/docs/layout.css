@@ -17,7 +17,7 @@
 
 .dark {
   --color-fd-primary:    var(--blue);
-  --color-fd-background: var(--bg2);
+  --color-fd-background: var(--bg3);
 }
 .dark #nd-sidebar { background-color: var(--bg7); }
 
