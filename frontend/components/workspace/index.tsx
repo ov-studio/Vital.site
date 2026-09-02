@@ -4,6 +4,7 @@ import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_search        from '@/ui/search';
+import * as ui_divider       from '@/ui/divider';
 import * as lucide           from 'lucide-react';
 import './index.css';
 
@@ -250,9 +251,10 @@ export function Workspace() {
 
                 {/* Pending banner */}
                 {pendingApp && (
-                  <div className="ws-status-row" style={{ marginBottom: myApps.length ? 16 : 0 }}>
-                    <span className="ws-badge ws-badge--pending"><lucide.Clock size={11} strokeWidth={2.5} />Pending</span>
-                    <span className="ws-text"><strong>{pendingApp.name}</strong> — waiting for staff review.</span>
+                  <div className="ws-status-row">
+                    <span className="ws-text">
+                      <strong className="ws-server-name">{pendingApp.name}</strong> — waiting for staff review.
+                    </span>
                     <button type="button" className="btn-secondary ws-btn-sm" onClick={() => cancel(pendingApp.appId)} disabled={busy}>Cancel</button>
                   </div>
                 )}
@@ -280,7 +282,7 @@ export function Workspace() {
                               </td>
                               <td>
                                 <span className="ws-badge ws-badge--active">
-                                  <lucide.Check size={11} strokeWidth={2.5} />Approved
+                                  <lucide.Check size={14} strokeWidth={2.5} />Approved
                                 </span>
                               </td>
                               <td className="ws-muted">{fmt_date(app.decidedAt ?? app.createdAt)}</td>
@@ -344,6 +346,7 @@ export function Workspace() {
             {/* Staff dashboard */}
             {session.staff && (
               <>
+                <ui_divider.Divider className="ws-staff-divider" />
                 <div className="ws-stats">
                   <div className="ws-stat">
                     <div className="ws-stat-top">
@@ -410,7 +413,7 @@ export function Workspace() {
                                 </td>
                                 <td className="ws-muted">@{p.login}</td>
                                 <td className="ws-muted">{fmt_date(p.createdAt)}</td>
-                                <td><span className="ws-badge ws-badge--pending"><lucide.Clock size={11} strokeWidth={2.5} />Pending</span></td>
+                                <td><span className="ws-badge ws-badge--pending"><lucide.Clock size={14} strokeWidth={2.5} />Pending</span></td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
                                     <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</button>

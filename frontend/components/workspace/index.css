@@ -266,7 +266,12 @@
 
 .ws-cell-title {
   font-weight: 600;
-  color: var(--white, #fff);
+  color: var(--blue);
+}
+
+.ws-server-name {
+  font-weight: 600;
+  color: var(--blue);
 }
 
 .ws-muted {
@@ -301,29 +306,29 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 10px;
+  padding: 0;
   font-family: 'Geist', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: 0;
+  background: transparent;
   white-space: nowrap;
 }
 
 .ws-badge svg {
   flex-shrink: 0;
+  width: 14px;
+  height: 14px;
 }
 
 .ws-badge--pending {
   color: hsl(45, 80%, 65%);
-  background: hsla(45, 80%, 50%, 0.12);
+  background: transparent;
 }
 
 .ws-badge--active {
   color: #6ee7a8;
   background: transparent;
-  border-radius: 0;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 /* Actions menu */
@@ -695,4 +700,21 @@
 .ws-kv:has(.ws-spoiler) {
   grid-template-columns: 56px 1fr auto;
   align-items: center;
+}
+
+
+.ws-apps-divider.ui-divider,
+.ws-apps-divider {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 12px;
+}
+
+
+.ws-staff-divider.ui-divider,
+.ws-staff-divider {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: 1px solid var(--rule);
 }
