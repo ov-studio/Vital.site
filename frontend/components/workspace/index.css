@@ -587,8 +587,8 @@
   font-family: 'Geist', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--text-soft, rgba(255, 255, 255, 0.65));
-  background: rgba(255, 255, 255, 0.04);
+  color: rgba(200, 200, 200, 1);
+  background: rgba(255, 255, 255, 0.12);
   border: 1px solid var(--b05);
   border-radius: 4px;
   padding: 7px 14px;
@@ -598,9 +598,8 @@
 }
 
 .ws-action-btn:hover:not(:disabled) {
-  color: var(--white, #fff);
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
+  color: rgba(225, 225, 225, 1);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .ws-action-btn:disabled {
