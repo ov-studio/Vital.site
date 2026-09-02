@@ -609,13 +609,13 @@
 }
 
 .ws-action-btn--danger {
-  border-color: rgba(255, 80, 80, 0.25);
+  color: rgba(255, 100, 100, 1);
+  background: rgba(255, 80, 80, 0.25);
 }
 
 .ws-action-btn--danger:hover:not(:disabled) {
-  color: #ffb0b0;
-  border-color: rgba(255, 80, 80, 0.45);
-  background: rgba(255, 60, 60, 0.08);
+  color: rgba(255, 175, 175, 1);
+  background: rgba(255, 80, 80, 0.45);
 }
 
 .ws-text--icon {
