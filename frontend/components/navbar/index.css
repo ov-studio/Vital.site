@@ -113,7 +113,7 @@ nav.s::after {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--b30);
+  box-shadow: 0 0 0 3px var(--b50);
   object-fit: cover;
 }
 .nav-avatar--sm {
@@ -132,14 +132,14 @@ nav.s::after {
 
 .nav-staff-menu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 22px);
   right: 0;
   z-index: 1;
-  min-width: 200px;
+  min-width: 250px;
   padding: 8px;
-  background: var(--bg, #0c0e12);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  background: var(--bg6);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
 }
 
@@ -155,14 +155,14 @@ nav.s::after {
 .nav-staff-login {
   font-size: .85rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--blue);
 }
 .nav-staff-role {
   font-size: .68rem;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--text-soft);
   margin-top: 2px;
 }
 
@@ -174,23 +174,22 @@ nav.s::after {
   font-size: .8rem;
   font-weight: 500;
   text-align: left;
-  color: var(--dim);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   background: transparent;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background .15s, color .15s;
+  transition: color .25s;
 }
 .nav-staff-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--white);
+  color: var(--white)
 }
 .nav-staff-item--btn {
-  color: #ff8a8a;
+  color: rgba(255, 100, 100, 0.7)
 }
 .nav-staff-item--btn:hover {
-  color: #ffb0b0;
+  color: rgba(255, 100, 100, 1)
 }
 
 @media (max-width: 960px) {
