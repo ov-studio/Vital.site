@@ -342,9 +342,13 @@
 }
 
 /* Consistent app list row height */
+.ws-table--apps th {
+  background: var(--b10);
+}
+
 .ws-table--apps th,
 .ws-table--apps td {
-  height: 52px;
+  height: 45px;
   padding-top: 0;
   padding-bottom: 0;
   vertical-align: middle;
