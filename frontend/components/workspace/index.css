@@ -905,10 +905,10 @@
 }
 
 .ws-section-title {
-  margin: 40px 0 0;
+  margin: 60px 0 0;
   padding: 0;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: .01em;
   color: var(--blue);
