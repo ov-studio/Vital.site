@@ -229,52 +229,59 @@ export function Workspace() {
 
             <div className="slabel ws-section-title">Manage your applications</div>
             <ui_divider.Divider/>
-            <div className="ws-panel">
-              <div className="ws-panel-body m-">
-                {canApply && (
-                  <div className="ws-apply" style={{ marginBottom: myApps.length || pendingApp ? 4 : 0 }}>
-                    <label className="ws-label" htmlFor="app-name">Server name</label>
-                    <div className="ws-apply-row">
-                      <ui_search.Search
-                        className="ws-apply-search"
-                        placeholder="e.g. Night City RP"
-                        value={name}
-                        onChange={(v) => setName(String(v).slice(0, 64))}
+
+            {/* Apply / pending — own widget above the list */}
+            {(canApply || pendingApp) && (
+              <div className="ws-panel ws-apply-panel">
+                <div className="ws-panel-body ws-apply-panel-body">
+                  {pendingApp ? (
+                    <div className="ws-pending-card ws-pending-card--in-panel">
+                      <div className="ws-pending-card-main">
+                        <div className="ws-pending-card-icon" aria-hidden>
+                          <lucide.Clock size={18} strokeWidth={2} />
+                        </div>
+                        <div className="ws-pending-card-body">
+                          <div className="ws-pending-card-title">{pendingApp.name}</div>
+                          <div className="ws-pending-card-meta">Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}</div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        className="ws-action-btn ws-action-btn--danger"
+                        onClick={() => cancel(pendingApp.appId)}
                         disabled={busy}
-                        icon={<lucide.Server size={14} strokeWidth={2} />}
-                      />
-                      <button type="button" className="btn-secondary ws-btn ws-apply-btn" onClick={apply} disabled={busy}>
-                        {busy ? 'Submitting…' : 'Apply'}
+                      >
+                        Cancel
                       </button>
                     </div>
-                  </div>
-                )}
-
-                {pendingApp && (
-                  <div className="ws-pending-card">
-                    <div className="ws-pending-card-main">
-                      <div className="ws-pending-card-icon" aria-hidden>
-                        <lucide.Clock size={18} strokeWidth={2} />
-                      </div>
-                      <div className="ws-pending-card-body">
-                        <div className="ws-pending-card-title">{pendingApp.name}</div>
-                        <div className="ws-pending-card-meta">Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}</div>
+                  ) : (
+                    <div className="ws-apply">
+                      <label className="ws-label" htmlFor="app-name">Server name</label>
+                      <div className="ws-apply-row">
+                        <ui_search.Search
+                          className="ws-apply-search"
+                          placeholder="e.g. Night City RP"
+                          value={name}
+                          onChange={(v) => setName(String(v).slice(0, 64))}
+                          disabled={busy}
+                          icon={<lucide.Server size={14} strokeWidth={2} />}
+                        />
+                        <button type="button" className="btn-secondary ws-btn ws-apply-btn" onClick={apply} disabled={busy}>
+                          {busy ? 'Submitting…' : 'Apply'}
+                        </button>
                       </div>
                     </div>
-                    <button
-                      type="button"
-                      className="ws-action-btn ws-action-btn--danger"
-                      onClick={() => cancel(pendingApp.appId)}
-                      disabled={busy}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                )}
+                  )}
+                </div>
+              </div>
+            )}
 
+            {/* Approved apps list — separate panel */}
+            <div className="ws-panel">
+              <div className="ws-panel-body ws-panel-body--list">
                 {myApps.length > 0 ? (
                   <div className="ws-table-wrap">
-                    <table className="ws-table">
+                    <table className="ws-table ws-table--apps">
                       <thead>
                         <tr>
                           <th>Server</th>
@@ -339,12 +346,14 @@ export function Workspace() {
                     </table>
                   </div>
                 ) : (
-                  !pendingApp && (
-                      <div className="state-empty" style={{ padding: '24px 20px' }}>
-                      <lucide.KeyRound size={24} strokeWidth={1.5} />
-                      <span>No approved servers yet. Apply above to get a token.</span>
-                    </div>
-                  )
+                  <div className="state-empty" style={{ padding: '24px 20px' }}>
+                    <lucide.KeyRound size={24} strokeWidth={1.5} />
+                    <span>
+                      {pendingApp
+                        ? 'No approved servers yet — your request is under review.'
+                        : 'No approved servers yet. Apply above to get a token.'}
+                    </span>
+                  </div>
                 )}
               </div>
             </div>
