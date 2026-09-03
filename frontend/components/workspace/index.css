@@ -82,7 +82,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .ws-stat {
@@ -219,7 +219,7 @@
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
   background: var(--rule, #12151a);
-  border: 2px solid var(--b10, rgba(255, 255, 255, 0.1));
+  border: none;
   border-bottom: none;
   padding: 11px 16px 12px;
   margin: 0;
@@ -235,9 +235,7 @@
 }
 
 .ws-tab:hover {
-  color: rgba(255, 255, 255, 0.85);
-  background: var(--bg6, #161a20);
-  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--dim);
 }
 
 .ws-tab:hover svg {
@@ -246,8 +244,8 @@
 
 .ws-tab--active {
   color: var(--blue);
-  background: var(--bg7, #0c0e12);
-  border-color: var(--b10, rgba(255, 255, 255, 0.12));
+  background: var(--b20, #0c0e12);
+  border-color: transparent;
   border-bottom-color: var(--bg7, #0c0e12);
   box-shadow: 0 -1px 0 var(--bg7, #0c0e12);
   z-index: 3;
@@ -388,65 +386,12 @@
   color: var(--text-soft);
 }
 
-
-/* Badges */
-.ws-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 0;
-  background: transparent;
-  white-space: nowrap;
-}
-
-.ws-badge svg {
-  flex-shrink: 0;
-  width: 14px;
-  height: 14px;
-}
-
-.ws-badge--pending {
-  color: var(--blue);
-  background: transparent;
-}
-
-.ws-badge--active {
-  color: #6ee7a8;
-  background: transparent;
-}
-
 /* Actions menu */
 .ws-actions-cell {
   text-align: right;
   width: 1%;
   white-space: nowrap;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Forms */
 .ws-form-row {
