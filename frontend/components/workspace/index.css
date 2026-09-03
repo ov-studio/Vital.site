@@ -410,7 +410,7 @@
 }
 
 .ws-badge--pending {
-  color: hsl(45, 80%, 65%);
+  color: var(--blue);
   background: transparent;
 }
 
@@ -510,8 +510,8 @@
   height: 36px;
   flex-shrink: 0;
   border-radius: 6px;
-  background: hsla(45, 85%, 55%, 0.12);
-  color: hsl(45, 88%, 62%);
+  background: var(--b10);
+  color: var(--blue);
 }
 
 .ws-pending-card-body {
