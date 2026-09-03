@@ -365,14 +365,32 @@ export function Workspace() {
 
                 <div className="ws-panel">
                   <div className="ws-panel-head ws-panel-head--tabs">
-                    <div className="ws-tabs">
-                      <button type="button" className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`} onClick={() => setTab('pending')}>
-                        <lucide.Inbox size={14} strokeWidth={2} />
-                        Pending{staffPending.length ? ` (${staffPending.length})` : ''}
+                    <div className="ws-tabs" role="tablist" aria-label="Application lists">
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={tab === 'pending'}
+                        className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
+                        onClick={() => setTab('pending')}
+                      >
+                        <lucide.Inbox size={14} strokeWidth={2.25} />
+                        Pending
+                        {staffPending.length > 0 && (
+                          <span className="ws-tab-count">{staffPending.length}</span>
+                        )}
                       </button>
-                      <button type="button" className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`} onClick={() => setTab('tokens')}>
-                        <lucide.KeyRound size={14} strokeWidth={2} />
-                        Tokens{staffTokens.length ? ` (${staffTokens.length})` : ''}
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={tab === 'tokens'}
+                        className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`}
+                        onClick={() => setTab('tokens')}
+                      >
+                        <lucide.KeyRound size={14} strokeWidth={2.25} />
+                        Tokens
+                        {staffTokens.length > 0 && (
+                          <span className="ws-tab-count">{staffTokens.length}</span>
+                        )}
                       </button>
                     </div>
                     {(tab === 'pending' || tab === 'tokens') && (
