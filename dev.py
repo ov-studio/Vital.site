@@ -24,7 +24,9 @@ class Dev:
         self.script_dir   = script_dir
         self.backend_dir  = os.path.join(script_dir, "backend")
         self.frontend_dir = os.path.join(script_dir, "frontend")
+        self.shared_dir   = os.path.join(script_dir, "shared")
         self.npm          = self.find_npm()
+        self.node         = self.find_node()
 
     def find_npm(self):
         candidates = ["npm.cmd", "npm"] if sys.platform == "win32" else ["npm"]
