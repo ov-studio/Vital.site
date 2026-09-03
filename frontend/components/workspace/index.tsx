@@ -227,7 +227,6 @@ export function Workspace() {
               {error && <p className="ws-error" role="alert">{error}</p>}
             </div>
 
-            <div className="ws-section-title">Manage your applications</div>
             <ui_divider.Divider/>
 
             {/* Apply / pending — own widget above the list */}
