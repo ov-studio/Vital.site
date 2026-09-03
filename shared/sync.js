@@ -8,6 +8,43 @@ const TARGETS = [
 ];
 
 const SKIP = new Set(['sync.js']);
+const CDN_TARGET_DIR = path.resolve(__dirname, '../frontend/public/cdn');
+const UI_SRC_DIR = path.resolve(__dirname, '../frontend/ui');
+const CDN_CSS_FILES = [
+  { src: path.join(SHARED_DIR, 'app', 'theme.css'), dest: path.join(CDN_TARGET_DIR, 'theme.css') },
+  { src: path.join(SHARED_DIR, 'app', 'global.css'), dest: path.join(CDN_TARGET_DIR, 'global.css') },
+];
+
+function safe_copy(src, dest) {
+  const maxAttempts = 8;
+  let lastErr;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      if (fs.existsSync(dest)) {
+        try { fs.unlinkSync(dest); }
+        catch (_) {}
+      }
+      fs.copyFileSync(src, dest);
+      return;
+    } 
+    catch (err) {
+      lastErr = err;
+      const code = err && err.code;
+      if (
+        (code === 'EBUSY' || code === 'EPERM' || code === 'EACCES' || code === 'ENOENT') &&
+        attempt < maxAttempts
+      )
+      {
+        const waitMs = 30 * attempt;
+        const start = Date.now();
+        while (Date.now() - start < waitMs) {}
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastErr;
+}
 
 function copy_dir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
@@ -17,7 +54,7 @@ function copy_dir(src, dest) {
     const dest_path = path.join(dest, entry.name);
     if (entry.isDirectory()) copy_dir(src_path, dest_path);
     else {
-      fs.copyFileSync(src_path, dest_path);
+      safe_copy(src_path, dest_path);
       console.log(`  synced: ${path.relative(SHARED_DIR, src_path)}`);
     }
   }
@@ -56,31 +93,24 @@ function update_gitignore(target_dir, rel_paths) {
   console.log(`  gitignore updated: ${path.relative(process.cwd(), gitignore_path)}`);
 }
 
-const CDN_TARGET_DIR = path.resolve(__dirname, '../frontend/public/cdn');
-const UI_SRC_DIR = path.resolve(__dirname, '../frontend/ui');
-const CDN_CSS_FILES = [
-  { src: path.join(SHARED_DIR, 'app', 'theme.css'), dest: path.join(CDN_TARGET_DIR, 'theme.css') },
-  { src: path.join(SHARED_DIR, 'app', 'global.css'), dest: path.join(CDN_TARGET_DIR, 'global.css') },
-];
-
 function sync_cdn_assets() {
   fs.mkdirSync(CDN_TARGET_DIR, { recursive: true });
-
   for (const { src, dest } of CDN_CSS_FILES) {
     if (!fs.existsSync(src)) {
       console.warn(`[sync] cdn source missing, skipping: ${path.relative(SHARED_DIR, src)}`);
       continue;
     }
-    fs.copyFileSync(src, dest);
+    safe_copy(src, dest);
     console.log(`  synced (cdn): ${path.relative(SHARED_DIR, src)} -> frontend/public/cdn/${path.basename(dest)}`);
   }
 
   const ui_dest_dir = path.join(CDN_TARGET_DIR, 'ui');
   if (!fs.existsSync(UI_SRC_DIR)) {
     console.warn(`[sync] ui source missing, skipping: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)} does not exist`);
-  } else {
+  }
+  else {
     let copied_any = false;
-    const ui_files = []; // relative paths like "card/index.jsx"
+    const ui_files = [];
     const copy_ui_recursive = (src, dest) => {
       fs.mkdirSync(dest, { recursive: true });
       for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
@@ -88,7 +118,7 @@ function sync_cdn_assets() {
         const dest_path = path.join(dest, entry.name);
         if (entry.isDirectory()) copy_ui_recursive(src_path, dest_path);
         else if (/\.(jsx?|css)$/.test(entry.name)) {
-          fs.copyFileSync(src_path, dest_path);
+          safe_copy(src_path, dest_path);
           const rel = path.relative(UI_SRC_DIR, src_path).split(path.sep).join('/');
           ui_files.push(rel);
           console.log(`  synced (cdn): ui/${rel} -> frontend/public/cdn/ui/${rel}`);
@@ -116,7 +146,14 @@ function sync_cdn_assets() {
       files: ui_files
     };
     const manifest_path = path.join(ui_dest_dir, 'manifest.json');
-    fs.writeFileSync(manifest_path, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+    const tmp = manifest_path + '.tmp';
+    fs.writeFileSync(tmp, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+    try { fs.renameSync(tmp, manifest_path); }
+    catch {
+      safe_copy(tmp, manifest_path);
+      try { fs.unlinkSync(tmp); } 
+      catch (_) {}
+    }
     console.log(`  synced (cdn): ui/manifest.json (${ui_files.length} files, ${Object.keys(components).length} components)`);
     if (!copied_any) console.warn(`[sync] ui source exists but contained no .jsx/.css files: ${path.relative(path.resolve(__dirname, '..'), UI_SRC_DIR)}`);
   }
