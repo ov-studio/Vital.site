@@ -251,11 +251,24 @@ export function Workspace() {
                 )}
 
                 {pendingApp && (
-                  <div className="ws-status-row">
-                    <span className="ws-text">
-                      <strong className="ws-server-name">{pendingApp.name}</strong> — waiting for staff review.
-                    </span>
-                    <button type="button" className="btn-secondary ws-btn-sm" onClick={() => cancel(pendingApp.appId)} disabled={busy}>Cancel</button>
+                  <div className="ws-pending-card">
+                    <div className="ws-pending-card-main">
+                      <div className="ws-pending-card-icon" aria-hidden>
+                        <lucide.Clock size={18} strokeWidth={2} />
+                      </div>
+                      <div className="ws-pending-card-body">
+                        <div className="ws-pending-card-title">{pendingApp.name}</div>
+                        <div className="ws-pending-card-meta">Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}</div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      className="ws-action-btn ws-action-btn--danger"
+                      onClick={() => cancel(pendingApp.appId)}
+                      disabled={busy}
+                    >
+                      Cancel
+                    </button>
                   </div>
                 )}
 
@@ -265,7 +278,6 @@ export function Workspace() {
                       <thead>
                         <tr>
                           <th>Server</th>
-                          <th>Status</th>
                           <th>Approved</th>
                           <th>Token</th>
                           <th></th>
@@ -278,11 +290,6 @@ export function Workspace() {
                             <tr key={app.appId}>
                               <td>
                                 <div className="ws-cell-title">{app.name}</div>
-                              </td>
-                              <td>
-                                <span className="ws-badge ws-badge--active">
-                                  <lucide.Check size={14} strokeWidth={2.5} />Approved
-                                </span>
                               </td>
                               <td className="ws-muted">{fmt_date(app.decidedAt ?? app.createdAt)}</td>
                               <td>
