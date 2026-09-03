@@ -227,7 +227,7 @@ export function Workspace() {
               {error && <p className="ws-error" role="alert">{error}</p>}
             </div>
 
-            <div className="slabel ws-section-title">Manage your applications</div>
+            <div className="ws-section-title">Manage your applications</div>
             <ui_divider.Divider/>
 
             {/* Apply / pending — own widget above the list */}
@@ -360,7 +360,7 @@ export function Workspace() {
 
             {session.staff && (
               <>
-                <div className="slabel ws-section-title">Review community applications</div>
+                <div className="ws-section-title">Review community applications</div>
                 <ui_divider.Divider/>
                 <div className="ws-stats">
                   <div className="ws-stat">

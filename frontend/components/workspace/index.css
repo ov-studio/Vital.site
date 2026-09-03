@@ -28,7 +28,7 @@
   margin-bottom: 0;
   flex-wrap: wrap;
   background: var(--bg7);
-  border: 2px solid var(--rule);
+  border: 2px solid var(--b10);
   padding: 20px;
   border-radius: 6px;
 }
@@ -95,7 +95,7 @@
   padding: 18px 20px;
   background: var(--bg7, #0c0e12);
   background-color: var(--bg7);
-  border: 2px solid var(--rule);
+  border: 2px solid var(--b10);
   border-radius: 4px;
 }
 
@@ -142,7 +142,7 @@
   z-index: 1;
   isolation: isolate;
   background: var(--bg7);
-  border: 2px solid var(--rule);
+  border: 2px solid var(--b10);
   border-radius: 4px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -222,7 +222,7 @@
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
   background: var(--bg5, #12151a);
-  border: 2px solid var(--rule, rgba(255, 255, 255, 0.1));
+  border: 2px solid var(--b10, rgba(255, 255, 255, 0.1));
   border-bottom: none;
   padding: 11px 16px 12px;
   margin: 0;
@@ -250,7 +250,7 @@
 .ws-tab--active {
   color: hsl(45, 88%, 62%);
   background: var(--bg7, #0c0e12);
-  border-color: var(--rule, rgba(255, 255, 255, 0.12));
+  border-color: var(--b10, rgba(255, 255, 255, 0.12));
   border-bottom-color: var(--bg7, #0c0e12);
   box-shadow: 0 -1px 0 var(--bg7, #0c0e12);
   z-index: 3;
@@ -297,7 +297,7 @@
 .ws-panel:has(.ws-panel-head--tabs) > .ws-table-wrap,
 .ws-panel:has(.ws-panel-head--tabs) > .state-empty {
   background: var(--bg7, #0c0e12);
-  border: 2px solid var(--rule, rgba(255, 255, 255, 0.12));
+  border: 2px solid var(--b10, rgba(255, 255, 255, 0.12));
   border-radius: 0 6px 6px 6px;
   margin-top: -2px; /* tuck under active tab bottom border */
 }
@@ -503,7 +503,7 @@
   padding: 14px 16px;
   margin: 0;
   background: rgba(0, 0, 0, 0.22);
-  border: 2px solid var(--rule, rgba(255, 255, 255, 0.1));
+  border: 2px solid var(--b10, rgba(255, 255, 255, 0.1));
   border-radius: 6px;
 }
 
@@ -927,6 +927,12 @@
 }
 
 .ws-section-title {
-  margin-top: 45px;
-  margin-bottom: 0px;
+  margin: 40px 0 0;
+  padding: 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--blue);
+  text-transform: none;
 }
