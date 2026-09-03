@@ -244,7 +244,7 @@
 
 .ws-tab--active {
   color: var(--blue);
-  background: var(--b20, #0c0e12);
+  background: var(--b10, #0c0e12);
   border-color: transparent;
   z-index: 3;
 }
@@ -317,8 +317,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.4));
-  background: var(--bg7, #0c0e12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--b10);
   white-space: nowrap;
 }
 
