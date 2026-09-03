@@ -32,7 +32,7 @@ h1 {
 
 h2 {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(2.4rem, 3vw, 2.6rem);
+  font-size: clamp(2.4rem, 3vw, 2.5rem);
   font-weight: 700;
   letter-spacing: .01em;
   text-transform: uppercase;
@@ -241,5 +241,5 @@ h2 span { color: var(--blue) }
 
 @media (max-width: 640px) {
   .sw { padding: 0 20px }
-  h2  { font-size: clamp(2rem, 7vw, 2.6rem) }
+  h2  { font-size: clamp(2rem, 7vw, 2.5rem) }
 }
