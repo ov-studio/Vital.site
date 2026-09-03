@@ -221,7 +221,7 @@
   background: var(--rule, #12151a);
   border: none;
   border-bottom: none;
-  padding: 11px 16px 12px;
+  padding: 11px 16px 11px;
   margin: 0;
   border-radius: 4px 4px 0 0;
   cursor: pointer;
