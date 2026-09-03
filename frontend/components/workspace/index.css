@@ -190,7 +190,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 2px;
+  gap: 4px;
   padding: 10px 0 0; /* flush left — first tab aligns with panel edge */
   border-bottom: none;
   background: transparent;
