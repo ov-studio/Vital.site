@@ -731,8 +731,8 @@
   font-family: 'Geist', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
-  color: rgba(200, 200, 200, 1);
-  background: rgba(255, 255, 255, 0.12);
+  color: var(--b90);
+  background: var(--b20);
   border: 1px solid var(--b05);
   border-radius: 4px;
   padding: 5px 10px;
@@ -742,8 +742,8 @@
 }
 
 .ws-action-btn:hover:not(:disabled) {
-  color: rgba(225, 225, 225, 1);
-  background: rgba(255, 255, 255, 0.25);
+  color: var(--blue);
+  background: var(--b30);
 }
 
 .ws-action-btn:disabled {
