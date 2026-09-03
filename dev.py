@@ -36,6 +36,14 @@ class Dev:
         log_err("dev", "npm not found. Install Node.js: https://nodejs.org/")
         sys.exit(1)
 
+    def find_node(self):
+        candidates = ["node.exe", "node"] if sys.platform == "win32" else ["node"]
+        for name in candidates:
+            if shutil.which(name):
+                return name
+        log_err("dev", "node not found. Install Node.js: https://nodejs.org/")
+        sys.exit(1)
+
     def install(self, cwd, tag):
         log_info(tag, f"Installing dependencies ...")
         result = subprocess.run([self.npm, "install"], cwd=cwd)
@@ -43,6 +51,18 @@ class Dev:
             log_err(tag, "npm install failed.")
             sys.exit(result.returncode)
         log_ok(tag, "Done")
+
+    def run_sync(self):
+        sync_js = os.path.join(self.shared_dir, "sync.js")
+        if not os.path.isfile(sync_js):
+            log_warn("dev", "shared/sync.js not found — skipping initial sync")
+            return
+        log_info("dev", "Running shared sync once ...")
+        result = subprocess.run([self.node, sync_js], cwd=self.script_dir)
+        if result.returncode != 0:
+            log_err("dev", "shared/sync.js failed.")
+            sys.exit(result.returncode)
+        log_ok("dev", "Sync complete")
 
     def stream(self, proc, tag, color):
         for line in iter(proc.stdout.readline, b""):
@@ -71,10 +91,10 @@ class Dev:
             if not os.path.isdir(os.path.join(cwd, "node_modules")):
                 self.install(cwd, tag)
 
+        self.run_sync()
         backend_proc  = self.start(self.backend_dir,  "backend",  CYAN)
-        time.sleep(1)
+        time.sleep(1.5)
         frontend_proc = self.start(self.frontend_dir, "frontend", GREEN)
-
         log_ok("dev", "Both services started. Press Ctrl+C to stop.")
 
         try:
