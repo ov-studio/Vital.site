@@ -25,12 +25,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 0;
+  margin-top: 80px;
   flex-wrap: wrap;
-  background: var(--bg7);
-  border: 2px solid var(--b10);
-  padding: 20px;
-  border-radius: 6px;
 }
 
 .ws-user {
@@ -193,7 +189,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 12px;
+  gap: 2px;
   padding: 10px 0 0; /* flush left — first tab aligns with panel edge */
   border-bottom: none;
   background: transparent;
@@ -221,7 +217,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
-  background: var(--bg5, #12151a);
+  background: var(--rule, #12151a);
   border: 2px solid var(--b10, rgba(255, 255, 255, 0.1));
   border-bottom: none;
   padding: 11px 16px 12px;
@@ -248,7 +244,7 @@
 }
 
 .ws-tab--active {
-  color: hsl(45, 88%, 62%);
+  color: var(--blue);
   background: var(--bg7, #0c0e12);
   border-color: var(--b10, rgba(255, 255, 255, 0.12));
   border-bottom-color: var(--bg7, #0c0e12);
@@ -257,33 +253,14 @@
 }
 
 .ws-tab--active svg {
-  color: hsl(45, 88%, 62%);
+  color: var(--blue);
   opacity: 1;
 }
 
 .ws-tab--active:hover {
-  color: hsl(45, 92%, 68%);
-}
-
-.ws-tab-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.4em;
-  height: 1.35em;
-  padding: 0 6px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1;
-  border-radius: 999px;
-  color: inherit;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.ws-tab--active .ws-tab-count {
-  background: hsla(45, 85%, 55%, 0.22);
-  color: hsl(45, 92%, 72%);
+  color: var(--blue);
+  background: var(--bg7, #0c0e12);
+  border-color: var(--b10, rgba(255, 255, 255, 0.12));
 }
 
 /* Content surface under the active folder tab */

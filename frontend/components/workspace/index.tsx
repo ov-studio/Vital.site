@@ -365,17 +365,17 @@ export function Workspace() {
                 <div className="ws-stats">
                   <div className="ws-stat">
                     <div className="ws-stat-top">
+                      <div className="ws-stat-label">Issued</div>
+                      <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon" />
+                    </div>
+                    <div className="ws-stat-value">{staffTokens.length}</div>
+                  </div>
+                  <div className="ws-stat">
+                    <div className="ws-stat-top">
                       <div className="ws-stat-label">Pending</div>
                       <lucide.Clock size={16} strokeWidth={2} className="ws-stat-icon" />
                     </div>
                     <div className="ws-stat-value">{staffPending.length}</div>
-                  </div>
-                  <div className="ws-stat">
-                    <div className="ws-stat-top">
-                      <div className="ws-stat-label">Issued tokens</div>
-                      <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon" />
-                    </div>
-                    <div className="ws-stat-value">{staffTokens.length}</div>
                   </div>
                 </div>
 
@@ -385,30 +385,24 @@ export function Workspace() {
                       <button
                         type="button"
                         role="tab"
-                        aria-selected={tab === 'pending'}
-                        className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
-                        onClick={() => setTab('pending')}
-                      >
-                        <lucide.Inbox size={14} strokeWidth={2.25} />
-                        Pending
-                        {staffPending.length > 0 && (
-                          <span className="ws-tab-count">{staffPending.length}</span>
-                        )}
-                      </button>
-                      <button
-                        type="button"
-                        role="tab"
                         aria-selected={tab === 'tokens'}
                         className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`}
                         onClick={() => setTab('tokens')}
                       >
                         <lucide.KeyRound size={14} strokeWidth={2.25} />
-                        Tokens
-                        {staffTokens.length > 0 && (
-                          <span className="ws-tab-count">{staffTokens.length}</span>
-                        )}
+                        Issued
                       </button>
                     </div>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={tab === 'pending'}
+                      className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
+                      onClick={() => setTab('pending')}
+                    >
+                      <lucide.Inbox size={14} strokeWidth={2.25} />
+                      Pending
+                    </button>
                     {(tab === 'pending' || tab === 'tokens') && (
                       <ui_search.Search
                         className="ws-search-ui"
