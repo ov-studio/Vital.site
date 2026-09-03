@@ -418,7 +418,6 @@ export function Workspace() {
                               <th>Server</th>
                               <th>Author</th>
                               <th>Submitted</th>
-                              <th>Status</th>
                               <th></th>
                             </tr>
                           </thead>
@@ -430,7 +429,6 @@ export function Workspace() {
                                 </td>
                                 <td className="ws-muted">@{p.login}</td>
                                 <td className="ws-muted">{fmt_date(p.createdAt)}</td>
-                                <td><span className="ws-badge ws-badge--pending"><lucide.Clock size={14} strokeWidth={2.5} />Pending</span></td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
                                     <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</button>
