@@ -7,32 +7,12 @@
   min-height: 100vh;
   padding-top: var(--nav-h);
   overflow: hidden;
-}
-
-.hbg { 
-  position: absolute;
-  inset: 0; 
-  z-index: 0; 
-  pointer-events: none;
-}
-
-.hbg-grid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 100%, transparent 100%);
-  opacity: .4;
-}
-
-.hbg-scanline {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
   background: repeating-linear-gradient(
     45deg,
     transparent,
     transparent 2px,
-    var(--b10) 2px,
-    var(--b10) 4px
+    var(--b05) 2px,
+    var(--b05) 4px
   );
 }
 
