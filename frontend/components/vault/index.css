@@ -138,7 +138,7 @@
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--text-desc-hover);
 }
 
 .vault-card-footer {
@@ -228,7 +228,7 @@
   font-family: 'Geist', sans-serif;
   font-size: .82rem;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--text-desc-hover);
   flex-shrink: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -253,7 +253,7 @@
 .vault-modal-desc {
   font-family: 'Geist', sans-serif;
   font-size: .84rem;
-  color: var(--text-muted);
+  color: var(--text-desc);
   line-height: 1.85;
   white-space: pre-line;
 }
