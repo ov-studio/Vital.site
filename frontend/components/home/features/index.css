@@ -52,7 +52,7 @@
   flex-shrink: 0;
   width: 5px;
   height: 5px;
-  background: var(--rule);
+  background: transparent;
   border-radius: 50%;
   transition: background .3s, box-shadow .3s;
 }
