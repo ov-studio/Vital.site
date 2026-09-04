@@ -19,11 +19,7 @@
 .hbg-grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--b10) 1px, transparent 1px),
-    linear-gradient(90deg, var(--b10) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 15%, transparent 80%);
+  background-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 50%, transparent 100%);
   opacity: .4;
 }
 
@@ -32,11 +28,11 @@
   inset: 0;
   pointer-events: none;
   background: repeating-linear-gradient(
-    0deg,
+    45deg,
     transparent,
     transparent 2px,
-    var(--b05) 2px,
-    var(--b05) 4px
+    var(--b10) 2px,
+    var(--b10) 4px
   );
 }
 
