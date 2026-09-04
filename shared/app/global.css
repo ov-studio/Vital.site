@@ -9,7 +9,7 @@
 }
 
 body {
-  background: var(--bg3);
+  background: var(--bg4);
   color: var(--white);
   font-family: 'Geist', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -155,13 +155,11 @@ h2 span { color: var(--blue) }
 /* ── Progress Bar ── */
 .bar-track {
   background: hsla(220, 18%, 100%, .06);
-  border-radius: 3px;
   overflow: hidden;
 }
 .bar-fill {
   height: 100%;
   background: var(--blue);
-  border-radius: 3px;
   transition: width .6s cubic-bezier(.4, 0, .2, 1);
 }
 
