@@ -18,6 +18,8 @@
   position: relative;
   padding: 32px 28px 28px;
   background: var(--bg7);
+  border: 2px solid var(--b10);
+  border-radius: 2px;
   overflow: hidden;
   cursor: default;
   transition:
