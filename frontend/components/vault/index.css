@@ -39,7 +39,7 @@
   overflow: hidden;
   background: var(--bg7);
   border: 2px solid var(--b10);
-  border-radius: 6px;
+  border-radius: 2px;
   transition: border-color .25s, background .25s;
 }
 .vault-card:hover { border-color: var(--b40); }
