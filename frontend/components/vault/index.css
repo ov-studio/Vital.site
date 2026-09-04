@@ -116,9 +116,9 @@
 .vault-modal-version {
   font-family: 'Rajdhani', sans-serif;
   font-size: .82rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.6px;
-  color: var(--text-desc);
+  color: var(--text-dim2);
 }
 .vault-modal-author  { font-size: .7rem; }
 .vault-modal-version { font-size: .9rem; }
