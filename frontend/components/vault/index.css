@@ -258,7 +258,7 @@
   white-space: pre-line;
 }
 .vault-modal-desc strong {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-desc-hover); 
 }
 
