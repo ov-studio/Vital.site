@@ -13,7 +13,7 @@ nav::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--bg3);
+  background: var(--bg4);
   pointer-events: none;
   transition: background .4s, border-color .4s;
 }
