@@ -68,7 +68,7 @@
   color: var(--dim);
   transition: color .25s;
 }
-.fcluster.is-active .fcluster-label { color: var(--white) }
+.fcluster.is-active .fcluster-label { color: var(--blue) }
 
 .fcluster-desc {
   position: relative;
