@@ -67,7 +67,7 @@ h2 span { color: var(--blue) }
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 .sec-head--intro { margin-bottom: 25px; }
 .page-head { margin-bottom: 56px; }
