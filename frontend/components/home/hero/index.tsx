@@ -43,10 +43,6 @@ export function Hero() {
 
   return (
     <section id="hero">
-      <div className="hbg">
-        <div className="hbg-grid"/>
-        <div className="hbg-scanline"/>
-      </div>
       <div className="hcorner hcorner-tl"/>
       <div className="hcorner hcorner-tr"/>
       <div className="hcorner hcorner-bl"/>
