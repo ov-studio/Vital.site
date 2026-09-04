@@ -19,7 +19,7 @@
 .hbg-grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 50%, transparent 100%);
+  background-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 100%, transparent 100%);
   opacity: .4;
 }
 
