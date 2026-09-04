@@ -257,6 +257,10 @@
   line-height: 1.85;
   white-space: pre-line;
 }
+.vault-modal-desc strong {
+  font-weight: 600;
+  color: var(--text-desc-hover); 
+}
 
 .vault-modal-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
 .vault-modal-actions .btn-secondary { margin-left: auto; }
