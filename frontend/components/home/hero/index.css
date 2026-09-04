@@ -34,9 +34,9 @@
   background: repeating-linear-gradient(
     0deg,
     transparent,
-    transparent 2px,
-    var(--blue-scanline) 2px,
-    var(--blue-scanline) 4px
+    transparent 3px,
+    var(--b10) 2px,
+    var(--b10) 4px
   );
 }
 
