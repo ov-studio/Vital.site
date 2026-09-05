@@ -37,19 +37,18 @@
 }
 
 .download-tos-note {
-  margin-top: 5px;
+  margin-top: 4px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: .9rem;
   font-weight: 600;
   letter-spacing: .015em;
+  line-height: 1.45;
   color: var(--text-mid);
-  opacity: 0;
-  animation: slide-up .7s .35s forwards;
+  text-align: center;
 }
 
 .download-tos-link {
   color: var(--text-soft);
   text-decoration: none;
-  transition: opacity .2s;
+  transition: color .2s, border-color .2s;
 }
-.download-tos-link:hover { opacity: .7 }
+.download-tos-link:hover { color: var(--white); }
