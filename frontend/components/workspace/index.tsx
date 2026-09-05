@@ -261,7 +261,7 @@ export function Workspace() {
                           className="ws-apply-search"
                           placeholder="e.g. Night City RP"
                           value={name}
-                          onChange={(v) => setName(String(v).slice(0, 64))}
+                          onChange={(v: string) => setName(String(v).slice(0, 64))}
                           disabled={busy}
                           icon={<lucide.Server size={14} strokeWidth={2} />}
                         />
