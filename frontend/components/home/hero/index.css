@@ -136,6 +136,7 @@
   letter-spacing: .02em;
   color: var(--white);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .hstat-l {
