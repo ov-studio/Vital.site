@@ -61,11 +61,15 @@ export function Hero() {
           <span className="hm-word">Limitless</span>
         </div>
 
-        <p className="hero-sub">
-          An open-source, high-performance sandbox built on Godot and powered by C++17 and Lua.
-          <br/>— Full control over rendering, networking, threading, and assets - one seamless workflow —
-          <br/><span style={{ marginTop: '16px', display: 'inline-block' }}>From indie ideas to large scale multiplayer worlds, build without compromise.</span>
-        </p>
+        <div className="hero-sub">
+          <p className="hero-sub-lead">
+            An open-source, high-performance sandbox built on Godot and powered by C++17 and Lua.
+          </p>
+          <p className="hero-sub-mid">
+            Full control over rendering, networking, threading, and assets — one seamless workflow.<br/>
+            From indie ideas to large scale multiplayer worlds, build without compromise.
+          </p>
+        </div>
 
         <component_download.Download/>
 
