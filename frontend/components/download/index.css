@@ -19,9 +19,10 @@
 .download-release-tag {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 2px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: .8rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
