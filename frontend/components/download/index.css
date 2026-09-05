@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin-bottom: clamp(20px, 3vw, 40px);
+  gap: 12px;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
   opacity: 0;
   animation: slide-up .7s .55s forwards;
 }
