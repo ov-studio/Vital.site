@@ -31,9 +31,10 @@
 .download-release-tag::before,
 .download-release-tag::after {
   content: '';
-  width: 25px;
+  width: 28px;
   height: 1px;
   background: var(--blue);
+  opacity: 0.7;
 }
 
 .download-tos-note {
