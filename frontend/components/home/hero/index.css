@@ -48,6 +48,27 @@
   animation: slide-up .6s .2s forwards;
 }
 
+.hero-logo {
+  display: block;
+  width: 9.5rem;
+  height: 9.5rem;
+  object-fit: contain;
+  filter:
+    brightness(0) saturate(100%)
+    invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(105%) contrast(105%)
+    drop-shadow(0 0 0.5px var(--blue))
+    drop-shadow(0 0 1px hsl(220, 100%, 85%))
+    drop-shadow(0 0 8px hsl(220, 95%, 70%))
+    drop-shadow(0 0 48px hsla(220, 95%, 65%, 0.55));
+}
+
+@media (max-width: 640px) {
+  .hero-logo {
+    width: clamp(4rem, 14vw, 9.7rem);
+    height: clamp(4rem, 14vw, 9.7rem);
+  }
+}
+
 .hero-motto {
   display: flex;
   align-items: center;
