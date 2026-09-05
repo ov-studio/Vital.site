@@ -82,6 +82,9 @@
   align-items: stretch;
   justify-content: center;
   width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+  margin-top: 4px;
   opacity: 0;
   animation: slide-up .7s .65s forwards;
 }
