@@ -26,6 +26,22 @@
   -webkit-mask-position: center;
 }
 
+.brand_logo--neon {
+  display: block;
+  margin-top: 0;
+  object-fit: contain;
+  background: none;
+  mask-image: none;
+  -webkit-mask-image: none;
+  filter:
+    brightness(0) saturate(100%)
+    invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(105%) contrast(105%)
+    drop-shadow(0 0 0.5px var(--blue, hsl(220, 95%, 76%)))
+    drop-shadow(0 0 1px hsl(220, 100%, 85%))
+    drop-shadow(0 0 8px hsl(220, 95%, 70%))
+    drop-shadow(0 0 48px hsla(220, 95%, 65%, 0.55));
+}
+
 .brand_wordmark {
   font-family: 'Rajdhani', sans-serif;
   font-size: var(--brand-wordmark-size);
@@ -51,14 +67,14 @@
 .brand--md  { --brand-logo-size: 2.75rem; --brand-wordmark-size: 2.2rem;  --brand-gap: 18px; }
 .brand--lg  { --brand-logo-size: 4rem;    --brand-wordmark-size: 3.2rem;  --brand-gap: 24px; }
 .brand--xl  { --brand-logo-size: 5.5rem;  --brand-wordmark-size: 4.5rem;  --brand-gap: 30px; }
-.brand--xxl { --brand-logo-size: 8.5rem;  --brand-wordmark-size: 6.8rem;  --brand-gap: 40px; }
+.brand--xxl { --brand-logo-size: 9.5rem;  --brand-wordmark-size: 6.8rem;  --brand-gap: 40px; }
 
 
 /* ── @media ── */
 @media (max-width: 640px) {
   .brand--lg  { --brand-logo-size: clamp(2.2rem, 8vw, 4.2rem);  --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem); --brand-gap: clamp(10px, 3vw, 22px); }
   .brand--xl  { --brand-logo-size: clamp(2.8rem, 10vw, 5.7rem); --brand-wordmark-size: clamp(2.2rem, 9vw, 4.5rem); --brand-gap: clamp(14px, 4vw, 30px); }
-  .brand--xxl { --brand-logo-size: clamp(4rem, 14vw, 8.7rem);   --brand-wordmark-size: clamp(3rem, 11vw, 6.8rem);  --brand-gap: clamp(18px, 5vw, 40px); }
+  .brand--xxl { --brand-logo-size: clamp(4rem, 14vw, 9.7rem);   --brand-wordmark-size: clamp(3rem, 11vw, 6.8rem);  --brand-gap: clamp(18px, 5vw, 40px); }
 }
 
 @media (max-width: 450px) {

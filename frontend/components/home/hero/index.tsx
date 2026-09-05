@@ -1,4 +1,5 @@
 'use client';
+import * as component_brand    from '@/components/brand';
 import * as component_download from '@/components/download';
 import * as lib_api_url        from '@/lib/api_url';
 import * as react              from 'react';
@@ -49,12 +50,7 @@ export function Hero() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <img
-            src="/logo.svg"
-            alt="Vital"
-            className="hero-logo"
-            draggable={false}
-          />
+          <component_brand.Brand size="xxl" variant="logo-only" neon={true}/>
         </div>
 
         <div className="hero-motto">
