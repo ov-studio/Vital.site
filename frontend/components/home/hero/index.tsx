@@ -18,10 +18,10 @@ function format(v: number) {
 }
 
 const STAT_ICONS = {
-  stars: <lucide.Star size={15} strokeWidth={2.5}/>,
-  forks: <lucide.GitFork size={15} strokeWidth={2.5}/>,
-  commits: <lucide.GitCommit size={15} strokeWidth={2.5}/>,
-  issues: <lucide.CircleDot size={15} strokeWidth={2.5}/>
+  stars: <lucide.Star size={13} strokeWidth={2.5}/>,
+  forks: <lucide.GitFork size={13} strokeWidth={2.5}/>,
+  commits: <lucide.GitCommit size={13} strokeWidth={2.5}/>,
+  issues: <lucide.CircleDot size={13} strokeWidth={2.5}/>
 };
 
 export function Hero() {
