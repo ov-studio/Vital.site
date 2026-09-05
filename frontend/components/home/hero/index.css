@@ -78,7 +78,6 @@
   color: var(--text-muted);
   line-height: 1.65;
   text-align: center;
-  text-wrap: balance;
   opacity: 0;
   animation: slide-up .7s .45s forwards;
 }
@@ -93,6 +92,7 @@
 }
 
 .hero-sub-mid {
+  text-wrap: balance;
   color: var(--text-soft);
   font-size: .9rem;
 }
