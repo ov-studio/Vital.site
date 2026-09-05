@@ -48,7 +48,7 @@ export function Download() {
       )}
 
       <p className="download-tos-note">
-        By downloading, you agree to our <a href="/tos" className="download-tos-link">Terms of Service</a> and its conditions
+        By downloading, you agree to our <a href="/tos" className="download-tos-link">Terms of Service</a> and its conditions*
       </p>
     </div>
   );
