@@ -159,19 +159,19 @@
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    max-width: 280px;
     gap: 0;
   }
 
-  .hstat { 
-    padding: 16px 12px; 
-    border: none; 
-    width: 100%; 
-    justify-content: center;
+  .hstat {
+    padding: 14px 10px;
+    width: 100%;
   }
-  .hstat::after                                 { display: none }
-  .hstat:nth-child(1), .hstat:nth-child(2)      { border-bottom: 1px solid var(--rule) }
-  .hstat:nth-child(1), .hstat:nth-child(3)      { border-right: 1px solid var(--rule) }
+  .hstat::after { display: none; }
+  .hstat:nth-child(1),
+  .hstat:nth-child(2) { border-bottom: 1px solid var(--rule); }
+  .hstat:nth-child(1),
+  .hstat:nth-child(3) { border-right: 1px solid var(--rule); }
 }
 
 @media (max-width: 450px) {
