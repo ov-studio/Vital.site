@@ -42,10 +42,11 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: .8rem;
   font-weight: 600;
-  letter-spacing: .015em;
+  letter-spacing: .01em;
   line-height: 1.45;
   color: var(--text-mid);
   text-align: center;
+  opacity: 0.85;
 }
 
 .download-tos-link {
