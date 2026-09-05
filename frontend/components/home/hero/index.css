@@ -43,7 +43,7 @@
 }
 
 .hero-brand {
-  margin-bottom: 25px;
+  margin-bottom: clamp(20px, 2.2vw, 25px);
   opacity: 0;
   animation: slide-up .6s .2s forwards;
 }
