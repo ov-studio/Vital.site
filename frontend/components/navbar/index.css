@@ -67,7 +67,6 @@ nav.s::after {
   flex-shrink: 0;
 }
 
-/* Matches .social-link size / color / hover */
 .nav-auth-icon {
   display: flex;
   align-items: center;
@@ -202,7 +201,7 @@ nav.s::after {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.28s ease;
-  background: color-mix(in srgb, var(--blue, hsl(220, 95%, 76%)) 14%, transparent);
+  background: color-mix(in srgb, var(--blue) 14%, transparent);
 }
 
 .nav-loader--on {
@@ -218,11 +217,11 @@ nav.s::after {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--blue, hsl(220, 95%, 76%)) 18%,
-    var(--blue, hsl(220, 95%, 76%)) 82%,
+    var(--blue) 18%,
+    var(--blue) 82%,
     transparent 100%
   );
-  box-shadow: 0 0 10px color-mix(in srgb, var(--blue, hsl(220, 95%, 76%)) 35%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--blue) 35%, transparent);
   will-change: transform, opacity;
 }
 .nav-loader-bar--1 {
@@ -235,6 +234,8 @@ nav.s::after {
   animation-delay: -0.55s;
 }
 
+
+/* ── @keyframes ── */
 @keyframes nav-loader-run {
   0% {
     transform: translateX(-100%);
@@ -252,6 +253,8 @@ nav.s::after {
   }
 }
 
+
+/* ── @media ── */
 @media (max-width: 960px) {
   .nl  { display: none }
   .ni  { padding: 0 24px }
