@@ -195,6 +195,8 @@
   border-bottom: none;
   background: transparent;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 /* Folder-style tabs — active tab blends into list titlebar */
@@ -228,10 +230,11 @@
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
   background: var(--rule, #12151a);
   border: none;
-  padding: 11px 16px 12px;
-  margin: 0;
+  padding: 11px 16px 14px;
+  margin: 0 0 -2px;
   border-radius: 6px 6px 0 0;
   cursor: pointer;
+  z-index: 3;
   transition: color 0.18s ease, background 0.18s ease;
 }
 
@@ -243,14 +246,13 @@
 
 .ws-tab:hover {
   color: var(--dim);
-  background: color-mix(in srgb, var(--bg7, #0c0e12) 80%, var(--b10, rgba(255, 255, 255, 0.12)));
 }
 
 .ws-tab:hover svg {
   opacity: 0.9;
 }
 
-/* Seamless with thead — same fill, no border */
+/* Active blends into thead through the cut-out */
 .ws-tab--active {
   color: var(--blue);
   background: var(--ws-titlebar);
@@ -271,7 +273,6 @@
 .ws-panel:has(.ws-panel-head--tabs) > .state-empty {
   background: var(--bg7, #0c0e12);
   border: 2px solid var(--b10, rgba(255, 255, 255, 0.12));
-  border-top: none; /* titlebar/active tab form the top edge */
   border-radius: 0 6px 6px 6px;
   margin-top: 0;
   position: relative;
