@@ -9,6 +9,7 @@ import * as ui_search       from '@/ui/search';
 import * as ui_divider      from '@/ui/divider';
 import * as ui_wallpaper    from '@/ui/wallpaper';
 import * as lib_api_url     from '@/lib/api_url';
+import * as lib_page_loading from '@/lib/page_loading';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
 import * as react_dom       from 'react-dom';
@@ -40,6 +41,7 @@ function use_vault_resources() {
     let cancelled = false;
     async function load() {
       set_state('loading');
+      lib_page_loading.set_page_loading(true);
       try {
         const res = await fetch(lib_api_url.get_api_url('/vault'));
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
@@ -51,9 +53,15 @@ function use_vault_resources() {
         console.error('[Vault]', err);
         if (!cancelled) set_state('error');
       }
+      finally {
+        if (!cancelled) lib_page_loading.set_page_loading(false);
+      }
     }
     load();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+      lib_page_loading.set_page_loading(false);
+    };
   }, []);
 
   return { 
@@ -318,6 +326,11 @@ function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disab
 }
 
 function VaultSkeleton() {
+  react.useEffect(() => {
+    lib_page_loading.set_page_loading(true);
+    return () => lib_page_loading.set_page_loading(false);
+  }, []);
+
   return (
     <section id="vault">
       <ui_wallpaper.Wallpaper
@@ -328,9 +341,6 @@ function VaultSkeleton() {
         <VaultHead/>
         <VaultFilters disabled/>
         <ui_divider.Divider/>
-        <div className="vault-loading">
-          <lucide.Loader2 size={32} strokeWidth={2} className="vault-spin"/>
-        </div>
       </div>
     </section>
   );
@@ -416,12 +426,6 @@ function VaultInner() {
           />
           
           <ui_divider.Divider/>
-
-          {state === 'loading' && (
-            <div className="vault-loading">
-              <lucide.Loader2 size={32} strokeWidth={2} className="vault-spin"/>
-            </div>
-          )}
 
           {state !== 'loading' && (
             <div className="vault-grid">
