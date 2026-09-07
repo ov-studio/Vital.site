@@ -1,6 +1,6 @@
 export const PAGE_LOADING_EVENT = 'vital:page-loading';
 
-const MIN_VISIBLE_MS = 1000;
+const MIN_VISIBLE_MS = 1500;
 
 let _loading = false;
 let _shown_at = 0;
