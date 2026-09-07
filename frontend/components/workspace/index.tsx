@@ -2,6 +2,7 @@
 import * as react            from 'react';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
+import * as lib_page_loading from '@/lib/page_loading';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_search        from '@/ui/search';
 import * as ui_divider       from '@/ui/divider';
@@ -37,6 +38,7 @@ function fmt_date(ts?: number) {
 export function Workspace() {
   const [session, setSession] = react.useState<lib_auth_session.AuthSession | null>(null);
   const [data, setData] = react.useState<ApiState | null>(null);
+  const [loading, setLoading] = react.useState(true);
   const [name, setName] = react.useState('');
   const [busy, setBusy] = react.useState(false);
   const [error, setError] = react.useState<string | null>(null);
@@ -60,7 +62,14 @@ export function Workspace() {
 
   const load = react.useCallback(async () => {
     const s = lib_auth_session.read_auth_session();
-    if (!s) { setData(null); return; }
+    if (!s) {
+      setData(null);
+      setLoading(false);
+      lib_page_loading.set_page_loading(false);
+      return;
+    }
+    setLoading(true);
+    lib_page_loading.set_page_loading(true);
     try {
       const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), { headers: auth_headers() });
       const json = await res.json().catch(() => ({}));
@@ -78,6 +87,9 @@ export function Workspace() {
       setError(null);
     } catch {
       setError('Network error — is the API up?');
+    } finally {
+      setLoading(false);
+      lib_page_loading.set_page_loading(false);
     }
   }, [auth_headers]);
 
@@ -94,7 +106,10 @@ export function Workspace() {
     load();
     const on_auth = () => { refresh_session(); load(); };
     window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
-    return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
+    return () => {
+      window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
+      lib_page_loading.set_page_loading(false);
+    };
   }, [refresh_session, load]);
 
   const login = react.useCallback(() => {
@@ -216,7 +231,7 @@ export function Workspace() {
               <div className="ws-user">
                 <div className="ws-avatar">
                   <div className="ws-avatar-img">
-                    <img src={session.avatar} alt="" width={56} height={56} referrerPolicy="no-referrer" />
+                    <img src={session.avatar} alt="" width={56} height={56} referrerPolicy="no-referrer"/>
                   </div>
                 </div>
                 <div>
@@ -237,7 +252,7 @@ export function Workspace() {
                     <div className="ws-pending-card ws-pending-card--in-panel">
                       <div className="ws-pending-card-main">
                         <div className="ws-pending-card-icon" aria-hidden>
-                          <lucide.Clock size={18} strokeWidth={2} />
+                          <lucide.Clock size={18} strokeWidth={2}/>
                         </div>
                         <div className="ws-pending-card-body">
                           <div className="ws-pending-card-title">{pendingApp.name}</div>
@@ -263,7 +278,7 @@ export function Workspace() {
                           value={name}
                           onChange={(v: string) => setName(String(v).slice(0, 64))}
                           disabled={busy}
-                          icon={<lucide.Server size={14} strokeWidth={2} />}
+                          icon={<lucide.Server size={14} strokeWidth={2}/>}
                         />
                         <button type="button" className="btn-secondary ws-btn ws-apply-btn" onClick={apply} disabled={busy}>
                           {busy ? 'Submitting…' : 'Apply'}
@@ -344,16 +359,16 @@ export function Workspace() {
                       </tbody>
                     </table>
                   </div>
-                ) : (
+                ) : !loading ? (
                   <div className="state-empty" style={{ padding: '24px 20px' }}>
-                    <lucide.KeyRound size={24} strokeWidth={1.5} />
+                    <lucide.KeyRound size={24} strokeWidth={1.5}/>
                     <span>
                       {pendingApp
                         ? 'No approved servers yet — your request is under review.'
                         : 'No approved servers yet. Apply above to get a token.'}
                     </span>
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
 
@@ -365,16 +380,16 @@ export function Workspace() {
                   <div className="ws-stat">
                     <div className="ws-stat-top">
                       <div className="ws-stat-label">Issued</div>
-                      <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon" />
+                      <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon"/>
                     </div>
-                    <div className="ws-stat-value">{staffTokens.length}</div>
+                    <div className="ws-stat-value">{loading ? '—' : staffTokens.length}</div>
                   </div>
                   <div className="ws-stat">
                     <div className="ws-stat-top">
                       <div className="ws-stat-label">Pending</div>
-                      <lucide.Clock size={16} strokeWidth={2} className="ws-stat-icon" />
+                      <lucide.Clock size={16} strokeWidth={2} className="ws-stat-icon"/>
                     </div>
-                    <div className="ws-stat-value">{staffPending.length}</div>
+                    <div className="ws-stat-value">{loading ? '—' : staffPending.length}</div>
                   </div>
                 </div>
 
@@ -388,7 +403,7 @@ export function Workspace() {
                         className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`}
                         onClick={() => setTab('tokens')}
                       >
-                        <lucide.KeyRound size={14} strokeWidth={2.25} />
+                        <lucide.KeyRound size={14} strokeWidth={2.25}/>
                         Issued
                       </button>
                     </div>
@@ -399,7 +414,7 @@ export function Workspace() {
                       className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
                       onClick={() => setTab('pending')}
                     >
-                      <lucide.Inbox size={14} strokeWidth={2.25} />
+                      <lucide.Inbox size={14} strokeWidth={2.25}/>
                       Pending
                     </button>
                     {(tab === 'pending' || tab === 'tokens') && (
@@ -408,19 +423,19 @@ export function Workspace() {
                         placeholder="Search name or author…"
                         value={q}
                         onChange={setQ}
-                        icon={<lucide.Search size={14} strokeWidth={2} />}
+                        icon={<lucide.Search size={14} strokeWidth={2}/>}
                       />
                     )}
                   </div>
 
                   {tab === 'pending' && (
                     <div className="ws-table-wrap">
-                      {filtered_pending.length === 0 ? (
+                      {!loading && filtered_pending.length === 0 ? (
                         <div className="state-empty">
-                          <lucide.Inbox size={28} strokeWidth={1.5} />
+                          <lucide.Inbox size={28} strokeWidth={1.5}/>
                           <span>No pending requests.</span>
                         </div>
-                      ) : (
+                      ) : filtered_pending.length > 0 ? (
                         <table className="ws-table">
                           <thead>
                             <tr>
@@ -448,18 +463,18 @@ export function Workspace() {
                             ))}
                           </tbody>
                         </table>
-                      )}
+                      ) : null}
                     </div>
                   )}
 
                   {tab === 'tokens' && (
                     <div className="ws-table-wrap">
-                      {filtered_tokens.length === 0 ? (
+                      {!loading && filtered_tokens.length === 0 ? (
                         <div className="state-empty">
-                          <lucide.KeyRound size={28} strokeWidth={1.5} />
+                          <lucide.KeyRound size={28} strokeWidth={1.5}/>
                           <span>No issued tokens.</span>
                         </div>
-                      ) : (
+                      ) : filtered_tokens.length > 0 ? (
                         <table className="ws-table">
                           <thead>
                             <tr>
@@ -486,7 +501,7 @@ export function Workspace() {
                             ))}
                           </tbody>
                         </table>
-                      )}
+                      ) : null}
                     </div>
                   )}
                 </div>
