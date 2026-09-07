@@ -60,7 +60,7 @@
   border-radius: 50%;
 }
 .rleg--completed i { background: var(--blue); box-shadow: 0 0 4px var(--blue); }
-.rleg--partial   i { background: hsl(45,80%,58%); }
+.rleg--partial   i { background: var(--amber); }
 .rleg--pending   i { background: transparent; border: 1px solid var(--text-faint); opacity: .5; }
 
 .roadmap-body { display: flex; flex-direction: column; gap: 80px; }
@@ -129,11 +129,11 @@
   height: 36px;
 }
 .rcard--completed .rcard-icon { color: var(--blue); }
-.rcard--partial   .rcard-icon { color: hsl(45,80%,58%); }
+.rcard--partial   .rcard-icon { color: var(--amber); }
 .rcard--pending   .rcard-icon { color: var(--text-dim2); }
 .rcard--completed .icon-ring { border-color: var(--b30); }
-.rcard--partial   .icon-ring { border-color: hsla(45,80%,58%,.3); }
-.rcard--pending   .icon-ring { border-color: hsla(220,10%,50%,.2); }
+.rcard--partial   .icon-ring { border-color: var(--a30); }
+.rcard--pending   .icon-ring { border-color: var(--mid-20); }
 .rcard:hover .icon-ring,
 .rcard--open .icon-ring { opacity: 1; transform: scale(1); }
 
@@ -163,12 +163,12 @@
 .rcard--open .rcard-desc { color: var(--text-desc-hover) }
 .rchevron { color: var(--text-faint); flex-shrink: 0; margin-top: 3px; transition: transform .2s, color .2s; }
 .rcard--completed .rchevron--up { transform: rotate(180deg); color: var(--blue); }
-.rcard--partial   .rchevron--up { transform: rotate(180deg); color: hsl(45,80%,58%); }
+.rcard--partial   .rchevron--up { transform: rotate(180deg); color: var(--amber); }
 .rcard--pending   .rchevron--up { transform: rotate(180deg); color: var(--text-dim2); }
 .rcard-bar-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
 .rcard-bar-row .bar-track { flex: 1; height: 3px; }
 .rcard--completed .bar-fill { background: var(--blue);          box-shadow: 0 0 5px var(--blue); }
-.rcard--partial   .bar-fill { background: hsl(45,80%,58%);      box-shadow: 0 0 5px hsla(45,80%,58%,.6); }
+.rcard--partial   .bar-fill { background: var(--amber);      box-shadow: 0 0 5px var(--a60); }
 .rcard--pending   .bar-fill { background: transparent; }
 
 .rcard-pct {
@@ -181,7 +181,7 @@
   text-align: right;
 }
 .rcard--completed .rcard-pct { color: var(--blue); }
-.rcard--partial   .rcard-pct { color: hsl(45,80%,58%); }
+.rcard--partial   .rcard-pct { color: var(--amber); }
 .rcard--pending   .rcard-pct { color: var(--text-dim2); }
 
 .rcard-items-wrap {
@@ -217,10 +217,10 @@
   gap: 0 10px;
   padding: 7px 0;
 }
-.ritem:not(:last-child) { border-bottom: 1px solid hsla(220,18%,100%,.04); }
+.ritem:not(:last-child) { border-bottom: 1px solid var(--w04); }
 .ritem-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
 .ritem--completed .ritem-dot { background: var(--blue);      box-shadow: 0 0 4px var(--blue); }
-.ritem--partial   .ritem-dot { background: hsl(45,80%,58%); }
+.ritem--partial   .ritem-dot { background: var(--amber); }
 .ritem--pending   .ritem-dot { background: transparent;      border: 1px solid var(--text-faint); opacity: .4; }
 
 .ritem-label {
@@ -242,16 +242,14 @@
   color: var(--dim);
 }
 .ritem--completed .ritem-tag { color: var(--blue); }
-.ritem--partial   .ritem-tag { color: hsl(45,80%,58%); }
+.ritem--partial   .ritem-tag { color: var(--amber); }
 .ritem--pending   .ritem-tag { color: var(--text-dim2); }
-
 
 /* ── @keyframes ── */
 @keyframes rcategory-in {
   from { opacity: 0; transform: translateY(8px) }
   to   { opacity: 1; transform: none }
 }
-
 
 /* ── @media ── */
 @media (max-width: 960px) {

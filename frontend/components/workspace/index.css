@@ -324,7 +324,7 @@
 .ws-table td {
   padding: 0 18px;
   height: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--w04);
   vertical-align: middle;
   color: var(--text-soft);
 }
@@ -405,7 +405,7 @@
   flex-wrap: wrap;
   padding: 14px 16px;
   margin: 0;
-  background: rgba(0, 0, 0, 0.22);
+  background: var(--k22);
   border: 2px solid var(--b10);
   border-radius: 6px;
 }
@@ -478,15 +478,15 @@
   font-family: 'Geist', sans-serif;
   font-size: 0.9rem;
   color: var(--white);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--w04);
+  border: 1px solid var(--w12);
   border-radius: 4px;
   outline: none;
   transition: border-color 0.15s;
 }
 
 .ws-input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--w30);
 }
 
 .ws-input:focus {
@@ -524,16 +524,16 @@
   padding: 10px 12px;
   font-size: 0.85rem;
   line-height: 1.4;
-  color: #ff8a8a;
-  background: rgba(255, 60, 60, 0.1);
-  border: 1px solid rgba(255, 80, 80, 0.25);
+  color: var(--red-soft);
+  background: var(--r10);
+  border: 1px solid var(--r25);
   border-radius: 4px;
 }
 
 .ws-result {
   margin-top: 4px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--w08);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -577,7 +577,7 @@
   text-transform: uppercase;
   color: var(--text-soft);
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--w12);
   border-radius: 4px;
   padding: 4px 10px;
   cursor: pointer;
@@ -703,13 +703,13 @@
 }
 
 .ws-action-btn--danger {
-  color: rgba(255, 100, 100, 1);
-  background: rgba(255, 80, 80, 0.25);
+  color: var(--red-100);
+  background: var(--r25);
 }
 
 .ws-action-btn--danger:hover:not(:disabled) {
-  color: rgba(255, 175, 175, 1);
-  background: rgba(255, 80, 80, 0.45);
+  color: var(--red-light);
+  background: var(--r45);
 }
 
 .ws-text--icon {
@@ -732,8 +732,8 @@
   flex: 1;
   min-width: 0;
   padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--w03);
+  border: 1px solid var(--w10);
   border-radius: 4px;
   cursor: pointer;
   text-align: left;
@@ -742,8 +742,8 @@
 }
 
 .ws-spoiler:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--w18);
+  background: var(--w05);
 }
 
 .ws-spoiler code {

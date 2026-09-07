@@ -49,12 +49,12 @@ button[aria-label="Collapse Sidebar"] { display: none !important; }
 .sidebar-toggle-btn {
   width: 28px;
   height: 28px;
-  border: 1px solid hsl(220,18%,12%);
-  color: hsl(220,10%,50%);
+  border: 1px solid var(--rule12);
+  color: var(--text-mid);
 }
 .sidebar-toggle-btn:hover {
-  color: hsl(0,0%,97%);
-  background: hsl(250,25%,9%);
+  color: var(--white);
+  background: var(--bg9);
 }
 
 #nd-toc,
@@ -135,7 +135,6 @@ article#nd-page {
   width: clamp(100px, 100%, 960px);
   justify-self: center;
 }
-
 
 /* ── @media ── */
 @media (min-width: 1600px) {

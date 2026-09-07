@@ -154,7 +154,7 @@ h2 span { color: var(--blue) }
 
 /* ── Progress Bar ── */
 .bar-track {
-  background: hsla(220, 18%, 100%, .06);
+  background: var(--w06);
   overflow: hidden;
 }
 .bar-fill {

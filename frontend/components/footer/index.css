@@ -15,7 +15,7 @@ footer {
 
 .footer-brand-lock {
   margin-bottom: 20px;
-  --brand-color: hsl(220, 20%, 60%);
+  --brand-color: var(--brand-muted);
 }
 
 .footer-tagline {
@@ -49,7 +49,7 @@ footer {
   font-weight: 800;
   letter-spacing: .01em;
   text-transform: uppercase;
-  color: hsl(220, 20%, 60%);
+  color: var(--brand-muted);
 }
 
 .footer-nav-col ul { 
@@ -70,7 +70,6 @@ footer {
   transition: color .2s;
 }
 .footer-nav-col ul li a:hover { color: var(--white) }
-
 
 /* ── @media ── */
 @media (max-width: 960px) {
