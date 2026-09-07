@@ -129,7 +129,7 @@
   transform: translateY(-50%);
   width: 1px;
   height: 22px;
-  background: var(--rule2, hsl(220, 18%, 20%));
+  background: var(--rule2);
   opacity: 0.5;
 }
 
