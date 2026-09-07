@@ -200,7 +200,13 @@ nav.s::after {
   z-index: 2;
   overflow: hidden;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.28s ease;
   background: color-mix(in srgb, var(--blue, hsl(220, 95%, 76%)) 14%, transparent);
+}
+
+.nav-loader--on {
+  opacity: 1;
 }
 
 .nav-loader-bar {
@@ -209,35 +215,35 @@ nav.s::after {
   left: 0;
   height: 100%;
   border-radius: 0;
-  background: var(--blue, hsl(220, 95%, 76%));
-  box-shadow: 0 0 10px color-mix(in srgb, var(--blue, hsl(220, 95%, 76%)) 40%, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--blue, hsl(220, 95%, 76%)) 18%,
+    var(--blue, hsl(220, 95%, 76%)) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px color-mix(in srgb, var(--blue, hsl(220, 95%, 76%)) 35%, transparent);
   will-change: transform, opacity;
 }
 .nav-loader-bar--1 {
-  width: 30%;
-  animation: nav-loader-run 2.4s linear infinite;
+  width: 42%;
+  animation: nav-loader-run 1.15s linear infinite;
 }
 .nav-loader-bar--2 {
-  width: 18%;
-  animation: nav-loader-run 2.4s linear infinite;
-  animation-delay: -0.8s;
+  width: 28%;
+  animation: nav-loader-run 1.15s linear infinite;
+  animation-delay: -0.55s;
 }
-.nav-loader-bar--3 {
-  width: 12%;
-  animation: nav-loader-run 2.4s linear infinite;
-  animation-delay: -1.6s;
-}
-
 
 @keyframes nav-loader-run {
   0% {
     transform: translateX(-100%);
     opacity: 0;
   }
-  12% {
+  10% {
     opacity: 1;
   }
-  88% {
+  90% {
     opacity: 1;
   }
   100% {
