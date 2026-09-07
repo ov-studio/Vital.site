@@ -69,7 +69,7 @@
   opacity: 0;
   scroll-margin-top: calc(var(--nav-h) + 24px);
   animation: rcategory-in .45s ease forwards;
-  animation-delay: calc(var(--ci, 0) * 70ms);
+  animation-delay: calc(var(--ci) * 70ms);
   content-visibility: auto;
   contain-intrinsic-size: auto 400px;
 }
@@ -184,7 +184,6 @@
 .rcard--partial   .rcard-pct { color: hsl(45,80%,58%); }
 .rcard--pending   .rcard-pct { color: var(--text-dim2); }
 
-/* Performant accordion: grid 0fr→1fr (no max-height, no JS measure) */
 .rcard-items-wrap {
   display: grid;
   grid-template-rows: 0fr;
@@ -261,7 +260,7 @@
   .roadmap-body       { gap: 60px; }
   .rcategory-cols     { flex-direction: row; flex-wrap: wrap; gap: 14px; }
   .rcategory-col      { display: contents; }
-  .rcard              { order: var(--mobile-order, 0); width: 100%; flex-shrink: 0; }
+  .rcard              { order: var(--mobile-order); width: 100%; flex-shrink: 0; }
   .rcard-body         { padding: 20px 18px 16px; }
 }
 
