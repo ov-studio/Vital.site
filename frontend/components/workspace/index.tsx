@@ -374,7 +374,7 @@ export function Workspace() {
 
             {session.staff && (
               <>
-                <div className="ws-section-title">Review applications</div>
+                <div className="ws-section-title">Community Applications</div>
                 <ui_divider.Divider/>
                 <div className="ws-stats">
                   <div className="ws-stat">
