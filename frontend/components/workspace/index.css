@@ -132,6 +132,7 @@
 }
 
 .ws-panel {
+  --ws-titlebar: color-mix(in srgb, var(--bg7) 55%, var(--b10));
   position: relative;
   z-index: 1;
   isolation: isolate;
@@ -197,7 +198,6 @@
 }
 
 .ws-panel:has(.ws-panel-head--tabs) {
-  --ws-titlebar: color-mix(in srgb, var(--bg7) 55%, var(--b10));
   overflow: visible;
   background: transparent;
   border: none;
@@ -316,7 +316,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: var(--ws-titlebar) 55%, var(--b10)));
+  background: var(--ws-titlebar);
   white-space: nowrap;
   vertical-align: middle;
 }
