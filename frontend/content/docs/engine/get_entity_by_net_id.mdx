@@ -33,6 +33,6 @@ local entity = core.engine.get_entity_by_net_id(net_id)
 if entity then
     core.engine.print("info", "Retrieved entity:", entity, string.format("(%s)", entity:get_type()))
 else
-    core.engine.print("warn", "No entity found for net_id", net_id)
+    core.engine.print("warn", "No entity found for net_id:", net_id)
 end
 ```
