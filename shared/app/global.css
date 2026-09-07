@@ -90,6 +90,26 @@ h2 span { color: var(--blue) }
 .sec-link:hover { color: var(--blue) }
 
 
+/* ── Shared section sub-title ── */
+.sec-title,
+.ws-section-title,
+.rcategory-label,
+.tos-section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .2s;
+}
+.sec-title:hover,
+.ws-section-title:hover,
+.rcategory-label:hover {
+  color: var(--white);
+}
+
+
 /* ── Buttons ── */
 .btn-primary {
   display: inline-flex;

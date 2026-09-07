@@ -31,11 +31,7 @@
 
 .tos-section-title {
   margin-bottom: 18px;
-  font-family: 'Rajdhani', sans-serif;
   font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: .01em;
-  color: var(--dim);
 }
 
 .tos-section-p {
