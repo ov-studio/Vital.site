@@ -63,6 +63,9 @@
 
   /* ── Brand ── */
   --brand-color: var(--blue);
+  --brand-neon-core: hsl(220, 100%, 85%);
+  --brand-neon-mid: hsl(220, 95%, 70%);
+  --brand-neon-glow: hsla(220, 95%, 65%, 0.55);
 
 
   /* ── Fonts ── */
