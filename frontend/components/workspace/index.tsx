@@ -43,7 +43,7 @@ export function Workspace() {
   const [busy, setBusy] = react.useState(false);
   const [error, setError] = react.useState<string | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
-  const [tab, setTab] = react.useState<'pending' | 'tokens'>('pending');
+  const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
 
