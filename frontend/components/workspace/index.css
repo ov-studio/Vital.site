@@ -310,7 +310,8 @@
   top: 0;
   z-index: 2;
   text-align: left;
-  padding: 14px 18px;
+  padding: 0 18px;
+  height: 44px;
   font-family: 'Geist', sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
@@ -319,10 +320,12 @@
   color: var(--text-muted, rgba(255, 255, 255, 0.4));
   background: var(--b10);
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 .ws-table td {
-  padding: 14px 18px;
+  padding: 0 18px;
+  height: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   vertical-align: middle;
   color: var(--text-soft);
@@ -340,28 +343,12 @@
   background: var(--b05);
 }
 
-/* Consistent app list row height */
-.ws-table--apps th {
-  background: var(--b10);
-}
-
-.ws-table--apps th,
-.ws-table--apps td {
-  height: 48px;
-  padding-top: 0;
-  padding-bottom: 0;
-  vertical-align: middle;
-}
-
-.ws-table--apps th {
-  height: 44px;
-}
-
-.ws-table--apps .ws-spoiler {
+/* Consistent row height across all workspace tables */
+.ws-table .ws-spoiler {
   min-height: 32px;
 }
 
-.ws-table--apps .ws-inline-actions {
+.ws-table .ws-inline-actions {
   min-height: 32px;
 }
 
