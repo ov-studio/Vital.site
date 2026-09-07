@@ -21,6 +21,8 @@ export function Navbar({ links = [] }: NavbarProps) {
   const [session, setSession]   = react.useState<lib_auth_session.AuthSession | null>(null);
   const [menuOpen, setMenuOpen] = react.useState(false);
   const [pageLoading, setPageLoading] = react.useState(false);
+  const [loaderMounted, setLoaderMounted] = react.useState(false);
+  const [loaderOn, setLoaderOn] = react.useState(false);
 
   const refresh = react.useCallback(() => {
     setSession(lib_auth_session.read_auth_session());
@@ -29,8 +31,9 @@ export function Navbar({ links = [] }: NavbarProps) {
   react.useEffect(() => {
     lib_auth_session.capture_oauth_hash();
     refresh();
-    // pick up loading state set before this effect ran
-    setPageLoading(lib_page_loading.get_page_loading());
+    const initial = lib_page_loading.get_page_loading();
+    setPageLoading(initial);
+    if (initial) setLoaderMounted(true);
     const on_storage = (e: StorageEvent) => {
       if (
         e.key === lib_auth_session.AUTH_TOKEN_KEY ||
@@ -39,7 +42,9 @@ export function Navbar({ links = [] }: NavbarProps) {
       ) refresh();
     };
     const on_loading = (e: Event) => {
-      setPageLoading(lib_page_loading.read_page_loading_detail(e));
+      const on = lib_page_loading.read_page_loading_detail(e);
+      if (on) setLoaderMounted(true);
+      setPageLoading(on);
     };
     window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, refresh);
     window.addEventListener('storage', on_storage);
@@ -50,6 +55,18 @@ export function Navbar({ links = [] }: NavbarProps) {
       window.removeEventListener(lib_page_loading.PAGE_LOADING_EVENT, on_loading);
     };
   }, [refresh]);
+
+  react.useEffect(() => {
+    if (!loaderMounted) {
+      setLoaderOn(false);
+      return;
+    }
+    if (pageLoading) {
+      const id = requestAnimationFrame(() => setLoaderOn(true));
+      return () => cancelAnimationFrame(id);
+    }
+    setLoaderOn(false);
+  }, [loaderMounted, pageLoading]);
 
   const login = react.useCallback(() => {
     window.location.href = lib_api_url.get_api_url('/auth/github');
@@ -135,11 +152,16 @@ export function Navbar({ links = [] }: NavbarProps) {
           )}
         </div>
       </div>
-      {pageLoading && (
-        <div className="nav-loader" aria-hidden>
+      {loaderMounted && (
+        <div
+          className={`nav-loader${loaderOn ? ' nav-loader--on' : ''}`}
+          aria-hidden
+          onTransitionEnd={(e) => {
+            if (e.propertyName === 'opacity' && !pageLoading) setLoaderMounted(false);
+          }}
+        >
           <div className="nav-loader-bar nav-loader-bar--1"/>
           <div className="nav-loader-bar nav-loader-bar--2"/>
-          <div className="nav-loader-bar nav-loader-bar--3"/>
         </div>
       )}
     </nav>
