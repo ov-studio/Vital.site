@@ -291,11 +291,11 @@
   color: var(--blue);
 }
 
-/* Table */
+/* Table — fill available viewport, scroll when content exceeds */
 .ws-table-wrap {
   overflow-x: auto;
   overflow-y: auto;
-  max-height: min(420px, 55vh);
+  max-height: min(720px, calc(100dvh - 280px));
   background: transparent;
 }
 
