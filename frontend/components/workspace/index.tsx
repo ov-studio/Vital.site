@@ -406,17 +406,17 @@ export function Workspace() {
                         <lucide.KeyRound size={14} strokeWidth={2.25}/>
                         Issued
                       </button>
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={tab === 'pending'}
+                        className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
+                        onClick={() => setTab('pending')}
+                      >
+                        <lucide.Inbox size={14} strokeWidth={2.25}/>
+                        Pending
+                      </button>
                     </div>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={tab === 'pending'}
-                      className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
-                      onClick={() => setTab('pending')}
-                    >
-                      <lucide.Inbox size={14} strokeWidth={2.25}/>
-                      Pending
-                    </button>
                     {(tab === 'pending' || tab === 'tokens') && (
                       <ui_search.Search
                         className="ws-search-ui"
