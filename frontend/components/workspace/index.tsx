@@ -280,7 +280,7 @@ export function Workspace() {
                           disabled={busy}
                           icon={<lucide.Server size={14} strokeWidth={2}/>}
                         />
-                        <button type="button" className="btn-secondary ws-btn ws-apply-btn" onClick={apply} disabled={busy}>
+                        <button type="button" className="ws-action-btn ws-apply-btn" onClick={apply} disabled={busy}>
                           {busy ? 'Submitting…' : 'Apply'}
                         </button>
                       </div>
