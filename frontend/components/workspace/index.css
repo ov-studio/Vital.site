@@ -20,7 +20,6 @@
   color: var(--text-soft, rgba(255, 255, 255, 0.55));
 }
 
-/* Profile strip */
 .ws-profile {
   display: flex;
   align-items: center;
@@ -77,7 +76,6 @@
   color: var(--text-soft);
 }
 
-/* Stats row */
 .ws-stats {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -133,7 +131,6 @@
   color: var(--blue);
 }
 
-/* Panels */
 .ws-panel {
   position: relative;
   z-index: 1;
@@ -191,20 +188,27 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 4px;
-  padding: 10px 0 0; /* flush left — first tab aligns with panel edge */
+  padding: 10px 0 0;
   border-bottom: none;
   background: transparent;
   flex-wrap: wrap;
 }
 
-/* Folder-style tabs (Content / Articles reference, Vital theme) */
+.ws-panel:has(.ws-panel-head--tabs) {
+  --ws-titlebar: color-mix(in srgb, var(--bg7, #0c0e12) 55%, var(--b10, rgba(255, 255, 255, 0.12)));
+  overflow: visible;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
 .ws-tabs {
   display: flex;
   align-items: flex-end;
   gap: 4px;
   flex-wrap: wrap;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .ws-tab {
@@ -220,12 +224,11 @@
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
   background: var(--rule, #12151a);
   border: none;
-  border-bottom: none;
-  padding: 11px 16px 11px;
+  padding: 11px 16px 12px;
   margin: 0;
-  border-radius: 4px 4px 0 0;
+  border-radius: 6px 6px 0 0;
   cursor: pointer;
-  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  transition: color 0.18s ease, background 0.18s ease;
 }
 
 .ws-tab svg {
@@ -236,6 +239,7 @@
 
 .ws-tab:hover {
   color: var(--dim);
+  background: color-mix(in srgb, var(--bg7, #0c0e12) 80%, var(--b10, rgba(255, 255, 255, 0.12)));
 }
 
 .ws-tab:hover svg {
@@ -244,9 +248,8 @@
 
 .ws-tab--active {
   color: var(--blue);
-  background: var(--b10, #0c0e12);
-  border-color: transparent;
-  z-index: 3;
+  background: var(--ws-titlebar);
+  z-index: 4;
 }
 
 .ws-tab--active svg {
@@ -256,23 +259,18 @@
 
 .ws-tab--active:hover {
   color: var(--blue);
-  border-color: var(--b10, rgba(255, 255, 255, 0.12));
-}
-
-/* Content surface under the active folder tab */
-.ws-panel:has(.ws-panel-head--tabs) {
-  overflow: visible;
-  background: transparent;
-  border: none;
-  padding: 0;
+  background: var(--ws-titlebar);
 }
 
 .ws-panel:has(.ws-panel-head--tabs) > .ws-table-wrap,
 .ws-panel:has(.ws-panel-head--tabs) > .state-empty {
   background: var(--bg7, #0c0e12);
   border: 2px solid var(--b10, rgba(255, 255, 255, 0.12));
+  border-top: none;
   border-radius: 0 6px 6px 6px;
-  margin-top: -2px; /* tuck under active tab bottom border */
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .ws-panel:has(.ws-panel-head--tabs) > .ws-table-wrap .state-empty {
@@ -291,7 +289,6 @@
   color: var(--blue);
 }
 
-/* Table — fill available viewport, scroll when content exceeds */
 .ws-table-wrap {
   overflow-x: auto;
   overflow-y: auto;
@@ -318,7 +315,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.4));
-  background: var(--b10);
+  background: var(--ws-titlebar, color-mix(in srgb, var(--bg7, #0c0e12) 55%, var(--b10, rgba(255, 255, 255, 0.12))));
   white-space: nowrap;
   vertical-align: middle;
 }
@@ -343,7 +340,6 @@
   background: var(--b05);
 }
 
-/* Consistent row height across all workspace tables */
 .ws-table .ws-spoiler {
   min-height: 32px;
 }
@@ -373,14 +369,12 @@
   color: var(--text-soft);
 }
 
-/* Actions menu */
 .ws-actions-cell {
   text-align: right;
   width: 1%;
   white-space: nowrap;
 }
 
-/* Forms */
 .ws-form-row {
   display: flex;
   align-items: flex-end;
@@ -403,7 +397,6 @@
   flex-wrap: wrap;
 }
 
-/* Pending application — standalone widget box */
 .ws-pending-card {
   display: flex;
   align-items: center;
@@ -645,7 +638,6 @@
   margin-bottom: 10px;
 }
 
-/* Apply form — search theme, full width */
 .ws-apply-panel {
   margin-bottom: 14px;
 }
@@ -822,7 +814,6 @@
   margin-top: 4px;
 }
 
-/* Token row kv when spoiler is present */
 .ws-kv:has(.ws-spoiler) {
   grid-template-columns: 56px 1fr auto;
   align-items: center;
