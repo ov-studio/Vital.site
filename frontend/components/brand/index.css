@@ -1,7 +1,7 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--brand-gap, 18px);
+  gap: var(--brand-gap);
   text-decoration: none;
 }
 
@@ -36,7 +36,7 @@
   filter:
     brightness(0) saturate(100%)
     invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(105%) contrast(105%)
-    drop-shadow(0 0 0.5px var(--blue, hsl(220, 95%, 76%)))
+    drop-shadow(0 0 0.5px var(--blue))
     drop-shadow(0 0 1px hsl(220, 100%, 85%))
     drop-shadow(0 0 8px hsl(220, 95%, 70%))
     drop-shadow(0 0 48px hsla(220, 95%, 65%, 0.55));
