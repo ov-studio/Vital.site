@@ -195,6 +195,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.get_serial',             status: 'completed' },
           { label: '[Shared] API: core.engine.get_entity_types',       status: 'completed' },
           { label: '[Shared] API: core.engine.get_entities',           status: 'completed' },
+          { label: '[Shared] API: core.engine.get_entity_by_net_id',   status: 'completed' },
           { label: '[Shared] API: core.engine.print',                  status: 'completed' },
           { label: '[Shared] API: core.engine.iprint',                 status: 'completed' },
           { label: '[Shared] API: core.engine.inspect',                status: 'completed' },
