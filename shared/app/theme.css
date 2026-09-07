@@ -25,6 +25,7 @@
   --b10: hsla(220, 95%, 76%, .1);
   --b05: hsla(220, 95%, 76%, .05);
   --blue-scanline: hsla(220, 95%, 76%, .012);
+  --red: hsl(0, 72%, 60%);
 
 
   /* ── Text ── */
@@ -62,6 +63,10 @@
 
   /* ── Brand ── */
   --brand-color: var(--blue);
+
+
+  /* ── Fonts ── */
+  --font-geist-mono: 'Geist Mono', ui-monospace, monospace;
 
 
   /* ── Section ── */
