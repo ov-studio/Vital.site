@@ -20,6 +20,7 @@
   color: var(--text-soft, rgba(255, 255, 255, 0.55));
 }
 
+/* Profile strip */
 .ws-profile {
   display: flex;
   align-items: center;
@@ -76,6 +77,7 @@
   color: var(--text-soft);
 }
 
+/* Stats row */
 .ws-stats {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -131,6 +133,7 @@
   color: var(--blue);
 }
 
+/* Panels */
 .ws-panel {
   position: relative;
   z-index: 1;
@@ -188,12 +191,13 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 4px;
-  padding: 10px 0 0;
+  padding: 10px 0 0; /* flush left — first tab aligns with panel edge */
   border-bottom: none;
   background: transparent;
   flex-wrap: wrap;
 }
 
+/* Folder-style tabs — active tab blends into list titlebar */
 .ws-panel:has(.ws-panel-head--tabs) {
   --ws-titlebar: color-mix(in srgb, var(--bg7, #0c0e12) 55%, var(--b10, rgba(255, 255, 255, 0.12)));
   overflow: visible;
@@ -222,7 +226,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
-  background: var(--rule, #12151a);
+  background: transparent;
   border: none;
   padding: 11px 16px 12px;
   margin: 0;
@@ -246,6 +250,7 @@
   opacity: 0.9;
 }
 
+/* Seamless with thead — same fill, no border */
 .ws-tab--active {
   color: var(--blue);
   background: var(--ws-titlebar);
@@ -266,7 +271,7 @@
 .ws-panel:has(.ws-panel-head--tabs) > .state-empty {
   background: var(--bg7, #0c0e12);
   border: 2px solid var(--b10, rgba(255, 255, 255, 0.12));
-  border-top: none;
+  border-top: none; /* titlebar/active tab form the top edge */
   border-radius: 0 6px 6px 6px;
   margin-top: 0;
   position: relative;
@@ -289,6 +294,7 @@
   color: var(--blue);
 }
 
+/* Table — fill available viewport, scroll when content exceeds */
 .ws-table-wrap {
   overflow-x: auto;
   overflow-y: auto;
@@ -315,6 +321,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted, rgba(255, 255, 255, 0.4));
+  /* Same surface as active tab */
   background: var(--ws-titlebar, color-mix(in srgb, var(--bg7, #0c0e12) 55%, var(--b10, rgba(255, 255, 255, 0.12))));
   white-space: nowrap;
   vertical-align: middle;
@@ -340,6 +347,7 @@
   background: var(--b05);
 }
 
+/* Consistent row height across all workspace tables */
 .ws-table .ws-spoiler {
   min-height: 32px;
 }
@@ -369,12 +377,14 @@
   color: var(--text-soft);
 }
 
+/* Actions menu */
 .ws-actions-cell {
   text-align: right;
   width: 1%;
   white-space: nowrap;
 }
 
+/* Forms */
 .ws-form-row {
   display: flex;
   align-items: flex-end;
@@ -397,6 +407,7 @@
   flex-wrap: wrap;
 }
 
+/* Pending application — standalone widget box */
 .ws-pending-card {
   display: flex;
   align-items: center;
@@ -638,6 +649,7 @@
   margin-bottom: 10px;
 }
 
+/* Apply form — search theme, full width */
 .ws-apply-panel {
   margin-bottom: 14px;
 }
@@ -675,12 +687,17 @@
   width: 100%;
 }
 
+/* Same height as ui-search / “Search name or author…” */
 .ws-apply-search.ui-search input,
 .ws-apply-search input {
   width: 100% !important;
   max-width: none;
-  padding: 8px 12px 8px 32px;
-  font-size: 0.85rem;
+  height: auto;
+  padding: 6px 12px 6px 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+  box-sizing: border-box;
   transition: border-color 0.2s;
 }
 
@@ -692,11 +709,14 @@
 
 .ws-apply-btn {
   flex-shrink: 0;
-  height: 34px;
-  padding: 0 16px;
+  height: auto;
+  min-height: 0;
+  padding: 6px 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  font-size: 0.8rem;
 }
 
 
@@ -814,6 +834,7 @@
   margin-top: 4px;
 }
 
+/* Token row kv when spoiler is present */
 .ws-kv:has(.ws-spoiler) {
   grid-template-columns: 56px 1fr auto;
   align-items: center;
