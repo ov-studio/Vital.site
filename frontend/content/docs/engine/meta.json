@@ -21,6 +21,7 @@
         "get_serial",
         "get_entity_types",
         "get_entities",
+        "get_entity_by_net_id",
 
         "---Misc---",
         "print",

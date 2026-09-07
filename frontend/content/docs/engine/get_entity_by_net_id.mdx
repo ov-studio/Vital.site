@@ -1,0 +1,39 @@
+---
+title: core.engine.get_entity_by_net_id
+description: Retrieves a registered entity instance by its network identifier
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = core.engine.get_entity_by_net_id(net_id)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `number` | net_id | Network identifier of the target entity<br/>Must be a positive integer assigned by the network manager |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `Entity` | result | The entity instance matching the given `net_id` |
+| `boolean` | result | Returns `false` if no matching entity was found, the `net_id` is invalid, or the network manager is unavailable |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Retrieves an entity by its net ID"
+local net_id = 1001
+local entity = core.engine.get_entity_by_net_id(net_id)
+
+if entity then
+    core.engine.print("info", "Retrieved entity: ", entity , string.format("(%s)", entity:get_type()))
+else
+    core.engine.print("warn", "No entity found for net_id", net_id)
+end
+```
