@@ -244,7 +244,6 @@ export function Workspace() {
 
             <ui_divider.Divider/>
 
-            {/* Apply / pending — own widget above the list */}
             {(canApply || pendingApp) && (
               <div className="ws-panel ws-apply-panel">
                 <div className="ws-panel-body ws-apply-panel-body">
@@ -290,7 +289,6 @@ export function Workspace() {
               </div>
             )}
 
-            {/* Approved apps list — separate panel */}
             <div className="ws-panel">
               <div className="ws-panel-body ws-panel-body--list">
                 {myApps.length > 0 ? (

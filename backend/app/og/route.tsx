@@ -34,11 +34,11 @@ export async function GET() {
           backgroundSize: '48px 48px',
           opacity: 0.8,
           display: 'flex',
-        }} />
+        }}/>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-            <img src={logosrc} width={'140'} />
+            <img src={logosrc} width={'140'}/>
           </div>
 
           <div style={{
