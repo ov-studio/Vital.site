@@ -111,7 +111,7 @@ nav.s::after {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--b40);
+  box-shadow: 0 0 0 3px var(--brand-neon-mid);
   object-fit: cover;
 }
 .nav-avatar--sm {
