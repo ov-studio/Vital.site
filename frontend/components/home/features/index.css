@@ -33,9 +33,9 @@
   transition: border-color .3s, background .3s;
   cursor: none;
 }
-.fcluster.is-active { 
-  border-color: var(--blue); 
-  background: var(--b10); 
+.fcluster.is-active {
+  border-color: var(--blue);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
 }
 
 .fcluster-head {
