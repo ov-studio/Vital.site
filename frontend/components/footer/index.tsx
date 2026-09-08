@@ -1,6 +1,7 @@
 'use client';
-import * as config_footer   from '@/configs/footer';
-import * as component_brand from '@/components/brand';
+import * as config_site   from '@/configs/site';
+import * as config_footer from '@/configs/footer';
+import * as ui_brand      from '@/ui/brand';
 import './index.css';
 
 export function Footer() {
@@ -8,7 +9,7 @@ export function Footer() {
     <footer>
       <div className="footer-main">
         <div className="footer-brand">
-          <component_brand.Brand size="xs" className="footer-brand-lock"/>
+          <ui_brand.Brand name={config_site.info.name} size="xs" className="footer-brand-lock"/>
           <p className="footer-tagline">
             An open-source, high-performance sandbox built on Godot.<br/>Script It. Ship It. Limitless.
           </p>

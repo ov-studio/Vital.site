@@ -1,6 +1,7 @@
 'use client';
-import * as component_brand  from '@/components/brand';
+import * as config_site      from '@/configs/site';
 import * as component_social from '@/components/social';
+import * as ui_brand         from '@/ui/brand';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
@@ -81,7 +82,7 @@ export function Navbar({ links = [] }: NavbarProps) {
   return (
     <nav id="nav">
       <div className="ni">
-        <component_brand.Brand size="xs" variant="full" className="nav-brand" href="/#"/>
+        <ui_brand.Brand name={config_site.info.name} size="xs" variant="full" className="nav-brand" href="/#"/>
         <ul className="nl">
           {links.map(({ label, href }) => (
             <li key={href}><a href={href}>{label}</a></li>

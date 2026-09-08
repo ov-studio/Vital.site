@@ -1,20 +1,21 @@
 'use client';
-import * as config_site from '@/configs/site';
 import './index.css';
 
 type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {
-  size?:      BrandSize;
-  variant?:   BrandVariant;
+  name?: string;
+  size?: BrandSize;
+  variant?: BrandVariant;
   className?: string;
-  color?:     string;
-  href?:      string;
-  neon?:      boolean;
+  color?: string;
+  href?: string;
+  neon?: boolean;
 }
 
 export function Brand({
+  name,
   size = 'md',
   variant = 'full',
   className = '',
@@ -39,8 +40,8 @@ export function Brand({
     </div>
   );
 
-  const wordmark = variant !== 'logo-only' && (
-    <span className="brand_wordmark">{config_site.info.name}</span>
+  const wordmark = variant !== 'logo-only' && name && (
+    <span className="brand_wordmark">{name}</span>
   );
 
   const inner = (
