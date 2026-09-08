@@ -29,7 +29,7 @@
   background: var(--bg4);
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
-  border-left: 3px solid var(--rule);
+  border-left: 4px solid var(--rule);
   transition: border-color .3s, background .3s;
   cursor: none;
 }
