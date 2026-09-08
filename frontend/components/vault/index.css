@@ -45,11 +45,11 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--bg7);
-  border: 2px solid var(--b10);
+  border: 2px solid var(--rule2);
   border-radius: 2px;
   transition: border-color .25s, background .25s;
 }
-.vault-card:hover { border-color: var(--b40); }
+.vault-card:hover { border-color: var(--brand-neon-mid); }
 
 .vault-card-banner,
 .vault-modal-banner {
