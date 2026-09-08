@@ -254,12 +254,8 @@ nav.s::after {
     transform: translateX(-100%);
     opacity: 0;
   }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
   100% {
     transform: translateX(420%);
     opacity: 0;
