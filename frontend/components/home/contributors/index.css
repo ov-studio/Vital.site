@@ -50,10 +50,10 @@
   border-radius: 50%;
   overflow: hidden;
   background: var(--bg5);
-  box-shadow: 0 0 0px 4px var(--rule2);
+  box-shadow: 0 0 0px 4px var(--brand-neon-mid);
   transition: box-shadow .25s ease;
 }
-.contrib-avatar:hover .contrib-avatar-img { box-shadow: 0 0 0px 4px var(--blue); }
+.contrib-avatar:hover .contrib-avatar-img { box-shadow: 0 0 0px 4px var(--brand-neon-core); }
 
 .contrib-avatar-img img {
   width: 100%;
