@@ -102,15 +102,15 @@ h2 span { color: var(--blue) }
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: .01em;
-  color: var(--dim);
+  opacity: 1;
+  color: var(--brand-neon-core);
   text-decoration: none;
-  transition: color .2s;
+  transition: opacity .2s;
 }
 .sec-title:hover,
 .ws-section-title:hover,
 .rcategory-label:hover {
-  color: var(--white);
+  opacity: 0.85;
 }
 
 
