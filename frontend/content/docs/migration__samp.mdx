@@ -1,0 +1,69 @@
+---
+title: Migrating from SA-MP
+description: Moving a San Andreas Multiplayer server to Vital.sandbox
+---
+
+## Overview
+
+SA-MP has been effectively unmaintained since 2019 and is not open source. Its scripting language — Pawn — is compiled, statically typed, has no closures, no modern concurrency, and limited data structures. Servers that have survived this long have done so by working around the language, not with it.
+
+Vital.sandbox uses **Lua** — dynamically typed, first-class functions, coroutines, closures, and a modern scripting model. The API surface is consistent and structured rather than a flat list of global functions compiled into a native plugin.
+
+---
+
+## Platform comparison
+
+| Area | SA-MP | Vital.sandbox |
+|------|-------|---------------|
+| Open source | No | Yes |
+| Base game required | Yes — GTA SA client | No — standalone |
+| Licensing | No restrictions | No restrictions |
+| Hosting | Self-hosted | Self-hosted |
+| Discovery | External master list | External master list |
+| Monetization | Your own implementation | Your own implementation |
+| Revenue cut | None | None |
+| Language | Pawn — compiled, statically typed | Lua — dynamic, first-class functions, closures |
+| Maintenance | Abandoned since 2019 | Actively developed |
+| Rendering | GTA SA renderer, fixed pipeline | Godot 4 — PBR, SDFGI, SSR, SSAO, volumetric fog, glow, full GFX API |
+| Physics | GTA SA physics | Godot physics — rigid body, character, vehicle, area, collision shapes, raycast |
+| Networking | SA-MP net layer | Built-in sync — net IDs, `ISyncable`, server-authoritative replication |
+| UI | TextDraw only | Native WebView, Canvas 2D, SVG, Render Targets, custom fonts and textures |
+| Audio | None built-in | Audio 2D + Audio 3D — spatial attenuation, pitch, FX chain |
+| Model formats | `.DFF` (RenderWare) | GLB |
+| Texture formats | `.TXD` (RenderWare) | JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
+| Collision formats | `.COL` | Built into GLB |
+| Audio formats | None built-in | OGG, WAV, MP3 |
+| Database | MySQL/SQLite via plugin | MySQL — `core.database` with async query API |
+| HTTP | Via plugin | `util.http` — GET/POST, custom headers, timeout |
+| File I/O | None built-in | `util.file` — read, write, hash, delete |
+
+---
+
+## What carries over
+
+Pawn must be fully rewritten in Lua. There is no transpiler. The logic and systems you have built translate cleanly once you understand the equivalent APIs:
+
+| System | SA-MP | Vital.sandbox |
+|--------|-------|---------------|
+| Events | `OnPlayerConnect`, `OnVehicleDeath`, etc. (callbacks) | `util.event.on` / `util.event.emit` — unified, priority-ordered, remote firing, async callbacks |
+| Timers | `SetTimer` / `SetTimerEx` / `KillTimer` | `util.timer` — create, start, stop, reset |
+| HTTP | Via plugin | `util.http.get` / `util.http.post` — headers, timeout, no plugin |
+| Database | MySQL/SQLite via plugin | `core.database` + `core.database_query` — MySQL, schema definition, async execution |
+| 3D Models | `CreateObject` / `MoveObject` + `.DFF` / `.TXD` / `.COL` | `core.model.create` — GLB, collision embedded, animation, bones, blendshapes, material overrides |
+| Vehicles | `CreateVehicle` + callbacks | `physics.vehicle_body` + `physics.vehicle_wheel` — engine force, brake, steering, velocity, impulse, CCD |
+| UI | TextDraw only | `core.webview` (HTML/CSS/JS), `core.canvas` (2D draw), `core.rendertarget` (texture render) |
+| Audio | None built-in | `core.audio_2d` / `core.audio_3d` — volume, pitch, FX chain, spatial attenuation — OGG, WAV, MP3 |
+| Images | None built-in | `core.image` / `core.svg` — JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
+| File I/O | None built-in | `util.file` — read, write, hash, delete |
+| Networking | SA-MP sync layer | `ISyncable` net IDs, `core.engine.get_entity_by_net_id`, server-authoritative replication |
+| Async scripting | Callback-based only | `util.thread` + `util.promise` — yield on await, resume on resolution |
+
+---
+
+## What does not carry over
+
+- **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. These belong to Rockstar. You need your own assets in supported formats.
+- **Pawn code** — must be fully rewritten in Lua. There is no automated migration path.
+- **SA-MP filterscripts and gamemodes** — the entire resource model is different. Vital.sandbox uses `manifest.yaml` per resource.
+- **GTA-SA specific APIs** — ped animation sets, weapon pickups, wanted level, and anything that addresses the GTA binary directly. These have no equivalent.
+- **Built-in game world** — there is no world loaded by default. Map, terrain, and environment are your own assets.

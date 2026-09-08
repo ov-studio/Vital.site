@@ -9,7 +9,14 @@
         "building",
         "server__config",
         "resource__manifest",
-        
+
+        "---Migration---",
+        "migration",
+        "migration__mta",
+        "migration__samp",
+        "migration__fivem",
+        "migration__roblox",
+
         "---Core---",
         "engine",
         "database",

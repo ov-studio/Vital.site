@@ -1,0 +1,38 @@
+---
+title: Why migrate?
+description: Who should consider moving their server to Vital.sandbox and why
+---
+
+## Overview
+
+These guides are for developers running an active multiplayer server on an existing platform — primarily MTA, SA-MP, FiveM, or Roblox — who want to move their gamemode to **Vital.sandbox**.
+
+---
+
+## Who should migrate
+
+| Signal | What it means |
+|--------|---------------|
+| Hit scripting limits | Your platform's language or threading model is blocking features you want to build |
+| Closed or abandoned platform | SA-MP is unmaintained; FiveM carries Take-Two legal risk; MTA's network layer is closed |
+| Plugin dependency hell | Core features like HTTP, database, and audio require third-party plugins that break across updates |
+| No control over the renderer | You want modern lighting, post-processing, or custom shaders — impossible on a fixed 2004 engine |
+| Asset pipeline constraints | You are forced into proprietary formats you can't control or extend |
+| Self-hosting | You want to own your infrastructure without a platform intermediary |
+
+## Who should not migrate
+
+| Signal | What it means |
+|--------|---------------|
+| Depends on base game assets | If your server relies on GTA SA/V's map, vehicles, peds, or interiors — those assets belong to Rockstar and are not part of Vital.sandbox |
+| Needs the platform audience | Roblox servers lose their discovery engine, social graph, and storefront on migration |
+| Wants a drop-in replacement | Vital.sandbox is a blank slate — there is no pre-loaded world, no built-in gamemode, and no compatibility layer |
+
+---
+
+## Guides
+
+- [**Migrating from MTA: San Andreas**](/docs/migration__mta)
+- [**Migrating from SA-MP**](/docs/migration__samp)
+- [**Migrating from FiveM**](/docs/migration__fivem)
+- [**Migrating from Roblox**](/docs/migration__roblox)

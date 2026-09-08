@@ -1,0 +1,69 @@
+---
+title: Migrating from FiveM
+description: Moving a FiveM server to Vital.sandbox
+---
+
+## Overview
+
+FiveM is a GTA V multiplayer framework operated under a commercial agreement with Take-Two Interactive. Server operators and, in some interpretations, code written against FiveM APIs are bound by FiveM's Terms of Service. Take-Two has a documented history of issuing cease-and-desist orders and pursuing legal action against platforms and projects it deems in violation.
+
+Vital.sandbox has no relationship with Take-Two or Rockstar. It does not use their assets, engine, or APIs. There are no platform-side licensing obligations — what you build is governed by your own content, not a game publisher's terms.
+
+---
+
+## Platform comparison
+
+| Area | FiveM | Vital.sandbox |
+|------|-------|---------------|
+| Open source | Partially | Yes |
+| Base game required | Yes — GTA V client install | No — standalone |
+| Licensing | Take-Two / FiveM ToS | No publisher obligations |
+| Hosting | Self-hosted | Self-hosted |
+| Discovery | External master list | External master list |
+| Monetization | Your own implementation | Your own implementation |
+| Revenue cut | None | None |
+| Language | Lua or C# | Lua |
+| Maintenance | Active | Actively developed |
+| Rendering | GTA V renderer | Godot 4 — PBR, SDFGI, SSR, SSAO, volumetric fog, glow, full GFX API |
+| Physics | GTA V physics | Godot physics — rigid body, character, vehicle, area, collision shapes, raycast |
+| Networking | FiveM OneSync | Built-in sync — net IDs, `ISyncable`, server-authoritative replication |
+| UI | NUI (CEF) | Native WebView, Canvas 2D, SVG, Render Targets, custom fonts and textures |
+| Audio | GTA V audio | Audio 2D + Audio 3D — spatial attenuation, pitch, FX chain |
+| Model formats | `.YDR`, `.YDD`, `.YFT`, `.YBN` | GLB |
+| Texture formats | `.YTD` | JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
+| Collision formats | `.YBN` | Built into GLB |
+| Audio formats | `.AWC` | OGG, WAV, MP3 |
+| Database | MySQL via oxmysql (plugin) | MySQL — `core.database` with async query API |
+| HTTP | `PerformHttpRequest` | `util.http` — GET/POST, custom headers, timeout |
+| File I/O | `LoadResourceFile` / `SaveResourceFile` | `util.file` — read, write, hash, delete |
+
+---
+
+## What carries over
+
+FiveM's Lua scripting model is the closest of any platform to Vital.sandbox. Event patterns, resource structure concepts, and async patterns all have direct equivalents:
+
+| System | FiveM | Vital.sandbox |
+|--------|-------|---------------|
+| Events | `AddEventHandler` / `TriggerEvent` / `TriggerClientEvent` / `TriggerServerEvent` | `util.event.on` / `util.event.emit` — remote firing, peer targeting, async callbacks, priority ordering |
+| Timers | `SetTimeout` / `SetInterval` / `ClearTimeout` | `util.timer` — create, start, stop, reset |
+| HTTP | `PerformHttpRequest` | `util.http.get` / `util.http.post` — headers, timeout, no plugin |
+| Database | oxmysql (plugin) | `core.database` + `core.database_query` — MySQL, schema definition, async execution |
+| 3D Models | Custom assets via streaming + `.YDR` / `.YTD` | `core.model.create` — GLB, animation, bones, blendshapes, material overrides |
+| Vehicles | FiveM vehicle API + GTA V natives | `physics.vehicle_body` + `physics.vehicle_wheel` — engine force, brake, steering, velocity, impulse, CCD |
+| UI | NUI — CEF browser | `core.webview` (HTML/CSS/JS), `core.canvas` (2D draw), `core.rendertarget` (texture render) |
+| Audio | GTA V audio system | `core.audio_2d` / `core.audio_3d` — volume, pitch, FX chain, spatial attenuation — OGG, WAV, MP3 |
+| Images | `.YTD` textures | `core.image` / `core.svg` — JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
+| File I/O | `LoadResourceFile` / `SaveResourceFile` | `util.file` — read, write, hash, delete |
+| Networking | FiveM OneSync entity replication | `ISyncable` net IDs, `core.engine.get_entity_by_net_id`, server-authoritative replication |
+| Async scripting | `Citizen.CreateThread` / `Wait` | `util.thread` + `util.promise` — yield on await, resume on resolution |
+
+---
+
+## What does not carry over
+
+- **GTA V assets** — map, vehicles, peds, interiors, audio. These belong to Rockstar. You need your own assets in supported formats.
+- **GTA V native calls** — anything that invokes GTA V natives (`GetEntityCoords`, `TaskGoStraightToCoord`, etc.) has no equivalent. These address the GTA binary directly.
+- **C# resources** — must be rewritten in Lua.
+- **FiveM resource manifest (`fxmanifest.lua`)** — Vital.sandbox uses `manifest.yaml` with a different structure.
+- **OneSync entity locking** — Vital.sandbox uses its own server-authoritative replication model via `ISyncable`.
