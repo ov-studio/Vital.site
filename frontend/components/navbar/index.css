@@ -130,7 +130,7 @@ nav.s::after {
 
 .nav-staff-menu {
   position: absolute;
-  top: calc(100% + 22px);
+  top: calc(100% + 8px);
   right: 0;
   z-index: 1;
   min-width: 250px;
@@ -139,6 +139,9 @@ nav.s::after {
   border: 1px solid var(--rule7);
   border-radius: 4px;
   box-shadow: 0 12px 40px var(--k45);
+  transform-origin: top right;
+  opacity: 0;
+  animation: nav-menu-in .22s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
 .nav-staff-meta {
@@ -236,6 +239,17 @@ nav.s::after {
 
 
 /* ── @keyframes ── */
+@keyframes nav-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes nav-loader-run {
   0% {
     transform: translateX(-100%);
