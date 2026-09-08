@@ -428,23 +428,27 @@ export function Workspace() {
 
                   {tab === 'pending' && (
                     <div className="ws-table-wrap">
-                      {!loading && filtered_pending.length === 0 ? (
-                        <div className="state-empty">
-                          <lucide.Inbox size={28} strokeWidth={1.5}/>
-                          <span>No pending requests.</span>
-                        </div>
-                      ) : filtered_pending.length > 0 ? (
-                        <table className="ws-table">
-                          <thead>
-                            <tr>
-                              <th>Server</th>
-                              <th>Author</th>
-                              <th>Submitted</th>
-                              <th></th>
+                      <table className="ws-table">
+                        <thead>
+                          <tr>
+                            <th>Server</th>
+                            <th>Author</th>
+                            <th>Submitted</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {!loading && filtered_pending.length === 0 ? (
+                            <tr className="ws-table-empty">
+                              <td colSpan={4}>
+                                <div className="state-empty">
+                                  <lucide.Inbox size={28} strokeWidth={1.5}/>
+                                  <span>No pending requests.</span>
+                                </div>
+                              </td>
                             </tr>
-                          </thead>
-                          <tbody>
-                            {filtered_pending.map((p) => (
+                          ) : (
+                            filtered_pending.map((p) => (
                               <tr key={p.appId}>
                                 <td>
                                   <div className="ws-cell-title">{p.name}</div>
@@ -458,33 +462,37 @@ export function Workspace() {
                                   </div>
                                 </td>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      ) : null}
+                            ))
+                          )}
+                        </tbody>
+                      </table>
                     </div>
                   )}
 
                   {tab === 'tokens' && (
                     <div className="ws-table-wrap">
-                      {!loading && filtered_tokens.length === 0 ? (
-                        <div className="state-empty">
-                          <lucide.KeyRound size={28} strokeWidth={1.5}/>
-                          <span>No issued tokens.</span>
-                        </div>
-                      ) : filtered_tokens.length > 0 ? (
-                        <table className="ws-table">
-                          <thead>
-                            <tr>
-                              <th>Server</th>
-                              <th>Author</th>
-                              <th>Approved by</th>
-                              <th>Date</th>
-                              <th></th>
+                      <table className="ws-table">
+                        <thead>
+                          <tr>
+                            <th>Server</th>
+                            <th>Author</th>
+                            <th>Approved by</th>
+                            <th>Date</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {!loading && filtered_tokens.length === 0 ? (
+                            <tr className="ws-table-empty">
+                              <td colSpan={5}>
+                                <div className="state-empty">
+                                  <lucide.KeyRound size={28} strokeWidth={1.5}/>
+                                  <span>No issued tokens.</span>
+                                </div>
+                              </td>
                             </tr>
-                          </thead>
-                          <tbody>
-                            {filtered_tokens.map((t) => (
+                          ) : (
+                            filtered_tokens.map((t) => (
                               <tr key={t.appId}>
                                 <td><div className="ws-cell-title">{t.name}</div></td>
                                 <td className="ws-muted">@{t.login}</td>
@@ -496,10 +504,10 @@ export function Workspace() {
                                   </div>
                                 </td>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      ) : null}
+                            ))
+                          )}
+                        </tbody>
+                      </table>
                     </div>
                   )}
                 </div>
