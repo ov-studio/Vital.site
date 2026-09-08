@@ -135,8 +135,7 @@ nav.s::after {
   z-index: 1;
   min-width: 250px;
   padding: 8px;
-  background: var(--bg7);
-  border: 1px solid var(--rule7);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
   border-radius: 4px;
   box-shadow: 0 12px 40px var(--k45);
   transform-origin: top right;
