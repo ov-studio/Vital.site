@@ -148,7 +148,7 @@ nav.s::after {
   align-items: center;
   gap: 10px;
   padding: 8px 10px 12px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--b10);
   margin-bottom: 6px;
 }
 
