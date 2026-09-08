@@ -225,7 +225,7 @@
   font-weight: 700;
   letter-spacing: .01em;
   line-height: 1;
-  color: var(--white);
+  color: var(--brand-neon-core);
   flex-shrink: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -236,7 +236,7 @@
   font-family: 'Geist', sans-serif;
   font-size: .82rem;
   font-weight: 500;
-  color: var(--text-desc-hover);
+  color: var(--brand-neon-mid);
   flex-shrink: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -261,7 +261,7 @@
 .vault-modal-desc {
   font-family: 'Geist', sans-serif;
   font-size: .84rem;
-  color: var(--text-desc);
+  color: var(--text-soft);
   line-height: 1.85;
   white-space: pre-line;
 }
