@@ -136,7 +136,7 @@
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: .01em;
-  color: var(--white);
+  color: var(--brand-neon-core);
   line-height: 1;
 }
 
@@ -146,7 +146,7 @@
   font-family: 'Geist', sans-serif;
   font-size: .78rem;
   font-weight: 500;
-  color: var(--text-desc-hover);
+  color: var(--brand-neon-mid);
 }
 
 .vault-card-footer {
@@ -267,7 +267,7 @@
 }
 .vault-modal-desc strong {
   font-weight: 500;
-  color: var(--text-desc-hover); 
+  color: var(--brand-neon-core); 
 }
 
 .vault-modal-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
