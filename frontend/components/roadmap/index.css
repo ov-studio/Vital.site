@@ -8,7 +8,7 @@
 .roadmap-summary {
   margin-bottom: 80px;
   opacity: 0;
-  animation: slide-up .55s .28s forwards;
+  animation: slide-up .55s .22s forwards;
 }
 
 .roadmap-summary-row {
@@ -73,7 +73,7 @@
   opacity: 0;
   scroll-margin-top: calc(var(--nav-h) + 24px);
   animation: rcategory-in .45s ease forwards;
-  animation-delay: calc(var(--ci) * 70ms);
+  animation-delay: calc(0.7s + var(--ci) * 90ms);
   content-visibility: auto;
   contain-intrinsic-size: auto 400px;
 }
