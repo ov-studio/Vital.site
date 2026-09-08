@@ -273,7 +273,7 @@ export function Workspace() {
                       <div className="ws-apply-row">
                         <ui_search.Search
                           className="ws-apply-search"
-                          placeholder="e.g. Night City RP"
+                          placeholder="Night City RP"
                           value={name}
                           onChange={(v: string) => setName(String(v).slice(0, 64))}
                           disabled={busy}
