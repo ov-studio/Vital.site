@@ -81,7 +81,7 @@
   color: var(--text-faint);
   transition: color .25s;
 }
-.fcluster.is-active .fcluster-desc { color: var(--dim) }
+.fcluster.is-active .fcluster-desc { color: var(--brand-neon-core) }
 
 .feat-diagram { 
   position: relative; 
