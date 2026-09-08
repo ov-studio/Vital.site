@@ -344,8 +344,12 @@
   transition: background 0.15s ease;
 }
 
-.ws-table tbody tr:hover td {
+.ws-table tbody tr:hover:not(.ws-table-empty) td {
   background: var(--b05);
+}
+
+.ws-table-empty:hover td {
+  background: transparent;
 }
 
 .ws-table-empty td {
@@ -356,6 +360,7 @@
 
 .ws-table-empty .state-empty {
   padding: 48px 24px;
+  min-height: 160px;
 }
 
 .ws-table .ws-spoiler {
