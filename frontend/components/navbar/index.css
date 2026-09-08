@@ -58,7 +58,7 @@ nav.s::after {
   transition: color .2s;
 }
 .nl li a:hover,
-.nl li a.active { color: var(--white) }
+.nl li a.active { color: var(--brand-neon-core) }
 
 .nav-end {
   display: flex;
