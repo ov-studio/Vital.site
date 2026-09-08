@@ -250,7 +250,7 @@
 
 .ws-tab--active {
   color: var(--blue);
-  background: var(--b10);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
   z-index: 4;
 }
 
