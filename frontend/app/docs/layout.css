@@ -78,7 +78,7 @@ button[aria-label="Collapse Sidebar"] { display: none !important; }
   font-size: clamp(1.25rem, 2vw, 1.3rem);
   font-weight: 600;
   letter-spacing: .01em;
-  color: var(--blue);
+  color: var(--brand-neon-mid);
 }
 
 #nd-docs-layout h3,
