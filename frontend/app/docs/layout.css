@@ -16,7 +16,7 @@
 }
 
 .dark {
-  --color-fd-primary:    var(--blue);
+  --color-fd-primary:    var(--brand-neon-core);
   --color-fd-background: var(--bg4);
 }
 .dark #nd-sidebar { background-color: var(--bg7); }
