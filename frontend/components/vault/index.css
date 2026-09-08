@@ -183,7 +183,7 @@
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  background: var(--selection-border);
+  background: var(--brand-neon-mid);
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   transform: translateZ(0);
   animation: slide-up .35s ease forwards;
