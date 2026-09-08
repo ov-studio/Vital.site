@@ -5,7 +5,11 @@
   z-index: 0;
 }
 
-.roadmap-summary { margin-bottom: 80px; }
+.roadmap-summary {
+  margin-bottom: 80px;
+  opacity: 0;
+  animation: slide-up .55s .28s forwards;
+}
 
 .roadmap-summary-row {
   display: flex;

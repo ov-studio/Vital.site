@@ -12,6 +12,8 @@
 }
 
 .ws-lead {
+  opacity: 0;
+  animation: slide-up .55s .22s forwards;
   margin-top: 12px;
   margin-bottom: 8px;
   max-width: 36rem;
@@ -21,6 +23,8 @@
 }
 
 .ws-profile {
+  opacity: 0;
+  animation: slide-up .55s .3s forwards;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -77,6 +81,8 @@
 }
 
 .ws-stats {
+  opacity: 0;
+  animation: slide-up .55s .48s forwards;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 12px;
@@ -144,6 +150,8 @@
 }
 
 .ws-panel--narrow {
+  opacity: 0;
+  animation: slide-up .55s .38s forwards;
   max-width: 380px;
   padding: 24px;
   display: flex;
@@ -612,6 +620,8 @@
 }
 
 .ws-apply-panel {
+  opacity: 0;
+  animation: slide-up .55s .38s forwards;
   margin-bottom: 14px;
 }
 
@@ -806,7 +816,15 @@
 }
 
 .ws-section-title {
+  opacity: 0;
+  animation: slide-up .55s .42s forwards;
   margin: 60px 0 0;
+}
+
+
+.ws-page .ws-panel:not(.ws-panel--narrow):not(.ws-apply-panel) {
+  opacity: 0;
+  animation: slide-up .55s .55s forwards;
 }
 
 

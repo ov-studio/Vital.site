@@ -70,7 +70,11 @@ h2 span { color: var(--blue) }
   margin-bottom: 40px;
 }
 .sec-head--intro { margin-bottom: 25px; }
-.page-head { margin-bottom: 56px; }
+.page-head {
+  margin-bottom: 56px;
+  opacity: 0;
+  animation: slide-up .6s .12s forwards;
+}
 
 .sec-link {
   display: flex;
@@ -90,7 +94,7 @@ h2 span { color: var(--blue) }
 .sec-link:hover { color: var(--blue) }
 
 
-/* ── Shared section sub-title ── */
+/* ── Shared section sub-title (workspace / roadmap / tos) ── */
 .sec-title,
 .ws-section-title,
 .rcategory-label,

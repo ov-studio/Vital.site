@@ -22,6 +22,8 @@
   display: flex;
   align-items: flex-end;
   gap: 2px;
+  opacity: 0;
+  animation: slide-up .55s .3s forwards;
 }
 
 .ui-filter.vault-filter-tags {
@@ -33,6 +35,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
+  opacity: 0;
+  animation: slide-up .55s .42s forwards;
 }
 
 .vault-card {
