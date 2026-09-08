@@ -273,7 +273,7 @@ export function Workspace() {
                       <div className="ws-apply-row">
                         <ui_search.Search
                           className="ws-apply-search"
-                          placeholder="Night City RP"
+                          placeholder="e.g. Night City RP"
                           value={name}
                           onChange={(v: string) => setName(String(v).slice(0, 64))}
                           disabled={busy}
@@ -291,19 +291,34 @@ export function Workspace() {
 
             <div className="ws-panel">
               <div className="ws-panel-body ws-panel-body--list">
-                {myApps.length > 0 ? (
-                  <div className="ws-table-wrap">
-                    <table className="ws-table ws-table--apps">
-                      <thead>
-                        <tr>
-                          <th>Server</th>
-                          <th>Approved</th>
-                          <th>Token</th>
-                          <th></th>
+                <div className="ws-table-wrap">
+                  <table className="ws-table ws-table--apps">
+                    <thead>
+                      <tr>
+                        <th>Server</th>
+                        <th>Approved</th>
+                        <th>Token</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {myApps.length === 0 ? (
+                        <tr className="ws-table-empty">
+                          <td colSpan={4}>
+                            <div className="state-empty">
+                              <lucide.KeyRound size={24} strokeWidth={1.5}/>
+                              <span>
+                                {loading
+                                  ? 'Loading…'
+                                  : pendingApp
+                                    ? 'No approved servers yet — your request is under review.'
+                                    : 'No approved servers yet. Apply above to get a token.'}
+                              </span>
+                            </div>
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {myApps.map((app) => {
+                      ) : (
+                        myApps.map((app) => {
                           const isOpen = !!revealed[app.appId];
                           return (
                             <tr key={app.appId}>
@@ -353,20 +368,11 @@ export function Workspace() {
                               </td>
                             </tr>
                           );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                ) : !loading ? (
-                  <div className="state-empty" style={{ padding: '24px 20px' }}>
-                    <lucide.KeyRound size={24} strokeWidth={1.5}/>
-                    <span>
-                      {pendingApp
-                        ? 'No approved servers yet — your request is under review.'
-                        : 'No approved servers yet. Apply above to get a token.'}
-                    </span>
-                  </div>
-                ) : null}
+                        })
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
@@ -438,12 +444,12 @@ export function Workspace() {
                           </tr>
                         </thead>
                         <tbody>
-                          {!loading && filtered_pending.length === 0 ? (
+                          {filtered_pending.length === 0 ? (
                             <tr className="ws-table-empty">
                               <td colSpan={4}>
                                 <div className="state-empty">
                                   <lucide.Inbox size={28} strokeWidth={1.5}/>
-                                  <span>No pending requests.</span>
+                                  <span>{loading ? 'Loading…' : 'No pending requests.'}</span>
                                 </div>
                               </td>
                             </tr>
@@ -482,12 +488,12 @@ export function Workspace() {
                           </tr>
                         </thead>
                         <tbody>
-                          {!loading && filtered_tokens.length === 0 ? (
+                          {filtered_tokens.length === 0 ? (
                             <tr className="ws-table-empty">
                               <td colSpan={5}>
                                 <div className="state-empty">
                                   <lucide.KeyRound size={28} strokeWidth={1.5}/>
-                                  <span>No issued tokens.</span>
+                                  <span>{loading ? 'Loading…' : 'No issued tokens.'}</span>
                                 </div>
                               </td>
                             </tr>
