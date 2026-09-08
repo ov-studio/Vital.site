@@ -1,6 +1,6 @@
 import * as config_site          from '@/configs/site';
 import * as react                from 'react';
-import * as lucide               from 'lucide-react';
+import * as icons                from '@/lib/icons';
 import * as fumadocs_core_source from 'fumadocs-core/source';
 import * as fumadocs_mdx_server  from 'fumadocs-mdx:collections/server';
 
@@ -12,8 +12,8 @@ export const source = fumadocs_core_source.loader({
   baseUrl: '/docs',
   source: fumadocs_mdx_server.docs.toFumadocsSource(),
   icon(name) {
-    if (name && name in lucide) {
-      return react.createElement(lucide[name as keyof typeof lucide] as any, config_site.info.lucide);
+    if (name && name in icons.doc) {
+      return react.createElement(icons.doc[name], config_site.info.lucide);
     }
   },
   slugs(file) {
