@@ -813,8 +813,8 @@
 
 .ws-section-title {
   opacity: 0;
+  margin: 50px 0 0;
   animation: slide-up .55s .42s forwards;
-  margin: 60px 0 0;
 }
 
 
