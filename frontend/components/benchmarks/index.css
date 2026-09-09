@@ -173,21 +173,6 @@
   text-transform: capitalize;
 }
 
-.bm-mono {
-  font-family: var(--font-geist-mono, ui-monospace, monospace);
-  font-size: 0.8rem;
-}
-
-.bm-badge {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
 
 .bm-badge--lua {
   color: var(--blue);
