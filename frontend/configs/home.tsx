@@ -69,7 +69,7 @@ export const Ethos = [
   },
   {
     title: 'Multiplayer Native',
-    desc:  'ENet transport, a custom packet-batched replication layer with built-in physics body sync, and a Lua-level network event system built in from the ground up. Multiplayer is a first-class citizen, not an afterthought.',
+    desc:  'ENet based custom replication layer with built-in physics body sync, and Lua-level network events built in from the ground up. Multiplayer is a first-class citizen, not an afterthought.',
     icon:  <lucide.Cable {...config_site.info.lucide}/>
   },
   {
