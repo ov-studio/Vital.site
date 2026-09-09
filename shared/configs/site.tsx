@@ -40,6 +40,7 @@ export const info = {
       '/contributors',
       '/stats',
       '/build',
+      '/benchmark',
       '/vault',
       '/vault/tree',
       '/masterlist'
