@@ -13,19 +13,18 @@ These guides are for developers running an active multiplayer server on an exist
 
 | Signal | What it means |
 |--------|---------------|
-| Hit scripting limits | Your platform's language or threading model is blocking features you want to build |
-| Closed or abandoned platform | SA-MP is unmaintained; FiveM carries Take-Two legal risk; MTA's network layer is closed |
-| Plugin dependency hell | Core features like HTTP, database, and audio require third-party plugins that break across updates |
-| No control over the renderer | You want modern lighting, post-processing, or custom shaders — impossible on a fixed 2004 engine |
-| Asset pipeline constraints | You are forced into proprietary formats you can't control or extend |
+| Scripting limits | Your platform's language or threading model is blocking features you want to build |
+| Plugin dependency | Core features like HTTP, database, and audio require third-party plugins to function |
+| Renderer limitations | You want modern lighting, post-processing, or custom shaders beyond what the current engine supports |
+| Asset pipeline | You want full control over asset formats and the import pipeline |
 | Self-hosting | You want to own your infrastructure without a platform intermediary |
 
 ## Who should not migrate
 
 | Signal | What it means |
 |--------|---------------|
-| Depends on base game assets | If your server relies on GTA SA/V's map, vehicles, peds, or interiors — those assets belong to Rockstar and are not part of Vital.sandbox |
-| Needs the platform audience | Roblox servers lose their discovery engine, social graph, and storefront on migration |
+| Depends on base game assets | If your server relies on GTA SA/V's map, vehicles, peds, or interiors — those assets are not part of Vital.sandbox |
+| Needs the platform audience | Roblox servers depend on the Roblox discovery engine, social graph, and storefront — these have no equivalent outside the platform |
 | Wants a drop-in replacement | Vital.sandbox is a blank slate — there is no pre-loaded world, no built-in gamemode, and no compatibility layer |
 
 ---

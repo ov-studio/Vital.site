@@ -5,9 +5,9 @@ description: Moving a Multi Theft Auto server to Vital.sandbox
 
 ## Overview
 
-MTA: San Andreas is an open-source multiplayer modification for GTA San Andreas. Its scripting environment layers on top of the GTA SA engine binary — a fixed rendering pipeline, fixed physics, and fixed asset formats from 2004 that were never designed for large-scale multiplayer. The networking layer is closed source.
+MTA: San Andreas is an open-source multiplayer modification for GTA San Andreas. Its scripting environment runs on top of the GTA SA engine with Lua, and supports custom assets, UIs, and server-side logic.
 
-Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. The rendering stack, physics engine, networking layer, and asset pipeline are all configurable and extensible. Nothing is locked behind the base game.
+Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. The rendering stack, physics engine, networking layer, and asset pipeline are fully configurable. Asset formats, the resource system, and scripting patterns differ from MTA.
 
 ---
 
@@ -24,7 +24,7 @@ Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. The 
 | Revenue cut | None | None |
 | Language | Lua, primarily single-threaded | Lua — async threads, promises, event-driven, per-environment isolation |
 | Maintenance | Active | Actively developed |
-| Rendering | GTA SA renderer, fixed pipeline | Godot 4 — PBR, SDFGI, SSR, SSAO, volumetric fog, glow, full GFX API |
+| Rendering | GTA SA renderer | Godot 4 — PBR, SDFGI, SSR, SSAO, volumetric fog, glow, full GFX API |
 | Physics | GTA SA physics | Godot physics — rigid body, character, vehicle, area, collision shapes, raycast |
 | Networking | MTA network layer (closed source) | Built-in sync — net IDs, `ISyncable`, server-authoritative replication |
 | UI | CEF browser + MTA GUI | Native WebView, Canvas 2D, SVG, Render Targets, custom fonts and textures |
@@ -53,14 +53,14 @@ Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. The 
 | Audio | OpenAL via GTA | `core.audio_2d` / `core.audio_3d` — volume, pitch, FX chain, spatial attenuation — OGG, WAV, MP3 |
 | Images | GTA SA textures | `core.image` / `core.svg` — JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
 | File I/O | `fileOpen` / `fileWrite` / `fileRead` | `util.file` — read, write, hash, delete |
-| Networking | MTA sync (closed source) | `ISyncable` net IDs, `core.engine.get_entity_by_net_id`, server-authoritative replication |
-| Async scripting | Coroutine workarounds | `util.thread` + `util.promise` — yield on await, resume on resolution |
+| Networking | MTA sync layer | `ISyncable` net IDs, `core.engine.get_entity_by_net_id`, server-authoritative replication |
+| Async scripting | Coroutine-based | `util.thread` + `util.promise` — yield on await, resume on resolution |
 
 ---
 
 ## What does not carry over
 
-- **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. These belong to Rockstar. You need your own assets in supported formats.
-- **GTA-SA specific APIs** — ped animation sets, weapon pickups, wanted level, and anything that talks directly to the GTA engine binary. These have no equivalent.
+- **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. You need your own assets in supported formats.
+- **GTA-SA specific APIs** — ped animation sets, weapon pickups, wanted level, and anything that addresses the GTA engine binary directly. These have no equivalent.
 - **MTA XML resource format** — Vital.sandbox uses `manifest.yaml` per resource with a different script declaration and dependency structure.
-- **Built-in game world** — there is no world loaded by default. Your map, terrain, and environment are your own assets to load.
+- **Built-in game world** — there is no world loaded by default. Map, terrain, and environment are your own assets to load.

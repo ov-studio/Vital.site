@@ -5,9 +5,9 @@ description: Moving a San Andreas Multiplayer server to Vital.sandbox
 
 ## Overview
 
-SA-MP has been effectively unmaintained since 2019 and is not open source. Its scripting language — Pawn — is compiled, statically typed, has no closures, no modern concurrency, and limited data structures. Servers that have survived this long have done so by working around the language, not with it.
+SA-MP is a multiplayer modification for GTA San Andreas. Its scripting language is Pawn — a compiled, statically typed language designed for embedded use. SA-MP has not received updates since 2019.
 
-Vital.sandbox uses **Lua** — dynamically typed, first-class functions, coroutines, closures, and a modern scripting model. The API surface is consistent and structured rather than a flat list of global functions compiled into a native plugin.
+Vital.sandbox uses **Lua** — dynamically typed, first-class functions, coroutines, and closures. The API surface is consistent and structured. Asset formats, the resource system, and scripting patterns differ significantly from SA-MP.
 
 ---
 
@@ -23,8 +23,8 @@ Vital.sandbox uses **Lua** — dynamically typed, first-class functions, corouti
 | Monetization | Your own implementation | Your own implementation |
 | Revenue cut | None | None |
 | Language | Pawn — compiled, statically typed | Lua — dynamic, first-class functions, closures |
-| Maintenance | Abandoned since 2019 | Actively developed |
-| Rendering | GTA SA renderer, fixed pipeline | Godot 4 — PBR, SDFGI, SSR, SSAO, volumetric fog, glow, full GFX API |
+| Maintenance | No updates since 2019 | Actively developed |
+| Rendering | GTA SA renderer | Godot 4 — PBR, SDFGI, SSR, SSAO, volumetric fog, glow, full GFX API |
 | Physics | GTA SA physics | Godot physics — rigid body, character, vehicle, area, collision shapes, raycast |
 | Networking | SA-MP net layer | Built-in sync — net IDs, `ISyncable`, server-authoritative replication |
 | UI | TextDraw only | Native WebView, Canvas 2D, SVG, Render Targets, custom fonts and textures |
@@ -41,7 +41,7 @@ Vital.sandbox uses **Lua** — dynamically typed, first-class functions, corouti
 
 ## What carries over
 
-Pawn must be fully rewritten in Lua. There is no transpiler. The logic and systems you have built translate cleanly once you understand the equivalent APIs:
+Pawn must be fully rewritten in Lua. There is no transpiler. The logic and systems you have built translate once you understand the equivalent APIs:
 
 | System | SA-MP | Vital.sandbox |
 |--------|-------|---------------|
@@ -62,8 +62,8 @@ Pawn must be fully rewritten in Lua. There is no transpiler. The logic and syste
 
 ## What does not carry over
 
-- **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. These belong to Rockstar. You need your own assets in supported formats.
+- **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. You need your own assets in supported formats.
 - **Pawn code** — must be fully rewritten in Lua. There is no automated migration path.
-- **SA-MP filterscripts and gamemodes** — the entire resource model is different. Vital.sandbox uses `manifest.yaml` per resource.
+- **SA-MP filterscripts and gamemodes** — Vital.sandbox uses `manifest.yaml` per resource with a different structure.
 - **GTA-SA specific APIs** — ped animation sets, weapon pickups, wanted level, and anything that addresses the GTA binary directly. These have no equivalent.
 - **Built-in game world** — there is no world loaded by default. Map, terrain, and environment are your own assets.

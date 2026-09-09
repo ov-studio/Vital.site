@@ -5,9 +5,9 @@ description: Moving a FiveM server to Vital.sandbox
 
 ## Overview
 
-FiveM is a GTA V multiplayer framework operated under a commercial agreement with Take-Two Interactive. Server operators and, in some interpretations, code written against FiveM APIs are bound by FiveM's Terms of Service. Take-Two has a documented history of issuing cease-and-desist orders and pursuing legal action against platforms and projects it deems in violation.
+FiveM is a multiplayer framework for GTA V. It supports Lua and C# scripting, a CEF-based UI layer, and custom asset streaming on top of the GTA V engine. Server operators are subject to FiveM's Terms of Service.
 
-Vital.sandbox has no relationship with Take-Two or Rockstar. It does not use their assets, engine, or APIs. There are no platform-side licensing obligations — what you build is governed by your own content, not a game publisher's terms.
+Vital.sandbox is a standalone platform with no dependency on GTA V or its assets. Asset formats, the resource system, and scripting patterns differ from FiveM.
 
 ---
 
@@ -17,7 +17,7 @@ Vital.sandbox has no relationship with Take-Two or Rockstar. It does not use the
 |------|-------|---------------|
 | Open source | Partially | Yes |
 | Base game required | Yes — GTA V client install | No — standalone |
-| Licensing | Take-Two / FiveM ToS | No publisher obligations |
+| Licensing | FiveM Terms of Service | No restrictions |
 | Hosting | Self-hosted | Self-hosted |
 | Discovery | External master list | External master list |
 | Monetization | Your own implementation | Your own implementation |
@@ -62,8 +62,8 @@ FiveM's Lua scripting model is the closest of any platform to Vital.sandbox. Eve
 
 ## What does not carry over
 
-- **GTA V assets** — map, vehicles, peds, interiors, audio. These belong to Rockstar. You need your own assets in supported formats.
-- **GTA V native calls** — anything that invokes GTA V natives (`GetEntityCoords`, `TaskGoStraightToCoord`, etc.) has no equivalent. These address the GTA binary directly.
+- **GTA V assets** — map, vehicles, peds, interiors, audio. You need your own assets in supported formats.
+- **GTA V native calls** — anything that invokes GTA V natives (`GetEntityCoords`, `TaskGoStraightToCoord`, etc.) addresses the GTA binary directly and has no equivalent.
 - **C# resources** — must be rewritten in Lua.
 - **FiveM resource manifest (`fxmanifest.lua`)** — Vital.sandbox uses `manifest.yaml` with a different structure.
 - **OneSync entity locking** — Vital.sandbox uses its own server-authoritative replication model via `ISyncable`.
