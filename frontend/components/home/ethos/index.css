@@ -70,10 +70,10 @@
   font-size: .84rem;
   font-weight: 500;
   line-height: 1.7;
-  color: var(--text-desc);
+  color: var(--text-muted);
   transition: color .25s;
 }
-.ecard:hover .ecard-desc { color: var(--text-desc-hover) }
+.ecard:hover .ecard-desc { color: var(--text-soft) }
 
 
 /* ── @media ── */
