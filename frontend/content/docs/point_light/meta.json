@@ -5,12 +5,14 @@
         "---Base---",
         "create",
         "...",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__is_remote",
         "method__is_streamed",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
@@ -18,6 +20,7 @@
         "method__is_negative",
         "method__is_shadow_reverse_cull_face_enabled",
         "method__is_distance_fade_enabled",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -50,6 +53,7 @@
         "method__get_distance_fade_begin",
         "method__get_distance_fade_shadow",
         "method__get_distance_fade_length",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -86,6 +90,7 @@
         "method__set_distance_fade_begin",
         "method__set_distance_fade_shadow",
         "method__set_distance_fade_length",
+        
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",
