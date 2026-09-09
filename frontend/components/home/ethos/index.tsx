@@ -19,6 +19,8 @@ interface BenchmarkResponse {
   scripting_tests?: BenchmarkTest[];
 }
 
+const RATIO_FALLBACK = '~2-5×';
+
 function ratio_range(tests: BenchmarkTest[]): { low: number; high: number } | null {
   const ratios = tests
     .filter((t) => (t.faster ?? '').toLowerCase() === 'lua')
@@ -30,13 +32,16 @@ function ratio_range(tests: BenchmarkTest[]): { low: number; high: number } | nu
   return { low, high };
 }
 
-function performance_desc(range: { low: number; high: number } | null): string {
-  const band = range ? `~${range.low}-${range.high}×` : '~2-5×';
-  return `C++17 core with a Lua scripting layer running ${band} faster than GDScript. No interpreter bottlenecks, no bloat — maximum throughput at every layer of the stack.`;
+function format_band(range: { low: number; high: number } | null): string {
+  return range ? `~${range.low}-${range.high}×` : RATIO_FALLBACK;
+}
+
+function fill_desc(template: string, band: string): string {
+  return template.includes('%s') ? template.replace('%s', band) : template;
 }
 
 export function Ethos() {
-  const [range, setRange] = react.useState<{ low: number; high: number } | null>(null);
+  const [band, setBand] = react.useState(RATIO_FALLBACK);
 
   react.useEffect(() => {
     fetch(lib_api_url.get_api_url('/benchmark'))
@@ -44,7 +49,7 @@ export function Ethos() {
       .then((json: BenchmarkResponse | null) => {
         if (!json) return;
         const tests = json.data?.scripting_tests ?? json.scripting_tests ?? [];
-        setRange(ratio_range(tests));
+        setBand(format_band(ratio_range(tests)));
       })
       .catch(() => {});
   }, []);
@@ -63,6 +68,7 @@ export function Ethos() {
         <div className="ethos-grid">
           {config_home.Ethos.map(({ title, desc, icon }, i) => {
             const is_perf = title === 'Performance First';
+            const text = is_perf ? fill_desc(desc, band) : desc;
             return (
               <div
                 className="ecard rev"
@@ -77,7 +83,7 @@ export function Ethos() {
                 </div>
                 <h3 className="ecard-title">{title}</h3>
                 <p className="ecard-desc">
-                  {is_perf ? performance_desc(range) : desc}
+                  {text}
                   {is_perf && (
                     <>
                       {' '}

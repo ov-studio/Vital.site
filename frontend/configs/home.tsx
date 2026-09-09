@@ -74,7 +74,7 @@ export const Ethos = [
   },
   {
     title: 'Performance First',
-    desc:  'C++17 core with a Lua scripting layer running ~2-5× faster than GDScript. No interpreter bottlenecks, no bloat — maximum throughput at every layer of the stack.',
+    desc:  'C++17 core with a Lua scripting layer running %s faster than GDScript. No interpreter bottlenecks, no bloat — maximum throughput at every layer of the stack.',
     icon:  <lucide.CircleGauge {...config_site.info.lucide}/>
   }
 ];
