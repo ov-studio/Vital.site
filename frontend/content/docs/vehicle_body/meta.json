@@ -2,6 +2,10 @@
     "title": "Vehicle Body",
     "icon": "Car",
     "pages": [
+        "---Enum---",
+        "enum__freeze_mode",
+        "enum__axis",
+
         "---Base---",
         "create",
 

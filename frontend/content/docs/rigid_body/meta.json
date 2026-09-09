@@ -2,6 +2,12 @@
     "title": "Rigid Body",
     "icon": "Weight",
     "pages": [
+        "---Enum---",
+        "enum__freeze_mode",
+        "enum__center_of_mass_mode",
+        "enum__damp_mode",
+        "enum__axis",
+
         "---Base---",
         "create",
 

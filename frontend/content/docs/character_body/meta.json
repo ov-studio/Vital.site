@@ -2,6 +2,11 @@
     "title": "Character Body",
     "icon": "PersonStanding",
     "pages": [
+        "---Enum---",
+        "enum__motion_mode",
+        "enum__platform_on_leave",
+        "enum__axis",
+
         "---Base---",
         "create",
 
