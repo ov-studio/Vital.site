@@ -197,9 +197,9 @@ export function Benchmarks() {
                               {lua_win ? 'Lua' : gd_win ? 'GDScript' : (t.faster ?? '—')}
                             </span>
                           </td>
-                          <td className="bm-mono">{fmt_ratio(t.throughput_ratio)}</td>
-                          <td className="bm-mono">{fmt_ops(t.lua?.ops_sec)}</td>
-                          <td className="bm-mono">{fmt_ops(t.gdscript?.ops_sec)}</td>
+                          <td>{fmt_ratio(t.throughput_ratio)}</td>
+                          <td>{fmt_ops(t.lua?.ops_sec)}</td>
+                          <td>{fmt_ops(t.gdscript?.ops_sec)}</td>
                         </tr>
                       );
                     })
