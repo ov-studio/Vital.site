@@ -3,9 +3,10 @@ import './index.css';
 /**
  * @param {Object} props
  * @param {number}  [props.seed=0]
- * @param {number}  [props.opacity=0.09]
+ * @param {number}  [props.opacity=0.12]
  * @param {boolean} [props.vignette=true]
- * @param {string}  [props.src] - Override tile URL
+ * @param {string}  [props.src]   - Override tile URL
+ * @param {string}  [props.color] - CSS color (default brand neon)
  */
 export function Wallpaper({
   seed = 0,
