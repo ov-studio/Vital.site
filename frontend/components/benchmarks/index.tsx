@@ -132,7 +132,7 @@ export function Benchmarks() {
 
         {!loading && !error && (
           <>
-            <div className="bm-section-title">Environment</div>
+            <div className="sec-title bm-section-title">Environment</div>
             <ui_divider.Divider/>
 
             <div className="bm-env">
@@ -158,7 +158,7 @@ export function Benchmarks() {
               })}
             </div>
 
-            <div className="bm-section-title bm-section-title--table">Benchmarks</div>
+            <div className="sec-title bm-section-title bm-section-title--table">Benchmarks</div>
             <ui_divider.Divider/>
 
             {data?.note && <p className="bm-note">{data.note}*</p>}
