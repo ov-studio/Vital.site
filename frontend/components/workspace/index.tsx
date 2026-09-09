@@ -268,7 +268,7 @@ export function Workspace() {
                   </div>
                 ) : canApply ? (
                   <div className="ws-apply">
-                    <label className="ws-label" htmlFor="app-name">Server name</label>
+                    <label className="ws-label" htmlFor="app-name">Request a masterlist token</label>
                     <div className="ws-apply-row">
                       <ui_search.Search
                         className="ws-apply-search"

@@ -479,10 +479,10 @@
 .ws-label {
   font-family: 'Geist', sans-serif;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--blue);
 }
 
 .ws-input {
