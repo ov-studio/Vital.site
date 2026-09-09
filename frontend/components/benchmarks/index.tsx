@@ -192,10 +192,8 @@ export function Benchmarks() {
                       return (
                         <tr key={t.name} className={lua_win ? 'bm-row--lua' : gd_win ? 'bm-row--gd' : ''}>
                           <td className="bm-name">{pretty_name(t.name)}</td>
-                          <td>
-                            <span className={`bm-badge bm-badge--${lua_win ? 'lua' : gd_win ? 'gd' : 'tie'}`}>
-                              {lua_win ? 'Lua' : gd_win ? 'GDScript' : (t.faster ?? '—')}
-                            </span>
+                          <td className={lua_win ? 'bm-faster--lua' : gd_win ? 'bm-faster--gd' : 'bm-faster--tie'}>
+                            {lua_win ? 'Lua' : gd_win ? 'GDScript' : (t.faster ?? '—')}
                           </td>
                           <td>{fmt_ratio(t.throughput_ratio)}</td>
                           <td>{fmt_ops(t.lua?.ops_sec)}</td>
