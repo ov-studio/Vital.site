@@ -76,10 +76,15 @@ export function Ethos() {
                   <span className="icon-ring"/>
                 </div>
                 <h3 className="ecard-title">{title}</h3>
-                <p className="ecard-desc">{is_perf ? performance_desc(range) : desc}</p>
-                {is_perf && (
-                  <a href="/benchmarks" className="ecard-link">View benchmarks</a>
-                )}
+                <p className="ecard-desc">
+                  {is_perf ? performance_desc(range) : desc}
+                  {is_perf && (
+                    <>
+                      {' '}
+                      <a href="/benchmarks" className="ecard-link">View benchmarks</a>
+                    </>
+                  )}
+                </p>
               </div>
             );
           })}
