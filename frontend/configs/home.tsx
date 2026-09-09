@@ -6,43 +6,43 @@ export const Features = [
     id:    'sandbox',
     label: 'Sandbox',
     angle: 0,
-    desc:  'Runtime backbone of client and server — resource lifecycle, isolated Lua environments, asset streaming, cross-resource exports.'
+    desc:  'Runtime backbone of client and server — per-resource Lua environments, resource lifecycle management, asset streaming, cross-resource function exports.'
   },
   {
     id:    'core',
     label: 'Core',
     angle: 51,
-    desc:  'Full programmatic control of every scene entity and surface — model, webview, canvas, font, texture, svg, rendertarget.'
+    desc:  'Full programmatic control of every scene entity and surface — model, webview, canvas, font, image, svg, rendertarget, local database storage.'
   },
   {
     id:    'utility',
     label: 'Utility',
     angle: 102,
-    desc:  'All primitives a runtime script needs — crypto, timer, thread, promise, http, file, shrinker, event.'
+    desc:  'All primitives a runtime script needs — math, table, crypto, timer, thread, promise, http, file, shrinker, event.'
   },
   {
     id:    'graphics',
     label: 'Graphics',
     angle: 180,
-    desc:  'Full visual pipeline control from Lua — post-processing, global illumination, lighting rigs, runtime shaders, decals, GPU particles.'
+    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/SSR/SSIL, glow, volumetric fog, dynamic lighting rigs, runtime shaders.'
   },
   {
     id:    'physics',
     label: 'Physics',
     angle: 231,
-    desc:  'Full Godot physics surface from Lua — raycasts, shapecasts, rigid body forces, collision queries, navmesh pathfinding, RVO2 avoidance.'
+    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision and overlap queries, trigger areas.'
   },
   {
     id:    'audio',
     label: 'Audio',
     angle: 282,
-    desc:  'Complete audio control from Lua — stereo and positional 3D playback, bus routing, effect chains, multi-format streaming.'
+    desc:  'Complete audio control from Lua — stereo and positional 3D playback, per-voice effect chains (reverb, EQ, compression, filters), multi-format streaming.'
   },
   {
     id:    'network',
     label: 'Network',
     angle: 333,
-    desc:  'Full multiplayer stack — ENet UDP transport, high-level replication, WebSocket, VoIP.'
+    desc:  'Full multiplayer stack — ENet UDP transport, a custom packet-batched replication layer, physics body sync, and Lua-level network events.'
   }
 ];
 
@@ -69,12 +69,12 @@ export const Ethos = [
   },
   {
     title: 'Multiplayer Native',
-    desc:  'ENet transport, Godot MultiplayerAPI, entity replication, and a Lua-level network event system built in from the ground up. Multiplayer is a first-class citizen, not an afterthought.',
+    desc:  'ENet transport, a custom packet-batched replication layer with built-in physics body sync, and a Lua-level network event system built in from the ground up. Multiplayer is a first-class citizen, not an afterthought.',
     icon:  <lucide.Cable {...config_site.info.lucide}/>
   },
   {
     title: 'Performance First',
-    desc:  'C++17 core with a Lua scripting layer running ~–~× faster than GDScript. No interpreter bottlenecks, no bloat — maximum throughput at every layer of the stack.',
+    desc:  'C++17 core with a Lua scripting layer built for speed — direct engine bindings instead of interpreter overhead, with throughput continuously tracked against GDScript across arithmetic, table access, closures, and more.',
     icon:  <lucide.CircleGauge {...config_site.info.lucide}/>
   }
 ];
