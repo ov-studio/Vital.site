@@ -814,8 +814,64 @@
 .ws-section-title {
   opacity: 0;
   margin: 50px 0 0;
+  padding-bottom: 12px;
+  line-height: 1.2;
   animation: slide-up .55s .42s forwards;
 }
+
+.ws-page > .sw > .ws-section-title:first-of-type {
+  margin-top: 28px;
+}
+
+.ws-section-title + .ui-divider {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+}
+
+.ws-profile-row {
+  opacity: 0;
+  animation: slide-up .55s .38s forwards;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+.ws-profile-card,
+.ws-apply-card {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  padding: 18px 20px;
+  background: var(--bg7);
+  border: 2px solid var(--b10);
+  border-radius: 4px;
+  min-width: 0;
+}
+
+.ws-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ws-apply-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ws-apply-card .ws-apply {
+  gap: 8px;
+}
+
+.ws-apply-card .ws-pending-card--in-panel {
+  width: 100%;
+}
+
 
 
 .ws-page .ws-panel:not(.ws-panel--narrow):not(.ws-apply-panel) {
@@ -826,6 +882,10 @@
 
 /* ── @media ── */
 @media (max-width: 720px) {
+  .ws-profile-row {
+    grid-template-columns: 1fr;
+  }
+
   .ws-kv {
     grid-template-columns: 1fr;
   }
