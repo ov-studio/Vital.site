@@ -61,6 +61,11 @@ function pretty_name(name?: string): string {
   return name.replace(/_/g, ' ');
 }
 
+function capitalize(value: string): string {
+  if (!value) return value;
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 export function Benchmarks() {
   const [payload, setPayload] = react.useState<BenchmarkResponse | null>(null);
   const [error, setError]     = react.useState(false);
@@ -133,7 +138,7 @@ export function Benchmarks() {
                       <span className="bm-env-key">{label}</span>
                       <Icon size={16} strokeWidth={2} className="bm-env-icon"/>
                     </div>
-                    <span className="bm-env-val">{String(val)}</span>
+                    <span className="bm-env-val">{capitalize(String(val))}</span>
                   </div>
                 );
               })}
