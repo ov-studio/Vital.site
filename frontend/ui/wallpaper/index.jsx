@@ -13,6 +13,7 @@ export function Wallpaper({
   opacity = 0.12,
   vignette = true,
   src,
+  color
 }) {
   const url = src ?? `/cdn/wallpaper/seed-${seed}.webp`;
   return (
