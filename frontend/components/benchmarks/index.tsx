@@ -124,11 +124,11 @@ export function Benchmarks() {
             <ui_divider.Divider/>
 
             <div className="bm-env">
-              {ENV_FIELDS.map(({ key, label, Icon }) => {
+              {ENV_FIELDS.map(({ key, label, Icon }, i) => {
                 const val = env[key];
                 if (val == null || val === '') return null;
                 return (
-                  <div key={key} className="bm-env-item">
+                  <div key={key} className="bm-env-item" style={{ '--i': i } as React.CSSProperties}>
                     <div className="bm-env-top">
                       <span className="bm-env-key">{label}</span>
                       <Icon size={16} strokeWidth={2} className="bm-env-icon"/>
@@ -139,7 +139,7 @@ export function Benchmarks() {
               })}
             </div>
 
-            <div className="bm-section-title">Benchmarks</div>
+            <div className="bm-section-title bm-section-title--table">Benchmarks</div>
             <ui_divider.Divider/>
 
             {data?.note && <p className="bm-note">{data.note}</p>}
