@@ -1,9 +1,10 @@
 'use client';
-import * as ui_wallpaper from '@/ui/wallpaper';
-import * as ui_divider   from '@/ui/divider';
-import * as lib_api_url  from '@/lib/api_url';
-import * as react        from 'react';
-import * as lucide       from 'lucide-react';
+import * as ui_wallpaper     from '@/ui/wallpaper';
+import * as ui_divider       from '@/ui/divider';
+import * as lib_api_url      from '@/lib/api_url';
+import * as lib_page_loading from '@/lib/page_loading';
+import * as react            from 'react';
+import * as lucide           from 'lucide-react';
 import './index.css';
 
 interface ScriptSide {
@@ -72,19 +73,34 @@ export function Benchmarks() {
   const [loading, setLoading] = react.useState(true);
 
   react.useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(false);
+    lib_page_loading.set_page_loading(true);
+
     fetch(lib_api_url.get_api_url('/benchmark'))
       .then((r) => {
         if (!r.ok) throw new Error(String(r.status));
         return r.json();
       })
       .then((json: BenchmarkResponse) => {
+        if (cancelled) return;
         setPayload(json);
         setLoading(false);
       })
       .catch(() => {
+        if (cancelled) return;
         setError(true);
         setLoading(false);
+      })
+      .finally(() => {
+        if (!cancelled) lib_page_loading.set_page_loading(false);
       });
+
+    return () => {
+      cancelled = true;
+      lib_page_loading.set_page_loading(false);
+    };
   }, []);
 
   const data  = payload?.data;
@@ -106,13 +122,6 @@ export function Benchmarks() {
             Live benchmark results from the latest Vital.sandbox release
           </p>
         </div>
-
-        {loading && (
-          <div className="state-empty bm-state">
-            <lucide.Loader2 size={24} strokeWidth={1.5} className="bm-spin"/>
-            <span>Loading benchmark data…</span>
-          </div>
-        )}
 
         {!loading && error && (
           <div className="state-empty bm-state">

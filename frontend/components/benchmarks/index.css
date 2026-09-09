@@ -30,9 +30,6 @@
   padding: 48px 24px;
 }
 
-.bm-spin {
-  animation: bm-spin .8s linear infinite;
-}
 
 .bm-section-title {
   margin: 28px 0 0;
@@ -209,12 +206,6 @@
 .bm-badge--tie {
   color: var(--text-muted);
   background: var(--w04);
-}
-
-
-/* ── @keyframes ── */
-@keyframes bm-spin {
-  to { transform: rotate(360deg); }
 }
 
 
