@@ -74,7 +74,7 @@ export const Ethos = [
   },
   {
     title: 'Performance First',
-    desc:  'C++17 core with a Lua scripting layer built for speed — direct engine bindings instead of interpreter overhead, with throughput continuously tracked against GDScript across arithmetic, table access, closures, and more.',
+    desc:  'C++17 core with a Lua scripting layer built for speed — direct engine bindings, no interpreter overhead, with throughput continuously tracked against GDScript.',
     icon:  <lucide.CircleGauge {...config_site.info.lucide}/>
   }
 ];
