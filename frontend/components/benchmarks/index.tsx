@@ -26,9 +26,9 @@ interface BenchmarkResponse {
   published_at?: string | null;
   asset_url?:    string | null;
   data?: {
-    environment?:     Record<string, unknown>;
-    scripting_tests?: ScriptTest[];
-    note?:            string;
+    environment?:       Record<string, unknown>;
+    scripting_tests?:   ScriptTest[];
+    note?:              string;
     generated_at_unix?: number;
   };
 }
@@ -81,13 +81,15 @@ export function Benchmarks() {
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
-            <div>
+            <div className="rev">
               <div className="slabel">Benchmarks</div>
               <h2>Lua vs GDScript.<br/>Measured, not <span>marketed.</span></h2>
             </div>
           </div>
           <p className="bm-intro">
-            Live benchmark results from the latest Vital.sandbox release.
+            Live results from the latest Vital.sandbox release
+            {payload?.tag ? <> · <code>{payload.tag}</code></> : null}.
+            Throughput ratio &gt; 1 means Lua is faster on that workload.
           </p>
         </div>
 

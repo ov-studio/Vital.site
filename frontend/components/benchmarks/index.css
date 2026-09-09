@@ -17,6 +17,12 @@
   color: var(--text-soft);
 }
 
+.bm-intro code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.85em;
+  color: var(--blue);
+}
+
 .bm-state {
   margin-top: 40px;
   padding: 48px 24px;
@@ -28,7 +34,7 @@
 
 .bm-env {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 10px;
   margin-bottom: 18px;
 }
@@ -38,6 +44,7 @@
   background: var(--bg7);
   border: 2px solid var(--b10);
   border-radius: 4px;
+  min-width: 0;
 }
 
 .bm-env-key {
@@ -55,6 +62,7 @@
   font-size: 0.85rem;
   color: var(--text-soft);
   word-break: break-word;
+  line-height: 1.35;
 }
 
 .bm-note {
