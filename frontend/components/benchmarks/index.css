@@ -15,6 +15,8 @@
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--text-soft);
+  opacity: 0;
+  animation: slide-up .55s .28s forwards;
 }
 
 .bm-intro code {
@@ -38,6 +40,21 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-soft);
+  opacity: 0;
+  animation: slide-up .55s .36s forwards;
+}
+
+.bm-section-title--table {
+  animation-delay: .48s;
+}
+
+.bm-section-title + .ui-divider {
+  opacity: 0;
+  animation: slide-up .5s .38s forwards;
+}
+
+.bm-section-title--table + .ui-divider {
+  animation-delay: .5s;
 }
 
 .bm-env {
@@ -54,6 +71,9 @@
   border: 2px solid var(--b10);
   border-radius: 4px;
   min-width: 0;
+  opacity: 0;
+  animation: slide-up .5s ease forwards;
+  animation-delay: calc(0.4s + var(--i, 0) * 45ms);
 }
 
 .bm-env-top {
@@ -94,6 +114,8 @@
   font-size: 0.85rem;
   line-height: 1.5;
   color: var(--text-muted);
+  opacity: 0;
+  animation: slide-up .5s .52s forwards;
 }
 
 .bm-table-wrap {
@@ -102,6 +124,8 @@
   background: var(--bg7);
   border: 2px solid var(--b10);
   border-radius: 4px;
+  opacity: 0;
+  animation: slide-up .55s .56s forwards;
 }
 
 .bm-table {
