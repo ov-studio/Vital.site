@@ -61,6 +61,7 @@ h2 span { color: var(--blue) }
   letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--brand-neon-core);
+  transition: color .3s ease, opacity .3s ease;
 }
 
 .sec-head {
@@ -89,7 +90,7 @@ h2 span { color: var(--blue) }
   color: var(--text-soft);
   text-decoration: none;
   flex-shrink: 0;
-  transition: color .2s;
+  transition: color .3s ease;
 }
 .sec-link:hover { color: var(--brand-neon-core) }
 
@@ -105,7 +106,7 @@ h2 span { color: var(--blue) }
   opacity: 1;
   color: var(--brand-neon-core);
   text-decoration: none;
-  transition: opacity .2s;
+  transition: opacity .3s ease, color .3s ease;
 }
 .sec-title:hover,
 .ws-section-title:hover,
@@ -149,7 +150,7 @@ h2 span { color: var(--blue) }
   text-decoration: none;
   background: none;
   border: none;
-  transition: color .2s;
+  transition: color .3s ease;
 }
 .btn-secondary:hover { color: var(--blue) }
 
