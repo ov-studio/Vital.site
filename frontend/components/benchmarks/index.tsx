@@ -129,11 +129,18 @@ export function Benchmarks() {
             <ui_divider.Divider/>
 
             <div className="bm-env">
+              <div className="bm-env-item" style={{ '--i': 0 } as React.CSSProperties}>
+                <div className="bm-env-top">
+                  <span className="bm-env-key">Vital.sandbox</span>
+                  <lucide.Layers size={16} strokeWidth={2} className="bm-env-icon"/>
+                </div>
+                <span className="bm-env-val">{payload?.tag || '—'}</span>
+              </div>
               {ENV_FIELDS.map(({ key, label, Icon }, i) => {
                 const val = env[key];
                 if (val == null || val === '') return null;
                 return (
-                  <div key={key} className="bm-env-item" style={{ '--i': i } as React.CSSProperties}>
+                  <div key={key} className="bm-env-item" style={{ '--i': i + 1 } as React.CSSProperties}>
                     <div className="bm-env-top">
                       <span className="bm-env-key">{label}</span>
                       <Icon size={16} strokeWidth={2} className="bm-env-icon"/>
