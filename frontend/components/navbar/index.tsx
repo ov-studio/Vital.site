@@ -39,6 +39,7 @@ export function Navbar({ links = [] }: NavbarProps) {
       if (
         e.key === lib_auth_session.AUTH_TOKEN_KEY ||
         e.key === lib_auth_session.AUTH_LOGIN_KEY ||
+        e.key === lib_auth_session.AUTH_STAFF_KEY ||
         e.key === null
       ) refresh();
     };
@@ -47,12 +48,21 @@ export function Navbar({ links = [] }: NavbarProps) {
       if (on) setLoaderMounted(true);
       setPageLoading(on);
     };
+    const on_visible = () => {
+      if (document.visibilityState === 'visible') refresh();
+    };
     window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, refresh);
     window.addEventListener('storage', on_storage);
+    window.addEventListener('focus', refresh);
+    window.addEventListener('pageshow', refresh);
+    document.addEventListener('visibilitychange', on_visible);
     window.addEventListener(lib_page_loading.PAGE_LOADING_EVENT, on_loading);
     return () => {
       window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, refresh);
       window.removeEventListener('storage', on_storage);
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('pageshow', refresh);
+      document.removeEventListener('visibilitychange', on_visible);
       window.removeEventListener(lib_page_loading.PAGE_LOADING_EVENT, on_loading);
     };
   }, [refresh]);
@@ -91,14 +101,13 @@ export function Navbar({ links = [] }: NavbarProps) {
         <div className="nav-end">
           <component_social.Social/>
           {!session ? (
-            <button
-              type="button"
+            <a
+              href="/workspace"
               className="nav-auth-icon"
-              onClick={login}
-              aria-label="Sign in with GitHub"
+              aria-label="Open workspace"
             >
               <lucide.Fingerprint className="nav-auth-svg" size={18} strokeWidth={2}/>
-            </button>
+            </a>
           ) : (
             <div className="nav-staff">
               <button
