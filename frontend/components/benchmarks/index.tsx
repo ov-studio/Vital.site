@@ -154,7 +154,7 @@ export function Benchmarks() {
             <div className="bm-section-title bm-section-title--table">Benchmarks</div>
             <ui_divider.Divider/>
 
-            {data?.note && <p className="bm-note">{data.note}</p>}
+            {data?.note && <p className="bm-note">{data.note}*</p>}
 
             <div className="bm-table-wrap">
               <table className="bm-table">
