@@ -7,7 +7,7 @@ description: Moving a Multi Theft Auto server to Vital.sandbox
 
 MTA: San Andreas is an open-source multiplayer modification for GTA San Andreas. Its scripting environment runs on top of the GTA SA engine with Lua, and supports custom assets, UIs, and server-side logic.
 
-Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. The rendering stack, physics engine, networking layer, and asset pipeline are fully configurable. Vital.sandbox is a standalone platform with no dependency on GTA SA or its assets. Asset formats, the resource system, and scripting patterns differ from MTA.
+Vital.sandbox is a standalone platform with no dependency on GTA SA or its assets. Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. Asset formats, the resource system, and scripting patterns differ from MTA.
 
 ---
 
@@ -43,24 +43,24 @@ Vital.sandbox runs on **Godot 4 + C++17** with a purpose-built Lua sandbox. The 
 
 | System | MTA | Vital.sandbox |
 |--------|-----|---------------|
-| Events | `addEventHandler` / `triggerEvent` / `triggerClientEvent` | `util.event.on` / `util.event.emit` — remote firing, peer targeting, async callbacks, priority ordering |
-| Timers | `setTimer` / `killTimer` | `util.timer` — create, start, stop, reset |
-| HTTP | Fetch via plugin | `util.http.get` / `util.http.post` — headers, timeout, no plugin |
-| Database | MySQL via plugin | `core.database` + `core.database_query` — MySQL, schema definition, async execution |
-| 3D Models | `engineLoadDFF` + `.DFF` / `.TXD` / `.COL` | `core.model.create` — GLB, collision embedded, animation, bones, blendshapes, material overrides |
-| Vehicles | MTA vehicle API | `physics.vehicle_body` + `physics.vehicle_wheel` — engine force, brake, steering, velocity, impulse, CCD |
-| UI | CEF browser + MTA GUI elements | `core.webview` (HTML/CSS/JS), `core.canvas` (2D draw), `core.rendertarget` (texture render) |
-| Audio | OpenAL via GTA | `core.audio_2d` / `core.audio_3d` — volume, pitch, FX chain, spatial attenuation — OGG, WAV, MP3 |
-| Images | GTA SA textures | `core.image` / `core.svg` — JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
-| File I/O | `fileOpen` / `fileWrite` / `fileRead` | `util.file` — read, write, hash, delete |
-| Networking | MTA sync layer | `ISyncable` net IDs, `core.engine.get_entity_by_net_id`, server-authoritative replication |
-| Async scripting | Coroutine-based | `util.thread` + `util.promise` — yield on await, resume on resolution |
+| Events | • `addEventHandler`<br/>• `triggerEvent`<br/>• `triggerClientEvent` | • `util.event.on`<br/>• `util.event.off`<br/>• `util.event.emit`<br/>• `util.event.emit_callback` |
+| Timers | • `setTimer`<br/>• `killTimer` | • `util.timer.create`<br/>• `util.timer.next_tick` |
+| HTTP | • Fetch via plugin | • `util.http.get`<br/>• `util.http.post` |
+| Database | • MySQL via plugin | • `core.database.create`<br/>• `core.database_query.select`<br/>• `core.database_query.insert`<br/>• `core.database_query.update`<br/>• `core.database_query.delete`<br/>• `core.database_query.fetch`<br/>• `core.database_query.execute` |
+| 3D Models | • `engineLoadDFF`<br/>• `engineLoadTXD`<br/>• `engineLoadCOL`<br/>• `engineApplyShaderToWorldTexture` | • `core.model.load`<br/>• `core.model.unload`<br/>• `core.model.create` |
+| Vehicles | • MTA vehicle API | • `physics.vehicle_body.create`<br/>• `physics.vehicle_wheel.create` |
+| UI | • CEF browser<br/>• MTA GUI elements | • `core.webview.create`<br/>• `core.svg.create`<br/>• `core.svg.create_from_raw` |
+| Audio | • OpenAL via GTA | • `core.audio_2d.create`<br/>• `core.audio_3d.create` |
+| Images | • GTA SA textures | • `core.image.create` |
+| File I/O | • `fileOpen`<br/>• `fileWrite`<br/>• `fileRead` | • `util.file.read`<br/>• `util.file.write`<br/>• `util.file.exists`<br/>• `util.file.delete`<br/>• `util.file.hash`<br/>• `util.file.size`<br/>• `util.file.contents` |
+| Networking | • MTA sync layer | • `core.engine.get_entity_by_net_id` |
+| Async scripting | • Coroutine-based | • `util.thread.create`<br/>• `util.thread.current`<br/>• `util.promise.create` |
 
 ---
 
 ## What does not carry over
 
-- **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. You need your own assets in supported formats.
-- **GTA-SA specific APIs** — ped animation sets, weapon pickups, wanted level, and anything that addresses the GTA engine binary directly. These have no equivalent.
-- **MTA XML resource format** — Vital.sandbox uses `manifest.yaml` per resource with a different script declaration and dependency structure.
-- **Built-in game world** — there is no world loaded by default. Map, terrain, and environment are your own assets to load.
+• **GTA San Andreas assets** — map, vehicles, weapons, peds, interiors. You need your own assets in supported formats.
+• **GTA-SA specific APIs** — ped animation sets, weapon pickups, wanted level, and anything that addresses the GTA engine binary directly. These have no equivalent.
+• **MTA XML resource format** — Vital.sandbox uses `manifest.yaml` per resource with a different script declaration and dependency structure.
+• **Built-in game world** — there is no world loaded by default. Map, terrain, and environment are your own assets to load.

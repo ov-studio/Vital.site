@@ -7,7 +7,7 @@ description: Moving a Roblox experience to Vital.sandbox
 
 Roblox is a consumer game platform with managed hosting, a built-in discovery system, and an in-platform marketplace. Players connect through the Roblox client and app rather than a direct server connection.
 
-Vital.sandbox is a self-hosted, standalone platform. Players connect via a master list or direct IP. Vital.sandbox is a standalone platform with no dependency on Roblox or its services. Asset formats, the resource system, and scripting patterns differ from Roblox. Platform-specific features such as the storefront, avatar marketplace, and social graph have no equivalent outside the Roblox platform.
+Vital.sandbox is a standalone platform with no dependency on Roblox or its services. Players connect via a master list or direct IP. Asset formats, the resource system, and scripting patterns differ from Roblox. Platform-specific features such as the storefront, avatar marketplace, and social graph have no equivalent outside the Roblox platform.
 
 ---
 
@@ -45,25 +45,25 @@ Roblox uses Luau, a typed superset of Lua 5.1. Most scripting logic — tables, 
 
 | System | Roblox | Vital.sandbox |
 |--------|--------|---------------|
-| Events | `RemoteEvent` / `BindableEvent` / `:Connect` | `util.event.on` / `util.event.emit` — remote firing, async callbacks, priority ordering |
-| Timers | `task.delay` / `task.spawn` / `task.cancel` | `util.timer` — create, start, stop, reset |
-| HTTP | `HttpService:GetAsync` / `PostAsync` | `util.http.get` / `util.http.post` — headers, timeout |
-| Database | `DataStoreService` — Roblox-managed cloud | `core.database` + `core.database_query` — MySQL, self-hosted, async execution |
-| 3D Models | `Model` / `MeshPart` + Roblox CDN | `core.model.create` — GLB, animation, bones, blendshapes, material overrides |
-| Vehicles | Custom VehicleSeat rigs | `physics.vehicle_body` + `physics.vehicle_wheel` — engine force, brake, steering, velocity, impulse, CCD |
-| UI | ScreenGui / BillboardGui / SurfaceGui | `core.webview` (HTML/CSS/JS), `core.canvas` (2D draw), `core.rendertarget` (texture render) |
-| Audio | `Sound` objects attached to parts | `core.audio_2d` / `core.audio_3d` — volume, pitch, FX chain, spatial attenuation — OGG, WAV, MP3 |
-| Images | Roblox CDN textures | `core.image` / `core.svg` — JPG, PNG, WEBP, BMP, DDS, KTX, EXR |
-| File I/O | None built-in | `util.file` — read, write, hash, delete |
-| Networking | Roblox replication layer | `ISyncable` net IDs, `core.engine.get_entity_by_net_id`, server-authoritative replication |
-| Async scripting | `task` library / coroutines | `util.thread` + `util.promise` — yield on await, resume on resolution |
+| Events | • `RemoteEvent`<br/>• `BindableEvent`<br/>• `:Connect` | • `util.event.on`<br/>• `util.event.off`<br/>• `util.event.emit`<br/>• `util.event.emit_callback` |
+| Timers | • `task.delay`<br/>• `task.spawn`<br/>• `task.cancel` | • `util.timer.create`<br/>• `util.timer.next_tick` |
+| HTTP | • `HttpService:GetAsync`<br/>• `HttpService:PostAsync` | • `util.http.get`<br/>• `util.http.post` |
+| Database | • `DataStoreService` | • `core.database.create`<br/>• `core.database_query.select`<br/>• `core.database_query.insert`<br/>• `core.database_query.update`<br/>• `core.database_query.delete`<br/>• `core.database_query.fetch`<br/>• `core.database_query.execute` |
+| 3D Models | • `Instance.new("Model")`<br/>• `Instance.new("MeshPart")`<br/>• `ContentProvider:PreloadAsync` | • `core.model.load`<br/>• `core.model.unload`<br/>• `core.model.create` |
+| Vehicles | • Custom VehicleSeat rigs | • `physics.vehicle_body.create`<br/>• `physics.vehicle_wheel.create` |
+| UI | • ScreenGui<br/>• BillboardGui<br/>• SurfaceGui | • `core.webview.create`<br/>• `core.svg.create`<br/>• `core.svg.create_from_raw` |
+| Audio | • `Sound` objects | • `core.audio_2d.create`<br/>• `core.audio_3d.create` |
+| Images | • Roblox CDN textures | • `core.image.create` |
+| File I/O | • None built-in | • `util.file.read`<br/>• `util.file.write`<br/>• `util.file.exists`<br/>• `util.file.delete`<br/>• `util.file.hash`<br/>• `util.file.size`<br/>• `util.file.contents` |
+| Networking | • Roblox replication layer | • `core.engine.get_entity_by_net_id` |
+| Async scripting | • `task` library<br/>• Coroutines | • `util.thread.create`<br/>• `util.thread.current`<br/>• `util.promise.create` |
 
 ---
 
 ## What does not carry over
 
-- **Roblox assets** — marketplace models, `.rbxm` files, avatar items. Models must be exported to **GLB** and re-imported. Images must be exported to a supported format. This is a manual process per asset.
-- **Luau type annotations** — Vital.sandbox uses standard Lua. Luau-specific syntax (`string`, `number`, `::` casts, `--!strict`) must be removed.
-- **Roblox services** — `Players`, `ReplicatedStorage`, `ServerStorage`, `Workspace`, `TweenService`, etc. are Roblox-specific. The underlying patterns have equivalents in Vital.sandbox but require explicit reimplementation.
-- **Avatar system** — Roblox's avatar pipeline, character appearance, and R6/R15 rigs are platform-specific. Characters must be implemented with your own GLB assets.
-- **In-platform discovery and monetization** — the Roblox storefront, Robux, and the game page are platform features with no equivalent outside Roblox.
+• **Roblox assets** — marketplace models, `.rbxm` files, avatar items. Models must be exported to **GLB** and re-imported. Images must be exported to a supported format. This is a manual process per asset.
+• **Luau type annotations** — Vital.sandbox uses standard Lua. Luau-specific syntax (`string`, `number`, `::` casts, `--!strict`) must be removed.
+• **Roblox services** — `Players`, `ReplicatedStorage`, `ServerStorage`, `Workspace`, `TweenService`, etc. are Roblox-specific. The underlying patterns have equivalents in Vital.sandbox but require explicit reimplementation.
+• **Avatar system** — Roblox's avatar pipeline, character appearance, and R6/R15 rigs are platform-specific. Characters must be implemented with your own GLB assets.
+• **In-platform discovery and monetization** — the Roblox storefront, Robux, and the game page are platform features with no equivalent outside Roblox.
