@@ -45,7 +45,7 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--bg7);
-  border: 2px solid var(--rule2);
+  border: 2px solid var(--b10);
   border-radius: 2px;
   transition: border-color .25s, background .25s;
 }
