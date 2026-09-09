@@ -1,6 +1,7 @@
 'use client';
-import * as lib_api_url  from '@/lib/api_url';
 import * as ui_wallpaper from '@/ui/wallpaper';
+import * as ui_divider   from '@/ui/divider';
+import * as lib_api_url  from '@/lib/api_url';
 import * as react        from 'react';
 import * as lucide       from 'lucide-react';
 import './index.css';
@@ -32,6 +33,16 @@ interface BenchmarkResponse {
     generated_at_unix?: number;
   };
 }
+
+const ENV_FIELDS = [
+  { key: 'os',        label: 'OS',        Icon: lucide.Monitor   },
+  { key: 'arch',      label: 'Arch',      Icon: lucide.Cpu       },
+  { key: 'cpu',       label: 'CPU',       Icon: lucide.Server    },
+  { key: 'godot',     label: 'Godot',     Icon: lucide.Box       },
+  { key: 'lua',       label: 'Lua',       Icon: lucide.Code2     },
+  { key: 'build',     label: 'Build',     Icon: lucide.Package   },
+  { key: 'statistic', label: 'Statistic', Icon: lucide.BarChart3 }
+] as const;
 
 function fmt_ops(n?: number): string {
   if (typeof n !== 'number' || !Number.isFinite(n)) return '—';
@@ -109,18 +120,27 @@ export function Benchmarks() {
 
         {!loading && !error && (
           <>
+            <div className="bm-section-title">Environment</div>
+            <ui_divider.Divider/>
+
             <div className="bm-env">
-              {(['os', 'arch', 'cpu', 'godot', 'lua', 'build', 'statistic'] as const).map((key) => {
+              {ENV_FIELDS.map(({ key, label, Icon }) => {
                 const val = env[key];
                 if (val == null || val === '') return null;
                 return (
                   <div key={key} className="bm-env-item">
-                    <span className="bm-env-key">{key}</span>
+                    <div className="bm-env-top">
+                      <span className="bm-env-key">{label}</span>
+                      <Icon size={16} strokeWidth={2} className="bm-env-icon"/>
+                    </div>
                     <span className="bm-env-val">{String(val)}</span>
                   </div>
                 );
               })}
             </div>
+
+            <div className="bm-section-title">Benchmarks</div>
+            <ui_divider.Divider/>
 
             {data?.note && <p className="bm-note">{data.note}</p>}
 
