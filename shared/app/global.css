@@ -60,7 +60,7 @@ h2 span { color: var(--blue) }
   font-weight: 800;
   letter-spacing: .005em;
   text-transform: uppercase;
-  color: var(--brand-neon-core);
+  color: var(--brand-neon-mid);
 }
 
 .sec-head {
