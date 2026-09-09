@@ -1,7 +1,7 @@
 #benchmarks {
   position: relative;
   min-height: 100dvh;
-  padding: calc(100px + var(--nav-h)) 0 80px;
+  padding: calc(100px + var(--nav-h)) 0;
 }
 
 #benchmarks > .sw {
@@ -189,8 +189,10 @@
 
 
 /* ── @media ── */
+@media (max-width: 960px) {
+  #benchmarks { padding: calc(100px + var(--nav-h) * .25) 0; }
+}
+
 @media (max-width: 720px) {
-  .bm-env {
-    grid-template-columns: 1fr 1fr;
-  }
+  .bm-env { grid-template-columns: 1fr 1fr; }
 }
