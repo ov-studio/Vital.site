@@ -75,6 +75,20 @@
 }
 .ecard:hover .ecard-desc { color: var(--text-soft) }
 
+.ecard-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: 'Geist', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color .2s;
+}
+.ecard-link:hover { color: var(--white); }
+
 
 /* ── @media ── */
 @media (max-width: 1100px) {
