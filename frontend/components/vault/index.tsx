@@ -333,10 +333,7 @@ function VaultSkeleton() {
 
   return (
     <section id="vault">
-      <ui_wallpaper.Wallpaper
-        seed={12}
-        vignette={false}
-      />
+      <ui_wallpaper.Wallpaper seed={12} vignette={false}/>
       <div className="sw">
         <VaultHead/>
         <VaultFilters disabled/>
@@ -411,10 +408,7 @@ function VaultInner() {
   return (
     <>
       <section id="vault">
-      <ui_wallpaper.Wallpaper
-        seed={12}
-        vignette={false}
-      />
+      <ui_wallpaper.Wallpaper seed={12} vignette={false}/>
         <div className="sw">
           <VaultHead/>
 
