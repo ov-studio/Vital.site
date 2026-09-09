@@ -62,8 +62,8 @@ Roblox uses Luau, a typed superset of Lua 5.1. Most scripting logic — tables, 
 
 ## What does not carry over
 
-• **Roblox assets** — marketplace models, `.rbxm` files, avatar items. Models must be exported to **GLB** and re-imported. Images must be exported to a supported format. This is a manual process per asset.
-• **Luau type annotations** — Vital.sandbox uses standard Lua. Luau-specific syntax (`string`, `number`, `::` casts, `--!strict`) must be removed.
-• **Roblox services** — `Players`, `ReplicatedStorage`, `ServerStorage`, `Workspace`, `TweenService`, etc. are Roblox-specific. The underlying patterns have equivalents in Vital.sandbox but require explicit reimplementation.
-• **Avatar system** — Roblox's avatar pipeline, character appearance, and R6/R15 rigs are platform-specific. Characters must be implemented with your own GLB assets.
-• **In-platform discovery and monetization** — the Roblox storefront, Robux, and the game page are platform features with no equivalent outside Roblox.
+- **Roblox assets** — marketplace models, `.rbxm` files, avatar items. Models must be exported to **GLB** and re-imported. Images must be exported to a supported format. This is a manual process per asset.
+- **Luau type annotations** — Vital.sandbox uses standard Lua. Luau-specific syntax (`string`, `number`, `::` casts, `--!strict`) must be removed.
+- **Roblox services** — `Players`, `ReplicatedStorage`, `ServerStorage`, `Workspace`, `TweenService`, etc. are Roblox-specific. The underlying patterns have equivalents in Vital.sandbox but require explicit reimplementation.
+- **Avatar system** — Roblox's avatar pipeline, character appearance, and R6/R15 rigs are platform-specific. Characters must be implemented with your own GLB assets.
+- **In-platform discovery and monetization** — the Roblox storefront, Robux, and the game page are platform features with no equivalent outside Roblox.
