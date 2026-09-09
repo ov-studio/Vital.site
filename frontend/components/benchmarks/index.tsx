@@ -54,7 +54,7 @@ function fmt_ops(n?: number): string {
 
 function fmt_ratio(r?: number): string {
   if (typeof r !== 'number' || !Number.isFinite(r)) return '—';
-  return `${r.toFixed(2)}×`;
+  return `${r.toFixed(2)}x`;
 }
 
 function pretty_name(name?: string): string {
