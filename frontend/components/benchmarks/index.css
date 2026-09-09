@@ -31,26 +31,22 @@
 }
 
 
-.bm-section-title {
+.sec-title.bm-section-title {
   margin: 28px 0 0;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-soft);
   opacity: 0;
   animation: slide-up .55s .36s forwards;
 }
 
-.bm-section-title--table {
+.sec-title.bm-section-title--table {
   animation-delay: .48s;
 }
 
-.bm-section-title + .ui-divider {
+.sec-title.bm-section-title + .ui-divider {
   opacity: 0;
   animation: slide-up .5s .38s forwards;
 }
 
-.bm-section-title--table + .ui-divider {
+.sec-title.bm-section-title--table + .ui-divider {
   animation-delay: .5s;
 }
 
