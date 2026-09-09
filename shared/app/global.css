@@ -60,7 +60,7 @@ h2 span { color: var(--blue) }
   font-weight: 800;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--brand-neon-core);
 }
 
 .sec-head {
@@ -91,7 +91,7 @@ h2 span { color: var(--blue) }
   flex-shrink: 0;
   transition: color .2s;
 }
-.sec-link:hover { color: var(--blue) }
+.sec-link:hover { color: var(--brand-neon-core) }
 
 
 /* ── Shared section sub-title (workspace / roadmap / tos) ── */
