@@ -173,20 +173,18 @@
   text-transform: capitalize;
 }
 
-
-.bm-badge--lua {
-  color: var(--blue);
-  background: var(--b10);
+.bm-faster--lua {
+  color: var(--blue) !important;
+  font-weight: 500;
 }
 
-.bm-badge--gd {
-  color: var(--amber, #e8b84a);
-  background: var(--w06);
+.bm-faster--gd {
+  color: var(--amber, #e8b84a) !important;
+  font-weight: 500;
 }
 
-.bm-badge--tie {
-  color: var(--text-muted);
-  background: var(--w04);
+.bm-faster--tie {
+  color: var(--text-muted) !important;
 }
 
 
