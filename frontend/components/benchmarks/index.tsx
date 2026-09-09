@@ -119,7 +119,7 @@ export function Benchmarks() {
             </div>
           </div>
           <p className="bm-intro">
-            Live benchmark results from the latest Vital.sandbox release
+            Live benchmark results from the latest Vital.benchmark output
           </p>
         </div>
 
