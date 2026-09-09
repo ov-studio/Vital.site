@@ -213,7 +213,7 @@ export function Workspace() {
             </div>
           </div>
           <p className="ws-lead">
-            Apply for masterlist tokens, track application status, and review requests.
+            Apply for masterlist tokens, track application status, and review requests
           </p>
         </div>
 
