@@ -57,10 +57,10 @@ h2 span { color: var(--blue) }
   margin-bottom: 14px;
   font-family: 'Geist', sans-serif;
   font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .05em;
+  font-weight: 800;
+  letter-spacing: .005em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--brand-neon-core);
 }
 
 .sec-head {
