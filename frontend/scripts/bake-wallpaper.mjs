@@ -9,7 +9,6 @@ const OUT_DIR = path.join(FRONTEND, 'public/cdn/wallpaper');
 
 const TILE_W = 3440;
 const TILE_H = 1440;
-const BRAND = 'hsl(220, 95%, 76%)';
 const DEFAULT_GAP = 120;
 const DEFAULT_SIZE = 60;
 const SEEDS = {
@@ -85,7 +84,7 @@ function nodesToInnerSvg(nodes, size) {
     const a = { ...attrs };
     delete a.key;
     a.fill = 'none';
-    a.stroke = BRAND;
+    a.stroke = '#ffffff';
     a['stroke-width'] = '1.2';
     a['stroke-linecap'] = 'round';
     a['stroke-linejoin'] = 'round';
