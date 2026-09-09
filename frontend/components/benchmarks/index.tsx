@@ -87,8 +87,7 @@ export function Benchmarks() {
             </div>
           </div>
           <p className="bm-intro">
-            Live results from the latest Vital.sandbox release. Throughput ratio &gt; 1 means Lua is faster on that workload.
-            {payload?.tag ? <> Source: <code>{payload.tag}</code>.</> : null}
+            Live benchmark results from the latest Vital.sandbox release.
           </p>
         </div>
 
