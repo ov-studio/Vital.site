@@ -22,7 +22,7 @@ export function Wallpaper({
       style={{
         WebkitMaskImage: `url(${url})`,
         maskImage: `url(${url})`,
-        backgroundColor: color ?? 'var(--brand-neon-core)',
+        backgroundColor: color ?? 'var(--brand-neon-mid)',
         opacity,
       }}
       aria-hidden="true"
