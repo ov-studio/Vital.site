@@ -18,7 +18,12 @@ export function Wallpaper({
   return (
     <div
       className={`ui-wallpaper${vignette ? ' ui-wallpaper--vignette' : ''}`}
-      style={{ backgroundImage: `url(${url})`, opacity }}
+      style={{
+        WebkitMaskImage: `url(${url})`,
+        maskImage: `url(${url})`,
+        backgroundColor: color ?? 'var(--brand-neon-core)',
+        opacity,
+      }}
       aria-hidden="true"
     />
   );
