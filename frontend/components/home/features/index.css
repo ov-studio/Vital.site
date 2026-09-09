@@ -78,7 +78,7 @@
   font-size: .84rem;
   font-weight: 300;
   line-height: 1.65;
-  color: var(--text-faint);
+  color: var(--text-muted);
   transition: color .25s;
 }
 .fcluster.is-active .fcluster-desc { color: var(--brand-neon-core) }

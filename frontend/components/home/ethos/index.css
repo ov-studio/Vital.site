@@ -73,7 +73,7 @@
   color: var(--text-muted);
   transition: color .25s;
 }
-.ecard:hover .ecard-desc { color: var(--text-soft) }
+.ecard:hover .ecard-desc { color: var(--brand-neon-core) }
 
 .ecard-link {
   display: inline-block;
