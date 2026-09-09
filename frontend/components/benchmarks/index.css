@@ -17,12 +17,6 @@
   color: var(--text-soft);
 }
 
-.bm-intro code {
-  font-family: var(--font-geist-mono, ui-monospace, monospace);
-  font-size: 0.85em;
-  color: var(--blue);
-}
-
 .bm-state {
   margin-top: 40px;
   padding: 48px 24px;
