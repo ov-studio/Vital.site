@@ -325,7 +325,7 @@ export function Workspace() {
                               <td>
                                 <div className="ws-cell-title">{app.name}</div>
                               </td>
-                              <td className="ws-muted">{fmt_date(app.decidedAt ?? app.createdAt)}</td>
+                              <td>{fmt_date(app.decidedAt ?? app.createdAt)}</td>
                               <td>
                                 {app.token ? (
                                   <button
@@ -340,7 +340,7 @@ export function Workspace() {
                                     <span className="ws-spoiler-hint">{isOpen ? 'Hide' : 'Reveal'}</span>
                                   </button>
                                 ) : (
-                                  <span className="ws-muted">Saved (no longer stored)</span>
+                                  <span>Saved (no longer stored)</span>
                                 )}
                               </td>
                               <td className="ws-actions-cell">
@@ -459,8 +459,8 @@ export function Workspace() {
                                 <td>
                                   <div className="ws-cell-title">{p.name}</div>
                                 </td>
-                                <td className="ws-muted">@{p.login}</td>
-                                <td className="ws-muted">{fmt_date(p.createdAt)}</td>
+                                <td>@{p.login}</td>
+                                <td>{fmt_date(p.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
                                     <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</button>
@@ -501,9 +501,9 @@ export function Workspace() {
                             filtered_tokens.map((t) => (
                               <tr key={t.appId}>
                                 <td><div className="ws-cell-title">{t.name}</div></td>
-                                <td className="ws-muted">@{t.login}</td>
-                                <td className="ws-muted">{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
-                                <td className="ws-muted">{fmt_date(t.decidedAt ?? t.createdAt)}</td>
+                                <td>@{t.login}</td>
+                                <td>{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
+                                <td>{fmt_date(t.decidedAt ?? t.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
                                     <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</button>

@@ -333,7 +333,7 @@
   height: 48px;
   border-bottom: 1px solid var(--w04);
   vertical-align: middle;
-  color: var(--text-soft);
+  color: var(--text-mid);
 }
 
 .ws-table tr:last-child td {
@@ -373,15 +373,6 @@
 
 .ws-cell-title {
   font-weight: 600;
-  color: var(--blue);
-}
-
-.ws-server-name {
-  font-weight: 600;
-  color: var(--blue);
-}
-
-.ws-muted {
   color: var(--text-soft);
 }
 
