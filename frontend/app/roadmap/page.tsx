@@ -14,15 +14,15 @@ export const metadata: next.Metadata = {
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
   label: `# ${s.name}`,
-  href: `#${lib_source.to_anchor(s.name)}`
+  href:  `#${lib_source.to_anchor(s.name)}`,
 }));
 
-export default function HomePage() {
+export default function RoadmapPage() {
   return (
     <component_clientshell.ClientShell>
       <component_overlay.Overlay/>
       <component_navbar.Navbar links={Roadmap_Link}/>
-      <component_roadmap.Roadmap sections={config_roadmap.Roadmap}/>
+      <component_roadmap.Roadmap/>
       <component_footer.Footer/>
     </component_clientshell.ClientShell>
   );

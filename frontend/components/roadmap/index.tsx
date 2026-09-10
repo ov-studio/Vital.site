@@ -90,7 +90,7 @@ function FeatureCard({ card, mobile_order = 0 }: { card: config_roadmap.RoadmapC
       >
         <div className="rcard-header">
           <div className="rcard-icon">
-            <svg width="18" viewBox="0 0 18 18" fill="none">{card.icon}</svg>
+            {card.icon}
             <span className="icon-ring"/>
           </div>
 
@@ -163,7 +163,7 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   );
 }
 
-export function Roadmap({ sections }: { sections: config_roadmap.RoadmapSection[] }) {
+export function Roadmap() {
   return (
     <section id="roadmap">
       <ui_wallpaper.Wallpaper seed={10} vignette={false}/>
