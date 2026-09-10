@@ -615,7 +615,7 @@
   color: var(--blue);
 }
 
-.ws-section-title {
+.ws-page .sec-title {
   opacity: 0;
   margin: 50px 0 0;
   padding-bottom: 12px;
@@ -623,11 +623,11 @@
   animation: slide-up .55s .42s forwards;
 }
 
-.ws-page > .sw > .ws-section-title:first-of-type {
+.ws-page > .sw > .sec-title:first-of-type {
   margin-top: 28px;
 }
 
-.ws-section-title + .ui-divider {
+.ws-page .sec-title + .ui-divider {
   margin-top: 0;
   margin-bottom: 16px;
   padding-bottom: 0;

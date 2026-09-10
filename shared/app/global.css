@@ -95,22 +95,17 @@ h2 span { color: var(--blue) }
 .sec-link:hover { color: var(--brand-neon-core) }
 
 
-/* ── Shared section sub-title (workspace / roadmap / tos) ── */
-.sec-title,
-.ws-section-title,
-.rcategory-label,
-.tos-section-title {
+/* ── Shared section sub-title ── */
+.sec-title {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  opacity: 1;
+  letter-spacing: .01em;
   color: var(--brand-neon-core);
   text-decoration: none;
   transition: opacity .3s ease, color .3s ease;
 }
-.sec-title:hover,
-.ws-section-title:hover,
-.rcategory-label:hover {
+.sec-title:hover {
   opacity: 0.85;
 }
 

@@ -227,7 +227,7 @@ export function Workspace() {
           </div>
         ) : (
           <>
-            <div className="ws-section-title">Account</div>
+            <div className="sec-title">Account</div>
             <ui_divider.Divider/>
 
             {error && <p className="ws-error" role="alert">{error}</p>}
@@ -378,7 +378,7 @@ export function Workspace() {
 
             {session.staff && (
               <>
-                <div className="ws-section-title">Review Applications</div>
+                <div className="sec-title">Review Applications</div>
                 <ui_divider.Divider/>
                 <div className="ws-stats">
                   <div className="ws-stat">
