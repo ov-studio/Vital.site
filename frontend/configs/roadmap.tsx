@@ -2102,6 +2102,8 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Wheeled vehicle simulation — engine force, braking, steering, and per-wheel physics from Lua',
         icon:  <lucide.Car {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: physics.vehicle.freeze_mode',                  status: 'completed' },
+          { label: '[Client] Enum: physics.axis',                                 status: 'completed' },
           { label: '[Client] API: physics.vehicle.create',                        status: 'completed' },
           { label: '[Client] API: self:is_type',                                  status: 'completed' },
           { label: '[Client] API: self:get_type',                                 status: 'completed' },
