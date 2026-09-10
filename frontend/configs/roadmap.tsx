@@ -1806,6 +1806,10 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Fully physics-simulated object — force, impulse, torque, velocity, mass, damping, and freeze control from Lua',
         icon:  <lucide.Weight {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: physics.rigid.freeze_mode',                    status: 'completed' },
+          { label: '[Client] Enum: physics.rigid.center_of_mass_mode',            status: 'completed' },
+          { label: '[Client] Enum: physics.rigid.damp_mode',                      status: 'completed' },
+          { label: '[Client] Enum: physics.axis',                                 status: 'completed' },
           { label: '[Client] API: physics.rigid.create',                          status: 'completed' },
           { label: '[Client] API: self:is_type',                                  status: 'completed' },
           { label: '[Client] API: self:get_type',                                 status: 'completed' },
@@ -1901,6 +1905,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Immovable collision surface — constant velocity conveyance and physics material control from Lua',
         icon:  <lucide.Anchor {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: physics.axis',                         status: 'completed' },
           { label: '[Client] API: physics.static.create',                 status: 'completed' },
           { label: '[Client] API: self:is_type',                          status: 'completed' },
           { label: '[Client] API: self:get_type',                         status: 'completed' },
@@ -1959,6 +1964,9 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Player and NPC controller — velocity-driven movement with floor, wall, and ceiling collision',
         icon:  <lucide.PersonStanding {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: physics.character.motion_mode',        status: 'completed' },
+          { label: '[Client] Enum: physics.character.platform_on_leave',  status: 'completed' },
+          { label: '[Client] Enum: physics.axis',                         status: 'completed' },
           { label: '[Client] API: physics.character.create',              status: 'completed' },
           { label: '[Client] API: self:is_type',                          status: 'completed' },
           { label: '[Client] API: self:get_type',                         status: 'completed' },
