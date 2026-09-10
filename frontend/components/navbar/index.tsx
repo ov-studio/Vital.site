@@ -2,7 +2,6 @@
 import * as config_site      from '@/configs/site';
 import * as component_social from '@/components/social';
 import * as ui_brand         from '@/ui/brand';
-import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as react            from 'react';
@@ -78,10 +77,6 @@ export function Navbar({ links = [] }: NavbarProps) {
     }
     setLoaderOn(false);
   }, [loaderMounted, pageLoading]);
-
-  const login = react.useCallback(() => {
-    window.location.href = lib_api_url.get_api_url('/auth/github');
-  }, []);
 
   const logout = react.useCallback(() => {
     lib_auth_session.clear_auth_session();

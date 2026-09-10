@@ -270,6 +270,5 @@ nav.s::after {
 }
 
 @media (max-width: 640px) {
-  .ncta { display: none }
   .ni   { padding: 0 20px }
 }

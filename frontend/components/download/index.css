@@ -8,14 +8,6 @@
   animation: slide-up .7s .55s forwards;
 }
 
-.download-buttons-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .download-release-tag {
   display: inline-flex;
   align-items: center;

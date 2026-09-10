@@ -20,7 +20,7 @@
 }
 
 .bm-intro code {
-  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-family: var(--font-geist-mono);
   font-size: 0.85em;
   color: var(--blue);
 }
@@ -66,7 +66,7 @@
   min-width: 0;
   opacity: 0;
   animation: slide-up .5s ease forwards;
-  animation-delay: calc(0.4s + var(--i, 0) * 45ms);
+  animation-delay: calc(0.4s + var(--i) * 45ms);
 }
 
 .bm-env-top {
@@ -174,17 +174,17 @@
 }
 
 .bm-faster--lua {
-  color: var(--blue) !important;
+  color: var(--blue);
   font-weight: 500;
 }
 
 .bm-faster--gd {
-  color: var(--amber, #e8b84a) !important;
+  color: var(--amber);
   font-weight: 500;
 }
 
 .bm-faster--tie {
-  color: var(--text-muted) !important;
+  color: var(--text-muted);
 }
 
 
