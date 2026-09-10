@@ -2042,6 +2042,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Code-driven kinematic body — moved by script each frame while correctly pushing other physics bodies',
         icon:  <lucide.Ship {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: physics.axis',                         status: 'completed' },
           { label: '[Client] API: physics.animatable.create',             status: 'completed' },
           { label: '[Client] API: self:is_type',                          status: 'completed' },
           { label: '[Client] API: self:get_type',                         status: 'completed' },
@@ -2254,6 +2255,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Overlap detection zone — monitor bodies/areas entering or leaving, and override gravity from Lua',
         icon:  <lucide.Radar {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: physics.area.space_override',          status: 'completed' },
           { label: '[Client] API: physics.area.create',                   status: 'completed' },
           { label: '[Client] API: self:is_type',                          status: 'completed' },
           { label: '[Client] API: self:get_type',                         status: 'completed' },
