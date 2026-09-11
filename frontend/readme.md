@@ -34,11 +34,11 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 
 - **`app/(home)`** — landing page
 - **`app/docs`** — documentation layout and MDX pages
+- **`app/tos`** — terms of service page
 - **`app/vault`** — vault browser UI
 - **`app/roadmap`** — roadmap page with auto-calculated completion scores
 - **`app/benchmarks`** — scripting benchmark viewer (Lua vs GDScript, fetched from backend at runtime)
 - **`app/workspace`** — masterlist application portal (GitHub OAuth, staff approval UI — not indexed by search engines)
-- **`app/tos`** — terms of service page
 - **`app/api/search`** — static search index, built at compile time and queried client-side
 - **`app/og`** — OG image generation for docs pages
 - **`components`** — shared UI components
