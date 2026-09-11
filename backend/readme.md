@@ -57,7 +57,7 @@ Deploy this folder separately from the frontend. Set Redis + GitHub env vars. Fr
 
 ## Masterlist applications
 
-Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins in `shared/configs/staff.json`) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. Staff may also **direct mint** via `POST /masterlist/register` for giveaways.
+Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins in `shared/configs/staff.json`) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. 
 
 ## Structure
 
