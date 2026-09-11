@@ -15,6 +15,7 @@ export const Footer = [
   {
     heading: 'Sandbox',
     links: [
+      { label: 'Benchmarks',     href: '/benchmarks'    },
       { label: 'Vault',          href: '/vault'         },
       { label: 'Documentations', href: '/docs'          },
       { label: 'Roadmap',        href: '/roadmap'       },
