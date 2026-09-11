@@ -28,20 +28,13 @@ GITHUB_CLIENT_SECRET=""
 
 | Variable | Required | Description |
 |---|---|---|
-| `UPSTASH_REDIS_REST_URL` | Yes* | REST endpoint for your Upstash Redis database. |
-| `UPSTASH_REDIS_REST_TOKEN` | Yes* | REST token for the same database. |
-| `MASTERLIST_STRICT_IP` | No | When `true` (default in production), a heartbeat is rejected if the server's IP doesn't match the IP it registered with. Set to `false` locally. |
-| `GITHUB_CLIENT_ID` | Yes† | GitHub OAuth App client ID (workspace login). |
-| `GITHUB_CLIENT_SECRET` | Yes† | GitHub OAuth App client secret. |
+| `UPSTASH_REDIS_REST_URL` | Yes | REST endpoint for your Upstash Redis database. |
+| `UPSTASH_REDIS_REST_TOKEN` | Yes | REST token for the same database. |
+| `MASTERLIST_STRICT_IP` | No | Set to `false` locally. Defaults to `true` in production. |
+| `GITHUB_CLIENT_ID` | Yes | GitHub OAuth App client ID. |
+| `GITHUB_CLIENT_SECRET` | Yes | GitHub OAuth App client secret. |
 
-Staff GitHub usernames (approve/reject applications, direct mint) live in [`shared/configs/staff.json`](../shared/configs/staff.json) — not an env var. It's a plain JSON array of lowercase logins, synced into `configs/staff.json` here at dev/build time (see `predev`/`prebuild` in `package.json`). Editing the deployed `configs/staff.json` directly takes effect within ~10 seconds (see `lib/staff.ts`) — no redeploy or restart required. Other users can still log in and apply regardless of this list.
-
-<sub>* Without Redis, masterlist / rate-limit / auth respond as unavailable.</sub>
-<sub>† Required for `/workspace` login. Sessions are opaque tokens stored in Redis — no shared admin bearer secret.</sub>
-
-**Upstash:** create a free DB at [upstash.com](https://upstash.com) → REST API tab → copy URL + token.
-
-**GitHub OAuth App:** [Developer settings](https://github.com/settings/developers) — callback `http://localhost:3001/auth/github/callback` (prod: `https://api.<domain>/auth/github/callback`).
+Staff logins (for approving applications) are managed in [`shared/configs/staff.json`](../shared/configs/staff.json).
 
 ### 3. Run the dev server
 
