@@ -12,6 +12,6 @@ Always edit files here, never inside `frontend/` or `backend/` directly.
 - **`configs/staff.json`** — GitHub logins with staff access (approve/reject masterlist applications). Changes take effect within ~10 seconds without a redeploy.
 - **`lib/api_url.ts`** — resolves the backend API URL from the deployment hostname
 
-## CDN publishing
+## CDN
 
 `sync.js` also publishes `app/theme.css` and `app/global.css` to `frontend/public/cdn/`, and mirrors `frontend/ui/` into `frontend/public/cdn/ui/` with a generated `manifest.json`. These CDN paths are what `Vital.kit` and `Vital.vault` load at runtime.
