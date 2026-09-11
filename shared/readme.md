@@ -15,13 +15,3 @@ You should never edit the copies inside `frontend/` or `backend/` directly; edit
 ## CDN publishing
 
 In addition to syncing into `frontend/` and `backend/`, `sync.js` copies `app/theme.css` and `app/global.css` into `frontend/public/cdn/`, and mirrors `frontend/ui/` into `frontend/public/cdn/ui/`. A `manifest.json` listing every published component and file is generated at `frontend/public/cdn/ui/manifest.json`. These CDN paths are what `Vital.kit` and `Vital.vault` load at runtime.
-
-## Running the sync manually
-
-`sync.js` is run automatically by the `predev` and `prebuild` hooks in both `frontend/package.json` and `backend/package.json`. To run it by hand:
-
-```bash
-node shared/sync.js
-```
-
-Run this from the repo root. It is also run once automatically by `dev.py` before starting the dev servers.
