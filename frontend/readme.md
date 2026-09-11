@@ -2,7 +2,7 @@
 
 Official documentation and resource hub for Vital.sandbox — covering API references, scripting guides, and everything needed to build with confidence.
 
-Built on Next.js and powered by Fumadocs. All content is authored in MDX. This is the **frontend half** of the project: a fully static export (`output: 'export'`) with no server-side rendering and no API routes of its own beyond a build-time search index. Everything that needs a live server — masterlist, GitHub-backed stats, vault data — is served by the sibling [`backend`](../backend) project and fetched client-side.
+Built on Next.js and powered by Fumadocs. All content is authored in MDX. This is the **frontend half** of the project: a fully static export (`output: 'export'`) with no server-side rendering and no API routes of its own beyond a build-time search index. Everything that needs a live server — masterlist, GitHub-backed stats, vault data, benchmark results — is served by the sibling [`backend`](../backend) project and fetched client-side.
 
 ## Getting Started
 
@@ -14,15 +14,15 @@ cd Vital.site/frontend
 npm install
 ```
 
-### 3. Run the dev server
+### 2. Run the dev server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). For masterlist, stats, and vault data to load locally, the backend needs to be running too.
+Open [http://localhost:3000](http://localhost:3000). For masterlist, stats, vault, and benchmark data to load locally, the backend needs to be running too.
 
-### 4. Build for production
+### 3. Build for production
 
 ```bash
 npm run build
@@ -35,12 +35,14 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 - **`app/(home)`** — landing page
 - **`app/docs`** — documentation layout and MDX pages
 - **`app/vault`** — vault browser UI
-- **`app/roadmap`** — roadmap page
+- **`app/roadmap`** — roadmap page with auto-calculated completion scores
+- **`app/benchmarks`** — scripting benchmark viewer (Lua vs GDScript, fetched from backend at runtime)
+- **`app/workspace`** — masterlist application portal (GitHub OAuth, staff approval UI — not indexed by search engines)
 - **`app/tos`** — terms of service page
 - **`app/api/search`** — static search index, built at compile time and queried client-side
 - **`app/og`** — OG image generation for docs pages
 - **`components`** — shared UI components
-- **`ui`** — generic UI primitives, mirrored to `public/cdn/ui/` for reuse by `Vital.kit`/`Vital.vault`
+- **`ui`** — generic UI primitives, mirrored to `public/cdn/ui/` for reuse by `Vital.kit` / `Vital.vault`
 - **`configs`** — page-level configuration (footer, home, roadmap, tos, vault)
 - **`content/docs`** — MDX source files for all documentation
 - **`lib`** — shared utilities
