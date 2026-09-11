@@ -4,7 +4,7 @@ Assets and configuration shared between `frontend` and `backend`. Nothing here r
 
 Always edit files here, never inside `frontend/` or `backend/` directly.
 
-## Synced files
+## Structure
 
 - **`app/global.css`** — global stylesheet, synced into both projects
 - **`app/theme.css`** — CSS custom properties (design tokens), synced into both projects
