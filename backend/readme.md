@@ -2,7 +2,7 @@
 
 API service for Vital.sandbox — every route that needs a live server lives here. This is the **backend half** of the project: a normal Next.js deployment (no static export), split out so the docs/marketing frontend can ship as a fully static site.
 
-Hosts the Vital.sandbox **masterlist** (a live server directory backed by Upstash Redis) along with cached GitHub-backed endpoints for build info, contributors, stats, and vault resources.
+Hosts the Vital.sandbox **masterlist** (a live server directory backed by Upstash Redis), **scripting benchmarks** (sourced from GitHub Release assets), and cached GitHub-backed endpoints for build info, contributors, stats, and vault resources. Also handles GitHub OAuth and the workspace application flow.
 
 ## Getting Started
 
@@ -34,8 +34,7 @@ GITHUB_CLIENT_SECRET=""
 | `GITHUB_CLIENT_ID` | Yes† | GitHub OAuth App client ID (workspace login). |
 | `GITHUB_CLIENT_SECRET` | Yes† | GitHub OAuth App client secret. |
 
-
-Staff GitHub usernames (approve/reject applications, direct mint) live in [`shared/configs/staff.json`](../shared/configs/staff.json) — not an env var. It's a plain JSON array of lowercase logins, synced into `configs/staff.json` here at dev/build time (see `predev`/`prebuild` in `package.json`). Editing the deployed `configs/staff.json` directly takes effect within ~10s (see `lib/staff.ts`), no redeploy or restart required. Other users can still log in and apply regardless of this list.
+Staff GitHub usernames (approve/reject applications, direct mint) live in [`shared/configs/staff.json`](../shared/configs/staff.json) — not an env var. It's a plain JSON array of lowercase logins, synced into `configs/staff.json` here at dev/build time (see `predev`/`prebuild` in `package.json`). Editing the deployed `configs/staff.json` directly takes effect within ~10 seconds (see `lib/staff.ts`) — no redeploy or restart required. Other users can still log in and apply regardless of this list.
 
 <sub>* Without Redis, masterlist / rate-limit / auth respond as unavailable.</sub>
 <sub>† Required for `/workspace` login. Sessions are opaque tokens stored in Redis — no shared admin bearer secret.</sub>
@@ -58,14 +57,23 @@ Deploy this folder separately from the frontend. Set Redis + GitHub env vars. Fr
 
 ## Masterlist applications
 
-Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. Staff may also **direct mint** via `POST /masterlist/register` for giveaways.
+Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins in `shared/configs/staff.json`) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. Staff may also **direct mint** via `POST /masterlist/register` for giveaways.
+
+## Benchmarks
+
+Benchmark results are sourced automatically from the latest GitHub Release of the sandbox repo that includes a `benchmark.json` asset. The `/benchmark` route fetches and caches that data; the frontend benchmark page renders it as a Lua-vs-GDScript comparison table with environment metadata. No manual upload is needed — publishing a new release with a `benchmark.json` asset is sufficient.
 
 ## Structure
 
-- **`lib`** — Redis, cache, rate-limit, auth sessions, applications
+- **`lib`** — Redis, cache, rate-limit, auth sessions, applications, staff list
 - **`app/auth/github`** — OAuth start + callback
-- **`app/masterlist`** — live list, heartbeat, register, applications
-- **`app/build` / `stats` / `contributors` / `vault` / `og`** — cached GitHub-backed routes
+- **`app/masterlist`** — live list, heartbeat, register, applications (CRUD + token minting)
+- **`app/benchmark`** — scripting benchmark results sourced from GitHub Release assets
+- **`app/build`** — latest sandbox release info (tag, download URLs, asset sizes)
+- **`app/stats`** — GitHub-backed repository stats
+- **`app/contributors`** — contributor list from GitHub
+- **`app/vault`** — vault resource list from GitHub
+- **`app/og`** — OG image generation
 
 ## Contributing
 
