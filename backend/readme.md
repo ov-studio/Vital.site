@@ -57,11 +57,7 @@ Deploy this folder separately from the frontend. Set Redis + GitHub env vars. Fr
 
 ## Masterlist applications
 
-Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins in `shared/configs/staff.json`) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. Staff may also **direct mint** via `POST /masterlist/register` for giveaways.
-
-## Benchmarks
-
-Benchmark results are sourced automatically from the latest GitHub Release of the sandbox repo that includes a `benchmark.json` asset. The `/benchmark` route fetches and caches that data; the frontend benchmark page renders it as a Lua-vs-GDScript comparison table with environment metadata. No manual upload is needed — publishing a new release with a `benchmark.json` asset is sufficient.
+Anyone with a GitHub account can sign in at `/workspace` and request a server token (one **pending** application per account). Staff (allowlisted logins in `shared/configs/staff.json`) approve or reject in the same UI. On approve, Redis stores a one-time token for the applicant to copy; they dismiss it after saving. 
 
 ## Structure
 
