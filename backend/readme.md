@@ -46,7 +46,7 @@ Starts on [http://localhost:3001](http://localhost:3001).
 
 ### 4. Deploy
 
-Deploy this folder separately from the frontend. Set Redis + GitHub env vars. Frontend resolves the API host from the deployment hostname.
+Deploy this folder separately from the frontend. Set the env vars above before deploying.
 
 ## Masterlist applications
 
