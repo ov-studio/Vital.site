@@ -56,12 +56,12 @@ Anyone with a GitHub account can sign in at `/workspace` and request a server to
 
 - **`lib`** — Redis, cache, rate-limit, auth sessions, applications, staff list
 - **`app/auth/github`** — OAuth start + callback
-- **`app/masterlist`** — live list, heartbeat, register, applications (CRUD + token minting)
-- **`app/benchmark`** — scripting benchmark results sourced from GitHub Release assets
-- **`app/build`** — latest sandbox release info (tag, download URLs, asset sizes)
-- **`app/stats`** — GitHub-backed repository stats
-- **`app/contributors`** — contributor list from GitHub
-- **`app/vault`** — vault resource list from GitHub
+- **`app/masterlist`** — live list, heartbeat, register, applications
+- **`app/benchmark`** — scripting benchmark results
+- **`app/build`** — latest sandbox release info
+- **`app/stats`** — repository stats
+- **`app/contributors`** — contributor list
+- **`app/vault`** — vault resource list
 - **`app/og`** — OG image generation
 
 ## Contributing
