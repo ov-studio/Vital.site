@@ -12,7 +12,7 @@ export const Features = [
     id:    'core',
     label: 'Core',
     angle: 51,
-    desc:  'Full programmatic control of every scene entity and surface — database, model, webview, canvas, font, image, svg, rendertarget, shader.'
+    desc:  'Full programmatic control of every scene entity and surface — database, model, webview, canvas, font, image, svg, rendertarget, shader, camera, discord, and custom performance monitors.'
   },
   {
     id:    'utility',
@@ -30,7 +30,7 @@ export const Features = [
     id:    'physics',
     label: 'Physics',
     angle: 231,
-    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, and trigger areas.'
+    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, and a per-shape collision wireframe debugger.'
   },
   {
     id:    'audio',
