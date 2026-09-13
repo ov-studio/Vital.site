@@ -289,7 +289,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Server blendshape replication',                      status: 'pending'   },
           { label: 'Server material override replication',               status: 'pending'   },
           { label: 'Server material flag replication',                   status: 'pending'   },
-          { label: 'Server animation state replication',                 status: 'pending'   },
+          { label: 'Server animation state replication',                 status: 'completed' },
           { label: 'Transform (position / rotation / scale) control',    status: 'partial'   },
           { label: 'Animation playback (play / stop / pause / resume)',  status: 'completed' },
           { label: 'Animation speed scale',                              status: 'completed' },
