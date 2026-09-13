@@ -293,6 +293,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Transform (position / rotation / scale) control',    status: 'partial'   },
           { label: 'Animation playback (play / stop / pause / resume)',  status: 'completed' },
           { label: 'Animation speed scale',                              status: 'completed' },
+          { label: 'Reverse animation playback',                         status: 'completed' },
+          { label: 'Partial animation - per bone group blending',        status: 'completed' },
+          { label: 'Animation layers - 256 soft cap',                    status: 'completed' },
           { label: 'Blendshape (morph target) control',                  status: 'completed' },
           { label: 'Component visibility override per mesh',             status: 'completed' },
           { label: 'Material visibility override per component',         status: 'completed' },
@@ -2428,7 +2431,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Vehicle wheel config sync',                  status: 'completed' },
           { label: 'Vehicle wheel transform sync',               status: 'completed' },
           { label: 'Blendshape replication',                     status: 'pending'   },
-          { label: 'Animation state replication',                status: 'pending'   }
+          { label: 'Animation state replication',                status: 'pending'   },
+          { label: 'Animation layer sync',                       status: 'pending'   }
         ]
       },
       {
