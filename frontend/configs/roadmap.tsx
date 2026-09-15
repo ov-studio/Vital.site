@@ -2425,7 +2425,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Vehicle wheel config sync',                  status: 'completed' },
           { label: 'Vehicle wheel transform sync',               status: 'completed' },
           { label: 'Blendshape replication',                     status: 'pending'   },
-          { label: 'Material override replication',              status: 'pending'   },
           { label: 'Material flag replication',                  status: 'pending'   },
           { label: 'Animation state replication',                status: 'completed' },
           { label: 'Animation layer sync',                       status: 'completed' },
