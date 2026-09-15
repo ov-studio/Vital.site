@@ -30,13 +30,13 @@
   background:
     linear-gradient(to bottom,
         var(--bg4) 0%,
-        transparent 23%,
-        transparent 77%,
+        transparent 18%,
+        transparent 82%,
         var(--bg4) 100%),
       linear-gradient(to right,
         var(--bg4) 0%,
-        transparent 13%,
-        transparent 87%,
+        transparent 8%,
+        transparent 92%,
         var(--bg4) 100%);
   pointer-events: none;
 }
