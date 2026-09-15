@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps<'/docs'>) {
 
   return (
     <component_clientshell.ClientShell>
-      <component_overlay.Overlay vignette={false}/>
+      <component_overlay.Overlay/>
       <fumadocs_layout_notebook.DocsLayout
         {...base}
         nav={{

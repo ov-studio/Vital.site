@@ -109,7 +109,7 @@ export function Benchmarks() {
 
   return (
     <section id="benchmarks">
-      <ui_wallpaper.Wallpaper seed={11} vignette={false}/>
+      <ui_wallpaper.Wallpaper seed={11}/>
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
