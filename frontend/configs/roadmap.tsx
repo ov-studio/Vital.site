@@ -150,6 +150,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Server] Command: restart_all',            status: 'completed' },
           { label: '[Server] Command: shutdown',               status: 'completed' },
           { label: '[Client] Command: connect',                status: 'completed' },
+          { label: '[Client] Command: reconnect',              status: 'completed' },
           { label: '[Client] Command: disconnect',             status: 'completed' },
           { label: '[Client] Command: status',                 status: 'completed' },
           { label: '[Client] Command: quit',                   status: 'completed' }
