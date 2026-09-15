@@ -4,7 +4,7 @@ interface OverlayProps {
   vignette?: boolean;
 }
 
-export function Overlay({ vignette = true }: OverlayProps) {
+export function Overlay({ vignette = false }: OverlayProps) {
   return (
     <>
       {vignette && <div id="vignette"/>}
