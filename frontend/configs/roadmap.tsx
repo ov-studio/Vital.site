@@ -140,6 +140,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Command: clear',                  status: 'completed' },
           { label: '[Server] Command: info',                   status: 'completed' },
           { label: '[Server] Command: kick <id>',              status: 'pending'   },
+          { label: '[Server] Command: players',                status: 'pending'   },
           { label: '[Server] Command: refresh',                status: 'completed' },
           { label: '[Server] Command: start <name>',           status: 'completed' },
           { label: '[Server] Command: stop <name>',            status: 'completed' },
