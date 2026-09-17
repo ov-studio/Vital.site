@@ -1,73 +1,120 @@
 import * as lib_api_url from '@/lib/api_url';
 import * as next_og from 'next/og';
+import * as config_brand from '@/configs/brand';
 
-const bg = 'hsl(250, 25%, 2%)';
-const blue = 'hsl(220, 95%, 76%)';
-const rule = 'hsl(220, 18%, 9%)';
+/**
+ * Homepage Open Graph image.
+ *
+ * Logo is a pre-baked WebP produced by frontend/scripts/bake-brand.mjs
+ * and served from the frontend public CDN path (/cdn/brand/...).
+ * No runtime SVG parsing or colour replacement needed.
+ *
+ * Font is still fetched live (small, cached by the edge).
+ * Design tokens live in shared/configs/brand.ts.
+ */
 
 export async function GET() {
   const frontend_url = lib_api_url.get_frontend_url();
-  const [logosvg, rajdhani] = await Promise.all([
-    fetch(`${frontend_url}/logo.svg`).then(r => r.text()),
-    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then(r => r.arrayBuffer())
+  const { colors, tagline, og } = config_brand;
+
+  const [logoBuf, rajdhani] = await Promise.all([
+    fetch(`${frontend_url}${og.logoPath}`).then(r => {
+      if (!r.ok) throw new Error(`Failed to fetch baked logo: ${r.status} ${og.logoPath}`);
+      return r.arrayBuffer();
+    }),
+    fetch(`${frontend_url}${og.fontPath}`).then(r => r.arrayBuffer()),
   ]);
 
-  const logo    = logosvg.replace(/\.cls-1\s*\{\s*fill:\s*#fff;\s*\}/g, `.cls-1 { fill: ${blue}; }`);
-  const logosrc = `data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}`;
+  // Satori accepts data: URLs cleanly; this also works offline / in local dev
+  const logosrc = `data:image/webp;base64,${Buffer.from(logoBuf).toString('base64')}`;
 
   return new next_og.ImageResponse(
     (
-      <div style={{
-        background: bg,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-      }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `linear-gradient(${rule} 1px, transparent 1px), linear-gradient(90deg, ${rule} 1px, transparent 1px)`,
-          backgroundSize: '48px 48px',
-          opacity: 0.8,
+      <div
+        style={{
+          background: colors.bg,
+          width: '100%',
+          height: '100%',
           display: 'flex',
-        }}/>
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+        }}
+      >
+        {/* subtle grid */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `linear-gradient(${colors.rule} 1px, transparent 1px), linear-gradient(90deg, ${colors.rule} 1px, transparent 1px)`,
+            backgroundSize: '48px 48px',
+            opacity: 0.8,
+            display: 'flex',
+          }}
+        />
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-            <img src={logosrc} width={'140'}/>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            position: 'relative',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '16px',
+            }}
+          >
+            <img src={logosrc} width={og.logoWidth} />
           </div>
 
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '25px',
-            marginTop: '49px',
-            fontSize: '1.0rem',
-            fontFamily: 'Rajdhani, sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-          }}>
-            <span style={{ color: 'hsl(220, 10%, 55%)' }}>Script It</span>
-            <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
-            <span style={{ color: 'hsl(0, 0%, 97%)' }}>Ship It</span>
-            <span style={{ color: 'hsl(220, 10%, 22%)', fontWeight: 300 }}>—</span>
-            <span style={{ color: 'hsl(220, 10%, 55%)' }}>Limitless</span>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '25px',
+              marginTop: '49px',
+              fontSize: '1.0rem',
+              fontFamily: `${og.fontFamily}, sans-serif`,
+              fontWeight: 600,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+            }}
+          >
+            {tagline.map((part, i) => (
+              <span
+                key={i}
+                style={{
+                  color: part.color,
+                  fontWeight: 'weight' in part ? part.weight : 600,
+                }}
+              >
+                {part.text}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     ),
     {
-      width:  1000,
-      height: 300,
-      fonts:  [{ name: 'Rajdhani', data: rajdhani, weight: 700, style: 'normal' }],
+      width: og.width,
+      height: og.height,
+      fonts: [
+        {
+          name: og.fontFamily,
+          data: rajdhani,
+          weight: og.fontWeight,
+          style: 'normal',
+        },
+      ],
       headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-      }
+        'Cache-Control': og.cacheControl,
+      },
     }
   );
 }
