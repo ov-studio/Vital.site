@@ -11,57 +11,71 @@ export async function GET() {
   const frontend_url = lib_api_url.get_frontend_url();
 
   const [logoBuf, rajdhani] = await Promise.all([
-    fetch(`${frontend_url}/cdn/brand/logo-neon.webp`).then(r => {
-      if (!r.ok) throw new Error(`Failed to fetch baked logo: ${r.status}`);
+    fetch(`${frontend_url}/cdn/brand/logo-neon.png`).then(r => {
+      if (!r.ok) throw new Error(`Failed to fetch logo: ${r.status}`);
       return r.arrayBuffer();
     }),
-    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then(r => r.arrayBuffer()),
+    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then(r => {
+      if (!r.ok) throw new Error(`Failed to fetch font: ${r.status}`);
+      return r.arrayBuffer();
+    }),
   ]);
 
-  const logosrc = `data:image/webp;base64,${Buffer.from(logoBuf).toString('base64')}`;
+  const logosrc = `data:image/png;base64,${Buffer.from(logoBuf).toString('base64')}`;
 
   return new next_og.ImageResponse(
     (
-      <div style={{
-        background: bg,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-      }}>
-        {/* subtle grid */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `linear-gradient(${rule} 1px, transparent 1px), linear-gradient(90deg, ${rule} 1px, transparent 1px)`,
-          backgroundSize: '48px 48px',
-          opacity: 0.8,
-          display: 'flex',
-        }}/>
-
-        <div style={{
+      <div
+        style={{
+          background: bg,
+          width: '100%',
+          height: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          justifyContent: 'center',
           position: 'relative',
-        }}>
-          {/* neon logo – already has padding, so we can use a slightly larger display size */}
-          <img src={logosrc} width={180} />
-
-          <div style={{
+        }}
+      >
+        {/* subtle grid – Satori safe */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `linear-gradient(${rule} 1px, transparent 1px), linear-gradient(90deg, ${rule} 1px, transparent 1px)`,
+            backgroundSize: '48px 48px',
+            opacity: 0.65,
             display: 'flex',
+          }}
+        />
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            gap: '25px',
-            marginTop: '40px',
-            fontSize: '1.0rem',
-            fontFamily: 'Rajdhani, sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-          }}>
+            position: 'relative',
+          }}
+        >
+          {/* 
+            logo-neon.png already contains the real CSS neon glow
+            on a matching dark background, so we can display it large.
+          */}
+          <img src={logosrc} width={220} height={165} />
+
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '22px',
+              marginTop: '8px',
+              fontSize: '0.95rem',
+              fontFamily: 'Rajdhani, sans-serif',
+              fontWeight: 600,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+            }}
+          >
             <span style={{ color: muted }}>Script It</span>
             <span style={{ color: faint, fontWeight: 300 }}>—</span>
             <span style={{ color: white }}>Ship It</span>
@@ -74,10 +88,18 @@ export async function GET() {
     {
       width: 1000,
       height: 300,
-      fonts: [{ name: 'Rajdhani', data: rajdhani, weight: 700, style: 'normal' }],
+      fonts: [
+        {
+          name: 'Rajdhani',
+          data: rajdhani,
+          weight: 700,
+          style: 'normal',
+        },
+      ],
       headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-      }
+        'Cache-Control':
+          'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      },
     }
   );
 }

@@ -1,31 +1,34 @@
+/**
+ * Bakes brand logo variants.
+ *
+ * logo-blue / logo-white → transparent (sharp)
+ * logo-neon              → real CSS neon filter via Playwright
+ *                          rendered on --bg4 so the glow is visible
+ *
+ * One-time setup:
+ *   npm i -D playwright sharp
+ *   npx playwright install chromium
+ */
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createServer } from 'node:http';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FRONTEND = path.resolve(__dirname, '..');
-const LOGO_SVG = path.join(FRONTEND, 'public', 'logo.svg');
 const OUT_DIR  = path.join(FRONTEND, 'public', 'cdn', 'brand');
+const LOGO_SVG = path.join(FRONTEND, 'public', 'logo.svg');
 
-// High-res canvas (includes breathing room for neon glow)
 const OUT_W = 1000;
 const OUT_H = 750;
-
-// Size of the actual logo mark inside the canvas
-// (leaves ~15% padding on each side so glow never clips)
-const LOGO_W = 700;
-const LOGO_H = 510;
-
-const VARIANTS = [
-  { name: 'logo-blue',  fill: 'hsl(220, 95%, 76%)' },
-  { name: 'logo-white', fill: '#ffffff' },
-];
+const MARK_W = 560; // leave room for the outer glow
 
 async function getSharp() {
   try {
     return (await import('sharp')).default;
   } catch {
-    console.error(`[bake-brand] sharp is required.\n  cd frontend && npm i -D sharp && node scripts/bake-brand.mjs`);
+    console.error('[bake-brand] sharp required → npm i -D sharp');
     process.exit(1);
   }
 }
@@ -37,22 +40,16 @@ function tintSvg(svgText, fill) {
   );
 }
 
-/**
- * Turn an SVG string into a transparent PNG buffer of the logo mark
- * centred on a larger canvas (padding for glow).
- */
-async function svgToPaddedPng(sharp, svgText) {
-  // 1. Rasterise the SVG mark itself at high density
-  const markBuf = await sharp(Buffer.from(svgText), { density: 600 })
-    .resize(LOGO_W, LOGO_H, {
+async function bakeSolid(sharp, svgText, name) {
+  const mark = await sharp(Buffer.from(svgText), { density: 600 })
+    .resize(MARK_W, Math.round(MARK_W * 0.726), {
       fit: 'contain',
       background: { r: 0, g: 0, b: 0, alpha: 0 },
     })
     .png()
     .toBuffer();
 
-  // 2. Place it in the centre of the transparent output canvas
-  return sharp({
+  const padded = await sharp({
     create: {
       width: OUT_W,
       height: OUT_H,
@@ -60,117 +57,166 @@ async function svgToPaddedPng(sharp, svgText) {
       background: { r: 0, g: 0, b: 0, alpha: 0 },
     },
   })
-    .composite([{ input: markBuf, gravity: 'centre' }])
+    .composite([{ input: mark, gravity: 'centre' }])
     .png()
     .toBuffer();
+
+  await sharp(padded).webp({ quality: 95 }).toFile(path.join(OUT_DIR, `${name}.webp`));
+  await sharp(padded).png().toFile(path.join(OUT_DIR, `${name}.png`));
 }
 
-async function writeWebp(sharp, pngBuffer, outPath) {
-  await sharp(pngBuffer)
-    .webp({ quality: 95, effort: 4, alphaQuality: 100 })
-    .toFile(outPath);
-  return (fs.statSync(outPath).size / 1024).toFixed(1);
-}
+async function bakeNeonWithPlaywright() {
+  let playwright;
+  try {
+    playwright = await import('playwright');
+  } catch {
+    console.warn('[bake-brand] playwright not installed');
+    console.warn('  npm i -D playwright && npx playwright install chromium');
+    return false;
+  }
 
-async function bakeSolid(sharp, svgText, outPath) {
-  const png = await svgToPaddedPng(sharp, svgText);
-  return writeWebp(sharp, png, outPath);
-}
+  const { chromium } = playwright;
 
-async function bakeNeon(sharp, blueSvgText, outPath) {
-  // Base padded logo (PNG)
-  const basePng = await svgToPaddedPng(sharp, blueSvgText);
+  // Exact values from shared/app/theme.css + Brand neon filter
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --bg4: hsl(252, 20%, 4.5%);
+    --blue: hsl(220, 95%, 76%);
+    --brand-neon-core: hsl(220, 100%, 85%);
+    --brand-neon-mid: hsl(220, 95%, 70%);
+    --brand-neon-glow: hsla(220, 95%, 65%, 0.55);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: ${OUT_W}px;
+    height: ${OUT_H}px;
+    background: var(--bg4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .logo {
+    width: ${MARK_W}px;
+    height: auto;
+    /* exact filter from .brand_logo--neon */
+    filter:
+      brightness(0) saturate(100%)
+      invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(105%) contrast(105%)
+      drop-shadow(0 0 0.5px var(--blue))
+      drop-shadow(0 0 1px var(--brand-neon-core))
+      drop-shadow(0 0 8px var(--brand-neon-mid))
+      drop-shadow(0 0 48px var(--brand-neon-glow));
+  }
+</style>
+</head>
+<body>
+  <img class="logo" src="/logo.svg" alt="" />
+</body>
+</html>`;
 
-  // Glow layers — radii scaled up for the larger canvas
-  const glowWide = await sharp(basePng)
-    .blur(48)
-    .modulate({ brightness: 1.2 })
+  const server = createServer((req, res) => {
+    if (req.url === '/' || req.url === '/index.html') {
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(html);
+      return;
+    }
+    const filePath = path.join(FRONTEND, 'public', decodeURIComponent(req.url || ''));
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+      const ext = path.extname(filePath).toLowerCase();
+      const mime = { '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp' };
+      res.writeHead(200, { 'Content-Type': mime[ext] || 'application/octet-stream' });
+      fs.createReadStream(filePath).pipe(res);
+      return;
+    }
+    res.writeHead(404);
+    res.end();
+  });
+
+  await new Promise(r => server.listen(0, '127.0.0.1', r));
+  const { port } = server.address();
+
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage({
+    viewport: { width: OUT_W, height: OUT_H },
+    deviceScaleFactor: 2,
+  });
+
+  await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(300);
+
+  const screenshot = await page.screenshot({
+    type: 'png',
+    omitBackground: false, // keep the --bg4 so glow is visible
+  });
+
+  await browser.close();
+  server.close();
+
+  const sharp = await getSharp();
+
+  await sharp(screenshot)
+    .resize(OUT_W, OUT_H)
+    .webp({ quality: 95 })
+    .toFile(path.join(OUT_DIR, 'logo-neon.webp'));
+
+  await sharp(screenshot)
+    .resize(OUT_W, OUT_H)
     .png()
-    .toBuffer();
+    .toFile(path.join(OUT_DIR, 'logo-neon.png'));
 
-  const glowMid = await sharp(basePng)
-    .blur(16)
-    .modulate({ brightness: 1.3 })
-    .png()
-    .toBuffer();
-
-  const glowCore = await sharp(basePng)
-    .blur(4)
-    .modulate({ brightness: 1.45 })
-    .png()
-    .toBuffer();
-
-  // Composite on transparent canvas
-  const finalPng = await sharp({
-    create: {
-      width: OUT_W,
-      height: OUT_H,
-      channels: 4,
-      background: { r: 0, g: 0, b: 0, alpha: 0 },
-    },
-  })
-    .composite([
-      { input: glowWide, blend: 'screen' },
-      { input: glowMid,  blend: 'screen' },
-      { input: glowCore, blend: 'screen' },
-      { input: basePng,  blend: 'over' },
-    ])
-    .png()
-    .toBuffer();
-
-  return writeWebp(sharp, finalPng, outPath);
+  return true;
 }
 
 async function main() {
   const t0 = Date.now();
   const sharp = await getSharp();
+  fs.mkdirSync(OUT_DIR, { recursive: true });
 
   if (!fs.existsSync(LOGO_SVG)) {
-    console.error(`[bake-brand] missing source: ${LOGO_SVG}`);
+    console.error('[bake-brand] missing public/logo.svg');
     process.exit(1);
   }
 
   const raw = fs.readFileSync(LOGO_SVG, 'utf8');
-  fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  const files = [];
-  let blueSvg = null;
-
-  // Solid variants
-  for (const v of VARIANTS) {
-    const tinted = tintSvg(raw, v.fill);
-    if (v.name === 'logo-blue') blueSvg = tinted;
-
-    const outPath = path.join(OUT_DIR, `${v.name}.webp`);
-    const kb = await bakeSolid(sharp, tinted, outPath);
-    console.log(`  ${v.name}.webp  (${kb} KB, ${OUT_W}×${OUT_H})`);
-    files.push(`${v.name}.webp`);
+  for (const [name, fill] of [
+    ['logo-blue', 'hsl(220, 95%, 76%)'],
+    ['logo-white', '#ffffff'],
+  ]) {
+    await bakeSolid(sharp, tintSvg(raw, fill), name);
+    console.log(`  ${name}.webp / .png`);
   }
 
-  // Neon
-  {
-    const outPath = path.join(OUT_DIR, 'logo-neon.webp');
-    const kb = await bakeNeon(sharp, blueSvg, outPath);
-    console.log(`  logo-neon.webp  (${kb} KB, ${OUT_W}×${OUT_H})`);
-    files.push('logo-neon.webp');
+  const ok = await bakeNeonWithPlaywright();
+  if (ok) {
+    console.log('  logo-neon.webp / .png  (real CSS neon on --bg4)');
+  } else {
+    await bakeSolid(sharp, tintSvg(raw, 'hsl(220, 95%, 76%)'), 'logo-neon');
+    console.log('  logo-neon.webp / .png  (fallback)');
   }
 
-  // Manifest
-  const manifest = {
-    version: 5,
-    generated: new Date().toISOString(),
-    source: '/logo.svg',
-    base: '/cdn/brand',
-    canvas: { width: OUT_W, height: OUT_H },
-    mark:   { width: LOGO_W, height: LOGO_H },
-    files,
-  };
   fs.writeFileSync(
     path.join(OUT_DIR, 'manifest.json'),
-    JSON.stringify(manifest, null, 2) + '\n'
+    JSON.stringify({
+      version: 10,
+      generated: new Date().toISOString(),
+      base: '/cdn/brand',
+      canvas: { width: OUT_W, height: OUT_H },
+      bg: 'hsl(252, 20%, 4.5%)', // --bg4
+      files: [
+        'logo-blue.webp', 'logo-blue.png',
+        'logo-white.webp', 'logo-white.png',
+        'logo-neon.webp', 'logo-neon.png',
+      ],
+    }, null, 2) + '\n'
   );
 
-  console.log(`[bake-brand] done in ${((Date.now() - t0) / 1000).toFixed(2)}s → public/cdn/brand/`);
+  console.log(`[bake-brand] done in ${((Date.now() - t0) / 1000).toFixed(2)}s`);
 }
 
 main().catch(e => {
