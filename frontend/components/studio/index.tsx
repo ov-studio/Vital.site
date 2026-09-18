@@ -91,7 +91,7 @@ export function Studio() {
 
   return (
     <section id="studio" className="sec-pad">
-      <ui_wallpaper.Wallpaper seed={0} opacity={0.1}/>
+      <ui_wallpaper.Wallpaper seed={1}/>
 
       <div className="sw">
         <div className="page-head">
