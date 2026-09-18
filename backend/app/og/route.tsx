@@ -1,5 +1,5 @@
 import * as lib_api_url from '@/lib/api_url';
-import * as next from 'next';
+import { NextResponse } from 'next/server';
 
 /**
  * Homepage Open Graph image.
@@ -16,12 +16,11 @@ import * as next from 'next';
 export async function GET() {
   const frontend_url = lib_api_url.get_frontend_url();
   const res = await fetch(`${frontend_url}/cdn/og.png`, {
-    // avoid stale CDN during local iteration
     cache: 'no-store',
   });
 
   if (!res.ok) {
-    return new next.NextResponse(
+    return new NextResponse(
       `Missing /cdn/og.png (${res.status}). Export from /studio and save to frontend/public/cdn/og.png`,
       { status: 404, headers: { 'Content-Type': 'text/plain' } }
     );
@@ -29,7 +28,7 @@ export async function GET() {
 
   const buf = await res.arrayBuffer();
 
-  return new next.NextResponse(buf, {
+  return new NextResponse(buf, {
     status: 200,
     headers: {
       'Content-Type': 'image/png',
