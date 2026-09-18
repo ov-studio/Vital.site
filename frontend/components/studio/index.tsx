@@ -14,6 +14,8 @@ const OG_H = 300;
 const LOGO_W = 560;
 const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
+const LOGO_SQ_TIGHT = 320;
+const LOGO_SQ_PAD = 400;
 
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
@@ -22,10 +24,16 @@ export function Studio() {
   const [logoNeon, setLogoNeon] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
   const [logoPad, setLogoPad] = react.useState(false);
+  const [logoSquare, setLogoSquare] = react.useState(false);
+  const [logoRound, setLogoRound] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
-  const logoH = logoPad ? LOGO_H_PAD : LOGO_H_TIGHT;
+  const logoSize = logoSquare
+    ? (logoPad ? LOGO_SQ_PAD : LOGO_SQ_TIGHT)
+    : null;
+  const logoW = logoSize ?? LOGO_W;
+  const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
 
   async function download(
     ref: react.RefObject<HTMLDivElement | null>,
@@ -188,6 +196,10 @@ export function Studio() {
                 </div>
               </div>
             </div>
+            <p className="studio-hint">
+              Save as <code>frontend/public/cdn/og.png</code> — backend{' '}
+              <code>/og</code> serves this file for homepage Open Graph.
+            </p>
           </div>
         )}
 
@@ -219,6 +231,22 @@ export function Studio() {
                 />
                 Extra padding
               </label>
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={logoSquare}
+                  onChange={(e) => setLogoSquare(e.target.checked)}
+                />
+                Square
+              </label>
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={logoRound}
+                  onChange={(e) => setLogoRound(e.target.checked)}
+                />
+                Rounded
+              </label>
               <button
                 type="button"
                 className="ws-action-btn ws-apply-btn"
@@ -227,8 +255,10 @@ export function Studio() {
                     'logo',
                     logoNeon ? 'neon' : 'solid',
                     logoBg ? 'bg' : 'transparent',
-                  ].join('-');
-                  download(logoRef, `${name}.png`, LOGO_W, logoH, {
+                    logoSquare ? 'sq' : null,
+                    logoRound ? 'round' : null,
+                  ].filter(Boolean).join('-');
+                  download(logoRef, `${name}.png`, logoW, logoH, {
                     transparent: !logoBg,
                   });
                 }}
@@ -240,8 +270,13 @@ export function Studio() {
             <div className="studio-preview-wrap studio-preview-wrap--logo">
               <div
                 ref={logoRef}
-                className={`studio-canvas studio-logo ${logoBg ? 'has-bg' : 'no-bg'}`}
-                style={{ width: LOGO_W, height: logoH }}
+                className={[
+                  'studio-canvas',
+                  'studio-logo',
+                  logoBg ? 'has-bg' : 'no-bg',
+                  logoRound ? 'is-round' : '',
+                ].filter(Boolean).join(' ')}
+                style={{ width: logoW, height: logoH }}
               >
                 <ui_brand.Brand
                   size="xxl"
