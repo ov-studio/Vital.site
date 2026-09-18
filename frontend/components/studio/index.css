@@ -201,3 +201,30 @@
 .studio-canvas.studio-logo {
   overflow: visible;
 }
+
+.studio-logo.is-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
+}
+
+.studio-logo.is-center .brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 10%));
+  margin: 0 !important;
+  line-height: 0;
+}
+
+.studio-logo.is-center .brand_logo-wrapper {
+  margin: 0 !important;
+  display: block;
+}
+
+.studio-logo.is-center .brand_logo,
+.studio-logo.is-center .brand_logo--neon {
+  margin: 0 !important;
+  display: block;
+}

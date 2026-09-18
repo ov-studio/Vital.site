@@ -26,6 +26,7 @@ export function Studio() {
   const [logoPad, setLogoPad] = react.useState(false);
   const [logoSquare, setLogoSquare] = react.useState(false);
   const [logoRound, setLogoRound] = react.useState(false);
+  const [logoCenter, setLogoCenter] = react.useState(true);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
@@ -243,6 +244,14 @@ export function Studio() {
                 />
                 Rounded
               </label>
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={logoCenter}
+                  onChange={(e) => setLogoCenter(e.target.checked)}
+                />
+                Center
+              </label>
               <button
                 type="button"
                 className="ws-action-btn ws-apply-btn"
@@ -271,6 +280,7 @@ export function Studio() {
                   'studio-logo',
                   logoBg ? 'has-bg' : 'no-bg',
                   logoRound ? 'is-round' : '',
+                  logoCenter ? 'is-center' : '',
                 ].filter(Boolean).join(' ')}
                 style={{ width: logoW, height: logoH }}
               >
