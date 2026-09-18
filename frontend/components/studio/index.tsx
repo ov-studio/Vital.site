@@ -144,7 +144,7 @@ export function Studio() {
                 className="ws-action-btn ws-apply-btn"
                 onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
               >
-                Download PNG
+                Download
               </button>
             </div>
 
@@ -208,7 +208,7 @@ export function Studio() {
                   });
                 }}
               >
-                Download PNG
+                Download
               </button>
             </div>
 
