@@ -202,3 +202,7 @@
   visibility: hidden;
   user-select: none;
 }
+
+.studio-logo .brand--xxl {
+  --brand-logo-size: 10.5rem;
+}
