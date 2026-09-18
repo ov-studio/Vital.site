@@ -1,0 +1,77 @@
+.ui-table-wrap {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: min(720px, calc(100dvh - 280px));
+  background: transparent;
+}
+
+.ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ui-table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  text-align: left;
+  padding: 0 18px;
+  height: 44px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.ui-table td {
+  padding: 0 18px;
+  height: 48px;
+  border-bottom: 1px solid var(--w04);
+  vertical-align: middle;
+  color: var(--text-mid);
+}
+
+.ui-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ui-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.ui-table tbody tr:hover:not(.ui-table-empty) td {
+  background: var(--b05);
+}
+
+.ui-table-empty:hover td {
+  background: transparent;
+}
+
+.ui-table-empty td {
+  border-bottom: none;
+  padding: 0;
+  height: auto;
+}
+
+.ui-table-empty-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 48px 24px;
+  min-height: 160px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.ui-table-empty-inner svg {
+  opacity: 0.55;
+  color: var(--blue);
+}
