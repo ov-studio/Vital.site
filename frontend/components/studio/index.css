@@ -16,11 +16,9 @@
   max-width: 42ch;
 }
 
-/* Panel under ui-tabs */
 .studio-panel-head {
   margin-bottom: 0;
 }
-
 
 .studio-panel {
   display: flex;
@@ -48,7 +46,6 @@
   width: 320px;
 }
 
-/* Exact workspace Submit (.ws-action-btn + .ws-apply-btn) */
 #studio .ws-action-btn {
   flex-shrink: 0;
   font-family: 'Geist', sans-serif;
@@ -128,7 +125,6 @@
   box-sizing: border-box;
 }
 
-/* Same as homepage #hero */
 .studio-og {
   background-color: var(--bg);
   background-image: repeating-linear-gradient(
@@ -200,4 +196,9 @@
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.8rem;
+}
+
+.studio-og-tagline.is-placeholder {
+  visibility: hidden;
+  user-select: none;
 }
