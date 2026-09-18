@@ -16,71 +16,12 @@
   max-width: 42ch;
 }
 
-/* ── Tabs: same as workspace (.ws-tabs / .ws-tab) ── */
+/* Panel under ui-tabs */
 .studio-panel-head {
   margin-bottom: 0;
 }
 
-#studio .ws-tabs {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 3;
-}
 
-#studio .ws-tab {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: var(--rule);
-  border: none;
-  padding: 11px 16px 14px;
-  margin: 0 0 -2px;
-  border-radius: 6px 6px 0 0;
-  cursor: pointer;
-  z-index: 3;
-  transition: color 0.18s ease, background 0.18s ease;
-}
-
-#studio .ws-tab svg {
-  flex-shrink: 0;
-  opacity: 0.7;
-  transition: opacity 0.18s ease, color 0.18s ease;
-}
-
-#studio .ws-tab:hover {
-  color: var(--dim);
-}
-
-#studio .ws-tab:hover svg {
-  opacity: 0.9;
-}
-
-#studio .ws-tab--active {
-  color: var(--blue);
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
-  z-index: 4;
-}
-
-#studio .ws-tab--active svg {
-  color: var(--blue);
-  opacity: 1;
-}
-
-#studio .ws-tab--active:hover {
-  color: var(--blue);
-}
-
-/* Panel sits under tabs like workspace */
 .studio-panel {
   display: flex;
   flex-direction: column;

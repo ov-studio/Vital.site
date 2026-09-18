@@ -3,6 +3,7 @@
 import * as react from 'react';
 import * as ui_brand from '@/ui/brand';
 import * as ui_search from '@/ui/search';
+import * as ui_tabs from '@/ui/tabs';
 import * as ui_wallpaper from '@/ui/wallpaper';
 import * as lucide from 'lucide-react';
 import './index.css';
@@ -109,30 +110,24 @@ export function Studio() {
           </p>
         </div>
 
-        {/* Tabs – same pattern as workspace (.ws-tabs) */}
         <div className="studio-panel-head">
-          <div className="ws-tabs" role="tablist" aria-label="Studio sections">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={section === 'og'}
-              className={`ws-tab${section === 'og' ? ' ws-tab--active' : ''}`}
-              onClick={() => setSection('og')}
-            >
-              <lucide.Image size={14} strokeWidth={2.25} />
-              Open Graph
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={section === 'logo'}
-              className={`ws-tab${section === 'logo' ? ' ws-tab--active' : ''}`}
-              onClick={() => setSection('logo')}
-            >
-              <lucide.Shapes size={14} strokeWidth={2.25} />
-              Logo Export
-            </button>
-          </div>
+          <ui_tabs.Tabs
+            value={section}
+            onChange={(id) => setSection(id as Section)}
+            ariaLabel="Studio sections"
+            items={[
+              {
+                id: 'og',
+                label: 'Open Graph',
+                icon: <lucide.Image size={14} strokeWidth={2.25} />,
+              },
+              {
+                id: 'logo',
+                label: 'Logo Export',
+                icon: <lucide.Shapes size={14} strokeWidth={2.25} />,
+              },
+            ]}
+          />
         </div>
 
         {/* Open Graph */}
