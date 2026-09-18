@@ -147,7 +147,7 @@ export function Studio() {
               />
               <button
                 type="button"
-                className="btn-primary"
+                className="ws-action-btn ws-apply-btn"
                 onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
               >
                 Download PNG
@@ -202,7 +202,7 @@ export function Studio() {
               </label>
               <button
                 type="button"
-                className="btn-primary"
+                className="ws-action-btn ws-apply-btn"
                 onClick={() => {
                   const name = [
                     'logo',

@@ -107,10 +107,42 @@
   width: 320px;
 }
 
-/* Primary button – slightly tighter for toolbar */
-.studio-controls .btn-primary {
-  padding: 10px 28px;
+/* Exact workspace Submit (.ws-action-btn + .ws-apply-btn) */
+#studio .ws-action-btn {
+  flex-shrink: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--b90);
+  background: var(--b20);
+  border: 1px solid var(--b05);
+  border-radius: 4px;
+  padding: 5px 10px;
   cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+#studio .ws-action-btn:hover:not(:disabled) {
+  color: var(--blue);
+  background: var(--b30);
+}
+
+#studio .ws-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#studio .ws-apply-btn {
+  flex-shrink: 0;
+  height: auto;
+  min-height: 0;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 0.8rem;
 }
 
 .studio-check {
