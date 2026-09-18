@@ -1,0 +1,272 @@
+.studio {
+  min-height: 100vh;
+  padding: 48px 24px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: var(--white, #f7f7f7);
+}
+
+.studio-header {
+  margin-bottom: 32px;
+}
+
+.studio-title {
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+}
+
+.studio-desc {
+  color: var(--text-muted, hsl(220, 10%, 55%));
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Tabs */
+.studio-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.studio-tab {
+  background: var(--bg5, hsl(250, 21%, 5.5%));
+  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  color: var(--text-muted, hsl(220, 10%, 55%));
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.studio-tab:hover {
+  color: var(--white);
+  border-color: var(--rule2, hsl(220, 18%, 20%));
+}
+
+.studio-tab.active {
+  background: hsla(220, 95%, 76%, 0.12);
+  border-color: var(--blue, hsl(220, 95%, 76%));
+  color: var(--blue, hsl(220, 95%, 76%));
+}
+
+/* Panel */
+.studio-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.studio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.studio-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.studio-controls input[type='text'],
+.studio-controls input:not([type]) {
+  background: var(--bg5, hsl(250, 21%, 5.5%));
+  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 8px;
+  min-width: 280px;
+  font-size: 0.95rem;
+}
+
+.studio-controls input:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.studio-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.studio-check input {
+  accent-color: var(--blue);
+  width: 16px;
+  height: 16px;
+}
+
+.studio-btn {
+  background: var(--blue, hsl(220, 95%, 76%));
+  color: hsl(250, 25%, 8%);
+  border: none;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.studio-btn:hover {
+  filter: brightness(1.08);
+}
+
+/* Preview */
+.studio-preview-wrap {
+  overflow: auto;
+  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  border-radius: 12px;
+  background: var(--bg3, hsl(252, 20%, 4%));
+  padding: 16px;
+}
+
+.studio-canvas {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Open Graph canvas */
+.studio-og {
+  background: hsl(250, 25%, 2%);
+}
+
+.studio-og-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(220, 18%, 9%) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(220, 18%, 9%) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.studio-og-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.studio-og-tagline {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(220, 10%, 55%);
+}
+
+.studio-og-tagline .hl {
+  color: hsl(0, 0%, 97%);
+}
+
+.studio-og-tagline .sep {
+  color: hsl(220, 10%, 22%);
+  font-weight: 300;
+}
+
+/* YouTube canvas */
+.studio-yt {
+  background: hsl(250, 25%, 2%);
+}
+
+.studio-yt-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(220, 18%, 9%) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(220, 18%, 9%) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.studio-yt-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 40px;
+  text-align: center;
+}
+
+.studio-yt-title {
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: hsl(0, 0%, 97%);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.studio-yt-sub {
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(220, 10%, 55%);
+  margin: 0;
+}
+
+/* Logo export canvas */
+.studio-logo {
+  background: transparent;
+}
+
+.studio-logo.has-bg {
+  background: hsl(252, 20%, 4.5%); /* --bg4 */
+}
+
+.studio-logo.no-bg {
+  /* checkerboard so transparency is visible in the preview */
+  background-image:
+    linear-gradient(45deg, #1a1a1e 25%, transparent 25%),
+    linear-gradient(-45deg, #1a1a1e 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1a1a1e 75%),
+    linear-gradient(-45deg, transparent 75%, #1a1a1e 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+}
+
+.studio-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.studio-hint code {
+  background: var(--bg5);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

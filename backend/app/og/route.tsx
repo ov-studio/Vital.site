@@ -1,6 +1,14 @@
 import * as lib_api_url from '@/lib/api_url';
 import * as next_og from 'next/og';
 
+/**
+ * Homepage Open Graph image.
+ *
+ * Uses a pre-exported neon logo from Brand Studio
+ * (/studio → Logo Export → logo-neon.png
+ *  → frontend/public/cdn/brand/logo-neon.png).
+ */
+
 const bg    = 'hsl(250, 25%, 2%)';
 const rule  = 'hsl(220, 18%, 9%)';
 const muted = 'hsl(220, 10%, 55%)';
@@ -11,11 +19,16 @@ export async function GET() {
   const frontend_url = lib_api_url.get_frontend_url();
 
   const [logoBuf, rajdhani] = await Promise.all([
-    fetch(`${frontend_url}/cdn/brand/logo-neon.png`).then(r => {
-      if (!r.ok) throw new Error(`Failed to fetch logo: ${r.status}`);
+    fetch(`${frontend_url}/cdn/brand/logo-neon.png`).then((r) => {
+      if (!r.ok) {
+        throw new Error(
+          `Missing logo-neon.png (${r.status}). ` +
+            `Export from /studio → Logo Export and place at public/cdn/brand/logo-neon.png`
+        );
+      }
       return r.arrayBuffer();
     }),
-    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then(r => {
+    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then((r) => {
       if (!r.ok) throw new Error(`Failed to fetch font: ${r.status}`);
       return r.arrayBuffer();
     }),
@@ -37,7 +50,6 @@ export async function GET() {
           position: 'relative',
         }}
       >
-        {/* subtle grid – Satori safe */}
         <div
           style={{
             position: 'absolute',
@@ -57,18 +69,14 @@ export async function GET() {
             position: 'relative',
           }}
         >
-          {/* 
-            logo-neon.png already contains the real CSS neon glow
-            on a matching dark background, so we can display it large.
-          */}
-          <img src={logosrc} width={220} height={165} />
+          <img src={logosrc} width={200} height={150} />
 
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '22px',
-              marginTop: '8px',
+              marginTop: '12px',
               fontSize: '0.95rem',
               fontFamily: 'Rajdhani, sans-serif',
               fontWeight: 600,
