@@ -1,11 +1,10 @@
 'use client';
-
-import * as react from 'react';
-import * as ui_brand from '@/ui/brand';
-import * as ui_search from '@/ui/search';
-import * as ui_tabs from '@/ui/tabs';
+import * as ui_brand     from '@/ui/brand';
+import * as ui_search    from '@/ui/search';
+import * as ui_tabs      from '@/ui/tabs';
 import * as ui_wallpaper from '@/ui/wallpaper';
-import * as lucide from 'lucide-react';
+import * as react        from 'react';
+import * as lucide       from 'lucide-react';
 import './index.css';
 
 type Section = 'og' | 'logo';
@@ -92,7 +91,7 @@ export function Studio() {
 
   return (
     <section id="studio" className="sec-pad">
-      <ui_wallpaper.Wallpaper seed={0} opacity={0.1} />
+      <ui_wallpaper.Wallpaper seed={0} opacity={0.1}/>
 
       <div className="sw">
         <div className="page-head">
@@ -100,7 +99,7 @@ export function Studio() {
             <div>
               <div className="slabel">Studio</div>
               <h2>
-                Brand assets,<br />
+                Brand assets,<br/>
                 ready to <span>export.</span>
               </h2>
             </div>
@@ -119,12 +118,12 @@ export function Studio() {
               {
                 id: 'og',
                 label: 'Open Graph',
-                icon: <lucide.Image size={14} strokeWidth={2.25} />,
+                icon: <lucide.Image size={14} strokeWidth={2.25}/>,
               },
               {
                 id: 'logo',
                 label: 'Logo Export',
-                icon: <lucide.Shapes size={14} strokeWidth={2.25} />,
+                icon: <lucide.Shapes size={14} strokeWidth={2.25}/>,
               },
             ]}
           />
@@ -138,7 +137,7 @@ export function Studio() {
                 value={tagline}
                 onChange={setTagline}
                 placeholder="Tagline…"
-                icon={<lucide.Type size={14} strokeWidth={2} />}
+                icon={<lucide.Type size={14} strokeWidth={2}/>}
               />
               <button
                 type="button"
@@ -156,7 +155,7 @@ export function Studio() {
                 style={{ width: OG_W, height: OG_H }}
               >
                 <div className="studio-og-content">
-                  <ui_brand.Brand size="xl" variant="logo-only" neon={true} />
+                  <ui_brand.Brand size="xl" variant="logo-only" neon={true}/>
                   <div className="studio-og-tagline">
                     {tagline.split('—').map((part, i, arr) => (
                       <react.Fragment key={i}>
