@@ -9,8 +9,8 @@ type Section = 'og' | 'logo';
 
 const OG_W = 1000;
 const OG_H = 300;
-const LOGO_W = 800;
-const LOGO_H = 600;
+const LOGO_W = 640;
+const LOGO_H = 640;
 
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
@@ -25,7 +25,8 @@ export function Studio() {
     ref: react.RefObject<HTMLDivElement | null>,
     filename: string,
     width: number,
-    height: number
+    height: number,
+    opts?: { transparent?: boolean }
   ) {
     if (!ref.current) return;
 
@@ -41,18 +42,35 @@ export function Studio() {
       return;
     }
 
+    const el = ref.current;
+    const prevClass = el.className;
+    const prevBg = el.style.background;
+    const prevBgImage = el.style.backgroundImage;
+
+    // For transparent exports: strip checkerboard so it is not baked in
+    if (opts?.transparent) {
+      el.classList.remove('no-bg');
+      el.classList.add('export-transparent');
+      el.style.background = 'transparent';
+      el.style.backgroundImage = 'none';
+    }
+
     try {
-      const dataUrl = await toPng(ref.current, {
+      const dataUrl = await toPng(el, {
         cacheBust: true,
         pixelRatio: 2,
         width,
         height,
+        backgroundColor: opts?.transparent ? null : undefined,
         style: {
           transform: 'none',
           margin: '0',
           padding: '0',
           width: `${width}px`,
           height: `${height}px`,
+          ...(opts?.transparent
+            ? { background: 'transparent', backgroundImage: 'none' }
+            : {}),
         },
       });
 
@@ -63,23 +81,35 @@ export function Studio() {
     } catch (err) {
       console.error(err);
       alert('Export failed – check console');
+    } finally {
+      el.className = prevClass;
+      el.style.background = prevBg;
+      el.style.backgroundImage = prevBgImage;
     }
   }
 
   return (
-    <section id="studio">
-      {/* Site wallpaper pattern */}
+    <section id="studio" className="sec-pad">
       <ui_wallpaper.Wallpaper seed={0} opacity={0.1} />
 
-      <div className="studio-inner">
-        <header className="studio-header">
-          <h1 className="studio-title">Brand Studio</h1>
-          <p className="studio-desc">
-            Export Open Graph images and neon logos using the real Brand component.
+      <div className="sw">
+        {/* Page head – same pattern as Vault / Roadmap */}
+        <div className="page-head">
+          <div className="sec-head sec-head--intro">
+            <div>
+              <div className="slabel">Studio</div>
+              <h2>
+                Brand assets,<br />
+                ready to <span>export.</span>
+              </h2>
+            </div>
+          </div>
+          <p className="studio-intro">
+            Open Graph images and neon logos using the real Brand component.
           </p>
-        </header>
+        </div>
 
-        {/* ========== TABS ========== */}
+        {/* Tabs */}
         <div className="studio-tabs">
           <button
             type="button"
@@ -97,7 +127,7 @@ export function Studio() {
           </button>
         </div>
 
-        {/* ========== OPEN GRAPH ========== */}
+        {/* Open Graph */}
         {section === 'og' && (
           <div className="studio-panel">
             <div className="studio-controls">
@@ -141,7 +171,7 @@ export function Studio() {
           </div>
         )}
 
-        {/* ========== LOGO EXPORT ========== */}
+        {/* Logo Export */}
         {section === 'logo' && (
           <div className="studio-panel">
             <div className="studio-controls">
@@ -170,14 +200,16 @@ export function Studio() {
                     logoNeon ? 'neon' : 'solid',
                     logoBg ? 'bg' : 'transparent',
                   ].join('-');
-                  download(logoRef, `${name}.png`, LOGO_W, LOGO_H);
+                  download(logoRef, `${name}.png`, LOGO_W, LOGO_H, {
+                    transparent: !logoBg,
+                  });
                 }}
               >
                 Download PNG
               </button>
             </div>
 
-            <div className="studio-preview-wrap">
+            <div className="studio-preview-wrap studio-preview-wrap--logo">
               <div
                 ref={logoRef}
                 className={`studio-canvas studio-logo ${logoBg ? 'has-bg' : 'no-bg'}`}

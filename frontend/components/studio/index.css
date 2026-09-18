@@ -1,75 +1,55 @@
 #studio {
   position: relative;
-  min-height: calc(100vh - 120px);
-  padding: 64px 24px 100px;
+  min-height: 100dvh;
 }
 
-.studio-inner {
+#studio > .sw {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.studio-header {
-  margin-bottom: 24px;
+.studio-intro {
+  margin-top: 12px;
+  margin-bottom: 0;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 42ch;
 }
 
-.studio-title {
-  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin: 0 0 8px;
-  color: var(--white, hsl(0, 0%, 97%));
-  text-transform: uppercase;
-}
-
-.studio-desc {
-  color: var(--text-muted, hsl(220, 10%, 55%));
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-/* ---- Tabs (must be visible) ---- */
+/* Tabs */
 .studio-tabs {
-  display: flex !important;
-  flex-direction: row;
-  gap: 10px;
+  display: flex;
+  gap: 8px;
   margin-bottom: 28px;
-  visibility: visible !important;
-  opacity: 1 !important;
+  flex-wrap: wrap;
 }
 
 .studio-tab {
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: hsl(250, 21%, 8%);
-  border: 1px solid hsl(220, 18%, 18%);
-  color: hsl(220, 10%, 70%);
-  padding: 12px 22px;
+  background: var(--bg5, hsl(250, 21%, 5.5%));
+  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  color: var(--text-muted, hsl(220, 10%, 55%));
+  padding: 10px 18px;
   border-radius: 8px;
   font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: all 0.15s ease;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
 .studio-tab:hover {
-  color: #fff;
-  border-color: hsl(220, 18%, 30%);
-  background: hsl(250, 21%, 11%);
+  color: var(--white);
+  border-color: var(--rule2, hsl(220, 18%, 20%));
 }
 
 .studio-tab.active {
-  background: hsla(220, 95%, 76%, 0.15);
-  border-color: hsl(220, 95%, 76%);
-  color: hsl(220, 95%, 76%);
+  background: hsla(220, 95%, 76%, 0.12);
+  border-color: var(--blue, hsl(220, 95%, 76%));
+  color: var(--blue, hsl(220, 95%, 76%));
 }
 
 /* Panel */
@@ -91,15 +71,15 @@
   flex-direction: column;
   gap: 6px;
   font-size: 0.8rem;
-  color: var(--text-muted, hsl(220, 10%, 55%));
+  color: var(--text-muted);
   font-weight: 500;
 }
 
 .studio-controls input[type='text'],
 .studio-controls input:not([type]) {
-  background: hsl(250, 21%, 5.5%);
-  border: 1px solid hsl(220, 18%, 9%);
-  color: #fff;
+  background: var(--bg5, hsl(250, 21%, 5.5%));
+  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  color: var(--white);
   padding: 10px 14px;
   border-radius: 8px;
   min-width: 280px;
@@ -108,7 +88,7 @@
 
 .studio-controls input:focus {
   outline: none;
-  border-color: hsl(220, 95%, 76%);
+  border-color: var(--blue);
 }
 
 .studio-check {
@@ -120,13 +100,13 @@
 }
 
 .studio-check input {
-  accent-color: hsl(220, 95%, 76%);
+  accent-color: var(--blue);
   width: 16px;
   height: 16px;
 }
 
 .studio-btn {
-  background: hsl(220, 95%, 76%);
+  background: var(--blue, hsl(220, 95%, 76%));
   color: hsl(250, 25%, 8%);
   border: none;
   padding: 11px 20px;
@@ -143,12 +123,18 @@
   filter: brightness(1.08);
 }
 
+/* Preview */
 .studio-preview-wrap {
   overflow: auto;
-  border: 1px solid hsl(220, 18%, 9%);
+  border: 1px solid var(--rule, hsl(220, 18%, 9%));
   border-radius: 12px;
-  background: hsl(252, 20%, 4%);
+  background: var(--bg3, hsl(252, 20%, 4%));
   padding: 16px;
+}
+
+.studio-preview-wrap--logo {
+  display: flex;
+  justify-content: center;
 }
 
 .studio-canvas {
@@ -156,13 +142,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   overflow: hidden;
   flex-shrink: 0;
   box-sizing: border-box;
 }
 
+/* Open Graph */
 .studio-og {
   background: hsl(250, 25%, 2%);
 }
@@ -208,8 +195,9 @@
   font-weight: 300;
 }
 
+/* Logo – preview only checkerboard; stripped on transparent export */
 .studio-logo.has-bg {
-  background: hsl(252, 20%, 4.5%);
+  background: hsl(252, 20%, 4.5%); /* --bg4 */
 }
 
 .studio-logo.no-bg {
@@ -222,14 +210,19 @@
   background-position: 0 0, 0 12px, 12px -12px, -12px 0;
 }
 
+.studio-logo.export-transparent {
+  background: transparent !important;
+  background-image: none !important;
+}
+
 .studio-hint {
   font-size: 0.85rem;
-  color: var(--text-muted, hsl(220, 10%, 55%));
+  color: var(--text-muted);
   margin: 0;
 }
 
 .studio-hint code {
-  background: hsl(250, 21%, 5.5%);
+  background: var(--bg5);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.8rem;
