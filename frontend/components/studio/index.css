@@ -185,19 +185,6 @@
   background-image: none !important;
 }
 
-.studio-hint {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin: 0;
-}
-
-.studio-hint code {
-  background: var(--bg5);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-}
-
 .studio-og-tagline.is-placeholder {
   visibility: hidden;
   user-select: none;

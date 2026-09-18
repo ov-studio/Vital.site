@@ -196,10 +196,6 @@ export function Studio() {
                 </div>
               </div>
             </div>
-            <p className="studio-hint">
-              Save as <code>frontend/public/cdn/og.png</code> — backend{' '}
-              <code>/og</code> serves this file for homepage Open Graph.
-            </p>
           </div>
         )}
 
