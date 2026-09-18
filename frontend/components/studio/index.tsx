@@ -2,6 +2,7 @@
 
 import * as react from 'react';
 import * as ui_brand from '@/ui/brand';
+import * as ui_wallpaper from '@/ui/wallpaper';
 import './index.css';
 
 type Section = 'og' | 'logo';
@@ -67,6 +68,9 @@ export function Studio() {
 
   return (
     <section id="studio">
+      {/* Site wallpaper pattern */}
+      <ui_wallpaper.Wallpaper seed={0} opacity={0.1} />
+
       <div className="studio-inner">
         <header className="studio-header">
           <h1 className="studio-title">Brand Studio</h1>
@@ -75,29 +79,25 @@ export function Studio() {
           </p>
         </header>
 
-        {/* Tabs – Open Graph | Logo Export */}
-        <nav className="studio-tabs" role="tablist">
+        {/* ========== TABS ========== */}
+        <div className="studio-tabs">
           <button
             type="button"
-            role="tab"
-            aria-selected={section === 'og'}
-            className={`studio-tab ${section === 'og' ? 'active' : ''}`}
+            className={section === 'og' ? 'studio-tab active' : 'studio-tab'}
             onClick={() => setSection('og')}
           >
             Open Graph
           </button>
           <button
             type="button"
-            role="tab"
-            aria-selected={section === 'logo'}
-            className={`studio-tab ${section === 'logo' ? 'active' : ''}`}
+            className={section === 'logo' ? 'studio-tab active' : 'studio-tab'}
             onClick={() => setSection('logo')}
           >
             Logo Export
           </button>
-        </nav>
+        </div>
 
-        {/* ─── Open Graph ─── */}
+        {/* ========== OPEN GRAPH ========== */}
         {section === 'og' && (
           <div className="studio-panel">
             <div className="studio-controls">
@@ -141,7 +141,7 @@ export function Studio() {
           </div>
         )}
 
-        {/* ─── Logo Export ─── */}
+        {/* ========== LOGO EXPORT ========== */}
         {section === 'logo' && (
           <div className="studio-panel">
             <div className="studio-controls">

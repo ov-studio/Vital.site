@@ -5,12 +5,14 @@
 }
 
 .studio-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .studio-header {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .studio-title {
@@ -20,6 +22,7 @@
   letter-spacing: 0.04em;
   margin: 0 0 8px;
   color: var(--white, hsl(0, 0%, 97%));
+  text-transform: uppercase;
 }
 
 .studio-desc {
@@ -28,37 +31,45 @@
   font-size: 0.95rem;
 }
 
-/* Tabs */
+/* ---- Tabs (must be visible) ---- */
 .studio-tabs {
-  display: flex;
-  gap: 8px;
+  display: flex !important;
+  flex-direction: row;
+  gap: 10px;
   margin-bottom: 28px;
-  flex-wrap: wrap;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .studio-tab {
-  background: var(--bg5, hsl(250, 21%, 5.5%));
-  border: 1px solid var(--rule, hsl(220, 18%, 9%));
-  color: var(--text-muted, hsl(220, 10%, 55%));
-  padding: 10px 18px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: hsl(250, 21%, 8%);
+  border: 1px solid hsl(220, 18%, 18%);
+  color: hsl(220, 10%, 70%);
+  padding: 12px 22px;
   border-radius: 8px;
   font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: all 0.15s ease;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .studio-tab:hover {
-  color: var(--white);
-  border-color: var(--rule2, hsl(220, 18%, 20%));
+  color: #fff;
+  border-color: hsl(220, 18%, 30%);
+  background: hsl(250, 21%, 11%);
 }
 
 .studio-tab.active {
-  background: hsla(220, 95%, 76%, 0.12);
-  border-color: var(--blue, hsl(220, 95%, 76%));
-  color: var(--blue, hsl(220, 95%, 76%));
+  background: hsla(220, 95%, 76%, 0.15);
+  border-color: hsl(220, 95%, 76%);
+  color: hsl(220, 95%, 76%);
 }
 
 /* Panel */
@@ -80,15 +91,15 @@
   flex-direction: column;
   gap: 6px;
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-muted, hsl(220, 10%, 55%));
   font-weight: 500;
 }
 
 .studio-controls input[type='text'],
 .studio-controls input:not([type]) {
-  background: var(--bg5, hsl(250, 21%, 5.5%));
-  border: 1px solid var(--rule, hsl(220, 18%, 9%));
-  color: var(--white);
+  background: hsl(250, 21%, 5.5%);
+  border: 1px solid hsl(220, 18%, 9%);
+  color: #fff;
   padding: 10px 14px;
   border-radius: 8px;
   min-width: 280px;
@@ -97,7 +108,7 @@
 
 .studio-controls input:focus {
   outline: none;
-  border-color: var(--blue);
+  border-color: hsl(220, 95%, 76%);
 }
 
 .studio-check {
@@ -109,13 +120,13 @@
 }
 
 .studio-check input {
-  accent-color: var(--blue);
+  accent-color: hsl(220, 95%, 76%);
   width: 16px;
   height: 16px;
 }
 
 .studio-btn {
-  background: var(--blue, hsl(220, 95%, 76%));
+  background: hsl(220, 95%, 76%);
   color: hsl(250, 25%, 8%);
   border: none;
   padding: 11px 20px;
@@ -132,16 +143,14 @@
   filter: brightness(1.08);
 }
 
-/* Preview – scroll container is NOT part of the export */
 .studio-preview-wrap {
   overflow: auto;
-  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  border: 1px solid hsl(220, 18%, 9%);
   border-radius: 12px;
-  background: var(--bg3, hsl(252, 20%, 4%));
+  background: hsl(252, 20%, 4%);
   padding: 16px;
 }
 
-/* Exact export target – no margin/padding */
 .studio-canvas {
   position: relative;
   display: flex;
@@ -154,7 +163,6 @@
   box-sizing: border-box;
 }
 
-/* Open Graph */
 .studio-og {
   background: hsl(250, 25%, 2%);
 }
@@ -200,9 +208,8 @@
   font-weight: 300;
 }
 
-/* Logo export */
 .studio-logo.has-bg {
-  background: hsl(252, 20%, 4.5%); /* --bg4 */
+  background: hsl(252, 20%, 4.5%);
 }
 
 .studio-logo.no-bg {
@@ -217,12 +224,12 @@
 
 .studio-hint {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-muted, hsl(220, 10%, 55%));
   margin: 0;
 }
 
 .studio-hint code {
-  background: var(--bg5);
+  background: hsl(250, 21%, 5.5%);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.8rem;
