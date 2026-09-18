@@ -27,9 +27,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg5, hsl(250, 21%, 5.5%));
-  border: 1px solid var(--rule, hsl(220, 18%, 9%));
-  color: var(--text-muted, hsl(220, 10%, 55%));
+  background: var(--bg5);
+  border: 1px solid var(--rule);
+  color: var(--text-muted);
   padding: 10px 18px;
   border-radius: 8px;
   font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
@@ -42,13 +42,13 @@
 
 .studio-tab:hover {
   color: var(--white);
-  border-color: var(--rule2, hsl(220, 18%, 20%));
+  border-color: var(--rule2);
 }
 
 .studio-tab.active {
   background: hsla(220, 95%, 76%, 0.12);
-  border-color: var(--blue, hsl(220, 95%, 76%));
-  color: var(--blue, hsl(220, 95%, 76%));
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .studio-panel {
@@ -75,8 +75,8 @@
 
 .studio-controls input[type='text'],
 .studio-controls input:not([type]) {
-  background: var(--bg5, hsl(250, 21%, 5.5%));
-  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  background: var(--bg5);
+  border: 1px solid var(--rule);
   color: var(--white);
   padding: 10px 14px;
   border-radius: 8px;
@@ -104,8 +104,8 @@
 }
 
 .studio-btn {
-  background: var(--blue, hsl(220, 95%, 76%));
-  color: hsl(250, 25%, 8%);
+  background: var(--blue);
+  color: var(--bg);
   border: none;
   padding: 11px 20px;
   border-radius: 8px;
@@ -123,9 +123,9 @@
 
 .studio-preview-wrap {
   overflow: auto;
-  border: 1px solid var(--rule, hsl(220, 18%, 9%));
+  border: 1px solid var(--rule);
   border-radius: 12px;
-  background: var(--bg3, hsl(252, 20%, 4%));
+  background: var(--bg3);
   padding: 16px;
 }
 
@@ -147,15 +147,15 @@
 }
 
 /*
- * Same slanted-line background as homepage #hero
- * (repeating-linear-gradient 45deg + --rule7)
+ * Same as homepage #hero:
+ * base is page --bg, lines use --rule7
  */
 .studio-og {
-  background-color: hsl(250, 25%, 2%);
+  background-color: var(--bg);
   background-image: repeating-linear-gradient(
     45deg,
     transparent,
-    var(--rule7, hsl(220, 18%, 7%)) 2px,
+    var(--rule7) 2px,
     transparent 2px,
     transparent 40px
   );
@@ -179,28 +179,29 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: hsl(220, 10%, 55%);
+  color: var(--text-muted);
 }
 
 .studio-og-tagline .hl {
-  color: hsl(0, 0%, 97%);
+  color: var(--white);
 }
 
 .studio-og-tagline .sep {
-  color: hsl(220, 10%, 22%);
+  color: var(--dim, var(--rule2));
   font-weight: 300;
 }
 
+/* Logo export – same --bg4 as site */
 .studio-logo.has-bg {
-  background: hsl(252, 20%, 4.5%);
+  background: var(--bg4);
 }
 
 .studio-logo.no-bg {
   background-image:
-    linear-gradient(45deg, #1a1a1e 25%, transparent 25%),
-    linear-gradient(-45deg, #1a1a1e 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #1a1a1e 75%),
-    linear-gradient(-45deg, transparent 75%, #1a1a1e 75%);
+    linear-gradient(45deg, var(--bg5) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--bg5) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--bg5) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--bg5) 75%);
   background-size: 24px 24px;
   background-position: 0 0, 0 12px, 12px -12px, -12px 0;
 }
