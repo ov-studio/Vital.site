@@ -1,0 +1,63 @@
+.ui-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+
+.ui-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--rule);
+  border: none;
+  padding: 11px 16px 14px;
+  margin: 0 0 -2px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  z-index: 3;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.ui-tab svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.18s ease, color 0.18s ease;
+}
+
+.ui-tab:hover:not(:disabled) {
+  color: var(--dim);
+}
+
+.ui-tab:hover:not(:disabled) svg {
+  opacity: 0.9;
+}
+
+.ui-tab--active {
+  color: var(--blue);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
+  z-index: 4;
+}
+
+.ui-tab--active svg {
+  color: var(--blue);
+  opacity: 1;
+}
+
+.ui-tab--active:hover:not(:disabled) {
+  color: var(--blue);
+}
+
+.ui-tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
