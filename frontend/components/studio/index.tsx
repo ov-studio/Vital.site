@@ -11,8 +11,9 @@ type Section = 'og' | 'logo';
 
 const OG_W = 1000;
 const OG_H = 300;
-const LOGO_W = 640;
-const LOGO_H = 640;
+const LOGO_W = 560;
+const LOGO_H_TIGHT = 300;
+const LOGO_H_PAD = 400;
 
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
@@ -20,9 +21,11 @@ export function Studio() {
   const [ogPlaceholder, setOgPlaceholder] = react.useState(false);
   const [logoNeon, setLogoNeon] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
+  const [logoPad, setLogoPad] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
+  const logoH = logoPad ? LOGO_H_PAD : LOGO_H_TIGHT;
 
   async function download(
     ref: react.RefObject<HTMLDivElement | null>,
@@ -212,6 +215,14 @@ export function Studio() {
                 />
                 Background (--bg4)
               </label>
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={logoPad}
+                  onChange={(e) => setLogoPad(e.target.checked)}
+                />
+                Extra padding
+              </label>
               <button
                 type="button"
                 className="ws-action-btn ws-apply-btn"
@@ -221,7 +232,7 @@ export function Studio() {
                     logoNeon ? 'neon' : 'solid',
                     logoBg ? 'bg' : 'transparent',
                   ].join('-');
-                  download(logoRef, `${name}.png`, LOGO_W, LOGO_H, {
+                  download(logoRef, `${name}.png`, LOGO_W, logoH, {
                     transparent: !logoBg,
                   });
                 }}
@@ -234,7 +245,7 @@ export function Studio() {
               <div
                 ref={logoRef}
                 className={`studio-canvas studio-logo ${logoBg ? 'has-bg' : 'no-bg'}`}
-                style={{ width: LOGO_W, height: LOGO_H }}
+                style={{ width: LOGO_W, height: logoH }}
               >
                 <ui_brand.Brand
                   size="xxl"
