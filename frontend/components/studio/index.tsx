@@ -15,8 +15,6 @@ const LOGO_H = 640;
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
-  const [ogGrid, setOgGrid] = react.useState(true);
-  const [ogWallpaper, setOgWallpaper] = react.useState(false);
   const [logoNeon, setLogoNeon] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
 
@@ -126,7 +124,7 @@ export function Studio() {
           </button>
         </div>
 
-        {/* Open Graph */}
+        {/* Open Graph – background matches homepage hero (slanted lines) */}
         {section === 'og' && (
           <div className="studio-panel">
             <div className="studio-controls">
@@ -137,22 +135,6 @@ export function Studio() {
                   onChange={(e) => setTagline(e.target.value)}
                   placeholder="Script It — Ship It — Limitless"
                 />
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={ogGrid}
-                  onChange={(e) => setOgGrid(e.target.checked)}
-                />
-                Grid
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={ogWallpaper}
-                  onChange={(e) => setOgWallpaper(e.target.checked)}
-                />
-                Wallpaper
               </label>
               <button
                 type="button"
@@ -169,10 +151,6 @@ export function Studio() {
                 className="studio-canvas studio-og"
                 style={{ width: OG_W, height: OG_H }}
               >
-                {ogWallpaper && (
-                  <div className="studio-og-wallpaper" aria-hidden />
-                )}
-                {ogGrid && <div className="studio-og-grid" />}
                 <div className="studio-og-content">
                   <ui_brand.Brand size="xl" variant="logo-only" neon={true} />
                   <div className="studio-og-tagline">
