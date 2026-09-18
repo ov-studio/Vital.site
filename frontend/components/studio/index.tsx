@@ -2,7 +2,9 @@
 
 import * as react from 'react';
 import * as ui_brand from '@/ui/brand';
+import * as ui_search from '@/ui/search';
 import * as ui_wallpaper from '@/ui/wallpaper';
+import * as lucide from 'lucide-react';
 import './index.css';
 
 type Section = 'og' | 'logo';
@@ -107,41 +109,48 @@ export function Studio() {
           </p>
         </div>
 
-        <div className="studio-tabs">
-          <button
-            type="button"
-            className={section === 'og' ? 'studio-tab active' : 'studio-tab'}
-            onClick={() => setSection('og')}
-          >
-            Open Graph
-          </button>
-          <button
-            type="button"
-            className={section === 'logo' ? 'studio-tab active' : 'studio-tab'}
-            onClick={() => setSection('logo')}
-          >
-            Logo Export
-          </button>
+        {/* Tabs – same pattern as workspace (.ws-tabs) */}
+        <div className="studio-panel-head">
+          <div className="ws-tabs" role="tablist" aria-label="Studio sections">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={section === 'og'}
+              className={`ws-tab${section === 'og' ? ' ws-tab--active' : ''}`}
+              onClick={() => setSection('og')}
+            >
+              <lucide.Image size={14} strokeWidth={2.25} />
+              Open Graph
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={section === 'logo'}
+              className={`ws-tab${section === 'logo' ? ' ws-tab--active' : ''}`}
+              onClick={() => setSection('logo')}
+            >
+              <lucide.Shapes size={14} strokeWidth={2.25} />
+              Logo Export
+            </button>
+          </div>
         </div>
 
-        {/* Open Graph – background matches homepage hero (slanted lines) */}
+        {/* Open Graph */}
         {section === 'og' && (
           <div className="studio-panel">
             <div className="studio-controls">
-              <label>
-                Tagline
-                <input
-                  value={tagline}
-                  onChange={(e) => setTagline(e.target.value)}
-                  placeholder="Script It — Ship It — Limitless"
-                />
-              </label>
+              <ui_search.Search
+                value={tagline}
+                onChange={setTagline}
+                placeholder="Tagline…"
+                icon={<lucide.Type size={14} strokeWidth={2} />}
+              />
               <button
                 type="button"
-                className="studio-btn"
+                className="btn-primary"
                 onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
               >
-                Download PNG (1000×300)
+                Download PNG
               </button>
             </div>
 
@@ -193,7 +202,7 @@ export function Studio() {
               </label>
               <button
                 type="button"
-                className="studio-btn"
+                className="btn-primary"
                 onClick={() => {
                   const name = [
                     'logo',

@@ -16,85 +16,112 @@
   max-width: 42ch;
 }
 
-.studio-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
+/* ── Tabs: same as workspace (.ws-tabs / .ws-tab) ── */
+.studio-panel-head {
+  margin-bottom: 0;
 }
 
-.studio-tab {
+#studio .ws-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+
+#studio .ws-tab {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: var(--bg5);
-  border: 1px solid var(--rule);
-  color: var(--text-muted);
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  gap: 8px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.72rem;
   font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--rule);
+  border: none;
+  padding: 11px 16px 14px;
+  margin: 0 0 -2px;
+  border-radius: 6px 6px 0 0;
   cursor: pointer;
-  transition: all 0.15s ease;
+  z-index: 3;
+  transition: color 0.18s ease, background 0.18s ease;
 }
 
-.studio-tab:hover {
-  color: var(--white);
-  border-color: var(--rule2);
+#studio .ws-tab svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.18s ease, color 0.18s ease;
 }
 
-.studio-tab.active {
-  background: hsla(220, 95%, 76%, 0.12);
-  border-color: var(--blue);
+#studio .ws-tab:hover {
+  color: var(--dim);
+}
+
+#studio .ws-tab:hover svg {
+  opacity: 0.9;
+}
+
+#studio .ws-tab--active {
+  color: var(--blue);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
+  z-index: 4;
+}
+
+#studio .ws-tab--active svg {
+  color: var(--blue);
+  opacity: 1;
+}
+
+#studio .ws-tab--active:hover {
   color: var(--blue);
 }
 
+/* Panel sits under tabs like workspace */
 .studio-panel {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background: var(--bg7);
+  border: 2px solid var(--b10);
+  border-radius: 0 6px 6px 6px;
+  padding: 20px;
 }
 
 .studio-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-end;
+  gap: 12px;
+  align-items: center;
 }
 
-.studio-controls label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 500;
+/* Search is wider for taglines */
+.studio-controls .ui-search input {
+  width: 280px;
 }
 
-.studio-controls input[type='text'],
-.studio-controls input:not([type]) {
-  background: var(--bg5);
-  border: 1px solid var(--rule);
-  color: var(--white);
-  padding: 10px 14px;
-  border-radius: 8px;
-  min-width: 280px;
-  font-size: 0.95rem;
+.studio-controls .ui-search input:focus {
+  width: 320px;
 }
 
-.studio-controls input:focus {
-  outline: none;
-  border-color: var(--blue);
+/* Primary button – slightly tighter for toolbar */
+.studio-controls .btn-primary {
+  padding: 10px 28px;
+  cursor: pointer;
 }
 
 .studio-check {
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 8px !important;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
   cursor: pointer;
-  padding-bottom: 10px;
 }
 
 .studio-check input {
@@ -103,28 +130,10 @@
   height: 16px;
 }
 
-.studio-btn {
-  background: var(--blue);
-  color: var(--bg);
-  border: none;
-  padding: 11px 20px;
-  border-radius: 8px;
-  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  transition: filter 0.15s ease;
-}
-
-.studio-btn:hover {
-  filter: brightness(1.08);
-}
-
 .studio-preview-wrap {
   overflow: auto;
   border: 1px solid var(--rule);
-  border-radius: 12px;
+  border-radius: 6px;
   background: var(--bg3);
   padding: 16px;
 }
@@ -146,10 +155,7 @@
   box-sizing: border-box;
 }
 
-/*
- * Same as homepage #hero:
- * base is page --bg, lines use --rule7
- */
+/* Same as homepage #hero */
 .studio-og {
   background-color: var(--bg);
   background-image: repeating-linear-gradient(
@@ -191,7 +197,6 @@
   font-weight: 300;
 }
 
-/* Logo export – same --bg4 as site */
 .studio-logo.has-bg {
   background: var(--bg4);
 }
