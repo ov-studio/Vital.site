@@ -6,8 +6,6 @@ import * as lib_page_loading from '@/lib/page_loading';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_tabs          from '@/ui/tabs';
 import * as ui_table         from '@/ui/table';
-import '@/ui/table/index.css';
-import '@/ui/tabs/index.css';
 import * as ui_search        from '@/ui/search';
 import * as ui_divider       from '@/ui/divider';
 import * as lucide           from 'lucide-react';
@@ -295,9 +293,8 @@ export function Workspace() {
 
             <div className="ws-panel">
               <div className="ws-panel-body ws-panel-body--list">
-                <div className="ui-table-wrap">
-                  <table className="ui-table ui-table--apps">
-                    <thead>
+                <ui_table.Table className="ui-table--apps">
+<thead>
                       <tr>
                         <th>Server</th>
                         <th>Approved</th>
@@ -375,8 +372,7 @@ export function Workspace() {
                         })
                       )}
                     </tbody>
-                  </table>
-                </div>
+                  </ui_table.Table>
               </div>
             </div>
 
@@ -432,9 +428,8 @@ export function Workspace() {
                   </div>
 
                   {tab === 'pending' && (
-                    <div className="ui-table-wrap">
-                      <table className="ui-table">
-                        <thead>
+                    <ui_table.Table>
+<thead>
                           <tr>
                             <th>Server</th>
                             <th>Author</th>
@@ -470,14 +465,12 @@ export function Workspace() {
                             ))
                           )}
                         </tbody>
-                      </table>
-                    </div>
+                      </ui_table.Table>
                   )}
 
                   {tab === 'tokens' && (
-                    <div className="ui-table-wrap">
-                      <table className="ui-table">
-                        <thead>
+                    <ui_table.Table>
+<thead>
                           <tr>
                             <th>Server</th>
                             <th>Author</th>
@@ -512,8 +505,7 @@ export function Workspace() {
                             ))
                           )}
                         </tbody>
-                      </table>
-                    </div>
+                      </ui_table.Table>
                   )}
                 </div>
               </>
