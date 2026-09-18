@@ -17,6 +17,7 @@ const LOGO_H = 640;
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
+  const [ogPlaceholder, setOgPlaceholder] = react.useState(false);
   const [logoNeon, setLogoNeon] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
 
@@ -139,6 +140,14 @@ export function Studio() {
                 placeholder="Tagline…"
                 icon={<lucide.Type size={14} strokeWidth={2}/>}
               />
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={ogPlaceholder}
+                  onChange={(e) => setOgPlaceholder(e.target.checked)}
+                />
+                Placeholder
+              </label>
               <button
                 type="button"
                 className="ws-action-btn ws-apply-btn"
@@ -156,14 +165,23 @@ export function Studio() {
               >
                 <div className="studio-og-content">
                   <ui_brand.Brand size="xl" variant="logo-only" neon={true}/>
-                  <div className="studio-og-tagline">
-                    {tagline.split('—').map((part, i, arr) => (
-                      <react.Fragment key={i}>
-                        <span className={i === 1 ? 'hl' : ''}>{part.trim()}</span>
-                        {i < arr.length - 1 && <span className="sep">—</span>}
-                      </react.Fragment>
-                    ))}
-                  </div>
+                  {(tagline.trim() || ogPlaceholder) && (
+                    <div
+                      className={`studio-og-tagline${
+                        !tagline.trim() && ogPlaceholder ? ' is-placeholder' : ''
+                      }`}
+                      aria-hidden={!tagline.trim()}
+                    >
+                      {tagline.trim()
+                        ? tagline.split('—').map((part, i, arr) => (
+                            <react.Fragment key={i}>
+                              <span className={i === 1 ? 'hl' : ''}>{part.trim()}</span>
+                              {i < arr.length - 1 && <span className="sep">—</span>}
+                            </react.Fragment>
+                          ))
+                        : '\u00a0'}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
