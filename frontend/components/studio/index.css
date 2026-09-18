@@ -190,11 +190,14 @@
   user-select: none;
 }
 
-.studio-logo .brand--xxl {
-  --brand-logo-size: 10.5rem;
+.studio-logo.is-round {
+  border-radius: 18px;
 }
 
-.studio-logo.is-round {
-  border-radius: 50%;
-  overflow: hidden;
+.studio-logo .brand--xxl {
+  --brand-logo-size: 9.5rem;
+}
+
+.studio-canvas.studio-logo {
+  overflow: visible;
 }

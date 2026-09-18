@@ -14,8 +14,8 @@ const OG_H = 300;
 const LOGO_W = 560;
 const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
-const LOGO_SQ_TIGHT = 320;
-const LOGO_SQ_PAD = 400;
+const LOGO_SQ_TIGHT = 380;
+const LOGO_SQ_PAD = 460;
 
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
