@@ -16,7 +16,6 @@
   max-width: 42ch;
 }
 
-/* Tabs */
 .studio-tabs {
   display: flex;
   gap: 8px;
@@ -52,7 +51,6 @@
   color: var(--blue, hsl(220, 95%, 76%));
 }
 
-/* Panel */
 .studio-panel {
   display: flex;
   flex-direction: column;
@@ -123,7 +121,6 @@
   filter: brightness(1.08);
 }
 
-/* Preview */
 .studio-preview-wrap {
   overflow: auto;
   border: 1px solid var(--rule, hsl(220, 18%, 9%));
@@ -149,9 +146,25 @@
   box-sizing: border-box;
 }
 
-/* Open Graph */
 .studio-og {
   background: hsl(250, 25%, 2%);
+}
+
+/* Optional wallpaper tile inside OG canvas (same as site seed-0) */
+.studio-og-wallpaper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-color: var(--brand-neon-mid, hsl(220, 95%, 70%));
+  -webkit-mask-image: url('/cdn/wallpaper/seed-0.webp');
+  mask-image: url('/cdn/wallpaper/seed-0.webp');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 .studio-og-grid {
@@ -195,9 +208,8 @@
   font-weight: 300;
 }
 
-/* Logo – preview only checkerboard; stripped on transparent export */
 .studio-logo.has-bg {
-  background: hsl(252, 20%, 4.5%); /* --bg4 */
+  background: hsl(252, 20%, 4.5%);
 }
 
 .studio-logo.no-bg {

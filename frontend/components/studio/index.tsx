@@ -15,6 +15,8 @@ const LOGO_H = 640;
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
+  const [ogGrid, setOgGrid] = react.useState(true);
+  const [ogWallpaper, setOgWallpaper] = react.useState(false);
   const [logoNeon, setLogoNeon] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
 
@@ -47,7 +49,6 @@ export function Studio() {
     const prevBg = el.style.background;
     const prevBgImage = el.style.backgroundImage;
 
-    // For transparent exports: strip checkerboard so it is not baked in
     if (opts?.transparent) {
       el.classList.remove('no-bg');
       el.classList.add('export-transparent');
@@ -93,7 +94,6 @@ export function Studio() {
       <ui_wallpaper.Wallpaper seed={0} opacity={0.1} />
 
       <div className="sw">
-        {/* Page head – same pattern as Vault / Roadmap */}
         <div className="page-head">
           <div className="sec-head sec-head--intro">
             <div>
@@ -109,7 +109,6 @@ export function Studio() {
           </p>
         </div>
 
-        {/* Tabs */}
         <div className="studio-tabs">
           <button
             type="button"
@@ -139,10 +138,26 @@ export function Studio() {
                   placeholder="Script It — Ship It — Limitless"
                 />
               </label>
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={ogGrid}
+                  onChange={(e) => setOgGrid(e.target.checked)}
+                />
+                Grid
+              </label>
+              <label className="studio-check">
+                <input
+                  type="checkbox"
+                  checked={ogWallpaper}
+                  onChange={(e) => setOgWallpaper(e.target.checked)}
+                />
+                Wallpaper
+              </label>
               <button
                 type="button"
                 className="studio-btn"
-                onClick={() => download(ogRef, 'og-homepage.png', OG_W, OG_H)}
+                onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
               >
                 Download PNG (1000×300)
               </button>
@@ -154,7 +169,10 @@ export function Studio() {
                 className="studio-canvas studio-og"
                 style={{ width: OG_W, height: OG_H }}
               >
-                <div className="studio-og-grid" />
+                {ogWallpaper && (
+                  <div className="studio-og-wallpaper" aria-hidden />
+                )}
+                {ogGrid && <div className="studio-og-grid" />}
                 <div className="studio-og-content">
                   <ui_brand.Brand size="xl" variant="logo-only" neon={true} />
                   <div className="studio-og-tagline">
@@ -168,6 +186,10 @@ export function Studio() {
                 </div>
               </div>
             </div>
+            <p className="studio-hint">
+              Save as <code>frontend/public/cdn/og.png</code> — backend{' '}
+              <code>/og</code> serves this file for homepage Open Graph.
+            </p>
           </div>
         )}
 
@@ -222,10 +244,6 @@ export function Studio() {
                 />
               </div>
             </div>
-            <p className="studio-hint">
-              For backend <code>/og</code>: export <strong>Neon + Background</strong>, save as{' '}
-              <code>frontend/public/cdn/brand/logo-neon.png</code>
-            </p>
           </div>
         )}
       </div>

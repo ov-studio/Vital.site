@@ -1,113 +1,40 @@
 import * as lib_api_url from '@/lib/api_url';
-import * as next_og from 'next/og';
+import * as next from 'next';
 
 /**
  * Homepage Open Graph image.
  *
- * Uses a pre-exported neon logo from Brand Studio
- * (/studio → Logo Export → logo-neon.png
- *  → frontend/public/cdn/brand/logo-neon.png).
+ * Serves the static asset exported from Brand Studio:
+ *   frontend/public/cdn/og.png
+ *
+ * Workflow:
+ *   1. Open /studio → Open Graph → Download PNG
+ *   2. Save as frontend/public/cdn/og.png
+ *   3. This route proxies that file with long cache headers
  */
-
-const bg    = 'hsl(250, 25%, 2%)';
-const rule  = 'hsl(220, 18%, 9%)';
-const muted = 'hsl(220, 10%, 55%)';
-const faint = 'hsl(220, 10%, 22%)';
-const white = 'hsl(0, 0%, 97%)';
 
 export async function GET() {
   const frontend_url = lib_api_url.get_frontend_url();
+  const res = await fetch(`${frontend_url}/cdn/og.png`, {
+    // avoid stale CDN during local iteration
+    cache: 'no-store',
+  });
 
-  const [logoBuf, rajdhani] = await Promise.all([
-    fetch(`${frontend_url}/cdn/brand/logo-neon.png`).then((r) => {
-      if (!r.ok) {
-        throw new Error(
-          `Missing logo-neon.png (${r.status}). ` +
-            `Export from /studio → Logo Export and place at public/cdn/brand/logo-neon.png`
-        );
-      }
-      return r.arrayBuffer();
-    }),
-    fetch(`${frontend_url}/font/Rajdhani-Bold.ttf`).then((r) => {
-      if (!r.ok) throw new Error(`Failed to fetch font: ${r.status}`);
-      return r.arrayBuffer();
-    }),
-  ]);
+  if (!res.ok) {
+    return new next.NextResponse(
+      `Missing /cdn/og.png (${res.status}). Export from /studio and save to frontend/public/cdn/og.png`,
+      { status: 404, headers: { 'Content-Type': 'text/plain' } }
+    );
+  }
 
-  const logosrc = `data:image/png;base64,${Buffer.from(logoBuf).toString('base64')}`;
+  const buf = await res.arrayBuffer();
 
-  return new next_og.ImageResponse(
-    (
-      <div
-        style={{
-          background: bg,
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `linear-gradient(${rule} 1px, transparent 1px), linear-gradient(90deg, ${rule} 1px, transparent 1px)`,
-            backgroundSize: '48px 48px',
-            opacity: 0.65,
-            display: 'flex',
-          }}
-        />
-
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            position: 'relative',
-          }}
-        >
-          <img src={logosrc} width={200} height={150} />
-
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '22px',
-              marginTop: '12px',
-              fontSize: '0.95rem',
-              fontFamily: 'Rajdhani, sans-serif',
-              fontWeight: 600,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-            }}
-          >
-            <span style={{ color: muted }}>Script It</span>
-            <span style={{ color: faint, fontWeight: 300 }}>—</span>
-            <span style={{ color: white }}>Ship It</span>
-            <span style={{ color: faint, fontWeight: 300 }}>—</span>
-            <span style={{ color: muted }}>Limitless</span>
-          </div>
-        </div>
-      </div>
-    ),
-    {
-      width: 1000,
-      height: 300,
-      fonts: [
-        {
-          name: 'Rajdhani',
-          data: rajdhani,
-          weight: 700,
-          style: 'normal',
-        },
-      ],
-      headers: {
-        'Cache-Control':
-          'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-      },
-    }
-  );
+  return new next.NextResponse(buf, {
+    status: 200,
+    headers: {
+      'Content-Type': 'image/png',
+      'Cache-Control':
+        'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+    },
+  });
 }
