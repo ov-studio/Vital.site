@@ -4,6 +4,10 @@ import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as ui_wallpaper     from '@/ui/wallpaper';
+import * as ui_tabs from '@/ui/tabs';
+import * as ui_table from '@/ui/table';
+import '@/ui/table/index.css';
+import '@/ui/tabs/index.css';
 import * as ui_search        from '@/ui/search';
 import * as ui_divider       from '@/ui/divider';
 import * as lucide           from 'lucide-react';
@@ -291,8 +295,8 @@ export function Workspace() {
 
             <div className="ws-panel">
               <div className="ws-panel-body ws-panel-body--list">
-                <div className="ws-table-wrap">
-                  <table className="ws-table ws-table--apps">
+                <div className="ui-table-wrap">
+                  <table className="ui-table ui-table--apps">
                     <thead>
                       <tr>
                         <th>Server</th>
@@ -303,7 +307,7 @@ export function Workspace() {
                     </thead>
                     <tbody>
                       {myApps.length === 0 ? (
-                        <tr className="ws-table-empty">
+                        <tr className="ui-table-empty">
                           <td colSpan={4}>
                             <div className="state-empty">
                               <lucide.KeyRound size={24} strokeWidth={1.5}/>
@@ -399,28 +403,23 @@ export function Workspace() {
 
                 <div className="ws-panel">
                   <div className="ws-panel-head ws-panel-head--tabs">
-                    <div className="ws-tabs" role="tablist" aria-label="Application lists">
-                      <button
-                        type="button"
-                        role="tab"
-                        aria-selected={tab === 'tokens'}
-                        className={`ws-tab${tab === 'tokens' ? ' ws-tab--active' : ''}`}
-                        onClick={() => setTab('tokens')}
-                      >
-                        <lucide.KeyRound size={14} strokeWidth={2.25}/>
-                        Issued
-                      </button>
-                      <button
-                        type="button"
-                        role="tab"
-                        aria-selected={tab === 'pending'}
-                        className={`ws-tab${tab === 'pending' ? ' ws-tab--active' : ''}`}
-                        onClick={() => setTab('pending')}
-                      >
-                        <lucide.Inbox size={14} strokeWidth={2.25}/>
-                        Pending
-                      </button>
-                    </div>
+                    <ui_tabs.Tabs
+                      value={tab}
+                      onChange={(id) => setTab(id as 'tokens' | 'pending')}
+                      ariaLabel="Application lists"
+                      items={[
+                        {
+                          id: 'tokens',
+                          label: 'Issued',
+                          icon: <lucide.KeyRound size={14} strokeWidth={2.25} />,
+                        },
+                        {
+                          id: 'pending',
+                          label: 'Pending',
+                          icon: <lucide.Inbox size={14} strokeWidth={2.25} />,
+                        },
+                      ]}
+                    />
                     {(tab === 'pending' || tab === 'tokens') && (
                       <ui_search.Search
                         className="ws-search-ui"
@@ -433,8 +432,8 @@ export function Workspace() {
                   </div>
 
                   {tab === 'pending' && (
-                    <div className="ws-table-wrap">
-                      <table className="ws-table">
+                    <div className="ui-table-wrap">
+                      <table className="ui-table">
                         <thead>
                           <tr>
                             <th>Server</th>
@@ -445,7 +444,7 @@ export function Workspace() {
                         </thead>
                         <tbody>
                           {filtered_pending.length === 0 ? (
-                            <tr className="ws-table-empty">
+                            <tr className="ui-table-empty">
                               <td colSpan={4}>
                                 <div className="state-empty">
                                   <lucide.Inbox size={28} strokeWidth={1.5}/>
@@ -476,8 +475,8 @@ export function Workspace() {
                   )}
 
                   {tab === 'tokens' && (
-                    <div className="ws-table-wrap">
-                      <table className="ws-table">
+                    <div className="ui-table-wrap">
+                      <table className="ui-table">
                         <thead>
                           <tr>
                             <th>Server</th>
@@ -489,7 +488,7 @@ export function Workspace() {
                         </thead>
                         <tbody>
                           {filtered_tokens.length === 0 ? (
-                            <tr className="ws-table-empty">
+                            <tr className="ui-table-empty">
                               <td colSpan={5}>
                                 <div className="state-empty">
                                   <lucide.KeyRound size={28} strokeWidth={1.5}/>
