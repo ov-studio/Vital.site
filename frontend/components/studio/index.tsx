@@ -291,7 +291,7 @@ export function Studio() {
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
-            <div className="rev">
+            <div>
               <div className="slabel">Studio</div>
               <h2>
                 Brand assets,<br/>

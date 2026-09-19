@@ -113,7 +113,7 @@ export function Benchmarks() {
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
-            <div className="rev">
+            <div>
               <div className="slabel">Benchmarks</div>
               <h2>Lua vs GDScript.<br/>Measured, not <span>marketed.</span></h2>
             </div>

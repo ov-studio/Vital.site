@@ -33,7 +33,7 @@
   border-radius: 0 6px 6px 6px;
   padding: 20px;
   opacity: 0;
-  animation: slide-up .55s .55s forwards;
+  animation: slide-up .55s .48s forwards;
 }
 
 .studio-controls {

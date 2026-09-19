@@ -9,11 +9,12 @@
 }
 
 .tos-intro {
+  margin-top: 12px;
   margin-bottom: 15px;
   line-height: 1.65;
   color: var(--text-muted);
   opacity: 0;
-  animation: slide-up .55s .28s forwards;
+  animation: slide-up .55s .22s forwards;
 }
 
 .tos-effective {
@@ -21,7 +22,7 @@
   font-size: .9rem;
   color: var(--text-muted);
   opacity: 0;
-  animation: slide-up .55s .38s forwards;
+  animation: slide-up .55s .32s forwards;
 }
 
 .tos-body { display: flex; flex-direction: column; }

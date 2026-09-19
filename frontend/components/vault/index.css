@@ -11,11 +11,13 @@
 
 .vault-intro {
   display: flex;
-  margin-top: 15px;
+  margin-top: 12px;
   margin-bottom: 15px;
   line-height: 1.65;
   color: var(--text-muted);
   text-align: left;
+  opacity: 0;
+  animation: slide-up .55s .22s forwards;
 }
 
 .vault-filters {
@@ -23,7 +25,7 @@
   align-items: flex-end;
   gap: 2px;
   opacity: 0;
-  animation: slide-up .55s .3s forwards;
+  animation: slide-up .55s .32s forwards;
 }
 
 .ui-filter.vault-filter-tags {

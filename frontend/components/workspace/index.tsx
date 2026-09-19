@@ -209,7 +209,7 @@ export function Workspace() {
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
-            <div className="rev">
+            <div>
               <div className="slabel">Workspace</div>
               <h2>Your servers.<br/>Managed in one <span>place.</span></h2>
             </div>

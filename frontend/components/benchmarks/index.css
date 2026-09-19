@@ -11,12 +11,11 @@
 
 .bm-intro {
   margin-top: 12px;
-  max-width: 40rem;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--text-soft);
+  max-width: 42ch;
+  line-height: 1.65;
+  color: var(--text-muted);
   opacity: 0;
-  animation: slide-up .55s .28s forwards;
+  animation: slide-up .55s .22s forwards;
 }
 
 .bm-intro code {
