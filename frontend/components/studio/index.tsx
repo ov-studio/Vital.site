@@ -117,7 +117,7 @@ export function Studio() {
         pixelRatio: 2,
         width,
         height,
-        backgroundColor: opts?.transparent ? null : undefined,
+        backgroundColor: opts?.transparent ? 'transparent' : undefined,
         style: {
           transform: 'none',
           margin: '0',
