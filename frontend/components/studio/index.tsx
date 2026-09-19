@@ -87,16 +87,6 @@ export function Studio() {
   const logoW = logoSize ?? LOGO_W;
   const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
 
-  react.useEffect(() => {
-    const root = document.getElementById('studio');
-    if (!root) return;
-    const els = Array.from(root.querySelectorAll<HTMLElement>('.rev:not(.in)'));
-    const timers: number[] = [];
-    els.forEach((el, i) => {
-      timers.push(window.setTimeout(() => el.classList.add('in'), i * 70));
-    });
-    return () => timers.forEach(clearTimeout);
-  }, [section]);
 
   async function capturePng(
     ref: react.RefObject<HTMLDivElement | null>,
@@ -300,8 +290,8 @@ export function Studio() {
 
       <div className="sw">
         <div className="page-head">
-          <div className="sec-head sec-head--intro rev">
-            <div>
+          <div className="sec-head sec-head--intro">
+            <div className="rev">
               <div className="slabel">Studio</div>
               <h2>
                 Brand assets,<br/>
@@ -309,12 +299,12 @@ export function Studio() {
               </h2>
             </div>
           </div>
-          <p className="studio-intro rev">
+          <p className="studio-intro">
             Open Graph images and neon logos using the real Brand component.
           </p>
         </div>
 
-        <div className="studio-panel-head rev">
+        <div className="studio-panel-head">
           <ui_tabs.Tabs
             value={section}
             onChange={(id) => setSection(id as Section)}
@@ -335,7 +325,7 @@ export function Studio() {
         </div>
 
         {section === 'og' && (
-          <div className="studio-panel rev">
+          <div className="studio-panel">
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <ui_search.Search
@@ -406,7 +396,7 @@ export function Studio() {
         )}
 
         {section === 'logo' && (
-          <div className="studio-panel rev">
+          <div className="studio-panel">
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <label className="studio-check">

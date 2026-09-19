@@ -14,10 +14,14 @@
   line-height: 1.65;
   color: var(--text-muted);
   max-width: 42ch;
+  opacity: 0;
+  animation: slide-up .55s .22s forwards;
 }
 
 .studio-panel-head {
   margin-bottom: 0;
+  opacity: 0;
+  animation: slide-up .55s .38s forwards;
 }
 
 .studio-panel {
@@ -28,6 +32,8 @@
   border: 2px solid var(--b10);
   border-radius: 0 6px 6px 6px;
   padding: 20px;
+  opacity: 0;
+  animation: slide-up .55s .55s forwards;
 }
 
 .studio-controls {
