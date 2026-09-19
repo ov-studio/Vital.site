@@ -180,9 +180,9 @@ export function Studio() {
                   {(tagline.trim() || ogPlaceholder) && (
                     <div
                       className={`studio-og-tagline${
-                        !tagline.trim() && ogPlaceholder ? ' is-placeholder' : ''
+                        ogPlaceholder ? ' is-placeholder' : ''
                       }`}
-                      aria-hidden={!tagline.trim()}
+                      aria-hidden={!tagline.trim() || ogPlaceholder}
                     >
                       {tagline.trim()
                         ? tagline.split('—').map((part, i, arr) => (
