@@ -316,12 +316,12 @@ export function Studio() {
             items={[
               {
                 id: 'og',
-                label: 'Open Graph',
+                label: 'Opengraph',
                 icon: <lucide.Image size={14} strokeWidth={2.25}/>,
               },
               {
                 id: 'logo',
-                label: 'Logo Export',
+                label: 'Branding',
                 icon: <lucide.Shapes size={14} strokeWidth={2.25}/>,
               },
             ]}
@@ -332,36 +332,42 @@ export function Studio() {
         {section === 'og' && (
           <div className="studio-panel">
             <div className="studio-controls">
-              <ui_search.Search
-                value={tagline}
-                onChange={setTagline}
-                placeholder="Tagline…"
-                icon={<lucide.Type size={14} strokeWidth={2}/>}
-              />
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={ogPlaceholder}
-                  onChange={(e) => setOgPlaceholder(e.target.checked)}
+              <div className="studio-controls-row">
+                <ui_search.Search
+                  value={tagline}
+                  onChange={setTagline}
+                  placeholder="Tagline…"
+                  icon={<lucide.Type size={14} strokeWidth={2}/>}
                 />
-                Placeholder
-              </label>
-              <button
-                type="button"
-                className="ws-action-btn ws-apply-btn"
-                onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
-              >
-                Download
-              </button>
-              <button
-                type="button"
-                className="ws-action-btn ws-apply-btn"
-                disabled={presetBusy}
-                onClick={downloadOgPresets}
-                title="Download default + placeholder as public/cdn/og/*.png zip"
-              >
-                {presetBusy ? 'Exporting…' : 'Preset'}
-              </button>
+              </div>
+              <div className="studio-controls-row">
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={ogPlaceholder}
+                    onChange={(e) => setOgPlaceholder(e.target.checked)}
+                  />
+                  Placeholder
+                </label>
+              </div>
+              <div className="studio-controls-row studio-controls-row--actions">
+                <button
+                  type="button"
+                  className="ws-action-btn ws-apply-btn"
+                  onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
+                >
+                  Download
+                </button>
+                <button
+                  type="button"
+                  className="ws-action-btn ws-apply-btn"
+                  disabled={presetBusy}
+                  onClick={downloadOgPresets}
+                  title="Download default + placeholder as public/cdn/og/*.png zip"
+                >
+                  {presetBusy ? 'Exporting…' : 'Preset'}
+                </button>
+              </div>
             </div>
 
             <div className="studio-preview-wrap">
@@ -399,81 +405,89 @@ export function Studio() {
         {section === 'logo' && (
           <div className="studio-panel">
             <div className="studio-controls">
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={logoNeon}
-                  onChange={(e) => setLogoNeon(e.target.checked)}
-                />
-                Neon
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={logoBg}
-                  onChange={(e) => setLogoBg(e.target.checked)}
-                />
-                Background
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={logoPad}
-                  onChange={(e) => setLogoPad(e.target.checked)}
-                />
-                Extra padding
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={logoSquare}
-                  onChange={(e) => setLogoSquare(e.target.checked)}
-                />
-                Square
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={logoRound}
-                  onChange={(e) => setLogoRound(e.target.checked)}
-                />
-                Rounded
-              </label>
-              <label className="studio-check">
-                <input
-                  type="checkbox"
-                  checked={logoCenter}
-                  onChange={(e) => setLogoCenter(e.target.checked)}
-                />
-                Center
-              </label>
-              <button
-                type="button"
-                className="ws-action-btn ws-apply-btn"
-                onClick={() => {
-                  const name = [
-                    'logo',
-                    logoNeon ? 'neon' : 'solid',
-                    logoBg ? 'bg' : 'transparent',
-                    logoSquare ? 'sq' : null,
-                    logoRound ? 'round' : null,
-                  ].filter(Boolean).join('-');
-                  download(logoRef, `${name}.png`, logoW, logoH, {
-                    transparent: !logoBg,
-                  });
-                }}
-              >
-                Download
-              </button>
-              <button
-                type="button"
-                className="ws-action-btn ws-apply-btn"
-                disabled={presetBusy}
-                onClick={downloadLogoPresets}
-                title="Download all logo variants as public/cdn/logo/*.png zip"
-              >
-                {presetBusy ? 'Exporting…' : 'Preset'}
-              </button>
+              <div className="studio-controls-row">
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoNeon}
+                    onChange={(e) => setLogoNeon(e.target.checked)}
+                  />
+                  Neon
+                </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoBg}
+                    onChange={(e) => setLogoBg(e.target.checked)}
+                  />
+                  Background
+                </label>
+              </div>
+              <div className="studio-controls-row">
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoCenter}
+                    onChange={(e) => setLogoCenter(e.target.checked)}
+                  />
+                  Centered
+                </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoPad}
+                    onChange={(e) => setLogoPad(e.target.checked)}
+                  />
+                  Extra padding
+                </label>
+              </div>
+              <div className="studio-controls-row">
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoSquare}
+                    onChange={(e) => setLogoSquare(e.target.checked)}
+                  />
+                  Square
+                </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoRound}
+                    onChange={(e) => setLogoRound(e.target.checked)}
+                  />
+                  Rounded
+                </label>
+              </div>
+              <div className="studio-controls-row studio-controls-row--actions">
+                <button
+                  type="button"
+                  className="ws-action-btn ws-apply-btn"
+                  onClick={() => {
+                    const name = [
+                      'logo',
+                      logoNeon ? 'neon' : 'solid',
+                      logoBg ? 'bg' : 'transparent',
+                      logoSquare ? 'sq' : null,
+                      logoRound ? 'round' : null,
+                    ].filter(Boolean).join('-');
+                    download(logoRef, `${name}.png`, logoW, logoH, {
+                      transparent: !logoBg,
+                    });
+                  }}
+                >
+                  Download
+                </button>
+                <button
+                  type="button"
+                  className="ws-action-btn ws-apply-btn"
+                  disabled={presetBusy}
+                  onClick={downloadLogoPresets}
+                  title="Download all logo variants as public/cdn/logo/*.png zip"
+                >
+                  {presetBusy ? 'Exporting…' : 'Preset'}
+                </button>
+              </div>
             </div>
 
             <div className="studio-preview-wrap studio-preview-wrap--logo">

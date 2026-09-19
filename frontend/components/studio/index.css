@@ -32,18 +32,61 @@
 
 .studio-controls {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.studio-controls-row {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 28px;
+  row-gap: 8px;
   align-items: center;
 }
 
-/* Search is wider for taglines */
-.studio-controls .ui-search input {
-  width: 280px;
+/* Search row is full-width, not a 2-col grid */
+.studio-controls-row:has(.ui-search) {
+  display: flex;
+  grid-template-columns: none;
 }
 
-.studio-controls .ui-search input:focus {
-  width: 320px;
+.studio-controls-row--actions {
+  display: flex;
+  grid-template-columns: none;
+  gap: 10px;
+}
+
+/* Search is wider for taglines */
+.studio-controls .ui-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 420px;
+  width: 100%;
+}
+
+.studio-controls .ui-search input {
+  width: 100%;
+}
+
+.studio-check {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 9.5rem; /* keeps checkbox pairs aligned in columns */
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.studio-check input {
+  accent-color: var(--blue);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin: 0;
 }
 
 #studio .ws-action-btn {
@@ -83,22 +126,7 @@
   font-size: 0.8rem;
 }
 
-.studio-check {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  cursor: pointer;
-}
 
-.studio-check input {
-  accent-color: var(--blue);
-  width: 16px;
-  height: 16px;
-}
 
 .studio-preview-wrap {
   overflow: auto;
