@@ -126,7 +126,7 @@
 }
 
 .studio-og {
-  background-color: var(--bg);
+  background-color: var(--bg4);
   background-image: repeating-linear-gradient(
     45deg,
     transparent,
