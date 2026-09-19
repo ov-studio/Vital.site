@@ -356,7 +356,7 @@ export function Studio() {
                   className="ws-action-btn ws-apply-btn"
                   onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
                 >
-                  Download
+                  Download Asset
                 </button>
                 <button
                   type="button"
@@ -365,7 +365,7 @@ export function Studio() {
                   onClick={downloadOgPresets}
                   title="Download default + placeholder as public/cdn/og/*.png zip"
                 >
-                  {presetBusy ? 'Exporting…' : 'Preset'}
+                  {presetBusy ? 'Exporting…' : 'Download Preset'}
                 </button>
               </div>
             </div>
@@ -476,7 +476,7 @@ export function Studio() {
                     });
                   }}
                 >
-                  Download
+                  Download Asset
                 </button>
                 <button
                   type="button"
@@ -485,7 +485,7 @@ export function Studio() {
                   onClick={downloadLogoPresets}
                   title="Download all logo variants as public/cdn/logo/*.png zip"
                 >
-                  {presetBusy ? 'Exporting…' : 'Preset'}
+                  {presetBusy ? 'Exporting…' : 'Download Preset'}
                 </button>
               </div>
             </div>
