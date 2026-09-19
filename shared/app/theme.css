@@ -26,6 +26,7 @@
   --b05: hsla(220, 95%, 76%, .05);
   --blue-scanline: hsla(220, 95%, 76%, .012);
 
+  
   /* ── Status ── */
   --red: hsl(0, 72%, 60%);
   --red-soft: #ff8a8a;
@@ -111,6 +112,16 @@
   /* ── Nav ── */
   --nav-h: 68px;
   
+
+  /* ── Motion ── */
+  --anim-dur: .55s;
+  --anim-dur-fast: .45s;
+  --anim-delay-head: .12s;
+  --anim-delay-intro: .22s;
+  --anim-delay-2: .32s;
+  --anim-delay-3: .38s;
+  --anim-delay-4: .48s;
+  --anim-delay-5: .55s;
 
   /* ── Social ── */
   --social-color: hsl(220, 10%, 60%);
