@@ -16,10 +16,10 @@ export function TOS() {
               <h2>Terms of <span>Service</span></h2>
             </div>
           </div>
-          <div className="tos-intro">
+          <div className="page-intro tos-intro">
             Terms and conditions governing your use of {config_site.info.name} and its associated services
           </div>
-          <div className="tos-effective">
+          <div className="tos-effective anim-in anim-in--2">
             Effective Date: {config_tos.TOS_Effective}*
           </div>
         </div>

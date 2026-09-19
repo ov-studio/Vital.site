@@ -214,7 +214,7 @@ export function Workspace() {
               <h2>Your servers.<br/>Managed in one <span>place.</span></h2>
             </div>
           </div>
-          <p className="ws-lead">
+          <p className="page-intro ws-lead">
             Apply for masterlist tokens, track application status, and review requests
           </p>
         </div>

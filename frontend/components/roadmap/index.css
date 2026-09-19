@@ -8,7 +8,7 @@
 .roadmap-summary {
   margin-bottom: 80px;
   opacity: 0;
-  animation: slide-up .55s .22s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-intro) forwards;
 }
 
 .roadmap-summary-row {

@@ -299,12 +299,12 @@ export function Studio() {
               </h2>
             </div>
           </div>
-          <p className="studio-intro">
+          <p className="page-intro studio-intro">
             Open Graph images and neon logos using the real Brand component.
           </p>
         </div>
 
-        <div className="studio-panel-head">
+        <div className="studio-panel-head anim-in anim-in--3">
           <ui_tabs.Tabs
             value={section}
             onChange={(id) => setSection(id as Section)}
@@ -325,7 +325,7 @@ export function Studio() {
         </div>
 
         {section === 'og' && (
-          <div className="studio-panel">
+          <div className="studio-panel anim-in anim-in--4">
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <ui_search.Search
@@ -396,7 +396,7 @@ export function Studio() {
         )}
 
         {section === 'logo' && (
-          <div className="studio-panel">
+          <div className="studio-panel anim-in anim-in--4">
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <label className="studio-check">

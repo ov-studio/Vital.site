@@ -118,7 +118,7 @@ export function Benchmarks() {
               <h2>Lua vs GDScript.<br/>Measured, not <span>marketed.</span></h2>
             </div>
           </div>
-          <p className="bm-intro">
+          <p className="page-intro bm-intro">
             Live benchmark results from the latest Vital.benchmark output
           </p>
         </div>

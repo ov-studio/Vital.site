@@ -9,20 +9,13 @@
 }
 
 .tos-intro {
-  margin-top: 12px;
   margin-bottom: 15px;
-  line-height: 1.65;
-  color: var(--text-muted);
-  opacity: 0;
-  animation: slide-up .55s .22s forwards;
 }
 
 .tos-effective {
   margin-bottom: 80px;
   font-size: .9rem;
   color: var(--text-muted);
-  opacity: 0;
-  animation: slide-up .55s .32s forwards;
 }
 
 .tos-body { display: flex; flex-direction: column; }
@@ -31,7 +24,7 @@
   padding: 40px 0;
   border-bottom: 1px solid var(--rule);
   opacity: 0;
-  animation: slide-up .5s ease forwards;
+  animation: slide-up var(--anim-dur) ease forwards;
 }
 .tos-section:nth-child(1) { animation-delay: .48s }
 .tos-section:nth-child(2) { animation-delay: .54s }

@@ -5,7 +5,7 @@
   gap: 12px;
   margin-bottom: clamp(16px, 2.5vw, 28px);
   opacity: 0;
-  animation: slide-up .7s .55s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
 
 .download-release-tag {

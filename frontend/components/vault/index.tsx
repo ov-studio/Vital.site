@@ -292,7 +292,7 @@ function VaultHead() {
           <h2>Community built,<br/>All yours to <span>explore.</span></h2>
         </div>
       </div>
-      <div className="vault-intro sec-head sec-head--intro">
+      <div className="page-intro vault-intro sec-head sec-head--intro">
         <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
         <a href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`} target="_blank" rel="noreferrer" className="sec-link">
           :: Submit Resource

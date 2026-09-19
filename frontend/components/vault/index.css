@@ -11,13 +11,9 @@
 
 .vault-intro {
   display: flex;
-  margin-top: 12px;
+  max-width: none;
   margin-bottom: 15px;
-  line-height: 1.65;
-  color: var(--text-muted);
   text-align: left;
-  opacity: 0;
-  animation: slide-up .55s .22s forwards;
 }
 
 .vault-filters {
@@ -25,7 +21,7 @@
   align-items: flex-end;
   gap: 2px;
   opacity: 0;
-  animation: slide-up .55s .32s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-2) forwards;
 }
 
 .ui-filter.vault-filter-tags {
@@ -38,7 +34,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   opacity: 0;
-  animation: slide-up .55s .42s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
 }
 
 .vault-card {

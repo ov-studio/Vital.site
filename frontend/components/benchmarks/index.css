@@ -9,15 +9,6 @@
   z-index: 1;
 }
 
-.bm-intro {
-  margin-top: 12px;
-  max-width: 42ch;
-  line-height: 1.65;
-  color: var(--text-muted);
-  opacity: 0;
-  animation: slide-up .55s .22s forwards;
-}
-
 .bm-intro code {
   font-family: var(--font-geist-mono);
   font-size: 0.85em;
@@ -33,7 +24,7 @@
 .sec-title.bm-section-title {
   margin: 50px 0 0;
   opacity: 0;
-  animation: slide-up .55s .36s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-2) forwards;
 }
 
 .sec-title.bm-section-title--table {
@@ -42,7 +33,7 @@
 
 .sec-title.bm-section-title + .ui-divider {
   opacity: 0;
-  animation: slide-up .5s .38s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
 }
 
 .sec-title.bm-section-title--table + .ui-divider {
@@ -107,7 +98,7 @@
   line-height: 1.5;
   color: var(--text-muted);
   opacity: 0;
-  animation: slide-up .5s .52s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
 }
 
 .bm-table-wrap {
@@ -117,7 +108,7 @@
   border: 2px solid var(--b10);
   border-radius: 4px;
   opacity: 0;
-  animation: slide-up .55s .56s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
 
 .bm-table {
