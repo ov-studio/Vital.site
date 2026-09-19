@@ -44,7 +44,6 @@
   align-items: center;
 }
 
-/* Search row is full-width, not a 2-col grid */
 .studio-controls-row:has(.ui-search) {
   display: flex;
   grid-template-columns: none;
@@ -57,7 +56,6 @@
   margin-top: 6px;
 }
 
-/* Search is wider for taglines */
 .studio-controls .ui-search {
   flex: 1 1 auto;
   min-width: 0;
