@@ -11,7 +11,7 @@ export function TOS() {
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
-            <div>
+            <div className="rev">
               <div className="slabel">Legal</div>
               <h2>Terms of <span>Service</span></h2>
             </div>
