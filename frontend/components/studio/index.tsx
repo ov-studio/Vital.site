@@ -17,6 +17,59 @@ const LOGO_H_PAD = 400;
 const LOGO_SQ_TIGHT = 380;
 const LOGO_SQ_PAD = 460;
 
+/** Wait for React to commit the next paint after a state change. */
+function nextPaint(): Promise<void> {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => resolve());
+    });
+  });
+}
+
+async function loadToPng() {
+  try {
+    const mod = await import('html-to-image');
+    return mod.toPng;
+  } catch {
+    alert(
+      'html-to-image is required for download.\n\n' +
+        'Run:  cd frontend && npm i html-to-image'
+    );
+    return null;
+  }
+}
+
+async function loadJSZip() {
+  try {
+    const mod = await import('jszip');
+    return mod.default;
+  } catch {
+    alert(
+      'jszip is required for preset export.\n\n' +
+        'Run:  cd frontend && npm i jszip'
+    );
+    return null;
+  }
+}
+
+function dataUrlToBlob(dataUrl: string): Blob {
+  const [header, data] = dataUrl.split(',');
+  const mime = header.match(/:(.*?);/)?.[1] ?? 'image/png';
+  const binary = atob(data);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return new Blob([bytes], { type: mime });
+}
+
+function triggerDownload(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
@@ -27,6 +80,7 @@ export function Studio() {
   const [logoSquare, setLogoSquare] = react.useState(false);
   const [logoRound, setLogoRound] = react.useState(false);
   const [logoCenter, setLogoCenter] = react.useState(true);
+  const [presetBusy, setPresetBusy] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
@@ -36,26 +90,16 @@ export function Studio() {
   const logoW = logoSize ?? LOGO_W;
   const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
 
-  async function download(
+  async function capturePng(
     ref: react.RefObject<HTMLDivElement | null>,
-    filename: string,
     width: number,
     height: number,
     opts?: { transparent?: boolean }
-  ) {
-    if (!ref.current) return;
+  ): Promise<string | null> {
+    if (!ref.current) return null;
 
-    let toPng: (node: HTMLElement, opts?: object) => Promise<string>;
-    try {
-      const mod = await import('html-to-image');
-      toPng = mod.toPng;
-    } catch {
-      alert(
-        'html-to-image is required for download.\n\n' +
-          'Run:  cd frontend && npm i html-to-image'
-      );
-      return;
-    }
+    const toPng = await loadToPng();
+    if (!toPng) return null;
 
     const el = ref.current;
     const prevClass = el.className;
@@ -87,18 +131,160 @@ export function Studio() {
             : {}),
         },
       });
-
-      const a = document.createElement('a');
-      a.href = dataUrl;
-      a.download = filename;
-      a.click();
+      return dataUrl;
     } catch (err) {
       console.error(err);
       alert('Export failed – check console');
+      return null;
     } finally {
       el.className = prevClass;
       el.style.background = prevBg;
       el.style.backgroundImage = prevBgImage;
+    }
+  }
+
+  async function download(
+    ref: react.RefObject<HTMLDivElement | null>,
+    filename: string,
+    width: number,
+    height: number,
+    opts?: { transparent?: boolean }
+  ) {
+    const dataUrl = await capturePng(ref, width, height, opts);
+    if (!dataUrl) return;
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = filename;
+    a.click();
+  }
+
+  async function downloadOgPresets() {
+    if (presetBusy) return;
+    setPresetBusy(true);
+
+    const JSZip = await loadJSZip();
+    if (!JSZip) {
+      setPresetBusy(false);
+      return;
+    }
+
+    const prevPlaceholder = ogPlaceholder;
+    const zip = new JSZip();
+    const folder = zip.folder('public/cdn/og');
+    if (!folder) {
+      setPresetBusy(false);
+      return;
+    }
+
+    try {
+      // default.png — real tagline visible
+      setOgPlaceholder(false);
+      await nextPaint();
+      const defaultUrl = await capturePng(ogRef, OG_W, OG_H);
+      if (defaultUrl) folder.file('default.png', dataUrlToBlob(defaultUrl));
+
+      // placeholder.png — tagline hidden
+      setOgPlaceholder(true);
+      await nextPaint();
+      const placeholderUrl = await capturePng(ogRef, OG_W, OG_H);
+      if (placeholderUrl) folder.file('placeholder.png', dataUrlToBlob(placeholderUrl));
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      triggerDownload(blob, 'og-presets.zip');
+    } catch (err) {
+      console.error(err);
+      alert('Preset export failed – check console');
+    } finally {
+      setOgPlaceholder(prevPlaceholder);
+      setPresetBusy(false);
+    }
+  }
+
+  async function downloadLogoPresets() {
+    if (presetBusy) return;
+    setPresetBusy(true);
+
+    const JSZip = await loadJSZip();
+    if (!JSZip) {
+      setPresetBusy(false);
+      return;
+    }
+
+    const prev = {
+      neon: logoNeon,
+      bg: logoBg,
+      pad: logoPad,
+      square: logoSquare,
+      round: logoRound,
+      center: logoCenter,
+    };
+
+    const zip = new JSZip();
+    const folder = zip.folder('public/cdn/logo');
+    if (!folder) {
+      setPresetBusy(false);
+      return;
+    }
+
+    // Exact set requested (pad always off, center always on)
+    type LogoPreset = {
+      path: string;
+      neon: boolean;
+      bg: boolean;
+      square: boolean;
+      round: boolean;
+    };
+
+    const presets: LogoPreset[] = [
+      { path: 'transparent.png',                 neon: false, bg: false, square: false, round: false },
+      { path: 'background.png',                  neon: false, bg: true,  square: false, round: false },
+      { path: 'neon_transparent.png',            neon: true,  bg: false, square: false, round: false },
+      { path: 'neon_background.png',             neon: true,  bg: true,  square: false, round: false },
+
+      { path: 'background_round.png',            neon: false, bg: true,  square: false, round: true  },
+      { path: 'neon_background_round.png',       neon: true,  bg: true,  square: false, round: true  },
+
+      { path: 'transparent_square.png',          neon: false, bg: false, square: true,  round: false },
+      { path: 'background_square.png',           neon: false, bg: true,  square: true,  round: false },
+      { path: 'neon_transparent_square.png',     neon: true,  bg: false, square: true,  round: false },
+      { path: 'neon_background_square.png',      neon: true,  bg: true,  square: true,  round: false },
+
+      { path: 'background_square_round.png',     neon: false, bg: true,  square: true,  round: true  },
+      { path: 'neon_background_square_round.png', neon: true, bg: true,  square: true,  round: true  },
+    ];
+
+    try {
+      for (const p of presets) {
+        setLogoNeon(p.neon);
+        setLogoBg(p.bg);
+        setLogoPad(false);
+        setLogoSquare(p.square);
+        setLogoRound(p.round);
+        setLogoCenter(true);
+        await nextPaint();
+
+        const w = p.square ? LOGO_SQ_TIGHT : LOGO_W;
+        const h = p.square ? LOGO_SQ_TIGHT : LOGO_H_TIGHT;
+
+        const dataUrl = await capturePng(logoRef, w, h, {
+          transparent: !p.bg,
+        });
+        if (dataUrl) folder.file(p.path, dataUrlToBlob(dataUrl));
+      }
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      triggerDownload(blob, 'logo-presets.zip');
+    } catch (err) {
+      console.error(err);
+      alert('Preset export failed – check console');
+    } finally {
+      setLogoNeon(prev.neon);
+      setLogoBg(prev.bg);
+      setLogoPad(prev.pad);
+      setLogoSquare(prev.square);
+      setLogoRound(prev.round);
+      setLogoCenter(prev.center);
+      setPresetBusy(false);
     }
   }
 
@@ -166,6 +352,15 @@ export function Studio() {
                 onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
               >
                 Download
+              </button>
+              <button
+                type="button"
+                className="ws-action-btn ws-apply-btn"
+                disabled={presetBusy}
+                onClick={downloadOgPresets}
+                title="Download default + placeholder as public/cdn/og/*.png zip"
+              >
+                {presetBusy ? 'Exporting…' : 'Preset'}
               </button>
             </div>
 
@@ -269,6 +464,15 @@ export function Studio() {
                 }}
               >
                 Download
+              </button>
+              <button
+                type="button"
+                className="ws-action-btn ws-apply-btn"
+                disabled={presetBusy}
+                onClick={downloadLogoPresets}
+                title="Download all logo variants as public/cdn/logo/*.png zip"
+              >
+                {presetBusy ? 'Exporting…' : 'Preset'}
               </button>
             </div>
 
