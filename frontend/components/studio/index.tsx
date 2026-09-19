@@ -218,7 +218,7 @@ export function Studio() {
                   checked={logoBg}
                   onChange={(e) => setLogoBg(e.target.checked)}
                 />
-                Background (--bg4)
+                Background
               </label>
               <label className="studio-check">
                 <input
