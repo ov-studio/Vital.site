@@ -54,6 +54,7 @@
   display: flex;
   grid-template-columns: none;
   gap: 10px;
+  margin-top: 6px;
 }
 
 /* Search is wider for taglines */
@@ -73,7 +74,7 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  min-width: 9.5rem; /* keeps checkbox pairs aligned in columns */
+  min-width: 9.5rem;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
