@@ -363,7 +363,6 @@ export function Studio() {
                   className="ws-action-btn ws-apply-btn"
                   disabled={presetBusy}
                   onClick={downloadOgPresets}
-                  title="Download default + placeholder as public/cdn/og/*.png zip"
                 >
                   {presetBusy ? 'Exporting…' : 'Download Preset'}
                 </button>
@@ -483,7 +482,6 @@ export function Studio() {
                   className="ws-action-btn ws-apply-btn"
                   disabled={presetBusy}
                   onClick={downloadLogoPresets}
-                  title="Download all logo variants as public/cdn/logo/*.png zip"
                 >
                   {presetBusy ? 'Exporting…' : 'Download Preset'}
                 </button>
