@@ -29,7 +29,7 @@ export function Brand({
     <div className="brand_logo-wrapper">
       {neon ? (
         <img
-          src="/logo.svg"
+          src="/logo/logo.svg"
           alt=""
           className="brand_logo brand_logo--neon"
           draggable={false}
