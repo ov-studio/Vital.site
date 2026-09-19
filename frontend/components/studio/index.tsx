@@ -17,7 +17,6 @@ const LOGO_H_PAD = 400;
 const LOGO_SQ_TIGHT = 380;
 const LOGO_SQ_PAD = 460;
 
-/** Wait for React to commit the next paint after a state change. */
 function nextPaint(): Promise<void> {
   return new Promise((resolve) => {
     requestAnimationFrame(() => {
