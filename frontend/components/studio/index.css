@@ -126,9 +126,8 @@
 
 .studio-preview-wrap {
   overflow: auto;
-  border: 1px solid var(--rule);
   border-radius: 6px;
-  background: var(--bg3);
+  background: var(--b05);
   padding: 16px;
 }
 
