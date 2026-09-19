@@ -74,7 +74,7 @@ h2 span { color: var(--blue) }
 .page-head {
   margin-bottom: 56px;
   opacity: 0;
-  animation: slide-up .6s .12s forwards;
+  animation: slide-up var(--anim-dur) var(--anim-delay-head) forwards;
 }
 
 .sec-link {
@@ -148,6 +148,28 @@ h2 span { color: var(--blue) }
   transition: color .3s ease;
 }
 .btn-secondary:hover { color: var(--blue) }
+
+
+/* ── Page intro (under sec-head title) ── */
+.page-intro {
+  margin-top: 12px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 42ch;
+  opacity: 0;
+  animation: slide-up var(--anim-dur) var(--anim-delay-intro) forwards;
+}
+
+
+/* ── Enter animation utilities ── */
+.anim-in {
+  opacity: 0;
+  animation: slide-up var(--anim-dur) var(--anim-delay, 0s) forwards;
+}
+.anim-in--2 { --anim-delay: var(--anim-delay-2); }
+.anim-in--3 { --anim-delay: var(--anim-delay-3); }
+.anim-in--4 { --anim-delay: var(--anim-delay-4); }
+.anim-in--5 { --anim-delay: var(--anim-delay-5); }
 
 
 /* ── Scroll Reveal ── */
