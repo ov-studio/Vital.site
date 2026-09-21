@@ -1,4 +1,5 @@
 'use client';
+import * as ui_button   from '@/ui/button';
 import * as lib_api_url from '@/lib/api_url';
 import * as react       from 'react';
 import * as lucide      from 'lucide-react';
@@ -25,9 +26,9 @@ export function Download() {
   if (!info) {
     return (
       <div className="download-buttons">
-        <button className="btn-primary" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>
+        <ui_button.Button variant="primary" disabled>
           <lucide.Download size={14} strokeWidth={2.5}/> Fetching release…
-        </button>
+        </ui_button.Button>
       </div>
     );
   }
@@ -36,15 +37,25 @@ export function Download() {
     <div className="download-buttons">
       {info.tag && <span className="download-release-tag">{info.tag}</span>}
 
-      <a href={info.client_url ?? 'https://github.com/ov-studio/Vital.sandbox/releases'} className="btn-primary" target="_blank" rel="noreferrer">
+      <ui_button.Button
+        variant="primary"
+        href={info.client_url ?? 'https://github.com/ov-studio/Vital.sandbox/releases'}
+        target="_blank"
+        rel="noreferrer"
+      >
         Download Client{info.client_size ? ` · ${info.client_size}` : ''}
-      </a>
+      </ui_button.Button>
 
       {info.server_url && (
-        <a href={info.server_url} className="btn-secondary" target="_blank" rel="noreferrer">
+        <ui_button.Button
+          variant="secondary"
+          href={info.server_url}
+          target="_blank"
+          rel="noreferrer"
+        >
           <lucide.CloudDownload size={14} strokeWidth={2.5}/>
           Download Server{info.server_size ? ` · ${info.server_size}` : ''}
-        </a>
+        </ui_button.Button>
       )}
 
       <p className="download-tos-note">
