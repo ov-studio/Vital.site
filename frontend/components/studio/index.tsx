@@ -1,6 +1,7 @@
 'use client';
 import * as ui_brand     from '@/ui/brand';
 import * as ui_search    from '@/ui/search';
+import * as ui_button    from '@/ui/button';
 import * as ui_tabs      from '@/ui/tabs';
 import * as ui_wallpaper from '@/ui/wallpaper';
 import * as react        from 'react';
@@ -347,21 +348,21 @@ export function Studio() {
                 </label>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
-                <button
-                  type="button"
-                  className="ws-action-btn ws-apply-btn"
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
                   onClick={() => download(ogRef, 'og.png', OG_W, OG_H)}
                 >
                   Download Asset
-                </button>
-                <button
-                  type="button"
-                  className="ws-action-btn ws-apply-btn"
+                </ui_button.Button>
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
                   disabled={presetBusy}
                   onClick={downloadOgPresets}
                 >
                   {presetBusy ? 'Exporting…' : 'Download Preset'}
-                </button>
+                </ui_button.Button>
               </div>
             </div>
 
@@ -454,9 +455,9 @@ export function Studio() {
                 </label>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
-                <button
-                  type="button"
-                  className="ws-action-btn ws-apply-btn"
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
                   onClick={() => {
                     const name = [
                       'logo',
@@ -471,15 +472,15 @@ export function Studio() {
                   }}
                 >
                   Download Asset
-                </button>
-                <button
-                  type="button"
-                  className="ws-action-btn ws-apply-btn"
+                </ui_button.Button>
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
                   disabled={presetBusy}
                   onClick={downloadLogoPresets}
                 >
                   {presetBusy ? 'Exporting…' : 'Download Preset'}
-                </button>
+                </ui_button.Button>
               </div>
             </div>
 
