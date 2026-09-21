@@ -324,8 +324,9 @@ export function Studio() {
           />
         </div>
 
+        <div className="anim-in anim-in--4">
         {section === 'og' && (
-          <div className="studio-panel anim-in anim-in--4">
+          <div className="studio-panel">
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <ui_search.Search
@@ -396,7 +397,7 @@ export function Studio() {
         )}
 
         {section === 'logo' && (
-          <div className="studio-panel anim-in anim-in--4">
+          <div className="studio-panel">
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <label className="studio-check">
@@ -503,6 +504,7 @@ export function Studio() {
             </div>
           </div>
         )}
+        </div>
       </div>
     </section>
   );
