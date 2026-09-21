@@ -222,8 +222,8 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
 
           <div className="vault-modal-actions">
             {is_dir ? (
-              <button
-                className="btn-primary"
+              <ui_button.Button
+                variant="primary"
                 onClick={handle_download}
                 disabled={downloading}
                 style={downloading ? { opacity: 0.7, cursor: 'wait' } : undefined}
@@ -232,16 +232,25 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
                   ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
                   : 'Download Resource'
                 }
-              </button>
+              </ui_button.Button>
             ) : (
-              <a href={resource.download_url ?? resource.source_url ?? '#'} className="btn-primary" download>
+              <ui_button.Button
+                variant="primary"
+                href={resource.download_url ?? resource.source_url ?? '#'}
+                download
+              >
                 Download Resource
-              </a>
+              </ui_button.Button>
             )}
             {resource.source_url && (
-              <a href={resource.source_url} target="_blank" rel="noreferrer" className="btn-secondary">
+              <ui_button.Button
+                variant="secondary"
+                href={resource.source_url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 :: View Source
-              </a>
+              </ui_button.Button>
             )}
           </div>
           {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
