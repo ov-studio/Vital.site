@@ -269,7 +269,7 @@
 }
 
 .vault-modal-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-.vault-modal-actions .btn-secondary { margin-left: auto; }
+.vault-modal-actions .ui-btn--secondary { margin-left: auto; }
 
 .vault-modal-dl-error {
   margin-top: 10px;
@@ -352,5 +352,5 @@
 
 @media (max-width: 450px) {
   .vault-modal-actions                { flex-direction: column; align-items: flex-start; }
-  .vault-modal-actions .btn-secondary { margin-left: 0; }
+  .vault-modal-actions .ui-btn--secondary { margin-left: 0; }
 }

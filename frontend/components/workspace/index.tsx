@@ -5,6 +5,7 @@ import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_tabs          from '@/ui/tabs';
+import * as ui_button        from '@/ui/button';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
 import * as ui_divider       from '@/ui/divider';
@@ -223,9 +224,9 @@ export function Workspace() {
           <div className="ws-panel ws-panel--narrow">
             <p className="ws-text">Sign in with GitHub to open your workspace.</p>
             {error && <p className="ws-error" role="alert">{error}</p>}
-            <button type="button" className="btn-secondary ws-btn" onClick={login}>
+            <ui_button.Button variant="secondary" className="ws-btn" onClick={login}>
               Sign in with GitHub
-            </button>
+            </ui_button.Button>
           </div>
         ) : (
           <>
@@ -259,14 +260,11 @@ export function Workspace() {
                         <div className="ws-pending-card-meta">Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}</div>
                       </div>
                     </div>
-                    <button
-                      type="button"
-                      className="ws-action-btn ws-action-btn--danger"
-                      onClick={() => cancel(pendingApp.appId)}
+                    <ui_button.Button variant="action" danger onClick={() => cancel(pendingApp.appId)}
                       disabled={busy}
                     >
                       Cancel
-                    </button>
+                    </ui_button.Button>
                   </div>
                 ) : canApply ? (
                   <div className="ws-apply">
@@ -280,9 +278,9 @@ export function Workspace() {
                         disabled={busy}
                         icon={<lucide.Server size={14} strokeWidth={2}/>}
                       />
-                      <button type="button" className="ws-action-btn ws-apply-btn" onClick={apply} disabled={busy}>
+                      <ui_button.Button variant="action" size="lg" onClick={apply} disabled={busy}>
                         {busy ? 'Submitting…' : 'Submit'}
-                      </button>
+                      </ui_button.Button>
                     </div>
                   </div>
                 ) : (
@@ -347,23 +345,17 @@ export function Workspace() {
                               <td className="ws-actions-cell">
                                 <div className="ws-inline-actions">
                                   {app.token && isOpen && (
-                                    <button
-                                      type="button"
-                                      className="ws-action-btn"
-                                      onClick={() => copy(`tok-${app.appId}`, app.token!)}
+                                    <ui_button.Button variant="action" onClick={() => copy(`tok-${app.appId}`, app.token!)}
                                     >
                                       {copied === `tok-${app.appId}` ? 'Copied' : 'Copy'}
-                                    </button>
+                                    </ui_button.Button>
                                   )}
                                   {app.token && !app.tokenClaimed && (
-                                    <button
-                                      type="button"
-                                      className="ws-action-btn"
-                                      disabled={busy}
+                                    <ui_button.Button variant="action" disabled={busy}
                                       onClick={() => claim(app.appId)}
                                     >
                                       Mark as saved
-                                    </button>
+                                    </ui_button.Button>
                                   )}
                                 </div>
                               </td>
@@ -457,8 +449,8 @@ export function Workspace() {
                                 <td>{fmt_date(p.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
-                                    <button type="button" className="ws-action-btn" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</button>
-                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</button>
+                                    <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</ui_button.Button>
+                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</ui_button.Button>
                                   </div>
                                 </td>
                               </tr>
@@ -498,7 +490,7 @@ export function Workspace() {
                                 <td>{fmt_date(t.decidedAt ?? t.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
-                                    <button type="button" className="ws-action-btn ws-action-btn--danger" disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</button>
+                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</ui_button.Button>
                                   </div>
                                 </td>
                               </tr>

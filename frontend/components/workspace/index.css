@@ -273,7 +273,7 @@
   line-height: 1.35;
 }
 
-.ws-pending-card .ws-action-btn {
+.ws-pending-card .ui-btn--action {
   flex-shrink: 0;
 }
 
@@ -386,17 +386,6 @@
   border-color: var(--b10);
 }
 
-.ws-apply-btn {
-  flex-shrink: 0;
-  height: auto;
-  min-height: 0;
-  padding: 6px 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  font-size: 0.8rem;
-}
 
 .ws-inline-actions {
   display: flex;
@@ -404,40 +393,6 @@
   justify-content: flex-end;
   gap: 8px;
   flex-wrap: nowrap;
-}
-
-.ws-action-btn {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--b90);
-  background: var(--b20);
-  border: 1px solid var(--b05);
-  border-radius: 4px;
-  padding: 5px 10px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
-}
-
-.ws-action-btn:hover:not(:disabled) {
-  color: var(--blue);
-  background: var(--b30);
-}
-
-.ws-action-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.ws-action-btn--danger {
-  color: var(--red-100);
-  background: var(--r25);
-}
-
-.ws-action-btn--danger:hover:not(:disabled) {
-  color: var(--red-light);
-  background: var(--r45);
 }
 
 .ws-spoiler {
