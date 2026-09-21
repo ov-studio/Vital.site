@@ -43,7 +43,8 @@ async function loadJSZip() {
   try {
     const mod = await import('jszip');
     return mod.default;
-  } catch {
+  } 
+  catch {
     alert(
       'jszip is required for preset export.\n\n' +
         'Run:  cd frontend && npm i jszip'
@@ -131,11 +132,13 @@ export function Studio() {
         },
       });
       return dataUrl;
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
       alert('Export failed – check console');
       return null;
-    } finally {
+    } 
+    finally {
       el.className = prevClass;
       el.style.background = prevBg;
       el.style.backgroundImage = prevBgImage;
@@ -270,7 +273,8 @@ export function Studio() {
 
       const blob = await zip.generateAsync({ type: 'blob' });
       triggerDownload(blob, 'logo-presets.zip');
-    } catch (err) {
+    } 
+    catch (err) {
       console.error(err);
       alert('Preset export failed – check console');
     } 

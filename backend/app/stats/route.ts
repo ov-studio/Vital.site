@@ -37,7 +37,6 @@ async function fetch_fresh(): Promise<StatsInfo> {
           }),
           get_commit_count(user, repo),
         ]);
-
         if (!repo_res.ok) throw new Error(`GitHub responded ${repo_res.status}`);
 
         const data = await repo_res.json();

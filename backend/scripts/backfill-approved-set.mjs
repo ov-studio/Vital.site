@@ -26,9 +26,7 @@ keys.forEach((key, i) => {
   let app;
   try { app = typeof raw === 'string' ? JSON.parse(raw) : raw; }
   catch { return; }
-  if (app?.status === 'approved' && app?.id && typeof app?.login === 'string') {
-    approved_logins.push(app.login.toLowerCase());
-  }
+  if (app?.status === 'approved' && app?.id && typeof app?.login === 'string') approved_logins.push(app.login.toLowerCase());
 });
 
 console.log(`${approved_logins.length} approved application(s) to index: ${approved_logins.join(', ') || '(none)'}`);

@@ -33,9 +33,8 @@ type ApiState = {
 
 function fmt_date(ts?: number) {
   if (!ts) return '—';
-  try {
-    return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-  } catch { return '—'; }
+  try { return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); } 
+  catch { return '—'; }
 }
 
 export function Workspace() {
@@ -88,9 +87,9 @@ export function Workspace() {
       }
       setData(json as ApiState);
       setError(null);
-    } catch {
-      setError('Network error — is the API up?');
-    } finally {
+    } 
+    catch { setError('Network error — is the API up?'); } 
+    finally {
       setLoading(false);
       lib_page_loading.set_page_loading(false);
     }
@@ -130,7 +129,8 @@ export function Workspace() {
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Apply failed'); return; }
       setName('');
       await load();
-    } catch { setError('Network error'); }
+    } 
+    catch { setError('Network error'); }
     finally { setBusy(false); }
   }, [name, auth_headers, load]);
 
@@ -144,7 +144,8 @@ export function Workspace() {
       const json = await res.json().catch(() => ({}));
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Cancel failed'); return; }
       await load();
-    } catch { setError('Network error'); }
+    } 
+    catch { setError('Network error'); }
     finally { setBusy(false); }
   }, [auth_headers, load]);
 
@@ -161,7 +162,8 @@ export function Workspace() {
         return next;
       });
       await load();
-    } finally { setBusy(false); }
+    } 
+    finally { setBusy(false); }
   }, [auth_headers, load]);
 
   const decide = react.useCallback(async (appId: string, action: 'approve' | 'reject' | 'revoke') => {
@@ -174,7 +176,8 @@ export function Workspace() {
       const json = await res.json().catch(() => ({}));
       if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Action failed'); return; }
       await load();
-    } catch { setError('Network error'); }
+    } 
+    catch { setError('Network error'); }
     finally { setBusy(false); }
   }, [auth_headers, load]);
 
@@ -183,7 +186,8 @@ export function Workspace() {
       await navigator.clipboard.writeText(value);
       setCopied(label);
       setTimeout(() => setCopied(null), 1600);
-    } catch { setError('Clipboard write failed'); }
+    } 
+    catch { setError('Clipboard write failed'); }
   }, []);
 
   const toggleReveal = react.useCallback((key: string) => {
