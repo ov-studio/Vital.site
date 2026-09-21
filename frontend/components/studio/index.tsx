@@ -304,27 +304,27 @@ export function Studio() {
           </p>
         </div>
 
-        <div className="studio-panel-head anim-in anim-in--3">
-          <ui_tabs.Tabs
-            value={section}
-            onChange={(id) => setSection(id as Section)}
-            ariaLabel="Studio sections"
-            items={[
-              {
-                id: 'og',
-                label: 'Opengraph',
-                icon: <lucide.Image size={14} strokeWidth={2.25}/>,
-              },
-              {
-                id: 'logo',
-                label: 'Branding',
-                icon: <lucide.Shapes size={14} strokeWidth={2.25}/>,
-              },
-            ]}
-          />
-        </div>
+        <div className="studio-shell anim-in anim-in--3">
+          <div className="studio-panel-head">
+            <ui_tabs.Tabs
+              value={section}
+              onChange={(id) => setSection(id as Section)}
+              ariaLabel="Studio sections"
+              items={[
+                {
+                  id: 'og',
+                  label: 'Opengraph',
+                  icon: <lucide.Image size={14} strokeWidth={2.25}/>,
+                },
+                {
+                  id: 'logo',
+                  label: 'Branding',
+                  icon: <lucide.Shapes size={14} strokeWidth={2.25}/>,
+                },
+              ]}
+            />
+          </div>
 
-        <div className="anim-in anim-in--4">
         {section === 'og' && (
           <div className="studio-panel">
             <div className="studio-controls">

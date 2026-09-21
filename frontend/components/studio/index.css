@@ -13,10 +13,15 @@
 }
 
 .studio-panel-head {
+  position: relative;
+  z-index: 2;
   margin-bottom: 0;
+  line-height: 0;
 }
 
 .studio-panel {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
