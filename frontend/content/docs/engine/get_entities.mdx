@@ -33,13 +33,17 @@ local result = core.engine.get_entities(
 ### Examples
 
 ```lua lineNumbers title="Prints all entities of a given category"
-core.engine.iprint(core.engine.get_entities("texture"))
+core.engine.iprint(core.engine.get_entities("core.image"))
 ```
 
 ```lua lineNumbers title="Counts entities of a given category"
-core.engine.print("info", "Total webviews:", #core.engine.get_entities("webview"))
+core.engine.print("info", "Total webviews:", #core.engine.get_entities("core.webview"))
 ```
 
 ```lua lineNumbers title="Counts only streamed-in models"
-core.engine.print("info", "Streamed models:", #core.engine.get_entities("model", true))
+core.engine.print("info", "Streamed models:", #core.engine.get_entities("core.model", true))
+```
+
+```lua lineNumbers title="Counts only streamed-in lights"
+core.engine.print("info", "Streamed point lights:", #core.engine.get_entities("light.point", true))
 ```
