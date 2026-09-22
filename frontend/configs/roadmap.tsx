@@ -285,7 +285,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks',                                    status: 'completed' },
           { label: 'Format: GLB',                                        status: 'completed' },
           { label: 'Model loader / unloader',                            status: 'completed' },
-          { label: 'Transform (position / rotation / scale) control',    status: 'partial'   },
+          { label: 'Transform (position / rotation / scale) control',    status: 'completed' },
           { label: 'Animation playback (play / stop / pause / resume)',  status: 'completed' },
           { label: 'Animation speed scale',                              status: 'completed' },
           { label: 'Reverse animation playback',                         status: 'completed' },
