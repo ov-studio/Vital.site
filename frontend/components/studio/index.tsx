@@ -81,10 +81,15 @@ export function Studio() {
   const [logoSquare, setLogoSquare] = react.useState(false);
   const [logoRound, setLogoRound] = react.useState(false);
   const [logoCenter, setLogoCenter] = react.useState(true);
+  const [bannerSub, setBannerSub] = react.useState('Script It — Ship It — Limitless');
+  const [bannerRound, setBannerRound] = react.useState(false);
+  const [bannerNeon, setBannerNeon] = react.useState(true);
+  const [bannerWallpaper, setBannerWallpaper] = react.useState(true);
   const [presetBusy, setPresetBusy] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
+    ro.observe(frame);
   const logoSize = logoSquare ? (logoPad ? LOGO_SQ_PAD : LOGO_SQ_TIGHT) : null;
   const logoW = logoSize ?? LOGO_W;
   const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
@@ -306,6 +311,7 @@ export function Studio() {
           </div>
           <p className="page-intro studio-intro">
             Open Graph images and neon logos using the real Brand component.
+            Open Graph images, neon logos, and channel banners using the real Brand component.
           </p>
         </div>
 

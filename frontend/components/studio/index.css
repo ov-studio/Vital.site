@@ -216,3 +216,94 @@
   margin: 0 !important;
   display: block;
 }
+
+.studio-preview-wrap--banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 2560 / 1440;
+  background: var(--b05);
+  border-radius: 6px;
+}
+
+.studio-banner {
+  position: relative;
+  background-color: var(--bg4);
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 2560px;
+  height: 1440px;
+  transform-origin: top left;
+}
+
+.studio-preview-wrap--banner .studio-banner {
+  transform: scale(calc(min(100cqw, 100%) / 2560));
+}
+
+@supports not (width: 1cqw) {
+  .studio-preview-wrap--banner .studio-banner {
+    transform: scale(0.375); /* ~960/2560 */
+  }
+}
+
+.studio-banner .ui-wallpaper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.studio-banner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  height: 100%;
+  padding: 6% 8%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.studio-banner-title {
+  font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--white);
+  line-height: 1.05;
+}
+
+.studio-banner.is-neon .studio-banner-title {
+  color: var(--brand-neon-core, #a8c0ff);
+  text-shadow:
+    0 0 12px color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 70%, transparent),
+    0 0 36px color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 45%, transparent),
+    0 0 72px color-mix(in srgb, var(--brand-neon-core, #a8c0ff) 30%, transparent);
+}
+
+.studio-banner-sub {
+  font-family: 'Geist', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  max-width: 36ch;
+}
+
+.studio-banner.is-neon .studio-banner-sub {
+  color: color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 55%, var(--text-muted));
+  text-shadow: 0 0 18px color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 35%, transparent);
+}
+
+.studio-banner.is-round {
+  border-radius: 18px;
+}
