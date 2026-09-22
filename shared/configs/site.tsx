@@ -43,7 +43,8 @@ export const info = {
       '/benchmark',
       '/vault',
       '/vault/tree',
-      '/masterlist'
+      '/masterlist',
+      '/ip'
     ]
   },
 
