@@ -69,7 +69,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'GET /api/stats - aggregated GitHub repo stats',    status: 'completed' },
           { label: 'GET /api/vault - community vault resource list',   status: 'completed' },
           { label: 'GET /api/masterlist - live server list',           status: 'completed' },
-          { label: 'GET /api/benchmark - latest sandbox benchmark',    status: 'completed' },
+          { label: 'GET /api/benchmark - latest sandbox benchmark',    status: 'completed' }
         ]
       }
     ]
