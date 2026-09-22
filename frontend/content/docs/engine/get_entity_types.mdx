@@ -25,20 +25,35 @@ local result = core.engine.get_entity_types()
 
 ### Entity Types
 
-| Entity Type | Availability | Streamable |
-|-------------|--------------|------------|
-| `"database"` | `server` | `false` |
-| `"database_query"` | `server` | `false` |
-| `"model"` | `client` \| `server` | `true` |
-| `"camera"` | `client` | `false` |
-| `"webview"` | `client` | `false` |
-| `"font"` | `client` | `false` |
-| `"texture"` | `client` | `false` |
-| `"svg"` | `client` | `false` |
-| `"rendertarget"` | `client` | `false` |
-| `"timer"` | `client` \| `server` | `false` |
-| `"promise"` | `client` \| `server` | `false` |
-| `"thread"` | `client` \| `server` | `false` |
+| Category | Availability | Streamable | Notes |
+|----------|-------------|-----------|-------|
+| `core.model` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `core.audio_3d` | `client` | ✓ | Frustum-culled positional audio |
+| `core.audio_2d` | `client` | — | |
+| `core.camera` | `client` | — | |
+| `core.image` | `client` | — | |
+| `core.shader` | `client` | — | |
+| `core.svg` | `client` | — | |
+| `core.font` | `client` | — | |
+| `core.rendertarget` | `client` | — | |
+| `core.webview` | `client` | — | |
+| `core.database` | `server` | — | |
+| `core.db_query` | `server` | — | |
+| `light.point` | `client` | ✓ | Frustum-culled |
+| `light.spot` | `client` | ✓ | Frustum-culled |
+| `light.area` | `client` | ✓ | Frustum-culled |
+| `light.directional` | `client` | ✓ | Always streamed (no position) |
+| `physics.rigid` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.static` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.character` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.animatable` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.vehicle` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.vehicle_wheel` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.collision_shape` | `client` \| `server` | ✓ | Frustum-culled. Supports `is_remote()` |
+| `physics.area` | `client` \| `server` | — | |
+| `util.promise` | `client` \| `server` | — | |
+| `util.thread` | `client` \| `server` | — | |
+| `util.timer` | `client` \| `server` | — | |
 
 ---
 
