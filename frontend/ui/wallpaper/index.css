@@ -79,9 +79,9 @@
   background-image: repeating-linear-gradient(
     0deg,
     transparent,
-    transparent 11px,
-    var(--rule7) 11px,
-    var(--rule7) 12px
+    transparent 38px,
+    var(--rule7) 38px,
+    var(--rule7) 40px
   );
 }
 
@@ -90,9 +90,9 @@
   background-image: repeating-linear-gradient(
     90deg,
     transparent,
-    transparent 11px,
-    var(--rule7) 11px,
-    var(--rule7) 12px
+    transparent 38px,
+    var(--rule7) 38px,
+    var(--rule7) 40px
   );
 }
 
@@ -102,23 +102,23 @@
     repeating-linear-gradient(
       45deg,
       transparent,
-      transparent 18px,
-      var(--rule7) 18px,
-      var(--rule7) 19px
+      transparent 38px,
+      var(--rule7) 38px,
+      var(--rule7) 40px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
-      transparent 18px,
-      var(--rule7) 18px,
-      var(--rule7) 19px
+      transparent 38px,
+      var(--rule7) 38px,
+      var(--rule7) 40px
     );
 }
 
 /* 6 — dot grid */
 .ui-wallpaper--line[data-variant='6'] {
-  background-image: radial-gradient(var(--rule7) 1px, transparent 1.2px);
-  background-size: 18px 18px;
+  background-image: radial-gradient(var(--rule7) 1.25px, transparent 1.6px);
+  background-size: 40px 40px;
 }
 
 /* 7 — square grid */
@@ -127,61 +127,61 @@
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 23px,
-      var(--rule7) 23px,
-      var(--rule7) 24px
+      transparent 38px,
+      var(--rule7) 38px,
+      var(--rule7) 40px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 23px,
-      var(--rule7) 23px,
-      var(--rule7) 24px
+      transparent 38px,
+      var(--rule7) 38px,
+      var(--rule7) 40px
     );
 }
 
 /* 8 — topographic contours (curved) */
 .ui-wallpaper--line[data-variant='8'] {
   background-color: var(--rule7);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.1' d='M-10 30c40-18 80 18 120 0s80 18 120 0M-10 55c40-16 80 16 120 0s80 16 120 0M-10 80c40-14 80 14 120 0s80 14 120 0M-10 105c40-12 80 12 120 0s80 12 120 0M-10 130c40-10 80 10 120 0s80 10 120 0M-10 155c40-8 80 8 120 0s80 8 120 0'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.1' d='M-10 30c40-18 80 18 120 0s80 18 120 0M-10 55c40-16 80 16 120 0s80 16 120 0M-10 80c40-14 80 14 120 0s80 14 120 0M-10 105c40-12 80 12 120 0s80 12 120 0M-10 130c40-10 80 10 120 0s80 10 120 0M-10 155c40-8 80 8 120 0s80 8 120 0'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='360' viewBox='0 0 480 360'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.4' d='M-20 60c80-36 160 36 240 0s160 36 240 0M-20 110c80-32 160 32 240 0s160 32 240 0M-20 160c80-28 160 28 240 0s160 28 240 0M-20 210c80-24 160 24 240 0s160 24 240 0M-20 260c80-20 160 20 240 0s160 20 240 0M-20 310c80-16 160 16 240 0s160 16 240 0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='360' viewBox='0 0 480 360'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.4' d='M-20 60c80-36 160 36 240 0s160 36 240 0M-20 110c80-32 160 32 240 0s160 32 240 0M-20 160c80-28 160 28 240 0s160 28 240 0M-20 210c80-24 160 24 240 0s160 24 240 0M-20 260c80-20 160 20 240 0s160 20 240 0M-20 310c80-16 160 16 240 0s160 16 240 0'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 240px 180px;
-  mask-size: 240px 180px;
+  -webkit-mask-size: 480px 360px;
+  mask-size: 480px 360px;
 }
 
 /* 9 — dense topo / wood-grain curves */
 .ui-wallpaper--line[data-variant='9'] {
   background-color: var(--rule7);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='0.9' d='M0 12c25 8 50-8 75 0s50-8 75 0 50-8 75 0M0 28c22 10 48-6 70 2s48-10 72 0 50-6 70 2M0 44c28 6 45-10 78 0s42-8 72 2 50-8 70 0M0 60c20 12 55-8 80 2s40-12 70 0 55-6 70 4M0 76c30 4 40-12 85 0s35-10 65 2 50-8 70 0M0 92c18 10 60-6 82 0s50-10 78 2 40-6 60 0M0 108c26 8 48-10 80 0s45-8 70 2 55-10 70 0M0 124c22 6 52-8 78 0s48-6 72 2 40-8 70 0M0 140c28 10 42-6 80 0s50-12 70 2 55-4 70 2M0 156c20 8 58-10 82 0s42-8 68 2 50-6 70 0M0 172c24 6 50-8 76 0s48-10 74 2 40-4 70 0M0 188c30 8 40-6 85 0s35-10 65 2 55-6 70 0'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='0.9' d='M0 12c25 8 50-8 75 0s50-8 75 0 50-8 75 0M0 28c22 10 48-6 70 2s48-10 72 0 50-6 70 2M0 44c28 6 45-10 78 0s42-8 72 2 50-8 70 0M0 60c20 12 55-8 80 2s40-12 70 0 55-6 70 4M0 76c30 4 40-12 85 0s35-10 65 2 50-8 70 0M0 92c18 10 60-6 82 0s50-10 78 2 40-6 60 0M0 108c26 8 48-10 80 0s45-8 70 2 55-10 70 0M0 124c22 6 52-8 78 0s48-6 72 2 40-8 70 0M0 140c28 10 42-6 80 0s50-12 70 2 55-4 70 2M0 156c20 8 58-10 82 0s42-8 68 2 50-6 70 0M0 172c24 6 50-8 76 0s48-10 74 2 40-4 70 0M0 188c30 8 40-6 85 0s35-10 65 2 55-6 70 0'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.3' d='M0 24c50 16 100-16 150 0s100-16 150 0 100-16 150 0M0 56c44 20 96-12 140 4s96-20 144 0 100-12 140 4M0 88c56 12 90-20 156 0s84-16 144 4 100-16 140 0M0 120c40 24 110-16 160 4s80-24 140 0 110-12 140 8M0 152c60 8 80-24 170 0s70-20 130 4 100-16 140 0M0 184c36 20 120-12 164 0s100-20 156 4 80-12 120 0M0 216c52 16 96-20 160 0s90-16 140 4 110-20 140 0M0 248c44 12 104-16 156 0s96-12 144 4 80-16 140 0M0 280c56 20 84-12 160 0s100-24 140 4 110-8 140 4M0 312c40 16 116-20 164 0s84-16 136 4 100-12 140 0M0 344c48 12 100-16 152 0s96-20 148 4 80-8 140 0M0 376c60 16 80-12 170 0s70-20 130 4 110-12 140 0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.3' d='M0 24c50 16 100-16 150 0s100-16 150 0 100-16 150 0M0 56c44 20 96-12 140 4s96-20 144 0 100-12 140 4M0 88c56 12 90-20 156 0s84-16 144 4 100-16 140 0M0 120c40 24 110-16 160 4s80-24 140 0 110-12 140 8M0 152c60 8 80-24 170 0s70-20 130 4 100-16 140 0M0 184c36 20 120-12 164 0s100-20 156 4 80-12 120 0M0 216c52 16 96-20 160 0s90-16 140 4 110-20 140 0M0 248c44 12 104-16 156 0s96-12 144 4 80-16 140 0M0 280c56 20 84-12 160 0s100-24 140 4 110-8 140 4M0 312c40 16 116-20 164 0s84-16 136 4 100-12 140 0M0 344c48 12 100-16 152 0s96-20 148 4 80-8 140 0M0 376c60 16 80-12 170 0s70-20 130 4 110-12 140 0'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 200px 200px;
-  mask-size: 200px 200px;
+  -webkit-mask-size: 400px 400px;
+  mask-size: 400px 400px;
 }
 
 /* 10 — soft long waves */
 .ui-wallpaper--line[data-variant='10'] {
   background-color: var(--rule7);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='80' viewBox='0 0 320 80'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.2' d='M0 20c40 12 80-12 120 0s80-12 120 0 80-12 120 0M0 40c40 10 80-10 120 0s80-10 120 0 80-10 120 0M0 60c40 8 80-8 120 0s80-8 120 0 80-8 120 0'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='80' viewBox='0 0 320 80'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.2' d='M0 20c40 12 80-12 120 0s80-12 120 0 80-12 120 0M0 40c40 10 80-10 120 0s80-10 120 0 80-10 120 0M0 60c40 8 80-8 120 0s80-8 120 0 80-8 120 0'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='160' viewBox='0 0 640 160'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.5' d='M0 40c80 24 160-24 240 0s160-24 240 0 160-24 240 0M0 80c80 20 160-20 240 0s160-20 240 0 160-20 240 0M0 120c80 16 160-16 240 0s160-16 240 0 160-16 240 0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='160' viewBox='0 0 640 160'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.5' d='M0 40c80 24 160-24 240 0s160-24 240 0 160-24 240 0M0 80c80 20 160-20 240 0s160-20 240 0 160-20 240 0M0 120c80 16 160-16 240 0s160-16 240 0 160-16 240 0'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 320px 80px;
-  mask-size: 320px 80px;
+  -webkit-mask-size: 640px 160px;
+  mask-size: 640px 160px;
 }
 
 /* 11 — concentric arcs / ripple */
 .ui-wallpaper--line[data-variant='11'] {
   background-color: var(--rule7);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Ccircle cx='0' cy='0' r='30' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='50' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='70' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='90' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='110' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='130' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='150' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Ccircle cx='0' cy='0' r='30' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='50' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='70' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='90' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='110' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='130' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='150' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Ccircle cx='0' cy='0' r='40' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='80' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='120' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='160' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='200' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='240' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='280' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='320' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Ccircle cx='0' cy='0' r='40' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='80' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='120' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='160' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='200' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='240' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='280' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Ccircle cx='0' cy='0' r='320' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 160px 160px;
-  mask-size: 160px 160px;
+  -webkit-mask-size: 320px 320px;
+  mask-size: 320px 320px;
 }
 
 /* 12 — diamond lattice */
@@ -190,15 +190,15 @@
     repeating-linear-gradient(
       60deg,
       transparent,
-      transparent 14px,
-      var(--rule7) 14px,
-      var(--rule7) 15px
+      transparent 38px,
+      var(--rule7) 38px,
+      var(--rule7) 40px
     ),
     repeating-linear-gradient(
       -60deg,
       transparent,
-      transparent 14px,
-      var(--rule7) 14px,
-      var(--rule7) 15px
+      transparent 38px,
+      var(--rule7) 38px,
+      var(--rule7) 40px
     );
 }
