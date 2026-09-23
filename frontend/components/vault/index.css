@@ -115,7 +115,7 @@
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--brand-neon-mid);
+  color: var(--blue);
 }
 .vault-card-version,
 .vault-modal-version {
