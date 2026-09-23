@@ -139,7 +139,6 @@
   justify-content: center;
   flex-shrink: 0;
   color: var(--brand-neon-core);
-  opacity: 0.85;
 }
 
 .hstat-n {
