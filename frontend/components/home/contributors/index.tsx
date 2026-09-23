@@ -26,7 +26,7 @@ export function Contributors() {
 
   return (
     <section id="contributors">
-      <ui_wallpaper.Wallpaper type="line" variant={1} vignette={false}/>
+      <ui_wallpaper.Wallpaper variant={1} vignette={false}/>
       <div className="sw">
         <div className="sec-head">
           <div className="rev">
