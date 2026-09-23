@@ -83,8 +83,8 @@ export function Studio() {
   const [logoSquare, setLogoSquare] = react.useState(false);
   const [logoRound, setLogoRound] = react.useState(false);
   const [logoCenter, setLogoCenter] = react.useState(true);
-  const [bannerText, setBannerText] = react.useState('vital.sandbox');
-  const [bannerSub, setBannerSub] = react.useState('Script It — Ship It — Limitless');
+  const [bannerText, setBannerText] = react.useState('ov-studio');
+  const [bannerSub, setBannerSub] = react.useState('Weaving ideas, pixel by pixel');
   const [bannerRound, setBannerRound] = react.useState(false);
   const [bannerNeon, setBannerNeon] = react.useState(true);
   const [bannerWallpaper, setBannerWallpaper] = react.useState(true);
