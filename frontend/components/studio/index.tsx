@@ -164,18 +164,6 @@ export function Studio() {
     if (!toPng) return null;
 
     const el = ref.current;
-    const prevClass = el.className;
-    const prevBg = el.style.background;
-    const prevBgImage = el.style.backgroundImage;
-    const prevTransform = el.style.transform;
-    el.style.transform = 'none';
-
-    if (opts?.transparent) {
-      el.classList.remove('no-bg');
-      el.classList.add('export-transparent');
-      el.style.background = 'transparent';
-      el.style.backgroundImage = 'none';
-    }
 
     try {
       const dataUrl = await toPng(el, {
@@ -186,27 +174,24 @@ export function Studio() {
         backgroundColor: opts?.transparent ? 'transparent' : undefined,
         style: {
           transform: 'none',
+          transformOrigin: 'top left',
           margin: '0',
           padding: '0',
           width: `${width}px`,
           height: `${height}px`,
+          position: 'relative',
+          left: '0',
+          top: '0',
           ...(opts?.transparent
             ? { background: 'transparent', backgroundImage: 'none' }
             : {}),
         },
       });
       return dataUrl;
-    } 
-    catch (err) {
+    } catch (err) {
       console.error(err);
       alert('Export failed – check console');
       return null;
-    } 
-    finally {
-      el.className = prevClass;
-      el.style.background = prevBg;
-      el.style.backgroundImage = prevBgImage;
-      el.style.transform = prevTransform;
     }
   }
 
