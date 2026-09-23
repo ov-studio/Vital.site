@@ -44,7 +44,7 @@ export function Hero() {
 
   return (
     <section id="hero">
-      <ui_wallpaper.Wallpaper type="line" angle={45} vignette={false}/>
+      <ui_wallpaper.Wallpaper type="line" variant={1} angle={45} vignette={false}/>
       <div className="hcorner hcorner-tl"/>
       <div className="hcorner hcorner-tr"/>
       <div className="hcorner hcorner-bl"/>

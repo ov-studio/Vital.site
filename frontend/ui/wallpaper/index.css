@@ -6,14 +6,24 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
+  contain: strict;
+  transform: translateZ(0);
+}
+
+.ui-wallpaper--icon {
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
   -webkit-mask-position: center top;
   mask-position: center top;
   -webkit-mask-size: 3440px 1440px;
   mask-size: 3440px 1440px;
-  contain: strict;
-  transform: translateZ(0);
+}
+
+@media (min-width: 3441px) {
+  .ui-wallpaper--icon {
+    -webkit-mask-size: 100% auto;
+    mask-size: 100% auto;
+  }
 }
 
 .ui-wallpaper--vignette::after {
@@ -34,10 +44,17 @@
   pointer-events: none;
 }
 
+/* ── Line patterns ── */
 .ui-wallpaper--line {
   -webkit-mask-image: none;
   mask-image: none;
   background-color: transparent;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+/* 1 — classic diagonal hatch (default; angle via --wallpaper-line-angle) */
+.ui-wallpaper--line[data-variant='1'] {
   background-image: repeating-linear-gradient(
     var(--wallpaper-line-angle, -45deg),
     transparent,
@@ -45,15 +62,144 @@
     transparent 2px,
     transparent 40px
   );
-  -webkit-mask-size: auto;
-  mask-size: auto;
 }
 
+/* 2 — opposite diagonal (angle still applied) */
+.ui-wallpaper--line[data-variant='2'] {
+  background-image: repeating-linear-gradient(
+    calc(var(--wallpaper-line-angle, -45deg) + 90deg),
+    transparent,
+    var(--rule7) 2px,
+    transparent 2px,
+    transparent 40px
+  );
+}
 
-/* ── @media ── */
-@media (min-width: 3441px) {
-  .ui-wallpaper {
-    -webkit-mask-size: 100% auto;
-    mask-size: 100% auto;
-  }
+/* 3 — horizontal rules */
+.ui-wallpaper--line[data-variant='3'] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 11px,
+    var(--rule7) 11px,
+    var(--rule7) 12px
+  );
+}
+
+/* 4 — vertical rules */
+.ui-wallpaper--line[data-variant='4'] {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 11px,
+    var(--rule7) 11px,
+    var(--rule7) 12px
+  );
+}
+
+/* 5 — cross hatch */
+.ui-wallpaper--line[data-variant='5'] {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      var(--rule7) 18px,
+      var(--rule7) 19px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 18px,
+      var(--rule7) 18px,
+      var(--rule7) 19px
+    );
+}
+
+/* 6 — dot grid */
+.ui-wallpaper--line[data-variant='6'] {
+  background-image: radial-gradient(var(--rule7) 1px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+/* 7 — square grid */
+.ui-wallpaper--line[data-variant='7'] {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      var(--rule7) 23px,
+      var(--rule7) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      var(--rule7) 23px,
+      var(--rule7) 24px
+    );
+}
+
+/* 8 — topographic contours (curved) */
+.ui-wallpaper--line[data-variant='8'] {
+  background-color: var(--rule7);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.1' d='M-10 30c40-18 80 18 120 0s80 18 120 0M-10 55c40-16 80 16 120 0s80 16 120 0M-10 80c40-14 80 14 120 0s80 14 120 0M-10 105c40-12 80 12 120 0s80 12 120 0M-10 130c40-10 80 10 120 0s80 10 120 0M-10 155c40-8 80 8 120 0s80 8 120 0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.1' d='M-10 30c40-18 80 18 120 0s80 18 120 0M-10 55c40-16 80 16 120 0s80 16 120 0M-10 80c40-14 80 14 120 0s80 14 120 0M-10 105c40-12 80 12 120 0s80 12 120 0M-10 130c40-10 80 10 120 0s80 10 120 0M-10 155c40-8 80 8 120 0s80 8 120 0'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 240px 180px;
+  mask-size: 240px 180px;
+}
+
+/* 9 — dense topo / wood-grain curves */
+.ui-wallpaper--line[data-variant='9'] {
+  background-color: var(--rule7);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='0.9' d='M0 12c25 8 50-8 75 0s50-8 75 0 50-8 75 0M0 28c22 10 48-6 70 2s48-10 72 0 50-6 70 2M0 44c28 6 45-10 78 0s42-8 72 2 50-8 70 0M0 60c20 12 55-8 80 2s40-12 70 0 55-6 70 4M0 76c30 4 40-12 85 0s35-10 65 2 50-8 70 0M0 92c18 10 60-6 82 0s50-10 78 2 40-6 60 0M0 108c26 8 48-10 80 0s45-8 70 2 55-10 70 0M0 124c22 6 52-8 78 0s48-6 72 2 40-8 70 0M0 140c28 10 42-6 80 0s50-12 70 2 55-4 70 2M0 156c20 8 58-10 82 0s42-8 68 2 50-6 70 0M0 172c24 6 50-8 76 0s48-10 74 2 40-4 70 0M0 188c30 8 40-6 85 0s35-10 65 2 55-6 70 0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='0.9' d='M0 12c25 8 50-8 75 0s50-8 75 0 50-8 75 0M0 28c22 10 48-6 70 2s48-10 72 0 50-6 70 2M0 44c28 6 45-10 78 0s42-8 72 2 50-8 70 0M0 60c20 12 55-8 80 2s40-12 70 0 55-6 70 4M0 76c30 4 40-12 85 0s35-10 65 2 50-8 70 0M0 92c18 10 60-6 82 0s50-10 78 2 40-6 60 0M0 108c26 8 48-10 80 0s45-8 70 2 55-10 70 0M0 124c22 6 52-8 78 0s48-6 72 2 40-8 70 0M0 140c28 10 42-6 80 0s50-12 70 2 55-4 70 2M0 156c20 8 58-10 82 0s42-8 68 2 50-6 70 0M0 172c24 6 50-8 76 0s48-10 74 2 40-4 70 0M0 188c30 8 40-6 85 0s35-10 65 2 55-6 70 0'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 200px 200px;
+  mask-size: 200px 200px;
+}
+
+/* 10 — soft long waves */
+.ui-wallpaper--line[data-variant='10'] {
+  background-color: var(--rule7);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='80' viewBox='0 0 320 80'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.2' d='M0 20c40 12 80-12 120 0s80-12 120 0 80-12 120 0M0 40c40 10 80-10 120 0s80-10 120 0 80-10 120 0M0 60c40 8 80-8 120 0s80-8 120 0 80-8 120 0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='80' viewBox='0 0 320 80'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.2' d='M0 20c40 12 80-12 120 0s80-12 120 0 80-12 120 0M0 40c40 10 80-10 120 0s80-10 120 0 80-10 120 0M0 60c40 8 80-8 120 0s80-8 120 0 80-8 120 0'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 320px 80px;
+  mask-size: 320px 80px;
+}
+
+/* 11 — concentric arcs / ripple */
+.ui-wallpaper--line[data-variant='11'] {
+  background-color: var(--rule7);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Ccircle cx='0' cy='0' r='30' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='50' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='70' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='90' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='110' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='130' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='150' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Ccircle cx='0' cy='0' r='30' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='50' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='70' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='90' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='110' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='130' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Ccircle cx='0' cy='0' r='150' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 160px 160px;
+  mask-size: 160px 160px;
+}
+
+/* 12 — diamond lattice */
+.ui-wallpaper--line[data-variant='12'] {
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 14px,
+      var(--rule7) 14px,
+      var(--rule7) 15px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 14px,
+      var(--rule7) 14px,
+      var(--rule7) 15px
+    );
 }
