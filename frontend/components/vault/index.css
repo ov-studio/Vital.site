@@ -259,7 +259,7 @@
 .vault-modal-desc {
   font-family: 'Geist', sans-serif;
   font-size: .84rem;
-  color: var(--text-soft);
+  color: var(--text-muted);
   line-height: 1.85;
   white-space: pre-line;
 }
