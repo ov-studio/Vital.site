@@ -56,6 +56,7 @@ export function Ethos() {
 
   return (
     <section id="ethos">
+      <ui_wallpaper.Wallpaper type="line" angle={45}/>
       <div className="sw">
         <div className="sec-head rev">
           <div>

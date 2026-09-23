@@ -26,6 +26,7 @@ export function Contributors() {
 
   return (
     <section id="contributors">
+      <ui_wallpaper.Wallpaper type="line" angle={-45}/>
       <div className="sw">
         <div className="sec-head">
           <div className="rev">

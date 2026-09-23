@@ -6,11 +6,6 @@
   min-height: 100vh;
   border-top: 1px solid var(--rule);
   scroll-margin-top: var(--nav-h);
-  background: repeating-linear-gradient(45deg,
-    transparent,
-    var(--rule7) 2px,
-    transparent 2px,
-    transparent 40px);
 }
 
 .ethos-grid {
