@@ -40,3 +40,18 @@
         var(--bg4) 100%);
   pointer-events: none;
 }
+
+.ui-wallpaper--line {
+  -webkit-mask-image: none;
+  mask-image: none;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    var(--wallpaper-line-angle, -45deg),
+    transparent,
+    var(--rule7) 2px,
+    transparent 2px,
+    transparent 40px
+  );
+  -webkit-mask-size: auto;
+  mask-size: auto;
+}
