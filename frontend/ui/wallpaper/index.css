@@ -8,22 +8,11 @@
   height: 100%;
   contain: strict;
   transform: translateZ(0);
-}
-
-.ui-wallpaper--icon {
-  -webkit-mask-repeat: repeat;
-  mask-repeat: repeat;
-  -webkit-mask-position: center top;
-  mask-position: center top;
-  -webkit-mask-size: 3440px 1440px;
-  mask-size: 3440px 1440px;
-}
-
-@media (min-width: 3441px) {
-  .ui-wallpaper--icon {
-    -webkit-mask-size: 100% auto;
-    mask-size: 100% auto;
-  }
+  background-color: transparent;
+  background-repeat: repeat;
+  background-position: center;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .ui-wallpaper--vignette::after {
@@ -44,80 +33,72 @@
   pointer-events: none;
 }
 
-.ui-wallpaper--line {
-  -webkit-mask-image: none;
-  mask-image: none;
-  background-color: transparent;
-  background-repeat: repeat;
-  background-position: center;
-}
-
 /* 1 — classic diagonal hatch (−45°) */
-.ui-wallpaper--line[data-variant='1'] {
+.ui-wallpaper[data-variant='1'] {
   background-image: repeating-linear-gradient(
     -45deg,
     transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
   );
 }
 
 /* 2 — opposite diagonal (+45°) */
-.ui-wallpaper--line[data-variant='2'] {
+.ui-wallpaper[data-variant='2'] {
   background-image: repeating-linear-gradient(
     45deg,
     transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
   );
 }
 
 /* 3 — horizontal rules */
-.ui-wallpaper--line[data-variant='3'] {
+.ui-wallpaper[data-variant='3'] {
   background-image: repeating-linear-gradient(
     0deg,
     transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
   );
 }
 
 /* 4 — vertical rules */
-.ui-wallpaper--line[data-variant='4'] {
+.ui-wallpaper[data-variant='4'] {
   background-image: repeating-linear-gradient(
     90deg,
     transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
   );
 }
 
 /* 5 — cross hatch */
-.ui-wallpaper--line[data-variant='5'] {
+.ui-wallpaper[data-variant='5'] {
   background-image:
     repeating-linear-gradient(
       45deg,
       transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
     );
 }
 
 /* 6 — plus marks (2px arms, 40px grid) */
-.ui-wallpaper--line[data-variant='6'] {
-  background-color: var(--rule7);
+.ui-wallpaper[data-variant='6'] {
+  background-color: var(--wallpaper-color, var(--rule7));
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M14 20 H26 M20 14 V26'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M14 20 H26 M20 14 V26'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
@@ -127,27 +108,27 @@
 }
 
 /* 7 — square grid */
-.ui-wallpaper--line[data-variant='7'] {
+.ui-wallpaper[data-variant='7'] {
   background-image:
     repeating-linear-gradient(
       0deg,
       transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
     );
 }
 
 /* 8 — chevron / zigzag */
-.ui-wallpaper--line[data-variant='8'] {
-  background-color: var(--rule7);
+.ui-wallpaper[data-variant='8'] {
+  background-color: var(--wallpaper-color, var(--rule7));
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 L20 4 L40 20 L60 4 L80 20'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 L20 4 L40 20 L60 4 L80 20'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
@@ -157,8 +138,8 @@
 }
 
 /* 9 — dashed diagonal */
-.ui-wallpaper--line[data-variant='9'] {
-  background-color: var(--rule7);
+.ui-wallpaper[data-variant='9'] {
+  background-color: var(--wallpaper-color, var(--rule7));
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-dasharray='10 14' d='M-8 64 L64 -8'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-dasharray='10 14' d='M-8 64 L64 -8'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
@@ -168,8 +149,8 @@
 }
 
 /* 10 — brick (offset horizontal + verticals) */
-.ui-wallpaper--line[data-variant='10'] {
-  background-color: var(--rule7);
+.ui-wallpaper[data-variant='10'] {
+  background-color: var(--wallpaper-color, var(--rule7));
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 0 H80 M0 40 H80 M0 0 V40 M40 0 V40 M20 40 V80 M60 40 V80'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 0 H80 M0 40 H80 M0 0 V40 M40 0 V40'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
@@ -179,8 +160,8 @@
 }
 
 /* 11 — open circles */
-.ui-wallpaper--line[data-variant='11'] {
-  background-color: var(--rule7);
+.ui-wallpaper[data-variant='11'] {
+  background-color: var(--wallpaper-color, var(--rule7));
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
@@ -190,20 +171,21 @@
 }
 
 /* 12 — diamond lattice */
-.ui-wallpaper--line[data-variant='12'] {
+.ui-wallpaper[data-variant='12'] {
   background-image:
     repeating-linear-gradient(
       60deg,
       transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
     ),
     repeating-linear-gradient(
       -60deg,
       transparent,
-    var(--rule7) 2px,
+    var(--wallpaper-color, var(--rule7)) 2px,
     transparent 2px,
     transparent 40px
     );
 }
+

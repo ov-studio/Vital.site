@@ -46,7 +46,6 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 - **`configs`** — page-level configuration (footer, home, roadmap, tos, vault)
 - **`content/docs`** — MDX source files for all documentation
 - **`lib`** — shared utilities
-- **`scripts`** — build helpers
 
 ## Contributing
 
