@@ -7,13 +7,6 @@
   min-height: 100vh;
   padding-top: var(--nav-h);
   overflow: hidden;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    var(--rule7) 2px,
-    transparent 2px,
-    transparent 40px
-  );
 }
 
 .hcorner {

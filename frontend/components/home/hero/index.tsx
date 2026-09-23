@@ -1,5 +1,6 @@
 'use client';
 import * as ui_brand           from '@/ui/brand';
+import * as ui_wallpaper       from '@/ui/wallpaper';
 import * as component_download from '@/components/download';
 import * as lib_api_url        from '@/lib/api_url';
 import * as react              from 'react';
@@ -43,6 +44,7 @@ export function Hero() {
 
   return (
     <section id="hero">
+      <ui_wallpaper.Wallpaper type="line" angle={45} vignette={false}/>
       <div className="hcorner hcorner-tl"/>
       <div className="hcorner hcorner-tr"/>
       <div className="hcorner hcorner-bl"/>
