@@ -47,7 +47,7 @@
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
-  margin-bottom: clamp(35px, 3vw, 50px);
+  margin-bottom: clamp(30px, 3vw, 40px);
   font-family: 'Rajdhani', sans-serif;
   font-size: clamp(.9rem, 1.4vw, 1rem);
   font-weight: 700;
