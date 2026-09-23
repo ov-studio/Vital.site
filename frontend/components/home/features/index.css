@@ -81,7 +81,7 @@
   color: var(--text-muted);
   transition: color .25s;
 }
-.fcluster.is-active .fcluster-desc { color: var(--blue) }
+.fcluster.is-active .fcluster-desc { color: var(--dim) }
 
 .feat-diagram { 
   position: relative; 
