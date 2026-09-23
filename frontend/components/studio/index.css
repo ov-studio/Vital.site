@@ -274,11 +274,11 @@
 }
 
 .studio-banner.is-neon .studio-banner-title {
-  color: var(--brand-neon-core, #a8c0ff);
+  color: var(--brand-neon-core);
   text-shadow:
-    0 0 12px color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 70%, transparent),
-    0 0 36px color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 45%, transparent),
-    0 0 72px color-mix(in srgb, var(--brand-neon-core, #a8c0ff) 30%, transparent);
+    0 0 12px color-mix(in srgb, var(--brand-neon-mid) 70%, transparent),
+    0 0 36px color-mix(in srgb, var(--brand-neon-mid) 45%, transparent),
+    0 0 72px color-mix(in srgb, var(--brand-neon-core) 30%, transparent);
 }
 
 .studio-banner-sub {
@@ -292,8 +292,8 @@
 }
 
 .studio-banner.is-neon .studio-banner-sub {
-  color: color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 55%, var(--text-muted));
-  text-shadow: 0 0 18px color-mix(in srgb, var(--brand-neon-mid, #6b8cff) 35%, transparent);
+  color: color-mix(in srgb, var(--brand-neon-mid) 55%, var(--text-muted));
+  text-shadow: 0 0 18px color-mix(in srgb, var(--brand-neon-mid) 35%, transparent);
 }
 
 .studio-banner.is-round {
