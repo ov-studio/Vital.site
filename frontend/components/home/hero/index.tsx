@@ -56,11 +56,7 @@ export function Hero() {
         </div>
 
         <div className="hero-motto">
-          <span className="hm-word">Script It</span>
-          <span className="hm-sep">—</span>
-          <span className="hm-word hm-blue">Ship It</span>
-          <span className="hm-sep">—</span>
-          <span className="hm-word">Limitless</span>
+          <span className="hm-word">44+ Stargazers 🌟 &<br/>100+ Ko-fi supporters ❤️</span>
         </div>
 
         <div className="hero-sub">
@@ -74,18 +70,6 @@ export function Hero() {
         </div>
 
         <component_download.Download/>
-
-        <div className="hero-stats">
-          {stats.map(({ key, value, label }) => (
-            <div key={key} className="hstat">
-              <div className="hstat-top">
-                <span className="hstat-ico">{STAT_ICONS[key]}</span>
-                <span className="hstat-n">{value}</span>
-              </div>
-              <span className="hstat-l">{label}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
