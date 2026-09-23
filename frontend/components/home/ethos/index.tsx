@@ -56,7 +56,7 @@ export function Ethos() {
 
   return (
     <section id="ethos">
-      <ui_wallpaper.Wallpaper variant={2} vignette={false}/>
+      <ui_wallpaper.Wallpaper variant={16} vignette={true}/>
       <div className="sw">
         <div className="sec-head rev">
           <div>
