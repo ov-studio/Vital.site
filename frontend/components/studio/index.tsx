@@ -341,8 +341,7 @@ export function Studio() {
 
   return (
     <section id="studio" className="sec-pad">
-      <ui_wallpaper.Wallpaper seed={1}/>
-
+      <ui_wallpaper.Wallpaper variant={1}/>
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
@@ -431,7 +430,7 @@ export function Studio() {
                 className="studio-canvas studio-og"
                 style={{ width: OG_W, height: OG_H }}
               >
-                <ui_wallpaper.Wallpaper type="line" variant={2} vignette={false}/>
+                <ui_wallpaper.Wallpaper variant={2} vignette={false}/>
                 <div className="studio-og-content">
                   <ui_brand.Brand size="xl" variant="logo-only" neon={true}/>
                   {(tagline.trim() || ogPlaceholder) && (
@@ -644,7 +643,7 @@ export function Studio() {
                 style={{ width: BANNER_W, height: BANNER_H }}
               >
                 {bannerWallpaper && (
-                  <ui_wallpaper.Wallpaper seed={1} vignette={bannerVignette}/>
+                  <ui_wallpaper.Wallpaper variant={1} vignette={bannerVignette}/>
                 )}
                 <div className="studio-banner-content">
                   <div className="studio-banner-title">{bannerText.trim() || '\u00a0'}</div>

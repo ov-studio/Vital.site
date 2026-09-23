@@ -7,7 +7,7 @@ import './index.css';
 export function TOS() {
   return (
     <section id="tos">
-      <ui_wallpaper.Wallpaper seed={11}/>
+      <ui_wallpaper.Wallpaper variant={2}/>
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">

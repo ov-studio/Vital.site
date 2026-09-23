@@ -210,7 +210,7 @@ export function Workspace() {
 
   return (
     <main className="ws-page">
-      <ui_wallpaper.Wallpaper seed={8}/>
+      <ui_wallpaper.Wallpaper variant={5}/>
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
