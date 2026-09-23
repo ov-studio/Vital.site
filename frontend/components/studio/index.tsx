@@ -8,7 +8,7 @@ import * as react        from 'react';
 import * as lucide       from 'lucide-react';
 import './index.css';
 
-type Section = 'og' | 'logo';
+type Section = 'og' | 'logo' | 'banner';
 
 const OG_W = 1000;
 const OG_H = 300;
@@ -17,6 +17,8 @@ const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
 const LOGO_SQ_TIGHT = 380;
 const LOGO_SQ_PAD = 460;
+const BANNER_W = 2560;
+const BANNER_H = 1440;
 
 function nextPaint(): Promise<void> {
   return new Promise((resolve) => {
@@ -81,6 +83,7 @@ export function Studio() {
   const [logoSquare, setLogoSquare] = react.useState(false);
   const [logoRound, setLogoRound] = react.useState(false);
   const [logoCenter, setLogoCenter] = react.useState(true);
+  const [bannerText, setBannerText] = react.useState('vital.sandbox');
   const [bannerSub, setBannerSub] = react.useState('Script It — Ship It — Limitless');
   const [bannerRound, setBannerRound] = react.useState(false);
   const [bannerNeon, setBannerNeon] = react.useState(true);
@@ -89,7 +92,24 @@ export function Studio() {
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
+  const bannerRef = react.useRef<HTMLDivElement>(null);
+  const bannerPreviewRef = react.useRef<HTMLDivElement>(null);
+
+  react.useEffect(() => {
+    if (section !== 'banner') return;
+    const frame = bannerPreviewRef.current;
+    const canvas = bannerRef.current;
+    if (!frame || !canvas) return;
+    const update = () => {
+      const scale = frame.clientWidth / BANNER_W;
+      canvas.style.setProperty('--banner-preview-scale', String(scale));
+      canvas.style.transform = `scale(${scale})`;
+    };
+    update();
+    const ro = new ResizeObserver(update);
     ro.observe(frame);
+    return () => ro.disconnect();
+  }, [section]);
   const logoSize = logoSquare ? (logoPad ? LOGO_SQ_PAD : LOGO_SQ_TIGHT) : null;
   const logoW = logoSize ?? LOGO_W;
   const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
@@ -310,7 +330,6 @@ export function Studio() {
             </div>
           </div>
           <p className="page-intro studio-intro">
-            Open Graph images and neon logos using the real Brand component.
             Open Graph images, neon logos, and channel banners using the real Brand component.
           </p>
         </div>
@@ -331,6 +350,11 @@ export function Studio() {
                   id: 'logo',
                   label: 'Branding',
                   icon: <lucide.Shapes size={14} strokeWidth={2.25}/>,
+                },
+                {
+                  id: 'banner',
+                  label: 'Banner',
+                  icon: <lucide.PanelTop size={14} strokeWidth={2.25}/>,
                 },
               ]}
             />
@@ -511,6 +535,90 @@ export function Studio() {
                   variant="logo-only"
                   neon={logoNeon}
                 />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {section === 'banner' && (
+          <div className="studio-panel">
+            <div className="studio-controls">
+              <div className="studio-controls-row">
+                <ui_search.Search
+                  value={bannerText}
+                  onChange={setBannerText}
+                  placeholder="Title…"
+                  icon={<lucide.Type size={14} strokeWidth={2}/>}
+                />
+              </div>
+              <div className="studio-controls-row">
+                <ui_search.Search
+                  value={bannerSub}
+                  onChange={setBannerSub}
+                  placeholder="Subtitle…"
+                  icon={<lucide.Text size={14} strokeWidth={2}/>}
+                />
+              </div>
+              <div className="studio-controls-row">
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={bannerRound}
+                    onChange={(e) => setBannerRound(e.target.checked)}
+                  />
+                  Rounded
+                </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={bannerNeon}
+                    onChange={(e) => setBannerNeon(e.target.checked)}
+                  />
+                  Neon text
+                </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={bannerWallpaper}
+                    onChange={(e) => setBannerWallpaper(e.target.checked)}
+                  />
+                  Wallpaper
+                </label>
+              </div>
+              <div className="studio-controls-row studio-controls-row--actions">
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
+                  onClick={() => download(bannerRef, 'banner.png', BANNER_W, BANNER_H)}
+                >
+                  Download Asset
+                </ui_button.Button>
+              </div>
+            </div>
+
+            <div
+              ref={bannerPreviewRef}
+              className="studio-preview-wrap studio-preview-wrap--banner"
+            >
+              <div
+                ref={bannerRef}
+                className={[
+                  'studio-canvas',
+                  'studio-banner',
+                  bannerRound ? 'is-round' : '',
+                  bannerNeon ? 'is-neon' : '',
+                ].filter(Boolean).join(' ')}
+                style={{ width: BANNER_W, height: BANNER_H }}
+              >
+                {bannerWallpaper && (
+                  <ui_wallpaper.Wallpaper seed={1} opacity={0.14} vignette={true}/>
+                )}
+                <div className="studio-banner-content">
+                  <div className="studio-banner-title">{bannerText.trim() || '\u00a0'}</div>
+                  {bannerSub.trim() && (
+                    <div className="studio-banner-sub">{bannerSub}</div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
