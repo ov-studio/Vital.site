@@ -120,13 +120,6 @@
 
 .studio-og {
   background-color: var(--bg4);
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    var(--rule7) 2px,
-    transparent 2px,
-    transparent 40px
-  );
 }
 
 .studio-og-content {

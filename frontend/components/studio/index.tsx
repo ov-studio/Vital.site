@@ -431,6 +431,7 @@ export function Studio() {
                 className="studio-canvas studio-og"
                 style={{ width: OG_W, height: OG_H }}
               >
+                <ui_wallpaper.Wallpaper type="line" angle={45} vignette={false}/>
                 <div className="studio-og-content">
                   <ui_brand.Brand size="xl" variant="logo-only" neon={true}/>
                   {(tagline.trim() || ogPlaceholder) && (
