@@ -32,7 +32,7 @@
 .vault-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
+  gap: 12px;
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
 }
@@ -47,7 +47,7 @@
   border-radius: 2px;
   transition: border-color .25s, background .25s;
 }
-.vault-card:hover { border-color: var(--brand-neon-mid); }
+.vault-card:hover { border-color: var(--brand-neon-core); }
 
 .vault-card-banner,
 .vault-modal-banner {
@@ -181,7 +181,7 @@
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  background: var(--brand-neon-glow);
+  background: var(--brand-neon-core);
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   transform: translateZ(0);
   animation: slide-up .35s ease forwards;
@@ -193,7 +193,7 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  margin: 2px;
+  margin: 3px;
   overflow: hidden;
   background: var(--bg7);
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
@@ -268,7 +268,12 @@
   color: var(--brand-neon-core); 
 }
 
-.vault-modal-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.vault-modal-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  flex-shrink: 0; 
+}
 .vault-modal-actions .ui-btn--secondary { margin-left: auto; }
 
 .vault-modal-dl-error {
