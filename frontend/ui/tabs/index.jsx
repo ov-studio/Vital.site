@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Tab switcher.
+ *
  * @param {Object} props
  * @param {string} props.value
  * @param {(id: string) => void} [props.onChange]

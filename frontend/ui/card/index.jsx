@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Content card surface.
+ *
  * @param {Object} props
  * @param {'overlay' | 'stack'} [props.layout]
  * @param {boolean} [props.scrim]

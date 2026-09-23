@@ -1,5 +1,8 @@
 import './index.css';
 
+/**
+ * Tag / label pill.
+ */
 export function TagPill({ label, className = '', prefix = '#' }) {
   return (
     <span className={`tag-pill${className ? ` ${className}` : ''}`}>

@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Search input field.
+ *
  * @param {Object} props
  * @param {string} [props.value]
  * @param {Function} [props.onChange]

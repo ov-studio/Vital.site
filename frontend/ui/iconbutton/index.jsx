@@ -2,6 +2,8 @@ import * as react from 'react';
 import './index.css';
 
 /**
+ * Icon-only button.
+ *
  * @param {Object} props
  * @param {import('react').ElementType | import('react').ReactElement | null} [props.icon] Icon component (e.g. a lucide-react icon) or a pre-rendered element.
  * @param {Object} [props.iconProps] Props forwarded to the icon when it's rendered from a component.

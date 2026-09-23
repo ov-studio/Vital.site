@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Toggleable tag filter chips.
+ *
  * @param {Object} props
  * @param {string[]} [props.tags]
  * @param {string | null} [props.active]

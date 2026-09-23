@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Data table.
+ *
  * @param {Object} props
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]

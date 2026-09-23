@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Shared action button.
+ *
  * @param {Object} props
  * @param {'primary' | 'secondary' | 'action'} [props.variant]
  * @param {'lg'} [props.size]  Larger padding (action only)

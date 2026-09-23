@@ -1,6 +1,8 @@
 import './index.css';
 
 /**
+ * Horizontal section divider.
+ *
  * @param {Object} props
  * @param {string} [props.className]
  */

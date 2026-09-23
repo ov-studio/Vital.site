@@ -14,6 +14,9 @@ interface BrandProps {
   neon?: boolean;
 }
 
+/**
+ * Brand mark and wordmark.
+ */
 export function Brand({
   name,
   size = 'md',
