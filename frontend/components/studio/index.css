@@ -247,19 +247,6 @@
 
 
 
-.studio-banner .ui-wallpaper {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask-size: 3440px 1440px;
-  mask-size: 3440px 1440px;
-  -webkit-mask-repeat: repeat;
-  mask-repeat: repeat;
-  -webkit-mask-position: center top;
-  mask-position: center top;
-}
 
 .studio-banner-content {
   position: relative;
