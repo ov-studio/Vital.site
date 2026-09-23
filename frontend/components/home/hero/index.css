@@ -48,9 +48,9 @@
   gap: 25px;
   flex-wrap: wrap;
   margin-bottom: clamp(30px, 3vw, 40px);
-  font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(.9rem, 1.4vw, 1rem);
-  font-weight: 700;
+  font-family: var(--font-cookie), 'Cookie', cursive;
+  font-size: clamp(1.3rem, 1.7vw, 1.5rem);
+  font-weight: 400;
   opacity: 0;
   animation: slide-up .7s .35s forwards;
 }

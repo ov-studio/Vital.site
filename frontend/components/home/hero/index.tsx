@@ -56,7 +56,7 @@ export function Hero() {
         </div>
 
         <div className="hero-motto">
-          <span className="hm-word">Developed by ov-studio.<br />Supported by 100+ Ko-fi supporters ❤️ & 44+ Stargazers 🌟</span>
+          <span className="hm-word">Handcrafted by ov-studio<br />Backed by 100+ supporters ❤️ & 44+ Stargazers 🌟</span>
         </div>
 
         <div className="hero-sub">
