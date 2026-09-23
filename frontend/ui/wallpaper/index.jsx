@@ -10,7 +10,7 @@ import './index.css';
  */
 export function Wallpaper({
   seed = 0,
-  opacity = 0.08,
+  opacity = 0.1,
   vignette = true,
   src,
   color
@@ -22,7 +22,7 @@ export function Wallpaper({
       style={{
         WebkitMaskImage: `url(${url})`,
         maskImage: `url(${url})`,
-        backgroundColor: color ?? 'var(--brand-neon-mid)',
+        backgroundColor: color ?? 'var(--brand-neon-core)',
         opacity,
       }}
       aria-hidden="true"

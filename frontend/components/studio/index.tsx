@@ -643,7 +643,7 @@ export function Studio() {
                 style={{ width: BANNER_W, height: BANNER_H }}
               >
                 {bannerWallpaper && (
-                  <ui_wallpaper.Wallpaper seed={1} opacity={0.14} vignette={bannerVignette}/>
+                  <ui_wallpaper.Wallpaper seed={1} vignette={bannerVignette}/>
                 )}
                 <div className="studio-banner-content">
                   <div className="studio-banner-title">{bannerText.trim() || '\u00a0'}</div>
