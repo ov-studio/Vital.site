@@ -18,7 +18,7 @@ const LOGO_H_PAD = 400;
 const LOGO_SQ_TIGHT = 380;
 const LOGO_SQ_PAD = 460;
 const BANNER_W = 2560;
-const BANNER_H = 1440;
+const BANNER_H = 640;
 
 function nextPaint(): Promise<void> {
   return new Promise((resolve) => {
@@ -88,6 +88,7 @@ export function Studio() {
   const [bannerRound, setBannerRound] = react.useState(false);
   const [bannerNeon, setBannerNeon] = react.useState(true);
   const [bannerWallpaper, setBannerWallpaper] = react.useState(true);
+  const [bannerVignette, setBannerVignette] = react.useState(true);
   const [presetBusy, setPresetBusy] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
@@ -584,6 +585,15 @@ export function Studio() {
                   />
                   Wallpaper
                 </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={bannerVignette}
+                    onChange={(e) => setBannerVignette(e.target.checked)}
+                    disabled={!bannerWallpaper}
+                  />
+                  Vignette
+                </label>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -611,7 +621,7 @@ export function Studio() {
                 style={{ width: BANNER_W, height: BANNER_H }}
               >
                 {bannerWallpaper && (
-                  <ui_wallpaper.Wallpaper seed={1} opacity={0.14} vignette={true}/>
+                  <ui_wallpaper.Wallpaper seed={1} opacity={0.14} vignette={bannerVignette}/>
                 )}
                 <div className="studio-banner-content">
                   <div className="studio-banner-title">{bannerText.trim() || '\u00a0'}</div>
