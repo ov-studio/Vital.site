@@ -66,15 +66,15 @@
   );
 }
 
-/* 4 — vertical rules */
+/* 4 — soft polka (cozy) */
 .ui-wallpaper[data-variant='4'] {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    var(--wallpaper-color) 2px,
-    transparent 2px,
-    transparent 40px
-  );
+  background-color: var(--wallpaper-color);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 40px 40px;
+  mask-size: 40px 40px;
 }
 
 /* 5 — cross hatch */
@@ -107,52 +107,52 @@
   mask-size: 40px 40px;
 }
 
-/* 7 — square grid */
+/* 7 — square grid (H + V) */
 .ui-wallpaper[data-variant='7'] {
   background-image:
     repeating-linear-gradient(
       0deg,
       transparent,
-    var(--wallpaper-color) 2px,
-    transparent 2px,
-    transparent 40px
+      transparent 38px,
+      var(--wallpaper-color) 38px,
+      var(--wallpaper-color) 40px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
-    var(--wallpaper-color) 2px,
-    transparent 2px,
-    transparent 40px
+      transparent 38px,
+      var(--wallpaper-color) 38px,
+      var(--wallpaper-color) 40px
     );
 }
 
-/* 8 — chevron / zigzag */
+/* 8 — soft scallops (cozy) */
 .ui-wallpaper[data-variant='8'] {
   background-color: var(--wallpaper-color);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 L20 4 L40 20 L60 4 L80 20'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 L20 4 L40 20 L60 4 L80 20'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 Q10 8 20 20 Q30 32 40 20'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 Q10 8 20 20 Q30 32 40 20'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 80px 40px;
-  mask-size: 80px 40px;
+  -webkit-mask-size: 40px 40px;
+  mask-size: 40px 40px;
 }
 
-/* 9 — dashed diagonal */
+/* 9 — soft rounded squares (cozy) */
 .ui-wallpaper[data-variant='9'] {
   background-color: var(--wallpaper-color);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-dasharray='10 14' d='M-8 64 L64 -8'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-dasharray='10 14' d='M-8 64 L64 -8'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect x='12' y='12' width='16' height='16' rx='3' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect x='12' y='12' width='16' height='16' rx='3' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 56px 56px;
-  mask-size: 56px 56px;
+  -webkit-mask-size: 40px 40px;
+  mask-size: 40px 40px;
 }
 
-/* 10 — brick (offset horizontal + verticals) */
+/* 10 — soft wave bands (cozy) */
 .ui-wallpaper[data-variant='10'] {
   background-color: var(--wallpaper-color);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 0 H80 M0 40 H80 M0 0 V40 M40 0 V40 M20 40 V80 M60 40 V80'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 0 H80 M0 40 H80 M0 0 V40 M40 0 V40'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 12 C20 0 20 24 40 12 S60 0 80 12 M0 28 C20 16 20 40 40 28 S60 16 80 28'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 12 C20 0 20 24 40 12 S60 0 80 12 M0 28 C20 16 20 40 40 28 S60 16 80 28'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
   -webkit-mask-size: 80px 40px;
