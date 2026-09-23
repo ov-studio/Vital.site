@@ -343,7 +343,7 @@ function VaultSkeleton() {
 
   return (
     <section id="vault">
-      <ui_wallpaper.Wallpaper variant={4}/>
+      <ui_wallpaper.Wallpaper variant={18}/>
       <div className="sw">
         <VaultHead/>
         <VaultFilters disabled/>
