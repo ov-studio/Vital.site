@@ -56,7 +56,6 @@ export function Ethos() {
 
   return (
     <section id="ethos">
-      <ui_wallpaper.Wallpaper seed={2}/>
       <div className="sw">
         <div className="sec-head rev">
           <div>

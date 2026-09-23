@@ -26,7 +26,6 @@ export function Contributors() {
 
   return (
     <section id="contributors">
-      <ui_wallpaper.Wallpaper seed={3}/>
       <div className="sw">
         <div className="sec-head">
           <div className="rev">

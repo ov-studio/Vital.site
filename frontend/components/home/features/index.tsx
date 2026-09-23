@@ -132,7 +132,6 @@ export function Features() {
 
   return (
     <section id="features">
-      <ui_wallpaper.Wallpaper seed={1}/>
       <div className="sw">
         <div className="sec-head">
           <div className="rev">
