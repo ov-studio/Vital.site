@@ -313,6 +313,7 @@
 .vault-modal-close:hover  { color: var(--blue); }
 .vault-modal-share:hover { color: var(--blue); }
 .vault-modal-share.copied { color: var(--bg); background: var(--blue); }
+
 .vault-spin {
   vertical-align: -2px;
   margin-right: 4px;
