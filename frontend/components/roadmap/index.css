@@ -148,7 +148,7 @@
   font-size: .78rem;
   font-weight: 500;
   line-height: 1.7;
-  color: var(--brand-neon-core);
+  color: var(--text-soft);
   transition: color .25s;
 }
 .rchevron { color: var(--text-faint); flex-shrink: 0; margin-top: 3px; transition: transform .2s, color .2s; }
