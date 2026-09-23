@@ -138,7 +138,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--blue);
+  color: var(--brand-neon-core);
   opacity: 0.85;
 }
 
@@ -147,7 +147,7 @@
   font-size: 0.96rem;
   font-weight: 600;
   letter-spacing: .02em;
-  color: var(--white);
+  color: var(--brand-neon-core);
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
@@ -158,7 +158,7 @@
   font-weight: 600;
   letter-spacing: .02em;
   text-transform: uppercase;
-  color: var(--text-mid);
+  color: var(--brand-neon-mid);
   line-height: 1;
   opacity: 0.9;
 }
