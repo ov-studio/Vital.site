@@ -109,7 +109,7 @@ export function Benchmarks() {
 
   return (
     <section id="benchmarks">
-      <ui_wallpaper.Wallpaper variant={2}/>
+      <ui_wallpaper.Wallpaper variant={4} color={"var(--rule)"}/>
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
