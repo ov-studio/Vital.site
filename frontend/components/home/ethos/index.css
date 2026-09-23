@@ -49,7 +49,7 @@
   flex-shrink: 0;
   width: 36px;
   height: 36px;
-  color: var(--blue);
+  color: var(--brand-neon-core);
   margin-bottom: 18px;
 }
 .ecard:hover .icon-ring { opacity: 1; transform: scale(1) }
@@ -61,7 +61,7 @@
   font-weight: 700;
   letter-spacing: .05em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--brand-neon-core);
   transition: color .25s;
 }
 
@@ -73,13 +73,13 @@
   color: var(--text-muted);
   transition: color .25s;
 }
-.ecard:hover .ecard-desc { color: var(--brand-neon-core) }
+.ecard:hover .ecard-desc { color: var(--dim) }
 
 .ecard-link {
   font-family: inherit;
   font-size: inherit;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--brand-neon-mid);
   text-decoration: none;
   white-space: nowrap;
   transition: color .2s;
