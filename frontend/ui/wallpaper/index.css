@@ -16,13 +16,6 @@
   transform: translateZ(0);
 }
 
-@media (min-width: 3441px) {
-  .ui-wallpaper {
-    -webkit-mask-size: 100% auto;
-    mask-size: 100% auto;
-  }
-}
-
 .ui-wallpaper--vignette::after {
   content: '';
   position: absolute;
@@ -54,4 +47,13 @@
   );
   -webkit-mask-size: auto;
   mask-size: auto;
+}
+
+
+/* ── @media ── */
+@media (min-width: 3441px) {
+  .ui-wallpaper {
+    -webkit-mask-size: 100% auto;
+    mask-size: 100% auto;
+  }
 }
