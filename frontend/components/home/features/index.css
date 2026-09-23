@@ -56,7 +56,7 @@
   border-radius: 50%;
   transition: background .3s, box-shadow .3s;
 }
-.fcluster.is-active .fcluster-dot { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
+.fcluster.is-active .fcluster-dot { background: var(--brand-neon-core); box-shadow: 0 0 6px var(--brand-neon-core); }
 
 .fcluster-label {
   flex: 1;
@@ -68,7 +68,7 @@
   color: var(--dim);
   transition: color .25s;
 }
-.fcluster.is-active .fcluster-label { color: var(--blue) }
+.fcluster.is-active .fcluster-label { color: var(--brand-neon-core) }
 
 .fcluster-desc {
   position: relative;
@@ -81,7 +81,7 @@
   color: var(--text-muted);
   transition: color .25s;
 }
-.fcluster.is-active .fcluster-desc { color: var(--brand-neon-core) }
+.fcluster.is-active .fcluster-desc { color: var(--blue) }
 
 .feat-diagram { 
   position: relative; 
@@ -176,7 +176,7 @@
 }
 .fnode::before { top: -2px;    left: -2px;  border-width: 2px 0 0 2px; }
 .fnode::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-.fnode-group.is-active .fnode { border-color: var(--blue); color: var(--white); }
+.fnode-group.is-active .fnode { border-color: var(--blue); color: var(--brand-neon-core); }
 .fnode-group.is-active .fnode::before,
 .fnode-group.is-active .fnode::after { opacity: 1 }
 
