@@ -148,7 +148,7 @@
   font-size: .78rem;
   font-weight: 500;
   line-height: 1.7;
-  color: var(--blue);
+  color: var(--dim);
   transition: color .25s;
 }
 .rchevron { color: var(--text-faint); flex-shrink: 0; margin-top: 3px; transition: transform .2s, color .2s; }
@@ -160,6 +160,7 @@
 .rcard--completed .bar-fill { background: var(--blue); }
 .rcard--partial   .bar-fill { background: var(--amber); }
 .rcard--pending   .bar-fill { background: transparent; }
+
 
 .rcard-pct {
   flex-shrink: 0;
@@ -221,7 +222,7 @@
   color: var(--text-faint);
 }
 .ritem--completed .ritem-label,
-.ritem--partial   .ritem-label { color: var(--text-soft); }
+.ritem--partial   .ritem-label { color: var(--text-muted); }
 
 .ritem-tag {
   flex-shrink: 0;
