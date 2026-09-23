@@ -132,7 +132,7 @@ export function Features() {
 
   return (
     <section id="features">
-      <ui_wallpaper.Wallpaper type="line" variant={1} angle={-45} vignette={false}/>
+      <ui_wallpaper.Wallpaper type="line" variant={1} vignette={false}/>
       <div className="sw">
         <div className="sec-head">
           <div className="rev">

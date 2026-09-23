@@ -56,7 +56,7 @@ export function Ethos() {
 
   return (
     <section id="ethos">
-      <ui_wallpaper.Wallpaper type="line" variant={1} angle={45} vignette={false}/>
+      <ui_wallpaper.Wallpaper type="line" variant={2} vignette={false}/>
       <div className="sw">
         <div className="sec-head rev">
           <div>

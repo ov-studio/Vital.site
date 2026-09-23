@@ -3,13 +3,12 @@ import './index.css';
 /**
  * @param {Object} props
  * @param {'icon' | 'line'} [props.type='icon']
- * @param {number}  [props.variant=1]  line pattern id (1 = classic diagonal hatch)
+ * @param {number}  [props.variant=1]  line pattern id (1 = −45° hatch, 2 = +45° hatch, …)
  * @param {number}  [props.seed=0]     icon tile seed
  * @param {number}  [props.opacity]    overall opacity (icon default 0.1, line default 1)
  * @param {boolean} [props.vignette=true]
  * @param {string}  [props.src]        icon: override tile URL
  * @param {string}  [props.color]      icon: mask fill color
- * @param {number}  [props.angle=-45]  line variants 1–2: gradient angle in degrees
  */
 export function Wallpaper({
   type = 'icon',
@@ -19,7 +18,6 @@ export function Wallpaper({
   vignette = true,
   src,
   color,
-  angle = -45,
 }) {
   const resolvedOpacity = opacity ?? (type === 'line' ? 1 : 0.1);
   const v = Math.max(1, Math.min(12, Number(variant) || 1));
@@ -34,10 +32,7 @@ export function Wallpaper({
       <div
         className={cls}
         data-variant={v}
-        style={{
-          opacity: resolvedOpacity,
-          ['--wallpaper-line-angle']: `${angle}deg`,
-        }}
+        style={{ opacity: resolvedOpacity }}
         aria-hidden="true"
       />
     );

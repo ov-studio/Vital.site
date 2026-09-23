@@ -44,7 +44,6 @@
   pointer-events: none;
 }
 
-/* ── Line patterns ── */
 .ui-wallpaper--line {
   -webkit-mask-image: none;
   mask-image: none;
@@ -53,10 +52,10 @@
   background-position: center;
 }
 
-/* 1 — classic diagonal hatch (default; angle via --wallpaper-line-angle) */
+/* 1 — classic diagonal hatch (−45°) */
 .ui-wallpaper--line[data-variant='1'] {
   background-image: repeating-linear-gradient(
-    var(--wallpaper-line-angle, -45deg),
+    -45deg,
     transparent,
     var(--rule7) 2px,
     transparent 2px,
@@ -64,10 +63,10 @@
   );
 }
 
-/* 2 — opposite diagonal (angle still applied) */
+/* 2 — opposite diagonal (+45°) */
 .ui-wallpaper--line[data-variant='2'] {
   background-image: repeating-linear-gradient(
-    calc(var(--wallpaper-line-angle, -45deg) + 90deg),
+    45deg,
     transparent,
     var(--rule7) 2px,
     transparent 2px,
