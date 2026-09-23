@@ -40,7 +40,7 @@
     transparent,
     var(--wallpaper-color) 2px,
     transparent 2px,
-    transparent 40px
+    transparent 36px
   );
 }
 
@@ -51,7 +51,7 @@
     transparent,
     var(--wallpaper-color) 2px,
     transparent 2px,
-    transparent 40px
+    transparent 36px
   );
 }
 
@@ -62,8 +62,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M12 16 L20 24 L28 16'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 4 — soft diamonds */
@@ -73,8 +73,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round' d='M20 14 L26 20 L20 26 L14 20 Z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 5 — cross hatch */
@@ -84,8 +84,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M-4 20 L44 20 M20 -4 L20 44' transform='rotate(45 20 20)'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 6 — plus marks */
@@ -95,8 +95,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' d='M14 20 H26 M20 14 V26'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 7 — soft triangles */
@@ -106,8 +106,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round' d='M20 12 L28 28 H12 Z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 8 — soft scallops */
@@ -117,8 +117,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' d='M0 20 Q10 8 20 20 Q30 32 40 20'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 9 — soft rounded squares */
@@ -128,8 +128,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect x='12' y='12' width='16' height='16' rx='3' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 10 — soft flower */
@@ -139,8 +139,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'%3E%3Ccircle cx='20' cy='14' r='3.5'/%3E%3Ccircle cx='26' cy='18' r='3.5'/%3E%3Ccircle cx='24' cy='25' r='3.5'/%3E%3Ccircle cx='16' cy='25' r='3.5'/%3E%3Ccircle cx='14' cy='18' r='3.5'/%3E%3Ccircle cx='20' cy='20' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 11 — open circles */
@@ -150,8 +150,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 12 — diamond lattice */
@@ -161,8 +161,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M0 20 L20 0 L40 20 L20 40 Z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 13 — soft hearts */
@@ -172,8 +172,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round' d='M20 28 C20 28 10 22 10 16 C10 13 12 11 15 11 C17 11 19 12 20 14 C21 12 23 11 25 11 C28 11 30 13 30 16 C30 22 20 28 20 28 Z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 14 — soft stars */
@@ -183,8 +183,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round' d='M20 12 L22 18 H28 L23 22 L25 28 L20 24 L15 28 L17 22 L12 18 H18 Z'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 15 — soft clover */
@@ -194,8 +194,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='20' cy='15' r='4'/%3E%3Ccircle cx='15' cy='22' r='4'/%3E%3Ccircle cx='25' cy='22' r='4'/%3E%3C/g%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 16 — soft sparkles */
@@ -205,8 +205,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' d='M20 12 V18 M20 22 V28 M12 20 H18 M22 20 H28'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 17 — soft x marks */
@@ -216,8 +216,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' d='M15 15 L25 25 M25 15 L15 25'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
 
 /* 18 — soft dots ring */
@@ -227,6 +227,6 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='3' fill='%23fff'/%3E%3Ccircle cx='20' cy='20' r='9' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 40px 40px;
-  mask-size: 40px 40px;
+  -webkit-mask-size: 36px 36px;
+  mask-size: 36px 36px;
 }
