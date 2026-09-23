@@ -44,7 +44,7 @@ export function Hero() {
 
   return (
     <section id="hero">
-      <ui_wallpaper.Wallpaper variant={12}/>
+      <ui_wallpaper.Wallpaper variant={6}/>
       <div className="hcorner hcorner-tl"/>
       <div className="hcorner hcorner-tr"/>
       <div className="hcorner hcorner-bl"/>
