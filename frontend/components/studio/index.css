@@ -90,10 +90,14 @@
 
 
 .studio-preview-wrap {
-  overflow: auto;
+  position: relative;
+  overflow: hidden;
   border-radius: 6px;
   background: var(--b05);
   padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .studio-preview-wrap--logo {
@@ -111,6 +115,7 @@
   overflow: hidden;
   flex-shrink: 0;
   box-sizing: border-box;
+  transform-origin: top center;
 }
 
 .studio-og {
@@ -221,30 +226,33 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 2560 / 640;
+  padding: 16px;
   background: var(--b05);
   border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.studio-banner-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2560 / 640;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--bg4);
 }
 
 .studio-banner {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: var(--bg4);
   overflow: hidden;
-  flex-shrink: 0;
   width: 2560px;
   height: 640px;
   transform-origin: top left;
 }
 
-.studio-preview-wrap--banner .studio-banner {
-  transform: scale(calc(min(100cqw, 100%) / 2560));
-}
 
-@supports not (width: 1cqw) {
-  .studio-preview-wrap--banner .studio-banner {
-    transform: scale(0.375); /* ~960/2560 */
-  }
-}
 
 .studio-banner .ui-wallpaper {
   position: absolute;
@@ -252,8 +260,12 @@
   z-index: 0;
   width: 100%;
   height: 100%;
-  -webkit-mask-size: cover;
-  mask-size: cover;
+  -webkit-mask-size: 3440px 1440px;
+  mask-size: 3440px 1440px;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-position: center top;
+  mask-position: center top;
 }
 
 .studio-banner-content {
@@ -276,7 +288,7 @@
   font-size: 4.25rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  text-transform: lowercase;
+  text-transform: none;
   color: var(--white);
   line-height: 1.05;
 }

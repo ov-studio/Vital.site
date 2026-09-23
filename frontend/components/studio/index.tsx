@@ -96,24 +96,60 @@ export function Studio() {
   const bannerRef = react.useRef<HTMLDivElement>(null);
   const bannerPreviewRef = react.useRef<HTMLDivElement>(null);
 
-  react.useEffect(() => {
-    if (section !== 'banner') return;
-    const frame = bannerPreviewRef.current;
-    const canvas = bannerRef.current;
-    if (!frame || !canvas) return;
-    const update = () => {
-      const scale = frame.clientWidth / BANNER_W;
-      canvas.style.setProperty('--banner-preview-scale', String(scale));
-      canvas.style.transform = `scale(${scale})`;
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(frame);
-    return () => ro.disconnect();
-  }, [section]);
   const logoSize = logoSquare ? (logoPad ? LOGO_SQ_PAD : LOGO_SQ_TIGHT) : null;
   const logoW = logoSize ?? LOGO_W;
   const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
+
+  const ogPreviewRef = react.useRef<HTMLDivElement>(null);
+  const logoPreviewRef = react.useRef<HTMLDivElement>(null);
+
+  react.useEffect(() => {
+    const pairs: Array<{
+      active: boolean;
+      frame: HTMLDivElement | null;
+      canvas: HTMLDivElement | null;
+      nativeW: number;
+    }> = [
+      {
+        active: section === 'og',
+        frame: ogPreviewRef.current,
+        canvas: ogRef.current,
+        nativeW: OG_W,
+      },
+      {
+        active: section === 'logo',
+        frame: logoPreviewRef.current,
+        canvas: logoRef.current,
+        nativeW: logoW,
+      },
+      {
+        active: section === 'banner',
+        frame: bannerPreviewRef.current,
+        canvas: bannerRef.current,
+        nativeW: BANNER_W,
+      },
+    ];
+
+    const cleanups: Array<() => void> = [];
+    for (const { active, frame, canvas, nativeW } of pairs) {
+      if (!active || !frame || !canvas) continue;
+      const update = () => {
+        const avail = Math.max(1, frame.clientWidth);
+        const scale = Math.min(1, avail / nativeW);
+        canvas.style.transformOrigin = 'top left';
+        canvas.style.transform = `scale(${scale})`;
+      };
+      update();
+      const ro = new ResizeObserver(update);
+      ro.observe(frame);
+      cleanups.push(() => {
+        ro.disconnect();
+        canvas.style.transform = '';
+        canvas.style.transformOrigin = '';
+      });
+    }
+    return () => cleanups.forEach((fn) => fn());
+  }, [section, logoW]);
 
 
   async function capturePng(
@@ -131,6 +167,8 @@ export function Studio() {
     const prevClass = el.className;
     const prevBg = el.style.background;
     const prevBgImage = el.style.backgroundImage;
+    const prevTransform = el.style.transform;
+    el.style.transform = 'none';
 
     if (opts?.transparent) {
       el.classList.remove('no-bg');
@@ -168,6 +206,7 @@ export function Studio() {
       el.className = prevClass;
       el.style.background = prevBg;
       el.style.backgroundImage = prevBgImage;
+      el.style.transform = prevTransform;
     }
   }
 
@@ -401,7 +440,7 @@ export function Studio() {
               </div>
             </div>
 
-            <div className="studio-preview-wrap">
+            <div ref={ogPreviewRef} className="studio-preview-wrap">
               <div
                 ref={ogRef}
                 className="studio-canvas studio-og"
@@ -519,7 +558,7 @@ export function Studio() {
               </div>
             </div>
 
-            <div className="studio-preview-wrap studio-preview-wrap--logo">
+            <div ref={logoPreviewRef} className="studio-preview-wrap studio-preview-wrap--logo">
               <div
                 ref={logoRef}
                 className={[
@@ -606,10 +645,8 @@ export function Studio() {
               </div>
             </div>
 
-            <div
-              ref={bannerPreviewRef}
-              className="studio-preview-wrap studio-preview-wrap--banner"
-            >
+            <div className="studio-preview-wrap studio-preview-wrap--banner">
+              <div ref={bannerPreviewRef} className="studio-banner-frame">
               <div
                 ref={bannerRef}
                 className={[
@@ -629,6 +666,7 @@ export function Studio() {
                     <div className="studio-banner-sub">{bannerSub}</div>
                   )}
                 </div>
+              </div>
               </div>
             </div>
           </div>
