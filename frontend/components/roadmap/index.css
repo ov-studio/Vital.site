@@ -67,7 +67,11 @@
 .rleg--partial   i { background: var(--amber); }
 .rleg--pending   i { background: transparent; border: 1px solid var(--text-faint); opacity: .5; }
 
-.roadmap-body { display: flex; flex-direction: column; gap: 80px; }
+.roadmap-body { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 80px; 
+}
 
 .rcategory {
   opacity: 0;
@@ -97,7 +101,7 @@
   flex-direction: column;
   width: 100%;
   background: var(--bg7);
-  border: 2px solid var(--b10);
+  border: 3px solid var(--b10);
   border-radius: 2px;
   transition: background .3s;
   contain: layout style;
