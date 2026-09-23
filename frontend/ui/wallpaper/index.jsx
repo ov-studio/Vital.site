@@ -2,28 +2,52 @@ import './index.css';
 
 /**
  * @param {Object} props
- * @param {number}  [props.seed=0]
- * @param {number}  [props.opacity=0.12]
+ * @param {'icon' | 'line'} [props.type='icon']
+ * @param {number}  [props.seed=0]     icon tile seed
+ * @param {number}  [props.opacity]    overall opacity (icon default 0.1, line default 1)
  * @param {boolean} [props.vignette=true]
- * @param {string}  [props.src]   - Override tile URL
- * @param {string}  [props.color] - CSS color (default brand neon)
+ * @param {string}  [props.src]        icon: override tile URL
+ * @param {string}  [props.color]      icon: mask fill color
+ * @param {number}  [props.angle=-45]  line: gradient angle in degrees
  */
 export function Wallpaper({
+  type = 'icon',
   seed = 0,
-  opacity = 0.1,
+  opacity,
   vignette = true,
   src,
-  color
+  color,
+  angle = -45,
 }) {
+  const resolvedOpacity = opacity ?? (type === 'line' ? 1 : 0.1);
+  const cls = [
+    'ui-wallpaper',
+    type === 'line' ? 'ui-wallpaper--line' : 'ui-wallpaper--icon',
+    vignette ? 'ui-wallpaper--vignette' : '',
+  ].filter(Boolean).join(' ');
+
+  if (type === 'line') {
+    return (
+      <div
+        className={cls}
+        style={{
+          opacity: resolvedOpacity,
+          ['--wallpaper-line-angle']: `${angle}deg`,
+        }}
+        aria-hidden="true"
+      />
+    );
+  }
+
   const url = src ?? `/cdn/wallpaper/seed-${seed}.webp`;
   return (
     <div
-      className={`ui-wallpaper${vignette ? ' ui-wallpaper--vignette' : ''}`}
+      className={cls}
       style={{
         WebkitMaskImage: `url(${url})`,
         maskImage: `url(${url})`,
         backgroundColor: color ?? 'var(--brand-neon-core)',
-        opacity,
+        opacity: resolvedOpacity,
       }}
       aria-hidden="true"
     />
