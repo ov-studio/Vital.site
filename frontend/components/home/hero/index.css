@@ -81,12 +81,12 @@
 }
 
 .hero-sub-lead {
-  color: var(--blue);
+  color: var(--brand-neon-core);
 }
 
 .hero-sub-mid {
   text-wrap: balance;
-  color: var(--text-soft);
+  color: var(--brand-neon-mid);
   font-size: .9rem;
 }
 
