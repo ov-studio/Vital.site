@@ -418,7 +418,7 @@ function VaultInner() {
   return (
     <>
       <section id="vault">
-      <ui_wallpaper.Wallpaper variant={11}/>
+      <ui_wallpaper.Wallpaper variant={7}/>
         <div className="sw">
           <VaultHead/>
 
