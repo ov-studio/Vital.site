@@ -341,7 +341,7 @@ export function Studio() {
 
   return (
     <section id="studio" className="sec-pad">
-      <ui_wallpaper.Wallpaper variant={1}/>
+      <ui_wallpaper.Wallpaper variant={7}/>
       <div className="sw">
         <div className="page-head">
           <div className="sec-head sec-head--intro">
