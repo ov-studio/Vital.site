@@ -178,15 +178,15 @@
   mask-size: 80px 40px;
 }
 
-/* 11 — hex outline */
+/* 11 — open circles */
 .ui-wallpaper--line[data-variant='11'] {
   background-color: var(--rule7);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='69.28' height='40' viewBox='0 0 69.28 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M17.32 0 H51.96 L69.28 20 L51.96 40 H17.32 L0 20 Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='69.28' height='40' viewBox='0 0 69.28 40'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' d='M17.32 0 H51.96 L69.28 20 L51.96 40 H17.32 L0 20 Z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 69.28px 40px;
-  mask-size: 69.28px 40px;
+  -webkit-mask-size: 40px 40px;
+  mask-size: 40px 40px;
 }
 
 /* 12 — diamond lattice */
