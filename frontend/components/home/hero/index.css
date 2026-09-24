@@ -42,18 +42,13 @@
 }
 
 .hero-motto {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
+  opacity: 0;
   margin-bottom: clamp(30px, 3vw, 40px);
   font-family: 'Geist', sans-serif;
   font-weight: 400;
-  opacity: 0;
+  color: var(--text-muted);
   animation: slide-up .7s .35s forwards;
 }
-.hm-word { color: var(--text-muted) }
 
 .hero-sub {
   display: flex;

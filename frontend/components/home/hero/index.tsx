@@ -67,11 +67,9 @@ export function Hero() {
         </div>
 
         <div className="hero-motto">
-          <span className="hm-word">
-            {softPlus(data?.supporters)} supporters ❤️
-            {' '}&{' '}
-            {softPlus(data?.stars)} Stargazers 🌟
-          </span>
+          Backed by {softPlus(data?.supporters)} Supporters ❤️
+          {' '}&{' '}
+          {softPlus(data?.stars)} Stargazers 🌟
         </div>
 
         <div className="hero-sub">
