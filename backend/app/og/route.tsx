@@ -4,33 +4,23 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-/** Match Brand Studio OG canvas (see frontend/components/studio). */
 const W = 1000;
 const H = 275;
-
-/** Studio `.studio-og-tagline` — hsl(220, 10%, 55%) */
 const TAGLINE_COLOR = '#7d8694';
 
 async function load_rajdhani(): Promise<ArrayBuffer> {
-  // Satori only supports TTF/OTF — not woff2.
-  // Request Google Fonts CSS with an old UA so it returns truetype.
   const css = await fetch(
     'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap',
     {
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
-      },
+      }
     }
   ).then((r) => r.text());
 
-  const match =
-    css.match(/src:\s*url\(([^)]+)\)\s*format\(['"]truetype['"]\)/) ||
-    css.match(/src:\s*url\(([^)]+\.ttf[^)]*)\)/);
+  const match = css.match(/src:\s*url\(([^)]+)\)\s*format\(['"]truetype['"]\)/) || css.match(/src:\s*url\(([^)]+\.ttf[^)]*)\)/);
   const font_url = match?.[1];
-  // Hard fallback: fontsource/google fonts TTF (Satori-compatible)
-  const fallback =
-    'https://cdn.jsdelivr.net/fontsource/fonts/rajdhani@latest/latin-600-normal.ttf';
-
+  const fallback = 'https://cdn.jsdelivr.net/fontsource/fonts/rajdhani@latest/latin-600-normal.ttf';
   const res = await fetch(font_url || fallback);
   if (!res.ok) {
     const res2 = await fetch(fallback);
@@ -40,12 +30,6 @@ async function load_rajdhani(): Promise<ArrayBuffer> {
   return res.arrayBuffer();
 }
 
-/**
- * Dynamic Open Graph image — same look as Studio OpenGraph export.
- *
- * Base: frontend/public/og/placeholder.png
- * Tagline: host + path, Rajdhani 600, muted, 0.1em tracking
- */
 export async function GET(req: Request) {
   const frontend = lib_api_url.get_frontend_url();
   const url = new URL(req.url);
@@ -56,7 +40,8 @@ export async function GET(req: Request) {
   let host = 'vital-sandbox.com';
   try {
     host = new URL(frontend).hostname.replace(/^www\./, '');
-  } catch { /* keep default */ }
+  } 
+  catch {}
 
   if (path === '/') {
     try {
@@ -72,15 +57,13 @@ export async function GET(req: Request) {
           },
         });
       }
-    } catch { /* fall through */ }
+    } 
+    catch {}
   }
 
-  const label =
-    path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
-
+  const label = path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
   const placeholder = `${frontend}/og/placeholder.png`;
   const rajdhani = await load_rajdhani();
-
   return new next_og.ImageResponse(
     (
       <div
@@ -92,7 +75,7 @@ export async function GET(req: Request) {
           alignItems: 'center',
           justifyContent: 'center',
           position: 'relative',
-          backgroundColor: '#0a0a0c',
+          backgroundColor: '#0a0a0c'
         }}
       >
         <img
@@ -105,11 +88,10 @@ export async function GET(req: Request) {
             inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
+            objectFit: 'cover'
           }}
         />
 
-        {/* Matches .studio-og-content gap under logo (~35px from mark center band) */}
         <div
           style={{
             position: 'absolute',
@@ -121,7 +103,7 @@ export async function GET(req: Request) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: 118,
+            paddingTop: 118
           }}
         >
           <div
@@ -135,7 +117,7 @@ export async function GET(req: Request) {
               letterSpacing: '0.1em',
               color: TAGLINE_COLOR,
               textTransform: 'uppercase',
-              lineHeight: 1,
+              lineHeight: 1
             }}
           >
             {label}
@@ -151,13 +133,12 @@ export async function GET(req: Request) {
           name: 'Rajdhani',
           data: rajdhani,
           style: 'normal',
-          weight: 600,
-        },
+          weight: 600
+        }
       ],
       headers: {
-        'Cache-Control':
-          'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-      },
+        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+      }
     }
   );
 }
