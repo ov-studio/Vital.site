@@ -46,6 +46,7 @@
   margin-bottom: clamp(30px, 3vw, 40px);
   font-family: 'Geist', sans-serif;
   font-weight: 400;
+  font-size: clamp(0.85rem, 0.6vw, 20px);
   color: var(--text-muted);
   animation: slide-up .7s .35s forwards;
 }
@@ -57,7 +58,6 @@
   gap: 8px;
   margin-bottom: clamp(25px, 2.5vw, 25px);
   font-family: 'Geist', sans-serif;
-  font-size: .95rem;
   color: var(--text-muted);
   line-height: 1.65;
   text-align: center;
@@ -74,6 +74,7 @@
   color: var(--brand-neon-core);
   font-family: var(--font-cookie), 'Cookie', cursive;
   font-size: 1.7rem;
+  font-size: clamp(1.5rem, 1.1vw, 26px);
 }
 
 .hero-sub-mid {
