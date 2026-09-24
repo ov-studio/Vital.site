@@ -6,14 +6,15 @@ type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {
-  name?:      string;
-  size?:      BrandSize;
-  variant?:   BrandVariant;
+  name?: string;
+  size?: BrandSize;
+  variant?: BrandVariant;
   className?: string;
-  color?:     string;
-  href?:      string;
-  neon?:      boolean;
-  flicker?:   boolean;
+  color?: string;
+  href?: string;
+  neon?: boolean;
+  /** Glitch flicker — sudden neon cut / restore. */
+  flicker?: boolean;
 }
 
 /**
@@ -30,6 +31,60 @@ export function Brand({
   flicker = false,
 }: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
+  const [glitch, setGlitch] = react.useState(false);
+
+  react.useEffect(() => {
+    if (!flicker) {
+      setGlitch(false);
+      return;
+    }
+
+    const reduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout>;
+
+    const rand = (min: number, max: number) =>
+      min + Math.random() * (max - min);
+
+    const run = () => {
+      if (cancelled) return;
+
+      setGlitch(false);
+      timer = setTimeout(() => {
+        if (cancelled) return;
+
+        setGlitch(true);
+        timer = setTimeout(() => {
+          if (cancelled) return;
+
+          setGlitch(false);
+          if (Math.random() < 0.55) {
+            timer = setTimeout(() => {
+              if (cancelled) return;
+              
+              setGlitch(true);
+              timer = setTimeout(() => {
+                if (cancelled) return;
+                setGlitch(false);
+                timer = setTimeout(run, rand(4000, 9000));
+              }, rand(40, 90));
+            }, rand(60, 160));
+          }
+          else timer = setTimeout(run, rand(4000, 9000));
+        }, rand(80, 200));
+      }, rand(3500, 7500));
+    };
+
+    timer = setTimeout(run, rand(2500, 4500));
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [flicker]);
 
   const logo = variant !== 'wordmark-only' && (
     <div className="brand_logo-wrapper">
@@ -57,11 +112,18 @@ export function Brand({
     </>
   );
 
+  const cls = [
+    'brand',
+    `brand--${size}`,
+    `brand--${variant}`,
+    neon ? 'brand--neon' : '',
+    flicker ? 'brand--flicker' : '',
+    flicker && glitch ? 'is-glitch' : '',
+    className,
+  ].filter(Boolean).join(' ');
+
   return (
-    <div
-      className={`brand brand--${size} brand--${variant}${neon ? ' brand--neon' : ''} ${className}`.trim()}
-      style={color_style}
-    >
+    <div className={cls} style={color_style}>
       {href ? (<a href={href} className="brand_link">{inner}</a>) : inner}
     </div>
   );

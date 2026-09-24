@@ -69,6 +69,21 @@
 .brand--xl  { --brand-logo-size: 5.5rem;  --brand-wordmark-size: 4.5rem;  --brand-gap: 30px; }
 .brand--xxl { --brand-logo-size: 9.5rem;  --brand-wordmark-size: 6.8rem;  --brand-gap: 40px; }
 
+.brand--flicker .brand_logo--neon {
+  transition: none;
+}
+
+.brand--flicker.is-glitch .brand_logo--neon {
+  opacity: 0.55;
+  filter:
+    brightness(0) saturate(100%)
+    invert(55%) sepia(8%) saturate(200%) hue-rotate(190deg) brightness(70%) contrast(90%);
+}
+
+.brand--flicker.is-glitch .brand_logo {
+  opacity: 0.45;
+}
+
 
 /* ── @media ── */
 @media (max-width: 640px) {
@@ -81,4 +96,12 @@
   .brand--lg,
   .brand--xl,
   .brand--xxl { --brand-gap: 10px }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand--flicker.is-glitch .brand_logo--neon,
+  .brand--flicker.is-glitch .brand_logo {
+    opacity: 1;
+    filter: unset;
+  }
 }
