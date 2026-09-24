@@ -36,10 +36,10 @@
   filter:
     brightness(0) saturate(100%)
     invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(105%) contrast(105%)
-    drop-shadow(0 0 0.5px var(--blue))
-    drop-shadow(0 0 1px var(--brand-neon-core))
-    drop-shadow(0 0 6px var(--brand-neon-mid))
-    drop-shadow(0 0 15px var(--brand-neon-glow));
+    drop-shadow(0 0 var(--brand-neon-ring) var(--blue))
+    drop-shadow(0 0 var(--brand-neon-core-blur) var(--brand-neon-core))
+    drop-shadow(0 0 var(--brand-neon-mid-blur) var(--brand-neon-mid))
+    drop-shadow(0 0 var(--brand-neon-outer-blur) var(--brand-neon-glow));
 }
 
 .brand_wordmark {
@@ -61,13 +61,69 @@
   text-decoration: none;
 }
 
-.brand--xxs { --brand-logo-size: 1.25rem; --brand-wordmark-size: 1rem;    --brand-gap: 10px; }
-.brand--xs  { --brand-logo-size: 1.6rem;  --brand-wordmark-size: 1.28rem; --brand-gap: 12px; }
-.brand--sm  { --brand-logo-size: 2rem;    --brand-wordmark-size: 1.6rem;  --brand-gap: 14px; }
-.brand--md  { --brand-logo-size: 2.75rem; --brand-wordmark-size: 2.2rem;  --brand-gap: 18px; }
-.brand--lg  { --brand-logo-size: 4rem;    --brand-wordmark-size: 3.2rem;  --brand-gap: 24px; }
-.brand--xl  { --brand-logo-size: 5.5rem;  --brand-wordmark-size: 4.5rem;  --brand-gap: 30px; }
-.brand--xxl { --brand-logo-size: 9.5rem;  --brand-wordmark-size: 6.8rem;  --brand-gap: 40px; }
+.brand--xxs {
+  --brand-logo-size: 1.25rem;
+  --brand-wordmark-size: 1rem;
+  --brand-gap: 10px;
+  --brand-neon-ring: 0.2px;
+  --brand-neon-core-blur: 0.4px;
+  --brand-neon-mid-blur: 1.5px;
+  --brand-neon-outer-blur: 3px;
+}
+.brand--xs {
+  --brand-logo-size: 1.6rem;
+  --brand-wordmark-size: 1.28rem;
+  --brand-gap: 12px;
+  --brand-neon-ring: 0.25px;
+  --brand-neon-core-blur: 0.5px;
+  --brand-neon-mid-blur: 2px;
+  --brand-neon-outer-blur: 4px;
+}
+.brand--sm {
+  --brand-logo-size: 2rem;
+  --brand-wordmark-size: 1.6rem;
+  --brand-gap: 14px;
+  --brand-neon-ring: 0.3px;
+  --brand-neon-core-blur: 0.6px;
+  --brand-neon-mid-blur: 2.5px;
+  --brand-neon-outer-blur: 5px;
+}
+.brand--md {
+  --brand-logo-size: 2.75rem;
+  --brand-wordmark-size: 2.2rem;
+  --brand-gap: 18px;
+  --brand-neon-ring: 0.4px;
+  --brand-neon-core-blur: 0.8px;
+  --brand-neon-mid-blur: 3.5px;
+  --brand-neon-outer-blur: 8px;
+}
+.brand--lg {
+  --brand-logo-size: 4rem;
+  --brand-wordmark-size: 3.2rem;
+  --brand-gap: 24px;
+  --brand-neon-ring: 0.45px;
+  --brand-neon-core-blur: 1px;
+  --brand-neon-mid-blur: 5px;
+  --brand-neon-outer-blur: 11px;
+}
+.brand--xl {
+  --brand-logo-size: 5.5rem;
+  --brand-wordmark-size: 4.5rem;
+  --brand-gap: 30px;
+  --brand-neon-ring: 0.5px;
+  --brand-neon-core-blur: 1px;
+  --brand-neon-mid-blur: 6px;
+  --brand-neon-outer-blur: 14px;
+}
+.brand--xxl {
+  --brand-logo-size: 9.5rem;
+  --brand-wordmark-size: 6.8rem;
+  --brand-gap: 40px;
+  --brand-neon-ring: 0.5px;
+  --brand-neon-core-blur: 1px;
+  --brand-neon-mid-blur: 6px;
+  --brand-neon-outer-blur: 15px;
+}
 
 .brand--flicker .brand_logo--neon {
   transition: none;
