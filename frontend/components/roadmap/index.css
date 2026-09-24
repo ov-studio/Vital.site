@@ -212,9 +212,9 @@
 }
 .ritem:not(:last-child) { border-bottom: 1px solid var(--b05); }
 .ritem-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
-.ritem--completed .ritem-dot { background: var(--blue);      box-shadow: 0 0 4px var(--blue); }
-.ritem--partial   .ritem-dot { background: var(--amber); }
-.ritem--pending   .ritem-dot { background: transparent;      border: 1px solid var(--text-faint); opacity: .4; }
+.ritem--completed .ritem-dot { background: var(--brand-neon-mid); box-shadow: 0 0 4px var(--brand-neon-mid); }
+.ritem--partial   .ritem-dot { background: var(--amber); box-shadow: 0 0 4px var(--amber); }
+.ritem--pending   .ritem-dot { background: var(--text-muted); opacity: .4; }
 
 .ritem-label {
   font-family: 'Geist', sans-serif;
