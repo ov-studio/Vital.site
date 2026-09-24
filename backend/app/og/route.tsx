@@ -1,5 +1,5 @@
 import * as lib_api_url from '@/lib/api_url';
-import * as next_og    from 'next/og';
+import * as next_og     from 'next/og';
 import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
