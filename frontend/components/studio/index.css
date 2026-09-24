@@ -150,9 +150,9 @@
   font-family: var(--font-rajdhani), 'Rajdhani', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--blue);
 }
 
 .studio-og-tagline .hl {
