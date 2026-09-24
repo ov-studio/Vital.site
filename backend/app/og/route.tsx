@@ -5,8 +5,11 @@ import { NextResponse } from 'next/server';
 export const runtime = 'edge';
 
 const W = 1000;
-const H = 275;
-const TAGLINE_COLOR = '#7d8694';
+const H = 300;
+const LOGO_H = 88;
+const GAP = 35;
+const TAG_SIZE = 15.2;
+const BLUE = '#87aefb';
 
 async function load_rajdhani(): Promise<ArrayBuffer> {
   const css = await fetch(
