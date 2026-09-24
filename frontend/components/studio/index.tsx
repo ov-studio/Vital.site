@@ -11,7 +11,7 @@ import './index.css';
 type Section = 'og' | 'logo' | 'banner';
 
 const OG_W = 1000;
-const OG_H = 300;
+const OG_H = 275;
 const LOGO_W = 1000;
 const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
