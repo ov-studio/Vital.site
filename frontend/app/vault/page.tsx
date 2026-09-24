@@ -5,10 +5,14 @@ import * as component_footer      from '@/components/footer';
 import * as component_vault       from '@/components/vault';
 import * as component_clientshell from '@/components/clientshell';
 import * as react                 from 'react';
+import * as lib_api_url           from '@/lib/api_url';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
   title: 'Vault',
+  openGraph: {
+    images: [{ url: lib_api_url.get_api_url('/og?path=/vault') }]
+  }
 };
 
 export default function VaultPage() {

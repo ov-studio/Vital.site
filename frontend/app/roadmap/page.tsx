@@ -13,7 +13,7 @@ export const metadata: next.Metadata = {
   title: 'Roadmap',
   openGraph: {
     images: [{ url: lib_api_url.get_api_url('/og?path=/roadmap') }]
-  },
+  }
 };
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({

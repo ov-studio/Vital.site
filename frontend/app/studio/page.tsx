@@ -4,10 +4,14 @@ import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_studio      from '@/components/studio';
 import * as component_clientshell from '@/components/clientshell';
+import * as lib_api_url           from '@/lib/api_url';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
-  title: 'Studio'
+  title: 'Studio',
+  openGraph: {
+    images: [{ url: lib_api_url.get_api_url('/og?path=/studio') }]
+  }
 };
 
 export default function StudioPage() {
