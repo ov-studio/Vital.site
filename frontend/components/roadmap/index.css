@@ -212,7 +212,7 @@
 }
 .ritem:not(:last-child) { border-bottom: 1px solid var(--b05); }
 .ritem-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
-.ritem--completed .ritem-dot { background: var(--brand-neon-mid); box-shadow: 0 0 4px var(--brand-neon-mid); }
+.ritem--completed .ritem-dot { background: var(--blue); box-shadow: 0 0 4px var(--blue); }
 .ritem--partial   .ritem-dot { background: var(--amber); box-shadow: 0 0 4px var(--amber); }
 .ritem--pending   .ritem-dot { background: var(--text-muted); opacity: .4; }
 
@@ -223,7 +223,7 @@
   line-height: 1.5;
   color: var(--text-faint);
 }
-.ritem--completed .ritem-label { color: var(--brand-neon-mid); }
+.ritem--completed .ritem-label { color: var(--blue); }
 .ritem--partial   .ritem-label { color: var(--amber); }
 
 .ritem-tag {
