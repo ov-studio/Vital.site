@@ -13,7 +13,7 @@ async function load_rajdhani(): Promise<ArrayBuffer> {
     'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap',
     {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
+        'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
       }
     }
   ).then((r) => r.text());
