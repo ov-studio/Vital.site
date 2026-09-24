@@ -32,7 +32,8 @@ async function loadToPng() {
   try {
     const mod = await import('html-to-image');
     return mod.toPng;
-  } catch {
+  } 
+  catch {
     alert(
       'html-to-image is required for download.\n\n' +
         'Run:  cd frontend && npm i html-to-image'
