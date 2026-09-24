@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   if (!path.startsWith('/')) path = `/${path}`;
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
 
-  let host = 'vital-sandbox.com';
+  let host = '';
   try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
   catch {}
 
