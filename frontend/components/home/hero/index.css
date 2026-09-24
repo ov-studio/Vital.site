@@ -73,7 +73,6 @@
 .hero-sub-lead {
   color: var(--brand-neon-core);
   font-family: var(--font-cookie), 'Cookie', cursive;
-  font-size: 1.7rem;
   font-size: clamp(1.5rem, 1.1vw, 26px);
 }
 
@@ -81,6 +80,7 @@
   text-wrap: balance;
   color: var(--brand-neon-mid);
   font-size: .92rem;
+  font-size: clamp(0.9rem, 1.1vw, 10px);
 }
 
 
