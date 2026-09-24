@@ -8,7 +8,7 @@ import './index.css';
  * @param {'lg'} [props.size]  Larger padding (action only)
  * @param {boolean} [props.danger]  Danger tone (action only)
  * @param {string} [props.href]  Render as <a> when set
- * @param {string} [props.download]
+ * @param {string | boolean} [props.download]  Anchor download attr (true → empty string)
  * @param {string} [props.target]
  * @param {string} [props.rel]
  * @param {'button' | 'submit' | 'reset'} [props.type]
@@ -45,7 +45,7 @@ export function Button({
       <a
         href={href}
         className={cls}
-        download={download}
+        download={download === true ? '' : download || undefined}
         target={target}
         rel={rel}
         onClick={onClick}

@@ -227,7 +227,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
                 variant="primary"
                 onClick={handle_download}
                 disabled={downloading}
-                className={downloading ? 'is-busy' : undefined}
+                className={downloading ? 'is-busy' : ''}
               >
                 {downloading
                   ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
