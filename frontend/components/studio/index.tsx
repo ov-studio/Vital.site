@@ -100,56 +100,92 @@ export function Studio() {
   const logoW = logoSize ?? LOGO_W;
   const logoH = logoSize ?? (logoPad ? LOGO_H_PAD : LOGO_H_TIGHT);
 
+  const ogWrapRef = react.useRef<HTMLDivElement>(null);
+  const logoWrapRef = react.useRef<HTMLDivElement>(null);
+  const bannerWrapRef = react.useRef<HTMLDivElement>(null);
   const ogPreviewRef = react.useRef<HTMLDivElement>(null);
   const logoPreviewRef = react.useRef<HTMLDivElement>(null);
 
   react.useEffect(() => {
-    const pairs: Array<{
+    type Pair = {
       active: boolean;
+      wrap: HTMLDivElement | null;
       frame: HTMLDivElement | null;
       canvas: HTMLDivElement | null;
       nativeW: number;
-    }> = [
+      nativeH: number;
+      /** Banner: frame stays full-width. OG/logo: frame hugs scaled canvas. */
+      fillWidth: boolean;
+    };
+
+    const pairs: Pair[] = [
       {
         active: section === 'og',
+        wrap: ogWrapRef.current,
         frame: ogPreviewRef.current,
         canvas: ogRef.current,
         nativeW: OG_W,
+        nativeH: OG_H,
+        fillWidth: false,
       },
       {
         active: section === 'logo',
+        wrap: logoWrapRef.current,
         frame: logoPreviewRef.current,
         canvas: logoRef.current,
         nativeW: logoW,
+        nativeH: logoH,
+        fillWidth: false,
       },
       {
         active: section === 'banner',
+        wrap: bannerWrapRef.current,
         frame: bannerPreviewRef.current,
         canvas: bannerRef.current,
         nativeW: BANNER_W,
+        nativeH: BANNER_H,
+        fillWidth: true,
       },
     ];
 
+    const PREVIEW_PAD = 16;
     const cleanups: Array<() => void> = [];
-    for (const { active, frame, canvas, nativeW } of pairs) {
+
+    for (const { active, wrap, frame, canvas, nativeW, nativeH, fillWidth } of pairs) {
       if (!active || !frame || !canvas) continue;
+      const host = wrap ?? (frame.parentElement as HTMLDivElement | null);
+
       const update = () => {
-        const avail = Math.max(1, frame.clientWidth);
-        const scale = Math.min(1, avail / nativeW);
+        const hostW = Math.max(
+          1,
+          (host?.clientWidth ?? frame.clientWidth) - (fillWidth ? 0 : PREVIEW_PAD * 2)
+        );
+        // Never upscale past native; shrink on narrow viewports
+        const scale = Math.min(1, hostW / nativeW);
         canvas.style.transformOrigin = 'top left';
         canvas.style.transform = `scale(${scale})`;
+
+        if (!fillWidth) {
+          frame.style.width = `${Math.round(nativeW * scale)}px`;
+          frame.style.height = `${Math.round(nativeH * scale)}px`;
+        }
       };
+
       update();
       const ro = new ResizeObserver(update);
-      ro.observe(frame);
+      if (host) ro.observe(host);
       cleanups.push(() => {
         ro.disconnect();
         canvas.style.transform = '';
         canvas.style.transformOrigin = '';
+        if (!fillWidth) {
+          frame.style.width = '';
+          frame.style.height = '';
+        }
       });
     }
     return () => cleanups.forEach((fn) => fn());
-  }, [section, logoW]);
+  }, [section, logoW, logoH]);
 
 
   async function capturePng(
@@ -424,7 +460,8 @@ export function Studio() {
               </div>
             </div>
 
-            <div ref={ogPreviewRef} className="studio-preview-wrap">
+            <div ref={ogWrapRef} className="studio-preview-wrap">
+              <div ref={ogPreviewRef} className="studio-preview-frame">
               <div
                 ref={ogRef}
                 className="studio-canvas studio-og"
@@ -451,6 +488,7 @@ export function Studio() {
                     </div>
                   )}
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -543,7 +581,8 @@ export function Studio() {
               </div>
             </div>
 
-            <div ref={logoPreviewRef} className="studio-preview-wrap studio-preview-wrap--logo">
+            <div ref={logoWrapRef} className="studio-preview-wrap studio-preview-wrap--logo">
+              <div ref={logoPreviewRef} className="studio-preview-frame">
               <div
                 ref={logoRef}
                 className={[
@@ -560,6 +599,7 @@ export function Studio() {
                   variant="logo-only"
                   neon={logoNeon}
                 />
+              </div>
               </div>
             </div>
           </div>
@@ -630,7 +670,7 @@ export function Studio() {
               </div>
             </div>
 
-            <div className="studio-preview-wrap studio-preview-wrap--banner">
+            <div ref={bannerWrapRef} className="studio-preview-wrap studio-preview-wrap--banner">
               <div ref={bannerPreviewRef} className="studio-banner-frame">
               <div
                 ref={bannerRef}

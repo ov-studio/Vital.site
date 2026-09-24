@@ -95,27 +95,40 @@
   border-radius: 6px;
   background: var(--b05);
   padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .studio-preview-wrap--logo {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.studio-preview-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--bg4);
+  flex-shrink: 0;
 }
 
 .studio-canvas {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   overflow: hidden;
   flex-shrink: 0;
   box-sizing: border-box;
-  transform-origin: top center;
+  transform-origin: top left;
 }
 
 .studio-og {
@@ -185,7 +198,7 @@
 }
 
 .studio-canvas.studio-logo {
-  overflow: visible;
+  overflow: hidden;
 }
 
 .studio-logo.is-center {
@@ -223,6 +236,7 @@
   background: var(--b05);
   border-radius: 6px;
   box-sizing: border-box;
+  display: block;
 }
 
 .studio-banner-frame {
