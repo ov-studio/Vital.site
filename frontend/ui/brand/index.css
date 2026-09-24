@@ -65,46 +65,46 @@
   --brand-logo-size: 1.25rem;
   --brand-wordmark-size: 1rem;
   --brand-gap: 10px;
-  --brand-neon-ring: 0.2px;
-  --brand-neon-core-blur: 0.4px;
-  --brand-neon-mid-blur: 1.5px;
-  --brand-neon-outer-blur: 3px;
+  --brand-neon-ring: 0px;
+  --brand-neon-core-blur: 0.35px;
+  --brand-neon-mid-blur: 0.75px;
+  --brand-neon-outer-blur: 1.25px;
 }
 .brand--xs {
   --brand-logo-size: 1.6rem;
   --brand-wordmark-size: 1.28rem;
   --brand-gap: 12px;
-  --brand-neon-ring: 0.25px;
-  --brand-neon-core-blur: 0.5px;
-  --brand-neon-mid-blur: 2px;
-  --brand-neon-outer-blur: 4px;
+  --brand-neon-ring: 0px;
+  --brand-neon-core-blur: 0.4px;
+  --brand-neon-mid-blur: 1px;
+  --brand-neon-outer-blur: 1.75px;
 }
 .brand--sm {
   --brand-logo-size: 2rem;
   --brand-wordmark-size: 1.6rem;
   --brand-gap: 14px;
-  --brand-neon-ring: 0.3px;
-  --brand-neon-core-blur: 0.6px;
-  --brand-neon-mid-blur: 2.5px;
-  --brand-neon-outer-blur: 5px;
+  --brand-neon-ring: 0.15px;
+  --brand-neon-core-blur: 0.5px;
+  --brand-neon-mid-blur: 1.25px;
+  --brand-neon-outer-blur: 2.25px;
 }
 .brand--md {
   --brand-logo-size: 2.75rem;
   --brand-wordmark-size: 2.2rem;
   --brand-gap: 18px;
-  --brand-neon-ring: 0.4px;
-  --brand-neon-core-blur: 0.8px;
-  --brand-neon-mid-blur: 3.5px;
-  --brand-neon-outer-blur: 8px;
+  --brand-neon-ring: 0.25px;
+  --brand-neon-core-blur: 0.6px;
+  --brand-neon-mid-blur: 2px;
+  --brand-neon-outer-blur: 4px;
 }
 .brand--lg {
   --brand-logo-size: 4rem;
   --brand-wordmark-size: 3.2rem;
   --brand-gap: 24px;
-  --brand-neon-ring: 0.45px;
-  --brand-neon-core-blur: 1px;
-  --brand-neon-mid-blur: 5px;
-  --brand-neon-outer-blur: 11px;
+  --brand-neon-ring: 0.35px;
+  --brand-neon-core-blur: 0.8px;
+  --brand-neon-mid-blur: 3.5px;
+  --brand-neon-outer-blur: 7px;
 }
 .brand--xl {
   --brand-logo-size: 5.5rem;
