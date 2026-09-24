@@ -6,10 +6,14 @@ import * as component_footer      from '@/components/footer';
 import * as component_roadmap     from '@/components/roadmap';
 import * as component_clientshell from '@/components/clientshell';
 import * as lib_source            from '@/lib/source';
+import * as lib_api_url           from '@/lib/api_url';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
-  title: 'Roadmap'
+  title: 'Roadmap',
+  openGraph: {
+    images: [{ url: lib_api_url.get_api_url('/og?path=/roadmap') }],
+  },
 };
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
