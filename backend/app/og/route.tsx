@@ -40,10 +40,8 @@ export async function GET(req: Request) {
   if (!path.startsWith('/')) path = `/${path}`;
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
 
-  let host = 'vital-sandbox.com';
-  try {
-    host = new URL(frontend).hostname.replace(/^www\./, '');
-  } 
+  let host = '';
+  try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
   catch {}
 
   if (path === '/') {
@@ -67,6 +65,7 @@ export async function GET(req: Request) {
   const label = path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
   const placeholder = `${frontend}/og/placeholder.png`;
   const rajdhani = await load_rajdhani();
+  const tagline_top = H / 2 + LOGO_H / 2 + GAP;
   return new next_og.ImageResponse(
     (
       <div
@@ -74,11 +73,8 @@ export async function GET(req: Request) {
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
           position: 'relative',
-          backgroundColor: '#0a0a0c'
+          backgroundColor: '#0b0a0f'
         }}
       >
         <img
@@ -100,25 +96,20 @@ export async function GET(req: Request) {
             position: 'absolute',
             left: 0,
             right: 0,
-            top: 0,
-            bottom: 0,
+            top: tagline_top,
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: 118
+            alignItems: 'center'
           }}
         >
           <div
             style={{
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
               fontFamily: 'Rajdhani',
-              fontSize: 15.2,
+              fontSize: TAG_SIZE,
               fontWeight: 600,
               letterSpacing: '0.1em',
-              color: TAGLINE_COLOR,
+              color: BLUE,
               textTransform: 'uppercase',
               lineHeight: 1
             }}
