@@ -78,9 +78,8 @@
 
 .hero-sub-mid {
   text-wrap: balance;
-  color: var(--brand-neon-mid);
-  font-size: .92rem;
   font-size: clamp(0.9rem, 1.1vw, 10px);
+  color: var(--brand-neon-mid);
 }
 
 
