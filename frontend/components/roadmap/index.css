@@ -233,7 +233,7 @@
   font-weight: 600;
   color: var(--dim);
 }
-.ritem--completed .ritem-tag { color: var(--blue); }
+.ritem--completed .ritem-tag { color: var(--brand-neon-core); }
 .ritem--partial   .ritem-tag { color: var(--amber); }
 .ritem--pending   .ritem-tag { color: var(--text-dim2); }
 
