@@ -104,7 +104,9 @@
 @media (max-width: 640px) {
   #hero        { padding-top: 110px; padding-bottom: 48px; }
   .hero-center { padding: 0 20px; }
-  .hero-motto  { gap: 10px; font-size: .82rem; }
+  .hero-proof-item { padding: 5px 10px; gap: 5px; }
+  .hero-proof-value { font-size: .95rem; }
+  .hero-proof-label { font-size: .72rem; }
   .hero-sub    { font-size: .88rem; }
   .hcorner     { display: none; }
 }
