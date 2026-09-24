@@ -4,7 +4,7 @@ import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_benchmarks  from '@/components/benchmarks';
 import * as component_clientshell from '@/components/clientshell';
-import * as lib_api_url            from '@/lib/api_url';
+import * as lib_api_url           from '@/lib/api_url';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
