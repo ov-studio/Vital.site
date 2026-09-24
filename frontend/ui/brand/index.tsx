@@ -5,13 +5,14 @@ type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {
-  name?: string;
-  size?: BrandSize;
-  variant?: BrandVariant;
+  name?:      string;
+  size?:      BrandSize;
+  variant?:   BrandVariant;
   className?: string;
-  color?: string;
-  href?: string;
-  neon?: boolean;
+  color?:     string;
+  href?:      string;
+  neon?:      boolean;
+  flicker?:   boolean;
 }
 
 /**
@@ -25,6 +26,7 @@ export function Brand({
   color,
   href,
   neon = false,
+  flicker = false,
 }: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
 
