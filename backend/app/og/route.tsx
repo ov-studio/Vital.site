@@ -41,7 +41,7 @@ export async function GET(req: Request) {
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
 
   let host = '';
-  try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
+  try { host = new URL(frontend).hostname.replace(/^www\./, ''); }
   catch {}
 
   if (path === '/') {
@@ -65,7 +65,9 @@ export async function GET(req: Request) {
   const label = path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
   const placeholder = `${frontend}/og/placeholder.png`;
   const rajdhani = await load_rajdhani();
-  const tagline_top = H / 2 + LOGO_H / 2 + GAP;
+  const group_h = LOGO_H + GAP + TAG_SIZE;
+  const group_top = (H - group_h) / 2;
+  const tagline_top = group_top + LOGO_H + GAP;
   return new next_og.ImageResponse(
     (
       <div
