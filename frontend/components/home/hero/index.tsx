@@ -19,6 +19,16 @@ function format(v: number) {
   return v.toLocaleString();
 }
 
+function floor10(v: number) {
+  if (v <= 0) return 0;
+  return Math.floor(v / 10) * 10;
+}
+
+function softPlus(v: number | null | undefined) {
+  if (v == null || v <= 0) return '0';
+  return `${format(floor10(v))}+`;
+}
+
 const STAT_ICONS = {
   stars: <lucide.Star size={13} strokeWidth={2.5}/>,
   forks: <lucide.GitFork size={13} strokeWidth={2.5}/>,
@@ -58,9 +68,9 @@ export function Hero() {
 
         <div className="hero-motto">
           <span className="hm-word">
-            {data && data.supporters > 0 ? `${format(data.supporters)}+` : '0'} supporters ❤️
+            {softPlus(data?.supporters)} supporters ❤️
             {' '}&{' '}
-            {data && data.stars > 0 ? `${format(data.stars)}+` : '0'} Stargazers 🌟
+            {softPlus(data?.stars)} Stargazers 🌟
           </span>
         </div>
 
