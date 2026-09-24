@@ -164,7 +164,6 @@
 .rcard--partial   .bar-fill { background: var(--amber); }
 .rcard--pending   .bar-fill { background: transparent; }
 
-
 .rcard-pct {
   flex-shrink: 0;
   min-width: 28px;
@@ -238,11 +237,13 @@
 .ritem--partial   .ritem-tag { color: var(--amber); }
 .ritem--pending   .ritem-tag { color: var(--text-dim2); }
 
+
 /* ── @keyframes ── */
 @keyframes rcategory-in {
   from { opacity: 0; transform: translateY(8px) }
   to   { opacity: 1; transform: none }
 }
+
 
 /* ── @media ── */
 @media (max-width: 960px) {
