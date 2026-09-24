@@ -11,7 +11,7 @@ import './index.css';
 type Section = 'og' | 'logo' | 'banner';
 
 const OG_W = 1000;
-const OG_H = 275;
+const OG_H = 300;
 const LOGO_W = 1000;
 const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
@@ -336,7 +336,7 @@ export function Studio() {
       { path: 'neon_background_square.png',      neon: true,  bg: true,  square: true,  round: false },
 
       { path: 'background_square_round.png',     neon: false, bg: true,  square: true,  round: true  },
-      { path: 'neon_background_square_round.png', neon: true, bg: true,  square: true,  round: true  },
+      { path: 'neon_background_square_round.png', neon: true, bg: true,  square: true,  round: true  }
     ];
 
     try {
