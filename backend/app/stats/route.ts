@@ -2,13 +2,15 @@ import * as config_site   from '@/configs/site';
 import * as lib_api_cache from '@/lib/api_cache';
 
 export interface StatsInfo {
-  stars:   number;
-  forks:   number;
-  issues:  number;
-  commits: number;
+  stars:      number;
+  forks:      number;
+  issues:     number;
+  commits:    number;
+  supporters: number;
 }
 
-const EMPTY_STATS: StatsInfo = { stars: 0, forks: 0, issues: 0, commits: 0 };
+const KOFI_SUPPORTERS = 106; // Edit this when the Ko-fi page count changes
+const EMPTY_STATS: StatsInfo = { stars: 0, forks: 0, issues: 0, commits: 0, supporters: KOFI_SUPPORTERS };
 
 async function get_commit_count(user: string, repo: string): Promise<number> {
   const res = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=1`, {
@@ -54,15 +56,17 @@ async function fetch_fresh(): Promise<StatsInfo> {
     })
   );
 
-  return per_repo.reduce(
+  const totals = per_repo.reduce(
     (total, r) => ({
       stars:   total.stars   + r.stars,
       forks:   total.forks   + r.forks,
       issues:  total.issues  + r.issues,
       commits: total.commits + r.commits
     }),
-    { ...EMPTY_STATS }
+    { stars: 0, forks: 0, issues: 0, commits: 0 }
   );
+
+  return { ...totals, supporters: KOFI_SUPPORTERS };
 }
 
 const cached_GET = lib_api_cache.create_cached_route<StatsInfo>({
