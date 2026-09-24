@@ -52,6 +52,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Workspace - staff review queue (approve / reject)',  status: 'completed' },
           { label: 'Benchmarks - live Lua vs GDScript results page',     status: 'completed' },
           { label: 'Vault - community resource browser with filtering',  status: 'completed' },
+          { label: 'Studio - brand asset exporter (OG, logos, banners)', status: 'completed' },
           { label: 'Docs - apis / enums / signals / guides',             status: 'completed' },
           { label: 'Roadmap - this page, live status breakdown',         status: 'completed' },
           { label: 'Terms of Service page',                              status: 'completed' }
@@ -67,8 +68,12 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'GET /api/build - latest build info',               status: 'completed' },
           { label: 'GET /api/contributors - contributor list',         status: 'completed' },
           { label: 'GET /api/stats - aggregated GitHub repo stats',    status: 'completed' },
+          { label: 'GET /api/ip - client IP lookup',                    status: 'completed' },
           { label: 'GET /api/vault - community vault resource list',   status: 'completed' },
+          { label: 'GET /api/vault/tree - vault directory tree',        status: 'completed' },
           { label: 'GET /api/masterlist - live server list',           status: 'completed' },
+          { label: 'POST /api/masterlist/heartbeat - server heartbeat',  status: 'completed' },
+          { label: 'POST /api/masterlist/register - server register',    status: 'completed' },
           { label: 'GET /api/benchmark - latest sandbox benchmark',    status: 'completed' }
         ]
       }
