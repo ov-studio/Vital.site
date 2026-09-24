@@ -223,7 +223,7 @@
   line-height: 1.5;
   color: var(--text-faint);
 }
-.ritem--completed .ritem-label { color: var(--brand-neon-core); }
+.ritem--completed .ritem-label { color: var(--brand-neon-mid); }
 .ritem--partial   .ritem-label { color: var(--amber); }
 
 .ritem-tag {
