@@ -8,10 +8,11 @@ import * as lucide             from 'lucide-react';
 import './index.css';
 
 interface StatsInfo {
-  stars:   number;
-  forks:   number;
-  issues:  number;
-  commits: number;
+  stars:      number;
+  forks:      number;
+  issues:     number;
+  commits:    number;
+  supporters: number;
 }
 
 function format(v: number) {
@@ -32,7 +33,7 @@ export function Hero() {
     fetch(lib_api_url.get_api_url('/stats'))
       .then((r) => r.json())
       .then(setData)
-      .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0 }));
+      .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0, supporters: 0 }));
   }, []);
 
   const stats = [
