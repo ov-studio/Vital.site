@@ -11,7 +11,7 @@ export function Footer() {
         <div className="footer-brand">
           <ui_brand.Brand name={config_site.info.name} size="xs" className="footer-brand-lock"/>
           <p className="footer-tagline">
-            An open-source, high-performance sandbox built on Godot.<br/>Script It. Ship It. Limitless.
+            An open-source, high-performance sandbox built on Godot.<br/>Developed by <strong>ov-studio</strong>.
           </p>
           <div className="footer-flags">
             {config_footer.Footer_Flags.map((code) => (
