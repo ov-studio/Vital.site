@@ -7,15 +7,6 @@ export const runtime = 'edge';
 const W = 1000;
 const H = 300;
 
-/**
- * Dynamic Open Graph image.
- *
- * Base: frontend/public/og/placeholder.png
- * Draws the request path under the mark, e.g. VITAL-SANDBOX.COM/ROADMAP.
- *
- *   GET /og?path=/
- *   GET /og?path=/roadmap
- */
 export async function GET(req: Request) {
   const frontend = lib_api_url.get_frontend_url();
   const url = new URL(req.url);
@@ -25,9 +16,8 @@ export async function GET(req: Request) {
 
   let host = 'vital-sandbox.com';
   try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
-  catch { /* keep default */ }
+  catch {}
 
-  // Homepage: static default.png from studio export
   if (path === '/') {
     try {
       const res = await fetch(`${frontend}/og/default.png`, { cache: 'force-cache' });
@@ -37,12 +27,12 @@ export async function GET(req: Request) {
           status: 200,
           headers: {
             'Content-Type': 'image/png',
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-          },
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+          }
         });
       }
     } 
-    catch { /* dynamic fallback */ }
+    catch {}
   }
 
   const label = path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
@@ -107,8 +97,8 @@ export async function GET(req: Request) {
       width: W,
       height: H,
       headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-      },
+        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+      }
     }
   );
 }
