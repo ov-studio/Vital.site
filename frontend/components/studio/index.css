@@ -152,7 +152,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--text-muted);
 }
 
 .studio-og-tagline .hl {
