@@ -4,7 +4,6 @@
   justify-content: center;
   gap: 8px;
   box-sizing: border-box;
-  cursor: pointer;
   text-decoration: none;
   border: none;
   font: inherit;
@@ -12,7 +11,6 @@
 
 .ui-btn:disabled,
 .ui-btn[aria-disabled='true'] {
-  cursor: not-allowed;
   opacity: 0.5;
   pointer-events: none;
 }

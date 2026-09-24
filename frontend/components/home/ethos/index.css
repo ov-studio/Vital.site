@@ -21,7 +21,6 @@
   border: 3px solid var(--b10);
   border-radius: 2px;
   overflow: hidden;
-  cursor: default;
   transition:
     background .3s,
     opacity .55s ease calc(var(--i) * 55ms),

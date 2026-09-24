@@ -4,11 +4,10 @@
   justify-content: center;
   background: transparent;
   border: none;
-  cursor: pointer;
   padding: 0;
   color: inherit;
   font: inherit;
 }
-.ui-icon-btn:disabled { cursor: default; opacity: .5; }
+.ui-icon-btn:disabled { opacity: .5; }
 .ui-icon-btn svg,
 .ui-icon-btn * { pointer-events: none; }

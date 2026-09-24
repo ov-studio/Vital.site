@@ -287,7 +287,6 @@
 }
 
 .ws-btn {
-  cursor: pointer;
   white-space: nowrap;
 }
 
@@ -405,7 +404,6 @@
   background: var(--w03);
   border: 1px solid var(--w10);
   border-radius: 4px;
-  cursor: pointer;
   text-align: left;
   color: inherit;
   transition: border-color 0.15s, background 0.15s;

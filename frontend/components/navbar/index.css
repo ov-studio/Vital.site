@@ -78,7 +78,6 @@ nav.s::after {
   border-radius: 6px;
   background: transparent;
   color: var(--dim);
-  cursor: pointer;
   transition: color .2s;
 }
 .nav-auth-icon:hover { color: var(--white) }
@@ -101,7 +100,6 @@ nav.s::after {
   border: none;
   border-radius: 6px;
   background: transparent;
-  cursor: pointer;
   transition: opacity .15s;
 }
 .nav-avatar-btn:hover { opacity: .85 }
@@ -125,7 +123,6 @@ nav.s::after {
   z-index: 0;
   border: none;
   background: transparent;
-  cursor: default;
 }
 
 .nav-staff-menu {
@@ -179,7 +176,6 @@ nav.s::after {
   background: transparent;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   transition: color .25s;
 }
 .nav-staff-item:hover {
