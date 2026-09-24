@@ -258,7 +258,7 @@ export function Studio() {
 
     const prevPlaceholder = ogPlaceholder;
     const zip = new JSZip();
-    const folder = zip.folder('public/cdn/og');
+    const folder = zip.folder('public/og');
     if (!folder) {
       setPresetBusy(false);
       return;
@@ -307,7 +307,7 @@ export function Studio() {
     };
 
     const zip = new JSZip();
-    const folder = zip.folder('public/cdn/logo');
+    const folder = zip.folder('public/logo');
     if (!folder) {
       setPresetBusy(false);
       return;
