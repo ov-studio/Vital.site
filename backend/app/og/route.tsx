@@ -4,9 +4,48 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
+/** Match Brand Studio OG canvas (see frontend/components/studio). */
 const W = 1000;
-const H = 300;
+const H = 275;
 
+/** Studio `.studio-og-tagline` — hsl(220, 10%, 55%) */
+const TAGLINE_COLOR = '#7d8694';
+
+async function load_rajdhani(): Promise<ArrayBuffer> {
+  // Satori only supports TTF/OTF — not woff2.
+  // Request Google Fonts CSS with an old UA so it returns truetype.
+  const css = await fetch(
+    'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap',
+    {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
+      },
+    }
+  ).then((r) => r.text());
+
+  const match =
+    css.match(/src:\s*url\(([^)]+)\)\s*format\(['"]truetype['"]\)/) ||
+    css.match(/src:\s*url\(([^)]+\.ttf[^)]*)\)/);
+  const font_url = match?.[1];
+  // Hard fallback: fontsource/google fonts TTF (Satori-compatible)
+  const fallback =
+    'https://cdn.jsdelivr.net/fontsource/fonts/rajdhani@latest/latin-600-normal.ttf';
+
+  const res = await fetch(font_url || fallback);
+  if (!res.ok) {
+    const res2 = await fetch(fallback);
+    if (!res2.ok) throw new Error(`Rajdhani TTF fetch failed (${res2.status})`);
+    return res2.arrayBuffer();
+  }
+  return res.arrayBuffer();
+}
+
+/**
+ * Dynamic Open Graph image — same look as Studio OpenGraph export.
+ *
+ * Base: frontend/public/og/placeholder.png
+ * Tagline: host + path, Rajdhani 600, muted, 0.1em tracking
+ */
 export async function GET(req: Request) {
   const frontend = lib_api_url.get_frontend_url();
   const url = new URL(req.url);
@@ -14,9 +53,10 @@ export async function GET(req: Request) {
   if (!path.startsWith('/')) path = `/${path}`;
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
 
-  let host = '';
-  try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
-  catch {}
+  let host = 'vital-sandbox.com';
+  try {
+    host = new URL(frontend).hostname.replace(/^www\./, '');
+  } catch { /* keep default */ }
 
   if (path === '/') {
     try {
@@ -27,16 +67,20 @@ export async function GET(req: Request) {
           status: 200,
           headers: {
             'Content-Type': 'image/png',
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-          }
+            'Cache-Control':
+              'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+          },
         });
       }
-    } 
-    catch {}
+    } catch { /* fall through */ }
   }
 
-  const label = path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
+  const label =
+    path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
+
   const placeholder = `${frontend}/og/placeholder.png`;
+  const rajdhani = await load_rajdhani();
+
   return new next_og.ImageResponse(
     (
       <div
@@ -64,28 +108,34 @@ export async function GET(req: Request) {
             objectFit: 'cover',
           }}
         />
+
+        {/* Matches .studio-og-content gap under logo (~35px from mark center band) */}
         <div
           style={{
             position: 'absolute',
             left: 0,
             right: 0,
-            bottom: '18%',
+            top: 0,
+            bottom: 0,
             display: 'flex',
-            justifyContent: 'center',
+            flexDirection: 'column',
             alignItems: 'center',
-            padding: '0 48px',
+            justifyContent: 'center',
+            paddingTop: 118,
           }}
         >
           <div
             style={{
-              fontFamily: 'ui-sans-serif, system-ui, sans-serif',
-              fontSize: 15,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontFamily: 'Rajdhani',
+              fontSize: 15.2,
               fontWeight: 600,
-              letterSpacing: '0.14em',
-              color: 'rgba(180, 190, 210, 0.75)',
+              letterSpacing: '0.1em',
+              color: TAGLINE_COLOR,
               textTransform: 'uppercase',
-              textAlign: 'center',
-              whiteSpace: 'nowrap',
+              lineHeight: 1,
             }}
           >
             {label}
@@ -96,9 +146,18 @@ export async function GET(req: Request) {
     {
       width: W,
       height: H,
+      fonts: [
+        {
+          name: 'Rajdhani',
+          data: rajdhani,
+          style: 'normal',
+          weight: 600,
+        },
+      ],
       headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-      }
+        'Cache-Control':
+          'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      },
     }
   );
 }
