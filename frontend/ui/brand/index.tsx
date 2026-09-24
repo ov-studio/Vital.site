@@ -1,4 +1,5 @@
 'use client';
+import * as react from 'react';
 import './index.css';
 
 type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
