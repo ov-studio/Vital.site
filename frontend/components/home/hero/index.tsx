@@ -57,7 +57,11 @@ export function Hero() {
         </div>
 
         <div className="hero-motto">
-          <span className="hm-word"> 100+ supporters ❤️ & 44+ Stargazers 🌟</span>
+          <span className="hm-word">
+            {data && data.supporters > 0 ? `${format(data.supporters)}+` : '0'} supporters ❤️
+            {' '}&{' '}
+            {data && data.stars > 0 ? `${format(data.stars)}+` : '0'} Stargazers 🌟
+          </span>
         </div>
 
         <div className="hero-sub">
