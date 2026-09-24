@@ -477,14 +477,14 @@ export function Studio() {
                       }`}
                       aria-hidden={!tagline.trim() || ogPlaceholder}
                     >
-                      {tagline.trim()
-                        ? tagline.split('—').map((part, i, arr) => (
-                            <react.Fragment key={i}>
-                              <span className={i === 1 ? 'hl' : ''}>{part.trim()}</span>
-                              {i < arr.length - 1 && <span className="sep">—</span>}
-                            </react.Fragment>
-                          ))
-                        : '\u00a0'}
+                      {
+                        tagline.trim() ? tagline.split('—').map((part, i, arr) => (
+                          <react.Fragment key={i}>
+                            <span className={i === 1 ? 'hl' : ''}>{part.trim()}</span>
+                            {i < arr.length - 1 && <span className="sep">—</span>}
+                          </react.Fragment>
+                        )) : '\u00a0'
+                      }
                     </div>
                   )}
                 </div>
