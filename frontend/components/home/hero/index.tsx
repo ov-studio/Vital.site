@@ -4,7 +4,6 @@ import * as ui_wallpaper       from '@/ui/wallpaper';
 import * as component_download from '@/components/download';
 import * as lib_api_url        from '@/lib/api_url';
 import * as react              from 'react';
-import * as lucide             from 'lucide-react';
 import './index.css';
 
 interface StatsInfo {
@@ -29,13 +28,6 @@ function softPlus(v: number | null | undefined) {
   return `${format(floor10(v))}+`;
 }
 
-const STAT_ICONS = {
-  stars: <lucide.Star size={13} strokeWidth={2.5}/>,
-  forks: <lucide.GitFork size={13} strokeWidth={2.5}/>,
-  commits: <lucide.GitCommit size={13} strokeWidth={2.5}/>,
-  issues: <lucide.CircleDot size={13} strokeWidth={2.5}/>
-};
-
 export function Hero() {
   const [data, setData] = react.useState<StatsInfo | null>(null);
 
@@ -45,13 +37,6 @@ export function Hero() {
       .then(setData)
       .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0, supporters: 0 }));
   }, []);
-
-  const stats = [
-    { key: 'stars',   value: data ? format(data.stars)   : '—', label: 'Stars'   },
-    { key: 'forks',   value: data ? format(data.forks)   : '—', label: 'Forks'   },
-    { key: 'commits', value: data ? format(data.commits) : '—', label: 'Commits' },
-    { key: 'issues',  value: data ? format(data.issues)  : '—', label: 'Issues'  }
-  ] as const;
 
   return (
     <section id="hero">
@@ -63,7 +48,7 @@ export function Hero() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <ui_brand.Brand size="xxl" variant="logo-only" neon={true}/>
+          <ui_brand.Brand size="xxl" variant="logo-only" neon={true} flicker={true}/>
         </div>
 
         <div className="hero-motto">
