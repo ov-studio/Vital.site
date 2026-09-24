@@ -41,7 +41,7 @@ export const metadata: next.Metadata = {
     description: config_site.info.description,
     siteName: config_site.info.name,
     type: 'website',
-    images: [{ url: lib_api_url.get_api_url('/og'), width: 1000, height: 300 }]
+    images: [{ url: lib_api_url.get_api_url('/og?path=/') }]
   }
 };
 
