@@ -6,21 +6,13 @@ export const revalidate = false;
 export const dynamicParams = false;
 export const runtime = 'nodejs';
 
-const SECTIONS = new Set([
-  'roadmap',
-  'vault',
-  'studio',
-  'workspace',
-  'tos',
-  'benchmarks',
-]);
-
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ section: string }> }
 ) {
   const { section } = await params;
-  if (!SECTIONS.has(section)) next_navigation.notFound();
+  const allowed = new Set(lib_og_brand.site_og_sections());
+  if (!allowed.has(section)) next_navigation.notFound();
 
   const { label, font, placeholder, width, height } = lib_og_brand.brand_og_payload(
     `/${section}`
@@ -37,12 +29,5 @@ export async function GET(
 }
 
 export function generateStaticParams() {
-  return [
-    { section: 'roadmap' },
-    { section: 'vault' },
-    { section: 'studio' },
-    { section: 'workspace' },
-    { section: 'tos' },
-    { section: 'benchmarks' }
-  ];
+  return lib_og_brand.site_og_sections().map((section) => ({ section }));
 }
