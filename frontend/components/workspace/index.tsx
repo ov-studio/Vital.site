@@ -1,5 +1,5 @@
 'use client';
-import * as react            from 'react';
+import * as config_pages     from '@/configs/pages';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
@@ -9,6 +9,7 @@ import * as ui_button        from '@/ui/button';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
 import * as ui_divider       from '@/ui/divider';
+import * as react            from 'react';
 import * as lucide           from 'lucide-react';
 import './index.css';
 
@@ -220,7 +221,7 @@ export function Workspace() {
             </div>
           </div>
           <p className="page-intro ws-lead">
-            Apply for masterlist tokens, track application status, and review requests
+            {config_pages.pages.workspace.description}
           </p>
         </div>
 
