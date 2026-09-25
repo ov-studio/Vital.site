@@ -1,4 +1,5 @@
 import * as config_site                from '@/configs/site';
+import * as lib_api_url                from '@/lib/api_url';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
 import * as next                       from 'next';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
