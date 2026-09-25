@@ -1,24 +1,21 @@
 /**
  * Pre-generate static Open Graph PNGs into frontend/public/og/.
- *
- * Uses Studio layout (1000×300 @ 2× = 2000×600), local Rajdhani-SemiBold,
- * and placeholder.png as the base. Run after changing placeholder or host:
- *
  *   node shared/generate-og.mjs
- *
- * Env:
- *   OG_HOST=vital-sandbox.com   (default)
+ *   OG_HOST=vital-sandbox.com node shared/generate-og.mjs
  */
-import { ImageResponse } from '../backend/node_modules/next/og.js';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
+import { createRequire } from 'module';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const OUT_DIR = join(ROOT, 'frontend/public/og');
 const FONT_PATH = join(ROOT, 'frontend/public/font/Rajdhani-SemiBold.ttf');
 const PLACEHOLDER_PATH = join(ROOT, 'frontend/public/og/placeholder.png');
+
+const require = createRequire(join(ROOT, 'backend/package.json'));
+const { ImageResponse } = require('next/og');
 
 const HOST = (process.env.OG_HOST || 'vital-sandbox.com').replace(/^www\./, '');
 
@@ -30,7 +27,6 @@ const GAP = 35 * SCALE;
 const TAG_SIZE = 15.2 * SCALE;
 const BLUE = '#87aefb';
 
-/** path → output filename (home uses existing default.png) */
 const ROUTES = [
   { path: '/roadmap',    file: 'roadmap.png' },
   { path: '/vault',      file: 'vault.png' },

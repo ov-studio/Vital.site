@@ -4,14 +4,13 @@ import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_workspace   from '@/components/workspace';
 import * as component_clientshell from '@/components/clientshell';
-import * as lib_api_url           from '@/lib/api_url';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
   title:  'Workspace',
   robots: { index: false, follow: false },
   openGraph: {
-    images: [{ url: lib_api_url.get_api_url('/og?path=/workspace') }]
+    images: [{ url: '/og/workspace.png' }]
   }
 };
 
