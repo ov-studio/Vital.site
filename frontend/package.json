@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node ../shared/sync.js",
+    "predev": "node ../shared/sync.js && node ../shared/generate-og.mjs",
     "dev": "next dev -p 3000",
     "prebuild": "node ../shared/sync.js && node ../shared/generate-og.mjs",
     "build": "next build",
     "start": "next start -p 3000",
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
-    "postinstall": "fumadocs-mdx",
-    "generate:og": "node ../shared/generate-og.mjs"
+    "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
     "fumadocs-core": "16.5.0",

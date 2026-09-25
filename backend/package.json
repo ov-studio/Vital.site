@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node ../shared/sync.js",
+    "predev": "node ../shared/sync.js && node ../shared/generate-og.mjs",
     "dev": "next dev -p 3001",
     "prebuild": "node ../shared/sync.js && node ../shared/generate-og.mjs",
     "build": "next build",
-    "start": "next start -p 3001",
-    "generate:og": "node ../shared/generate-og.mjs"
+    "start": "next start -p 3001"
   },
   "dependencies": {
     "@upstash/ratelimit": "^2.0.6",
