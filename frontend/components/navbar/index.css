@@ -16,12 +16,14 @@ nav::after {
   background: var(--bg4);
   border-bottom: 1px solid transparent;
   pointer-events: none;
-  transition: background .4s, border-color .4s;
+  box-shadow: 0 -50px 250px 0px transparent;
+  transition: box-shadow 1.5s, background .4s, border-color .4s;
 }
 
 nav.s::after {
   background: var(--bg7);
   border-color: var(--bg);
+  box-shadow: 0 -50px 250px 0px var(--b80);
   backdrop-filter: blur(20px);
 }
 
