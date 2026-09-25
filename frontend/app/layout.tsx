@@ -1,6 +1,5 @@
 import * as config_site                from '@/configs/site';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
-import * as lib_api_url                from '@/lib/api_url';
 import * as next                       from 'next';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani, Cookie } from 'next/font/google';
@@ -41,7 +40,7 @@ export const metadata: next.Metadata = {
     description: config_site.info.description,
     siteName: config_site.info.name,
     type: 'website',
-    images: [{ url: lib_api_url.get_api_url('/og?path=/') }]
+    images: [{ url: '/og/default.png' }]
   }
 };
 
