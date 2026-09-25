@@ -5,9 +5,10 @@
   "scripts": {
     "predev": "node ../shared/sync.js",
     "dev": "next dev -p 3001",
-    "prebuild": "node ../shared/sync.js",
+    "prebuild": "node ../shared/sync.js && node ../shared/generate-og.mjs",
     "build": "next build",
-    "start": "next start -p 3001"
+    "start": "next start -p 3001",
+    "generate:og": "node ../shared/generate-og.mjs"
   },
   "dependencies": {
     "@upstash/ratelimit": "^2.0.6",

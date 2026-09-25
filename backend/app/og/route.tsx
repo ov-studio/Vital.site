@@ -1,38 +1,27 @@
 import * as lib_api_url from '@/lib/api_url';
-import * as next_og     from 'next/og';
 import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-const SCALE = 2;
-const W = 1000 * SCALE;
-const H = 300 * SCALE;
-const LOGO_H = 88 * SCALE;
-const GAP = 35 * SCALE;
-const TAG_SIZE = 15.2 * SCALE;
-const BLUE = '#87aefb';
-
-async function load_rajdhani(): Promise<ArrayBuffer> {
-  const css = await fetch(
-    'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap',
-    {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'
-      }
-    }
-  ).then((r) => r.text());
-
-  const match = css.match(/src:\s*url\(([^)]+)\)\s*format\(['"]truetype['"]\)/) || css.match(/src:\s*url\(([^)]+\.ttf[^)]*)\)/);
-  const font_url = match?.[1];
-  const fallback = 'https://cdn.jsdelivr.net/fontsource/fonts/rajdhani@latest/latin-600-normal.ttf';
-  const res = await fetch(font_url || fallback);
-  if (!res.ok) {
-    const res2 = await fetch(fallback);
-    if (!res2.ok) throw new Error(`Rajdhani TTF fetch failed (${res2.status})`);
-    return res2.arrayBuffer();
-  }
-  return res.arrayBuffer();
-}
+/**
+ * Static Open Graph images (zero ImageResponse CPU).
+ *
+ * Files live in frontend/public/og/ — regenerate with:
+ *   node shared/generate-og.mjs
+ *
+ *   /og?path=/           → default.png
+ *   /og?path=/roadmap    → roadmap.png
+ *   unknown path         → placeholder.png
+ */
+const PATH_FILE: Record<string, string> = {
+  '/':           'default.png',
+  '/roadmap':    'roadmap.png',
+  '/vault':      'vault.png',
+  '/studio':     'studio.png',
+  '/workspace':  'workspace.png',
+  '/tos':        'tos.png',
+  '/benchmarks': 'benchmarks.png',
+};
 
 export async function GET(req: Request) {
   const frontend = lib_api_url.get_frontend_url();
@@ -41,101 +30,30 @@ export async function GET(req: Request) {
   if (!path.startsWith('/')) path = `/${path}`;
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
 
-  let host = '';
-  try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
-  catch {}
+  const file = PATH_FILE[path] ?? 'placeholder.png';
+  const asset_url = `${frontend}/og/${file}`;
 
-  if (path === '/') {
-    try {
-      const res = await fetch(`${frontend}/og/default.png`, { cache: 'force-cache' });
-      if (res.ok) {
-        const buf = await res.arrayBuffer();
-        return new NextResponse(buf, {
-          status: 200,
-          headers: {
-            'Content-Type': 'image/png',
-            'Cache-Control':
-              'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
-          },
-        });
-      }
-    } 
-    catch {}
-  }
-
-  const label = path === '/' ? host.toUpperCase() : `${host}${path}`.toUpperCase();
-  const placeholder = `${frontend}/og/placeholder.png`;
-  const rajdhani = await load_rajdhani();
-  const group_h = LOGO_H + GAP + TAG_SIZE;
-  const group_top = (H - group_h) / 2;
-  const tagline_top = group_top + LOGO_H + GAP;
-  return new next_og.ImageResponse(
-    (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          position: 'relative',
-          backgroundColor: '#0b0a0f'
-        }}
-      >
-        <img
-          src={placeholder}
-          alt=""
-          width={W}
-          height={H}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover'
-          }}
-        />
-
-        <div
-          style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: tagline_top,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              fontFamily: 'Rajdhani',
-              fontSize: TAG_SIZE,
-              fontWeight: 600,
-              letterSpacing: '0.1em',
-              color: BLUE,
-              textTransform: 'uppercase',
-              lineHeight: 1
-            }}
-          >
-            {label}
-          </div>
-        </div>
-      </div>
-    ),
-    {
-      width: W,
-      height: H,
-      fonts: [
-        {
-          name: 'Rajdhani',
-          data: rajdhani,
-          style: 'normal',
-          weight: 600
-        }
-      ],
-      headers: {
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
-      }
+  try {
+    const res = await fetch(asset_url, { cache: 'force-cache' });
+    if (!res.ok) {
+      return new NextResponse(`Missing /og/${file} (${res.status}). Run: node shared/generate-og.mjs`, {
+        status: 404,
+        headers: { 'Content-Type': 'text/plain' },
+      });
     }
-  );
+    const buf = await res.arrayBuffer();
+    return new NextResponse(buf, {
+      status: 200,
+      headers: {
+        'Content-Type': 'image/png',
+        'Cache-Control':
+          'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000',
+      },
+    });
+  } catch (err) {
+    return new NextResponse(`Failed to load /og/${file}`, {
+      status: 502,
+      headers: { 'Content-Type': 'text/plain' },
+    });
+  }
 }
