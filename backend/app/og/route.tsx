@@ -4,11 +4,12 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-const W = 1000;
-const H = 300;
-const LOGO_H = 88;
-const GAP = 35;
-const TAG_SIZE = 15.2;
+const SCALE = 2;
+const W = 1000 * SCALE;
+const H = 300 * SCALE;
+const LOGO_H = 88 * SCALE;
+const GAP = 35 * SCALE;
+const TAG_SIZE = 15.2 * SCALE;
 const BLUE = '#87aefb';
 
 async function load_rajdhani(): Promise<ArrayBuffer> {
@@ -41,7 +42,7 @@ export async function GET(req: Request) {
   if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
 
   let host = '';
-  try { host = new URL(frontend).hostname.replace(/^www\./, ''); }
+  try { host = new URL(frontend).hostname.replace(/^www\./, ''); } 
   catch {}
 
   if (path === '/') {
