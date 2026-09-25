@@ -9,18 +9,17 @@ export const runtime = 'nodejs';
 
 export async function GET(
   _req: Request,
-  { params }: { params: Promise<{ slug?: string[] }> }
+  { params }: { params: Promise<{ slug: string[] }> }
 ) {
   const { slug } = await params;
-  const page_slugs = slug ?? [];
-  const page = lib_source.source.getPage(page_slugs);
+  const page = lib_source.source.getPage(slug);
   if (!page) next_navigation.notFound();
 
   const route_path = page.url.startsWith('/') ? page.url : `/${page.url}`;
   const { label, font, placeholder, width, height } = lib_og_brand.brand_og_payload(route_path);
 
   return new next_og.ImageResponse(
-    <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder}/>,
+    <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder} />,
     {
       width,
       height,
@@ -30,7 +29,8 @@ export async function GET(
 }
 
 export function generateStaticParams() {
-  return lib_source.source.getPages().map((page) => ({
-    slug: page.slugs.length ? page.slugs : undefined
-  }));
+  return lib_source.source
+    .getPages()
+    .filter((page) => page.slugs.length > 0)
+    .map((page) => ({ slug: page.slugs }));
 }
