@@ -7,6 +7,7 @@
   min-height: 100vh;
   padding-top: var(--nav-h);
   overflow: hidden;
+  background-image: conic-gradient(var(--b10), var(--bg4), var(--bg4), var(--bg4), var(--b10));
 }
 
 .hcorner {
