@@ -10,6 +10,29 @@ export const OG_TAG_SIZE = 15.2 * OG_SCALE;
 export const OG_BLUE = '#87aefb';
 
 const DEFAULT_HOST = 'vital-sandbox.com';
+const SECTION_SKIP = new Set([
+  'api',
+  'docs',
+  'og',
+]);
+
+export function site_og_sections(): string[] {
+  const app_dir = path.join(process.cwd(), 'app');
+  if (!fs.existsSync(app_dir)) return [];
+
+  return fs
+    .readdirSync(app_dir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .filter((name) => !name.startsWith('_') && !name.startsWith('(') && !name.startsWith('['))
+    .filter((name) => !SECTION_SKIP.has(name))
+    .filter((name) => {
+      const page = path.join(app_dir, name, 'page.tsx');
+      const page_jsx = path.join(app_dir, name, 'page.jsx');
+      return fs.existsSync(page) || fs.existsSync(page_jsx);
+    })
+    .sort();
+}
 
 export function og_host(): string {
   const env =
@@ -46,7 +69,23 @@ export function og_tagline_top(): number {
   return group_top + OG_LOGO_H + OG_GAP;
 }
 
-export function BrandOgMarkup({ label, placeholderSrc }: { label: string; placeholderSrc: string }) {
+export function brand_og_payload(route_path: string) {
+  return {
+    label: og_label(route_path),
+    font: load_og_font(),
+    placeholder: load_og_placeholder_data_uri(),
+    width: OG_W,
+    height: OG_H,
+  };
+}
+
+export function BrandOgMarkup({
+  label,
+  placeholderSrc,
+}: {
+  label: string;
+  placeholderSrc: string;
+}) {
   const top = og_tagline_top();
   return (
     <div
@@ -102,14 +141,4 @@ export function BrandOgMarkup({ label, placeholderSrc }: { label: string; placeh
       </div>
     </div>
   );
-}
-
-export function brand_og_payload(route_path: string) {
-  return {
-    label: og_label(route_path),
-    font: load_og_font(),
-    placeholder: load_og_placeholder_data_uri(),
-    width: OG_W,
-    height: OG_H
-  };
 }
