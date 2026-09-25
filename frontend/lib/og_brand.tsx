@@ -111,3 +111,17 @@ export function BrandOgMarkup({ label, placeholderSrc }: { label: string; placeh
     </div>
   );
 }
+
+/** Build brand-style ImageResponse options + element props for a site path. */
+export function brand_og_payload(route_path: string) {
+  const label = og_label(route_path);
+  const font = load_og_font();
+  const placeholder = load_og_placeholder_data_uri();
+  return {
+    label,
+    font,
+    placeholder,
+    width: OG_W,
+    height: OG_H,
+  };
+}
