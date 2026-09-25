@@ -26,13 +26,17 @@ export function generateStaticParams() {
   return lib_source.source.generateParams();
 }
 
-export async function generateMetadata({ params }: { params: Promise<Params>;}) {
+export async function generateMetadata({params}: {params: Promise<Params>;}) {
   const { slug } = await params;
   const page = lib_source.source.getPage(slug);
   if (!page) next_navigation.notFound();
 
+  const image = lib_source.getPageImage(page);
   return {
     title: page.data.title,
-    description: page.data.description
+    description: page.data.description,
+    openGraph: {
+      images: [{ url: image.url }]
+    }
   };
 }
