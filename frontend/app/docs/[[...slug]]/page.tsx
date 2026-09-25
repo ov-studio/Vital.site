@@ -1,7 +1,7 @@
-import * as lib_source       from '@/lib/source';
-import * as mdx_components   from '@/mdx-components';
-import * as fumadocs_page    from 'fumadocs-ui/page';
-import * as next_navigation  from 'next/navigation';
+import * as lib_source      from '@/lib/source';
+import * as mdx_components  from '@/mdx-components';
+import * as fumadocs_page   from 'fumadocs-ui/page';
+import * as next_navigation from 'next/navigation';
 
 type Params = { slug?: string[] };
 
@@ -23,7 +23,10 @@ export default async function Page({params}: {params: Promise<Params>;}) {
 }
 
 export function generateStaticParams() {
-  return lib_source.source.generateParams();
+  return [
+    { slug: [] },
+    ...lib_source.source.generateParams()
+  ];
 }
 
 export async function generateMetadata({params}: {params: Promise<Params>;}) {
