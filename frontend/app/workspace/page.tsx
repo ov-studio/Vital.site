@@ -10,7 +10,7 @@ export const metadata: next.Metadata = {
   title:  'Workspace',
   robots: { index: false, follow: false },
   openGraph: {
-    images: [{ url: '/og/workspace.png' }]
+    images: [{ url: '/og/workspace' }]
   }
 };
 

@@ -41,7 +41,7 @@ export const metadata: next.Metadata = {
     description: config_site.info.description,
     siteName: config_site.info.name,
     type: 'website',
-    images: [{ url: '/og/default.png' }]
+    images: [{ url: '/og' }]
   }
 };
 

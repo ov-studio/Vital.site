@@ -9,7 +9,7 @@ import * as next                  from 'next';
 export const metadata: next.Metadata = {
   title: 'Terms of Service',
   openGraph: {
-    images: [{ url: '/og/tos.png' }]
+    images: [{ url: '/og/tos' }]
   }
 };
 

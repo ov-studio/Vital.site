@@ -11,7 +11,7 @@ import * as next                  from 'next';
 export const metadata: next.Metadata = {
   title: 'Roadmap',
   openGraph: {
-    images: [{ url: '/og/roadmap.png' }]
+    images: [{ url: '/og/roadmap' }]
   }
 };
 
