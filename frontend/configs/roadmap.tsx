@@ -44,18 +44,18 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Public-facing Next.js + Fumadocs site — homepage, vault, docs, and live roadmap, powered by the backend routes',
         icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
-          { label: 'Homepage - hero, features, ethos section',           status: 'completed' },
-          { label: 'Homepage - live release/build info widget',          status: 'completed' },
-          { label: 'Homepage - live GitHub repo stats',                  status: 'completed' },
-          { label: 'Homepage - live contributors',                       status: 'completed' },
-          { label: 'Workspace - GitHub login, apply & manage tokens',    status: 'completed' },
-          { label: 'Workspace - staff review queue (approve / reject)',  status: 'completed' },
-          { label: 'Benchmarks - live Lua vs GDScript results page',     status: 'completed' },
-          { label: 'Vault - community resource browser with filtering',  status: 'completed' },
-          { label: 'Studio - brand asset exporter (OG, logos, banners)', status: 'completed' },
-          { label: 'Docs - apis / enums / signals / guides',             status: 'completed' },
-          { label: 'Roadmap - this page, live status breakdown',         status: 'completed' },
-          { label: 'Terms of Service page',                              status: 'completed' }
+          { label: 'Homepage - hero, features, ethos section',            status: 'completed' },
+          { label: 'Homepage - live release/build info widget',           status: 'completed' },
+          { label: 'Homepage - live GitHub repo stats',                   status: 'completed' },
+          { label: 'Homepage - live contributors',                        status: 'completed' },
+          { label: 'Workspace - GitHub login, apply & manage tokens',     status: 'completed' },
+          { label: 'Workspace - staff review queue (approve / reject)',   status: 'completed' },
+          { label: 'Benchmarks - live Lua vs GDScript results page',      status: 'completed' },
+          { label: 'Vault - community resource browser with filtering',   status: 'completed' },
+          { label: 'Studio - brand asset exporter (OG, logos, banners)',  status: 'completed' },
+          { label: 'Docs - apis / enums / signals / guides',              status: 'completed' },
+          { label: 'Roadmap - this page, live status breakdown',          status: 'completed' },
+          { label: 'Terms of Service page',                               status: 'completed' }
         ]
       },
       {
@@ -63,18 +63,18 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, stats, vault and server listings',
         icon:  <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
-          { label: 'GitHub OAuth - workspace session auth',            status: 'completed' },
-          { label: 'Masterlist applications - apply / claim / decide', status: 'completed' },
-          { label: 'GET /api/build - latest build info',               status: 'completed' },
-          { label: 'GET /api/contributors - contributor list',         status: 'completed' },
-          { label: 'GET /api/stats - aggregated GitHub repo stats',    status: 'completed' },
-          { label: 'GET /api/ip - client IP lookup',                    status: 'completed' },
-          { label: 'GET /api/vault - community vault resource list',   status: 'completed' },
-          { label: 'GET /api/vault/tree - vault directory tree',        status: 'completed' },
-          { label: 'GET /api/masterlist - live server list',           status: 'completed' },
-          { label: 'POST /api/masterlist/heartbeat - server heartbeat',  status: 'completed' },
-          { label: 'POST /api/masterlist/register - server register',    status: 'completed' },
-          { label: 'GET /api/benchmark - latest sandbox benchmark',    status: 'completed' }
+          { label: 'GitHub OAuth - workspace session auth',             status: 'completed' },
+          { label: 'Masterlist applications - apply / claim / decide',  status: 'completed' },
+          { label: 'GET /build - latest build info',                    status: 'completed' },
+          { label: 'GET /contributors - contributor list',              status: 'completed' },
+          { label: 'GET /stats - aggregated GitHub repo stats',         status: 'completed' },
+          { label: 'GET /ip - client IP lookup',                        status: 'completed' },
+          { label: 'GET /vault - community vault resource list',        status: 'completed' },
+          { label: 'GET /vault/tree - vault directory tree',            status: 'completed' },
+          { label: 'GET /masterlist - live server list',                status: 'completed' },
+          { label: 'POST /masterlist/heartbeat - server heartbeat',     status: 'completed' },
+          { label: 'POST /masterlist/register - server register',       status: 'completed' },
+          { label: 'GET /benchmark - latest sandbox benchmark',         status: 'completed' }
         ]
       }
     ]
