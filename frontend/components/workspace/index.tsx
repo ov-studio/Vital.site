@@ -296,7 +296,7 @@ export function Workspace() {
             <div className="ws-panel">
               <div className="ws-panel-body ws-panel-body--list">
                 <ui_table.Table className="ui-table--apps">
-<thead>
+                    <thead>
                       <tr>
                         <th>Server</th>
                         <th>Approved</th>
@@ -403,12 +403,12 @@ export function Workspace() {
                         {
                           id: 'tokens',
                           label: 'Issued',
-                          icon: <lucide.KeyRound size={14} strokeWidth={2.25} />,
+                          icon: <lucide.KeyRound size={14} strokeWidth={2.25}/>,
                         },
                         {
                           id: 'pending',
                           label: 'Pending',
-                          icon: <lucide.Inbox size={14} strokeWidth={2.25} />,
+                          icon: <lucide.Inbox size={14} strokeWidth={2.25}/>,
                         },
                       ]}
                     />
@@ -425,7 +425,7 @@ export function Workspace() {
 
                   {tab === 'pending' && (
                     <ui_table.Table>
-<thead>
+                        <thead>
                           <tr>
                             <th>Server</th>
                             <th>Author</th>
@@ -466,7 +466,7 @@ export function Workspace() {
 
                   {tab === 'tokens' && (
                     <ui_table.Table>
-<thead>
+                        <thead>
                           <tr>
                             <th>Server</th>
                             <th>Author</th>

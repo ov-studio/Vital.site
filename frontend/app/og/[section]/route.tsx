@@ -19,7 +19,7 @@ export async function GET(
   );
 
   return new next_og.ImageResponse(
-    <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder} />,
+    <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder}/>,
     {
       width,
       height,
