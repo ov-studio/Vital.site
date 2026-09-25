@@ -1,4 +1,5 @@
 import '@/app/global.css';
+import * as config_pages          from '@/configs/pages';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
@@ -7,7 +8,8 @@ import * as component_clientshell from '@/components/clientshell';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
-  title: 'Studio',
+  title: config_pages.pages.studio.title,
+  description: config_pages.pages.studio.description,
   openGraph: {
     images: [{ url: '/og/studio' }]
   }

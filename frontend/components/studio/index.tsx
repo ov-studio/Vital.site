@@ -1,4 +1,5 @@
 'use client';
+import * as config_pages from '@/configs/pages';
 import * as ui_brand     from '@/ui/brand';
 import * as ui_search    from '@/ui/search';
 import * as ui_button    from '@/ui/button';
@@ -391,7 +392,7 @@ export function Studio() {
             </div>
           </div>
           <p className="page-intro studio-intro">
-            Open Graph images, neon logos, and channel banners using the real Brand component.
+            {config_pages.pages.studio.description}
           </p>
         </div>
 

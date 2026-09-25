@@ -1,4 +1,5 @@
 'use client';
+import * as config_pages     from '@/configs/pages';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_divider       from '@/ui/divider';
 import * as lib_api_url      from '@/lib/api_url';
@@ -119,7 +120,7 @@ export function Benchmarks() {
             </div>
           </div>
           <p className="page-intro bm-intro">
-            Live benchmark results from the latest Vital.benchmark output
+            {config_pages.pages.benchmarks.description}
           </p>
         </div>
 

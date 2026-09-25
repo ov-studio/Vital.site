@@ -1,4 +1,5 @@
 import '@/app/global.css';
+import * as config_pages          from '@/configs/pages';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
@@ -8,7 +9,8 @@ import * as react                 from 'react';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
-  title: 'Vault',
+  title: config_pages.pages.vault.title,
+  description: config_pages.pages.vault.description,
   openGraph: {
     images: [{ url: '/og/vault' }]
   }

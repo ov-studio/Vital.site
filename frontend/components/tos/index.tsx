@@ -1,5 +1,5 @@
 'use client';
-import * as config_site  from '@/configs/site';
+import * as config_pages from '@/configs/pages';
 import * as config_tos   from '@/configs/tos';
 import * as ui_wallpaper from '@/ui/wallpaper';
 import './index.css';
@@ -17,7 +17,7 @@ export function TOS() {
             </div>
           </div>
           <div className="page-intro tos-intro">
-            Terms and conditions governing your use of {config_site.info.name} and its associated services
+            {config_pages.pages.tos.description}
           </div>
           <div className="tos-effective anim-in anim-in--2">
             Effective Date: {config_tos.TOS_Effective}*

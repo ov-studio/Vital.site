@@ -1,5 +1,6 @@
 'use client';
 import * as config_site      from '@/configs/site';
+import * as config_pages     from '@/configs/pages';
 import * as config_vault     from '@/configs/vault';
 import * as ui_tagpill       from '@/ui/tagpill';
 import * as ui_iconbutton    from '@/ui/iconbutton';
@@ -303,7 +304,7 @@ function VaultHead() {
         </div>
       </div>
       <div className="page-intro vault-intro sec-head sec-head--intro">
-        <div>Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox</div>
+        <div>{config_pages.pages.vault.description}</div>
         <a href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`} target="_blank" rel="noreferrer" className="sec-link">
           :: Submit Resource
         </a>

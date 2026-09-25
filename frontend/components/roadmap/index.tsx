@@ -1,4 +1,5 @@
 'use client';
+import * as config_pages   from '@/configs/pages';
 import * as config_roadmap from '@/configs/roadmap';
 import * as ui_wallpaper   from '@/ui/wallpaper';
 import * as lib_source     from '@/lib/source';
@@ -177,7 +178,7 @@ export function Roadmap() {
           </div>
           <RoadmapSummary
             sections={config_roadmap.Roadmap}
-            intro="Complete breakdown of every feature in the sandbox; shipped, in-progress and planned"
+            intro={config_pages.pages.roadmap.description}
           />
         </div>
 

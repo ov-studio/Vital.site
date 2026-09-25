@@ -1,4 +1,5 @@
 import '@/app/global.css';
+import * as config_pages          from '@/configs/pages';
 import * as config_roadmap        from '@/configs/roadmap';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
@@ -9,7 +10,8 @@ import * as lib_source            from '@/lib/source';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
-  title: 'Roadmap',
+  title: config_pages.pages.roadmap.title,
+  description: config_pages.pages.roadmap.description,
   openGraph: {
     images: [{ url: '/og/roadmap' }]
   }
