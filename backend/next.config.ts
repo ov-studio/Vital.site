@@ -18,12 +18,6 @@ const config: next.NextConfig = {
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' }
         ]
       },
-      {
-        source: '/og',
-        headers: [
-          { key: 'Access-Control-Allow-Origin', value: frontend_url }
-        ]
-      }
     ];
   },
 
