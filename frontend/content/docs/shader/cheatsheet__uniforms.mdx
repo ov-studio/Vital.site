@@ -1,0 +1,118 @@
+---
+title: Shader Uniform Cheatsheet
+description: Auto-inherited uniforms from the model's original material — no manual set_param needed
+badge: client
+---
+
+When a shader is applied to a model via `shader:apply_to_material(...)`, Vital automatically reads the
+model surface's original `BaseMaterial3D` and feeds matching values into your shader uniforms.
+Name your uniforms to match the table below and they are populated for free. Any value you set
+manually via `shader:set_param` / `shader:set_param_texture` takes priority over the auto-bind.
+
+---
+
+## Spatial
+
+### Textures
+
+| Uniform name (case-insensitive, partial match) | Source slot |
+|---|---|
+| `albedo_texture`, `diffuse_texture`, `basecolor_texture`, `base_color_texture` | Albedo / Base Color |
+| `normal_texture` | Normal Map |
+| `rough_texture`, `roughness_texture` | Roughness |
+| `metal_texture`, `metallic_texture` | Metallic |
+| `emission_texture` | Emission |
+| `occlusion_texture`, `ao_texture`, `ambient_texture` | Ambient Occlusion |
+
+Any sampler2D uniform whose name contains one of the keywords above (e.g. `my_albedo_tex`) gets
+the matching texture automatically.
+
+### Scalars & Vectors
+
+| Uniform name (exact) | Type | Source value |
+|---|---|---|
+| `roughness` | `float` | `BaseMaterial3D.roughness` |
+| `metallic` | `float` | `BaseMaterial3D.metallic` |
+| `specular` | `float` | `BaseMaterial3D.specular` |
+| `normal_scale` | `float` | `BaseMaterial3D.normal_scale` |
+| `emission_energy` | `float` | `BaseMaterial3D.emission_energy_multiplier` |
+| `alpha_scissor_threshold` | `float` | `BaseMaterial3D.alpha_scissor_threshold` |
+| `uv1_scale` | `vec3` | `BaseMaterial3D.uv1_scale` |
+| `uv1_offset` | `vec3` | `BaseMaterial3D.uv1_offset` |
+
+### Colors
+
+Declare as `vec4`, `vec3`, or `Color` — Vital coerces automatically.
+
+| Uniform name (exact) | Source value |
+|---|---|
+| `albedo_color`, `albedo` | `BaseMaterial3D.albedo` |
+| `emission`, `emission_color` | `BaseMaterial3D.emission` |
+
+### Channel Masks (ORM / packed textures)
+
+Returns a `vec4` dot-product mask for the channel Godot reads for each property.
+Useful with glTF ORM textures (`ao=R, roughness=G, metallic=B`).
+
+| Uniform name (exact) | Type | Example value (green channel) |
+|---|---|---|
+| `roughness_channel` | `vec4` | `vec4(0,1,0,0)` |
+| `metallic_channel` | `vec4` | `vec4(0,0,1,0)` |
+| `ao_channel` | `vec4` | `vec4(1,0,0,0)` |
+
+Usage in shader:
+```glsl
+uniform sampler2D orm_texture;
+uniform vec4 roughness_channel;
+
+void fragment() {
+    float rough = dot(texture(orm_texture, UV), roughness_channel);
+    ROUGHNESS = rough;
+}
+```
+
+---
+
+## Canvas Item
+
+Canvas Item shaders use a different pipeline — no `BaseMaterial3D` is involved.
+No uniforms are auto-inherited. Use `shader:set_param` / `shader:set_param_texture` to feed all values.
+
+---
+
+## Priority
+
+```
+shader:set_param / shader:set_param_texture   ← always wins
+        ↓ (only if above not set)
+auto-bind from original surface material
+        ↓ (only if no original material or no match)
+uniform default value declared in GLSL
+```
+
+---
+
+## Example
+
+```lua lineNumbers title="Spatial shader using auto-inherited uniforms"
+local shader = core.shader.create_from_raw([[
+    uniform sampler2D albedo_texture  : source_color, hint_default_white;
+    uniform vec4      albedo_color    : source_color = vec4(1.0);
+    uniform float     roughness       = 0.5;
+    uniform float     metallic        = 0.0;
+    uniform vec3      uv1_scale       = vec3(1.0);
+    uniform vec3      uv1_offset      = vec3(0.0);
+
+    void fragment() {
+        vec2 uv   = UV * uv1_scale.xy + uv1_offset.xy;
+        vec4 tex  = texture(albedo_texture, uv) * albedo_color;
+        ALBEDO    = tex.rgb;
+        ROUGHNESS = roughness;
+        METALLIC  = metallic;
+    }
+]], core.shader.shader_mode.SPATIAL)
+
+-- albedo_texture, roughness, metallic, uv1_scale, uv1_offset
+-- are all pulled from the model's original material automatically.
+shader:apply_to_material(my_model, "*", "*")
+```

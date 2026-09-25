@@ -26,6 +26,9 @@
         "method__set_param_rt",
 
         "---⁝⁝Misc---",
-        "method__apply_to_model"
+        "method__apply_to_model",
+
+        "---⁝⁝Reference---",
+        "cheatsheet__uniforms"
     ]
 }
