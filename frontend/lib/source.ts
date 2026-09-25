@@ -28,11 +28,10 @@ export const source = fumadocs_core_source.loader({
 });
 
 export function getPageImage(page: fumadocs_core_source.InferPageType<typeof source>) {
-  const segments = [...page.slugs];
-  const path = segments.length ? segments.join('/') : '';
+  const path = page.slugs.length ? page.slugs.join('--') : '_';
   return {
-    segments,
-    url: path ? `/og/docs/${path}` : '/og/docs'
+    segments: [path],
+    url: `/og/docs/${path}`
   };
 }
 

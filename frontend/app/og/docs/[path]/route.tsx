@@ -7,12 +7,19 @@ export const revalidate = false;
 export const dynamicParams = false;
 export const runtime = 'nodejs';
 
+const SEP = '--';
+
+function slugs_from_path(path: string): string[] {
+  if (!path || path === '_') return [];
+  return path.split(SEP).filter(Boolean);
+}
+
 export async function GET(
   _req: Request,
-  { params }: { params: Promise<{ slug: string[] }> }
+  { params }: { params: Promise<{ path: string }> }
 ) {
-  const { slug } = await params;
-  const page = lib_source.source.getPage(slug);
+  const { path } = await params;
+  const page = lib_source.source.getPage(slugs_from_path(path));
   if (!page) next_navigation.notFound();
 
   const route_path = page.url.startsWith('/') ? page.url : `/${page.url}`;
@@ -29,8 +36,7 @@ export async function GET(
 }
 
 export function generateStaticParams() {
-  return lib_source.source
-    .getPages()
-    .filter((page) => page.slugs.length > 0)
-    .map((page) => ({ slug: page.slugs }));
+  return lib_source.source.getPages().map((page) => ({
+    path: page.slugs.length ? page.slugs.join(SEP) : '_'
+  }));
 }
