@@ -14,6 +14,7 @@ nav::after {
   position: absolute;
   inset: 0;
   background: var(--bg4);
+  border-bottom: 1px solid transparent;
   pointer-events: none;
   transition: background .4s, border-color .4s;
 }
@@ -21,6 +22,7 @@ nav::after {
 nav.s::after {
   background: var(--bg7);
   border-bottom: 1px solid var(--bg);
+  border-color: var(--bg);
   backdrop-filter: blur(20px);
 }
 
