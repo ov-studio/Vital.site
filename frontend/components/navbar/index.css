@@ -17,7 +17,7 @@ nav::after {
   border-bottom: 1px solid transparent;
   pointer-events: none;
   box-shadow: 0 -50px 250px 0px transparent;
-  transition: box-shadow 1.75s, background .4s, border-color .4s;
+  transition: box-shadow 1.5s, background .4s, border-color .4s;
 }
 
 nav.s::after {
