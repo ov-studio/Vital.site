@@ -17,6 +17,7 @@ export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...
   const label = lib_og_brand.og_label(route_path);
   const font = lib_og_brand.load_og_font();
   const placeholder = lib_og_brand.load_og_placeholder_data_uri();
+  
   return new next_og.ImageResponse(
     <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder} />,
     {
