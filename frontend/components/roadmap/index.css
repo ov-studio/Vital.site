@@ -100,7 +100,7 @@
   flex-direction: column;
   width: 100%;
   background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
-  border-radius: 3px;
+  border-radius: 4px;
   transition: background .3s;
   contain: layout style;
 }

@@ -44,7 +44,7 @@
   overflow: hidden;
   background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
   border: 3px solid var(--b10);
-  border-radius: 3px;
+  border-radius: 4px;
   transition: border-color .25s, background .25s;
 }
 .vault-card:hover { border-color: var(--brand-neon-core); }

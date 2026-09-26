@@ -18,7 +18,7 @@
   position: relative;
   padding: 32px 28px 28px;
   background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
   transition:
     background .3s,
