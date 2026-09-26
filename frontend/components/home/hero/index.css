@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: calc(var(--nav-h)*1.75);
+  padding-top: calc(var(--nav-h)*2);
   overflow: visible;
   box-sizing: border-box;
 }
@@ -32,7 +32,7 @@
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  padding: 48px 48px;
+  padding: 25px 48px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -96,12 +96,12 @@
 /* ── @media ── */
 @media (max-width: 960px) {
   #hero { padding-top: calc(var(--nav-h)*1.5); }
-  .hero-center { overflow: visible; padding: 0 24px; }
+  .hero-center { overflow: visible; padding: 25px 24px; }
 }
 
 @media (max-width: 640px) {
   #hero { padding-top: calc(var(--nav-h)*1.5); }
-  .hero-center { overflow: visible; padding: 0 20px; }
+  .hero-center { overflow: visible; padding: 25px 20px; }
   .hcorner     { display: none; }
 }
 
