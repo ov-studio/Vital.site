@@ -261,6 +261,7 @@ export function Studio() {
     }
 
     const prevPlaceholder = ogPlaceholder;
+    const prevRays = ogRays;
     const zip = new JSZip();
     const folder = zip.folder('public/og');
     if (!folder) {
@@ -269,6 +270,7 @@ export function Studio() {
     }
 
     try {
+      setOgRays(false);
       setOgPlaceholder(false);
       await nextPaint();
       const defaultUrl = await capturePng(ogRef, OG_W, OG_H);
@@ -287,6 +289,7 @@ export function Studio() {
     } 
     finally {
       setOgPlaceholder(prevPlaceholder);
+      setOgRays(prevRays);
       setPresetBusy(false);
     }
   }
@@ -303,6 +306,7 @@ export function Studio() {
 
     const prev = {
       neon: logoNeon,
+      rays: logoRays,
       bg: logoBg,
       pad: logoPad,
       square: logoSquare,
@@ -320,32 +324,40 @@ export function Studio() {
     type LogoPreset = {
       path: string;
       neon: boolean;
+      rays: boolean;
       bg: boolean;
       square: boolean;
       round: boolean;
     };
 
     const presets: LogoPreset[] = [
-      { path: 'transparent.png',                 neon: false, bg: false, square: false, round: false },
-      { path: 'background.png',                  neon: false, bg: true,  square: false, round: false },
-      { path: 'neon_transparent.png',            neon: true,  bg: false, square: false, round: false },
-      { path: 'neon_background.png',             neon: true,  bg: true,  square: false, round: false },
+      { path: 'transparent.png',                      neon: false, rays: false, bg: false, square: false, round: false },
+      { path: 'background.png',                       neon: false, rays: false, bg: true,  square: false, round: false },
+      { path: 'neon_transparent.png',                 neon: true,  rays: false, bg: false, square: false, round: false },
+      { path: 'neon_rays_transparent.png',            neon: true,  rays: true,  bg: false, square: false, round: false },
+      { path: 'neon_background.png',                  neon: true,  rays: false, bg: true,  square: false, round: false },
+      { path: 'neon_rays_background.png',             neon: true,  rays: true,  bg: true,  square: false, round: false },
 
-      { path: 'background_round.png',            neon: false, bg: true,  square: false, round: true  },
-      { path: 'neon_background_round.png',       neon: true,  bg: true,  square: false, round: true  },
+      { path: 'background_round.png',                 neon: false, rays: false, bg: true,  square: false, round: true  },
+      { path: 'neon_background_round.png',            neon: true,  rays: false, bg: true,  square: false, round: true  },
+      { path: 'neon_rays_background_round.png',       neon: true,  rays: true,  bg: true,  square: false, round: true  },
 
-      { path: 'transparent_square.png',          neon: false, bg: false, square: true,  round: false },
-      { path: 'background_square.png',           neon: false, bg: true,  square: true,  round: false },
-      { path: 'neon_transparent_square.png',     neon: true,  bg: false, square: true,  round: false },
-      { path: 'neon_background_square.png',      neon: true,  bg: true,  square: true,  round: false },
+      { path: 'transparent_square.png',               neon: false, rays: false, bg: false, square: true,  round: false },
+      { path: 'background_square.png',                neon: false, rays: false, bg: true,  square: true,  round: false },
+      { path: 'neon_transparent_square.png',          neon: true,  rays: false, bg: false, square: true,  round: false },
+      { path: 'neon_rays_transparent_square.png',     neon: true,  rays: true,  bg: false, square: true,  round: false },
+      { path: 'neon_background_square.png',           neon: true,  rays: false, bg: true,  square: true,  round: false },
+      { path: 'neon_rays_background_square.png',      neon: true,  rays: true,  bg: true,  square: true,  round: false },
 
-      { path: 'background_square_round.png',     neon: false, bg: true,  square: true,  round: true  },
-      { path: 'neon_background_square_round.png', neon: true, bg: true,  square: true,  round: true  }
+      { path: 'background_square_round.png',          neon: false, rays: false, bg: true,  square: true,  round: true  },
+      { path: 'neon_background_square_round.png',     neon: true,  rays: false, bg: true,  square: true,  round: true  },
+      { path: 'neon_rays_background_square_round.png', neon: true, rays: true,  bg: true,  square: true,  round: true  }
     ];
 
     try {
       for (const p of presets) {
         setLogoNeon(p.neon);
+        setLogoRays(p.rays);
         setLogoBg(p.bg);
         setLogoPad(false);
         setLogoSquare(p.square);
@@ -370,6 +382,7 @@ export function Studio() {
     } 
     finally {
       setLogoNeon(prev.neon);
+      setLogoRays(prev.rays);
       setLogoBg(prev.bg);
       setLogoPad(prev.pad);
       setLogoSquare(prev.square);
