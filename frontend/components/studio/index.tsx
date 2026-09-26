@@ -79,7 +79,6 @@ export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
   const [ogPlaceholder, setOgPlaceholder] = react.useState(false);
-  const [ogRays, setOgRays] = react.useState(true);
   const [logoNeon, setLogoNeon] = react.useState(true);
   const [logoRays, setLogoRays] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
@@ -261,7 +260,6 @@ export function Studio() {
     }
 
     const prevPlaceholder = ogPlaceholder;
-    const prevRays = ogRays;
     const zip = new JSZip();
     const folder = zip.folder('public/og');
     if (!folder) {
@@ -270,7 +268,6 @@ export function Studio() {
     }
 
     try {
-      setOgRays(false);
       setOgPlaceholder(false);
       await nextPaint();
       const defaultUrl = await capturePng(ogRef, OG_W, OG_H);
@@ -289,7 +286,6 @@ export function Studio() {
     } 
     finally {
       setOgPlaceholder(prevPlaceholder);
-      setOgRays(prevRays);
       setPresetBusy(false);
     }
   }
@@ -351,7 +347,7 @@ export function Studio() {
 
       { path: 'background_square_round.png',          neon: false, rays: false, bg: true,  square: true,  round: true  },
       { path: 'neon_background_square_round.png',     neon: true,  rays: false, bg: true,  square: true,  round: true  },
-      { path: 'neon_rays_background_square_round.png', neon: true, rays: true,  bg: true,  square: true,  round: true  }
+      { path: 'neon_rays_background_square_round.png', neon: true, rays: true,  bg: true,  square: true,  round: true  },
     ];
 
     try {
@@ -457,14 +453,6 @@ export function Studio() {
                   />
                   Placeholder
                 </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={ogRays}
-                    onChange={(e) => setOgRays(e.target.checked)}
-                  />
-                  Rays
-                </label>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -493,7 +481,7 @@ export function Studio() {
                 style={{ width: OG_W, height: OG_H }}
               >
                 <div className="studio-og-content">
-                  <ui_brand.Brand size="xl" variant="logo-only" neon={true} rays={ogRays}/>
+                  <ui_brand.Brand size="xl" variant="logo-only" neon={true} rays={false}/>
                   {(tagline.trim() || ogPlaceholder) && (
                     <div
                       className={`studio-og-tagline${
