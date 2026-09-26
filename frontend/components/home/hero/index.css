@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: calc(var(--nav-h)*1.5);
+  padding-top: calc(var(--nav-h)*2);
   overflow: visible;
 }
 
@@ -94,13 +94,10 @@
 
 /* ── @media ── */
 @media (max-width: 960px) {
-  #hero        { padding-top: 120px; padding-bottom: 60px; }
   .hero-center { overflow: visible; padding: 0 24px; }
 }
 
 @media (max-width: 640px) {
-  #hero        { padding-top: 110px; padding-bottom: 48px; }
   .hero-center { overflow: visible; padding: 0 20px; }
-  .hero-sub    { font-size: .88rem; }
   .hcorner     { display: none; }
 }
