@@ -162,18 +162,33 @@
   z-index: 0;
   width: 200vw;
   height: 200vh;
-  transform: translate(-50%, -46.5%);
+  transform: translate(-50%, -47%);
   pointer-events: none;
   background: conic-gradient(
-    var(--b10),
-    var(--bg4),
-    var(--bg4),
-    var(--bg4),
-    var(--b10)
+    from 0deg at 50% 50%,
+    var(--b10) 0deg,
+    var(--bg4) 72deg,
+    var(--bg4) 180deg,
+    var(--bg4) 288deg,
+    var(--b10) 360deg
   );
   opacity: 1;
   mix-blend-mode: soft-light;
   transition: opacity 40ms linear;
+  mask-image: radial-gradient(
+    closest-side at 50% 50%,
+    transparent 0,
+    #000 3%,
+    #000 42%,
+    transparent 78%
+  );
+  -webkit-mask-image: radial-gradient(
+    closest-side at 50% 50%,
+    transparent 0,
+    #000 3%,
+    #000 42%,
+    transparent 78%
+  );
 }
 
 .brand.is-glitch .brand_rays {
