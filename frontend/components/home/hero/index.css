@@ -5,8 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: var(--nav-h);
-  padding-bottom: clamp(24px, 4vh, 48px);
+  padding-top: calc(var(--nav-h)*1.75);
   overflow: visible;
   box-sizing: border-box;
 }
@@ -32,7 +31,6 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 860px;
   margin: 0 auto;
   padding: 0 48px;
   text-align: center;
@@ -105,4 +103,8 @@
   #hero { padding-top: calc(var(--nav-h)*1.5); }
   .hero-center { overflow: visible; padding: 0 20px; }
   .hcorner     { display: none; }
+}
+
+@media (max-height: 1050px) {
+  .video-reel { display: none !important; }
 }
