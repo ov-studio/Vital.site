@@ -11,9 +11,9 @@ import './index.css';
  */
 export function Wallpaper({
   variant = 1,
-  opacity = 0.7,
+  opacity = 0.8,
   vignette = true,
-  color = 'var(--rule)',
+  color = 'var(--rule7)',
 }) {
   const v = Math.max(1, Math.min(18, Number(variant) || 1));
   const cls = [
