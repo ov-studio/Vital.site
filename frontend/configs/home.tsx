@@ -78,3 +78,38 @@ export const Ethos = [
     icon:  <lucide.CircleGauge {...config_site.info.lucide}/>
   }
 ];
+
+export interface HomeVideo {
+  id: string;
+  title: string;
+  tagline: string;
+  youtube_id: string;
+}
+
+export const Videos: HomeVideo[] = [
+  {
+    id: 'intro',
+    title: 'Vital.sandbox — Intro',
+    tagline: 'Placeholder — replace with your channel upload',
+    youtube_id: 'jNQXAC9IVRw',
+  },
+  {
+    id: 'features',
+    title: 'Feature walkthrough',
+    tagline: 'Placeholder — Lua runtime, resources, multiplayer',
+    youtube_id: 'aqz-KE-bpKQ',
+  },
+  {
+    id: 'studio',
+    title: 'Brand Studio',
+    tagline: 'Placeholder — OG, logos, and banners',
+    youtube_id: 'M7lc1UVf-VE',
+  },
+  {
+    id: 'gameplay',
+    title: 'In-engine look',
+    tagline: 'Placeholder — sandbox gameplay / demo',
+    youtube_id: 'LXb3EKWsInQ',
+  },
+];
+

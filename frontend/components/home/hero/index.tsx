@@ -2,6 +2,7 @@
 import * as ui_brand           from '@/ui/brand';
 import * as ui_wallpaper       from '@/ui/wallpaper';
 import * as component_download from '@/components/download';
+import { HeroVideos }        from './videos';
 import * as lib_api_url        from '@/lib/api_url';
 import * as react              from 'react';
 import './index.css';
@@ -69,6 +70,7 @@ export function Hero() {
 
         <component_download.Download/>
       </div>
+      <HeroVideos/>
     </section>
   );
 }
