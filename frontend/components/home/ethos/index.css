@@ -18,27 +18,14 @@
   position: relative;
   padding: 32px 28px 28px;
   background: var(--bg7);
-  border: 3px solid var(--b10);
-  border-radius: 2px;
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  border-radius: 3px;
   overflow: hidden;
   transition:
     background .3s,
     opacity .55s ease calc(var(--i) * 55ms),
     transform .55s ease calc(var(--i) * 55ms);
 }
-
-.ecard-corner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--blue);
-  border-style: solid;
-  opacity: 0;
-  transition: opacity .3s;
-}
-.ecard-corner--tl { top: 10px;    left: 10px;  border-width: 2px 0 0 2px; }
-.ecard-corner--br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
-.ecard:hover .ecard-corner { opacity: 1 }
 
 .ecard-ico {
   position: relative;
@@ -72,7 +59,7 @@
   color: var(--text-muted);
   transition: color .25s;
 }
-.ecard:hover .ecard-desc { color: var(--dim) }
+.ecard:hover .ecard-desc { color: var(--w80) }
 
 .ecard-link {
   font-family: inherit;
