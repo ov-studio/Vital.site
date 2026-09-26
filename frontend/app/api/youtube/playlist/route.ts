@@ -4,10 +4,10 @@ export const runtime = 'nodejs';
 export const revalidate = 3600;
 
 type PlaylistVideo = {
-  id: string;
-  youtube_id: string;
-  title: string;
-  author: string;
+  id:          string;
+  youtube_id:  string;
+  title:       string;
+  author:      string;
   description: string;
 };
 
@@ -56,17 +56,13 @@ function parse_feed(xml: string): PlaylistVideo[] {
       description: description.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim(),
     });
   }
-
   return out;
 }
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const list = (url.searchParams.get('list') || '').trim();
-
-  if (!list || !/^[\w-]+$/.test(list)) {
-    return NextResponse.json({ error: 'Invalid playlist id' }, { status: 400 });
-  }
+  if (!list || !/^[\w-]+$/.test(list)) return NextResponse.json({ error: 'Invalid playlist id' }, { status: 400 });
 
   try {
     const feed = await fetch(
@@ -74,31 +70,31 @@ export async function GET(req: Request) {
       {
         headers: {
           'User-Agent': 'Mozilla/5.0 (compatible; VitalSite/1.0)',
-          Accept: 'application/atom+xml,application/xml,text/xml,*/*',
+          'Accept': 'application/atom+xml,application/xml,text/xml,*/*'
         },
-        next: { revalidate: 3600 },
+        next: { revalidate: 3600 }
       }
     );
 
     if (!feed.ok) {
       return NextResponse.json(
-        { error: `YouTube feed ${feed.status}` },
+        { error: `YouTube feed ${feed.status}` }
         { status: 502 }
       );
     }
 
     const xml = await feed.text();
     const videos = parse_feed(xml);
-
     return NextResponse.json(
       { list, videos },
       {
         headers: {
-          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-        },
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
+        }
       }
     );
-  } catch (err) {
+  } 
+  catch (err) {
     console.error('[youtube/playlist]', err);
     return NextResponse.json({ error: 'Failed to load playlist' }, { status: 500 });
   }
