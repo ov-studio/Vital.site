@@ -1,9 +1,8 @@
 .video-reel {
   position: absolute;
   left: 50%;
-  top: 70%;
-  bottom: 0;
-  z-index: 3;
+  bottom: 24px;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +10,7 @@
   width: 100%;
   max-width: 920px;
   margin: 0 auto;
-  padding: 12px 24px 20px;
+  padding: 12px 24px;
   box-sizing: border-box;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -20,6 +19,8 @@
   transform: translateX(-50%);
   scrollbar-width: none;
   -ms-overflow-style: none;
+  opacity: 0;
+  animation: video-reel-in .7s .5s forwards;
 }
 
 .video-reel::-webkit-scrollbar {
@@ -44,7 +45,14 @@
   text-align: left;
   overflow: hidden;
   transition: border-color .2s ease, background .2s ease, transform .2s ease;
+  opacity: 0;
+  animation: video-reel-card-in .55s forwards;
 }
+.video-reel-card:nth-child(1) { animation-delay: .55s; }
+.video-reel-card:nth-child(2) { animation-delay: .65s; }
+.video-reel-card:nth-child(3) { animation-delay: .75s; }
+.video-reel-card:nth-child(4) { animation-delay: .85s; }
+.video-reel-card:nth-child(n+5) { animation-delay: .95s; }
 
 .video-reel-card:hover {
   border-color: color-mix(in srgb, var(--blue) 45%, var(--rule));
@@ -221,6 +229,28 @@
 
 
 /* ── @keyframes ── */
+@keyframes video-reel-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes video-reel-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes vid-fade-out {
   to { opacity: 0; }
 }
@@ -234,7 +264,7 @@
 
 
 /* ── @media ── */
-@media (max-height: 820px) {
+@media (max-height: 700px) {
   .video-reel {
     display: none !important;
   }
@@ -242,8 +272,8 @@
 
 @media (max-width: 640px) {
   .video-reel {
-    top: 72%;
-    padding: 8px 16px 14px;
+    bottom: 12px;
+    padding: 8px 16px;
   }
   .video-reel-card {
     flex-basis: min(180px, 58vw);
@@ -253,5 +283,16 @@
   }
   .vid-modal-name {
     font-size: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-reel,
+  .video-reel-card {
+    opacity: 1;
+    animation: none;
+  }
+  .video-reel {
+    transform: translateX(-50%);
   }
 }
