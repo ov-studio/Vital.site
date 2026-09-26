@@ -5,8 +5,10 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: calc(var(--nav-h)*1.75);
+  padding-top: var(--nav-h);
+  padding-bottom: clamp(24px, 4vh, 48px);
   overflow: visible;
+  box-sizing: border-box;
 }
 
 .hcorner {
@@ -34,6 +36,7 @@
   margin: 0 auto;
   padding: 0 48px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .hero-brand {
