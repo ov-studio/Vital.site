@@ -50,8 +50,7 @@
 
 .bm-env-item {
   padding: 16px 18px;
-  background: var(--bg7);
-  border: 2px solid var(--b10);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
   border-radius: 4px;
   min-width: 0;
   opacity: 0;
@@ -73,12 +72,12 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--brand-neon-core);
   margin: 0;
 }
 
 .bm-env-icon {
-  color: var(--blue);
+  color: var(--brand-neon-core);
   flex-shrink: 0;
 }
 
@@ -88,7 +87,7 @@
   font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.3;
-  color: var(--text-soft);
+  color: var(--dim);
   word-break: break-word;
 }
 
