@@ -1,16 +1,14 @@
 .video-reel {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  bottom: 50px;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  width: 100%;
-  max-width: 920px;
+  width: 90vw;
   margin: 0 auto;
-  padding: 24px 24px;
   box-sizing: border-box;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -32,14 +30,14 @@
 }
 
 .video-reel-card {
-  flex: 0 0 min(220px, 48vw);
+  flex: 0 0 min(320px, 48vw);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 0;
-  border: 1px solid var(--rule);
-  border-radius: 10px;
+  border: 4px solid var(--b10);
+  border-radius: 4px;
   background: color-mix(in srgb, var(--bg4) 92%, transparent);
   color: inherit;
   text-align: left;
@@ -55,8 +53,8 @@
 .video-reel-card:nth-child(n+5) { animation-delay: .95s; }
 
 .video-reel-card:hover {
-  border-color: color-mix(in srgb, var(--blue) 45%, var(--rule));
-  background: var(--bg5);
+  border-color: var(--brand-neon-core);
+  background: var(--brand-neon-glow);
   transform: translateY(-2px);
 }
 
@@ -86,12 +84,8 @@
   transition: background .2s ease;
 }
 
-.video-reel-card:hover .video-reel-play {
-  background: color-mix(in srgb, var(--blue) 28%, transparent);
-}
-
 .video-reel-play svg {
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .45));
+  filter: drop-shadow(0 2px 65px rgba(0, 0, 0, .45));
 }
 
 .video-reel-meta {
