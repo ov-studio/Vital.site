@@ -252,7 +252,6 @@ export function VideoReel({
 
     let cancelled = false;
     set_loading(true);
-
     fetch(`/api/youtube/playlist?list=${encodeURIComponent(playlist)}`)
       .then((r) => r.json())
       .then((data) => {
