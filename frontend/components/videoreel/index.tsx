@@ -6,17 +6,17 @@ import * as react_dom     from 'react-dom';
 import './index.css';
 
 export interface VideoReelItem {
-  id: string;
-  title: string;
-  tagline?: string;
-  author?: string;
+  id:           string;
+  title:        string;
+  tagline?:     string;
+  author?:      string;
   description?: string;
-  youtube_id: string;
+  youtube_id:   string;
 }
 
 export interface VideoReelProps {
-  videos?: VideoReelItem[];
-  playlist?: string;
+  videos?:    VideoReelItem[];
+  playlist?:  string;
   className?: string;
 }
 
@@ -186,7 +186,6 @@ function VideoModal({
 
   const subtitle = video.author || video.tagline || '';
   const desc = video.description || '';
-
   return react_dom.createPortal(
     <div
       className={`vid-modal-overlay${closing ? ' closing' : ''}`}
@@ -285,7 +284,7 @@ export function VideoReel({
 
   return (
     <>
-      <div className={`video-reel${className ? ` ${className}` : ''}`} >
+      <div className={`video-reel${className ? ` ${className}` : ''}`}>
         <div className="video-reel-track" role="list">
         {videos.map((v) => (
           <button
