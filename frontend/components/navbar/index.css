@@ -13,7 +13,6 @@ nav::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--bg4);
   border-bottom: 1px solid transparent;
   pointer-events: none;
   box-shadow: 0 -95px 200px 0px transparent;
@@ -46,7 +45,7 @@ nav.s::after {
   list-style: none;
   gap: 0;
 }
-.nl li:not(:last-child) { border-right: 1px solid var(--rule); }
+.nl li:not(:last-child) { border-right: 1px solid var(--b05); }
 
 .nl li a {
   display: block;
