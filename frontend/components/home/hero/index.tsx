@@ -1,10 +1,11 @@
 'use client';
-import * as ui_brand           from '@/ui/brand';
-import * as ui_wallpaper       from '@/ui/wallpaper';
-import * as component_download from '@/components/download';
-import { HeroVideos }        from './videos';
-import * as lib_api_url        from '@/lib/api_url';
-import * as react              from 'react';
+import * as config_home         from '@/configs/home';
+import * as ui_brand            from '@/ui/brand';
+import * as ui_wallpaper        from '@/ui/wallpaper';
+import * as component_download  from '@/components/download';
+import * as component_videoreel from '@/components/videoreel';
+import * as lib_api_url         from '@/lib/api_url';
+import * as react               from 'react';
 import './index.css';
 
 interface StatsInfo {
@@ -70,7 +71,7 @@ export function Hero() {
 
         <component_download.Download/>
       </div>
-      <HeroVideos/>
+      <component_videoreel.VideoReel videos={config_home.Videos}/>
     </section>
   );
 }
