@@ -53,7 +53,7 @@ function parse_feed(xml: string): PlaylistVideo[] {
       youtube_id,
       title,
       author,
-      description: description.replace(/\s+/g, ' ').trim(),
+      description: description.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim(),
     });
   }
 
