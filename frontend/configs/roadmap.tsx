@@ -2421,7 +2421,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Batched delta transform packet',             status: 'completed' },
           { label: 'Server-auth broadcast',                      status: 'completed' },
           { label: 'Client-auth upload and server relay',        status: 'completed' },
-          { label: 'Late-join state dump (reliable)',            status: 'completed' },
           { label: 'Sleep suppression for static entities',      status: 'completed' },
           { label: 'O(1) net_id registry and dispatch',          status: 'completed' },
           { label: 'Deferred registration queue',                status: 'completed' },
@@ -2444,6 +2443,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Animation bone-filter sync',                 status: 'completed' },
           { label: 'Component visibility sync',                  status: 'completed' },
           { label: 'Component render sync',                      status: 'completed' },
+          { label: 'Late-join state dump (reliable)',            status: 'completed' },
           { label: 'Late-join animation layer replay',           status: 'completed' },
           { label: 'Late-join component state replay',           status: 'completed' },
         ]
