@@ -59,7 +59,7 @@
   color: var(--dim);
   transition: color .25s;
 }
-.ecard:hover .ecard-desc { color: var(--w80) }
+.ecard:hover .ecard-desc { color: var(--w90) }
 
 .ecard-link {
   font-family: inherit;
