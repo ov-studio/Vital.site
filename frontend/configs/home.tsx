@@ -1,6 +1,8 @@
 import * as config_site from '@/configs/site';
 import * as lucide      from 'lucide-react';
 
+export const HeroReel = 'PLT234MFVktHs';
+
 export const Features = [
   {
     id:    'sandbox',
@@ -79,6 +81,3 @@ export const Ethos = [
   }
 ];
 
-
-/** YouTube playlist id — reel loads title / author / description automatically */
-export const VideoPlaylist = 'PLT234MFVktHs';

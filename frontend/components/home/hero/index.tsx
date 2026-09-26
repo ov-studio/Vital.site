@@ -72,7 +72,7 @@ export function Hero() {
         <component_download.Download/>
       </div>
 
-      <component_videoreel.VideoReel playlist={config_home.VideoPlaylist}/>
+      <component_videoreel.VideoReel playlist={config_home.HeroReel}/>
     </section>
   );
 }
