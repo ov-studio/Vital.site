@@ -75,8 +75,6 @@ export function Ethos() {
                 key={title}
                 style={{ '--i': i } as React.CSSProperties}
               >
-                <span className="ecard-corner ecard-corner--tl"/>
-                <span className="ecard-corner ecard-corner--br"/>
                 <div className="ecard-ico">
                   {icon}
                   <span className="icon-ring"/>
