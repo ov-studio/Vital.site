@@ -45,7 +45,7 @@
 
 .hero-motto {
   opacity: 0;
-  margin-bottom: clamp(36px, 3vw, 36px);
+  margin-bottom: clamp(36px, 3vw, 46px);
   font-family: 'Geist', sans-serif;
   font-weight: 400;
   font-size: clamp(0.8rem, 0.53vw, 14px);
