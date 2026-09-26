@@ -162,15 +162,15 @@
   z-index: 0;
   width: 200vw;
   height: 200vh;
-  transform: translate(-50%, -47%);
+  transform: translate(-50%, -46.5%);
   pointer-events: none;
   background: conic-gradient(
     from 0deg at 50% 50%,
-    var(--b10) 0deg,
-    var(--bg4) 72deg,
-    var(--bg4) 180deg,
-    var(--bg4) 288deg,
-    var(--b10) 360deg
+    var(--b18) 0deg,
+    transparent 72deg,
+    transparent 180deg,
+    transparent 288deg,
+    var(--b18) 360deg
   );
   opacity: 1;
   mix-blend-mode: soft-light;
