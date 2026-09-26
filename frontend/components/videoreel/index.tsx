@@ -33,11 +33,9 @@ type DescBlock =
   | { type: 'h'; text: string }
   | { type: 'ul'; items: string[] };
 
-/** Minimal YouTube-description markdown → blocks (headings, lists, paragraphs). */
 function parse_yt_markdown(raw: string): DescBlock[] {
   if (!raw) return [];
 
-  // Prefer real newlines; if flattened, recover from ### markers and "- " bullets
   let text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   if ((text.match(/\n/g) || []).length < 2) {
     text = text
@@ -156,7 +154,7 @@ function DescriptionBody({ raw }: { raw: string }) {
 
 function VideoModal({
   video,
-  on_close,
+  on_close
 }: {
   video: VideoReelItem;
   on_close: () => void;
@@ -226,7 +224,7 @@ function VideoModal({
               {subtitle || 'Video'}
             </div>
             <h3 className="vid-modal-name">{video.title}</h3>
-            {desc ? <DescriptionBody raw={desc} /> : null}
+            {desc ? <DescriptionBody raw={desc}/> : null}
           </div>
         </div>
       </div>
@@ -283,12 +281,7 @@ export function VideoReel({
     };
   }, [playlist, videos_prop]);
 
-  if (loading) {
-    return (
-      <div className={`video-reel video-reel--loading${className ? ` ${className}` : ''}`} aria-busy="true" />
-    );
-  }
-
+  if (loading) return (<div className={`video-reel video-reel--loading${className ? ` ${className}` : ''}`} aria-busy="true"/>);
   if (!videos.length) return null;
 
   return (
@@ -304,9 +297,9 @@ export function VideoReel({
             onClick={() => set_active(v)}
           >
             <span className="video-reel-thumb">
-              <img src={yt_thumb(v.youtube_id)} alt="" loading="lazy" />
+              <img src={yt_thumb(v.youtube_id)} alt="" loading="lazy"/>
               <span className="video-reel-play" aria-hidden>
-                <lucide.Play size={18} strokeWidth={2} fill="currentColor" />
+                <lucide.Play size={18} strokeWidth={2} fill="currentColor"/>
               </span>
             </span>
             <span className="video-reel-meta">
@@ -321,7 +314,7 @@ export function VideoReel({
       </div>
 
       {active && (
-        <VideoModal video={active} on_close={() => set_active(null)} />
+        <VideoModal video={active} on_close={() => set_active(null)}/>
       )}
     </>
   );
