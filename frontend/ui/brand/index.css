@@ -160,9 +160,9 @@
   left: 50%;
   top: 50%;
   z-index: 0;
-  width: 200vw;
-  height: 200vh;
-  transform: translate(-50%, -46.25%);
+  width: calc(var(--brand-logo-size) * 14);
+  height: calc(var(--brand-logo-size) * 32);
+  transform: translate(-50%, -47.8%);
   pointer-events: none;
   background: conic-gradient(
     from 0deg at 50% 50%,
@@ -176,18 +176,18 @@
   mix-blend-mode: soft-light;
   transition: opacity 40ms linear;
   mask-image: radial-gradient(
-    closest-side at 50% 50%,
+    ellipse 48% 62% at 50% 50%,
     transparent 0,
-    #000 3%,
-    #000 42%,
-    transparent 78%
+    #000 2.5%,
+    #000 52%,
+    transparent 88%
   );
   -webkit-mask-image: radial-gradient(
-    closest-side at 50% 50%,
+    ellipse 48% 62% at 50% 50%,
     transparent 0,
-    #000 3%,
-    #000 42%,
-    transparent 78%
+    #000 2.5%,
+    #000 52%,
+    transparent 88%
   );
 }
 
