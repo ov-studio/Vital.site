@@ -94,10 +94,12 @@
 
 /* ── @media ── */
 @media (max-width: 960px) {
+  #hero { padding-top: calc(var(--nav-h)*1.5); }
   .hero-center { overflow: visible; padding: 0 24px; }
 }
 
 @media (max-width: 640px) {
+  #hero { padding-top: calc(var(--nav-h)*1.5); }
   .hero-center { overflow: visible; padding: 0 20px; }
   .hcorner     { display: none; }
 }
