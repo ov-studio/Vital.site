@@ -146,7 +146,7 @@ html {
 }
 *::-webkit-scrollbar { width: 6px; height: 6px; }
 *::-webkit-scrollbar-track { background: var(--rule7); }
-*::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
+*::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 4px; }
 *::-webkit-scrollbar-thumb:hover { background: var(--b20); }
 
 *:focus {
