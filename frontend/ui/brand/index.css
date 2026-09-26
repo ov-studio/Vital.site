@@ -160,17 +160,17 @@
   left: 50%;
   top: 50%;
   z-index: 0;
-  width: calc(var(--brand-logo-size) * 14);
+  width: calc(var(--brand-logo-size) * 32);
   height: calc(var(--brand-logo-size) * 32);
   transform: translate(-50%, -47.8%);
   pointer-events: none;
   background: conic-gradient(
     from 0deg at 50% 50%,
-    var(--b20) -10deg,
+    var(--b15) -10deg,
     transparent 72deg,
     transparent 180deg,
     transparent 288deg,
-    var(--b20) 370deg
+    var(--b15) 370deg
   );
   opacity: 1;
   mix-blend-mode: soft-light;
