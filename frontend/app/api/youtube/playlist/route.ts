@@ -78,7 +78,7 @@ export async function GET(req: Request) {
 
     if (!feed.ok) {
       return NextResponse.json(
-        { error: `YouTube feed ${feed.status}` }
+        { error: `YouTube feed ${feed.status}` },
         { status: 502 }
       );
     }
