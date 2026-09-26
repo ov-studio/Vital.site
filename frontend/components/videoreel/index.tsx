@@ -90,7 +90,7 @@ function VideoModal({
           </div>
 
           <div className="vid-modal-body">
-            <div className="vid-modal-eyebrow">Video</div>
+            <div className="vid-modal-eyebrow">ov-studio</div>
             <h3 className="vid-modal-name">{video.title}</h3>
             {video.tagline ? (
               <p className="vid-modal-tagline">{video.tagline}</p>
@@ -127,9 +127,6 @@ export function VideoReel({ videos, className = '' }: VideoReelProps) {
             </span>
             <span className="video-reel-meta">
               <span className="video-reel-title">{v.title}</span>
-              {v.tagline ? (
-                <span className="video-reel-tagline">{v.tagline}</span>
-              ) : null}
             </span>
           </button>
         ))}

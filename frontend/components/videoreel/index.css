@@ -30,7 +30,7 @@
 }
 
 .video-reel-card {
-  flex: 0 0 min(300px, 48vw);
+  flex: 0 0 min(275px, 48vw);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
   padding: 0;
   border: 4px solid var(--b10);
   border-radius: 4px;
-  background: color-mix(in srgb, var(--bg4) 92%, transparent);
+  background: var(--b20);
   color: inherit;
   text-align: left;
   overflow: hidden;
@@ -54,15 +54,13 @@
 
 .video-reel-card:hover {
   border-color: var(--brand-neon-core);
-  background: var(--brand-neon-glow);
-  transform: translateY(-2px);
 }
 
 .video-reel-thumb {
   position: relative;
   display: block;
   aspect-ratio: 16 / 9;
-  background: var(--bg2);
+  background: var(--bg5);
   overflow: hidden;
 }
 
@@ -103,16 +101,6 @@
   text-transform: uppercase;
   color: var(--fg);
   line-height: 1.25;
-}
-
-.video-reel-tagline {
-  font-size: .68rem;
-  line-height: 1.35;
-  color: var(--fg3);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .vid-modal-overlay {
