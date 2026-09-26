@@ -80,7 +80,7 @@ export function Studio() {
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
   const [ogPlaceholder, setOgPlaceholder] = react.useState(false);
   const [logoNeon, setLogoNeon] = react.useState(true);
-  const [logoRays, setLogoRays] = react.useState(true);
+  const [logoRays, setLogoRays] = react.useState(false);
   const [logoBg, setLogoBg] = react.useState(true);
   const [logoPad, setLogoPad] = react.useState(false);
   const [logoSquare, setLogoSquare] = react.useState(false);
