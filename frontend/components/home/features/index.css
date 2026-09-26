@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--rule12);
   scroll-margin-top: var(--nav-h);
 }
 

@@ -15,7 +15,7 @@
   text-transform: uppercase;
   color: var(--text-muted);
   background: transparent;
-  border: 2px solid var(--rule);
+  border: 2px solid var(--rule12);
   border-radius: 4px;
   transition: color .2s, border-color .2s, background .2s;
 }

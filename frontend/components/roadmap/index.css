@@ -200,7 +200,7 @@
 
 .rcard--open .rcard-items {
   padding: 8px 22px 28px;
-  border-top-color: var(--rule);
+  border-top-color: var(--b15);
 }
 
 .ritem {

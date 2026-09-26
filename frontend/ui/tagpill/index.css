@@ -8,6 +8,6 @@
   text-transform: uppercase;
   color: var(--text-faint);
   background: transparent;
-  border: 2px solid var(--rule);
+  border: 2px solid var(--rule12);
   border-radius: 4px;
 }
