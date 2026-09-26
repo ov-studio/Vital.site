@@ -79,7 +79,9 @@ export function Studio() {
   const [section, setSection] = react.useState<Section>('og');
   const [tagline, setTagline] = react.useState('Script It — Ship It — Limitless');
   const [ogPlaceholder, setOgPlaceholder] = react.useState(false);
+  const [ogRays, setOgRays] = react.useState(true);
   const [logoNeon, setLogoNeon] = react.useState(true);
+  const [logoRays, setLogoRays] = react.useState(true);
   const [logoBg, setLogoBg] = react.useState(true);
   const [logoPad, setLogoPad] = react.useState(false);
   const [logoSquare, setLogoSquare] = react.useState(false);
@@ -442,6 +444,14 @@ export function Studio() {
                   />
                   Placeholder
                 </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={ogRays}
+                    onChange={(e) => setOgRays(e.target.checked)}
+                  />
+                  Rays
+                </label>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -470,7 +480,7 @@ export function Studio() {
                 style={{ width: OG_W, height: OG_H }}
               >
                 <div className="studio-og-content">
-                  <ui_brand.Brand size="xl" variant="logo-only" neon={true}/>
+                  <ui_brand.Brand size="xl" variant="logo-only" neon={true} rays={ogRays}/>
                   {(tagline.trim() || ogPlaceholder) && (
                     <div
                       className={`studio-og-tagline${
@@ -506,6 +516,15 @@ export function Studio() {
                     onChange={(e) => setLogoNeon(e.target.checked)}
                   />
                   Neon
+                </label>
+                <label className="studio-check">
+                  <input
+                    type="checkbox"
+                    checked={logoRays}
+                    disabled={!logoNeon}
+                    onChange={(e) => setLogoRays(e.target.checked)}
+                  />
+                  Rays
                 </label>
                 <label className="studio-check">
                   <input
@@ -599,6 +618,7 @@ export function Studio() {
                   size="xxl"
                   variant="logo-only"
                   neon={logoNeon}
+                  rays={logoNeon && logoRays}
                 />
               </div>
               </div>

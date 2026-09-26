@@ -6,8 +6,7 @@
   justify-content: center;
   min-height: 100vh;
   padding-top: var(--nav-h);
-  overflow: hidden;
-  background-image: conic-gradient(var(--b10), var(--bg4), var(--bg4), var(--bg4), var(--b10));
+  overflow: visible;
 }
 
 .hcorner {
@@ -24,6 +23,7 @@
 .hcorner-br { bottom: 24px; right: 24px; border-bottom: 2px solid var(--blue); border-right: 2px solid var(--blue); }
 
 .hero-center {
+  overflow: visible;
   position: relative;
   z-index: 3;
   display: flex;
@@ -37,6 +37,7 @@
 }
 
 .hero-brand {
+  overflow: visible;
   margin-bottom: clamp(16px, 2.2vw, 16px);
   opacity: 0;
   animation: slide-up .6s .2s forwards;
@@ -94,12 +95,12 @@
 /* ── @media ── */
 @media (max-width: 960px) {
   #hero        { padding-top: 120px; padding-bottom: 60px; }
-  .hero-center { padding: 0 24px; }
+  .hero-center { overflow: visible; padding: 0 24px; }
 }
 
 @media (max-width: 640px) {
   #hero        { padding-top: 110px; padding-bottom: 48px; }
-  .hero-center { padding: 0 20px; }
+  .hero-center { overflow: visible; padding: 0 20px; }
   .hero-sub    { font-size: .88rem; }
   .hcorner     { display: none; }
 }

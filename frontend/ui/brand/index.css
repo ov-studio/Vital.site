@@ -140,6 +140,59 @@
   opacity: 0.45;
 }
 
+.brand_logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.brand_logo,
+.brand_logo--neon {
+  position: relative;
+  z-index: 1;
+}
+
+.brand_rays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: 200vw;
+  height: 200vh;
+  transform: translate(-50%, -48.5%);
+  pointer-events: none;
+  background: conic-gradient(
+    var(--b10),
+    var(--bg4),
+    var(--bg4),
+    var(--bg4),
+    var(--b10)
+  );
+  opacity: 1;
+  mix-blend-mode: soft-light;
+  transition: opacity 40ms linear;
+}
+
+.brand.is-glitch .brand_rays {
+  opacity: 0.08;
+}
+
+.brand.is-glitch .brand_logo--neon {
+  filter:
+    brightness(0) saturate(100%)
+    invert(72%) sepia(48%) saturate(400%) hue-rotate(190deg) brightness(70%) contrast(90%)
+    drop-shadow(0 0 0 transparent);
+  opacity: 0.35;
+}
+
+.brand--rays,
+.brand--rays .brand_logo-wrapper {
+  overflow: visible;
+}
+
 
 /* ── @media ── */
 @media (max-width: 640px) {

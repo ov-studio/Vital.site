@@ -6,15 +6,15 @@ type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
 
 interface BrandProps {
-  name?: string;
-  size?: BrandSize;
-  variant?: BrandVariant;
+  name?:      string;
+  size?:      BrandSize;
+  variant?:   BrandVariant;
   className?: string;
-  color?: string;
-  href?: string;
-  neon?: boolean;
-  /** Glitch flicker — sudden neon cut / restore. */
-  flicker?: boolean;
+  color?:     string;
+  href?:      string;
+  neon?:      boolean;
+  flicker?:   boolean;
+  rays?:      boolean;
 }
 
 /**
@@ -29,9 +29,11 @@ export function Brand({
   href,
   neon = false,
   flicker = false,
+  rays = true,
 }: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
   const [glitch, setGlitch] = react.useState(false);
+  const show_rays = neon && rays;
 
   react.useEffect(() => {
     if (!flicker) {
@@ -65,7 +67,7 @@ export function Brand({
           if (Math.random() < 0.55) {
             timer = setTimeout(() => {
               if (cancelled) return;
-              
+
               setGlitch(true);
               timer = setTimeout(() => {
                 if (cancelled) return;
@@ -88,6 +90,7 @@ export function Brand({
 
   const logo = variant !== 'wordmark-only' && (
     <div className="brand_logo-wrapper">
+      {show_rays && <span className="brand_rays" aria-hidden/>}
       {neon ? (
         <img
           src="/logo/logo.svg"
@@ -117,6 +120,7 @@ export function Brand({
     `brand--${size}`,
     `brand--${variant}`,
     neon ? 'brand--neon' : '',
+    show_rays ? 'brand--rays' : '',
     flicker ? 'brand--flicker' : '',
     flicker && glitch ? 'is-glitch' : '',
     className,
