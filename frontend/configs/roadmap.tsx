@@ -2446,6 +2446,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Late-join state dump (reliable)',            status: 'completed' },
           { label: 'Late-join animation layer replay',           status: 'completed' },
           { label: 'Late-join component state replay',           status: 'completed' },
+          { label: 'Mesh-derived collision shape sync',          status: 'completed' },
+          { label: 'Dynamic entity reparenting sync',            status: 'completed' },
+          { label: 'Force transform / teleport override',        status: 'completed' }
         ]
       },
       {
