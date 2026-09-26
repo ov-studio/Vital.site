@@ -166,7 +166,6 @@
   pointer-events: none;
   background: conic-gradient(
     from 0deg at 50% 50%,
-    var(--b20) 0deg,
     var(--b15) 18deg,
     var(--b07) 40deg,
     var(--b05) 52deg,
@@ -174,8 +173,7 @@
     transparent 288deg,
     var(--b05) 308deg,
     var(--b07) 320deg,
-    var(--b15) 342deg,
-    var(--b20) 360deg
+    var(--b15) 342deg
   );
 
   opacity: 1;
