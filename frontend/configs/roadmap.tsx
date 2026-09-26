@@ -2441,6 +2441,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Material flag replication',                  status: 'pending'   },
           { label: 'Animation state replication',                status: 'completed' },
           { label: 'Animation layer sync',                       status: 'completed' },
+          { label: 'Animation bone-filter sync',                 status: 'completed' },
           { label: 'Component visibility sync',                  status: 'completed' },
           { label: 'Component render sync',                      status: 'completed' },
           { label: 'Late-join animation layer replay',           status: 'completed' },
