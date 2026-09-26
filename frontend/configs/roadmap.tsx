@@ -2446,6 +2446,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Component render sync',                      status: 'completed' },
           { label: 'Late-join animation layer replay',           status: 'completed' },
           { label: 'Animation bone-filter sync',                 status: 'completed' }
+          { label: 'Late-join component state replay',           status: 'completed' },
         ]
       },
       {
