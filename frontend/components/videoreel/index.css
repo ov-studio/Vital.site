@@ -5,8 +5,11 @@
   flex: 0 0 0;
   height: 0;
   width: 100%;
-  max-width: min(920px, 100%);
+  max-width: var(--section-width);
   margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
   overflow: visible;
   opacity: 0;
   animation: video-reel-in 0.7s 0.5s forwards;
@@ -22,7 +25,7 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
-  justify-content: flex-start;
+  justify-content: safe center;
   gap: 14px;
   width: 100%;
   margin-top: 28px;
