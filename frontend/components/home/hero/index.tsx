@@ -71,6 +71,7 @@ export function Hero() {
 
         <component_download.Download/>
       </div>
+      <component_videoreel.VideoReel videos={config_home.Videos}/>
     </section>
   );
 }
