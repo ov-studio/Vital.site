@@ -2447,8 +2447,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Late-join shape sync replay',                     status: 'completed' },
           { label: 'Late-join animation layer replay',                status: 'completed' },
           { label: 'Late-join component state replay',                status: 'completed' },
-          { label: 'Blendshape replication',                          status: 'pending'   },
-          { label: 'Material flag replication',                       status: 'pending'   }
+          { label: 'Blendshape replication',                          status: 'pending'   }
         ]
       },
       {
