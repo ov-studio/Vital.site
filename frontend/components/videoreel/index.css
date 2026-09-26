@@ -284,6 +284,45 @@
   text-align: left;
 }
 
+.vid-modal-desc-h {
+  margin: 12px 0 4px;
+  font-family: var(--font-rajdhani), sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  text-align: left;
+}
+
+.vid-modal-desc-h:first-child {
+  margin-top: 0;
+}
+
+.vid-modal-desc-ul {
+  margin: 0;
+  padding: 0 0 0 1.15em;
+  list-style: disc;
+  text-align: left;
+}
+
+.vid-modal-desc-ul li {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--fg3);
+}
+
+.vid-modal-desc a {
+  color: var(--blue);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.vid-modal-desc a:hover {
+  text-decoration: underline;
+}
+
 .vid-modal-tagline {
   margin: 0;
   font-size: 0.85rem;

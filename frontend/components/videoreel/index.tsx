@@ -28,27 +28,114 @@ function yt_embed(id: string) {
   return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 }
 
-function format_description(raw: string): string[] {
-  if (!raw) return [];
-  let t = raw
-    .replace(/\r\n/g, '\n')
-    .replace(/```[\s\S]*?```/g, ' ')
+type DescBlock =
+  | { type: 'p'; text: string }
+  | { type: 'h'; text: string }
+  | { type: 'ul'; items: string[] };
+
+function clean_inline(s: string): string {
+  return s
     .replace(/`([^`]+)`/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .replace(/#{1,6}\s*/g, '')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
-    .replace(/https?:\/\/[^\s)]+/g, '')
-    .replace(/[ \t]+\n/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '$1 ($2)')
+    .replace(/[ \t]+/g, ' ')
     .trim();
+}
 
-  const parts = t
-    .split(/\n\n+/)
-    .map((p) => p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim())
-    .filter(Boolean);
+function format_description(raw: string): DescBlock[] {
+  if (!raw) return [];
 
-  return parts.slice(0, 4);
+  let text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+  if ((text.match(/\n/g) || []).length < 3) {
+    text = text
+      .replace(/\s*[–—]\s*/g, '\n- ')
+      .replace(/\s+(Glossary|Socials|Attribution|Whats\s*New|What's\s*New)\b/gi, '\n\n$1')
+      .replace(/\s+-\s+/g, '\n- ');
+  }
+
+  const lines = text
+    .split('\n')
+    .map((l) => l.replace(/\s+$/g, ''));
+
+const blocks: DescBlock[] = [];
+  let list: string[] = [];
+  let para: string[] = [];
+
+  const flush_list = () => {
+    if (list.length) {
+      blocks.push({ type: 'ul', items: list });
+      list = [];
+    }
+  };
+  const flush_para = () => {
+    if (para.length) {
+      blocks.push({ type: 'p', text: clean_inline(para.join(' ')) });
+      para = [];
+    }
+  };
+
+  for (const line of lines) {
+    const t = line.trim();
+    if (!t) {
+      flush_list();
+      flush_para();
+      continue;
+    }
+
+    const bullet = t.match(/^[-*•–—]\s+(.+)$/);
+    if (bullet) {
+      flush_para();
+      list.push(clean_inline(bullet[1]));
+      continue;
+    }
+
+    // Section heading: short line, often starts with emoji / Title case, no long prose
+    const is_heading =
+      t.length <= 48 &&
+      !t.includes('http') &&
+      (/^[\p{Emoji_Presentation}\p{Extended_Pictographic}]/u.test(t) ||
+        /^(Glossary|Socials|Attribution|Whats New|What's New|Links|Credits|Features)\b/i.test(t) ||
+        (/^[A-Z][\w\s/&|-]{1,40}$/.test(t) && t.split(' ').length <= 5));
+
+    if (is_heading && !bullet) {
+      flush_list();
+      flush_para();
+      blocks.push({ type: 'h', text: clean_inline(t) });
+      continue;
+    }
+
+    flush_list();
+    para.push(t);
+  }
+
+  flush_list();
+  flush_para();
+  return blocks;
+}
+
+function linkify(text: string): react.ReactNode[] {
+  const nodes: react.ReactNode[] = [];
+  const re = /(https?:\/\/[^\s]+)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) nodes.push(text.slice(last, m.index));
+    const href = m[1].replace(/[.,);]+$/g, '');
+    const trail = m[1].slice(href.length);
+    nodes.push(
+      <a key={key++} href={href} target="_blank" rel="noopener noreferrer">
+        {href}
+      </a>
+    );
+    if (trail) nodes.push(trail);
+    last = m.index + m[1].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
 }
 
 
@@ -126,9 +213,27 @@ function VideoModal({
             <h3 className="vid-modal-name">{video.title}</h3>
             {paras.length > 0 ? (
               <div className="vid-modal-desc">
-                {paras.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
+                {paras.map((b, i) => {
+                  if (b.type === 'h') {
+                    return (
+                      <h4 key={i} className="vid-modal-desc-h">
+                        {linkify(b.text)}
+                      </h4>
+                    );
+                  }
+                  if (b.type === 'ul') {
+                    return (
+                      <ul key={i} className="vid-modal-desc-ul">
+                        {b.items.map((item, j) => (
+                          <li key={j}>{linkify(item)}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return (
+                    <p key={i}>{linkify(b.text)}</p>
+                  );
+                })}
               </div>
             ) : null}
           </div>
