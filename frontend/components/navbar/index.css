@@ -13,6 +13,7 @@ nav::after {
   content: '';
   position: absolute;
   inset: 0;
+  background: transparent;
   border-bottom: 1px solid transparent;
   pointer-events: none;
   box-shadow: 0 -95px 200px 0px transparent;
