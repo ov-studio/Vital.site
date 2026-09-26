@@ -366,12 +366,6 @@
 
 
 /* ── @media ── */
-@media (max-height: 700px) {
-  .video-reel {
-    display: none !important;
-  }
-}
-
 @media (max-width: 640px) {
   .video-reel-card {
     flex: 0 0 168px;
