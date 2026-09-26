@@ -162,7 +162,7 @@
   z-index: 0;
   width: 200vw;
   height: 200vh;
-  transform: translate(-50%, -46.5%);
+  transform: translate(-50%, -46%);
   pointer-events: none;
   background: conic-gradient(
     from 0deg at 50% 50%,
