@@ -33,7 +33,7 @@
 }
 .fcluster.is-active {
   border-color: var(--blue);
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b20), var(--b20)), var(--bg4);
 }
 
 .fcluster-head {
