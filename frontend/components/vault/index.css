@@ -47,7 +47,7 @@
   border-radius: 4px;
   transition: border-color .25s, background .25s;
 }
-.vault-card:hover { border-color: var(--brand-neon-core); }
+.vault-card:hover { border-color: var(--blue); }
 
 .vault-card-banner,
 .vault-modal-banner {
