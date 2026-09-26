@@ -78,7 +78,7 @@
   color: var(--text-muted);
   transition: color .25s;
 }
-.fcluster.is-active .fcluster-desc { color: var(--dim) }
+.fcluster.is-active .fcluster-desc { color: var(--w80) }
 
 .feat-diagram { 
   position: relative; 
