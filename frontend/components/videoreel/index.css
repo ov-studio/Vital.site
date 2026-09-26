@@ -36,9 +36,11 @@
   flex-direction: column;
   gap: 10px;
   padding: 0;
-  border: 3px solid var(--selection-bg);
+  border: 3px solid transparent;
   border-radius: 4px;
   background: var(--selection-bg);
+  background: color-mix(in srgb, var(--bg5) 80%, var(--b90));
+  background: color-mix(in srgb, var(--b30) 80%, transparent);
   color: inherit;
   text-align: left;
   overflow: hidden;
@@ -99,7 +101,7 @@
   font-size: .78rem;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: var(--fg);
+  color: var(--brand-neon-core);
   line-height: 1.25;
 }
 
