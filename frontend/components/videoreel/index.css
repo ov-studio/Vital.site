@@ -45,7 +45,7 @@
 }
 
 .video-reel-card {
-  flex: 0 0 250px;
+  flex: 0 0 225px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
