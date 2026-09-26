@@ -264,10 +264,12 @@ nav.s::after {
 
 /* ── @media ── */
 @media (max-width: 960px) {
+  nav::after { background: var(--bg4); }
   .nl  { display: none }
   .ni  { padding: 0 24px }
 }
 
 @media (max-width: 640px) {
+  nav::after { background: var(--bg4); }
   .ni   { padding: 0 20px }
 }
