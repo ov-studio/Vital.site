@@ -45,10 +45,7 @@
 }
 
 .video-reel-card {
-  flex: 0 0 200px;
-  width: 200px;
-  min-width: 200px;
-  max-width: 200px;
+  flex: 0 0 250px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -111,38 +108,6 @@
 
 .video-reel-play svg {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-}
-
-.video-reel-meta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-  padding: 0 10px 10px;
-  min-height: 2.75em;
-  box-sizing: border-box;
-}
-
-.video-reel-title {
-  font-family: var(--font-rajdhani), sans-serif;
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--fg);
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.video-reel-tagline {
-  font-size: 0.68rem;
-  line-height: 1.35;
-  color: var(--fg3);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 @keyframes video-reel-in {
@@ -245,8 +210,7 @@
 }
 
 .vid-modal-body {
-  padding: 22px 28px 28px;
-  max-height: 28vh;
+  padding: 32px 36px 36px;
   overflow-y: auto;
 }
 

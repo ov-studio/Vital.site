@@ -300,12 +300,6 @@ export function VideoReel({
                 <lucide.Play size={18} strokeWidth={2} fill="currentColor"/>
               </span>
             </span>
-            <span className="video-reel-meta">
-              <span className="video-reel-title">{v.title}</span>
-              {(v.author || v.tagline) ? (
-                <span className="video-reel-tagline">{v.author || v.tagline}</span>
-              ) : null}
-            </span>
           </button>
         ))}
         </div>
