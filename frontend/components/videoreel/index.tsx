@@ -43,7 +43,6 @@ function filter_desc_blocks(blocks: DescBlock[]): DescBlock[] {
   for (const b of blocks) {
     if (b.type === 'h') {
       const label = b.text
-        .replace(/^[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\s]+/u, '')
         .trim();
 
       if (boilerplate.test(label)) {
@@ -119,11 +118,6 @@ function parse_yt_markdown(raw: string): DescBlock[] {
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '$1 ($2)')
       .trim();
 
-  const strip_heading = (s: string) => {
-    const cleaned = s.replace(/^[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\uFE0F\s]+/u, '').trim();
-    return cleaned || s;
-  };
-
   for (let line of lines) {
     line = line.replace(/\s+$/g, '');
     const t = line.trim();
@@ -137,7 +131,12 @@ function parse_yt_markdown(raw: string): DescBlock[] {
     if (heading) {
       flush_list();
       flush_para();
-      blocks.push({ type: 'h', text: strip_heading(strip_md(heading[1])) });
+      blocks.push({
+        type: 'h',
+        text: strip_md(heading[1])
+          .replace(/^[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\s]+/u, '')
+          .trim() || strip_md(heading[1]),
+      });
       continue;
     }
 
@@ -186,10 +185,11 @@ function DescriptionBody({ raw }: { raw: string }) {
     <div className="ui-modal-desc">
       {blocks.map((b, i) => {
         if (b.type === 'h') {
+          const label = b.text.replace(/:+\s*$/, '') + ':';
           return (
-            <h4 key={i} className="ui-modal-desc-h">
-              {linkify(b.text)}
-            </h4>
+            <p key={i} className="ui-modal-desc-h">
+              <strong>{label}</strong>
+            </p>
           );
         }
         if (b.type === 'ul') {
