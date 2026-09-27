@@ -44,7 +44,8 @@ export const info = {
       '/vault',
       '/vault/tree',
       '/masterlist',
-      '/ip'
+      '/ip',
+      '/youtube/playlist'
     ]
   },
 

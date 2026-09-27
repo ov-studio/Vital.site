@@ -1,6 +1,7 @@
 'use client';
 import * as ui_iconbutton from '@/ui/iconbutton';
 import * as ui_modal      from '@/ui/modal';
+import * as lib_api_url   from '@/lib/api_url';
 import * as lucide        from 'lucide-react';
 import * as react         from 'react';
 import './index.css';
@@ -274,7 +275,7 @@ export function VideoReel({
 
     let cancelled = false;
     set_loading(true);
-    fetch(`/api/youtube/playlist?list=${encodeURIComponent(playlist)}`)
+    fetch(lib_api_url.get_api_url(`/youtube/playlist?list=${encodeURIComponent(playlist)}`))
       .then((r) => r.json())
       .then((data) => {
         if (cancelled) return;
