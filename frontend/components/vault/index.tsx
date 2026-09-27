@@ -2,6 +2,7 @@
 import * as config_site      from '@/configs/site';
 import * as config_pages     from '@/configs/pages';
 import * as config_vault     from '@/configs/vault';
+import * as ui_modal         from '@/ui/modal';
 import * as ui_tagpill       from '@/ui/tagpill';
 import * as ui_iconbutton    from '@/ui/iconbutton';
 import * as ui_card          from '@/ui/card';
@@ -14,7 +15,6 @@ import * as lib_api_url      from '@/lib/api_url';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
-import * as react_dom        from 'react-dom';
 import * as next_navigation  from 'next/navigation';
 import './index.css';
 
@@ -143,124 +143,88 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     finally { set_downloading(false); }
   }, [is_dir, folder, downloading]);
 
-  react.useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') on_close(); };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [on_close]);
+  const controls = (
+    <>
+      <ui_iconbutton.IconButton
+        className={`ui-modal-share${copied ? ' copied' : ''}`}
+        icon={copied ? lucide.Check : lucide.Link}
+        iconProps={{ size: 14, strokeWidth: 2.5 }}
+        onClick={handle_share}
+      />
+      <ui_iconbutton.IconButton
+        className="ui-modal-close"
+        icon={lucide.X}
+        iconProps={{ size: 14, strokeWidth: 2.5 }}
+        onClick={on_close}
+      />
+    </>
+  );
 
-  react.useEffect(() => {
-    const sw = window.innerWidth - document.documentElement.clientWidth;
-    if (sw <= 0) {
-      document.documentElement.style.overflow = 'hidden';
-      return () => { document.documentElement.style.overflow = ''; };
-    }
-
-    const fixed: { el: HTMLElement; prev: string }[] = [];
-    document.querySelectorAll<HTMLElement>('nav, header, [data-fixed], .vault-modal-overlay').forEach(el => {
-      const s = getComputedStyle(el);
-      if (s.position === 'fixed' || s.position === 'sticky') {
-        fixed.push({ el, prev: el.style.paddingRight });
-        el.style.paddingRight = `${(parseFloat(s.paddingRight) || 0) + sw}px`;
-      }
-    });
-
-    const prev_ov = document.documentElement.style.overflow;
-    const prev_pr = document.body.style.paddingRight;
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.paddingRight = `${sw}px`;
-    return () => {
-      document.documentElement.style.overflow = prev_ov;
-      document.body.style.paddingRight = prev_pr;
-      fixed.forEach(({ el, prev }) => { el.style.paddingRight = prev; });
-    };
-  }, []);
-
-  if (typeof document === 'undefined') return null;
-  return react_dom.createPortal(
-    <div className={`vault-modal-overlay${closing ? ' closing' : ''}`} onClick={on_close}>
-      <div className={`vault-modal-frame${closing ? ' closing' : ''}`} onClick={e => e.stopPropagation()}>
-      <div className="vault-modal">
-        <div className="vault-modal-controls">
-          <ui_iconbutton.IconButton
-            className={`vault-modal-share${copied ? ' copied' : ''}`}
-            icon={copied ? lucide.Check : lucide.Link}
-            iconProps={{ size: 14, strokeWidth: 2.5 }}
-            onClick={handle_share}
-          />
-          <ui_iconbutton.IconButton
-            className="vault-modal-close"
-            icon={lucide.X}
-            iconProps={{ size: 14, strokeWidth: 2.5 }}
-            onClick={on_close}
-          />
-        </div>
-
-        <Banner src={resource.banner} size="modal"/>
-
-        <div className="vault-modal-body">
-          <div className="vault-modal-eyebrow">
-            <span className="vault-modal-author">
-              {resource.author_url
-                ? <a href={resource.author_url} target="_blank" rel="noreferrer"
-                    style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
-                : resource.author
-              }
-            </span>
-            <span className="vault-modal-version">v{resource.version}</span>
-          </div>
-
-          <div className="vault-modal-name">{resource.name}</div>
-          <div className="vault-modal-tagline">{resource.tagline}</div>
-          <hr className="vault-modal-divider"/>
-          <div className="vault-modal-desc-scroll">
-            <p className="vault-modal-desc">{render_with_code(resource.description)}</p>
-          </div>
-          <div className="vault-modal-tags">
-            {resource.tags.map(t => (
-              <ui_tagpill.TagPill key={t} label={t} className="vault-modal-tag"/>
-            ))}
-          </div>
-
-          <div className="vault-modal-actions">
-            {is_dir ? (
-              <ui_button.Button
-                variant="primary"
-                onClick={handle_download}
-                disabled={downloading}
-                className={downloading ? 'is-busy' : ''}
-              >
-                {downloading
-                  ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
-                  : 'Download Resource'
-                }
-              </ui_button.Button>
-            ) : (
-              <ui_button.Button
-                variant="primary"
-                href={resource.download_url ?? resource.source_url ?? '#'}
-                download
-              >
-                Download Resource
-              </ui_button.Button>
-            )}
-            {resource.source_url && (
-              <ui_button.Button
-                variant="secondary"
-                href={resource.source_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                :: View Source
-              </ui_button.Button>
-            )}
-          </div>
-          {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
-        </div>
+  return (
+    <ui_modal.Modal
+      closing={closing}
+      onClose={on_close}
+      controls={controls}
+      media={<Banner src={resource.banner} size="modal"/>}
+      label={resource.name}
+    >
+      <div className="ui-modal-eyebrow">
+        <span className="vault-modal-author">
+          {resource.author_url
+            ? <a href={resource.author_url} target="_blank" rel="noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
+            : resource.author
+          }
+        </span>
+        <span className="vault-modal-version">v{resource.version}</span>
       </div>
+
+      <div className="ui-modal-name">{resource.name}</div>
+      <div className="ui-modal-tagline">{resource.tagline}</div>
+      <hr className="ui-modal-divider"/>
+      <div className="ui-modal-desc-scroll">
+        <p className="ui-modal-desc">{render_with_code(resource.description)}</p>
       </div>
-    </div>,
-    document.body
+      <div className="vault-modal-tags">
+        {resource.tags.map(t => (
+          <ui_tagpill.TagPill key={t} label={t} className="vault-modal-tag"/>
+        ))}
+      </div>
+
+      <div className="vault-modal-actions">
+        {is_dir ? (
+          <ui_button.Button
+            variant="primary"
+            onClick={handle_download}
+            disabled={downloading}
+            className={downloading ? 'is-busy' : ''}
+          >
+            {downloading
+              ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
+              : 'Download Resource'}
+          </ui_button.Button>
+        ) : (
+          <ui_button.Button
+            variant="primary"
+            href={resource.download_url ?? resource.source_url ?? '#'}
+            download
+          >
+            Download Resource
+          </ui_button.Button>
+        )}
+        {resource.source_url && (
+          <ui_button.Button
+            variant="secondary"
+            href={resource.source_url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            :: View Source
+          </ui_button.Button>
+        )}
+      </div>
+      {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
+    </ui_modal.Modal>
   );
 }
 
