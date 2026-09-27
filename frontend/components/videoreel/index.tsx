@@ -248,7 +248,7 @@ function VideoModal({
         <>
           <hr className="ui-modal-divider" />
           <div className="ui-modal-desc-scroll">
-            <DescriptionBody raw={desc} />
+            <DescriptionBody raw={desc}/>
           </div>
         </>
       ) : null}
