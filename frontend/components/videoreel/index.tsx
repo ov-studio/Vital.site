@@ -36,7 +36,7 @@ function display_title(title: string): string {
 
 function filter_desc_blocks(blocks: DescBlock[]): DescBlock[] {
   const boilerplate = /^(glossary|socials)$/i;
-  const content = /^(features|attribution|whats\s*new|what's\s*new|changelog|updates|notes)$/i;
+  let skip_section = false;
   let keeping = false;
   const out: DescBlock[] = [];
 
@@ -45,19 +45,34 @@ function filter_desc_blocks(blocks: DescBlock[]): DescBlock[] {
       const label = b.text
         .replace(/^[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\s]+/u, '')
         .trim();
+
       if (boilerplate.test(label)) {
+        skip_section = true;
         keeping = false;
         continue;
       }
-      if (content.test(label) || keeping) {
+
+      // First heading after Glossary/Socials → start keeping (Features, What Changed, …)
+      if (skip_section) {
+        skip_section = false;
         keeping = true;
         out.push(b);
         continue;
       }
+
+      if (!keeping) {
+        // Brand intro heading (### 📦 Vital.sandbox – …)
+        if (/vital\.sandbox/i.test(b.text) || label.length > 48) continue;
+        keeping = true;
+        out.push(b);
+        continue;
+      }
+
+      out.push(b);
       continue;
     }
 
-    if (!keeping) continue;
+    if (skip_section || !keeping) continue;
     out.push(b);
   }
   return out;
