@@ -1,8 +1,8 @@
 'use client';
 import * as ui_iconbutton from '@/ui/iconbutton';
+import * as ui_modal      from '@/ui/modal';
 import * as lucide        from 'lucide-react';
 import * as react         from 'react';
-import * as react_dom     from 'react-dom';
 import './index.css';
 
 export interface VideoReelItem {
@@ -128,18 +128,18 @@ function DescriptionBody({ raw }: { raw: string }) {
   const blocks = parse_yt_markdown(raw);
   if (!blocks.length) return null;
   return (
-    <div className="vid-modal-desc">
+    <div className="ui-modal-desc">
       {blocks.map((b, i) => {
         if (b.type === 'h') {
           return (
-            <h4 key={i} className="vid-modal-desc-h">
+            <h4 key={i} className="ui-modal-desc-h">
               {linkify(b.text)}
             </h4>
           );
         }
         if (b.type === 'ul') {
           return (
-            <ul key={i} className="vid-modal-desc-ul">
+            <ul key={i} >
               {b.items.map((item, j) => (
                 <li key={j}>{linkify(item)}</li>
               ))}
@@ -154,7 +154,7 @@ function DescriptionBody({ raw }: { raw: string }) {
 
 function VideoModal({
   video,
-  on_close
+  on_close,
 }: {
   video: VideoReelItem;
   on_close: () => void;
@@ -166,71 +166,41 @@ function VideoModal({
     window.setTimeout(on_close, 220);
   }, [on_close]);
 
-  react.useEffect(() => {
-    function on_key(e: KeyboardEvent) {
-      if (e.key === 'Escape') close();
-    }
-    window.addEventListener('keydown', on_key);
-    return () => window.removeEventListener('keydown', on_key);
-  }, [close]);
-
-  react.useEffect(() => {
-    const prev = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = 'hidden';
-    return () => {
-      document.documentElement.style.overflow = prev;
-    };
-  }, []);
-
-  if (typeof document === 'undefined') return null;
-
-  const subtitle = video.author || video.tagline || '';
   const desc = video.description || '';
-  return react_dom.createPortal(
-    <div
-      className={`vid-modal-overlay${closing ? ' closing' : ''}`}
-      onClick={close}
-      role="presentation"
-    >
-      <div
-        className={`vid-modal-frame${closing ? ' closing' : ''}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={video.title}
-      >
-        <div className="vid-modal">
-          <div className="vid-modal-controls">
-            <ui_iconbutton.IconButton
-              className="vid-modal-close"
-              icon={lucide.X}
-              iconProps={{ size: 14, strokeWidth: 2.5 }}
-              onClick={close}
-            />
-          </div>
 
-          <div className="vid-modal-player">
-            <iframe
-              src={yt_embed(video.youtube_id)}
-              title={video.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-
-          <div className="vid-modal-body">
-            <div className="vid-modal-eyebrow">
-              {subtitle || 'Video'}
-            </div>
-            <h3 className="vid-modal-name">{video.title}</h3>
-            {desc ? <DescriptionBody raw={desc}/> : null}
-          </div>
+  return (
+    <ui_modal.Modal
+      closing={closing}
+      onClose={close}
+      label={video.title}
+      maxWidth={880}
+      media={
+        <div className="video-reel-modal-player">
+          <iframe
+            src={yt_embed(video.youtube_id)}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
         </div>
+      }
+    >
+      <div className="ui-modal-eyebrow">
+        <span className="vault-modal-author">{video.author || video.tagline || 'Video'}</span>
       </div>
-    </div>,
-    document.body
+      <div className="ui-modal-name">{video.title}</div>
+      {desc ? (
+        <>
+          <hr className="ui-modal-divider" />
+          <div className="ui-modal-desc-scroll">
+            <DescriptionBody raw={desc} />
+          </div>
+        </>
+      ) : null}
+    </ui_modal.Modal>
   );
 }
+
 
 export function VideoReel({
   videos: videos_prop,
