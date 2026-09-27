@@ -182,7 +182,7 @@
 .ui-modal-desc p.ui-modal-desc-h:not(:first-child),
 .ui-modal-desc ul + .ui-modal-desc-h,
 .ui-modal-desc p + .ui-modal-desc-h {
-  margin-top: 1em;
+  margin-top: 1.85em;
 }
 
 .ui-modal-desc h4 {
