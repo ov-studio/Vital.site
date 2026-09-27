@@ -22,7 +22,6 @@
 
 .tos-section {
   padding: 40px 0;
-  border-bottom: 1px solid var(--rule12);
   opacity: 0;
   animation: slide-up var(--anim-dur) ease forwards;
 }
@@ -34,10 +33,19 @@
 .tos-section:nth-child(6) { animation-delay: .78s }
 .tos-section:nth-child(n+7) { animation-delay: .84s }
 .tos-section:first-child { padding-top: 0; }
-.tos-section:last-child  { border-bottom: none; padding-bottom: 0; }
+.tos-section:last-child  { padding-bottom: 0; }
+
+.tos-section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule12);
+}
 
 .tos-section .sec-title {
-  margin-bottom: 18px;
+  margin-bottom: 0;
 }
 
 .tos-section-p {

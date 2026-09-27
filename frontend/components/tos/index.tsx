@@ -27,7 +27,9 @@ export function TOS() {
         <div className="tos-body">
           {config_tos.TOS.map((s, i) => (
             <div key={s.id} id={s.id} className="tos-section">
-              <div className="sec-title">{i + 1}. {s.title}</div>
+              <div className="tos-section-head">
+                <div className="sec-title">{i + 1}. {s.title}</div>
+              </div>
               {s.content.map((p, j) => (
                 <p key={j} className="tos-section-p">{p}</p>
               ))}
