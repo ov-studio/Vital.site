@@ -84,6 +84,7 @@ export function Modal({
   if (typeof document === 'undefined') return null;
 
   const max_w = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
+
   const default_controls = showClose ? (
     <ui_iconbutton.IconButton
       className="ui-modal-close"
@@ -112,9 +113,7 @@ export function Modal({
           <div className="ui-modal-controls">
             {controls ?? default_controls}
           </div>
-
           {media}
-
           <div className="ui-modal-body">{children}</div>
         </div>
       </div>
