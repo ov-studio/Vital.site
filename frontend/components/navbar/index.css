@@ -66,7 +66,7 @@ nav.s::after {
 .nav-end {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 1px;
   flex-shrink: 0;
 }
 
