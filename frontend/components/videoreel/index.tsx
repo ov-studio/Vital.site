@@ -25,7 +25,7 @@ function yt_thumb(id: string) {
 }
 
 function yt_embed(id: string) {
-  return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+  return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&controls=0`;
 }
 
 function display_title(title: string): string {
