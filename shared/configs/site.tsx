@@ -37,9 +37,9 @@ export const info = {
     requests_per_window: 30,       // max requests allowed per window per IP
     window_duration:     '1 m',    // sliding window duration (Upstash duration string)
     routes: [
+      '/build',
       '/contributors',
       '/stats',
-      '/build',
       '/benchmark',
       '/vault',
       '/vault/tree',

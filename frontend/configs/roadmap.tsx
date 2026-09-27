@@ -63,18 +63,19 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, stats, vault and server listings',
         icon:  <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
-          { label: 'GitHub OAuth - workspace session auth',             status: 'completed' },
-          { label: 'Masterlist applications - apply / claim / decide',  status: 'completed' },
-          { label: 'GET /build - latest build info',                    status: 'completed' },
-          { label: 'GET /contributors - contributor list',              status: 'completed' },
-          { label: 'GET /stats - aggregated GitHub repo stats',         status: 'completed' },
-          { label: 'GET /ip - client IP lookup',                        status: 'completed' },
-          { label: 'GET /vault - community vault resource list',        status: 'completed' },
-          { label: 'GET /vault/tree - vault directory tree',            status: 'completed' },
-          { label: 'GET /masterlist - live server list',                status: 'completed' },
-          { label: 'POST /masterlist/heartbeat - server heartbeat',     status: 'completed' },
-          { label: 'POST /masterlist/register - server register',       status: 'completed' },
-          { label: 'GET /benchmark - latest sandbox benchmark',         status: 'completed' }
+          { label: 'GitHub OAuth - workspace session auth',                 status: 'completed' },
+          { label: 'Masterlist applications - apply / claim / decide',      status: 'completed' },
+          { label: 'GET /build - latest build info',                        status: 'completed' },
+          { label: 'GET /contributors - contributor list',                  status: 'completed' },
+          { label: 'GET /stats - aggregated GitHub repo stats',             status: 'completed' },
+          { label: 'GET /benchmark - latest sandbox benchmark',             status: 'completed' },
+          { label: 'GET /vault - community vault resource list',            status: 'completed' },
+          { label: 'GET /vault/tree - vault directory tree',                status: 'completed' },
+          { label: 'GET /masterlist - live server list',                    status: 'completed' },
+          { label: 'POST /masterlist/heartbeat - server heartbeat',         status: 'completed' },
+          { label: 'POST /masterlist/register - server register',           status: 'completed' },
+          { label: 'GET /ip - client IP lookup',                            status: 'completed' },
+          { label: 'GET /youtube/playlist - cached YouTube playlist feed',  status: 'completed' }
         ]
       }
     ]
