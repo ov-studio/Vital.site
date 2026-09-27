@@ -305,7 +305,7 @@ function VaultSkeleton() {
       <div className="sw">
         <VaultHead/>
         <VaultFilters disabled/>
-        <ui_divider.Divider/>
+        <ui_divider.Divider className="anim-in anim-in--3"/>
       </div>
     </section>
   );
@@ -387,7 +387,7 @@ function VaultInner() {
             on_tag={set_active_tag}
           />
           
-          <ui_divider.Divider/>
+          <ui_divider.Divider className="anim-in anim-in--3"/>
 
           {state !== 'loading' && (
             <div className="vault-grid">

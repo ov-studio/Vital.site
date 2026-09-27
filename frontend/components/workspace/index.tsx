@@ -236,7 +236,7 @@ export function Workspace() {
         ) : (
           <>
             <div className="sec-title">Account</div>
-            <ui_divider.Divider/>
+            <ui_divider.Divider className="anim-in anim-in--3"/>
 
             {error && <p className="ws-error" role="alert">{error}</p>}
 
@@ -376,7 +376,7 @@ export function Workspace() {
             {session.staff && (
               <>
                 <div className="sec-title">Review Applications</div>
-                <ui_divider.Divider/>
+                <ui_divider.Divider className="anim-in anim-in--3"/>
                 <div className="ws-stats">
                   <div className="ws-stat">
                     <div className="ws-stat-top">
