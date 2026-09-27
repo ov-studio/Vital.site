@@ -25,7 +25,7 @@
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: safe center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   margin-top: 28px;
   padding: 0 2px;
@@ -45,10 +45,10 @@
 }
 
 .video-reel-card {
-  flex: 0 0 235px;
-  width: 235px;
-  min-width: 235px;
-  max-width: 235px;
+  flex: 0 0 225px;
+  width: 225px;
+  min-width: 225px;
+  max-width: 225px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
