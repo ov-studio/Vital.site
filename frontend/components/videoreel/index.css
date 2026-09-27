@@ -60,7 +60,7 @@
   color: inherit;
   text-align: left;
   overflow: hidden;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
   opacity: 0;
   animation: video-reel-card-in 0.55s forwards;
 }
@@ -71,9 +71,8 @@
 .video-reel-card:nth-child(n+5) { animation-delay: 0.95s; }
 
 .video-reel-card:hover {
-  border-color: color-mix(in srgb, var(--blue) 45%, var(--rule));
+  border-color: var(--blue);
   background: var(--bg5);
-  transform: translateY(-2px);
 }
 
 .video-reel-thumb {
