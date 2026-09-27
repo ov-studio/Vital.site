@@ -119,6 +119,11 @@ function parse_yt_markdown(raw: string): DescBlock[] {
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '$1 ($2)')
       .trim();
 
+  const strip_heading = (s: string) => {
+    const cleaned = s.replace(/^[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\uFE0F\s]+/u, '').trim();
+    return cleaned || s;
+  };
+
   for (let line of lines) {
     line = line.replace(/\s+$/g, '');
     const t = line.trim();
@@ -132,7 +137,7 @@ function parse_yt_markdown(raw: string): DescBlock[] {
     if (heading) {
       flush_list();
       flush_para();
-      blocks.push({ type: 'h', text: strip_md(heading[1]) });
+      blocks.push({ type: 'h', text: strip_heading(strip_md(heading[1])) });
       continue;
     }
 
