@@ -168,20 +168,13 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
       media={<Banner src={resource.banner} size="modal"/>}
       label={resource.name}
     >
-      <div className="ui-modal-eyebrow">
-        <span className="vault-modal-author">
-          {resource.author_url
-            ? <a href={resource.author_url} target="_blank" rel="noreferrer"
-                style={{ color: 'inherit', textDecoration: 'none' }}>{resource.author}</a>
-            : resource.author
-          }
-        </span>
-        <span className="vault-modal-version">v{resource.version}</span>
-      </div>
-
-      <div className="ui-modal-name">{resource.name}</div>
-      <div className="ui-modal-tagline">{resource.tagline}</div>
-      <hr className="ui-modal-divider"/>
+      <ui_modal.ModalHeader
+        author={resource.author}
+        authorHref={resource.author_url}
+        version={`v${resource.version}`}
+        title={resource.name}
+        tagline={resource.tagline}
+      />
       <div className="ui-modal-desc-scroll">
         <p className="ui-modal-desc">{render_with_code(resource.description)}</p>
       </div>

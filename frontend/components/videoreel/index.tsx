@@ -240,17 +240,15 @@ function VideoModal({
         </div>
       }
     >
-      <div className="ui-modal-eyebrow">
-        <span className="vault-modal-author">{video.author || video.tagline || 'Video'}</span>
-      </div>
-      <div className="ui-modal-name">{display_title(video.title)}</div>
+      <ui_modal.ModalHeader
+        author={video.author || video.tagline || 'Video'}
+        title={display_title(video.title)}
+        titleClassName="ui-modal-name--wrap"
+      />
       {desc ? (
-        <>
-          <hr className="ui-modal-divider" />
-          <div className="ui-modal-desc-scroll">
-            <DescriptionBody raw={desc}/>
-          </div>
-        </>
+        <div className="ui-modal-desc-scroll">
+          <DescriptionBody raw={desc}/>
+        </div>
       ) : null}
     </ui_modal.Modal>
   );

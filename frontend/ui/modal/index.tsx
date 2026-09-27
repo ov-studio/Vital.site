@@ -58,6 +58,56 @@ function use_scroll_lock(active: boolean) {
   }, [active]);
 }
 
+
+export interface ModalHeaderProps {
+  author?: string;
+  authorHref?: string;
+  version?: string;
+  title?: string;
+  tagline?: string;
+  divider?: boolean;
+  titleClassName?: string;
+}
+
+export function ModalHeader({
+  author,
+  authorHref,
+  version,
+  title,
+  tagline,
+  divider = true,
+  titleClassName = '',
+}: ModalHeaderProps) {
+  const has_eyebrow = Boolean(author || version);
+
+  return (
+    <>
+      {has_eyebrow ? (
+        <div className="ui-modal-eyebrow">
+          {author ? (
+            <span className="ui-modal-author">
+              {authorHref ? (
+                <a href={authorHref} target="_blank" rel="noreferrer">
+                  {author}
+                </a>
+              ) : (
+                author
+              )}
+            </span>
+          ) : (
+            <span/>
+          )}
+          {version ? <span className="ui-modal-version">{version}</span> : null}
+        </div>
+      ) : null}
+
+      {title ? <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>{title}</div> : null}
+      {tagline ? <div className="ui-modal-tagline">{tagline}</div> : null}
+      {divider ? <hr className="ui-modal-divider"/> : null}
+    </>
+  );
+}
+
 export function Modal({
   closing = false,
   onClose,
