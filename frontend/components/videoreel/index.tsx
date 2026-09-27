@@ -28,6 +28,41 @@ function yt_embed(id: string) {
   return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 }
 
+function display_title(title: string): string {
+  return title
+    .replace(/^\s*Vital\.sandbox\s*[\|–—:-]+\s*/i, '')
+    .trim() || title;
+}
+
+function filter_desc_blocks(blocks: DescBlock[]): DescBlock[] {
+  const boilerplate = /^(glossary|socials)$/i;
+  const content = /^(features|attribution|whats\s*new|what's\s*new|changelog|updates|notes)$/i;
+  let keeping = false;
+  const out: DescBlock[] = [];
+
+  for (const b of blocks) {
+    if (b.type === 'h') {
+      const label = b.text
+        .replace(/^[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\s]+/u, '')
+        .trim();
+      if (boilerplate.test(label)) {
+        keeping = false;
+        continue;
+      }
+      if (content.test(label) || keeping) {
+        keeping = true;
+        out.push(b);
+        continue;
+      }
+      continue;
+    }
+
+    if (!keeping) continue;
+    out.push(b);
+  }
+  return out;
+}
+
 type DescBlock =
   | { type: 'p'; text: string }
   | { type: 'h'; text: string }
@@ -125,7 +160,7 @@ function linkify(text: string): react.ReactNode[] {
 }
 
 function DescriptionBody({ raw }: { raw: string }) {
-  const blocks = parse_yt_markdown(raw);
+  const blocks = filter_desc_blocks(parse_yt_markdown(raw));
   if (!blocks.length) return null;
   return (
     <div className="ui-modal-desc">
@@ -172,7 +207,7 @@ function VideoModal({
     <ui_modal.Modal
       closing={closing}
       onClose={close}
-      label={video.title}
+      label={display_title(video.title)}
       maxWidth={880}
       media={
         <div className="video-reel-modal-player">
@@ -188,7 +223,7 @@ function VideoModal({
       <div className="ui-modal-eyebrow">
         <span className="vault-modal-author">{video.author || video.tagline || 'Video'}</span>
       </div>
-      <div className="ui-modal-name">{video.title}</div>
+      <div className="ui-modal-name">{display_title(video.title)}</div>
       {desc ? (
         <>
           <hr className="ui-modal-divider" />
