@@ -246,9 +246,9 @@ function VideoModal({
         titleClassName="ui-modal-name--wrap"
       />
       {desc ? (
-        <div className="ui-modal-desc-scroll">
+        <ui_modal.ModalBody>
           <DescriptionBody raw={desc}/>
-        </div>
+        </ui_modal.ModalBody>
       ) : null}
     </ui_modal.Modal>
   );

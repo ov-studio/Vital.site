@@ -178,13 +178,13 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
       <div className="ui-modal-desc-scroll">
         <p className="ui-modal-desc">{render_with_code(resource.description)}</p>
       </div>
-      <div className="vault-modal-tags">
+      <div className="ui-modal-tags">
         {resource.tags.map(t => (
-          <ui_tagpill.TagPill key={t} label={t} className="vault-modal-tag"/>
+          <ui_tagpill.TagPill key={t} label={t} className="ui-modal-tag"/>
         ))}
       </div>
 
-      <div className="vault-modal-actions">
+      <div className="ui-modal-actions">
         {is_dir ? (
           <ui_button.Button
             variant="primary"
@@ -216,7 +216,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
           </ui_button.Button>
         )}
       </div>
-      {dl_error && <p className="vault-modal-dl-error">{dl_error}</p>}
+      {dl_error && <p className="ui-modal-error">{dl_error}</p>}
     </ui_modal.Modal>
   );
 }
@@ -237,7 +237,7 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
             <span className="vault-card-version">v{resource.version}</span>
           </div>
           <div className="vault-card-name">{resource.name}</div>
-          <div className="vault-card-tagline">{resource.tagline}</div>
+          {resource.tagline?.trim() ? <div className="vault-card-tagline">{resource.tagline.trim()}</div> : null}
           <div className="vault-card-footer">
             <div className="vault-card-tags">
               {resource.tags.slice(0, 2).map(t => (

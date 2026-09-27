@@ -58,14 +58,13 @@ function use_scroll_lock(active: boolean) {
   }, [active]);
 }
 
-
 export interface ModalHeaderProps {
-  author?: string;
-  authorHref?: string;
-  version?: string;
-  title?: string;
-  tagline?: string;
-  divider?: boolean;
+  author?:         string;
+  authorHref?:     string;
+  version?:        string;
+  title?:          string;
+  tagline?:        string;
+  divider?:        boolean;
   titleClassName?: string;
 }
 
@@ -102,9 +101,51 @@ export function ModalHeader({
       ) : null}
 
       {title ? <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>{title}</div> : null}
-      {tagline ? <div className="ui-modal-tagline">{tagline}</div> : null}
+      {tagline?.trim() ? <div className="ui-modal-tagline">{tagline.trim()}</div> : null}
       {divider ? <hr className="ui-modal-divider"/> : null}
     </>
+  );
+}
+
+export function ModalBody({
+  children,
+  className = '',
+}: {
+  children: react.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`ui-modal-desc-scroll${className ? ` ${className}` : ''}`}>
+      {children}
+    </div>
+  );
+}
+
+export function ModalActions({
+  children,
+  className = '',
+}: {
+  children: react.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`ui-modal-actions${className ? ` ${className}` : ''}`}>
+      {children}
+    </div>
+  );
+}
+
+export function ModalFooter({
+  children,
+  className = '',
+}: {
+  children: react.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`ui-modal-footer${className ? ` ${className}` : ''}`}>
+      {children}
+    </div>
   );
 }
 

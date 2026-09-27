@@ -136,6 +136,17 @@
   color: var(--dim);
 }
 
+.vault-card-body:not(:has(.vault-card-tagline)) .vault-card-name {
+  margin-bottom: 18px;
+}
+
+.vault-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .vault-card-footer {
   display: flex;
   align-items: center;
@@ -145,10 +156,12 @@
   border-top: 1px solid var(--b10);
 }
 
-.vault-card-tags,
-.vault-modal-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.vault-modal-tags { margin-bottom: 28px; flex-shrink: 0; }
-.vault-modal-tag { font-size: .66rem; }
+.vault-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
 .vault-modal-actions { 
   display: flex; 
