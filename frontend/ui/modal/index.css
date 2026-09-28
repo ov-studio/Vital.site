@@ -108,10 +108,12 @@
 .ui-modal-author a {
   color: inherit;
   text-decoration: none;
+  transition: opacity .2s;
 }
 
 .ui-modal-author a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  opacity: 0.85;
 }
 
 .ui-modal-version {
@@ -261,10 +263,12 @@
   color: var(--blue);
   text-decoration: none;
   word-break: break-all;
+  transition: opacity .2s;
 }
 
 .ui-modal-desc a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  opacity: 0.85;
 }
 
 @media (max-width: 640px) {
