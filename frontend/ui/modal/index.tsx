@@ -19,6 +19,16 @@ export interface ModalProps {
   showClose?:      boolean;
 }
 
+export interface ModalHeaderProps {
+  author?:         string;
+  authorHref?:     string;
+  version?:        string;
+  title?:          string;
+  tagline?:        string;
+  divider?:        boolean;
+  titleClassName?: string;
+}
+
 function use_scroll_lock(active: boolean) {
   react.useEffect(() => {
     if (!active || typeof document === 'undefined') return;
@@ -136,16 +146,6 @@ export function Modal({
     </div>,
     document.body
   );
-}
-
-export interface ModalHeaderProps {
-  author?:         string;
-  authorHref?:     string;
-  version?:        string;
-  title?:          string;
-  tagline?:        string;
-  divider?:        boolean;
-  titleClassName?: string;
 }
 
 /**
