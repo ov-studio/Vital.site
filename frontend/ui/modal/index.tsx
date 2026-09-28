@@ -68,6 +68,18 @@ export interface ModalHeaderProps {
   titleClassName?: string;
 }
 
+/**
+ * Shared modal meta block — author / version / title / tagline (+ optional divider).
+ *
+ * @param {Object} props
+ * @param {string} [props.author]
+ * @param {string} [props.authorHref]  Author link when set
+ * @param {string} [props.version]  e.g. "v1.0.0"
+ * @param {string} [props.title]
+ * @param {string} [props.tagline]
+ * @param {boolean} [props.divider=true]  Show divider under meta
+ * @param {string} [props.titleClassName]  Extra class on title (e.g. wrap)
+ */
 export function ModalHeader({
   author,
   authorHref,
@@ -94,19 +106,30 @@ export function ModalHeader({
               )}
             </span>
           ) : (
-            <span/>
+            <span />
           )}
           {version ? <span className="ui-modal-version">{version}</span> : null}
         </div>
       ) : null}
 
-      {title ? <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>{title}</div> : null}
+      {title?.trim() ? (
+        <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>
+          {title.trim()}
+        </div>
+      ) : null}
       {tagline?.trim() ? <div className="ui-modal-tagline">{tagline.trim()}</div> : null}
-      {divider ? <hr className="ui-modal-divider"/> : null}
+      {divider ? <hr className="ui-modal-divider" /> : null}
     </>
   );
 }
 
+/**
+ * Scrollable description region inside the modal body.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
+ */
 export function ModalBody({
   children,
   className = '',
@@ -121,6 +144,13 @@ export function ModalBody({
   );
 }
 
+/**
+ * Action row (primary / secondary buttons). Secondary is pushed right.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
+ */
 export function ModalActions({
   children,
   className = '',
@@ -135,6 +165,13 @@ export function ModalActions({
   );
 }
 
+/**
+ * Footer slot under the description — tags, actions, errors.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
+ */
 export function ModalFooter({
   children,
   className = '',
@@ -149,6 +186,22 @@ export function ModalFooter({
   );
 }
 
+/**
+ * Shared modal shell — portal overlay, frame, media slot, body.
+ *
+ * @param {Object} props
+ * @param {boolean} [props.closing]  Exit animation
+ * @param {() => void} props.onClose
+ * @param {import('react').ReactNode} [props.controls]  Top-right controls (share/close)
+ * @param {import('react').ReactNode} [props.media]  Banner / player above body
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]  Overlay class
+ * @param {string} [props.frameClassName]  Frame class
+ * @param {string} [props.labelledBy]  aria-labelledby
+ * @param {string} [props.label]  aria-label
+ * @param {number | string} [props.maxWidth=780]
+ * @param {boolean} [props.showClose=true]  Default close control when controls unset
+ */
 export function Modal({
   closing = false,
   onClose,
