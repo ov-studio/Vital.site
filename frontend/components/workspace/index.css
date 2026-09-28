@@ -16,6 +16,7 @@
 }
 
 .ws-avatar {
+  margin-left: 4px;
   position: relative;
   display: block;
   width: 48px;
