@@ -217,7 +217,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.compile_string',         status: 'completed' },
           { label: '[Shared] API: core.engine.load_string',            status: 'completed' },
           { label: '[Client] API: core.engine.screenshot',             status: 'completed' },
-          { label: '[Client] API: core.engine.quit',                   status: 'pending'   },
+          { label: '[Client] API: core.engine.quit',                   status: 'completed' },
           { label: '[Server] API: core.engine.disconnect_peer',        status: 'completed' },
           { label: '[Client] API: core.engine.world_to_screen',        status: 'completed' },
           { label: '[Client] API: core.engine.screen_to_world',        status: 'completed' },
