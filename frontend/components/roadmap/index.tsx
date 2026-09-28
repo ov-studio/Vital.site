@@ -166,7 +166,7 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
 
 export function Roadmap() {
   return (
-    <section id="roadmap">
+    <section id="roadmap" className="sec-pad">
       <ui_wallpaper.Wallpaper variant={9}/>
       <div className="sw">
         <div className="page-head">

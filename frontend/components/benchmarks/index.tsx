@@ -109,7 +109,7 @@ export function Benchmarks() {
   const env   = data?.environment ?? {};
 
   return (
-    <section id="benchmarks">
+    <section id="benchmarks" className="sec-pad">
       <ui_wallpaper.Wallpaper variant={11}/>
       <div className="sw">
         <div className="page-head">

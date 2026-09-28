@@ -1,14 +1,8 @@
 .ws-page {
   position: relative;
   min-height: 100dvh;
-  padding: calc(100px + var(--nav-h)) 0;
   isolation: isolate;
   z-index: 0;
-}
-
-.ws-page > .sw {
-  position: relative;
-  z-index: 1;
 }
 
 .ws-lead {
@@ -500,11 +494,8 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
 
-/* ── @media ── */
-@media (max-width: 960px) {
-  .ws-page { padding: calc(100px + var(--nav-h) * .25) 0; }
-}
 
+/* ── @media ── */
 @media (max-width: 720px)  {
   .ws-profile-row {
     grid-template-columns: 1fr;

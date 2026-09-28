@@ -1,12 +1,6 @@
 #vault {
   position: relative;
   min-height: 100dvh;
-  padding: calc(100px + var(--nav-h)) 0;
-}
-
-#vault > .sw {
-  position: relative;
-  z-index: 1;
 }
 
 .vault-intro {
@@ -143,7 +137,6 @@
 }
 
 @media (max-width: 960px) {
-  #vault                   { padding: calc(100px + var(--nav-h) * .25) 0; }
   .vault-intro             { flex-direction: column; }
   .vault-grid              { grid-template-columns: 1fr; }
   .vault-filters           { flex-direction: column; align-items: stretch; }

@@ -47,8 +47,18 @@ h2 span { color: var(--blue) }
   margin: 0 auto;
   padding: 0 48px;
 }
-.sec-pad    { padding: calc(100px + var(--nav-h)) 0; }
-.sec-pad-sm { padding: calc(100px + var(--nav-h) * .25) 0; }
+.sec-pad {
+  position: relative;
+  padding: calc(100px + var(--nav-h)) 0;
+}
+.sec-pad > .sw {
+  position: relative;
+  z-index: 1;
+}
+.sec-pad-sm {
+  padding: calc(100px + var(--nav-h) * .25) 0;
+}
+
 
 .slabel {
   display: flex;
@@ -225,6 +235,10 @@ h2 span { color: var(--blue) }
 @media (max-width: 960px) {
   .sw { padding: 0 24px }
 
+  .sec-pad {
+    padding: calc(100px + var(--nav-h) * .25) 0;
+  }
+  
   .sec-head {
     flex-direction: column;
     align-items: flex-start;

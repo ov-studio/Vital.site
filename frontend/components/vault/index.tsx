@@ -301,7 +301,7 @@ function VaultSkeleton() {
   }, []);
 
   return (
-    <section id="vault">
+    <section id="vault" className="sec-pad">
       <ui_wallpaper.Wallpaper variant={18}/>
       <div className="sw">
         <VaultHead/>
@@ -376,7 +376,7 @@ function VaultInner() {
 
   return (
     <>
-      <section id="vault">
+      <section id="vault" className="sec-pad">
       <ui_wallpaper.Wallpaper variant={18}/>
         <div className="sw">
           <VaultHead/>

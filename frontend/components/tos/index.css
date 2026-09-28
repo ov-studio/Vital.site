@@ -1,11 +1,5 @@
 #tos {
   position: relative;
-  padding: calc(100px + var(--nav-h)) 0;
-}
-
-#tos > .sw {
-  position: relative;
-  z-index: 1;
 }
 
 .tos-intro {
@@ -60,6 +54,5 @@
 
 /* ── @media ── */
 @media (max-width: 640px) {
-  #tos { padding: calc(100px + var(--nav-h) * .25) 0; }
   .tos-effective { margin-bottom: 60px; }
 }

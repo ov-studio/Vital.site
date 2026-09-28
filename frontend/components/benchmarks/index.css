@@ -1,12 +1,6 @@
 #benchmarks {
   position: relative;
   min-height: 100dvh;
-  padding: calc(100px + var(--nav-h)) 0;
-}
-
-#benchmarks > .sw {
-  position: relative;
-  z-index: 1;
 }
 
 .bm-intro code {
@@ -19,7 +13,6 @@
   margin-top: 40px;
   padding: 48px 24px;
 }
-
 
 .sec-title.bm-section-title {
   margin: 50px 0 0;
@@ -178,10 +171,6 @@
 
 
 /* ── @media ── */
-@media (max-width: 960px) {
-  #benchmarks { padding: calc(100px + var(--nav-h) * .25) 0; }
-}
-
 @media (max-width: 720px) {
   .bm-env { grid-template-columns: 1fr 1fr; }
 }

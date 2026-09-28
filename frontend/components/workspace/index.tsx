@@ -210,7 +210,7 @@ export function Workspace() {
   const canApply = !pendingApp;
 
   return (
-    <main className="ws-page">
+    <main className="ws-page sec-pad">
       <ui_wallpaper.Wallpaper variant={12}/>
       <div className="sw">
         <div className="page-head">
