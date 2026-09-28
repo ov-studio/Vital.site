@@ -1,5 +1,4 @@
 'use client';
-import * as ui_iconbutton from '@/ui/iconbutton';
 import * as ui_modal      from '@/ui/modal';
 import * as lib_api_url   from '@/lib/api_url';
 import * as lucide        from 'lucide-react';

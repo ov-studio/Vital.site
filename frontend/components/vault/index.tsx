@@ -175,48 +175,49 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
         title={resource.name}
         tagline={resource.tagline}
       />
-      <div className="ui-modal-desc-scroll">
+      <ui_modal.ModalBody>
         <p className="ui-modal-desc">{render_with_code(resource.description)}</p>
-      </div>
-      <div className="ui-modal-tags">
-        {resource.tags.map(t => (
-          <ui_tagpill.TagPill key={t} label={t} className="ui-modal-tag"/>
-        ))}
-      </div>
-
-      <div className="ui-modal-actions">
-        {is_dir ? (
-          <ui_button.Button
-            variant="primary"
-            onClick={handle_download}
-            disabled={downloading}
-            className={downloading ? 'is-busy' : ''}
-          >
-            {downloading
-              ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
-              : 'Download Resource'}
-          </ui_button.Button>
-        ) : (
-          <ui_button.Button
-            variant="primary"
-            href={resource.download_url ?? resource.source_url ?? '#'}
-            download
-          >
-            Download Resource
-          </ui_button.Button>
-        )}
-        {resource.source_url && (
-          <ui_button.Button
-            variant="secondary"
-            href={resource.source_url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            :: View Source
-          </ui_button.Button>
-        )}
-      </div>
-      {dl_error && <p className="ui-modal-error">{dl_error}</p>}
+      </ui_modal.ModalBody>
+      <ui_modal.ModalFooter>
+        <div className="ui-modal-tags">
+          {resource.tags.map(t => (
+            <ui_tagpill.TagPill key={t} label={t} className="ui-modal-tag"/>
+          ))}
+        </div>
+        <ui_modal.ModalActions>
+          {is_dir ? (
+            <ui_button.Button
+              variant="primary"
+              onClick={handle_download}
+              disabled={downloading}
+              className={downloading ? 'is-busy' : ''}
+            >
+              {downloading
+                ? <><lucide.Loader2 size={14} strokeWidth={2.5} className="vault-spin"/> Preparing…</>
+                : 'Download Resource'}
+            </ui_button.Button>
+          ) : (
+            <ui_button.Button
+              variant="primary"
+              href={resource.download_url ?? resource.source_url ?? '#'}
+              download
+            >
+              Download Resource
+            </ui_button.Button>
+          )}
+          {resource.source_url && (
+            <ui_button.Button
+              variant="secondary"
+              href={resource.source_url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              :: View Source
+            </ui_button.Button>
+          )}
+        </ui_modal.ModalActions>
+        {dl_error && <p className="ui-modal-error">{dl_error}</p>}
+      </ui_modal.ModalFooter>
     </ui_modal.Modal>
   );
 }
