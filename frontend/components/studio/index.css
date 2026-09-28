@@ -39,7 +39,8 @@
 
 .studio-controls-row {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: 9.5rem 9.5rem;
+  column-gap: 1.25rem;
   row-gap: 8px;
   align-items: center;
 }
@@ -72,7 +73,11 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  min-width: 9.5rem;
+  justify-self: start;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
@@ -85,6 +90,15 @@
   height: 15px;
   flex-shrink: 0;
   margin: 0;
+}
+
+.studio-check input:disabled {
+  cursor: not-allowed;
+}
+
+.studio-check:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 
