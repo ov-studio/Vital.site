@@ -157,19 +157,26 @@ function parse_yt_markdown(raw: string): DescBlock[] {
   return blocks;
 }
 
+function link_label(href: string): string {
+  return href
+    .replace(/^https?:\/\//i, '')
+    .replace(/^www\./i, '');
+}
+
 function linkify(text: string): react.ReactNode[] {
   const nodes: react.ReactNode[] = [];
-  const re = /(https?:\/\/[^\s<]+)/g;
+  const re = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/gi;
   let last = 0;
   let m: RegExpExecArray | null;
   let key = 0;
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) nodes.push(text.slice(last, m.index));
-    const href = m[1].replace(/[.,);]+$/g, '');
-    const trail = m[1].slice(href.length);
+    let raw = m[1].replace(/[.,);]+$/g, '');
+    const trail = m[1].slice(raw.length);
+    const href = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
     nodes.push(
       <a key={key++} href={href} target="_blank" rel="noopener noreferrer">
-        {href}
+        {link_label(href)}
       </a>
     );
     if (trail) nodes.push(trail);
