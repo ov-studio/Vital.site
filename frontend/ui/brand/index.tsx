@@ -19,6 +19,17 @@ interface BrandProps {
 
 /**
  * Brand mark and wordmark.
+ *
+ * @param {Object} props
+ * @param {string} [props.name]  Wordmark text (defaults to site name when omitted by callers)
+ * @param {'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'} [props.size='md']
+ * @param {'full' | 'logo-only' | 'wordmark-only'} [props.variant='full']
+ * @param {string} [props.className]
+ * @param {string} [props.color]  Overrides --brand-color
+ * @param {string} [props.href]  Wrap mark in a link when set
+ * @param {boolean} [props.neon=false]  Neon glow treatment
+ * @param {boolean} [props.flicker=false]  Horror-style flicker (neon)
+ * @param {boolean} [props.rays=true]  Cone rays under logo (neon only)
  */
 export function Brand({
   name,
