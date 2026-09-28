@@ -139,12 +139,12 @@ export function Modal({
 }
 
 export interface ModalHeaderProps {
-  author?: string;
-  authorHref?: string;
-  version?: string;
-  title?: string;
-  tagline?: string;
-  divider?: boolean;
+  author?:         string;
+  authorHref?:     string;
+  version?:        string;
+  title?:          string;
+  tagline?:        string;
+  divider?:        boolean;
   titleClassName?: string;
 }
 
