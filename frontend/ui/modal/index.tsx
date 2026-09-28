@@ -5,7 +5,7 @@ import * as react         from 'react';
 import * as react_dom     from 'react-dom';
 import './index.css';
 
-export interface ModalProps {
+interface ModalProps {
   closing?:        boolean;
   onClose:         () => void;
   controls?:       react.ReactNode;
@@ -19,7 +19,7 @@ export interface ModalProps {
   showClose?:      boolean;
 }
 
-export interface ModalHeaderProps {
+interface ModalHeaderProps {
   author?:         string;
   authorHref?:     string;
   version?:        string;
