@@ -58,134 +58,6 @@ function use_scroll_lock(active: boolean) {
   }, [active]);
 }
 
-export interface ModalHeaderProps {
-  author?:         string;
-  authorHref?:     string;
-  version?:        string;
-  title?:          string;
-  tagline?:        string;
-  divider?:        boolean;
-  titleClassName?: string;
-}
-
-/**
- * Shared modal meta block — author / version / title / tagline (+ optional divider).
- *
- * @param {Object} props
- * @param {string} [props.author]
- * @param {string} [props.authorHref]  Author link when set
- * @param {string} [props.version]  e.g. "v1.0.0"
- * @param {string} [props.title]
- * @param {string} [props.tagline]
- * @param {boolean} [props.divider=true]  Show divider under meta
- * @param {string} [props.titleClassName]  Extra class on title (e.g. wrap)
- */
-export function ModalHeader({
-  author,
-  authorHref,
-  version,
-  title,
-  tagline,
-  divider = true,
-  titleClassName = '',
-}: ModalHeaderProps) {
-  const has_eyebrow = Boolean(author || version);
-
-  return (
-    <>
-      {has_eyebrow ? (
-        <div className="ui-modal-eyebrow">
-          {author ? (
-            <span className="ui-modal-author">
-              {authorHref ? (
-                <a href={authorHref} target="_blank" rel="noreferrer">
-                  {author}
-                </a>
-              ) : (
-                author
-              )}
-            </span>
-          ) : (
-            <span />
-          )}
-          {version ? <span className="ui-modal-version">{version}</span> : null}
-        </div>
-      ) : null}
-
-      {title?.trim() ? (
-        <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>
-          {title.trim()}
-        </div>
-      ) : null}
-      {tagline?.trim() ? <div className="ui-modal-tagline">{tagline.trim()}</div> : null}
-      {divider ? <hr className="ui-modal-divider" /> : null}
-    </>
-  );
-}
-
-/**
- * Scrollable description region inside the modal body.
- *
- * @param {Object} props
- * @param {import('react').ReactNode} props.children
- * @param {string} [props.className]
- */
-export function ModalBody({
-  children,
-  className = '',
-}: {
-  children: react.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={`ui-modal-desc-scroll${className ? ` ${className}` : ''}`}>
-      {children}
-    </div>
-  );
-}
-
-/**
- * Action row (primary / secondary buttons). Secondary is pushed right.
- *
- * @param {Object} props
- * @param {import('react').ReactNode} props.children
- * @param {string} [props.className]
- */
-export function ModalActions({
-  children,
-  className = '',
-}: {
-  children: react.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={`ui-modal-actions${className ? ` ${className}` : ''}`}>
-      {children}
-    </div>
-  );
-}
-
-/**
- * Footer slot under the description — tags, actions, errors.
- *
- * @param {Object} props
- * @param {import('react').ReactNode} props.children
- * @param {string} [props.className]
- */
-export function ModalFooter({
-  children,
-  className = '',
-}: {
-  children: react.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={`ui-modal-footer${className ? ` ${className}` : ''}`}>
-      {children}
-    </div>
-  );
-}
-
 /**
  * Shared modal shell — portal overlay, frame, media slot, body.
  *
@@ -263,5 +135,133 @@ export function Modal({
       </div>
     </div>,
     document.body
+  );
+}
+
+export interface ModalHeaderProps {
+  author?: string;
+  authorHref?: string;
+  version?: string;
+  title?: string;
+  tagline?: string;
+  divider?: boolean;
+  titleClassName?: string;
+}
+
+/**
+ * Shared modal meta — author / version / title / tagline (+ optional divider).
+ *
+ * @param {Object} props
+ * @param {string} [props.author]
+ * @param {string} [props.authorHref]  Author link when set
+ * @param {string} [props.version]  e.g. "v1.0.0"
+ * @param {string} [props.title]
+ * @param {string} [props.tagline]
+ * @param {boolean} [props.divider=true]  Show divider under meta
+ * @param {string} [props.titleClassName]  Extra class on title (e.g. wrap)
+ */
+export function ModalHeader({
+  author,
+  authorHref,
+  version,
+  title,
+  tagline,
+  divider = true,
+  titleClassName = '',
+}: ModalHeaderProps) {
+  const has_eyebrow = Boolean(author || version);
+
+  return (
+    <>
+      {has_eyebrow ? (
+        <div className="ui-modal-eyebrow">
+          {author ? (
+            <span className="ui-modal-author">
+              {authorHref ? (
+                <a href={authorHref} target="_blank" rel="noreferrer">
+                  {author}
+                </a>
+              ) : (
+                author
+              )}
+            </span>
+          ) : (
+            <span />
+          )}
+          {version ? <span className="ui-modal-version">{version}</span> : null}
+        </div>
+      ) : null}
+
+      {title?.trim() ? (
+        <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>
+          {title.trim()}
+        </div>
+      ) : null}
+      {tagline?.trim() ? <div className="ui-modal-tagline">{tagline.trim()}</div> : null}
+      {divider ? <hr className="ui-modal-divider" /> : null}
+    </>
+  );
+}
+
+/**
+ * Scrollable description region inside the modal body.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
+ */
+export function ModalBody({
+  children,
+  className = '',
+}: {
+  children: react.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`ui-modal-desc-scroll${className ? ` ${className}` : ''}`}>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Footer slot under the description — tags, actions, errors.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
+ */
+export function ModalFooter({
+  children,
+  className = '',
+}: {
+  children: react.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`ui-modal-footer${className ? ` ${className}` : ''}`}>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Action row (primary / secondary buttons). Secondary is pushed right.
+ *
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children
+ * @param {string} [props.className]
+ */
+export function ModalActions({
+  children,
+  className = '',
+}: {
+  children: react.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`ui-modal-actions${className ? ` ${className}` : ''}`}>
+      {children}
+    </div>
   );
 }
