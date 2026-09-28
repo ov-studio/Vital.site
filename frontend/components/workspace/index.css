@@ -61,8 +61,8 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
 .ws-stat {
@@ -456,7 +456,7 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 20px;
   align-items: stretch;
 }
