@@ -17,7 +17,7 @@ export function Search({
   placeholder = 'Search…',
   icon = undefined,
   disabled = false,
-  className = '',
+  className = ''
 }) {
   return (
     <div className={`ui-search${className ? ` ${className}` : ''}`}>

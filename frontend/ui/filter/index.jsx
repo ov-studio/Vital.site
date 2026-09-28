@@ -19,7 +19,7 @@ export function Filter({
   allLabel = 'All',
   disabled = false,
   className = '',
-  buttonClassName = '',
+  buttonClassName = ''
 }) {
   return (
     <div className={`ui-filter${className ? ` ${className}` : ''}`}>

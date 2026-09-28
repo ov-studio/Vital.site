@@ -22,7 +22,7 @@ export function IconButton({
   onClick = undefined,
   className = '',
   disabled = false,
-  type = 'button',
+  type = 'button'
 }) {
   const resolved_title = title ?? label ?? undefined;
 

@@ -8,7 +8,11 @@ import './index.css';
  * @param {string} [props.className]
  * @param {string} [props.wrapClassName]
  */
-export function Table({ children, className = '', wrapClassName = '' }) {
+export function Table({ 
+  children, 
+  className = '', 
+  wrapClassName = '' 
+}) {
   return (
     <div className={`ui-table-wrap${wrapClassName ? ` ${wrapClassName}` : ''}`}>
       <table className={`ui-table${className ? ` ${className}` : ''}`}>
@@ -24,7 +28,11 @@ export function Table({ children, className = '', wrapClassName = '' }) {
  * @param {import('react').ReactNode} [props.icon]
  * @param {import('react').ReactNode} props.children
  */
-export function TableEmpty({ colSpan = 4, icon = null, children }) {
+export function TableEmpty({ 
+  colSpan = 4, 
+  icon = null, 
+  children 
+}) {
   return (
     <tr className="ui-table-empty">
       <td colSpan={colSpan}>

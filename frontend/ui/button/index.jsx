@@ -29,7 +29,7 @@ export function Button({
   disabled = false,
   className = '',
   children = null,
-  onClick = undefined,
+  onClick = undefined
   ...rest
 }) {
   const cls = [

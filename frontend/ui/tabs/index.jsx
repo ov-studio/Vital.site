@@ -17,7 +17,7 @@ export function Tabs({
   items = [],
   className = '',
   ariaLabel = 'Tabs',
-  disabled = false,
+  disabled = false
 }) {
   return (
     <div

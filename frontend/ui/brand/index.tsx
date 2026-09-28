@@ -40,7 +40,7 @@ export function Brand({
   href,
   neon = false,
   flicker = false,
-  rays = true,
+  rays = true
 }: BrandProps) {
   const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
   const [glitch, setGlitch] = react.useState(false);

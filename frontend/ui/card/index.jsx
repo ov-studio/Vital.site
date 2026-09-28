@@ -63,7 +63,7 @@ export function Card({
   subtitleClassName = '',
   descriptionClassName = '',
   footerClassName = '',
-  interactive = Boolean(onClick),
+  interactive = Boolean(onClick)
 }) {
   return (
     <div
@@ -137,7 +137,7 @@ export function CardMeta({
   authorClassName = '',
   versionClassName = '',
   titleClassName = '',
-  taglineClassName = '',
+  taglineClassName = ''
 }) {
   const has_meta = Boolean(author || version);
   const has_tagline = Boolean(tagline && String(tagline).trim());

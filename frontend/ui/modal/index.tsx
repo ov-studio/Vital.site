@@ -95,7 +95,7 @@ export function Modal({
   labelledBy,
   label,
   maxWidth = 780,
-  showClose = true,
+  showClose = true
 }: ModalProps) {
   use_scroll_lock(true);
 
@@ -167,7 +167,7 @@ export function ModalHeader({
   title,
   tagline,
   divider = true,
-  titleClassName = '',
+  titleClassName = ''
 }: ModalHeaderProps) {
   const has_eyebrow = Boolean(author || version);
 
@@ -212,7 +212,7 @@ export function ModalHeader({
  */
 export function ModalBody({
   children,
-  className = '',
+  className = ''
 }: {
   children: react.ReactNode;
   className?: string;
@@ -233,7 +233,7 @@ export function ModalBody({
  */
 export function ModalFooter({
   children,
-  className = '',
+  className = ''
 }: {
   children: react.ReactNode;
   className?: string;
@@ -254,7 +254,7 @@ export function ModalFooter({
  */
 export function ModalActions({
   children,
-  className = '',
+  className = ''
 }: {
   children: react.ReactNode;
   className?: string;
