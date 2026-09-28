@@ -232,12 +232,12 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
       bodyClassName="vault-card-body"
       bodyContent={
         <>
-          <div className="vault-card-meta">
-            <span className="vault-card-author">{resource.author}</span>
-            <span className="vault-card-version">v{resource.version}</span>
-          </div>
-          <div className="vault-card-name">{resource.name}</div>
-          {resource.tagline?.trim() ? <div className="vault-card-tagline">{resource.tagline.trim()}</div> : null}
+          <ui_card.CardMeta
+            author={resource.author}
+            version={`v${resource.version}`}
+            title={resource.name}
+            tagline={resource.tagline}
+          />
           <div className="vault-card-footer">
             <div className="vault-card-tags">
               {resource.tags.slice(0, 2).map(t => (

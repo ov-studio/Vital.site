@@ -27,3 +27,51 @@
 }
 .ui-card.ui-card--stack .ui-card-cover { position: static; }
 .ui-card.ui-card--stack .ui-card-body  { position: static; display: flex; flex-direction: column; }
+
+.ui-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.ui-card-author {
+  font-family: 'Geist', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.ui-card-version {
+  font-family: 'Rajdhani', var(--font-rajdhani), sans-serif;
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+
+.ui-card-title {
+  margin: 0 0 6px;
+  font-family: 'Rajdhani', var(--font-rajdhani), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.15;
+  color: var(--brand-neon-core);
+  text-transform: none;
+}
+
+.ui-card-tagline {
+  flex: 1;
+  margin: 0 0 18px;
+  font-family: 'Geist', sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--dim);
+}
+
+.ui-card-body:not(:has(.ui-card-tagline)) .ui-card-title {
+  margin-bottom: 18px;
+}

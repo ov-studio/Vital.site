@@ -113,3 +113,61 @@ export function Card({
     </div>
   );
 }
+
+/**
+ * Shared card meta — author / version / title / tagline (matches modal tone).
+ *
+ * @param {Object} props
+ * @param {string} [props.author]
+ * @param {string} [props.version]  e.g. "v1.0.0"
+ * @param {string} [props.title]
+ * @param {string} [props.tagline]
+ * @param {string} [props.className]
+ * @param {string} [props.authorClassName]
+ * @param {string} [props.versionClassName]
+ * @param {string} [props.titleClassName]
+ * @param {string} [props.taglineClassName]
+ */
+export function CardMeta({
+  author = undefined,
+  version = undefined,
+  title = undefined,
+  tagline = undefined,
+  className = '',
+  authorClassName = '',
+  versionClassName = '',
+  titleClassName = '',
+  taglineClassName = '',
+}) {
+  const has_meta = Boolean(author || version);
+  const has_tagline = Boolean(tagline && String(tagline).trim());
+
+  return (
+    <>
+      {has_meta ? (
+        <div className={`ui-card-meta${className ? ` ${className}` : ''}`}>
+          {author ? (
+            <span className={`ui-card-author${authorClassName ? ` ${authorClassName}` : ''}`}>
+              {author}
+            </span>
+          ) : (
+            <span />
+          )}
+          {version ? (
+            <span className={`ui-card-version${versionClassName ? ` ${versionClassName}` : ''}`}>
+              {version}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
+      {title ? (
+        <div className={`ui-card-title${titleClassName ? ` ${titleClassName}` : ''}`}>{title}</div>
+      ) : null}
+      {has_tagline ? (
+        <div className={`ui-card-tagline${taglineClassName ? ` ${taglineClassName}` : ''}`}>
+          {String(tagline).trim()}
+        </div>
+      ) : null}
+    </>
+  );
+}
