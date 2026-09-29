@@ -45,6 +45,7 @@ export const info = {
       '/vault/tree',
       '/vault/repos',
       '/vault/submit',
+      '/vault/submissions',
       '/masterlist',
       '/ip',
       '/youtube/playlist'
