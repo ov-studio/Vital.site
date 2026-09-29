@@ -23,7 +23,7 @@
   font-weight: 600;
   font-size: .8rem;
   color: var(--text-soft);
-  background: var(--b10);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
   border: 2px solid transparent;
   border-radius: 4px;
   outline: none;
