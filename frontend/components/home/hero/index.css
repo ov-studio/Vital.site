@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: calc(var(--nav-h)*1.85);
+  padding-top: calc(var(--nav-h)*2);
   overflow: visible;
   box-sizing: border-box;
 }
