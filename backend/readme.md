@@ -51,8 +51,6 @@ GITHUB_APP_PRIVATE_KEY=""
 4. **Install** on `ov-studio/Vital.vault` only.
 5. Copy App ID, Client ID, client secret, Installation ID, and generate a private key.
 
-Legacy `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` still work as a fallback if the App client vars are unset.
-
 Staff logins (for approving applications and vault PRs) are managed in [`shared/configs/staff.json`](../shared/configs/staff.json).
 
 ### 3. Run the dev server
