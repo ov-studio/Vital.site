@@ -46,7 +46,7 @@ GITHUB_APP_PRIVATE_KEY=""
 1. Create under [org apps](https://github.com/organizations/ov-studio/settings/apps) (e.g. `Vital.sandbox`).
 2. **Redirect URLs:** `https://api.vital-sandbox.com/auth/github/callback` and `http://localhost:3001/auth/github/callback`.
 3. **Permissions:** Contents, Pull requests, Workflows → Read & write.
-4. **Install** on `ov-studio`.
+4. **Install** on `ov-studio/Vital.vault` only.
 5. Copy App ID, Client ID, client secret, Installation ID, and generate a private key.
 
 Staff logins (for approving applications and vault PRs) are managed in [`shared/configs/staff.json`](../shared/configs/staff.json).
