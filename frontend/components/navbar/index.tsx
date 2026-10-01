@@ -141,7 +141,7 @@ export function Navbar({ links = [] }: NavbarProps) {
                       />
                       <div>
                         <div className="nav-staff-login">@{session.login}</div>
-                        <div className="nav-staff-role">{session.staff ? 'Staff' : 'Member'}</div>
+                          <div className="nav-staff-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>
                       </div>
                     </div>
                     <a className="nav-staff-item" href="/workspace" role="menuitem" onClick={() => setMenuOpen(false)}>
