@@ -128,10 +128,11 @@ nav.s::after {
 
 .nav-staff-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 14px);
   right: 0;
   z-index: 1;
   min-width: 250px;
+  min-width: 200px;
   padding: 8px;
   background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   border-radius: 4px;
