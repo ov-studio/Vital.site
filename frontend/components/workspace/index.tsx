@@ -310,7 +310,7 @@ export function Workspace() {
         {!session ? (
           <div className="ws-panel ws-panel--narrow">
             <p className="ws-text">Sign in with GitHub to open your workspace.</p>
-            {error && <p className="ws-error" role="alert">{error}</p>}
+            {error && <p className="ws-error" role="alert">Error: {error}</p>}
             <ui_button.Button variant="secondary" className="ws-btn" onClick={login}>
               Sign in with GitHub
             </ui_button.Button>
@@ -320,7 +320,7 @@ export function Workspace() {
             <div className="sec-title">Account</div>
             <ui_divider.Divider className="anim-in anim-in--3"/>
 
-            {error && <p className="ws-error" role="alert">{error}</p>}
+            {error && <p className="ws-error" role="alert">Error: {error}</p>}
 
             <div className="ws-profile-row">
               <div className="ws-profile-card">
