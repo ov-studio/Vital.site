@@ -6,8 +6,8 @@
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--b30);
   background: transparent;
-  border: 2px solid var(--rule12);
+  border: 2px solid var(--b15);
   border-radius: 4px;
 }

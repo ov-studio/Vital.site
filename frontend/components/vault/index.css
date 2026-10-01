@@ -184,7 +184,6 @@
   outline: none;
   transition: border-color .2s;
 }
-
 .vault-submit-input:focus {
   border-color: color-mix(in srgb, var(--blue) 45%, var(--b10));
 }
