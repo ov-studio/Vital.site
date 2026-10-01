@@ -277,7 +277,7 @@
 }
 
 .ws-error {
-  margin: 0;
+  margin-bottom: 15px;
   padding: 10px 12px;
   font-size: 0.85rem;
   line-height: 1.4;
