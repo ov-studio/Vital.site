@@ -43,3 +43,17 @@ export function user_apps_key(login: string) {
 
 export const applications_pending_key = 'masterlist:applications:pending';
 export const applications_approved_key = 'masterlist:applications:approved';
+
+export function vault_submission_key(id: string) {
+  return `vault:submission:${id}`;
+}
+
+export function vault_user_submissions_key(login: string) {
+  return `vault:user:${login.toLowerCase()}:submissions`;
+}
+
+export const vault_submissions_pending_key = 'vault:submissions:pending';
+
+export function auth_github_token_key(session_token: string) {
+  return `auth:github_token:${session_token}`;
+}

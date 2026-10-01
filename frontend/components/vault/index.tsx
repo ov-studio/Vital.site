@@ -12,6 +12,7 @@ import * as ui_button        from '@/ui/button';
 import * as ui_divider       from '@/ui/divider';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as lib_api_url      from '@/lib/api_url';
+import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
@@ -252,7 +253,195 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
   );
 }
 
-function VaultHead() {
+
+type GhRepo = {
+  full_name: string;
+  html_url: string;
+  description: string | null;
+};
+
+function VaultSubmitModal({
+  on_close,
+  closing,
+}: {
+  on_close: () => void;
+  closing: boolean;
+}) {
+  const [session, set_session] = react.useState<lib_auth_session.AuthSession | null>(null);
+  const [repos, set_repos] = react.useState<GhRepo[]>([]);
+  const [loading_repos, set_loading_repos] = react.useState(false);
+  const [repo, set_repo] = react.useState('');
+  const [busy, set_busy] = react.useState(false);
+  const [error, set_error] = react.useState<string | null>(null);
+  const [done, set_done] = react.useState<{ pr_url?: string | null; path?: string; updated?: boolean } | null>(null);
+
+  react.useEffect(() => {
+    lib_auth_session.capture_oauth_hash();
+    set_session(lib_auth_session.read_auth_session());
+    const on_auth = () => set_session(lib_auth_session.read_auth_session());
+    window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
+    return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
+  }, []);
+
+  const auth_headers = react.useCallback((): HeadersInit => {
+    const s = lib_auth_session.read_auth_session();
+    if (!s) return {};
+    return {
+      Authorization: `Bearer ${s.token}`,
+      'Content-Type': 'application/json'
+    };
+  }, []);
+
+  const load_repos = react.useCallback(async () => {
+    const s = lib_auth_session.read_auth_session();
+    if (!s) return;
+    set_loading_repos(true);
+    set_error(null);
+    try {
+      const res = await fetch(lib_api_url.get_api_url('/vault/repos'), { headers: auth_headers() });
+      const json = await res.json().catch(() => ({}));
+      if (res.status === 403 && json?.error === 'reauth_required') {
+        set_error('Sign in again to grant repository access.');
+        return;
+      }
+      if (!res.ok) throw new Error(json?.error || 'Failed to load repositories');
+      set_repos(Array.isArray(json.repos) ? json.repos : []);
+    }
+    catch (e) {
+      set_error(e instanceof Error ? e.message : 'Failed to load repositories');
+    }
+    finally {
+      set_loading_repos(false);
+    }
+  }, [auth_headers]);
+
+  react.useEffect(() => {
+    if (session) load_repos();
+  }, [session, load_repos]);
+
+  const login = () => {
+    window.location.href = lib_api_url.get_api_url('/auth/github?next=/vault');
+  };
+
+  const submit = async () => {
+    set_busy(true);
+    set_error(null);
+    try {
+      const res = await fetch(lib_api_url.get_api_url('/vault/submit'), {
+        method: 'POST',
+        headers: auth_headers(),
+        body: JSON.stringify({ repo })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.status === 403 && json?.error === 'reauth_required') {
+        set_error('Sign in again to grant repository access.');
+        return;
+      }
+      if (!res.ok) throw new Error(json?.error || 'Submission failed');
+      set_done({ pr_url: json.pr_url, path: json.path, updated: Boolean(json.updated) });
+    }
+    catch (e) {
+      set_error(e instanceof Error ? e.message : 'Submission failed');
+    }
+    finally {
+      set_busy(false);
+    }
+  };
+
+  return (
+    <ui_modal.Modal
+      closing={closing}
+      onClose={on_close}
+      label="Submit resource"
+      maxWidth={520}
+    >
+      <ui_modal.ModalHeader
+        title="Submit a resource"
+        tagline="Select a public repo with a manifest.yaml — we add the submodule and open the PR."
+      />
+
+      {done ? (
+        <ui_modal.ModalBody>
+          <p className="ui-modal-desc">
+            {done.updated ? 'Update pull request opened on Vital.vault' : 'Pull request opened on Vital.vault'}
+            {done.path ? <> at <code>{done.path}</code></> : null}.
+            {done.pr_url ? (
+              <>
+                {' '}
+                <a href={done.pr_url} target="_blank" rel="noreferrer">
+                  View pull request
+                </a>
+              </>
+            ) : null}
+          </p>
+        </ui_modal.ModalBody>
+      ) : !session ? (
+        <ui_modal.ModalBody>
+          <p className="ui-modal-desc">
+            Sign in with GitHub to select a repository. Metadata (name, tags, description)
+            comes from your repo&apos;s <code>manifest.yaml</code>.
+          </p>
+        </ui_modal.ModalBody>
+      ) : (
+        <ui_modal.ModalBody>
+          <div className="vault-submit-fields">
+            <label className="vault-submit-label">
+              Repository
+              <select
+                className="vault-submit-input"
+                value={repo}
+                onChange={(e) => set_repo(e.target.value)}
+                disabled={loading_repos || busy}
+              >
+                <option value="">
+                  {loading_repos ? 'Loading repositories…' : 'Select a public repo you own'}
+                </option>
+                {repos.map((r) => (
+                  <option key={r.full_name} value={r.full_name}>
+                    {r.full_name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <p className="vault-submit-hint">
+              Requires a <code>manifest.yaml</code> at the repo root (same format as existing vault resources).
+            </p>
+          </div>
+        </ui_modal.ModalBody>
+      )}
+
+      {error && <p className="ui-modal-error">{error}</p>}
+
+      <ui_modal.ModalFooter>
+        <ui_modal.ModalActions>
+          {!session ? (
+            <ui_button.Button variant="primary" onClick={login}>
+              Sign in with GitHub
+            </ui_button.Button>
+          ) : done ? (
+            <ui_button.Button variant="primary" onClick={on_close}>
+              Done
+            </ui_button.Button>
+          ) : (
+            <ui_button.Button
+              variant="primary"
+              onClick={submit}
+              disabled={busy || !repo}
+              className={busy ? 'is-busy' : ''}
+            >
+              {busy ? 'Opening PR…' : 'Open pull request'}
+            </ui_button.Button>
+          )}
+          <ui_button.Button variant="secondary" onClick={on_close} disabled={busy}>
+            Cancel
+          </ui_button.Button>
+        </ui_modal.ModalActions>
+      </ui_modal.ModalFooter>
+    </ui_modal.Modal>
+  );
+}
+
+function VaultHead({ on_submit }: { on_submit: () => void }) {
   return (
     <div className="page-head">
       <div className="sec-head sec-head--intro">
@@ -263,9 +452,9 @@ function VaultHead() {
       </div>
       <div className="page-intro vault-intro sec-head sec-head--intro">
         <div>{config_pages.pages.vault.description}</div>
-        <a href={`https://github.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}`} target="_blank" rel="noreferrer" className="sec-link">
+        <button type="button" className="sec-link" onClick={on_submit}>
           :: Submit Resource
-        </a>
+        </button>
       </div>
     </div>
   );
@@ -304,7 +493,7 @@ function VaultSkeleton() {
     <section id="vault" className="sec-pad">
       <ui_wallpaper.Wallpaper variant={18}/>
       <div className="sw">
-        <VaultHead/>
+        <VaultHead on_submit={() => {}}/>
         <VaultFilters disabled/>
         <ui_divider.Divider className="anim-in anim-in--3"/>
       </div>
@@ -319,6 +508,12 @@ function VaultInner() {
   const [search,  set_search] = react.useState(() => searchParams.get('search') ?? '');
   const [selected, set_selected] = react.useState<config_vault.VaultResource | null>(null);
   const [closing, set_closing] = react.useState(false);
+  const [submit_open, set_submit_open] = react.useState(false);
+  const [submit_closing, set_submit_closing] = react.useState(false);
+
+  react.useEffect(() => {
+    lib_auth_session.capture_oauth_hash();
+  }, []);
   const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(() => {
     const t = searchParams.get('tag') as config_vault.VaultTag | null;
     return t && (config_vault.ALL_TAGS as readonly string[]).includes(t) ? t : null;
@@ -379,7 +574,7 @@ function VaultInner() {
       <section id="vault" className="sec-pad">
       <ui_wallpaper.Wallpaper variant={18}/>
         <div className="sw">
-          <VaultHead/>
+          <VaultHead on_submit={() => { set_submit_closing(false); set_submit_open(true); }}/>
 
           <VaultFilters
             search={search}
@@ -413,6 +608,15 @@ function VaultInner() {
       </section>
 
       {selected && <VaultModal resource={selected} on_close={close} closing={closing}/>}
+      {submit_open && (
+        <VaultSubmitModal
+          closing={submit_closing}
+          on_close={() => {
+            set_submit_closing(true);
+            window.setTimeout(() => { set_submit_open(false); set_submit_closing(false); }, 220);
+          }}
+        />
+      )}
     </>
   );
 }

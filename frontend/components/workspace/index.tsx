@@ -25,11 +25,23 @@ type Application = {
   tokenClaimed?: boolean;
 };
 
+type VaultSub = {
+  id: string;
+  login: string;
+  repo_full: string;
+  repo_url: string;
+  name: string;
+  status: string;
+  createdAt: number;
+  pr_url?: string | null;
+};
+
 type ApiState = {
   pending:       Application | null;
   applications:  Application[];
   staffPending?: Application[];
   staffTokens?:  Application[];
+  vaultPending?: VaultSub[];
 };
 
 function fmt_date(ts?: number) {
@@ -86,7 +98,15 @@ export function Workspace() {
         setError(typeof json.error === 'string' ? json.error : 'Failed to load');
         return;
       }
-      setData(json as ApiState);
+      let vaultPending: VaultSub[] = [];
+      if (s.staff) {
+        const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: auth_headers() });
+        if (vr.ok) {
+          const vj = await vr.json().catch(() => ({}));
+          vaultPending = Array.isArray(vj.pending) ? vj.pending : [];
+        }
+      }
+      setData({ ...(json as ApiState), vaultPending });
       setError(null);
     } 
     catch { setError('Network error — is the API up?'); } 
@@ -206,6 +226,27 @@ export function Workspace() {
   const filtered_tokens = ql
     ? staffTokens.filter(t => t.name.toLowerCase().includes(ql) || t.login.toLowerCase().includes(ql))
     : staffTokens;
+
+  const decide_vault = react.useCallback(async (id: string, decision: 'approved' | 'rejected') => {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch(lib_api_url.get_api_url('/vault/submissions'), {
+        method: 'POST',
+        headers: auth_headers(),
+        body: JSON.stringify({ id, decision })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(json?.error || 'Failed');
+      await load();
+    }
+    catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed');
+    }
+    finally {
+      setBusy(false);
+    }
+  }, [auth_headers, load]);
 
   const canApply = !pendingApp;
 
@@ -454,8 +495,8 @@ export function Workspace() {
                                 <td>{fmt_date(p.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
-                                    <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</ui_button.Button>
-                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</ui_button.Button>
+                                    <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Merge PR</ui_button.Button>
+                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Close PR</ui_button.Button>
                                   </div>
                                 </td>
                               </tr>
@@ -505,7 +546,62 @@ export function Workspace() {
                       </ui_table.Table>
                   )}
                 </div>
-              </>
+              
+                <div className="sec-title anim-in anim-in--4">Vault submissions</div>
+                <ui_divider.Divider className="anim-in anim-in--4"/>
+                <div className="ws-panel anim-in anim-in--4">
+                  {(data?.vaultPending?.length ?? 0) === 0 ? (
+                    <p className="ws-text">No pending vault submissions.</p>
+                  ) : (
+                    <ui_table.Table>
+                      <thead>
+                        <tr>
+                          <th>Resource</th>
+                          <th>Submitter</th>
+                          <th>Submitted</th>
+                          <th>PR</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {(data?.vaultPending ?? []).map((v) => (
+                          <tr key={v.id}>
+                            <td>
+                              <a href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
+                              <div className="ws-muted">{v.repo_full}</div>
+                            </td>
+                            <td>@{v.login}</td>
+                            <td>{fmt_date(v.createdAt)}</td>
+                            <td>
+                              {v.pr_url ? (
+                                <a href={v.pr_url} target="_blank" rel="noreferrer">View PR</a>
+                              ) : '—'}
+                            </td>
+                            <td className="ws-row-actions">
+                              <ui_button.Button
+                                variant="primary"
+                               
+                                disabled={busy}
+                                onClick={() => decide_vault(v.id, 'approved')}
+                              >
+                                Merge PR
+                              </ui_button.Button>
+                              <ui_button.Button
+                                variant="secondary"
+                               
+                                disabled={busy}
+                                onClick={() => decide_vault(v.id, 'rejected')}
+                              >
+                                Close PR
+                              </ui_button.Button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </ui_table.Table>
+                  )}
+                </div>
+</>
             )}
           </>
         )}
