@@ -331,7 +331,7 @@ export function Workspace() {
                 </div>
                 <div>
                   <div className="ws-login">@{session.login}</div>
-                  <div className="ws-role">{session.staff ? 'Staff' : 'Member'}</div>
+                  <div className="ws-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>
                 </div>
               </div>
 

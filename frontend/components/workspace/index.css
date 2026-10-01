@@ -38,16 +38,13 @@
 .ws-login {
   font-size: 1.0rem;
   font-weight: 600;
-  line-height: 1.2;
   color: var(--brand-neon-core);
 }
 
 .ws-role {
-  margin-top: 8px;
-  font-size: 0.72rem;
+  margin-top: 4px;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--dim);
 }
 
