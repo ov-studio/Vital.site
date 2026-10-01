@@ -535,6 +535,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Sliders  {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                            status: 'completed' },
+          { label: 'Auto-inherit BaseMaterial3D uniforms',       status: 'completed' },
           { label: '[Client] Enum: core.shader.shader_mode',     status: 'completed' },
           { label: '[Client] API: core.shader.create',           status: 'completed' },
           { label: '[Client] API: core.shader.create_from_raw',  status: 'completed' },
