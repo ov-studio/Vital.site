@@ -97,11 +97,9 @@ nav.s::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  margin-left: 10px;
   padding: 0;
   border: none;
-  border-radius: 6px;
   background: transparent;
   transition: opacity .15s;
 }
@@ -109,10 +107,10 @@ nav.s::after {
 
 .nav-avatar {
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--brand-neon-mid);
+  box-shadow: 0 0 0 3px var(--blue);
   object-fit: cover;
 }
 .nav-avatar--sm {
