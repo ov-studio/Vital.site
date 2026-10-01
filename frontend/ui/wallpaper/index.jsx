@@ -7,13 +7,13 @@ import './index.css';
  * @param {number}  [props.variant=1]   pattern id (1–18)
  * @param {number}  [props.opacity=1]
  * @param {boolean} [props.vignette=true]
- * @param {string}  [props.color]       stroke color (default var(--rule70))
+ * @param {string}  [props.color]       stroke color (default var(--rule7))
  */
 export function Wallpaper({
   variant = 1,
   opacity = 0.8,
   vignette = true,
-  color = 'var(--rule70)'
+  color = 'var(--rule7)'
 }) {
   const v = Math.max(1, Math.min(18, Number(variant) || 1));
   const cls = [
