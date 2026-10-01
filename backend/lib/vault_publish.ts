@@ -294,10 +294,7 @@ export async function publish_resource_pr(opts: {
     (is_update ? '## Update resource: ' : '## Add resource: ') + opts.display_name,
     '',
     '**Repository:** [' + opts.resource_repo_full + '](' + sub_url_clean + ')',
-    '**Submodule path:** `' + target_path + '`',
-    '',
-    '---',
-    'Opened via [/vault](https://vital-sandbox.com/vault).'
+    '**Submodule path:** `' + target_path + '`'
   ].join('\n');
 
   const pr = await gh<{ html_url?: string }>(opts.token, `/repos/${upstream}/pulls`, {
@@ -424,10 +421,7 @@ export async function remove_resource_pr(opts: {
         `## Remove resource: ${leaf}`,
         '',
         `**Submodule path:** \`${sub_path}\``,
-        `**Requested by:** @${opts.actor}`,
-        '',
-        '---',
-        'Opened via [/vault](https://vital-sandbox.com/vault).'
+        `**Requested by:** @${opts.actor}`
       ].join('\n')
     })
   });
