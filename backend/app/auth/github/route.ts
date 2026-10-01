@@ -7,7 +7,9 @@ export const fetchCache = 'force-no-store';
 export async function GET(req: Request) {
   if (!lib_auth.auth_configured()) {
     return Response.json(
-      { error: 'Auth is not configured (GITHUB_CLIENT_ID / GITHUB_CLIENT_SECRET / Redis)' },
+      {
+        error: 'Auth is not configured (GITHUB_APP_CLIENT_ID + GITHUB_APP_CLIENT_SECRET, or GITHUB_CLIENT_ID + GITHUB_CLIENT_SECRET, and Redis)'
+      },
       { status: 503 }
     );
   }

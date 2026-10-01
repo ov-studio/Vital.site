@@ -128,7 +128,7 @@ export function github_authorize_url(state: string): string {
 export async function exchange_github_code(code: string): Promise<{ access_token: string } | { error: string }> {
   const client_id     = oauth_client_id();
   const client_secret = oauth_client_secret();
-  if (!client_id || !client_secret) return { error: 'GitHub OAuth not configured' };
+  if (!client_id || !client_secret) return { error: 'GitHub OAuth not configured (set GITHUB_APP_CLIENT_ID / GITHUB_APP_CLIENT_SECRET)' };
 
   const redirect_uri = `${lib_api_url.get_backend_url()}/auth/github/callback`;
   const res = await fetch(GITHUB_TOKEN, {
