@@ -1,8 +1,8 @@
-import * as config_site            from '@/configs/site';
-import * as lib_auth              from '@/lib/auth';
-import * as lib_ratelimit         from '@/lib/ratelimit';
-import * as lib_redis             from '@/lib/redis';
-import * as lib_vault_submissions from '@/lib/vault_submissions';
+import * as config_site       from '@/configs/site';
+import * as lib_auth          from '@/lib/auth';
+import * as lib_github_app    from '@/lib/github_app';
+import * as lib_ratelimit     from '@/lib/ratelimit';
+import * as lib_vault_publish from '@/lib/vault_publish';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -12,17 +12,18 @@ export async function OPTIONS() {
   return new Response(null, { status: 204 });
 }
 
-function parse_pr_number(url?: string | null): number | null {
-  if (!url) return null;
-  const m = url.match(/\/pull\/(\d+)/);
-  return m ? Number(m[1]) : null;
-}
+type GhPr = {
+  number: number;
+  title: string;
+  html_url: string;
+  user?: { login?: string };
+  created_at: string;
+  body?: string | null;
+  merged_at?: string | null;
+  state?: string;
+};
 
-async function gh_staff(
-  token: string,
-  path: string,
-  init: RequestInit = {}
-): Promise<{ ok: boolean; status: number; data: Record<string, unknown>; text: string }> {
+async function gh(token: string, path: string, init: RequestInit = {}) {
   const res = await fetch(`https://api.github.com${path}`, {
     ...init,
     headers: {
@@ -34,118 +35,186 @@ async function gh_staff(
     }
   });
   const text = await res.text();
-  let data: Record<string, unknown> = {};
+  let data: unknown = {};
   try { data = text ? JSON.parse(text) : {}; } catch { /* */ }
   return { ok: res.ok, status: res.status, data, text };
+}
+
+function parse_resource(title: string, body?: string | null) {
+  const m = title.match(/^(?:add|update|remove):\s*resource\s+(.+)$/i);
+  const name = (m?.[1] || title).trim();
+  const repo = body?.match(/Repository:\s*\[([^\]]+)\]/)?.[1]
+    || body?.match(/github\.com\/([\w.-]+\/[\w.-]+)/)?.[1];
+  const path = body?.match(/Submodule path:\s*`?([^`\s]+)`?/)?.[1];
+  return { name, repo_full: repo, path };
+}
+
+function map_pr(pr: GhPr) {
+  const meta = parse_resource(pr.title, pr.body);
+  const kind = /^(remove):/i.test(pr.title) ? 'remove'
+    : /^(update):/i.test(pr.title) ? 'update' : 'add';
+  return {
+    id: String(pr.number),
+    login: (pr.user?.login || '').toLowerCase(),
+    repo_full: meta.repo_full || '',
+    repo_url: meta.repo_full ? `https://github.com/${meta.repo_full}` : pr.html_url,
+    name: meta.name,
+    path: meta.path || '',
+    kind,
+    status: pr.merged_at ? 'merged' : pr.state === 'closed' ? 'closed' : 'pending',
+    createdAt: new Date(pr.created_at).getTime(),
+    pr_url: pr.html_url
+  };
 }
 
 export async function GET(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  if (!lib_auth.auth_configured() || !lib_redis.redis_configured) {
+  if (!lib_auth.auth_configured()) {
     return Response.json({ error: 'Unavailable' }, { status: 503 });
   }
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
   if (!session.staff) return Response.json({ error: 'forbidden' }, { status: 403 });
 
-  const pending = await lib_vault_submissions.list_pending();
-  return Response.json({
-    pending: pending.map(lib_vault_submissions.sanitize)
-  });
+  const token = await lib_github_app.vault_write_token();
+  if (!token) {
+    return Response.json(
+      { error: 'GitHub App not configured (GITHUB_APP_ID / INSTALLATION_ID / PRIVATE_KEY)' },
+      { status: 503 }
+    );
+  }
+
+  const vault = config_site.info.git.vault;
+  const repo = `${vault.user}/${vault.repo}`;
+
+  const [open_res, closed_res, vault_json_res] = await Promise.all([
+    gh(token, `/repos/${repo}/pulls?state=open&per_page=50`),
+    gh(token, `/repos/${repo}/pulls?state=closed&per_page=30`),
+    fetch(
+      `https://cdn.jsdelivr.net/gh/${vault.user}/${vault.repo}@${vault.branch || 'main'}/vault.json`,
+      { headers: { 'User-Agent': 'Vital.site/1.0' } }
+    )
+  ]);
+
+  const open_prs = (Array.isArray(open_res.data) ? open_res.data : []) as GhPr[];
+  const closed_prs = (Array.isArray(closed_res.data) ? closed_res.data : []) as GhPr[];
+  const is_resource_pr = (t: string) => /^(add|update|remove):\s*resource\s+/i.test(t);
+
+  const pending = open_prs.filter((pr) => is_resource_pr(pr.title)).map(map_pr);
+  const recent = closed_prs
+    .filter((pr) => is_resource_pr(pr.title) && pr.merged_at)
+    .map(map_pr)
+    .slice(0, 30);
+
+  let published: {
+    id: string;
+    name: string;
+    author: string;
+    path: string;
+    source_url?: string;
+    version?: string;
+  }[] = [];
+
+  if (vault_json_res.ok) {
+    try {
+      const vj = await vault_json_res.json() as {
+        resources?: {
+          id?: string;
+          name?: string;
+          author?: string;
+          source_url?: string;
+          version?: string;
+          is_submodule?: boolean;
+        }[];
+      };
+      published = (vj.resources || [])
+        .filter((r) => r.is_submodule !== false)
+        .map((r) => ({
+          id: r.id || '',
+          name: r.name || r.id || '',
+          author: r.author || '',
+          path: `resources/${r.id}`,
+          source_url: r.source_url,
+          version: r.version
+        }))
+        .filter((r) => r.id);
+    }
+    catch { /* */ }
+  }
+
+  return Response.json({ pending, recent, published });
 }
 
 export async function POST(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  if (!lib_auth.auth_configured() || !lib_redis.redis_configured) {
+  if (!lib_auth.auth_configured()) {
     return Response.json({ error: 'Unavailable' }, { status: 503 });
   }
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
   if (!session.staff) return Response.json({ error: 'forbidden' }, { status: 403 });
 
-  // Prefer server bot token (GITHUB_VAULT_TOKEN) — OAuth Apps cannot merge
-  // PRs that touch workflows without fragile "workflow" scope.
-  const bot = lib_auth.vault_github_token();
-  const user_gh = await lib_auth.github_token_from_auth_header(req.headers.get('authorization'));
-  const gh = bot || user_gh;
-  if (!gh) {
-    return Response.json(
-      {
-        error: 'missing_token',
-        message: 'Set GITHUB_VAULT_TOKEN (PAT with repo + workflow on Vital.vault) or sign in again'
-      },
-      { status: 403 }
-    );
+  const token = await lib_github_app.vault_write_token();
+  if (!token) {
+    return Response.json({
+      error: 'missing_token',
+      message: 'Configure GITHUB_APP_ID, GITHUB_APP_INSTALLATION_ID, GITHUB_APP_PRIVATE_KEY'
+    }, { status: 503 });
   }
 
   const body = await req.json().catch(() => ({}));
-  const id = typeof body?.id === 'string' ? body.id : '';
-  const decision = body?.decision === 'approved' || body?.decision === 'rejected' ? body.decision : null;
-  if (!id || !decision) {
-    return Response.json({ error: 'id and decision (approved|rejected) required' }, { status: 400 });
-  }
-
-  // Load pending first so we still have pr_url
-  const pending = await lib_vault_submissions.list_pending();
-  const sub = pending.find((s) => s.id === id);
-  if (!sub) {
-    return Response.json({ error: 'Submission not found or already decided' }, { status: 400 });
-  }
-
+  const action = typeof body?.action === 'string' ? body.action : '';
   const vault = config_site.info.git.vault;
   const repo = `${vault.user}/${vault.repo}`;
-  const pr_number = parse_pr_number(sub.issue_url);
 
-  if (pr_number) {
-    if (decision === 'approved') {
-      const merge = await gh_staff(gh, `/repos/${repo}/pulls/${pr_number}/merge`, {
-        method: 'PUT',
-        body: JSON.stringify({
-          commit_title: `add: resource ${sub.name}`,
-          merge_method: 'merge'
-        })
-      });
-      if (!merge.ok) {
-        const msg = (merge.data.message as string) || merge.text.slice(0, 200);
-        // already merged is fine
-        if (merge.status !== 405 && !/already merged/i.test(msg)) {
-          return Response.json(
-            {
-              error: /workflow/i.test(msg)
-              ? `OAuth cannot merge this PR. Set env GITHUB_VAULT_TOKEN to a classic PAT with "repo" + "workflow" scopes on the backend, then retry.`
-              : `Could not merge PR #${pr_number}: ${msg}`
-            },
-            { status: 400 }
-          );
-        }
-      }
-    }
-    else {
-      const close = await gh_staff(gh, `/repos/${repo}/pulls/${pr_number}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ state: 'closed' })
-      });
-      if (!close.ok) {
-        return Response.json(
-          {
-            error: `Could not close PR #${pr_number}: ${(close.data.message as string) || close.text.slice(0, 160)}`
-          },
-          { status: 400 }
-        );
+  if (action === 'remove') {
+    const path = typeof body?.path === 'string' ? body.path : '';
+    if (!path) return Response.json({ error: 'path required' }, { status: 400 });
+    const result = await lib_vault_publish.remove_resource_pr({
+      token,
+      path,
+      actor: session.login
+    });
+    if (!result.ok) return Response.json({ error: result.error }, { status: 400 });
+    return Response.json({ ok: true, pr_url: result.pr_url, path: result.path });
+  }
+
+  const id = typeof body?.id === 'string' ? body.id : '';
+  const decision = body?.decision === 'approved' || body?.decision === 'rejected' ? body.decision : null;
+  const pr_number = Number(id);
+  if (!pr_number || !decision) {
+    return Response.json({ error: 'id (PR number) and decision required' }, { status: 400 });
+  }
+
+  if (decision === 'approved') {
+    const merge = await gh(token, `/repos/${repo}/pulls/${pr_number}/merge`, {
+      method: 'PUT',
+      body: JSON.stringify({ merge_method: 'merge' })
+    });
+    if (!merge.ok) {
+      const msg = String((merge.data as { message?: string })?.message || merge.text).slice(0, 220);
+      if (merge.status !== 405 && !/already merged/i.test(msg)) {
+        return Response.json({ error: `Could not merge PR #${pr_number}: ${msg}` }, { status: 400 });
       }
     }
   }
-
-  const result = await lib_vault_submissions.decide_submission(id, session.login, decision);
-  if ('error' in result) {
-    return Response.json({ error: result.error }, { status: 400 });
+  else {
+    const close = await gh(token, `/repos/${repo}/pulls/${pr_number}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ state: 'closed' })
+    });
+    if (!close.ok) {
+      const msg = String((close.data as { message?: string })?.message || close.text).slice(0, 160);
+      return Response.json({ error: `Could not close PR #${pr_number}: ${msg}` }, { status: 400 });
+    }
   }
+
   return Response.json({
     ok: true,
-    submission: lib_vault_submissions.sanitize(result),
-    merged: decision === 'approved' && Boolean(pr_number),
-    closed: decision === 'rejected' && Boolean(pr_number)
+    merged: decision === 'approved',
+    closed: decision === 'rejected',
+    pr: pr_number
   });
 }

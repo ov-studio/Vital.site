@@ -31,9 +31,20 @@ type VaultSub = {
   repo_full: string;
   repo_url: string;
   name: string;
+  path?: string;
+  kind?: string;
   status: string;
   createdAt: number;
   pr_url?: string | null;
+};
+
+type VaultPublished = {
+  id: string;
+  name: string;
+  author: string;
+  path: string;
+  source_url?: string;
+  version?: string;
 };
 
 type ApiState = {
@@ -42,6 +53,8 @@ type ApiState = {
   staffPending?: Application[];
   staffTokens?:  Application[];
   vaultPending?: VaultSub[];
+  vaultRecent?: VaultSub[];
+  vaultPublished?: VaultPublished[];
 };
 
 function fmt_date(ts?: number) {
@@ -59,6 +72,7 @@ export function Workspace() {
   const [error, setError] = react.useState<string | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
+  const [vaultTab, setVaultTab] = react.useState<'pending' | 'published' | 'recent'>('pending');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
 
@@ -99,14 +113,18 @@ export function Workspace() {
         return;
       }
       let vaultPending: VaultSub[] = [];
+      let vaultRecent: VaultSub[] = [];
+      let vaultPublished: VaultPublished[] = [];
       if (s.staff) {
         const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: auth_headers() });
         if (vr.ok) {
           const vj = await vr.json().catch(() => ({}));
           vaultPending = Array.isArray(vj.pending) ? vj.pending : [];
+          vaultRecent = Array.isArray(vj.recent) ? vj.recent : [];
+          vaultPublished = Array.isArray(vj.published) ? vj.published : [];
         }
       }
-      setData({ ...(json as ApiState), vaultPending });
+      setData({ ...(json as ApiState), vaultPending, vaultRecent, vaultPublished });
       setError(null);
     } 
     catch { setError('Network error — is the API up?'); } 
@@ -247,6 +265,29 @@ export function Workspace() {
       setBusy(false);
     }
   }, [auth_headers, load]);
+
+  const remove_vault = react.useCallback(async (path: string) => {
+    if (!window.confirm('Open a PR to remove this resource from the vault?')) return;
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch(lib_api_url.get_api_url('/vault/submissions'), {
+        method: 'POST',
+        headers: auth_headers(),
+        body: JSON.stringify({ action: 'remove', path })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(json?.error || 'Failed to open removal PR');
+      await load();
+    }
+    catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed');
+    }
+    finally {
+      setBusy(false);
+    }
+  }, [auth_headers, load]);
+
 
   const canApply = !pendingApp;
 
@@ -547,60 +588,149 @@ export function Workspace() {
                   )}
                 </div>
               
-                <div className="sec-title anim-in anim-in--4">Vault submissions</div>
+                <div className="sec-title anim-in anim-in--4">Vault resources</div>
                 <ui_divider.Divider className="anim-in anim-in--4"/>
+                <div className="ws-stats anim-in anim-in--4">
+                  <div className="ws-stat">
+                    <div className="ws-stat-top">
+                      <div className="ws-stat-label">Pending</div>
+                      <lucide.Inbox size={16} strokeWidth={2} className="ws-stat-icon"/>
+                    </div>
+                    <div className="ws-stat-value">{loading ? '—' : (data?.vaultPending?.length ?? 0)}</div>
+                  </div>
+                  <div className="ws-stat">
+                    <div className="ws-stat-top">
+                      <div className="ws-stat-label">Published</div>
+                      <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
+                    </div>
+                    <div className="ws-stat-value">{loading ? '—' : (data?.vaultPublished?.length ?? 0)}</div>
+                  </div>
+                </div>
                 <div className="ws-panel anim-in anim-in--4">
-                  {(data?.vaultPending?.length ?? 0) === 0 ? (
-                    <p className="ws-text">No pending vault submissions.</p>
-                  ) : (
-                    <ui_table.Table>
-                      <thead>
-                        <tr>
-                          <th>Resource</th>
-                          <th>Submitter</th>
-                          <th>Submitted</th>
-                          <th>PR</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {(data?.vaultPending ?? []).map((v) => (
-                          <tr key={v.id}>
-                            <td>
-                              <a href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
-                              <div className="ws-muted">{v.repo_full}</div>
-                            </td>
-                            <td>@{v.login}</td>
-                            <td>{fmt_date(v.createdAt)}</td>
-                            <td>
-                              {v.pr_url ? (
-                                <a href={v.pr_url} target="_blank" rel="noreferrer">View PR</a>
-                              ) : '—'}
-                            </td>
-                            <td className="ws-row-actions">
-                              <ui_button.Button
-                                variant="primary"
-                               
-                                disabled={busy}
-                                onClick={() => decide_vault(v.id, 'approved')}
-                              >
-                                Merge PR
-                              </ui_button.Button>
-                              <ui_button.Button
-                                variant="secondary"
-                               
-                                disabled={busy}
-                                onClick={() => decide_vault(v.id, 'rejected')}
-                              >
-                                Close PR
-                              </ui_button.Button>
-                            </td>
+                  <div className="ws-panel-head ws-panel-head--tabs">
+                    <ui_tabs.Tabs
+                      value={vaultTab}
+                      onChange={(id) => setVaultTab(id as 'pending' | 'published' | 'recent')}
+                      ariaLabel="Vault lists"
+                      items={[
+                        { id: 'pending', label: 'Pending', icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
+                        { id: 'published', label: 'Published', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
+                        { id: 'recent', label: 'Merged', icon: <lucide.GitMerge size={14} strokeWidth={2.25}/> },
+                      ]}
+                    />
+                  </div>
+
+                  {vaultTab === 'pending' && (
+                    (data?.vaultPending?.length ?? 0) === 0 ? (
+                      <p className="ws-text">No open resource pull requests.</p>
+                    ) : (
+                      <ui_table.Table>
+                        <thead>
+                          <tr>
+                            <th>Resource</th>
+                            <th>Submitter</th>
+                            <th>Submitted</th>
+                            <th>PR</th>
+                            <th></th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </ui_table.Table>
+                        </thead>
+                        <tbody>
+                          {(data?.vaultPending ?? []).map((v) => (
+                            <tr key={v.id}>
+                              <td>
+                                <a href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
+                                <div className="ws-muted">{v.repo_full || v.kind}</div>
+                              </td>
+                              <td>@{v.login}</td>
+                              <td>{fmt_date(v.createdAt)}</td>
+                              <td>
+                                {v.pr_url ? (
+                                  <a href={v.pr_url} target="_blank" rel="noreferrer">View PR</a>
+                                ) : '—'}
+                              </td>
+                              <td className="ws-row-actions">
+                                <ui_button.Button variant="primary" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>
+                                  Merge PR
+                                </ui_button.Button>
+                                <ui_button.Button variant="secondary" disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>
+                                  Close PR
+                                </ui_button.Button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </ui_table.Table>
+                    )
+                  )}
+
+                  {vaultTab === 'published' && (
+                    (data?.vaultPublished?.length ?? 0) === 0 ? (
+                      <p className="ws-text">No published vault resources.</p>
+                    ) : (
+                      <ui_table.Table>
+                        <thead>
+                          <tr>
+                            <th>Resource</th>
+                            <th>Author</th>
+                            <th>Version</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {(data?.vaultPublished ?? []).map((r) => (
+                            <tr key={r.id}>
+                              <td>
+                                {r.source_url ? (
+                                  <a href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
+                                ) : r.name}
+                                <div className="ws-muted">{r.path}</div>
+                              </td>
+                              <td>{r.author ? `@${r.author}` : '—'}</td>
+                              <td>{r.version || '—'}</td>
+                              <td className="ws-row-actions">
+                                <ui_button.Button variant="secondary" danger disabled={busy} onClick={() => remove_vault(r.path)}>
+                                  Remove
+                                </ui_button.Button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </ui_table.Table>
+                    )
+                  )}
+
+                  {vaultTab === 'recent' && (
+                    (data?.vaultRecent?.length ?? 0) === 0 ? (
+                      <p className="ws-text">No recently merged resource PRs.</p>
+                    ) : (
+                      <ui_table.Table>
+                        <thead>
+                          <tr>
+                            <th>Resource</th>
+                            <th>Submitter</th>
+                            <th>Merged</th>
+                            <th>PR</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {(data?.vaultRecent ?? []).map((v) => (
+                            <tr key={v.id}>
+                              <td>{v.name}</td>
+                              <td>@{v.login}</td>
+                              <td>{fmt_date(v.createdAt)}</td>
+                              <td>
+                                {v.pr_url ? (
+                                  <a href={v.pr_url} target="_blank" rel="noreferrer">View PR</a>
+                                ) : '—'}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </ui_table.Table>
+                    )
                   )}
                 </div>
+
 </>
             )}
           </>

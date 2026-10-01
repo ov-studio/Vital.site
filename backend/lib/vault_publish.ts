@@ -296,10 +296,8 @@ export async function publish_resource_pr(opts: {
     '**Repository:** [' + opts.resource_repo_full + '](' + sub_url_clean + ')',
     '**Submodule path:** `' + target_path + '`',
     '',
-    'Metadata (name, tags, description, banner) is read from `manifest.yaml` by the vault build workflow.',
-    '',
     '---',
-    '_Opened automatically via Vital.site — mirrors the README submodule flow._'
+    'Opened via [/vault](https://vital-sandbox.com/vault).'
   ].join('\n');
 
   const pr = await gh<{ html_url?: string }>(opts.token, `/repos/${upstream}/pulls`, {
@@ -320,4 +318,121 @@ export async function publish_resource_pr(opts: {
   }
 
   return { ok: true, pr_url: pr.data.html_url, branch, path: target_path, updated: is_update };
+}
+
+export async function remove_resource_pr(opts: {
+  token: string;
+  path: string;
+  actor: string;
+}): Promise<PublishResult> {
+  const vault = config_site.info.git.vault;
+  const upstream = `${vault.user}/${vault.repo}`;
+  const branch_main = vault.branch || 'main';
+  const sub_path = opts.path.startsWith('resources/') ? opts.path : `resources/${opts.path}`;
+  const leaf = sub_path.replace(/^resources\//, '');
+
+  const up_ref = await gh<{ object?: { sha?: string } }>(
+    opts.token,
+    `/repos/${upstream}/git/ref/heads/${encodeURIComponent(branch_main)}`
+  );
+  const base_sha = up_ref.data.object?.sha;
+  if (!base_sha) return { ok: false, error: 'Could not resolve vault main' };
+
+  const up_commit = await gh<{ tree?: { sha?: string } }>(
+    opts.token,
+    `/repos/${upstream}/git/commits/${base_sha}`
+  );
+  const base_tree = up_commit.data.tree?.sha;
+  if (!base_tree) return { ok: false, error: 'Could not resolve vault tree' };
+
+  let gitmodules = '';
+  const gm = await gh<{ content?: string }>(
+    opts.token,
+    `/repos/${upstream}/contents/.gitmodules?ref=${encodeURIComponent(branch_main)}`
+  );
+  if (gm.ok && gm.data.content) {
+    gitmodules = Buffer.from(gm.data.content, 'base64').toString('utf8');
+  }
+
+  const entries = parse_gitmodules(gitmodules);
+  if (!entries.has(sub_path)) {
+    return { ok: false, error: `No submodule at ${sub_path}` };
+  }
+  entries.delete(sub_path);
+  const gm_body = serialize_gitmodules([...entries.values()]);
+
+  const blob = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/blobs`, {
+    method: 'POST',
+    body: JSON.stringify({ content: gm_body, encoding: 'utf-8' })
+  });
+  if (!blob.ok || !blob.data.sha) {
+    return { ok: false, error: `Failed to write .gitmodules (HTTP ${blob.status})` };
+  }
+
+  const full = await gh<{ tree?: { path?: string; mode?: string; type?: string; sha?: string }[] }>(
+    opts.token,
+    `/repos/${upstream}/git/trees/${base_tree}?recursive=1`
+  );
+  if (!full.ok || !full.data.tree) {
+    return { ok: false, error: 'Failed to load vault tree' };
+  }
+  const filtered = full.data.tree
+    .filter((e) => e.type !== 'tree' && e.path !== sub_path && e.path !== '.gitmodules')
+    .map((e) => ({ path: e.path!, mode: e.mode!, type: e.type!, sha: e.sha! }));
+  filtered.push({ path: '.gitmodules', mode: '100644', type: 'blob', sha: blob.data.sha });
+
+  const tree = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/trees`, {
+    method: 'POST',
+    body: JSON.stringify({ tree: filtered })
+  });
+  if (!tree.ok || !tree.data.sha) {
+    return { ok: false, error: 'Failed to create removal tree' };
+  }
+
+  const commit = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/commits`, {
+    method: 'POST',
+    body: JSON.stringify({
+      message: `remove: resource ${leaf}`,
+      tree: tree.data.sha,
+      parents: [base_sha]
+    })
+  });
+  if (!commit.ok || !commit.data.sha) {
+    return { ok: false, error: 'Failed to create removal commit' };
+  }
+
+  const branch = `vault-remove-${leaf}-${commit.data.sha.slice(0, 7)}`.slice(0, 60);
+  const cr = await gh(opts.token, `/repos/${upstream}/git/refs`, {
+    method: 'POST',
+    body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: commit.data.sha })
+  });
+  if (!cr.ok) {
+    const upd = await gh(opts.token, `/repos/${upstream}/git/refs/heads/${encodeURIComponent(branch)}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ sha: commit.data.sha, force: true })
+    });
+    if (!upd.ok) return { ok: false, error: `Failed to set branch ${branch}` };
+  }
+
+  const pr = await gh<{ html_url?: string }>(opts.token, `/repos/${upstream}/pulls`, {
+    method: 'POST',
+    body: JSON.stringify({
+      title: `remove: resource ${leaf}`,
+      head: branch,
+      base: branch_main,
+      body: [
+        `## Remove resource: ${leaf}`,
+        '',
+        `**Submodule path:** \`${sub_path}\``,
+        `**Requested by:** @${opts.actor}`,
+        '',
+        '---',
+        'Opened via [/vault](https://vital-sandbox.com/vault).'
+      ].join('\n')
+    })
+  });
+  if (!pr.ok || !pr.data.html_url) {
+    return { ok: false, error: 'Removal branch created but PR failed' };
+  }
+  return { ok: true, pr_url: pr.data.html_url, branch, path: sub_path, updated: false };
 }

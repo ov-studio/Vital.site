@@ -13,12 +13,17 @@ export type AuthSession = {
   staff: boolean;
 };
 
+/** Prefer GitHub App OAuth credentials; fall back to legacy GITHUB_CLIENT_*. */
+function oauth_client_id(): string | undefined {
+  return process.env.GITHUB_APP_CLIENT_ID || process.env.GITHUB_CLIENT_ID;
+}
+
+function oauth_client_secret(): string | undefined {
+  return process.env.GITHUB_APP_CLIENT_SECRET || process.env.GITHUB_CLIENT_SECRET;
+}
+
 export function auth_configured(): boolean {
-  return Boolean(
-    process.env.GITHUB_CLIENT_ID &&
-    process.env.GITHUB_CLIENT_SECRET &&
-    lib_redis.redis_configured
-  );
+  return Boolean(oauth_client_id() && oauth_client_secret() && lib_redis.redis_configured);
 }
 
 export function is_staff_login(login: string): boolean {
@@ -109,20 +114,20 @@ export async function session_from_auth_header(auth_header: string | null): Prom
 }
 
 export function github_authorize_url(state: string): string {
-  const client_id = process.env.GITHUB_CLIENT_ID!;
+  const client_id = oauth_client_id()!;
   const redirect_uri = `${lib_api_url.get_backend_url()}/auth/github/callback`;
   const params = new URLSearchParams({
     client_id,
     redirect_uri,
-    scope: 'read:user public_repo workflow',
+    scope: 'read:user public_repo',
     state
   });
   return `${GITHUB_AUTHORIZE}?${params}`;
 }
 
 export async function exchange_github_code(code: string): Promise<{ access_token: string } | { error: string }> {
-  const client_id     = process.env.GITHUB_CLIENT_ID;
-  const client_secret = process.env.GITHUB_CLIENT_SECRET;
+  const client_id     = oauth_client_id();
+  const client_secret = oauth_client_secret();
   if (!client_id || !client_secret) return { error: 'GitHub OAuth not configured' };
 
   const redirect_uri = `${lib_api_url.get_backend_url()}/auth/github/callback`;

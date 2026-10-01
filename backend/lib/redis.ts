@@ -52,7 +52,6 @@ export function vault_user_submissions_key(login: string) {
   return `vault:user:${login.toLowerCase()}:submissions`;
 }
 
-export const vault_submissions_pending_key = 'vault:submissions:pending';
 
 export function auth_github_token_key(session_token: string) {
   return `auth:github_token:${session_token}`;

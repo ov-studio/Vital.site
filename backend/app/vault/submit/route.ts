@@ -1,6 +1,5 @@
 import * as lib_auth              from '@/lib/auth';
 import * as lib_ratelimit         from '@/lib/ratelimit';
-import * as lib_vault_submissions from '@/lib/vault_submissions';
 import * as lib_vault_publish     from '@/lib/vault_publish';
 
 export const runtime = 'nodejs';
@@ -99,20 +98,8 @@ export async function POST(req: Request) {
     return Response.json({ error: published.error }, { status: 400 });
   }
 
-  const result = await lib_vault_submissions.create_submission({
-    login: session.login,
-    repo_full: repo.full_name,
-    repo_url: repo.html_url,
-    name: display_name,
-    tagline: '',
-    description: '',
-    tags: [],
-    issue_url: published.pr_url
-  });
-
-  return Response.json({
+return Response.json({
     ok: true,
-    id: 'error' in result ? undefined : result.id,
     pr_url: published.pr_url,
     path: published.path,
     updated: published.updated
