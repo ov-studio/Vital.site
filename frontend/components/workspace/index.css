@@ -369,6 +369,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.25;
+  background: var(--b15);
   box-sizing: border-box;
   transition: border-color 0.2s;
 }
@@ -524,7 +525,7 @@
     flex: 1 1 auto;
     padding: 8px 12px 8px 30px;
     box-sizing: border-box;
-  }
+  } 
 
   .ws-search-ui.ui-search input:focus,
   .ws-search-ui input:focus,
