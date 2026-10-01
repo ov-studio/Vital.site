@@ -17,7 +17,7 @@ python dev.py
 For env var setup and deployment details, see each project's readme:
 
 - **[`frontend/readme.md`](./frontend/readme.md)** — docs site setup, static export
-- **[`backend/readme.md`](./backend/readme.md)** — API service, Redis, GitHub OAuth
+- **[`backend/readme.md`](./backend/readme.md)** — API service, Redis, GitHub App
 
 ## Structure
 
@@ -28,7 +28,7 @@ For env var setup and deployment details, see each project's readme:
 
 ## Deployment
 
-1. Deploy `backend` first — `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`.
+1. Deploy `backend` first with the required env vars from [`backend/.env.example`](./backend/.env.example).
 2. Deploy `frontend` as a static project. Backend URL is resolved from the deployment hostname.
 
 ## Contributing
