@@ -41,8 +41,6 @@ GITHUB_APP_PRIVATE_KEY=""
 | `GITHUB_APP_INSTALLATION_ID` | Yes* | Installation ID after installing the App on `Vital.vault`. |
 | `GITHUB_APP_PRIVATE_KEY` | Yes* | App private key PEM (multiline). Used to mint installation tokens. |
 
-\*Required for staff vault actions (merge PR, close PR, remove resource). Login works with client ID/secret alone.
-
 **GitHub App setup (org):**
 
 1. Create under [org apps](https://github.com/organizations/ov-studio/settings/apps) (e.g. `Vital.sandbox Vault`).
