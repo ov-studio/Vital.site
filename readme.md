@@ -28,7 +28,7 @@ For env var setup and deployment details, see each project's readme:
 
 ## Deployment
 
-1. Deploy `backend` first with the required env vars from [`backend/.env.example`](./backend/.env.example).
+1. Deploy `backend` first with the required env vars.
 2. Deploy `frontend` as a static project. Backend URL is resolved from the deployment hostname.
 
 ## Contributing
