@@ -242,8 +242,8 @@
   height: 40px;
   flex-shrink: 0;
   border-radius: 4px;
-  background: var(--b10);
-  color: var(--blue);
+  background: var(--b30);
+  color: var(--brand-neon-core);
 }
 
 .ws-pending-card-body {
@@ -254,7 +254,7 @@
   font-family: 'Geist', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--brand-neon-core);
   line-height: 1.25;
   word-break: break-word;
 }
@@ -262,7 +262,7 @@
 .ws-pending-card-meta {
   margin-top: 3px;
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-soft);
   line-height: 1.35;
 }
 
