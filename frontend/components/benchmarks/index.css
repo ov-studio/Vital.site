@@ -119,7 +119,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg7);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   white-space: nowrap;
 }
 
