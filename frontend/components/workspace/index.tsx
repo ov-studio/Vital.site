@@ -588,7 +588,7 @@ export function Workspace() {
                   )}
                 </div>
               
-                <div className="sec-title anim-in anim-in--4">Vault resources</div>
+                <div className="sec-title anim-in anim-in--4">Vault Submissions</div>
                 <ui_divider.Divider className="anim-in anim-in--4"/>
                 <div className="ws-stats anim-in anim-in--4">
                   <div className="ws-stat">
