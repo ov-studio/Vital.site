@@ -110,7 +110,7 @@ nav.s::after {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--blue);
+  box-shadow: 0 0 0 3px var(--brand-neon-core);
   object-fit: cover;
 }
 .nav-avatar--sm {
@@ -153,15 +153,13 @@ nav.s::after {
 .nav-staff-login {
   font-size: .85rem;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--brand-neon-core);
 }
 .nav-staff-role {
-  font-size: .68rem;
+  font-size: .7rem;
   font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
   color: var(--text-soft);
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .nav-staff-item {
@@ -172,7 +170,7 @@ nav.s::after {
   font-size: .8rem;
   font-weight: 500;
   text-align: left;
-  color: var(--w70);
+  color: var(--dim);
   text-decoration: none;
   background: transparent;
   border: none;
