@@ -65,7 +65,7 @@
   z-index: 1;
   isolation: isolate;
   padding: 16px 18px;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   border-radius: 4px;
 }
 
@@ -464,7 +464,7 @@
   isolation: isolate;
   padding: 16px 18px;
   min-width: 0;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   border-radius: 4px;
 }
 

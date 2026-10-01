@@ -43,7 +43,7 @@
 
 .bm-env-item {
   padding: 16px 18px;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   border-radius: 4px;
   min-width: 0;
   opacity: 0;

@@ -42,7 +42,7 @@
   max-height: 100%;
   margin: 3px;
   overflow: hidden;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
   isolation: isolate;
 }

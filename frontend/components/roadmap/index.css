@@ -98,7 +98,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   border-radius: 4px;
   transition: background .3s;
   contain: layout style;
