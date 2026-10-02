@@ -538,6 +538,8 @@ a.ws-cell-title:hover {
 .ws-apply-card--row {
   width: 100%;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
 }
 
 .ws-page .ws-panel:not(.ws-panel--narrow) {
