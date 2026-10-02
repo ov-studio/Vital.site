@@ -55,6 +55,7 @@ type ApiState = {
   staffTokens?:  Application[];
   vaultPending?: VaultSub[];
   vaultPublished?: VaultPublished[];
+  myVaultResources?: VaultPublished[];
 };
 
 function fmt_date(ts?: number) {
@@ -72,6 +73,7 @@ export function Workspace() {
   const [error, setError] = react.useState<string | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
+  const [accountTab, setAccountTab] = react.useState<'servers' | 'resources'>('servers');
   const [vaultTab, setVaultTab] = react.useState<'pending' | 'published'>('published');
   const [vaultQ, setVaultQ] = react.useState('');
   const [q, setQ] = react.useState('');
@@ -115,6 +117,39 @@ export function Workspace() {
       }
       let vaultPending: VaultSub[] = [];
       let vaultPublished: VaultPublished[] = [];
+      let myVaultResources: VaultPublished[] = [];
+
+      const login_lc = s.login.toLowerCase();
+      try {
+        const vault_res = await fetch(lib_api_url.get_api_url('/vault'), {
+          headers: { Accept: 'application/json' }
+        });
+        if (vault_res.ok) {
+          const vj = await vault_res.json().catch(() => ({} as { resources?: unknown[] }));
+          const resources = Array.isArray(vj?.resources) ? vj.resources : [];
+          myVaultResources = resources
+            .filter((r: { author?: string; author_url?: string }) => {
+              const a = (r.author || '').toLowerCase();
+              const url = (r.author_url || '').toLowerCase();
+              return a === login_lc || url.includes('github.com/' + login_lc);
+            })
+            .map((r: {
+              id?: string; name?: string; author?: string; version?: string; source_url?: string;
+            }) => ({
+              id: r.id || '',
+              name: r.name || r.id || '',
+              author: r.author || '',
+              path: r.id ? 'resources/' + r.id : '',
+              source_url: r.source_url,
+              version: r.version
+            }))
+            .filter((r: VaultPublished) => Boolean(r.id));
+        }
+      }
+      catch {
+        /* optional */
+      }
+
       if (s.staff) {
         const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: auth_headers() });
         if (vr.ok) {
@@ -123,7 +158,7 @@ export function Workspace() {
           vaultPublished = Array.isArray(vj.published) ? vj.published : [];
         }
       }
-      setData({ ...(json as ApiState), vaultPending, vaultPublished });
+      setData({ ...(json as ApiState), vaultPending, vaultPublished, myVaultResources });
       setError(null);
     } 
     catch { setError('Network error — is the API up?'); } 
@@ -234,6 +269,7 @@ export function Workspace() {
 
   const pendingApp = data?.pending ?? null;
   const myApps = data?.applications ?? [];
+  const myVault = data?.myVaultResources ?? [];
   const staffPending = data?.staffPending ?? [];
   const staffTokens  = data?.staffTokens ?? [];
   const ql = q.trim().toLowerCase();
@@ -393,83 +429,148 @@ export function Workspace() {
               </div>
             </div>
 
-            <div className="ws-panel">
-              <div className="ws-panel-body ws-panel-body--list">
-                <ui_table.Table className="ui-table--apps">
-                    <thead>
-                      <tr>
-                        <th>Server</th>
-                        <th>Approved</th>
-                        <th>Token</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {myApps.length === 0 ? (
-                        <tr className="ui-table-empty">
-                          <td colSpan={4}>
-                            <div className="state-empty">
-                              <lucide.KeyRound size={24} strokeWidth={1.5}/>
-                              <span>
-                                {loading
-                                  ? 'Loading…'
-                                  : pendingApp
-                                    ? 'No approved servers yet — your request is under review.'
-                                    : 'No approved servers yet. Apply above to get a token.'}
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                      ) : (
-                        myApps.map((app) => {
-                          const isOpen = !!revealed[app.appId];
-                          return (
-                            <tr key={app.appId}>
-                              <td>
-                                <div className="ws-cell-title">{app.name}</div>
-                              </td>
-                              <td>{fmt_date(app.decidedAt ?? app.createdAt)}</td>
-                              <td>
-                                {app.token ? (
-                                  <button
-                                    type="button"
-                                    className={`ws-spoiler${isOpen ? ' ws-spoiler--open' : ''}`}
-                                    onClick={() => toggleReveal(app.appId)}
-                                    title={isOpen ? 'Click to hide' : 'Click to reveal'}
-                                  >
-                                    <code className="ws-v ws-v--secret">
-                                      {isOpen ? app.token : '•'.repeat(Math.min(48, app.token.length))}
-                                    </code>
-                                    <span className="ws-spoiler-hint">{isOpen ? 'Hide' : 'Reveal'}</span>
-                                  </button>
-                                ) : (
-                                  <span>Saved (no longer stored)</span>
-                                )}
-                              </td>
-                              <td className="ws-actions-cell">
-                                <div className="ws-inline-actions">
-                                  {app.token && isOpen && (
-                                    <ui_button.Button variant="action" onClick={() => copy(`tok-${app.appId}`, app.token!)}
-                                    >
-                                      {copied === `tok-${app.appId}` ? 'Copied' : 'Copy'}
-                                    </ui_button.Button>
-                                  )}
-                                  {app.token && !app.tokenClaimed && (
-                                    <ui_button.Button variant="action" disabled={busy}
-                                      onClick={() => claim(app.appId)}
-                                    >
-                                      Mark as saved
-                                    </ui_button.Button>
-                                  )}
-                                </div>
-                              </td>
-                            </tr>
-                          );
-                        })
-                      )}
-                    </tbody>
-                  </ui_table.Table>
+            <div className="ws-stats">
+              <div className="ws-stat">
+                <div className="ws-stat-top">
+                  <div className="ws-stat-label">Servers</div>
+                  <lucide.Server size={16} strokeWidth={2} className="ws-stat-icon"/>
+                </div>
+                <div className="ws-stat-value">{loading ? '—' : myApps.length}</div>
               </div>
+              <div className="ws-stat">
+                <div className="ws-stat-top">
+                  <div className="ws-stat-label">Resources</div>
+                  <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
+                </div>
+                <div className="ws-stat-value">{loading ? '—' : myVault.length}</div>
+              </div>
+            </div>
+
+            <div className="ws-panel">
+              <div className="ws-panel-head ws-panel-head--tabs">
+                <ui_tabs.Tabs
+                  value={accountTab}
+                  onChange={(id) => setAccountTab(id as 'servers' | 'resources')}
+                  ariaLabel="Account lists"
+                  items={[
+                    { id: 'servers', label: 'Servers', icon: <lucide.Server size={14} strokeWidth={2.25}/> },
+                    { id: 'resources', label: 'Resources', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
+                  ]}
+                />
+              </div>
+
+              {accountTab === 'servers' && (
+                <ui_table.Table className="ui-table--apps">
+                  <thead>
+                    <tr>
+                      <th>Server</th>
+                      <th>Approved</th>
+                      <th>Token</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {myApps.length === 0 ? (
+                      <tr className="ui-table-empty">
+                        <td colSpan={4}>
+                          <div className="state-empty">
+                            <lucide.Server size={28} strokeWidth={1.5}/>
+                            <span>
+                              {loading
+                                ? 'Loading…'
+                                : pendingApp
+                                  ? 'No approved servers yet — your request is under review.'
+                                  : 'No approved servers yet. Apply above to get a token.'}
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      myApps.map((app) => {
+                        const isOpen = !!revealed[app.appId];
+                        return (
+                          <tr key={app.appId}>
+                            <td>
+                              <div className="ws-cell-title">{app.name}</div>
+                            </td>
+                            <td>{fmt_date(app.decidedAt ?? app.createdAt)}</td>
+                            <td>
+                              {app.token ? (
+                                <button
+                                  type="button"
+                                  className={`ws-spoiler${isOpen ? ' ws-spoiler--open' : ''}`}
+                                  onClick={() => toggleReveal(app.appId)}
+                                  title={isOpen ? 'Click to hide' : 'Click to reveal'}
+                                >
+                                  <code className="ws-v ws-v--secret">
+                                    {isOpen ? app.token : '•'.repeat(Math.min(48, app.token.length))}
+                                  </code>
+                                  <span className="ws-spoiler-hint">{isOpen ? 'Hide' : 'Reveal'}</span>
+                                </button>
+                              ) : app.tokenClaimed ? (
+                                <span className="ws-muted">Saved (no longer stored)</span>
+                              ) : (
+                                <span className="ws-muted">—</span>
+                              )}
+                            </td>
+                            <td className="ws-actions-cell">
+                              <div className="ws-inline-actions">
+                                {app.token && isOpen && (
+                                  <ui_button.Button variant="action" onClick={() => copy(`tok-${app.appId}`, app.token!)}>
+                                    {copied === `tok-${app.appId}` ? 'Copied' : 'Copy'}
+                                  </ui_button.Button>
+                                )}
+                                {app.token && !app.tokenClaimed && (
+                                  <ui_button.Button variant="action" disabled={busy} onClick={() => claim(app.appId)}>
+                                    Mark as saved
+                                  </ui_button.Button>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    )}
+                  </tbody>
+                </ui_table.Table>
+              )}
+
+              {accountTab === 'resources' && (
+                <ui_table.Table>
+                  <thead>
+                    <tr>
+                      <th>Resource</th>
+                      <th>Version</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {myVault.length === 0 ? (
+                      <tr className="ui-table-empty">
+                        <td colSpan={2}>
+                          <div className="state-empty">
+                            <lucide.Package size={28} strokeWidth={1.5}/>
+                            <span>{loading ? 'Loading…' : 'No vault resources linked to your GitHub account.'}</span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      myVault.map((r) => (
+                        <tr key={r.id}>
+                          <td>
+                            {r.source_url ? (
+                              <a className="ws-cell-title" href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
+                            ) : (
+                              <div className="ws-cell-title">{r.name}</div>
+                            )}
+                            <div className="ws-muted">{r.path}</div>
+                          </td>
+                          <td>{r.version || '—'}</td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </ui_table.Table>
+              )}
             </div>
 
             {session.staff && (
