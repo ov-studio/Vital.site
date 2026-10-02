@@ -72,7 +72,7 @@ export function Workspace() {
   const [error, setError] = react.useState<string | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
-  const [vaultTab, setVaultTab] = react.useState<'pending' | 'published'>('pending');
+  const [vaultTab, setVaultTab] = react.useState<'pending' | 'published'>('published');
   const [vaultQ, setVaultQ] = react.useState('');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
@@ -553,8 +553,8 @@ export function Workspace() {
                                 <td>{fmt_date(p.createdAt)}</td>
                                 <td className="ws-actions-cell">
                                   <div className="ws-inline-actions">
-                                    <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Merge PR</ui_button.Button>
-                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Close PR</ui_button.Button>
+                                    <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</ui_button.Button>
+                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</ui_button.Button>
                                   </div>
                                 </td>
                               </tr>
@@ -610,17 +610,17 @@ export function Workspace() {
                 <div className="ws-stats anim-in anim-in--4">
                   <div className="ws-stat">
                     <div className="ws-stat-top">
-                      <div className="ws-stat-label">Pending</div>
-                      <lucide.Inbox size={16} strokeWidth={2} className="ws-stat-icon"/>
-                    </div>
-                    <div className="ws-stat-value">{loading ? '—' : (data?.vaultPending?.length ?? 0)}</div>
-                  </div>
-                  <div className="ws-stat">
-                    <div className="ws-stat-top">
                       <div className="ws-stat-label">Published</div>
                       <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
                     </div>
                     <div className="ws-stat-value">{loading ? '—' : (data?.vaultPublished?.length ?? 0)}</div>
+                  </div>
+                  <div className="ws-stat">
+                    <div className="ws-stat-top">
+                      <div className="ws-stat-label">Pending</div>
+                      <lucide.Inbox size={16} strokeWidth={2} className="ws-stat-icon"/>
+                    </div>
+                    <div className="ws-stat-value">{loading ? '—' : (data?.vaultPending?.length ?? 0)}</div>
                   </div>
                 </div>
                                 <div className="ws-panel anim-in anim-in--4">
@@ -630,8 +630,8 @@ export function Workspace() {
                       onChange={(id) => setVaultTab(id as 'pending' | 'published')}
                       ariaLabel="Vault lists"
                       items={[
-                        { id: 'pending', label: 'Pending', icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
                         { id: 'published', label: 'Published', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
+                        { id: 'pending', label: 'Pending', icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
                       ]}
                     />
                     <ui_search.Search
@@ -679,10 +679,10 @@ export function Workspace() {
                               <td className="ws-actions-cell">
                                 <div className="ws-inline-actions">
                                   <ui_button.Button variant="action" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>
-                                    Merge PR
+                                    Approve
                                   </ui_button.Button>
                                   <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>
-                                    Close PR
+                                    Reject
                                   </ui_button.Button>
                                 </div>
                               </td>

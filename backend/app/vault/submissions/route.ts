@@ -41,21 +41,25 @@ async function gh(token: string, path: string, init: RequestInit = {}) {
 }
 
 function parse_resource(title: string, body?: string | null) {
-  const m = title.match(/^(?:add|update|remove):\s*resource\s+(.+)$/i);
-  const name = (m?.[1] || title).trim();
-  const repo = body?.match(/Repository:\s*\[([^\]]+)\]/)?.[1]
+  const body_name = body?.match(/^##\s*(?:Add|Update|Remove)\s+resource:\s*(.+)$/im)?.[1]?.trim();
+  const title_slug = title.match(/^(?:add|update|remove):\s*resource\s+(.+)$/i)?.[1]?.trim();
+  const name = (body_name || title_slug || title).trim();
+  const repo = body?.match(/\*\*Repository:\*\*\s*\[([^\]]+)\]/)?.[1]
+    || body?.match(/Repository:\s*\[([^\]]+)\]/)?.[1]
     || body?.match(/github\.com\/([\w.-]+\/[\w.-]+)/)?.[1];
   const path = body?.match(/Submodule path:\s*`?([^`\s]+)`?/)?.[1];
-  return { name, repo_full: repo, path };
+  const submitted_by = body?.match(/\*\*Submitted by:\*\*\s*@([\w-]+)/i)?.[1]?.toLowerCase();
+  return { name, repo_full: repo, path, submitted_by };
 }
 
 function map_pr(pr: GhPr) {
   const meta = parse_resource(pr.title, pr.body);
   const kind = /^(remove):/i.test(pr.title) ? 'remove'
     : /^(update):/i.test(pr.title) ? 'update' : 'add';
+  const login = (meta.submitted_by || pr.user?.login || '').toLowerCase();
   return {
     id: String(pr.number),
-    login: (pr.user?.login || '').toLowerCase(),
+    login,
     repo_full: meta.repo_full || '',
     repo_url: meta.repo_full ? `https://github.com/${meta.repo_full}` : pr.html_url,
     name: meta.name,
@@ -65,6 +69,23 @@ function map_pr(pr: GhPr) {
     createdAt: new Date(pr.created_at).getTime(),
     pr_url: pr.html_url
   };
+}
+
+async function manifest_name(token: string, repo_full: string): Promise<string | null> {
+  for (const file of ['manifest.yaml', 'manifest.yml']) {
+    const res = await gh(token, `/repos/${repo_full}/contents/${file}`);
+    if (!res.ok) continue;
+    const content = (res.data as { content?: string }).content;
+    if (!content) continue;
+    try {
+      const raw = Buffer.from(content, 'base64').toString('utf8');
+      const m =
+        raw.match(/^[ \t]*name:[ \t]*["']([^"']+)["']/m) ||
+        raw.match(/^[ \t]*name:[ \t]*([^\n#]+)/m);
+      if (m?.[1]?.trim()) return m[1].trim();
+    } catch { /* */ }
+  }
+  return null;
 }
 
 export async function GET(req: Request) {
@@ -99,7 +120,16 @@ export async function GET(req: Request) {
   const open_prs = (Array.isArray(open_res.data) ? open_res.data : []) as GhPr[];
   const is_resource_pr = (t: string) => /^(add|update|remove):\s*resource\s+/i.test(t);
 
-  const pending = open_prs.filter((pr) => is_resource_pr(pr.title)).map(map_pr);
+  const pending_raw = open_prs.filter((pr) => is_resource_pr(pr.title)).map(map_pr);
+  const pending = await Promise.all(
+    pending_raw.map(async (row) => {
+      if (!row.repo_full) return row;
+      const looks_slug = !row.name.includes(' ') && row.name === row.name.toLowerCase();
+      if (!looks_slug) return row;
+      const from_manifest = await manifest_name(token, row.repo_full);
+      return from_manifest ? { ...row, name: from_manifest } : row;
+    })
+  );
 
   let published: {
     id: string;

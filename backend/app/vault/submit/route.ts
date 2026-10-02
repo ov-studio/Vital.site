@@ -11,7 +11,7 @@ export async function OPTIONS() {
   return new Response(null, { status: 204 });
 }
 
-async function repo_has_manifest(token: string, full_name: string): Promise<boolean> {
+async function fetch_manifest(token: string, full_name: string): Promise<string | null> {
   for (const file of ['manifest.yaml', 'manifest.yml']) {
     const res = await fetch(
       `https://api.github.com/repos/${full_name}/contents/${file}`,
@@ -23,9 +23,21 @@ async function repo_has_manifest(token: string, full_name: string): Promise<bool
         }
       }
     );
-    if (res.ok) return true;
+    if (!res.ok) continue;
+    const json = (await res.json().catch(() => null)) as { content?: string } | null;
+    if (json?.content) {
+      try { return Buffer.from(json.content, 'base64').toString('utf8'); }
+      catch { /* */ }
+    }
   }
-  return false;
+  return null;
+}
+
+function manifest_display_name(raw: string, fallback: string): string {
+  const m =
+    raw.match(/^[ \t]*name:[ \t]*["']([^"']+)["']/m) ||
+    raw.match(/^[ \t]*name:[ \t]*([^\n#]+)/m);
+  return m?.[1]?.trim() || fallback;
 }
 
 export async function POST(req: Request) {
@@ -78,14 +90,15 @@ export async function POST(req: Request) {
     return Response.json({ error: 'You must own the repository' }, { status: 403 });
   }
 
-  if (!(await repo_has_manifest(gh, repo.full_name))) {
+  const manifest_raw = await fetch_manifest(gh, repo.full_name);
+  if (!manifest_raw) {
     return Response.json(
       { error: 'Repository needs a manifest.yaml (or manifest.yml) at the root — metadata is read from it by the vault build' },
       { status: 400 }
     );
   }
 
-  const display_name = repo.name;
+  const display_name = manifest_display_name(manifest_raw, repo.name);
 
   const app_token = await lib_github_app.vault_write_token();
   if (!app_token) {
