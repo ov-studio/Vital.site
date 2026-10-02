@@ -77,3 +77,35 @@
   opacity: 0.55;
   color: var(--blue);
 }
+
+.ui-table-title {
+  font-weight: 600;
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+a.ui-table-title:hover {
+  color: var(--text-soft);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.ui-table-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.ui-table-actions {
+  text-align: right;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.ui-table-actions-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: nowrap;
+  min-height: 32px;
+}
