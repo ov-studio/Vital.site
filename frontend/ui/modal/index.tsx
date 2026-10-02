@@ -23,6 +23,8 @@ interface ModalHeaderProps {
   author?:         string;
   authorHref?:     string;
   version?:        string;
+  meta?:           react.ReactNode;
+  value?:          react.ReactNode;
   title?:          string;
   tagline?:        string;
   divider?:        boolean;
@@ -164,31 +166,35 @@ export function ModalHeader({
   author,
   authorHref,
   version,
+  meta,
+  value,
   title,
   tagline,
   divider = true,
   titleClassName = ''
 }: ModalHeaderProps) {
-  const has_eyebrow = Boolean(author || version);
+  const left = meta !== undefined ? meta : author;
+  const right = value !== undefined ? value : version;
+  const has_eyebrow = left != null || right != null;
 
   return (
     <>
       {has_eyebrow ? (
         <div className="ui-modal-eyebrow">
-          {author ? (
+          {left != null ? (
             <span className="ui-modal-author">
-              {authorHref ? (
+              {typeof left === 'string' && authorHref ? (
                 <a href={authorHref} target="_blank" rel="noreferrer">
-                  {author}
+                  {left}
                 </a>
               ) : (
-                author
+                left
               )}
             </span>
           ) : (
             <span />
           )}
-          {version ? <span className="ui-modal-version">{version}</span> : null}
+          {right != null ? <span className="ui-modal-version">{right}</span> : null}
         </div>
       ) : null}
 

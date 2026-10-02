@@ -9,6 +9,7 @@ import * as ui_button        from '@/ui/button';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
 import * as ui_divider       from '@/ui/divider';
+import * as ui_stat          from '@/ui/stat';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
 import './index.css';
@@ -398,20 +399,16 @@ export function Workspace() {
                   <div className="ws-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>
                 </div>
               </div>
-              <div className="ws-stat">
-                <div className="ws-stat-top">
-                  <div className="ws-stat-label">Servers</div>
-                  <lucide.Server size={16} strokeWidth={2} className="ws-stat-icon"/>
-                </div>
-                <div className="ws-stat-value">{loading ? '—' : myApps.length}</div>
-              </div>
-              <div className="ws-stat">
-                <div className="ws-stat-top">
-                  <div className="ws-stat-label">Resources</div>
-                  <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
-                </div>
-                <div className="ws-stat-value">{loading ? '—' : myVault.length}</div>
-              </div>
+              <ui_stat.Stat
+                label="Servers"
+                icon={<lucide.Server size={16} strokeWidth={2}/>}
+                value={loading ? '—' : myApps.length}
+              />
+              <ui_stat.Stat
+                label="Resources"
+                icon={<lucide.Package size={16} strokeWidth={2}/>}
+                value={loading ? '—' : myVault.length}
+              />
               {pendingApp && (
                 <div className="ws-apply-card">
                   <div className="ws-pending-card ws-pending-card--in-panel">
@@ -590,22 +587,18 @@ export function Workspace() {
               <>
                 <div className="sec-title">Review Applications</div>
                 <ui_divider.Divider className="anim-in anim-in--3"/>
-                <div className="ws-stats">
-                  <div className="ws-stat">
-                    <div className="ws-stat-top">
-                      <div className="ws-stat-label">Issued</div>
-                      <lucide.KeyRound size={16} strokeWidth={2} className="ws-stat-icon"/>
-                    </div>
-                    <div className="ws-stat-value">{loading ? '—' : staffTokens.length}</div>
-                  </div>
-                  <div className="ws-stat">
-                    <div className="ws-stat-top">
-                      <div className="ws-stat-label">Pending</div>
-                      <lucide.Clock size={16} strokeWidth={2} className="ws-stat-icon"/>
-                    </div>
-                    <div className="ws-stat-value">{loading ? '—' : staffPending.length}</div>
-                  </div>
-                </div>
+                <ui_stat.StatGrid columns="auto" className="ws-stats">
+                  <ui_stat.Stat
+                    label="Issued"
+                    icon={<lucide.KeyRound size={16} strokeWidth={2}/>}
+                    value={loading ? '—' : staffTokens.length}
+                  />
+                  <ui_stat.Stat
+                    label="Pending"
+                    icon={<lucide.Clock size={16} strokeWidth={2}/>}
+                    value={loading ? '—' : staffPending.length}
+                  />
+                </ui_stat.StatGrid>
 
                 <div className="ws-panel">
                   <div className="ws-panel-head ws-panel-head--tabs">

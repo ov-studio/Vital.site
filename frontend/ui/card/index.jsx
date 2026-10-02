@@ -115,13 +115,18 @@ export function Card({
 }
 
 /**
- * Shared card meta — author / version / title / tagline (matches modal tone).
+ * Shared card meta — left/right meta row + title / tagline (matches modal tone).
+ *
+ * Prefer `author` / `version` for the common case; `meta` / `value` are
+ * generic aliases (e.g. category + count) and win when both are set.
  *
  * @param {Object} props
- * @param {string} [props.author]
- * @param {string} [props.version]  e.g. "v1.0.0"
- * @param {string} [props.title]
- * @param {string} [props.tagline]
+ * @param {import('react').ReactNode} [props.author]
+ * @param {import('react').ReactNode} [props.version]  e.g. "v1.0.0"
+ * @param {import('react').ReactNode} [props.meta]     Generic left meta (overrides author when set)
+ * @param {import('react').ReactNode} [props.value]    Generic right meta (overrides version when set)
+ * @param {import('react').ReactNode} [props.title]
+ * @param {import('react').ReactNode} [props.tagline]
  * @param {string} [props.className]
  * @param {string} [props.authorClassName]
  * @param {string} [props.versionClassName]
@@ -131,6 +136,8 @@ export function Card({
 export function CardMeta({
   author = undefined,
   version = undefined,
+  meta = undefined,
+  value = undefined,
   title = undefined,
   tagline = undefined,
   className = '',
@@ -139,28 +146,30 @@ export function CardMeta({
   titleClassName = '',
   taglineClassName = ''
 }) {
-  const has_meta = Boolean(author || version);
+  const left = meta !== undefined ? meta : author;
+  const right = value !== undefined ? value : version;
+  const has_meta = left != null || right != null;
   const has_tagline = Boolean(tagline && String(tagline).trim());
 
   return (
     <>
       {has_meta ? (
         <div className={`ui-card-meta${className ? ` ${className}` : ''}`}>
-          {author ? (
+          {left != null ? (
             <span className={`ui-card-author${authorClassName ? ` ${authorClassName}` : ''}`}>
-              {author}
+              {left}
             </span>
           ) : (
             <span />
           )}
-          {version ? (
+          {right != null ? (
             <span className={`ui-card-version${versionClassName ? ` ${versionClassName}` : ''}`}>
-              {version}
+              {right}
             </span>
           ) : null}
         </div>
       ) : null}
-      {title ? (
+      {title != null ? (
         <div className={`ui-card-title${titleClassName ? ` ${titleClassName}` : ''}`}>{title}</div>
       ) : null}
       {has_tagline ? (

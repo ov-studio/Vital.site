@@ -2,6 +2,7 @@
 import * as config_pages     from '@/configs/pages';
 import * as ui_wallpaper     from '@/ui/wallpaper';
 import * as ui_divider       from '@/ui/divider';
+import * as ui_stat          from '@/ui/stat';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as react            from 'react';
@@ -136,28 +137,29 @@ export function Benchmarks() {
             <div className="sec-title bm-section-title">Environment</div>
             <ui_divider.Divider/>
 
-            <div className="bm-env">
-              <div className="bm-env-item" style={{ '--i': 0 } as React.CSSProperties}>
-                <div className="bm-env-top">
-                  <span className="bm-env-key">Vital.sandbox</span>
-                  <lucide.Layers size={16} strokeWidth={2} className="bm-env-icon"/>
-                </div>
-                <span className="bm-env-val">{payload?.tag || '—'}</span>
-              </div>
+            <ui_stat.StatGrid columns={4} className="bm-env">
+              <ui_stat.Stat
+                animate
+                index={0}
+                label="Vital.sandbox"
+                icon={<lucide.Layers size={16} strokeWidth={2}/>}
+                value={payload?.tag || '—'}
+              />
               {ENV_FIELDS.map(({ key, label, Icon }, i) => {
                 const val = env[key];
                 if (val == null || val === '') return null;
                 return (
-                  <div key={key} className="bm-env-item" style={{ '--i': i + 1 } as React.CSSProperties}>
-                    <div className="bm-env-top">
-                      <span className="bm-env-key">{label}</span>
-                      <Icon size={16} strokeWidth={2} className="bm-env-icon"/>
-                    </div>
-                    <span className="bm-env-val">{capitalize(String(val))}</span>
-                  </div>
+                  <ui_stat.Stat
+                    key={key}
+                    animate
+                    index={i + 1}
+                    label={label}
+                    icon={<Icon size={16} strokeWidth={2}/>}
+                    value={capitalize(String(val))}
+                  />
                 );
               })}
-            </div>
+            </ui_stat.StatGrid>
 
             <div className="sec-title bm-section-title bm-section-title--table">Benchmarks</div>
             <ui_divider.Divider/>

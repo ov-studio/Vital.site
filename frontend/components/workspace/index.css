@@ -51,24 +51,12 @@
 .ws-stats {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
   margin-bottom: 20px;
 }
 
 .ws-stats + .ws-panel,
 .ws-profile-row + .ws-panel {
   margin-top: 0;
-}
-
-.ws-stat {
-  position: relative;
-  z-index: 1;
-  isolation: isolate;
-  padding: 16px 18px;
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
-  border-radius: 4px;
 }
 
 .ws-stat-top {
@@ -87,19 +75,6 @@
   text-transform: uppercase;
   color: var(--brand-neon-core);
   margin: 0;
-}
-
-.ws-stat-icon {
-  color: var(--brand-neon-core);
-  flex-shrink: 0;
-}
-
-.ws-stat-value {
-  font-family: 'Rajdhani', 'Geist', sans-serif;
-  font-size: 1.02rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--dim);
 }
 
 .ws-panel {
@@ -487,7 +462,7 @@ a.ws-cell-title:hover {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
 }
 
-.ws-profile-row > .ws-stat {
+.ws-profile-row > .ui-stat {
   margin: 0;
   width: 100%;
   min-width: 0;
