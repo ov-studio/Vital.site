@@ -71,8 +71,8 @@ export type PublishResult =
   | { ok: false; error: string };
 
 /**
- * README flow, automated with the submitter's token:
- * fork Vital.vault → add submodule under resources/{slug} → open PR upstream.
+ * Open a submodule add/update PR on Vital.vault using an installation token
+ * (branch on upstream — no user fork required).
  */
 export async function publish_resource_pr(opts: {
   token: string;
@@ -80,30 +80,21 @@ export async function publish_resource_pr(opts: {
   resource_repo_full: string;
   resource_repo_url: string;
   display_name: string;
-  tagline?: string;
-  description?: string;
-  tags?: string[];
 }): Promise<PublishResult> {
   const vault = config_site.info.git.vault;
   const upstream = `${vault.user}/${vault.repo}`;
   const branch_main = vault.branch || 'main';
   const login = opts.login.toLowerCase();
 
-  const repo = await gh<{
-    default_branch?: string;
-    private?: boolean;
-    owner?: { login?: string };
-    html_url?: string;
-  }>(opts.token, `/repos/${opts.resource_repo_full}`);
+  // Resource tip (public repo — readable with app token)
+  const repo = await gh<{ default_branch?: string; private?: boolean }>(
+    opts.token,
+    `/repos/${opts.resource_repo_full}`
+  );
   if (!repo.ok) return { ok: false, error: 'Resource repository not found or not accessible' };
   if (repo.data.private) return { ok: false, error: 'Only public repositories can be submitted' };
-  if (repo.data.owner?.login?.toLowerCase() !== login) {
-    return { ok: false, error: 'You must own the repository' };
-  }
 
   const def_branch = repo.data.default_branch || 'main';
-
-  // Prefer commits API (clearer empty-repo errors), fall back to git ref
   let resource_sha: string | undefined;
   const tip = await gh<{ sha?: string; message?: string }>(
     opts.token,
@@ -121,79 +112,29 @@ export async function publish_resource_pr(opts: {
     if (!resource_sha) {
       const msg = (tip.data.message || ref.data.message || tip.text || '').toLowerCase();
       if (tip.status === 409 || ref.status === 409 || msg.includes('empty')) {
-        return {
-          ok: false,
-          error: 'Repository is empty — push at least one commit before submitting'
-        };
+        return { ok: false, error: 'Repository is empty — push at least one commit before submitting' };
       }
-      return {
-        ok: false,
-        error: `Could not resolve resource commit on branch "${def_branch}"`
-      };
+      return { ok: false, error: `Could not resolve resource commit on branch "${def_branch}"` };
     }
   }
 
   const slug = slugify(opts.display_name || opts.resource_repo_full.split('/')[1] || 'resource');
   const sub_path = `resources/${slug}`;
-  const sub_url_clean = opts.resource_repo_url.replace(/\.git$/, '');
-
-  // Fork (idempotent)
-  let fork_full = `${login}/${vault.repo}`;
-  const existing = await gh(opts.token, `/repos/${fork_full}`);
-  if (!existing.ok) {
-    const fork = await gh<{ full_name?: string }>(opts.token, `/repos/${upstream}/forks`, {
-      method: 'POST',
-      body: JSON.stringify({})
-    });
-    if (!fork.ok) {
-      return { ok: false, error: `Could not fork ${upstream} (HTTP ${fork.status}). Check OAuth scopes.` };
-    }
-    if (fork.data.full_name) fork_full = fork.data.full_name;
-    for (let i = 0; i < 10; i++) {
-      await new Promise((r) => setTimeout(r, 1000));
-      const check = await gh(opts.token, `/repos/${fork_full}`);
-      if (check.ok) break;
-      if (i === 9) return { ok: false, error: 'Fork is still provisioning — try again in a moment' };
-    }
-  }
+  const sub_url_clean = (opts.resource_repo_url || `https://github.com/${opts.resource_repo_full}`).replace(/\.git$/, '');
 
   const up_ref = await gh<{ object?: { sha?: string } }>(
     opts.token,
     `/repos/${upstream}/git/ref/heads/${encodeURIComponent(branch_main)}`
   );
-  const upstream_sha = up_ref.data.object?.sha;
-  if (!upstream_sha) return { ok: false, error: 'Could not resolve upstream vault commit' };
+  const base_sha = up_ref.data.object?.sha;
+  if (!base_sha) return { ok: false, error: 'Could not resolve vault main branch' };
 
   const up_commit = await gh<{ tree?: { sha?: string } }>(
     opts.token,
-    `/repos/${upstream}/git/commits/${upstream_sha}`
+    `/repos/${upstream}/git/commits/${base_sha}`
   );
   const base_tree = up_commit.data.tree?.sha;
-  if (!up_commit.ok || !base_tree) return { ok: false, error: 'Could not resolve upstream vault tree' };
-
-  // Sync fork main → upstream tip so parent/tree objects exist on the fork
-  const sync = await gh(opts.token, `/repos/${fork_full}/git/refs/heads/${encodeURIComponent(branch_main)}`, {
-    method: 'PATCH',
-    body: JSON.stringify({ sha: upstream_sha, force: true })
-  });
-  if (!sync.ok) {
-    await gh(opts.token, `/repos/${fork_full}/merge-upstream`, {
-      method: 'POST',
-      body: JSON.stringify({ branch: branch_main })
-    });
-  }
-
-  const fork_tip = await gh<{ object?: { sha?: string } }>(
-    opts.token,
-    `/repos/${fork_full}/git/ref/heads/${encodeURIComponent(branch_main)}`
-  );
-  let parent_sha = fork_tip.data.object?.sha || upstream_sha;
-
-  const parent_commit = await gh<{ tree?: { sha?: string } }>(
-    opts.token,
-    `/repos/${fork_full}/git/commits/${parent_sha}`
-  );
-  let fork_base_tree = parent_commit.data.tree?.sha || base_tree;
+  if (!base_tree) return { ok: false, error: 'Could not resolve vault tree' };
 
   let gitmodules = '';
   const gm = await gh<{ content?: string }>(
@@ -205,88 +146,68 @@ export async function publish_resource_pr(opts: {
   }
 
   const entries = parse_gitmodules(gitmodules);
-  let is_update = false;
-  let target_path = sub_path;
+  const is_update = entries.has(sub_path);
+  entries.set(sub_path, { path: sub_path, url: sub_url_clean });
+  const gm_body = serialize_gitmodules([...entries.values()]);
 
-  const norm = (u: string) =>
-    u.replace(/\.git$/i, '').replace(/\/$/, '').toLowerCase().replace(/^git@github\.com:/, 'https://github.com/');
-
-  for (const e of entries.values()) {
-    if (norm(e.url) === norm(sub_url_clean)) {
-      is_update = true;
-      target_path = e.path;
-      break;
-    }
+  const blob = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/blobs`, {
+    method: 'POST',
+    body: JSON.stringify({ content: gm_body, encoding: 'utf-8' })
+  });
+  if (!blob.ok || !blob.data.sha) {
+    return {
+      ok: false,
+      error: `Failed to write .gitmodules (HTTP ${blob.status}): ${blob.text.slice(0, 160)}`
+    };
   }
 
-  if (!is_update && entries.has(sub_path)) {
-    return { ok: false, error: `Path ${sub_path} is already used by another repository` };
-  }
-
-  if (!is_update) {
-    entries.set(sub_path, { path: sub_path, url: sub_url_clean });
-  }
-
-  const tree_items: { path: string; mode: string; type: string; sha: string }[] = [
-    { path: target_path, mode: '160000', type: 'commit', sha: resource_sha }
-  ];
-
-  if (!is_update) {
-    const gm_body = serialize_gitmodules([...entries.values()]);
-    const blob = await gh<{ sha?: string }>(opts.token, `/repos/${fork_full}/git/blobs`, {
-      method: 'POST',
-      body: JSON.stringify({ content: gm_body, encoding: 'utf-8' })
-    });
-    if (!blob.ok || !blob.data.sha) {
-      return { ok: false, error: `Failed to write .gitmodules on fork (HTTP ${blob.status}): ${blob.text.slice(0, 160)}` };
-    }
-    tree_items.unshift({ path: '.gitmodules', mode: '100644', type: 'blob', sha: blob.data.sha });
-  }
-
-  const tree = await gh<{ sha?: string }>(opts.token, `/repos/${fork_full}/git/trees`, {
+  const tree = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/trees`, {
     method: 'POST',
     body: JSON.stringify({
-      base_tree: fork_base_tree,
-      tree: tree_items
+      base_tree,
+      tree: [
+        { path: '.gitmodules', mode: '100644', type: 'blob', sha: blob.data.sha },
+        { path: sub_path, mode: '160000', type: 'commit', sha: resource_sha }
+      ]
     })
   });
   if (!tree.ok || !tree.data.sha) {
-    return { ok: false, error: `Failed to create git tree (HTTP ${tree.status}): ${tree.text.slice(0, 180)}` };
+    return { ok: false, error: `Failed to create tree (HTTP ${tree.status}): ${tree.text.slice(0, 160)}` };
   }
 
-  const commit = await gh<{ sha?: string }>(opts.token, `/repos/${fork_full}/git/commits`, {
+  const msg = is_update
+    ? `update: resource ${slug}`
+    : `add: resource ${slug}`;
+  const commit = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/commits`, {
     method: 'POST',
     body: JSON.stringify({
-      message: `${is_update ? 'update' : 'add'}: resource ${target_path.replace(/^resources\//, '') || slug}`,
+      message: msg,
       tree: tree.data.sha,
-      parents: [parent_sha]
+      parents: [base_sha],
+      author: {
+        name: 'Vital.sandbox',
+        email: '41898282+github-actions[bot]@users.noreply.github.com'
+      }
     })
   });
   if (!commit.ok || !commit.data.sha) {
-    return { ok: false, error: `Failed to create commit (HTTP ${commit.status}): ${commit.text.slice(0, 180)}` };
+    return { ok: false, error: `Failed to create commit (HTTP ${commit.status}): ${commit.text.slice(0, 160)}` };
   }
 
   const short = commit.data.sha.slice(0, 7);
-  const leaf = (target_path.replace(/^resources\//, '') || slug).replace(/[^a-z0-9._-]+/gi, '-');
-  const branch = `${is_update ? 'vault-update' : 'vault-add'}-${leaf}-${short}`.slice(0, 60);
+  const branch = `vault-${is_update ? 'update' : 'add'}-${slug}-${short}`.slice(0, 60);
 
-  const cr = await gh(opts.token, `/repos/${fork_full}/git/refs`, {
+  const cr = await gh(opts.token, `/repos/${upstream}/git/refs`, {
     method: 'POST',
-    body: JSON.stringify({
-      ref: `refs/heads/${branch}`,
-      sha: commit.data.sha
-    })
+    body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: commit.data.sha })
   });
   if (!cr.ok) {
-    const upd = await gh(opts.token, `/repos/${fork_full}/git/refs/heads/${encodeURIComponent(branch)}`, {
+    const upd = await gh(opts.token, `/repos/${upstream}/git/refs/heads/${encodeURIComponent(branch)}`, {
       method: 'PATCH',
       body: JSON.stringify({ sha: commit.data.sha, force: true })
     });
     if (!upd.ok) {
-      return {
-        ok: false,
-        error: `Failed to set branch ${branch} on ${fork_full} (HTTP ${cr.status}): ${cr.text.slice(0, 220)}`
-      };
+      return { ok: false, error: `Failed to set branch ${branch} (HTTP ${cr.status}): ${cr.text.slice(0, 160)}` };
     }
   }
 
@@ -294,19 +215,22 @@ export async function publish_resource_pr(opts: {
     (is_update ? '## Update resource: ' : '## Add resource: ') + opts.display_name,
     '',
     '**Repository:** [' + opts.resource_repo_full + '](' + sub_url_clean + ')',
-    '**Submodule path:** `' + target_path + '`'
+    '**Submodule path:** `' + sub_path + '`',
+    '**Submitted by:** @' + login,
+    '',
+    '---',
+    'Opened via [/vault](https://vital-sandbox.com/vault).'
   ].join('\n');
 
   const pr = await gh<{ html_url?: string }>(opts.token, `/repos/${upstream}/pulls`, {
     method: 'POST',
     body: JSON.stringify({
-      title: `${is_update ? 'update' : 'add'}: resource ${target_path.replace(/^resources\//, '') || slug}`,
-      head: `${login}:${branch}`,
+      title: `${is_update ? 'update' : 'add'}: resource ${slug}`,
+      head: branch,
       base: branch_main,
       body: pr_body
     })
   });
-
   if (!pr.ok || !pr.data.html_url) {
     return {
       ok: false,
@@ -314,7 +238,7 @@ export async function publish_resource_pr(opts: {
     };
   }
 
-  return { ok: true, pr_url: pr.data.html_url, branch, path: target_path, updated: is_update };
+  return { ok: true, pr_url: pr.data.html_url, branch, path: sub_path, updated: is_update };
 }
 
 export async function remove_resource_pr(opts: {
@@ -421,7 +345,10 @@ export async function remove_resource_pr(opts: {
         `## Remove resource: ${leaf}`,
         '',
         `**Submodule path:** \`${sub_path}\``,
-        `**Requested by:** @${opts.actor}`
+        `**Requested by:** @${opts.actor}`,
+        '',
+        '---',
+        'Opened via [/vault](https://vital-sandbox.com/vault).'
       ].join('\n')
     })
   });

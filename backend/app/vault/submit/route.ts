@@ -1,6 +1,7 @@
 import * as lib_auth              from '@/lib/auth';
 import * as lib_ratelimit         from '@/lib/ratelimit';
 import * as lib_vault_publish     from '@/lib/vault_publish';
+import * as lib_github_app       from '@/lib/github_app';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -86,8 +87,19 @@ export async function POST(req: Request) {
 
   const display_name = repo.name;
 
+  const app_token = await lib_github_app.vault_write_token();
+  if (!app_token) {
+    return Response.json(
+      {
+        error: 'Vault bot not configured',
+        message: 'Set GITHUB_APP_ID, GITHUB_APP_INSTALLATION_ID, and GITHUB_APP_PRIVATE_KEY'
+      },
+      { status: 503 }
+    );
+  }
+
   const published = await lib_vault_publish.publish_resource_pr({
-    token: gh,
+    token: app_token,
     login: session.login,
     resource_repo_full: repo.full_name,
     resource_repo_url: repo.html_url,
