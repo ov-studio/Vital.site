@@ -73,7 +73,6 @@ export function Workspace() {
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
   const [vaultTab, setVaultTab] = react.useState<'pending' | 'published'>('pending');
-  const [vaultQ, setVaultQ] = react.useState('');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
 
@@ -243,24 +242,6 @@ export function Workspace() {
   const filtered_tokens = ql
     ? staffTokens.filter(t => t.name.toLowerCase().includes(ql) || t.login.toLowerCase().includes(ql))
     : staffTokens;
-
-  const vault_ql = vaultQ.trim().toLowerCase();
-  const vault_pending_list = data?.vaultPending ?? [];
-  const vault_published_list = data?.vaultPublished ?? [];
-  const filtered_vault_pending = vault_ql
-    ? vault_pending_list.filter((v) =>
-        v.name.toLowerCase().includes(vault_ql) ||
-        v.login.toLowerCase().includes(vault_ql) ||
-        (v.repo_full || '').toLowerCase().includes(vault_ql)
-      )
-    : vault_pending_list;
-  const filtered_vault_published = vault_ql
-    ? vault_published_list.filter((r) =>
-        r.name.toLowerCase().includes(vault_ql) ||
-        (r.author || '').toLowerCase().includes(vault_ql) ||
-        (r.path || '').toLowerCase().includes(vault_ql)
-      )
-    : vault_published_list;
 
   const decide_vault = react.useCallback(async (id: string, decision: 'approved' | 'rejected') => {
     setBusy(true);
@@ -623,7 +604,7 @@ export function Workspace() {
                     <div className="ws-stat-value">{loading ? '—' : (data?.vaultPublished?.length ?? 0)}</div>
                   </div>
                 </div>
-                                <div className="ws-panel anim-in anim-in--4">
+                <div className="ws-panel anim-in anim-in--4">
                   <div className="ws-panel-head ws-panel-head--tabs">
                     <ui_tabs.Tabs
                       value={vaultTab}
@@ -634,41 +615,27 @@ export function Workspace() {
                         { id: 'published', label: 'Published', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
                       ]}
                     />
-                    <ui_search.Search
-                      className="ws-search-ui"
-                      placeholder="Search name or author…"
-                      value={vaultQ}
-                      onChange={setVaultQ}
-                      icon={<lucide.Search size={14} strokeWidth={2}/>}
-                    />
                   </div>
 
                   {vaultTab === 'pending' && (
-                    <ui_table.Table>
-                      <thead>
-                        <tr>
-                          <th>Resource</th>
-                          <th>Submitter</th>
-                          <th>Submitted</th>
-                          <th>PR</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filtered_vault_pending.length === 0 ? (
-                          <tr className="ui-table-empty">
-                            <td colSpan={5}>
-                              <div className="state-empty">
-                                <lucide.Inbox size={24} strokeWidth={1.5}/>
-                                <span>{loading ? 'Loading…' : 'No open resource pull requests.'}</span>
-                              </div>
-                            </td>
+                    (data?.vaultPending?.length ?? 0) === 0 ? (
+                      <p className="ws-text">No open resource pull requests.</p>
+                    ) : (
+                      <ui_table.Table>
+                        <thead>
+                          <tr>
+                            <th>Resource</th>
+                            <th>Submitter</th>
+                            <th>Submitted</th>
+                            <th>PR</th>
+                            <th></th>
                           </tr>
-                        ) : (
-                          filtered_vault_pending.map((v) => (
+                        </thead>
+                        <tbody>
+                          {(data?.vaultPending ?? []).map((v) => (
                             <tr key={v.id}>
                               <td>
-                                <a className="ws-cell-title" href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
+                                <a href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
                                 <div className="ws-muted">{v.repo_full || v.kind}</div>
                               </td>
                               <td>@{v.login}</td>
@@ -678,71 +645,67 @@ export function Workspace() {
                                   <a href={v.pr_url} target="_blank" rel="noreferrer">View PR</a>
                                 ) : '—'}
                               </td>
-                              <td className="ws-row-actions">
-                                <ui_button.Button variant="primary" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>
-                                  Merge PR
-                                </ui_button.Button>
-                                <ui_button.Button variant="secondary" disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>
-                                  Close PR
-                                </ui_button.Button>
+                              <td className="ws-actions-cell">
+                                <div className="ws-inline-actions">
+                                  <ui_button.Button variant="action" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>
+                                    Merge PR
+                                  </ui_button.Button>
+                                  <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>
+                                    Close PR
+                                  </ui_button.Button>
+                                </div>
                               </td>
                             </tr>
-                          ))
-                        )}
-                      </tbody>
-                    </ui_table.Table>
+                          ))}
+                        </tbody>
+                      </ui_table.Table>
+                    )
                   )}
 
                   {vaultTab === 'published' && (
-                    <ui_table.Table>
-                      <thead>
-                        <tr>
-                          <th>Resource</th>
-                          <th>Author</th>
-                          <th>Version</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filtered_vault_published.length === 0 ? (
-                          <tr className="ui-table-empty">
-                            <td colSpan={4}>
-                              <div className="state-empty">
-                                <lucide.Package size={24} strokeWidth={1.5}/>
-                                <span>{loading ? 'Loading…' : 'No published vault resources.'}</span>
-                              </div>
-                            </td>
+                    (data?.vaultPublished?.length ?? 0) === 0 ? (
+                      <p className="ws-text">No published vault resources.</p>
+                    ) : (
+                      <ui_table.Table>
+                        <thead>
+                          <tr>
+                            <th>Resource</th>
+                            <th>Author</th>
+                            <th>Version</th>
+                            <th></th>
                           </tr>
-                        ) : (
-                          filtered_vault_published.map((r) => (
+                        </thead>
+                        <tbody>
+                          {(data?.vaultPublished ?? []).map((r) => (
                             <tr key={r.id}>
                               <td>
                                 {r.source_url ? (
-                                  <a className="ws-cell-title" href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
-                                ) : (
-                                  <div className="ws-cell-title">{r.name}</div>
-                                )}
+                                  <a href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
+                                ) : r.name}
                                 <div className="ws-muted">{r.path}</div>
                               </td>
                               <td>{r.author ? `@${r.author}` : '—'}</td>
                               <td>{r.version || '—'}</td>
-                              <td className="ws-row-actions">
+                              <td className="ws-actions-cell">
                                 {r.is_submodule ? (
-                                  <ui_button.Button variant="secondary" danger disabled={busy} onClick={() => remove_vault(r.path)}>
-                                    Remove
-                                  </ui_button.Button>
+                                  <div className="ws-inline-actions">
+                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => remove_vault(r.path)}>
+                                      Remove
+                                    </ui_button.Button>
+                                  </div>
                                 ) : (
                                   <span className="ws-muted">—</span>
                                 )}
                               </td>
                             </tr>
-                          ))
-                        )}
-                      </tbody>
-                    </ui_table.Table>
+                          ))}
+                        </tbody>
+                      </ui_table.Table>
+                    )
                   )}
                 </div>
-              </>
+
+</>
             )}
           </>
         )}
