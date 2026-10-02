@@ -385,7 +385,20 @@ export function Workspace() {
                   <div className="ws-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>
                 </div>
               </div>
-
+              <div className="ws-stat">
+                <div className="ws-stat-top">
+                  <div className="ws-stat-label">Servers</div>
+                  <lucide.Server size={16} strokeWidth={2} className="ws-stat-icon"/>
+                </div>
+                <div className="ws-stat-value">{loading ? '—' : myApps.length}</div>
+              </div>
+              <div className="ws-stat">
+                <div className="ws-stat-top">
+                  <div className="ws-stat-label">Resources</div>
+                  <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
+                </div>
+                <div className="ws-stat-value">{loading ? '—' : myVault.length}</div>
+              </div>
               <div className="ws-apply-card">
                 {pendingApp ? (
                   <div className="ws-pending-card ws-pending-card--in-panel">
@@ -424,21 +437,6 @@ export function Workspace() {
                 ) : (
                   <p className="ws-text">You already have an approved server — manage tokens below.</p>
                 )}
-              </div>
-
-              <div className="ws-stat">
-                <div className="ws-stat-top">
-                  <div className="ws-stat-label">Servers</div>
-                  <lucide.Server size={16} strokeWidth={2} className="ws-stat-icon"/>
-                </div>
-                <div className="ws-stat-value">{loading ? '—' : myApps.length}</div>
-              </div>
-              <div className="ws-stat">
-                <div className="ws-stat-top">
-                  <div className="ws-stat-label">Resources</div>
-                  <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
-                </div>
-                <div className="ws-stat-value">{loading ? '—' : myVault.length}</div>
               </div>
             </div>
 
