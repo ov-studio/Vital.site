@@ -74,6 +74,7 @@ export function Workspace() {
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
   const [accountTab, setAccountTab] = react.useState<'servers' | 'resources'>('servers');
+  const [accountQ, setAccountQ] = react.useState('');
   const [vaultTab, setVaultTab] = react.useState<'pending' | 'published'>('published');
   const [vaultQ, setVaultQ] = react.useState('');
   const [q, setQ] = react.useState('');
@@ -268,6 +269,18 @@ export function Workspace() {
   const pendingApp = data?.pending ?? null;
   const myApps = data?.applications ?? [];
   const myVault = data?.myVaultResources ?? [];
+  const account_ql = accountQ.trim().toLowerCase();
+  const filtered_my_apps = account_ql
+    ? myApps.filter((a) => a.name.toLowerCase().includes(account_ql) || a.login.toLowerCase().includes(account_ql))
+    : myApps;
+  const filtered_my_vault = account_ql
+    ? myVault.filter((r) =>
+        r.name.toLowerCase().includes(account_ql) ||
+        (r.author || '').toLowerCase().includes(account_ql) ||
+        (r.path || '').toLowerCase().includes(account_ql)
+      )
+    : myVault;
+
   const staffPending = data?.staffPending ?? [];
   const staffTokens  = data?.staffTokens ?? [];
   const ql = q.trim().toLowerCase();
@@ -451,6 +464,13 @@ export function Workspace() {
                     { id: 'resources', label: 'Resources', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
                   ]}
                 />
+                <ui_search.Search
+                  className="ws-search-ui"
+                  placeholder="Search name or author…"
+                  value={accountQ}
+                  onChange={setAccountQ}
+                  icon={<lucide.Search size={14} strokeWidth={2}/>}
+                />
               </div>
 
               {accountTab === 'servers' && (
@@ -464,7 +484,7 @@ export function Workspace() {
                     </tr>
                   </thead>
                   <tbody>
-                    {myApps.length === 0 ? (
+                    {filtered_my_apps.length === 0 ? (
                       <tr className="ui-table-empty">
                         <td colSpan={4}>
                           <div className="state-empty">
@@ -480,7 +500,7 @@ export function Workspace() {
                         </td>
                       </tr>
                     ) : (
-                      myApps.map((app) => {
+                      filtered_my_apps.map((app) => {
                         const isOpen = !!revealed[app.appId];
                         return (
                           <tr key={app.appId}>
@@ -538,7 +558,7 @@ export function Workspace() {
                     </tr>
                   </thead>
                   <tbody>
-                    {myVault.length === 0 ? (
+                    {filtered_my_vault.length === 0 ? (
                       <tr className="ui-table-empty">
                         <td colSpan={2}>
                           <div className="state-empty">
@@ -548,7 +568,7 @@ export function Workspace() {
                         </td>
                       </tr>
                     ) : (
-                      myVault.map((r) => (
+                      filtered_my_vault.map((r) => (
                         <tr key={r.id}>
                           <td>
                             {r.source_url ? (
