@@ -470,7 +470,7 @@ a.ws-cell-title:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 21px;
   align-items: stretch;
 }
 
