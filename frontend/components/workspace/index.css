@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .ws-stat-label {
@@ -96,7 +96,7 @@
 
 .ws-stat-value {
   font-family: 'Rajdhani', 'Geist', sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.3;
   color: var(--dim);
