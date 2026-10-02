@@ -444,10 +444,17 @@ a.ws-cell-title:hover {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(160px, 1.1fr) minmax(200px, 1.5fr) minmax(110px, 0.65fr) minmax(110px, 0.65fr);
   gap: 10px;
   margin-bottom: 15px;
   align-items: stretch;
+}
+
+.ws-profile-row > .ws-stat {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ws-profile-card,
@@ -489,6 +496,12 @@ a.ws-cell-title:hover {
 
 
 /* ── @media ── */
+@media (max-width: 960px) {
+  .ws-profile-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 720px)  {
   .ws-profile-row {
     grid-template-columns: 1fr;

@@ -146,9 +146,7 @@ export function Workspace() {
             .filter((r: VaultPublished) => Boolean(r.id));
         }
       }
-      catch {
-        /* optional */
-      }
+      catch { /* optional */ }
 
       if (s.staff) {
         const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: auth_headers() });
@@ -427,9 +425,7 @@ export function Workspace() {
                   <p className="ws-text">You already have an approved server — manage tokens below.</p>
                 )}
               </div>
-            </div>
 
-            <div className="ws-stats">
               <div className="ws-stat">
                 <div className="ws-stat-top">
                   <div className="ws-stat-label">Servers</div>
