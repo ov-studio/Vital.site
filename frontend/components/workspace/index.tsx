@@ -362,7 +362,7 @@ export function Workspace() {
                   rows={filtered_my_apps}
                   rowKey={(app) => app.appId}
                   empty={empty_state(
-                    <lucide.Server size={28} strokeWidth={1.5}/>,
+                    <lucide.Server size={24} strokeWidth={2.5}/>,
                     loading
                       ? 'Loading…'
                       : pendingApp
@@ -408,7 +408,7 @@ export function Workspace() {
                   rows={filtered_my_vault}
                   rowKey={(r) => r.id}
                   empty={empty_state(
-                    <lucide.Package size={28} strokeWidth={1.5}/>,
+                    <lucide.Package size={24} strokeWidth={2.5}/>,
                     loading ? 'Loading…' : 'No vault resources linked to your GitHub account.'
                   )}
                   renderRow={(r) => (
@@ -451,7 +451,7 @@ export function Workspace() {
                       rows={filtered_pending}
                       rowKey={(p) => p.appId}
                       empty={empty_state(
-                        <lucide.Inbox size={28} strokeWidth={1.5}/>,
+                        <lucide.Inbox size={24} strokeWidth={2.5}/>,
                         loading ? 'Loading…' : 'No pending requests.'
                       )}
                       renderRow={(p) => (
@@ -474,7 +474,7 @@ export function Workspace() {
                       rows={filtered_tokens}
                       rowKey={(t) => t.appId}
                       empty={empty_state(
-                        <lucide.KeyRound size={28} strokeWidth={1.5}/>,
+                        <lucide.KeyRound size={24} strokeWidth={2.5}/>,
                         loading ? 'Loading…' : 'No issued tokens.'
                       )}
                       renderRow={(t) => (
@@ -521,7 +521,7 @@ export function Workspace() {
                       rows={filtered_vault_pending}
                       rowKey={(v) => v.id}
                       empty={empty_state(
-                        <lucide.Inbox size={28} strokeWidth={1.5}/>,
+                        <lucide.Inbox size={24} strokeWidth={2.5}/>,
                         loading ? 'Loading…' : 'No open resource pull requests.'
                       )}
                       renderRow={(v) => (
@@ -544,7 +544,7 @@ export function Workspace() {
                       rows={filtered_vault_published}
                       rowKey={(r) => r.id}
                       empty={empty_state(
-                        <lucide.Package size={28} strokeWidth={1.5}/>,
+                        <lucide.Package size={24} strokeWidth={2.5}/>,
                         loading ? 'Loading…' : 'No published vault resources.'
                       )}
                       renderRow={(r) => (
