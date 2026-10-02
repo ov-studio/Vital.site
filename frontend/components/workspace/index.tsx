@@ -415,20 +415,17 @@ export function Workspace() {
               <div className="ws-apply-card">
                 {pendingApp ? (
                   <div className="ws-pending-card ws-pending-card--in-panel">
-                    <div className="ws-pending-card-main">
-                      <div className="ws-pending-card-icon" aria-hidden>
-                        <lucide.Clock size={18} strokeWidth={2}/>
-                      </div>
-                      <div className="ws-pending-card-body">
-                        <div className="ws-pending-card-title">{pendingApp.name}</div>
-                        <div className="ws-pending-card-meta">Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}</div>
-                      </div>
+                    <div className="ws-stat-top">
+                      <div className="ws-stat-label">{pendingApp.name}</div>
                     </div>
-                    <ui_button.Button variant="action" danger onClick={() => cancel(pendingApp.appId)}
-                      disabled={busy}
-                    >
-                      Cancel
-                    </ui_button.Button>
+                    <div className="ws-pending-card-bottom">
+                      <div className="ws-pending-card-meta">
+                        Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}
+                      </div>
+                      <ui_button.Button variant="action" danger onClick={() => cancel(pendingApp.appId)} disabled={busy}>
+                        Cancel
+                      </ui_button.Button>
+                    </div>
                   </div>
                 ) : canApply ? (
                   <div className="ws-apply">

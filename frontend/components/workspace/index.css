@@ -224,55 +224,64 @@ a.ws-cell-title:hover {
 }
 
 .ws-pending-card--in-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   padding: 0;
   margin: 0;
   background: transparent;
   border: none;
   border-radius: 0;
-  min-height: 44px;
+  min-height: 0;
+  width: 100%;
+  gap: 0;
 }
 
-.ws-pending-card-main {
+/* same top row as Servers / Resources labels */
+.ws-pending-card--in-panel .ws-stat-top {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.ws-pending-card--in-panel .ws-stat-label {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  margin-right: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.ws-pending-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
   min-width: 0;
-  flex: 1 1 auto;
 }
 
-.ws-pending-card-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 4px;
-  background: var(--b20);
-  color: var(--brand-neon-core);
-}
-
-.ws-pending-card-body {
+.ws-pending-card--in-panel .ws-pending-card-meta {
+  margin-top: 0;
   min-width: 0;
-}
-
-.ws-pending-card-title {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.95rem;
+  font-family: 'Rajdhani', 'Geist', sans-serif;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--brand-neon-core);
-  line-height: 1.25;
-  word-break: break-word;
+  line-height: 1.3;
+  color: var(--dim);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ws-pending-card-meta {
-  margin-top: 3px;
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  line-height: 1.35;
-}
-
-.ws-pending-card .ui-btn--action {
+.ws-pending-card--in-panel .ui-btn--action {
   flex-shrink: 0;
 }
 
@@ -480,8 +489,12 @@ a.ws-cell-title:hover {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
+}
+
+.ws-profile-row > .ws-apply-card {
+  justify-content: flex-start;
 }
 
 .ws-profile-card,
@@ -489,7 +502,7 @@ a.ws-cell-title:hover {
   position: relative;
   z-index: 1;
   isolation: isolate;
-  padding: 18px 18px;
+  padding: 16px 18px;
   min-width: 0;
   background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
   border-radius: 4px;
@@ -504,8 +517,10 @@ a.ws-cell-title:hover {
 .ws-apply-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 16px 18px;
+  box-sizing: border-box;
 }
 
 .ws-apply-card .ws-apply {
