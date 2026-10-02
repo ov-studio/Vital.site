@@ -45,6 +45,7 @@ type VaultPublished = {
   path: string;
   source_url?: string;
   version?: string;
+  is_submodule?: boolean;
 };
 
 type ApiState = {
@@ -53,7 +54,6 @@ type ApiState = {
   staffPending?: Application[];
   staffTokens?:  Application[];
   vaultPending?: VaultSub[];
-  vaultRecent?: VaultSub[];
   vaultPublished?: VaultPublished[];
 };
 
@@ -72,7 +72,7 @@ export function Workspace() {
   const [error, setError] = react.useState<string | null>(null);
   const [copied, setCopied] = react.useState<string | null>(null);
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
-  const [vaultTab, setVaultTab] = react.useState<'pending' | 'published' | 'recent'>('pending');
+  const [vaultTab, setVaultTab] = react.useState<'pending' | 'published'>('pending');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
 
@@ -113,18 +113,16 @@ export function Workspace() {
         return;
       }
       let vaultPending: VaultSub[] = [];
-      let vaultRecent: VaultSub[] = [];
       let vaultPublished: VaultPublished[] = [];
       if (s.staff) {
         const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: auth_headers() });
         if (vr.ok) {
           const vj = await vr.json().catch(() => ({}));
           vaultPending = Array.isArray(vj.pending) ? vj.pending : [];
-          vaultRecent = Array.isArray(vj.recent) ? vj.recent : [];
           vaultPublished = Array.isArray(vj.published) ? vj.published : [];
         }
       }
-      setData({ ...(json as ApiState), vaultPending, vaultRecent, vaultPublished });
+      setData({ ...(json as ApiState), vaultPending, vaultPublished });
       setError(null);
     } 
     catch { setError('Network error — is the API up?'); } 
@@ -610,12 +608,11 @@ export function Workspace() {
                   <div className="ws-panel-head ws-panel-head--tabs">
                     <ui_tabs.Tabs
                       value={vaultTab}
-                      onChange={(id) => setVaultTab(id as 'pending' | 'published' | 'recent')}
+                      onChange={(id) => setVaultTab(id as 'pending' | 'published')}
                       ariaLabel="Vault lists"
                       items={[
                         { id: 'pending', label: 'Pending', icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
                         { id: 'published', label: 'Published', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
-                        { id: 'recent', label: 'Merged', icon: <lucide.GitMerge size={14} strokeWidth={2.25}/> },
                       ]}
                     />
                   </div>
@@ -688,40 +685,13 @@ export function Workspace() {
                               <td>{r.author ? `@${r.author}` : '—'}</td>
                               <td>{r.version || '—'}</td>
                               <td className="ws-row-actions">
-                                <ui_button.Button variant="secondary" danger disabled={busy} onClick={() => remove_vault(r.path)}>
-                                  Remove
-                                </ui_button.Button>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </ui_table.Table>
-                    )
-                  )}
-
-                  {vaultTab === 'recent' && (
-                    (data?.vaultRecent?.length ?? 0) === 0 ? (
-                      <p className="ws-text">No recently merged resource PRs.</p>
-                    ) : (
-                      <ui_table.Table>
-                        <thead>
-                          <tr>
-                            <th>Resource</th>
-                            <th>Submitter</th>
-                            <th>Merged</th>
-                            <th>PR</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {(data?.vaultRecent ?? []).map((v) => (
-                            <tr key={v.id}>
-                              <td>{v.name}</td>
-                              <td>@{v.login}</td>
-                              <td>{fmt_date(v.createdAt)}</td>
-                              <td>
-                                {v.pr_url ? (
-                                  <a href={v.pr_url} target="_blank" rel="noreferrer">View PR</a>
-                                ) : '—'}
+                                {r.is_submodule ? (
+                                  <ui_button.Button variant="secondary" danger disabled={busy} onClick={() => remove_vault(r.path)}>
+                                    Remove
+                                  </ui_button.Button>
+                                ) : (
+                                  <span className="ws-muted">—</span>
+                                )}
                               </td>
                             </tr>
                           ))}

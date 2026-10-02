@@ -88,24 +88,18 @@ export async function GET(req: Request) {
   const vault = config_site.info.git.vault;
   const repo = `${vault.user}/${vault.repo}`;
 
-  const [open_res, closed_res, vault_json_res] = await Promise.all([
+  const [open_res, vault_json_res] = await Promise.all([
     gh(token, `/repos/${repo}/pulls?state=open&per_page=50`),
-    gh(token, `/repos/${repo}/pulls?state=closed&per_page=30`),
     fetch(
-      `https://cdn.jsdelivr.net/gh/${vault.user}/${vault.repo}@${vault.branch || 'main'}/vault.json`,
-      { headers: { 'User-Agent': 'Vital.site/1.0' } }
+      `https://raw.githubusercontent.com/${vault.user}/${vault.repo}/${vault.branch || 'main'}/vault.json`,
+      { headers: { 'User-Agent': 'Vital.site/1.0', Accept: 'application/json' }, cache: 'no-store' }
     )
   ]);
 
   const open_prs = (Array.isArray(open_res.data) ? open_res.data : []) as GhPr[];
-  const closed_prs = (Array.isArray(closed_res.data) ? closed_res.data : []) as GhPr[];
   const is_resource_pr = (t: string) => /^(add|update|remove):\s*resource\s+/i.test(t);
 
   const pending = open_prs.filter((pr) => is_resource_pr(pr.title)).map(map_pr);
-  const recent = closed_prs
-    .filter((pr) => is_resource_pr(pr.title) && pr.merged_at)
-    .map(map_pr)
-    .slice(0, 30);
 
   let published: {
     id: string;
@@ -114,6 +108,7 @@ export async function GET(req: Request) {
     path: string;
     source_url?: string;
     version?: string;
+    is_submodule?: boolean;
   }[] = [];
 
   if (vault_json_res.ok) {
@@ -129,21 +124,21 @@ export async function GET(req: Request) {
         }[];
       };
       published = (vj.resources || [])
-        .filter((r) => r.is_submodule !== false)
         .map((r) => ({
           id: r.id || '',
           name: r.name || r.id || '',
           author: r.author || '',
           path: `resources/${r.id}`,
           source_url: r.source_url,
-          version: r.version
+          version: r.version,
+          is_submodule: Boolean(r.is_submodule)
         }))
         .filter((r) => r.id);
     }
     catch { /* */ }
   }
 
-  return Response.json({ pending, recent, published });
+  return Response.json({ pending, published });
 }
 
 export async function POST(req: Request) {
