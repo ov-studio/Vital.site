@@ -13,7 +13,7 @@
   margin-left: 4px;
   position: relative;
   display: block;
-  width: 48px;
+  width: 36px;
   flex-shrink: 0;
 }
 
@@ -36,14 +36,14 @@
 }
 
 .ws-login {
-  font-size: 1.0rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--brand-neon-core);
 }
 
 .ws-role {
   margin-top: 4px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--dim);
 }
