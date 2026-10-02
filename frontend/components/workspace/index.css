@@ -270,9 +270,9 @@ a.ws-cell-title:hover {
 .ws-pending-card--in-panel .ws-pending-card-meta {
   margin-top: 0;
   min-width: 0;
-  font-family: 'Rajdhani', 'Geist', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: 'Geist', 'Geist', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--dim);
   text-align: left;
