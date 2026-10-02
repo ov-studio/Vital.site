@@ -2,13 +2,16 @@
 import * as config_pages     from '@/configs/pages';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
+import * as lib_format       from '@/lib/format';
 import * as lib_page_loading from '@/lib/page_loading';
+import * as lib_search       from '@/lib/search_filter';
 import * as ui_wallpaper     from '@/ui/wallpaper';
-import * as ui_tabs          from '@/ui/tabs';
+import * as ui_panel         from '@/ui/panel';
+import * as ui_section       from '@/ui/section';
+import * as ui_secret        from '@/ui/secret';
 import * as ui_button        from '@/ui/button';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
-import * as ui_divider       from '@/ui/divider';
 import * as ui_stat          from '@/ui/stat';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
@@ -59,11 +62,22 @@ type ApiState = {
   myVaultResources?: VaultPublished[];
 };
 
-function fmt_date(ts?: number) {
-  if (!ts) return '—';
-  try { return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); } 
-  catch { return '—'; }
-}
+const fmt_date = lib_format.fmt_date;
+
+const ACCOUNT_TABS = [
+  { id: 'servers',   label: 'Servers',   icon: <lucide.Server size={14} strokeWidth={2.25}/> },
+  { id: 'resources', label: 'Resources', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
+];
+const REVIEW_TABS = [
+  { id: 'tokens',  label: 'Issued',  icon: <lucide.KeyRound size={14} strokeWidth={2.25}/> },
+  { id: 'pending', label: 'Pending', icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
+];
+const VAULT_TABS = [
+  { id: 'published', label: 'Published', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
+  { id: 'pending',   label: 'Pending',   icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
+];
+
+const empty_state = (icon: react.ReactNode, text: string) => ({ icon, text });
 
 export function Workspace() {
   const [session, setSession] = react.useState<lib_auth_session.AuthSession | null>(null);
@@ -85,15 +99,6 @@ export function Workspace() {
     setSession(lib_auth_session.read_auth_session());
   }, []);
 
-  const auth_headers = react.useCallback((): HeadersInit => {
-    const s = lib_auth_session.read_auth_session();
-    if (!s) return {};
-    return {
-      'Authorization': `Bearer ${s.token}`,
-      'Content-Type': 'application/json'
-    };
-  }, []);
-
   const load = react.useCallback(async () => {
     const s = lib_auth_session.read_auth_session();
     if (!s) {
@@ -105,7 +110,7 @@ export function Workspace() {
     setLoading(true);
     lib_page_loading.set_page_loading(true);
     try {
-      const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), { headers: auth_headers() });
+      const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), { headers: lib_auth_session.auth_headers() });
       const json = await res.json().catch(() => ({}));
       if (res.status === 401) {
         lib_auth_session.clear_auth_session();
@@ -151,7 +156,7 @@ export function Workspace() {
       catch { /* optional */ }
 
       if (s.staff) {
-        const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: auth_headers() });
+        const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: lib_auth_session.auth_headers() });
         if (vr.ok) {
           const vj = await vr.json().catch(() => ({}));
           vaultPending = Array.isArray(vj.pending) ? vj.pending : [];
@@ -166,7 +171,7 @@ export function Workspace() {
       setLoading(false);
       lib_page_loading.set_page_loading(false);
     }
-  }, [auth_headers]);
+  }, []);
 
   react.useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -191,42 +196,40 @@ export function Workspace() {
     window.location.href = lib_api_url.get_api_url('/auth/github');
   }, []);
 
-  const apply = react.useCallback(async () => {
+  /** Shared mutation: busy/error handling, JSON parse, reload on success. */
+  const act = react.useCallback(async (
+    path: string,
+    method: 'POST' | 'DELETE',
+    body: unknown,
+    fail: string
+  ): Promise<boolean> => {
     setBusy(true); setError(null);
     try {
-      const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), {
-        method: 'POST', headers: auth_headers(),
-        body: JSON.stringify({ name: name.trim() || undefined })
+      const res  = await fetch(lib_api_url.get_api_url(path), {
+        method, headers: lib_auth_session.auth_headers(), body: JSON.stringify(body)
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Apply failed'); return; }
-      setName('');
+      if (!res.ok) { setError(typeof json.error === 'string' ? json.error : fail); return false; }
       await load();
-    } 
-    catch { setError('Network error'); }
+      return true;
+    }
+    catch { setError('Network error'); return false; }
     finally { setBusy(false); }
-  }, [name, auth_headers, load]);
+  }, [load]);
 
-  const cancel = react.useCallback(async (appId?: string) => {
-    setBusy(true); setError(null);
-    try {
-      const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), {
-        method: 'DELETE', headers: auth_headers(),
-        body: JSON.stringify(appId ? { appId } : {})
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Cancel failed'); return; }
-      await load();
-    } 
-    catch { setError('Network error'); }
-    finally { setBusy(false); }
-  }, [auth_headers, load]);
+  const apply = react.useCallback(async () => {
+    if (await act('/masterlist/applications', 'POST', { name: name.trim() || undefined }, 'Apply failed')) setName('');
+  }, [name, act]);
+
+  const cancel = react.useCallback((appId?: string) => {
+    return act('/masterlist/applications', 'DELETE', appId ? { appId } : {}, 'Cancel failed');
+  }, [act]);
 
   const claim = react.useCallback(async (appId: string) => {
     setBusy(true);
     try {
       await fetch(lib_api_url.get_api_url('/masterlist/applications/claim'), {
-        method: 'POST', headers: auth_headers(),
+        method: 'POST', headers: lib_auth_session.auth_headers(),
         body: JSON.stringify({ appId })
       });
       setRevealed((prev) => {
@@ -237,22 +240,11 @@ export function Workspace() {
       await load();
     } 
     finally { setBusy(false); }
-  }, [auth_headers, load]);
+  }, [load]);
 
-  const decide = react.useCallback(async (appId: string, action: 'approve' | 'reject' | 'revoke') => {
-    setBusy(true); setError(null);
-    try {
-      const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications/decide'), {
-        method: 'POST', headers: auth_headers(),
-        body: JSON.stringify({ appId, action })
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) { setError(typeof json.error === 'string' ? json.error : 'Action failed'); return; }
-      await load();
-    } 
-    catch { setError('Network error'); }
-    finally { setBusy(false); }
-  }, [auth_headers, load]);
+  const decide = react.useCallback((appId: string, action: 'approve' | 'reject' | 'revoke') => {
+    return act('/masterlist/applications/decide', 'POST', { appId, action }, 'Action failed');
+  }, [act]);
 
   const copy = react.useCallback(async (label: string, value: string) => {
     try {
@@ -270,89 +262,26 @@ export function Workspace() {
   const pendingApp = data?.pending ?? null;
   const myApps = data?.applications ?? [];
   const myVault = data?.myVaultResources ?? [];
-  const account_ql = accountQ.trim().toLowerCase();
-  const filtered_my_apps = account_ql
-    ? myApps.filter((a) => a.name.toLowerCase().includes(account_ql) || a.login.toLowerCase().includes(account_ql))
-    : myApps;
-  const filtered_my_vault = account_ql
-    ? myVault.filter((r) =>
-        r.name.toLowerCase().includes(account_ql) ||
-        (r.author || '').toLowerCase().includes(account_ql) ||
-        (r.path || '').toLowerCase().includes(account_ql)
-      )
-    : myVault;
-
   const staffPending = data?.staffPending ?? [];
   const staffTokens  = data?.staffTokens ?? [];
-  const ql = q.trim().toLowerCase();
-  const filtered_pending = ql
-    ? staffPending.filter(p => p.name.toLowerCase().includes(ql) || p.login.toLowerCase().includes(ql))
-    : staffPending;
-  const filtered_tokens = ql
-    ? staffTokens.filter(t => t.name.toLowerCase().includes(ql) || t.login.toLowerCase().includes(ql))
-    : staffTokens;
+  const vaultPending = data?.vaultPending ?? [];
+  const vaultPublished = data?.vaultPublished ?? [];
 
-  const vault_ql = vaultQ.trim().toLowerCase();
-  const vault_pending_list = data?.vaultPending ?? [];
-  const vault_published_list = data?.vaultPublished ?? [];
-  const filtered_vault_pending = vault_ql
-    ? vault_pending_list.filter((v) =>
-        v.name.toLowerCase().includes(vault_ql) ||
-        v.login.toLowerCase().includes(vault_ql) ||
-        (v.repo_full || '').toLowerCase().includes(vault_ql)
-      )
-    : vault_pending_list;
-  const filtered_vault_published = vault_ql
-    ? vault_published_list.filter((r) =>
-        r.name.toLowerCase().includes(vault_ql) ||
-        (r.author || '').toLowerCase().includes(vault_ql) ||
-        (r.path || '').toLowerCase().includes(vault_ql)
-      )
-    : vault_published_list;
+  const filtered_my_apps         = lib_search.search_filter(myApps, accountQ, (a) => [a.name, a.login]);
+  const filtered_my_vault        = lib_search.search_filter(myVault, accountQ, (r) => [r.name, r.author, r.path]);
+  const filtered_pending         = lib_search.search_filter(staffPending, q, (p) => [p.name, p.login]);
+  const filtered_tokens          = lib_search.search_filter(staffTokens, q, (t) => [t.name, t.login]);
+  const filtered_vault_pending   = lib_search.search_filter(vaultPending, vaultQ, (v) => [v.name, v.login, v.repo_full]);
+  const filtered_vault_published = lib_search.search_filter(vaultPublished, vaultQ, (r) => [r.name, r.author, r.path]);
 
-  const decide_vault = react.useCallback(async (id: string, decision: 'approved' | 'rejected') => {
-    setBusy(true);
-    setError(null);
-    try {
-      const res = await fetch(lib_api_url.get_api_url('/vault/submissions'), {
-        method: 'POST',
-        headers: auth_headers(),
-        body: JSON.stringify({ id, decision })
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(json?.error || 'Failed');
-      await load();
-    }
-    catch (e) {
-      setError(e instanceof Error ? e.message : 'Failed');
-    }
-    finally {
-      setBusy(false);
-    }
-  }, [auth_headers, load]);
+  const decide_vault = react.useCallback((id: string, decision: 'approved' | 'rejected') => {
+    return act('/vault/submissions', 'POST', { id, decision }, 'Failed');
+  }, [act]);
 
   const remove_vault = react.useCallback(async (path: string) => {
     if (!window.confirm('Open a PR to remove this resource from the vault?')) return;
-    setBusy(true);
-    setError(null);
-    try {
-      const res = await fetch(lib_api_url.get_api_url('/vault/submissions'), {
-        method: 'POST',
-        headers: auth_headers(),
-        body: JSON.stringify({ action: 'remove', path })
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(json?.error || 'Failed to open removal PR');
-      await load();
-    }
-    catch (e) {
-      setError(e instanceof Error ? e.message : 'Failed');
-    }
-    finally {
-      setBusy(false);
-    }
-  }, [auth_headers, load]);
-
+    await act('/vault/submissions', 'POST', { action: 'remove', path }, 'Failed to open removal PR');
+  }, [act]);
 
   const canApply = !pendingApp;
 
@@ -373,22 +302,21 @@ export function Workspace() {
         </div>
 
         {!session ? (
-          <div className="ws-panel ws-panel--narrow">
+          <ui_panel.Panel className="ws-panel--narrow">
             <p className="ws-text">Sign in with GitHub to open your workspace.</p>
             {error && <p className="ws-error" role="alert">Error: {error}</p>}
             <ui_button.Button variant="secondary" className="ws-btn" onClick={login}>
               Sign in with GitHub
             </ui_button.Button>
-          </div>
+          </ui_panel.Panel>
         ) : (
           <>
-            <div className="sec-title">Account</div>
-            <ui_divider.Divider className="anim-in anim-in--3"/>
+            <ui_section.Section className="anim-in anim-in--3">Account</ui_section.Section>
 
             {error && <p className="ws-error" role="alert">Error: {error}</p>}
 
             <div className="ws-profile-row">
-              <div className="ws-profile-card">
+              <ui_stat.Stat className="ws-profile-card">
                 <div className="ws-avatar">
                   <div className="ws-avatar-img">
                     <img src={session.avatar} alt="" width={56} height={56} referrerPolicy="no-referrer"/>
@@ -398,7 +326,7 @@ export function Workspace() {
                   <div className="ws-login">@{session.login}</div>
                   <div className="ws-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>
                 </div>
-              </div>
+              </ui_stat.Stat>
               <ui_stat.Stat
                 label="Servers"
                 icon={<lucide.Server size={16} strokeWidth={2}/>}
@@ -410,183 +338,114 @@ export function Workspace() {
                 value={loading ? '—' : myVault.length}
               />
               {pendingApp && (
-                <div className="ws-apply-card">
-                  <div className="ws-pending-card ws-pending-card--in-panel">
-                    <div className="ws-stat-top">
-                      <div className="ws-stat-label">{pendingApp.name}</div>
+                <ui_stat.Stat className="ws-apply-card" label={pendingApp.name}>
+                  <div className="ws-pending-bottom">
+                    <div className="ws-pending-meta">
+                      Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}
                     </div>
-                    <div className="ws-pending-card-bottom">
-                      <div className="ws-pending-card-meta">
-                        Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}
-                      </div>
-                      <ui_button.Button variant="action" danger onClick={() => cancel(pendingApp.appId)} disabled={busy}>
-                        Cancel
-                      </ui_button.Button>
-                    </div>
+                    <ui_button.Button variant="action" danger onClick={() => cancel(pendingApp.appId)} disabled={busy}>
+                      Cancel
+                    </ui_button.Button>
                   </div>
-                </div>
+                </ui_stat.Stat>
               )}
             </div>
 
             {canApply && (
-              <div className="ws-apply-card ws-apply-card--row">
-                <div className="ws-apply">
-                  <label className="ws-label" htmlFor="app-name">Request a masterlist token</label>
-                  <div className="ws-apply-row">
-                    <ui_search.Search
-                      className="ws-apply-search"
-                      placeholder="Night City RP"
-                      value={name}
-                      onChange={(v: string) => setName(String(v).slice(0, 64))}
-                      disabled={busy}
-                      icon={<lucide.Server size={14} strokeWidth={2}/>}
-                    />
-                    <ui_button.Button variant="action" size="lg" onClick={apply} disabled={busy}>
-                      {busy ? 'Submitting…' : 'Submit'}
-                    </ui_button.Button>
-                  </div>
+              <ui_stat.Stat className="ws-apply-card--row" label="Request a masterlist token">
+                <div className="ws-apply-row">
+                  <ui_search.Search
+                    className="ws-apply-search"
+                    placeholder="Night City RP"
+                    value={name}
+                    onChange={(v: string) => setName(String(v).slice(0, 64))}
+                    disabled={busy}
+                    icon={<lucide.Server size={14} strokeWidth={2}/>}
+                  />
+                  <ui_button.Button variant="action" size="lg" onClick={apply} disabled={busy}>
+                    {busy ? 'Submitting…' : 'Submit'}
+                  </ui_button.Button>
                 </div>
-              </div>
+              </ui_stat.Stat>
             )}
 
-            <div className="ws-panel">
-              <div className="ws-panel-head ws-panel-head--tabs">
-                <ui_tabs.Tabs
-                  value={accountTab}
-                  onChange={(id) => setAccountTab(id as 'servers' | 'resources')}
-                  ariaLabel="Account lists"
-                  items={[
-                    { id: 'servers', label: 'Servers', icon: <lucide.Server size={14} strokeWidth={2.25}/> },
-                    { id: 'resources', label: 'Resources', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
-                  ]}
-                />
-                <ui_search.Search
-                  className="ws-search-ui"
-                  placeholder="Search name or author…"
-                  value={accountQ}
-                  onChange={setAccountQ}
-                  icon={<lucide.Search size={14} strokeWidth={2}/>}
-                />
-              </div>
-
+            <ui_panel.TabPanel
+              tabs={ACCOUNT_TABS}
+              value={accountTab}
+              onChange={(id) => setAccountTab(id as 'servers' | 'resources')}
+              ariaLabel="Account lists"
+              query={accountQ}
+              onQuery={setAccountQ}
+            >
               {accountTab === 'servers' && (
-                <ui_table.Table className="ui-table--apps">
-                  <thead>
-                    <tr>
-                      <th>Server</th>
-                      <th>Approved</th>
-                      <th>Token</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filtered_my_apps.length === 0 ? (
-                      <tr className="ui-table-empty">
-                        <td colSpan={4}>
-                          <div className="state-empty">
-                            <lucide.Server size={28} strokeWidth={1.5}/>
-                            <span>
-                              {loading
-                                ? 'Loading…'
-                                : pendingApp
-                                  ? 'No approved servers yet — your request is under review.'
-                                  : 'No approved servers yet. Apply above to get a token.'}
-                            </span>
-                          </div>
+                <ui_table.DataTable
+                  className="ui-table--apps"
+                  head={['Server', 'Approved', 'Token', '']}
+                  rows={filtered_my_apps}
+                  rowKey={(app) => app.appId}
+                  empty={empty_state(
+                    <lucide.Server size={28} strokeWidth={1.5}/>,
+                    loading
+                      ? 'Loading…'
+                      : pendingApp
+                        ? 'No approved servers yet — your request is under review.'
+                        : 'No approved servers yet. Apply above to get a token.'
+                  )}
+                  renderRow={(app) => {
+                    const isOpen = !!revealed[app.appId];
+                    return (
+                      <>
+                        <td><ui_table.TableTitle>{app.name}</ui_table.TableTitle></td>
+                        <td>{fmt_date(app.decidedAt ?? app.createdAt)}</td>
+                        <td>
+                          {app.token ? (
+                            <ui_secret.Secret value={app.token} open={isOpen} onToggle={() => toggleReveal(app.appId)}/>
+                          ) : app.tokenClaimed ? (
+                            <span>Saved (no longer stored)</span>
+                          ) : (
+                            <span>—</span>
+                          )}
                         </td>
-                      </tr>
-                    ) : (
-                      filtered_my_apps.map((app) => {
-                        const isOpen = !!revealed[app.appId];
-                        return (
-                          <tr key={app.appId}>
-                            <td>
-                              <div className="ws-cell-title">{app.name}</div>
-                            </td>
-                            <td>{fmt_date(app.decidedAt ?? app.createdAt)}</td>
-                            <td>
-                              {app.token ? (
-                                <button
-                                  type="button"
-                                  className={`ws-spoiler${isOpen ? ' ws-spoiler--open' : ''}`}
-                                  onClick={() => toggleReveal(app.appId)}
-                                  title={isOpen ? 'Click to hide' : 'Click to reveal'}
-                                >
-                                  <code className="ws-v ws-v--secret">
-                                    {isOpen ? app.token : '•'.repeat(Math.min(48, app.token.length))}
-                                  </code>
-                                  <span className="ws-spoiler-hint">{isOpen ? 'Hide' : 'Reveal'}</span>
-                                </button>
-                              ) : app.tokenClaimed ? (
-                                <span className="ws-muted">Saved (no longer stored)</span>
-                              ) : (
-                                <span className="ws-muted">—</span>
-                              )}
-                            </td>
-                            <td className="ws-actions-cell">
-                              <div className="ws-inline-actions">
-                                {app.token && isOpen && (
-                                  <ui_button.Button variant="action" onClick={() => copy(`tok-${app.appId}`, app.token!)}>
-                                    {copied === `tok-${app.appId}` ? 'Copied' : 'Copy'}
-                                  </ui_button.Button>
-                                )}
-                                {app.token && !app.tokenClaimed && (
-                                  <ui_button.Button variant="action" disabled={busy} onClick={() => claim(app.appId)}>
-                                    Mark as saved
-                                  </ui_button.Button>
-                                )}
-                              </div>
-                            </td>
-                          </tr>
-                        );
-                      })
-                    )}
-                  </tbody>
-                </ui_table.Table>
+                        <ui_table.TableActions>
+                          {app.token && isOpen && (
+                            <ui_button.Button variant="action" onClick={() => copy(`tok-${app.appId}`, app.token!)}>
+                              {copied === `tok-${app.appId}` ? 'Copied' : 'Copy'}
+                            </ui_button.Button>
+                          )}
+                          {app.token && !app.tokenClaimed && (
+                            <ui_button.Button variant="action" disabled={busy} onClick={() => claim(app.appId)}>
+                              Mark as saved
+                            </ui_button.Button>
+                          )}
+                        </ui_table.TableActions>
+                      </>
+                    );
+                  }}
+                />
               )}
 
               {accountTab === 'resources' && (
-                <ui_table.Table>
-                  <thead>
-                    <tr>
-                      <th>Resource</th>
-                      <th>Version</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filtered_my_vault.length === 0 ? (
-                      <tr className="ui-table-empty">
-                        <td colSpan={2}>
-                          <div className="state-empty">
-                            <lucide.Package size={28} strokeWidth={1.5}/>
-                            <span>{loading ? 'Loading…' : 'No vault resources linked to your GitHub account.'}</span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      filtered_my_vault.map((r) => (
-                        <tr key={r.id}>
-                          <td>
-                            {r.source_url ? (
-                              <a className="ws-cell-title" href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
-                            ) : (
-                              <div className="ws-cell-title">{r.name}</div>
-                            )}
-                            <div className="ws-muted">{r.path}</div>
-                          </td>
-                          <td>{r.version || '—'}</td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </ui_table.Table>
+                <ui_table.DataTable
+                  head={['Resource', 'Version']}
+                  rows={filtered_my_vault}
+                  rowKey={(r) => r.id}
+                  empty={empty_state(
+                    <lucide.Package size={28} strokeWidth={1.5}/>,
+                    loading ? 'Loading…' : 'No vault resources linked to your GitHub account.'
+                  )}
+                  renderRow={(r) => (
+                    <>
+                      <td><ui_table.TableTitle href={r.source_url} sub={r.path}>{r.name}</ui_table.TableTitle></td>
+                      <td>{r.version || '—'}</td>
+                    </>
+                  )}
+                />
               )}
-            </div>
+            </ui_panel.TabPanel>
 
             {session.staff && (
               <>
-                <div className="sec-title">Review Applications</div>
-                <ui_divider.Divider className="anim-in anim-in--3"/>
+                <ui_section.Section className="anim-in anim-in--3">Review Applications</ui_section.Section>
                 <ui_stat.StatGrid columns="auto" className="ws-stats">
                   <ui_stat.Stat
                     label="Issued"
@@ -600,253 +459,130 @@ export function Workspace() {
                   />
                 </ui_stat.StatGrid>
 
-                <div className="ws-panel">
-                  <div className="ws-panel-head ws-panel-head--tabs">
-                    <ui_tabs.Tabs
-                      value={tab}
-                      onChange={(id) => setTab(id as 'tokens' | 'pending')}
-                      ariaLabel="Application lists"
-                      items={[
-                        {
-                          id: 'tokens',
-                          label: 'Issued',
-                          icon: <lucide.KeyRound size={14} strokeWidth={2.25}/>,
-                        },
-                        {
-                          id: 'pending',
-                          label: 'Pending',
-                          icon: <lucide.Inbox size={14} strokeWidth={2.25}/>,
-                        },
-                      ]}
-                    />
-                    {(tab === 'pending' || tab === 'tokens') && (
-                      <ui_search.Search
-                        className="ws-search-ui"
-                        placeholder="Search name or author…"
-                        value={q}
-                        onChange={setQ}
-                        icon={<lucide.Search size={14} strokeWidth={2}/>}
-                      />
-                    )}
-                  </div>
-
+                <ui_panel.TabPanel
+                  tabs={REVIEW_TABS}
+                  value={tab}
+                  onChange={(id) => setTab(id as 'tokens' | 'pending')}
+                  ariaLabel="Application lists"
+                  query={q}
+                  onQuery={setQ}
+                >
                   {tab === 'pending' && (
-                    <ui_table.Table>
-                        <thead>
-                          <tr>
-                            <th>Server</th>
-                            <th>Author</th>
-                            <th>Submitted</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {filtered_pending.length === 0 ? (
-                            <tr className="ui-table-empty">
-                              <td colSpan={4}>
-                                <div className="state-empty">
-                                  <lucide.Inbox size={28} strokeWidth={1.5}/>
-                                  <span>{loading ? 'Loading…' : 'No pending requests.'}</span>
-                                </div>
-                              </td>
-                            </tr>
-                          ) : (
-                            filtered_pending.map((p) => (
-                              <tr key={p.appId}>
-                                <td>
-                                  <div className="ws-cell-title">{p.name}</div>
-                                </td>
-                                <td>@{p.login}</td>
-                                <td>{fmt_date(p.createdAt)}</td>
-                                <td className="ws-actions-cell">
-                                  <div className="ws-inline-actions">
-                                    <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</ui_button.Button>
-                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</ui_button.Button>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))
-                          )}
-                        </tbody>
-                      </ui_table.Table>
+                    <ui_table.DataTable
+                      head={['Server', 'Author', 'Submitted', '']}
+                      rows={filtered_pending}
+                      rowKey={(p) => p.appId}
+                      empty={empty_state(
+                        <lucide.Inbox size={28} strokeWidth={1.5}/>,
+                        loading ? 'Loading…' : 'No pending requests.'
+                      )}
+                      renderRow={(p) => (
+                        <>
+                          <td><ui_table.TableTitle>{p.name}</ui_table.TableTitle></td>
+                          <td>@{p.login}</td>
+                          <td>{fmt_date(p.createdAt)}</td>
+                          <ui_table.TableActions>
+                            <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</ui_button.Button>
+                            <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</ui_button.Button>
+                          </ui_table.TableActions>
+                        </>
+                      )}
+                    />
                   )}
 
                   {tab === 'tokens' && (
-                    <ui_table.Table>
-                        <thead>
-                          <tr>
-                            <th>Server</th>
-                            <th>Author</th>
-                            <th>Approved by</th>
-                            <th>Date</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {filtered_tokens.length === 0 ? (
-                            <tr className="ui-table-empty">
-                              <td colSpan={5}>
-                                <div className="state-empty">
-                                  <lucide.KeyRound size={28} strokeWidth={1.5}/>
-                                  <span>{loading ? 'Loading…' : 'No issued tokens.'}</span>
-                                </div>
-                              </td>
-                            </tr>
-                          ) : (
-                            filtered_tokens.map((t) => (
-                              <tr key={t.appId}>
-                                <td><div className="ws-cell-title">{t.name}</div></td>
-                                <td>@{t.login}</td>
-                                <td>{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
-                                <td>{fmt_date(t.decidedAt ?? t.createdAt)}</td>
-                                <td className="ws-actions-cell">
-                                  <div className="ws-inline-actions">
-                                    <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</ui_button.Button>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))
-                          )}
-                        </tbody>
-                      </ui_table.Table>
+                    <ui_table.DataTable
+                      head={['Server', 'Author', 'Approved by', 'Date', '']}
+                      rows={filtered_tokens}
+                      rowKey={(t) => t.appId}
+                      empty={empty_state(
+                        <lucide.KeyRound size={28} strokeWidth={1.5}/>,
+                        loading ? 'Loading…' : 'No issued tokens.'
+                      )}
+                      renderRow={(t) => (
+                        <>
+                          <td><ui_table.TableTitle>{t.name}</ui_table.TableTitle></td>
+                          <td>@{t.login}</td>
+                          <td>{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
+                          <td>{fmt_date(t.decidedAt ?? t.createdAt)}</td>
+                          <ui_table.TableActions>
+                            <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</ui_button.Button>
+                          </ui_table.TableActions>
+                        </>
+                      )}
+                    />
                   )}
-                </div>
-              
-                <div className="sec-title anim-in anim-in--4">Vault Submissions</div>
-                <ui_divider.Divider className="anim-in anim-in--4"/>
+                </ui_panel.TabPanel>
+
+                <ui_section.Section className="anim-in anim-in--4" titleClassName="anim-in anim-in--4">Vault Submissions</ui_section.Section>
                 <ui_stat.StatGrid columns="auto" className="ws-stats anim-in anim-in--4">
                   <ui_stat.Stat
                     label="Published"
                     icon={<lucide.Package size={16} strokeWidth={2}/>}
-                    value={loading ? '—' : (data?.vaultPublished?.length ?? 0)}
+                    value={loading ? '—' : vaultPublished.length}
                   />
                   <ui_stat.Stat
                     label="Pending"
                     icon={<lucide.Inbox size={16} strokeWidth={2}/>}
-                    value={loading ? '—' : (data?.vaultPending?.length ?? 0)}
+                    value={loading ? '—' : vaultPending.length}
                   />
                 </ui_stat.StatGrid>
 
-                <div className="ws-panel anim-in anim-in--4">
-                  <div className="ws-panel-head ws-panel-head--tabs">
-                    <ui_tabs.Tabs
-                      value={vaultTab}
-                      onChange={(id) => setVaultTab(id as 'pending' | 'published')}
-                      ariaLabel="Vault lists"
-                      items={[
-                        { id: 'published', label: 'Published', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
-                        { id: 'pending', label: 'Pending', icon: <lucide.Inbox size={14} strokeWidth={2.25}/> },
-                      ]}
-                    />
-                    <ui_search.Search
-                      className="ws-search-ui"
-                      placeholder="Search name or author…"
-                      value={vaultQ}
-                      onChange={setVaultQ}
-                      icon={<lucide.Search size={14} strokeWidth={2}/>}
-                    />
-                  </div>
-
+                <ui_panel.TabPanel
+                  className="anim-in anim-in--4"
+                  tabs={VAULT_TABS}
+                  value={vaultTab}
+                  onChange={(id) => setVaultTab(id as 'pending' | 'published')}
+                  ariaLabel="Vault lists"
+                  query={vaultQ}
+                  onQuery={setVaultQ}
+                >
                   {vaultTab === 'pending' && (
-                    <ui_table.Table>
-                      <thead>
-                        <tr>
-                          <th>Resource</th>
-                          <th>Submitter</th>
-                          <th>Submitted</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filtered_vault_pending.length === 0 ? (
-                          <tr className="ui-table-empty">
-                            <td colSpan={4}>
-                              <div className="state-empty">
-                                <lucide.Inbox size={28} strokeWidth={1.5}/>
-                                <span>{loading ? 'Loading…' : 'No open resource pull requests.'}</span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          filtered_vault_pending.map((v) => (
-                            <tr key={v.id}>
-                              <td>
-                                {v.repo_url ? (
-                                  <a className="ws-cell-title" href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
-                                ) : (
-                                  <div className="ws-cell-title">{v.name}</div>
-                                )}
-                                <div className="ws-muted">{v.repo_full || v.kind}</div>
-                              </td>
-                              <td>@{v.login}</td>
-                              <td>{fmt_date(v.createdAt)}</td>
-                              <td className="ws-actions-cell">
-                                <div className="ws-inline-actions">
-                                  <ui_button.Button variant="action" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>
-                                    Approve
-                                  </ui_button.Button>
-                                  <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>
-                                    Reject
-                                  </ui_button.Button>
-                                </div>
-                              </td>
-                            </tr>
-                          ))
-                        )}
-                      </tbody>
-                    </ui_table.Table>
+                    <ui_table.DataTable
+                      head={['Resource', 'Submitter', 'Submitted', '']}
+                      rows={filtered_vault_pending}
+                      rowKey={(v) => v.id}
+                      empty={empty_state(
+                        <lucide.Inbox size={28} strokeWidth={1.5}/>,
+                        loading ? 'Loading…' : 'No open resource pull requests.'
+                      )}
+                      renderRow={(v) => (
+                        <>
+                          <td><ui_table.TableTitle href={v.repo_url || undefined} sub={v.repo_full || v.kind}>{v.name}</ui_table.TableTitle></td>
+                          <td>@{v.login}</td>
+                          <td>{fmt_date(v.createdAt)}</td>
+                          <ui_table.TableActions>
+                            <ui_button.Button variant="action" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>Approve</ui_button.Button>
+                            <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>Reject</ui_button.Button>
+                          </ui_table.TableActions>
+                        </>
+                      )}
+                    />
                   )}
 
                   {vaultTab === 'published' && (
-                    <ui_table.Table>
-                      <thead>
-                        <tr>
-                          <th>Resource</th>
-                          <th>Author</th>
-                          <th>Version</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filtered_vault_published.length === 0 ? (
-                          <tr className="ui-table-empty">
-                            <td colSpan={4}>
-                              <div className="state-empty">
-                                <lucide.Package size={28} strokeWidth={1.5}/>
-                                <span>{loading ? 'Loading…' : 'No published vault resources.'}</span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          filtered_vault_published.map((r) => (
-                            <tr key={r.id}>
-                              <td>
-                                {r.source_url ? (
-                                  <a className="ws-cell-title" href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
-                                ) : (
-                                  <div className="ws-cell-title">{r.name}</div>
-                                )}
-                                <div className="ws-muted">{r.path}</div>
-                              </td>
-                              <td>{r.author ? `@${r.author}` : '—'}</td>
-                              <td>{r.version || '—'}</td>
-                              <td className="ws-actions-cell">
-                                <div className="ws-inline-actions">
-                                  <ui_button.Button variant="action" danger disabled={busy} onClick={() => remove_vault(r.path)}>
-                                    Remove
-                                  </ui_button.Button>
-                                </div>
-                              </td>
-                            </tr>
-                          ))
-                        )}
-                      </tbody>
-                    </ui_table.Table>
+                    <ui_table.DataTable
+                      head={['Resource', 'Author', 'Version', '']}
+                      rows={filtered_vault_published}
+                      rowKey={(r) => r.id}
+                      empty={empty_state(
+                        <lucide.Package size={28} strokeWidth={1.5}/>,
+                        loading ? 'Loading…' : 'No published vault resources.'
+                      )}
+                      renderRow={(r) => (
+                        <>
+                          <td><ui_table.TableTitle href={r.source_url} sub={r.path}>{r.name}</ui_table.TableTitle></td>
+                          <td>{r.author ? `@${r.author}` : '—'}</td>
+                          <td>{r.version || '—'}</td>
+                          <ui_table.TableActions>
+                            <ui_button.Button variant="action" danger disabled={busy} onClick={() => remove_vault(r.path)}>Remove</ui_button.Button>
+                          </ui_table.TableActions>
+                        </>
+                      )}
+                    />
                   )}
-                </div>
-
-
-</>
+                </ui_panel.TabPanel>
+              </>
             )}
           </>
         )}
