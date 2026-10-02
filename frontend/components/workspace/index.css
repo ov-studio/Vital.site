@@ -54,7 +54,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.ws-stats + .ws-panel,
+.ws-profile-row + .ws-panel {
+  margin-top: 0;
 }
 
 .ws-stat {
@@ -141,7 +146,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 4px;
-  padding: 10px 0 0;
+  padding: 0;
   border-bottom: none;
   background: transparent;
   flex-wrap: wrap;
