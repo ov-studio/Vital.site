@@ -283,22 +283,13 @@ function VaultSubmitModal({
     return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
   }, []);
 
-  const auth_headers = react.useCallback((): HeadersInit => {
-    const s = lib_auth_session.read_auth_session();
-    if (!s) return {};
-    return {
-      Authorization: `Bearer ${s.token}`,
-      'Content-Type': 'application/json'
-    };
-  }, []);
-
   const load_repos = react.useCallback(async () => {
     const s = lib_auth_session.read_auth_session();
     if (!s) return;
     set_loading_repos(true);
     set_error(null);
     try {
-      const res = await fetch(lib_api_url.get_api_url('/vault/repos'), { headers: auth_headers() });
+      const res = await fetch(lib_api_url.get_api_url('/vault/repos'), { headers: lib_auth_session.auth_headers() });
       const json = await res.json().catch(() => ({}));
       if (res.status === 403 && json?.error === 'reauth_required') {
         set_error('Sign in again to grant repository access.');
@@ -313,7 +304,7 @@ function VaultSubmitModal({
     finally {
       set_loading_repos(false);
     }
-  }, [auth_headers]);
+  }, []);
 
   react.useEffect(() => {
     if (session) load_repos();
@@ -329,7 +320,7 @@ function VaultSubmitModal({
     try {
       const res = await fetch(lib_api_url.get_api_url('/vault/submit'), {
         method: 'POST',
-        headers: auth_headers(),
+        headers: lib_auth_session.auth_headers(),
         body: JSON.stringify({ repo })
       });
       const json = await res.json().catch(() => ({}));
