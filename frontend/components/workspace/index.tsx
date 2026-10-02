@@ -268,8 +268,6 @@ export function Workspace() {
     await act('/vault/submissions', 'POST', { action: 'remove', path }, 'Failed to open removal PR');
   }, [act]);
 
-  const canApply = !pendingApp;
-
   return (
     <ui_page.Page as="main" className="ws-page" wallpaper={3}>
       <ui_pagehead.PageHead
@@ -315,22 +313,22 @@ export function Workspace() {
                 icon={<lucide.Package size={16} strokeWidth={2}/>}
                 value={loading ? '—' : myVault.length}
               />
-              {pendingApp && (
-                <ui_stat.Stat className="ws-apply-card" label={pendingApp.name}>
-                  <div className="ws-pending-bottom">
-                    <div className="ws-pending-meta">
-                      Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}
-                    </div>
-                    <ui_button.Button variant="action" danger onClick={() => cancel(pendingApp.appId)} disabled={busy}>
-                      Cancel
-                    </ui_button.Button>
-                  </div>
-                </ui_stat.Stat>
-              )}
             </div>
 
-            {canApply && (
-              <ui_stat.Stat className="ws-apply-card--row" label="Request a masterlist token">
+            <ui_stat.Stat
+              className="ws-apply-card--row"
+              label={pendingApp ? pendingApp.name : 'Request a masterlist token'}
+            >
+              {pendingApp ? (
+                <div className="ws-pending-bottom">
+                  <div className="ws-pending-meta">
+                    Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}
+                  </div>
+                  <ui_button.Button variant="action" size="lg" danger onClick={() => cancel(pendingApp.appId)} disabled={busy}>
+                    Cancel
+                  </ui_button.Button>
+                </div>
+              ) : (
                 <div className="ws-apply-row">
                   <ui_search.Search
                     className="ws-apply-search"
@@ -344,8 +342,8 @@ export function Workspace() {
                     {busy ? 'Submitting…' : 'Submit'}
                   </ui_button.Button>
                 </div>
-              </ui_stat.Stat>
-            )}
+              )}
+            </ui_stat.Stat>
 
             <ui_panel.TabPanel
               tabs={ACCOUNT_TABS}

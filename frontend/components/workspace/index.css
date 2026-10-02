@@ -118,7 +118,7 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
 
-/* ── Profile row (Stat tiles; profile / pending / apply are Stat variants) ── */
+/* ── Profile row (Stat tiles) + apply/pending row beneath ── */
 .ws-profile-row {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
@@ -127,10 +127,6 @@
   gap: 10px;
   margin-bottom: 10px;
   align-items: stretch;
-}
-
-.ws-profile-row:has(> .ws-apply-card) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
 }
 
 .ws-profile-row > .ui-stat {
@@ -149,7 +145,7 @@
   gap: 16px;
 }
 
-.ws-apply-card .ui-stat-label {
+.ws-apply-card--row .ui-stat-label {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -231,15 +227,13 @@
   .ws-profile-row {
     grid-template-columns: 1fr 1fr;
   }
-  .ws-profile-row > .ws-profile-card,
-  .ws-profile-row > .ws-apply-card {
+  .ws-profile-row > .ws-profile-card {
     grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 720px)  {
-  .ws-profile-row > .ws-profile-card,
-  .ws-profile-row > .ws-apply-card {
+  .ws-profile-row > .ws-profile-card {
     grid-column: 1 / -1;
   }
 }
