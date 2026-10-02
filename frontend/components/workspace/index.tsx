@@ -668,7 +668,7 @@ export function Workspace() {
                           filtered_vault_pending.map((v) => (
                             <tr key={v.id}>
                               <td>
-                                <a href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
+                                <a className="ws-cell-title" href={v.repo_url} target="_blank" rel="noreferrer">{v.name}</a>
                                 <div className="ws-muted">{v.repo_full || v.kind}</div>
                               </td>
                               <td>@{v.login}</td>
@@ -718,8 +718,10 @@ export function Workspace() {
                             <tr key={r.id}>
                               <td>
                                 {r.source_url ? (
-                                  <a href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
-                                ) : r.name}
+                                  <a className="ws-cell-title" href={r.source_url} target="_blank" rel="noreferrer">{r.name}</a>
+                                ) : (
+                                  <div className="ws-cell-title">{r.name}</div>
+                                )}
                                 <div className="ws-muted">{r.path}</div>
                               </td>
                               <td>{r.author ? `@${r.author}` : '—'}</td>

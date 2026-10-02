@@ -179,6 +179,17 @@
   color: var(--text-soft);
 }
 
+a.ws-cell-title {
+  text-decoration: none;
+  color: var(--text-soft);
+}
+
+a.ws-cell-title:hover {
+  text-decoration: none;
+  color: var(--text-soft);
+  opacity: 0.9;
+}
+
 .ws-actions-cell {
   text-align: right;
   width: 1%;
