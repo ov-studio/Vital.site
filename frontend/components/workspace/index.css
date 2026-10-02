@@ -477,10 +477,14 @@ a.ws-cell-title:hover {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   align-items: stretch;
+}
+
+.ws-profile-row:has(> .ws-apply-card) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
 }
 
 .ws-profile-row > .ws-stat {
@@ -529,6 +533,11 @@ a.ws-cell-title:hover {
 
 .ws-apply-card .ws-pending-card--in-panel {
   width: 100%;
+}
+
+.ws-apply-card--row {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .ws-page .ws-panel:not(.ws-panel--narrow) {

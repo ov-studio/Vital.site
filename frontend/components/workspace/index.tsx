@@ -412,8 +412,8 @@ export function Workspace() {
                 </div>
                 <div className="ws-stat-value">{loading ? '—' : myVault.length}</div>
               </div>
-              <div className="ws-apply-card">
-                {pendingApp ? (
+              {pendingApp && (
+                <div className="ws-apply-card">
                   <div className="ws-pending-card ws-pending-card--in-panel">
                     <div className="ws-stat-top">
                       <div className="ws-stat-label">{pendingApp.name}</div>
@@ -427,28 +427,30 @@ export function Workspace() {
                       </ui_button.Button>
                     </div>
                   </div>
-                ) : canApply ? (
-                  <div className="ws-apply">
-                    <label className="ws-label" htmlFor="app-name">Request a masterlist token</label>
-                    <div className="ws-apply-row">
-                      <ui_search.Search
-                        className="ws-apply-search"
-                        placeholder="Night City RP"
-                        value={name}
-                        onChange={(v: string) => setName(String(v).slice(0, 64))}
-                        disabled={busy}
-                        icon={<lucide.Server size={14} strokeWidth={2}/>}
-                      />
-                      <ui_button.Button variant="action" size="lg" onClick={apply} disabled={busy}>
-                        {busy ? 'Submitting…' : 'Submit'}
-                      </ui_button.Button>
-                    </div>
-                  </div>
-                ) : (
-                  <p className="ws-text">You already have an approved server — manage tokens below.</p>
-                )}
-              </div>
+                </div>
+              )}
             </div>
+
+            {canApply && (
+              <div className="ws-apply-card ws-apply-card--row">
+                <div className="ws-apply">
+                  <label className="ws-label" htmlFor="app-name">Request a masterlist token</label>
+                  <div className="ws-apply-row">
+                    <ui_search.Search
+                      className="ws-apply-search"
+                      placeholder="Night City RP"
+                      value={name}
+                      onChange={(v: string) => setName(String(v).slice(0, 64))}
+                      disabled={busy}
+                      icon={<lucide.Server size={14} strokeWidth={2}/>}
+                    />
+                    <ui_button.Button variant="action" size="lg" onClick={apply} disabled={busy}>
+                      {busy ? 'Submitting…' : 'Submit'}
+                    </ui_button.Button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="ws-panel">
               <div className="ws-panel-head ws-panel-head--tabs">
