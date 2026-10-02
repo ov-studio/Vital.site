@@ -444,8 +444,8 @@ a.ws-cell-title:hover {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
   display: grid;
-  /* Profile | Servers | Resources | Apply */
-  grid-template-columns: minmax(180px, 1fr) 140px 140px minmax(220px, 1.3fr);
+  /* Profile | Servers | Resources (equal) | Apply */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
   gap: 10px;
   margin-bottom: 15px;
   align-items: stretch;
@@ -453,9 +453,12 @@ a.ws-cell-title:hover {
 
 .ws-profile-row > .ws-stat {
   margin: 0;
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .ws-profile-card,
@@ -501,11 +504,19 @@ a.ws-cell-title:hover {
   .ws-profile-row {
     grid-template-columns: 1fr 1fr;
   }
+  .ws-profile-row > .ws-profile-card,
+  .ws-profile-row > .ws-apply-card {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 720px)  {
   .ws-profile-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .ws-profile-row > .ws-profile-card,
+  .ws-profile-row > .ws-apply-card {
+    grid-column: 1 / -1;
   }
 
   .ws-panel-head--tabs {
