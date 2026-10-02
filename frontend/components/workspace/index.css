@@ -444,7 +444,6 @@ a.ws-cell-title:hover {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
   display: grid;
-  /* Profile | Servers | Resources (equal) | Apply */
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
   gap: 10px;
   margin-bottom: 15px;
