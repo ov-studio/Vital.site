@@ -61,21 +61,10 @@
   height: auto;
 }
 
-.ui-table-empty-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 48px 24px;
-  min-height: 160px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.ui-table-empty-inner svg {
-  opacity: 0.55;
-  color: var(--blue);
+.ui-table-wrap--bordered {
+  background: var(--bg7);
+  border: 2px solid var(--b10);
+  border-radius: 4px;
 }
 
 .ui-table-title {

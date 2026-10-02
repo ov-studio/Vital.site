@@ -1,10 +1,13 @@
 'use client';
 import * as config_pages     from '@/configs/pages';
-import * as ui_wallpaper     from '@/ui/wallpaper';
-import * as ui_divider       from '@/ui/divider';
+import * as ui_page          from '@/ui/page';
+import * as ui_pagehead      from '@/ui/pagehead';
+import * as ui_section       from '@/ui/section';
+import * as ui_table         from '@/ui/table';
+import * as ui_empty         from '@/ui/empty';
 import * as ui_stat          from '@/ui/stat';
 import * as lib_api_url      from '@/lib/api_url';
-import * as lib_page_loading from '@/lib/page_loading';
+import * as lib_hooks        from '@/lib/hooks';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
 import './index.css';
@@ -74,35 +77,25 @@ export function Benchmarks() {
   const [error, setError]     = react.useState(false);
   const [loading, setLoading] = react.useState(true);
 
+  lib_hooks.use_page_loading(loading);
+
   react.useEffect(() => {
     let cancelled = false;
-    setLoading(true);
-    setError(false);
-    lib_page_loading.set_page_loading(true);
-
     fetch(lib_api_url.get_api_url('/benchmark'))
       .then((r) => {
         if (!r.ok) throw new Error(String(r.status));
         return r.json();
       })
       .then((json: BenchmarkResponse) => {
-        if (cancelled) return;
-        setPayload(json);
-        setLoading(false);
+        if (!cancelled) setPayload(json);
       })
       .catch(() => {
-        if (cancelled) return;
-        setError(true);
-        setLoading(false);
+        if (!cancelled) setError(true);
       })
       .finally(() => {
-        if (!cancelled) lib_page_loading.set_page_loading(false);
+        if (!cancelled) setLoading(false);
       });
-
-    return () => {
-      cancelled = true;
-      lib_page_loading.set_page_loading(false);
-    };
+    return () => { cancelled = true; };
   }, []);
 
   const data  = payload?.data;
@@ -110,107 +103,85 @@ export function Benchmarks() {
   const env   = data?.environment ?? {};
 
   return (
-    <section id="benchmarks" className="sec-pad">
-      <ui_wallpaper.Wallpaper variant={11}/>
-      <div className="sw">
-        <div className="page-head">
-          <div className="sec-head sec-head--intro">
-            <div>
-              <div className="slabel">Benchmarks</div>
-              <h2>Lua vs GDScript.<br/>Measured, not <span>marketed.</span></h2>
-            </div>
-          </div>
-          <p className="page-intro bm-intro">
-            {config_pages.pages.benchmarks.description}
-          </p>
-        </div>
+    <ui_page.Page id="benchmarks" wallpaper={11}>
+      <ui_pagehead.PageHead
+        label="Benchmarks"
+        title={<>Lua vs GDScript.<br/>Measured, not <span>marketed.</span></>}
+        intro={config_pages.pages.benchmarks.description}
+        introClassName="bm-intro"
+      />
 
-        {!loading && error && (
-          <div className="state-empty bm-state">
-            <lucide.WifiOff size={24} strokeWidth={1.5}/>
-            <span>Could not load benchmarks — try again later.</span>
-          </div>
-        )}
+      {!loading && error && (
+        <ui_empty.EmptyState className="bm-state" icon={<lucide.WifiOff size={24} strokeWidth={1.5}/>}>
+          Could not load benchmarks — try again later.
+        </ui_empty.EmptyState>
+      )}
 
-        {!loading && !error && (
-          <>
-            <div className="sec-title bm-section-title">Environment</div>
-            <ui_divider.Divider/>
+      {!loading && !error && (
+        <>
+          <ui_section.Section titleClassName="bm-section-title">Environment</ui_section.Section>
 
-            <ui_stat.StatGrid columns={4} className="bm-env">
-              <ui_stat.Stat
-                animate
-                index={0}
-                label="Vital.sandbox"
-                icon={<lucide.Layers size={16} strokeWidth={2}/>}
-                value={payload?.tag || '—'}
-              />
-              {ENV_FIELDS.map(({ key, label, Icon }, i) => {
-                const val = env[key];
-                if (val == null || val === '') return null;
-                return (
-                  <ui_stat.Stat
-                    key={key}
-                    animate
-                    index={i + 1}
-                    label={label}
-                    icon={<Icon size={16} strokeWidth={2}/>}
-                    value={capitalize(String(val))}
-                  />
-                );
-              })}
-            </ui_stat.StatGrid>
+          <ui_stat.StatGrid columns={4} className="bm-env">
+            <ui_stat.Stat
+              animate
+              index={0}
+              label="Vital.sandbox"
+              icon={<lucide.Layers size={16} strokeWidth={2}/>}
+              value={payload?.tag || '—'}
+            />
+            {ENV_FIELDS.map(({ key, label, Icon }, i) => {
+              const val = env[key];
+              if (val == null || val === '') return null;
+              return (
+                <ui_stat.Stat
+                  key={key}
+                  animate
+                  index={i + 1}
+                  label={label}
+                  icon={<Icon size={16} strokeWidth={2}/>}
+                  value={capitalize(String(val))}
+                />
+              );
+            })}
+          </ui_stat.StatGrid>
 
-            <div className="sec-title bm-section-title bm-section-title--table">Benchmarks</div>
-            <ui_divider.Divider/>
+          <ui_section.Section titleClassName="bm-section-title bm-section-title--table">Benchmarks</ui_section.Section>
 
-            {data?.note && <p className="bm-note">{data.note}*</p>}
+          {data?.note && <p className="bm-note">{data.note}*</p>}
 
-            <div className="bm-table-wrap">
-              <table className="bm-table">
-                <thead>
-                  <tr>
-                    <th>Workload</th>
-                    <th>Faster</th>
-                    <th>Ratio</th>
-                    <th>Lua</th>
-                    <th>GDScript</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tests.length === 0 ? (
-                    <tr className="bm-empty-row">
-                      <td colSpan={5}>
-                        <div className="state-empty">
-                          <lucide.Gauge size={24} strokeWidth={1.5}/>
-                          <span>No scripting tests in this release.</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    tests.map((t) => {
-                      const faster = (t.faster ?? '').toLowerCase();
-                      const lua_win = faster === 'lua';
-                      const gd_win  = faster === 'gdscript';
-                      return (
-                        <tr key={t.name} className={lua_win ? 'bm-row--lua' : gd_win ? 'bm-row--gd' : ''}>
-                          <td className="bm-name">{pretty_name(t.name)}</td>
-                          <td className={lua_win ? 'bm-faster--lua' : gd_win ? 'bm-faster--gd' : 'bm-faster--tie'}>
-                            {lua_win ? 'Lua' : gd_win ? 'GDScript' : (t.faster ?? '—')}
-                          </td>
-                          <td>{fmt_ratio(t.throughput_ratio)}</td>
-                          <td>{fmt_ops(t.lua?.ops_sec)}</td>
-                          <td>{fmt_ops(t.gdscript?.ops_sec)}</td>
-                        </tr>
-                      );
-                    })
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
-      </div>
-    </section>
+          <ui_table.DataTable
+            bordered
+            wrapClassName="bm-table-wrap"
+            head={['Workload', 'Faster', 'Ratio', 'Lua', 'GDScript']}
+            rows={tests}
+            rowKey={(t) => t.name ?? ''}
+            rowClassName={(t) => {
+              const faster = (t.faster ?? '').toLowerCase();
+              return faster === 'lua' ? 'bm-row--lua' : faster === 'gdscript' ? 'bm-row--gd' : undefined;
+            }}
+            empty={{
+              icon: <lucide.Gauge size={24} strokeWidth={1.5}/>,
+              text: 'No scripting tests in this release.'
+            }}
+            renderRow={(t) => {
+              const faster = (t.faster ?? '').toLowerCase();
+              const lua_win = faster === 'lua';
+              const gd_win  = faster === 'gdscript';
+              return (
+                <>
+                  <td className="bm-name">{pretty_name(t.name)}</td>
+                  <td className={lua_win ? 'bm-faster--lua' : gd_win ? 'bm-faster--gd' : 'bm-faster--tie'}>
+                    {lua_win ? 'Lua' : gd_win ? 'GDScript' : (t.faster ?? '—')}
+                  </td>
+                  <td>{fmt_ratio(t.throughput_ratio)}</td>
+                  <td>{fmt_ops(t.lua?.ops_sec)}</td>
+                  <td>{fmt_ops(t.gdscript?.ops_sec)}</td>
+                </>
+              );
+            }}
+          />
+        </>
+      )}
+    </ui_page.Page>
   );
 }

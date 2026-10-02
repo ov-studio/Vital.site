@@ -10,10 +10,15 @@ import * as ui_filter        from '@/ui/filter';
 import * as ui_search        from '@/ui/search';
 import * as ui_button        from '@/ui/button';
 import * as ui_divider       from '@/ui/divider';
-import * as ui_wallpaper     from '@/ui/wallpaper';
+import * as ui_page          from '@/ui/page';
+import * as ui_pagehead      from '@/ui/pagehead';
+import * as ui_empty         from '@/ui/empty';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
-import * as lib_page_loading from '@/lib/page_loading';
+import * as lib_hooks        from '@/lib/hooks';
+import * as lib_api_request  from '@/lib/api_request';
+import * as lib_download     from '@/lib/download';
+import * as lib_search       from '@/lib/search_filter';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
 import * as next_navigation  from 'next/navigation';
@@ -40,11 +45,11 @@ function use_vault_resources() {
   const [resources, set_resources] = react.useState<config_vault.VaultResource[]>([]);
   const [state, set_state] = react.useState<config_vault.LoadState>('loading');
 
+  lib_hooks.use_page_loading(state === 'loading');
+
   react.useEffect(() => {
     let cancelled = false;
     async function load() {
-      set_state('loading');
-      lib_page_loading.set_page_loading(true);
       try {
         const res = await fetch(lib_api_url.get_api_url('/vault'));
         if (!res.ok) throw new Error(`vault.json fetch ${res.status}`);
@@ -56,15 +61,9 @@ function use_vault_resources() {
         console.error('[Vault]', err);
         if (!cancelled) set_state('error');
       }
-      finally {
-        if (!cancelled) lib_page_loading.set_page_loading(false);
-      }
     }
     load();
-    return () => {
-      cancelled = true;
-      lib_page_loading.set_page_loading(false);
-    };
+    return () => { cancelled = true; };
   }, []);
 
   return { 
@@ -93,13 +92,7 @@ async function download_directory_zip(folder: string): Promise<void> {
     zip.file(file.path.slice(prefix.length), await r.arrayBuffer());
   }));
 
-  const blob = await zip.generateAsync({ type: 'blob' });
-  const url  = URL.createObjectURL(blob);
-  const a    = Object.assign(document.createElement('a'), { href: url, download: `${folder}.zip` });
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
+  lib_download.trigger_download(await zip.generateAsync({ type: 'blob' }), `${folder}.zip`);
 }
 
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
@@ -120,17 +113,15 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   const folder = is_dir ? resource.id : '';
   const [downloading, set_downloading] = react.useState(false);
   const [dl_error, set_dl_error] = react.useState<string | null>(null);
-  const [copied, set_copied] = react.useState(false);
+  const { copied: copied_key, copy } = lib_hooks.use_clipboard(2000);
+  const copied = copied_key !== null;
 
   const handle_share = react.useCallback(() => {
     const params = new URLSearchParams(window.location.search);
     params.set('modal', resource.id);
     const url = `${window.location.origin}/vault?${params.toString()}`;
-    navigator.clipboard.writeText(url).then(() => {
-      set_copied(true);
-      window.setTimeout(() => set_copied(false), 2000);
-    });
-  }, [resource.id]);
+    copy(url);
+  }, [resource.id, copy]);
 
   const handle_download = react.useCallback(async () => {
     if (!is_dir || downloading) return;
@@ -267,7 +258,7 @@ function VaultSubmitModal({
   on_close: () => void;
   closing: boolean;
 }) {
-  const [session, set_session] = react.useState<lib_auth_session.AuthSession | null>(null);
+  const session = lib_hooks.use_auth_session();
   const [repos, set_repos] = react.useState<GhRepo[]>([]);
   const [loading_repos, set_loading_repos] = react.useState(false);
   const [repo, set_repo] = react.useState('');
@@ -275,28 +266,17 @@ function VaultSubmitModal({
   const [error, set_error] = react.useState<string | null>(null);
   const [done, set_done] = react.useState<{ pr_url?: string | null; path?: string; updated?: boolean } | null>(null);
 
-  react.useEffect(() => {
-    lib_auth_session.capture_oauth_hash();
-    set_session(lib_auth_session.read_auth_session());
-    const on_auth = () => set_session(lib_auth_session.read_auth_session());
-    window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
-    return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
-  }, []);
+  const REAUTH_MESSAGE = 'Sign in again to grant repository access.';
 
   const load_repos = react.useCallback(async () => {
-    const s = lib_auth_session.read_auth_session();
-    if (!s) return;
+    if (!lib_auth_session.read_auth_session()) return;
     set_loading_repos(true);
     set_error(null);
     try {
-      const res = await fetch(lib_api_url.get_api_url('/vault/repos'), { headers: lib_auth_session.auth_headers() });
-      const json = await res.json().catch(() => ({}));
-      if (res.status === 403 && json?.error === 'reauth_required') {
-        set_error('Sign in again to grant repository access.');
-        return;
-      }
-      if (!res.ok) throw new Error(json?.error || 'Failed to load repositories');
-      set_repos(Array.isArray(json.repos) ? json.repos : []);
+      const r = await lib_api_request.api_request('/vault/repos');
+      if (r.status === 403 && r.error === 'reauth_required') { set_error(REAUTH_MESSAGE); return; }
+      if (!r.ok) throw new Error(r.error || 'Failed to load repositories');
+      set_repos(Array.isArray(r.json.repos) ? r.json.repos : []);
     }
     catch (e) {
       set_error(e instanceof Error ? e.message : 'Failed to load repositories');
@@ -318,18 +298,10 @@ function VaultSubmitModal({
     set_busy(true);
     set_error(null);
     try {
-      const res = await fetch(lib_api_url.get_api_url('/vault/submit'), {
-        method: 'POST',
-        headers: lib_auth_session.auth_headers(),
-        body: JSON.stringify({ repo })
-      });
-      const json = await res.json().catch(() => ({}));
-      if (res.status === 403 && json?.error === 'reauth_required') {
-        set_error('Sign in again to grant repository access.');
-        return;
-      }
-      if (!res.ok) throw new Error(json?.error || 'Submission failed');
-      set_done({ pr_url: json.pr_url, path: json.path, updated: Boolean(json.updated) });
+      const r = await lib_api_request.api_request('/vault/submit', { method: 'POST', body: { repo } });
+      if (r.status === 403 && r.error === 'reauth_required') { set_error(REAUTH_MESSAGE); return; }
+      if (!r.ok) throw new Error(r.error || 'Submission failed');
+      set_done({ pr_url: r.json.pr_url, path: r.json.path, updated: Boolean(r.json.updated) });
     }
     catch (e) {
       set_error(e instanceof Error ? e.message : 'Submission failed');
@@ -434,20 +406,17 @@ function VaultSubmitModal({
 
 function VaultHead({ on_submit }: { on_submit: () => void }) {
   return (
-    <div className="page-head">
-      <div className="sec-head sec-head--intro">
-        <div>
-          <div className="slabel">Vault</div>
-          <h2>Community built,<br/>All yours to <span>explore.</span></h2>
-        </div>
-      </div>
+    <ui_pagehead.PageHead
+      label="Vault"
+      title={<>Community built,<br/>All yours to <span>explore.</span></>}
+    >
       <div className="page-intro vault-intro sec-head sec-head--intro">
         <div>{config_pages.pages.vault.description}</div>
         <button type="button" className="sec-link" onClick={on_submit}>
           :: Submit Resource
         </button>
       </div>
-    </div>
+    </ui_pagehead.PageHead>
   );
 }
 
@@ -475,20 +444,14 @@ function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disab
 }
 
 function VaultSkeleton() {
-  react.useEffect(() => {
-    lib_page_loading.set_page_loading(true);
-    return () => lib_page_loading.set_page_loading(false);
-  }, []);
+  lib_hooks.use_page_loading(true);
 
   return (
-    <section id="vault" className="sec-pad">
-      <ui_wallpaper.Wallpaper variant={18}/>
-      <div className="sw">
-        <VaultHead on_submit={() => {}}/>
-        <VaultFilters disabled/>
-        <ui_divider.Divider className="anim-in anim-in--3"/>
-      </div>
-    </section>
+    <ui_page.Page id="vault" wallpaper={18}>
+      <VaultHead on_submit={() => {}}/>
+      <VaultFilters disabled/>
+      <ui_divider.Divider className="anim-in anim-in--3"/>
+    </ui_page.Page>
   );
 }
 
@@ -539,8 +502,7 @@ function VaultInner() {
 
   const filtered = react.useMemo(() => {
     const tagged = active_tag ? resources.filter(r => r.tags.includes(active_tag)) : resources;
-    const q = search.trim().toLowerCase();
-    const list = q ? tagged.filter(r => r.name.toLowerCase().includes(q)) : tagged;
+    const list = lib_search.search_filter(tagged, search, r => [r.name]);
     return [...list].sort((a, b) => {
       if (a.featured !== b.featured) return a.featured ? -1 : 1;
       return a.name.localeCompare(b.name);
@@ -562,41 +524,36 @@ function VaultInner() {
 
   return (
     <>
-      <section id="vault" className="sec-pad">
-      <ui_wallpaper.Wallpaper variant={18}/>
-        <div className="sw">
-          <VaultHead on_submit={() => { set_submit_closing(false); set_submit_open(true); }}/>
+      <ui_page.Page id="vault" wallpaper={18}>
+        <VaultHead on_submit={() => { set_submit_closing(false); set_submit_open(true); }}/>
 
-          <VaultFilters
-            search={search}
-            on_search={set_search}
-            active_tag={active_tag}
-            on_tag={set_active_tag}
-          />
-          
-          <ui_divider.Divider className="anim-in anim-in--3"/>
+        <VaultFilters
+          search={search}
+          on_search={set_search}
+          active_tag={active_tag}
+          on_tag={set_active_tag}
+        />
 
-          {state !== 'loading' && (
-            <div className="vault-grid">
-              {state === 'error' && (
-                <div className="state-empty">
-                  <lucide.WifiOff size={24} strokeWidth={2.5}/>
-                  Failed to load resources — check your connection and try again
-                </div>
-              )}
-              {state === 'done' && filtered.length === 0 && (
-                <div className="state-empty">
-                  <lucide.PackageOpen size={24}/>
-                  No resources match your query
-                </div>
-              )}
-              {state === 'done' && filtered.map(r => (
-                <VaultCard key={r.id} resource={r} onClick={() => open(r)}/>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+        <ui_divider.Divider className="anim-in anim-in--3"/>
+
+        {state !== 'loading' && (
+          <div className="vault-grid">
+            {state === 'error' && (
+              <ui_empty.EmptyState icon={<lucide.WifiOff size={24} strokeWidth={2.5}/>}>
+                Failed to load resources — check your connection and try again
+              </ui_empty.EmptyState>
+            )}
+            {state === 'done' && filtered.length === 0 && (
+              <ui_empty.EmptyState icon={<lucide.PackageOpen size={24}/>}>
+                No resources match your query
+              </ui_empty.EmptyState>
+            )}
+            {state === 'done' && filtered.map(r => (
+              <VaultCard key={r.id} resource={r} onClick={() => open(r)}/>
+            ))}
+          </div>
+        )}
+      </ui_page.Page>
 
       {selected && <VaultModal resource={selected} on_close={close} closing={closing}/>}
       {submit_open && (

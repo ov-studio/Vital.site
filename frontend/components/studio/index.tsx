@@ -5,6 +5,10 @@ import * as ui_search    from '@/ui/search';
 import * as ui_button    from '@/ui/button';
 import * as ui_tabs      from '@/ui/tabs';
 import * as ui_wallpaper from '@/ui/wallpaper';
+import * as ui_page      from '@/ui/page';
+import * as ui_pagehead  from '@/ui/pagehead';
+import * as ui_checkbox  from '@/ui/checkbox';
+import * as lib_download from '@/lib/download';
 import * as react        from 'react';
 import * as lucide       from 'lucide-react';
 import './index.css';
@@ -64,15 +68,6 @@ function dataUrlToBlob(dataUrl: string): Blob {
   const bytes = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
   return new Blob([bytes], { type: mime });
-}
-
-function triggerDownload(blob: Blob, filename: string) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
 }
 
 export function Studio() {
@@ -243,10 +238,7 @@ export function Studio() {
   ) {
     const dataUrl = await capturePng(ref, width, height, opts);
     if (!dataUrl) return;
-    const a = document.createElement('a');
-    a.href = dataUrl;
-    a.download = filename;
-    a.click();
+    lib_download.trigger_download(dataUrl, filename);
   }
 
   async function downloadOgPresets() {
@@ -278,7 +270,7 @@ export function Studio() {
       if (placeholderUrl) folder.file('placeholder.png', dataUrlToBlob(placeholderUrl));
 
       const blob = await zip.generateAsync({ type: 'blob' });
-      triggerDownload(blob, 'og-presets.zip');
+      lib_download.trigger_download(blob, 'og-presets.zip');
     } 
     catch (err) {
       console.error(err);
@@ -370,7 +362,7 @@ export function Studio() {
       }
 
       const blob = await zip.generateAsync({ type: 'blob' });
-      triggerDownload(blob, 'logo-presets.zip');
+      lib_download.trigger_download(blob, 'logo-presets.zip');
     } 
     catch (err) {
       console.error(err);
@@ -389,23 +381,13 @@ export function Studio() {
   }
 
   return (
-    <section id="studio" className="sec-pad">
-      <ui_wallpaper.Wallpaper variant={4}/>
-      <div className="sw">
-        <div className="page-head">
-          <div className="sec-head sec-head--intro">
-            <div>
-              <div className="slabel">Studio</div>
-              <h2>
-                Brand assets,<br/>
-                ready to <span>export.</span>
-              </h2>
-            </div>
-          </div>
-          <p className="page-intro studio-intro">
-            {config_pages.pages.studio.description}
-          </p>
-        </div>
+    <ui_page.Page id="studio" wallpaper={4}>
+        <ui_pagehead.PageHead
+          label="Studio"
+          title={<>Brand assets,<br/>ready to <span>export.</span></>}
+          intro={config_pages.pages.studio.description}
+          introClassName="studio-intro"
+        />
 
         <div className="studio-shell anim-in anim-in--3">
           <div className="studio-panel-head">
@@ -445,14 +427,7 @@ export function Studio() {
                 />
               </div>
               <div className="studio-controls-row">
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={ogPlaceholder}
-                    onChange={(e) => setOgPlaceholder(e.target.checked)}
-                  />
-                  Placeholder
-                </label>
+                <ui_checkbox.Checkbox label="Placeholder" checked={ogPlaceholder} onChange={setOgPlaceholder}/>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -510,67 +485,17 @@ export function Studio() {
           <div className="studio-panel">
             <div className="studio-controls">
               <div className="studio-controls-row">
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoNeon}
-                    onChange={(e) => setLogoNeon(e.target.checked)}
-                  />
-                  Neon
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoRays}
-                    disabled={!logoNeon}
-                    onChange={(e) => setLogoRays(e.target.checked)}
-                  />
-                  Rays
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoBg}
-                    onChange={(e) => setLogoBg(e.target.checked)}
-                  />
-                  Background
-                </label>
+                <ui_checkbox.Checkbox label="Neon" checked={logoNeon} onChange={setLogoNeon}/>
+                <ui_checkbox.Checkbox label="Rays" checked={logoRays} disabled={!logoNeon} onChange={setLogoRays}/>
+                <ui_checkbox.Checkbox label="Background" checked={logoBg} onChange={setLogoBg}/>
               </div>
               <div className="studio-controls-row">
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoCenter}
-                    onChange={(e) => setLogoCenter(e.target.checked)}
-                  />
-                  Centered
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoPad}
-                    onChange={(e) => setLogoPad(e.target.checked)}
-                  />
-                  Extra padding
-                </label>
+                <ui_checkbox.Checkbox label="Centered" checked={logoCenter} onChange={setLogoCenter}/>
+                <ui_checkbox.Checkbox label="Extra padding" checked={logoPad} onChange={setLogoPad}/>
               </div>
               <div className="studio-controls-row">
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoSquare}
-                    onChange={(e) => setLogoSquare(e.target.checked)}
-                  />
-                  Square
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={logoRound}
-                    onChange={(e) => setLogoRound(e.target.checked)}
-                  />
-                  Rounded
-                </label>
+                <ui_checkbox.Checkbox label="Square" checked={logoSquare} onChange={setLogoSquare}/>
+                <ui_checkbox.Checkbox label="Rounded" checked={logoRound} onChange={setLogoRound}/>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -647,39 +572,10 @@ export function Studio() {
                 />
               </div>
               <div className="studio-controls-row">
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={bannerRound}
-                    onChange={(e) => setBannerRound(e.target.checked)}
-                  />
-                  Rounded
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={bannerNeon}
-                    onChange={(e) => setBannerNeon(e.target.checked)}
-                  />
-                  Neon text
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={bannerWallpaper}
-                    onChange={(e) => setBannerWallpaper(e.target.checked)}
-                  />
-                  Wallpaper
-                </label>
-                <label className="studio-check">
-                  <input
-                    type="checkbox"
-                    checked={bannerVignette}
-                    onChange={(e) => setBannerVignette(e.target.checked)}
-                    disabled={!bannerWallpaper}
-                  />
-                  Vignette
-                </label>
+                <ui_checkbox.Checkbox label="Rounded" checked={bannerRound} onChange={setBannerRound}/>
+                <ui_checkbox.Checkbox label="Neon text" checked={bannerNeon} onChange={setBannerNeon}/>
+                <ui_checkbox.Checkbox label="Wallpaper" checked={bannerWallpaper} onChange={setBannerWallpaper}/>
+                <ui_checkbox.Checkbox label="Vignette" checked={bannerVignette} disabled={!bannerWallpaper} onChange={setBannerVignette}/>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -719,7 +615,6 @@ export function Studio() {
           </div>
         )}
         </div>
-      </div>
-    </section>
+    </ui_page.Page>
   );
 }

@@ -3,9 +3,11 @@ import * as config_pages     from '@/configs/pages';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_format       from '@/lib/format';
-import * as lib_page_loading from '@/lib/page_loading';
+import * as lib_hooks        from '@/lib/hooks';
+import * as lib_api_request  from '@/lib/api_request';
 import * as lib_search       from '@/lib/search_filter';
-import * as ui_wallpaper     from '@/ui/wallpaper';
+import * as ui_page          from '@/ui/page';
+import * as ui_pagehead      from '@/ui/pagehead';
 import * as ui_panel         from '@/ui/panel';
 import * as ui_section       from '@/ui/section';
 import * as ui_secret        from '@/ui/secret';
@@ -86,7 +88,7 @@ export function Workspace() {
   const [name, setName] = react.useState('');
   const [busy, setBusy] = react.useState(false);
   const [error, setError] = react.useState<string | null>(null);
-  const [copied, setCopied] = react.useState<string | null>(null);
+  const { copied, copy: copy_to_clipboard } = lib_hooks.use_clipboard();
   const [tab, setTab] = react.useState<'tokens' | 'pending'>('tokens');
   const [accountTab, setAccountTab] = react.useState<'servers' | 'resources'>('servers');
   const [accountQ, setAccountQ] = react.useState('');
@@ -94,6 +96,8 @@ export function Workspace() {
   const [vaultQ, setVaultQ] = react.useState('');
   const [q, setQ] = react.useState('');
   const [revealed, setRevealed] = react.useState<Record<string, boolean>>({});
+
+  lib_hooks.use_page_loading(loading);
 
   const refresh_session = react.useCallback(() => {
     setSession(lib_auth_session.read_auth_session());
@@ -104,22 +108,19 @@ export function Workspace() {
     if (!s) {
       setData(null);
       setLoading(false);
-      lib_page_loading.set_page_loading(false);
       return;
     }
     setLoading(true);
-    lib_page_loading.set_page_loading(true);
     try {
-      const res  = await fetch(lib_api_url.get_api_url('/masterlist/applications'), { headers: lib_auth_session.auth_headers() });
-      const json = await res.json().catch(() => ({}));
-      if (res.status === 401) {
+      const { ok, status, json, error: api_error } = await lib_api_request.api_request('/masterlist/applications');
+      if (status === 401) {
         lib_auth_session.clear_auth_session();
         setSession(null);
         setError('Session expired — sign in again.');
         return;
       }
-      if (!res.ok) {
-        setError(typeof json.error === 'string' ? json.error : 'Failed to load');
+      if (!ok) {
+        setError(api_error ?? 'Failed to load');
         return;
       }
       let vaultPending: VaultSub[] = [];
@@ -156,21 +157,17 @@ export function Workspace() {
       catch { /* optional */ }
 
       if (s.staff) {
-        const vr = await fetch(lib_api_url.get_api_url('/vault/submissions'), { headers: lib_auth_session.auth_headers() });
+        const vr = await lib_api_request.api_request('/vault/submissions');
         if (vr.ok) {
-          const vj = await vr.json().catch(() => ({}));
-          vaultPending = Array.isArray(vj.pending) ? vj.pending : [];
-          vaultPublished = Array.isArray(vj.published) ? vj.published : [];
+          vaultPending = Array.isArray(vr.json.pending) ? vr.json.pending : [];
+          vaultPublished = Array.isArray(vr.json.published) ? vr.json.published : [];
         }
       }
       setData({ ...(json as ApiState), vaultPending, vaultPublished, myVaultResources });
       setError(null);
     } 
     catch { setError('Network error — is the API up?'); } 
-    finally {
-      setLoading(false);
-      lib_page_loading.set_page_loading(false);
-    }
+    finally { setLoading(false); }
   }, []);
 
   react.useEffect(() => {
@@ -188,7 +185,6 @@ export function Workspace() {
     window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
     return () => {
       window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
-      lib_page_loading.set_page_loading(false);
     };
   }, [refresh_session, load]);
 
@@ -196,7 +192,7 @@ export function Workspace() {
     window.location.href = lib_api_url.get_api_url('/auth/github');
   }, []);
 
-  /** Shared mutation: busy/error handling, JSON parse, reload on success. */
+  /** Shared mutation: busy/error handling, reload on success. */
   const act = react.useCallback(async (
     path: string,
     method: 'POST' | 'DELETE',
@@ -205,11 +201,8 @@ export function Workspace() {
   ): Promise<boolean> => {
     setBusy(true); setError(null);
     try {
-      const res  = await fetch(lib_api_url.get_api_url(path), {
-        method, headers: lib_auth_session.auth_headers(), body: JSON.stringify(body)
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) { setError(typeof json.error === 'string' ? json.error : fail); return false; }
+      const r = await lib_api_request.api_request(path, { method, body });
+      if (!r.ok) { setError(r.error ?? fail); return false; }
       await load();
       return true;
     }
@@ -228,10 +221,7 @@ export function Workspace() {
   const claim = react.useCallback(async (appId: string) => {
     setBusy(true);
     try {
-      await fetch(lib_api_url.get_api_url('/masterlist/applications/claim'), {
-        method: 'POST', headers: lib_auth_session.auth_headers(),
-        body: JSON.stringify({ appId })
-      });
+      await lib_api_request.api_request('/masterlist/applications/claim', { method: 'POST', body: { appId } });
       setRevealed((prev) => {
         const next = { ...prev };
         delete next[appId];
@@ -247,13 +237,8 @@ export function Workspace() {
   }, [act]);
 
   const copy = react.useCallback(async (label: string, value: string) => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(label);
-      setTimeout(() => setCopied(null), 1600);
-    } 
-    catch { setError('Clipboard write failed'); }
-  }, []);
+    if (!(await copy_to_clipboard(value, label))) setError('Clipboard write failed');
+  }, [copy_to_clipboard]);
 
   const toggleReveal = react.useCallback((key: string) => {
     setRevealed((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -286,20 +271,13 @@ export function Workspace() {
   const canApply = !pendingApp;
 
   return (
-    <main className="ws-page sec-pad">
-      <ui_wallpaper.Wallpaper variant={3}/>
-      <div className="sw">
-        <div className="page-head">
-          <div className="sec-head sec-head--intro">
-            <div>
-              <div className="slabel">Workspace</div>
-              <h2>Your servers.<br/>Managed in one <span>place.</span></h2>
-            </div>
-          </div>
-          <p className="page-intro ws-lead">
-            {config_pages.pages.workspace.description}
-          </p>
-        </div>
+    <ui_page.Page as="main" className="ws-page" wallpaper={3}>
+      <ui_pagehead.PageHead
+        label="Workspace"
+        title={<>Your servers.<br/>Managed in one <span>place.</span></>}
+        intro={config_pages.pages.workspace.description}
+        introClassName="ws-lead"
+      />
 
         {!session ? (
           <ui_panel.Panel className="ws-panel--narrow">
@@ -586,7 +564,6 @@ export function Workspace() {
             )}
           </>
         )}
-      </div>
-    </main>
+    </ui_page.Page>
   );
 }

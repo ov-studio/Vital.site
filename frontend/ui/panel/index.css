@@ -9,6 +9,7 @@
   overflow: hidden;
 }
 
+/* Panel with a tab head: tabs sit above a bordered table */
 .ui-panel:has(> .ui-panel-head) {
   overflow: visible;
   background: transparent;

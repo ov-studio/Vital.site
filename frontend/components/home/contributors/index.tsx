@@ -1,6 +1,7 @@
 'use client';
 import * as config_site  from '@/configs/site';
 import * as ui_wallpaper from '@/ui/wallpaper';
+import * as ui_empty     from '@/ui/empty';
 import * as lib_api_url  from '@/lib/api_url';
 import * as react        from 'react';
 import * as lucide       from 'lucide-react';
@@ -66,10 +67,9 @@ export function Contributors() {
           ))}
 
           {list && list.length === 0 && (
-            <div className="state-empty">
-              <lucide.UserRoundX size={28} strokeWidth={1.5}/>
-              <p>No contributors found</p>
-            </div>
+            <ui_empty.EmptyState icon={<lucide.UserRoundX size={28} strokeWidth={1.5}/>}>
+              No contributors found
+            </ui_empty.EmptyState>
           )}
         </div>
       </div>

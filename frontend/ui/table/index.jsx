@@ -1,3 +1,4 @@
+import { EmptyState } from '../empty';
 import './index.css';
 
 /**
@@ -7,14 +8,16 @@ import './index.css';
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
  * @param {string} [props.wrapClassName]
+ * @param {boolean} [props.bordered]  Standalone bordered card (omit inside a TabPanel)
  */
 export function Table({ 
   children, 
   className = '', 
-  wrapClassName = '' 
+  wrapClassName = '',
+  bordered = false
 }) {
   return (
-    <div className={`ui-table-wrap${wrapClassName ? ` ${wrapClassName}` : ''}`}>
+    <div className={`ui-table-wrap${bordered ? ' ui-table-wrap--bordered' : ''}${wrapClassName ? ` ${wrapClassName}` : ''}`}>
       <table className={`ui-table${className ? ` ${className}` : ''}`}>
         {children}
       </table>
@@ -36,10 +39,7 @@ export function TableEmpty({
   return (
     <tr className="ui-table-empty">
       <td colSpan={colSpan}>
-        <div className="ui-table-empty-inner">
-          {icon}
-          <span>{children}</span>
-        </div>
+        <EmptyState icon={icon}>{children}</EmptyState>
       </td>
     </tr>
   );
@@ -95,7 +95,10 @@ export function TableActions({ children }) {
  * @param {(row: T) => string} props.rowKey
  * @param {(row: T) => import('react').ReactNode} props.renderRow  Return the <td> cells
  * @param {{ icon?: import('react').ReactNode, text: import('react').ReactNode }} props.empty
+ * @param {(row: T) => string | undefined} [props.rowClassName]
  * @param {string} [props.className]
+ * @param {string} [props.wrapClassName]
+ * @param {boolean} [props.bordered]
  */
 export function DataTable({
   head,
@@ -103,10 +106,13 @@ export function DataTable({
   rowKey,
   renderRow,
   empty,
-  className = ''
+  rowClassName = undefined,
+  className = '',
+  wrapClassName = '',
+  bordered = false
 }) {
   return (
-    <Table className={className}>
+    <Table className={className} wrapClassName={wrapClassName} bordered={bordered}>
       <thead>
         <tr>
           {head.map((h, i) => <th key={i}>{h}</th>)}
@@ -116,7 +122,7 @@ export function DataTable({
         {rows.length === 0 ? (
           <TableEmpty colSpan={head.length} icon={empty.icon}>{empty.text}</TableEmpty>
         ) : (
-          rows.map((row) => <tr key={rowKey(row)}>{renderRow(row)}</tr>)
+          rows.map((row) => <tr key={rowKey(row)} className={rowClassName?.(row)}>{renderRow(row)}</tr>)
         )}
       </tbody>
     </Table>

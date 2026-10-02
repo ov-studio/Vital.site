@@ -1,7 +1,8 @@
 'use client';
 import * as config_pages   from '@/configs/pages';
 import * as config_roadmap from '@/configs/roadmap';
-import * as ui_wallpaper   from '@/ui/wallpaper';
+import * as ui_page        from '@/ui/page';
+import * as ui_pagehead    from '@/ui/pagehead';
 import * as lib_source     from '@/lib/source';
 import * as react          from 'react';
 import './index.css';
@@ -166,28 +167,22 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
 
 export function Roadmap() {
   return (
-    <section id="roadmap" className="sec-pad">
-      <ui_wallpaper.Wallpaper variant={9}/>
-      <div className="sw">
-        <div className="page-head">
-          <div className="sec-head sec-head--intro">
-            <div>
-              <div className="slabel">Roadmap</div>
-              <h2>What's built,<br/>What's <span>coming?</span></h2>
-            </div>
-          </div>
-          <RoadmapSummary
-            sections={config_roadmap.Roadmap}
-            intro={config_pages.pages.roadmap.description}
-          />
-        </div>
+    <ui_page.Page id="roadmap" wallpaper={9}>
+      <ui_pagehead.PageHead
+        label="Roadmap"
+        title={<>What's built,<br/>What's <span>coming?</span></>}
+      >
+        <RoadmapSummary
+          sections={config_roadmap.Roadmap}
+          intro={config_pages.pages.roadmap.description}
+        />
+      </ui_pagehead.PageHead>
 
-        <div className="roadmap-body">
-          {config_roadmap.Roadmap.map((section, i) => (
-            <SectionBlock key={section.name} section={section} index={i}/>
-          ))}
-        </div>
+      <div className="roadmap-body">
+        {config_roadmap.Roadmap.map((section, i) => (
+          <SectionBlock key={section.name} section={section} index={i}/>
+        ))}
       </div>
-    </section>
+    </ui_page.Page>
   );
 }

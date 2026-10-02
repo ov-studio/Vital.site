@@ -47,59 +47,8 @@
 }
 
 .bm-table-wrap {
-  overflow-x: auto;
-  width: 100%;
-  background: var(--bg7);
-  border: 2px solid var(--b10);
-  border-radius: 4px;
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
-}
-
-.bm-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.875rem;
-}
-
-.bm-table th {
-  text-align: left;
-  padding: 0 18px;
-  height: 44px;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
-  white-space: nowrap;
-}
-
-.bm-table td {
-  padding: 0 18px;
-  height: 48px;
-  border-bottom: 1px solid var(--w04);
-  vertical-align: middle;
-  color: var(--text-soft);
-}
-
-.bm-table tr:last-child td {
-  border-bottom: none;
-}
-
-.bm-table tbody tr:hover:not(.bm-empty-row) td {
-  background: var(--b05);
-}
-
-.bm-empty-row td {
-  padding: 0;
-  height: auto;
-  border-bottom: none;
-}
-
-.bm-empty-row .state-empty {
-  padding: 48px 24px;
 }
 
 .bm-name {
