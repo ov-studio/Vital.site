@@ -386,9 +386,9 @@ a.ws-cell-title:hover {
   gap: 10px;
   flex: 1;
   min-width: 0;
-  padding: 6px 10px;
-  background: var(--w03);
-  border: 1px solid var(--w10);
+  padding: 0px 10px;
+  background: var(--b07);
+  border: none;
   border-radius: 4px;
   text-align: left;
   color: inherit;
@@ -396,8 +396,7 @@ a.ws-cell-title:hover {
 }
 
 .ws-spoiler:hover {
-  border-color: var(--w18);
-  background: var(--w05);
+  background: var(--b15);
 }
 
 .ws-spoiler code {
