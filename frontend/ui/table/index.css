@@ -7,7 +7,8 @@
 
 .ui-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 0.875rem;
 }
 
@@ -25,6 +26,7 @@
   text-transform: uppercase;
   color: var(--text-muted);
   background: linear-gradient(var(--b15), var(--b15)), var(--bg4);
+  background-clip: padding-box;
   white-space: nowrap;
   vertical-align: middle;
 }
