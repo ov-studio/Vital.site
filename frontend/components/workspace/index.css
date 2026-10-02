@@ -361,7 +361,7 @@ a.ws-cell-title:hover {
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.25;
-  background: var(--b15);
+  background: var(--b10);
   box-sizing: border-box;
   transition: border-color 0.2s;
 }
