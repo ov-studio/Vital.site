@@ -714,23 +714,20 @@ export function Workspace() {
               
                 <div className="sec-title anim-in anim-in--4">Vault Submissions</div>
                 <ui_divider.Divider className="anim-in anim-in--4"/>
-                <div className="ws-stats anim-in anim-in--4">
-                  <div className="ws-stat">
-                    <div className="ws-stat-top">
-                      <div className="ws-stat-label">Published</div>
-                      <lucide.Package size={16} strokeWidth={2} className="ws-stat-icon"/>
-                    </div>
-                    <div className="ws-stat-value">{loading ? '—' : (data?.vaultPublished?.length ?? 0)}</div>
-                  </div>
-                  <div className="ws-stat">
-                    <div className="ws-stat-top">
-                      <div className="ws-stat-label">Pending</div>
-                      <lucide.Inbox size={16} strokeWidth={2} className="ws-stat-icon"/>
-                    </div>
-                    <div className="ws-stat-value">{loading ? '—' : (data?.vaultPending?.length ?? 0)}</div>
-                  </div>
-                </div>
-                                <div className="ws-panel anim-in anim-in--4">
+                <ui_stat.StatGrid columns="auto" className="ws-stats anim-in anim-in--4">
+                  <ui_stat.Stat
+                    label="Published"
+                    icon={<lucide.Package size={16} strokeWidth={2}/>}
+                    value={loading ? '—' : (data?.vaultPublished?.length ?? 0)}
+                  />
+                  <ui_stat.Stat
+                    label="Pending"
+                    icon={<lucide.Inbox size={16} strokeWidth={2}/>}
+                    value={loading ? '—' : (data?.vaultPending?.length ?? 0)}
+                  />
+                </ui_stat.StatGrid>
+
+                <div className="ws-panel anim-in anim-in--4">
                   <div className="ws-panel-head ws-panel-head--tabs">
                     <ui_tabs.Tabs
                       value={vaultTab}
