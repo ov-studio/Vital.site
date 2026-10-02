@@ -67,7 +67,7 @@ export function Contributors() {
           ))}
 
           {list && list.length === 0 && (
-            <ui_empty.EmptyState icon={<lucide.UserRoundX size={28} strokeWidth={1.5}/>}>
+            <ui_empty.EmptyState icon={<lucide.UserRoundX size={24} strokeWidth={2.5}/>}>
               No contributors found
             </ui_empty.EmptyState>
           )}
