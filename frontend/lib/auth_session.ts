@@ -72,3 +72,12 @@ export function capture_oauth_hash(): AuthSession | null {
   window.history.replaceState(null, '', window.location.pathname + window.location.search);
   return write_auth_session(token, login, staff === '1');
 }
+
+export function auth_headers(): HeadersInit {
+  const s = read_auth_session();
+  if (!s) return {};
+  return {
+    'Authorization': `Bearer ${s.token}`,
+    'Content-Type': 'application/json'
+  };
+}
