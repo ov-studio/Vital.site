@@ -54,7 +54,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .ws-stats + .ws-panel,
@@ -470,7 +470,7 @@ a.ws-cell-title:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   align-items: stretch;
 }
 
