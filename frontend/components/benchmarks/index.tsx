@@ -111,11 +111,13 @@ export function Benchmarks() {
         introClassName="bm-intro"
       />
 
+      {!loading && error && (
         <ui_empty.EmptyState className="bm-state" icon={<lucide.WifiOff size={24} strokeWidth={2.5}/>}>
           Could not load benchmarks — try again later.
         </ui_empty.EmptyState>
+      )}
 
-      {loading && !error && (
+      {!loading && !error && (
         <>
           <ui_section.Section titleClassName="bm-section-title">Environment</ui_section.Section>
 
