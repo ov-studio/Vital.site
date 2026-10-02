@@ -169,6 +169,14 @@
 
 .ui-table .ws-spoiler {
   min-height: 32px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ui-table .ws-spoiler .ws-v,
+.ui-table .ws-spoiler code {
+  white-space: nowrap;
+  word-break: normal;
 }
 
 .ui-table .ws-inline-actions {
@@ -404,6 +412,17 @@ a.ws-cell-title:hover {
   flex: 1;
   min-width: 0;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  word-break: normal;
+  overflow-wrap: normal;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.ws-spoiler code::-webkit-scrollbar {
+  display: none;
 }
 
 .ws-spoiler:not(.ws-spoiler--open) code {
