@@ -12,6 +12,7 @@ import * as ui_panel         from '@/ui/panel';
 import * as ui_section       from '@/ui/section';
 import * as ui_secret        from '@/ui/secret';
 import * as ui_button        from '@/ui/button';
+import * as ui_iconbutton    from '@/ui/iconbutton';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
 import * as ui_stat          from '@/ui/stat';
@@ -208,7 +209,9 @@ export function Workspace() {
   }, [load]);
 
   const apply = react.useCallback(async () => {
-    if (await act('/masterlist/applications', 'POST', { name: name.trim() || undefined }, 'Apply failed')) setName('');
+    const server_name = name.trim();
+    if (!server_name) { setError('Server name cannot be empty.'); return; }
+    if (await act('/masterlist/applications', 'POST', { name: server_name }, 'Apply failed')) setName('');
   }, [name, act]);
 
   const cancel = react.useCallback((appId?: string) => {
@@ -266,6 +269,19 @@ export function Workspace() {
     await act('/vault/submissions', 'POST', { action: 'remove', path }, 'Failed to open removal PR');
   }, [act]);
 
+  const error_banner = error && (
+    <div className="ws-error" role="alert">
+      <span>Error: {error}</span>
+      <ui_iconbutton.IconButton
+        className="ws-error-close"
+        icon={lucide.X}
+        iconProps={{ size: 14, strokeWidth: 2.5 }}
+        title="Dismiss"
+        onClick={() => setError(null)}
+      />
+    </div>
+  );
+
   return (
     <ui_page.Page as="main" className="ws-page" wallpaper={3}>
       <ui_pagehead.PageHead
@@ -278,7 +294,7 @@ export function Workspace() {
         {!session ? (
           <ui_panel.Panel className="ws-panel--narrow">
             <p className="ws-text">Sign in with GitHub to open your workspace.</p>
-            {error && <p className="ws-error" role="alert">Error: {error}</p>}
+            {error_banner}
             <ui_button.Button variant="secondary" className="ws-btn" onClick={login}>
               Sign in with GitHub
             </ui_button.Button>
@@ -287,7 +303,7 @@ export function Workspace() {
           <>
             <ui_section.Section className="anim-in anim-in--3">Account</ui_section.Section>
 
-            {error && <p className="ws-error" role="alert">Error: {error}</p>}
+            {error_banner}
 
             <div className="ws-profile-row">
               <ui_stat.Stat className="ws-profile-card">

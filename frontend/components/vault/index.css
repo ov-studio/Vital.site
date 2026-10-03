@@ -137,7 +137,6 @@
   background: none;
   border: none;
   padding: 0 0 4px;
-  cursor: pointer;
   font-family: 'Geist', sans-serif;
   font-size: .8rem;
   font-weight: 500;
@@ -211,7 +210,6 @@
   border: 1px solid var(--b10);
   border-radius: 999px;
   padding: 5px 10px;
-  cursor: pointer;
   transition: border-color .2s, color .2s, background .2s;
 }
 

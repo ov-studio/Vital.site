@@ -85,6 +85,10 @@
 }
 
 .ws-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   margin-bottom: 15px;
   padding: 10px 12px;
   font-size: 0.85rem;
@@ -93,6 +97,17 @@
   background: var(--r10);
   border: 1px solid var(--r25);
   border-radius: 4px;
+}
+
+.ws-error-close {
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.ws-error-close:hover {
+  opacity: 1;
 }
 
 .ws-page .sec-title {

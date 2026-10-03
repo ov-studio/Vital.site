@@ -50,7 +50,8 @@ export async function POST(req: Request) {
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
-  const name = typeof body?.name === 'string' ? body.name : '';
+  const name = typeof body?.name === 'string' ? body.name.trim() : '';
+  if (!name) return Response.json({ error: 'Server name cannot be empty.' }, { status: 400 });
   const result = await lib_applications.create_pending(session.login, name);
   if ('error' in result) return Response.json({ error: result.error }, { status: 409 });
   return Response.json({ application: lib_applications.sanitize_for_owner(result) });

@@ -165,7 +165,7 @@ export async function create_pending(login: string, name: string): Promise<Appli
   const app: Application = {
     appId:     new_app_id(),
     login:     login.toLowerCase(),
-    name:      name.trim().slice(0, 64) || 'Unnamed server',
+    name:      name.trim().slice(0, 64),
     status:    'pending',
     createdAt: Date.now()
   };
