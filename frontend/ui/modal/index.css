@@ -319,13 +319,11 @@
 
 /* ── @media ── */
 @media (max-width: 640px) {
-  .ui-modal-frame {
-    clip-path: none;
-    max-height: 92vh;
+  .ui-modal-overlay {
+    padding: 16px;
   }
-  .ui-modal {
-    clip-path: none;
-    margin: 0;
+  .ui-modal-frame {
+    max-height: 92vh;
   }
   .ui-modal-body {
     padding: 24px 20px 28px;
