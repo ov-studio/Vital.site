@@ -1,10 +1,13 @@
 'use client';
-import * as react from 'react';
+import * as lib_auth_session from '@/lib/auth_session';
+import * as react            from 'react';
 
 type ActiveBest = { id: string; gap: number };
 
 export function useClientShellEffect() {
   react.useEffect(() => {
+    lib_auth_session.capture_oauth_hash();
+
     const cur = document.getElementById('cur');
     const co = document.getElementById('cur-outer');
     let mx = 0, my = 0, rx = 0, ry = 0;
