@@ -154,7 +154,7 @@
 .vault-submit-gate {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .vault-submit-gate-lead {
@@ -173,7 +173,7 @@
   font-family: var(--font-geist), sans-serif;
   font-size: .86rem;
   line-height: 1.5;
-  color: var(--text-soft);
+  color: var(--text-muted);
 }
 
 .vault-submit-gate-list code {
