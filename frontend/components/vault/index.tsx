@@ -350,7 +350,7 @@ function VaultSubmitModal({
         title="Publish Resource"
         tagline={
           session
-            ? 'submit a community resource to the vault in a few steps'
+            ? 'Submit a community resource to the vault in a few steps'
             : 'Sign in to workspace to publish a community resource to the vault'
         }
       />
