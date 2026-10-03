@@ -258,16 +258,15 @@ const SUBMIT_STEPS: react.ReactNode[] = [
   <>A pull request is opened on <code>Vital.vault</code> to add the submodule</>,
 ];
 
-function SubmitProcedures({ hint }: { hint?: react.ReactNode }) {
+function SubmitProcedures() {
   return (
-    <div className="vault-submit-gate">
-      <p className="ui-modal-desc vault-submit-label">Procedures</p>
+    <div className="vault-submit-section">
+      <p className="vault-submit-label">Procedures</p>
       <ul className="vault-submit-gate-list">
         {SUBMIT_STEPS.map((step, i) => (
           <li key={i}>{step}</li>
         ))}
       </ul>
-      {hint ? <p className="vault-submit-hint">{hint}</p> : null}
     </div>
   );
 }
@@ -371,35 +370,35 @@ function VaultSubmitModal({
             ) : null}
           </p>
         </ui_modal.ModalBody>
-      ) : !session ? (
-        <ui_modal.ModalBody>
-          <SubmitProcedures
-            hint={
-              <>
-                Sign in opens workspace in a new tab. When you finish, that tab closes automatically
-                and you can continue from here.
-              </>
-            }
-          />
-        </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
-          <SubmitProcedures />
-          <div className="vault-submit-fields">
-            <label className="vault-submit-label">
-              Repository
-              <ui_select.Select
-                value={repo}
-                onChange={set_repo}
-                disabled={busy}
-                loading={loading_repos}
-                placeholder="Select a public repository you own"
-                aria-label="Repository"
-                options={repo_options}
-              />
-            </label>
+          <div className="vault-submit-stack">
+            <SubmitProcedures />
+            {session ? (
+              <div className="vault-submit-section">
+                <label className="vault-submit-label">
+                  Repository
+                  <ui_select.Select
+                    value={repo}
+                    onChange={set_repo}
+                    disabled={busy}
+                    loading={loading_repos}
+                    placeholder="Select a public repository you own"
+                    aria-label="Repository"
+                    options={repo_options}
+                  />
+                </label>
+              </div>
+            ) : null}
             <p className="vault-submit-hint">
-              Your repository must include a valid <code>manifest.yaml</code> at the root.
+              {session ? (
+                <>Your repository must include a valid <code>manifest.yaml</code> at the root.</>
+              ) : (
+                <>
+                  Sign in opens workspace in a new tab. When you finish, that tab closes automatically
+                  and you can continue from here.
+                </>
+              )}
             </p>
           </div>
         </ui_modal.ModalBody>
