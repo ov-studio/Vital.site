@@ -259,6 +259,7 @@ export function Workspace() {
   }, [load]);
 
   const decide = react.useCallback((appId: string, action: 'approve' | 'reject' | 'revoke') => {
+    if (action === 'revoke' && !window.confirm('Revoke this application token? The server will lose access.')) return;
     return act('/masterlist/applications/decide', 'POST', { appId, action }, 'Action failed');
   }, [act]);
 
