@@ -17,7 +17,7 @@
   margin: 0 0 48px;
 }
 .studio-note p {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .9rem;
   font-weight: 500;
   line-height: 1.6;
@@ -83,13 +83,13 @@
 .contrib-avatar:hover .contrib-tip { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 .contrib-tip strong {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .75rem;
   font-weight: 800;
   color: var(--blue);
 }
 .contrib-tip em {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-style: normal;
   font-size: .66rem;
   font-weight: 500;

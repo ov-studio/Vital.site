@@ -11,7 +11,7 @@
 body {
   background: var(--bg4);
   color: var(--white);
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -19,7 +19,7 @@ body {
 
 /* ── Headers ── */
 h1 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: clamp(4.5rem, 8vw, 8rem);
   font-weight: 700;
   letter-spacing: -.01em;
@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: clamp(2.4rem, 3vw, 2.4rem);
   font-weight: 700;
   letter-spacing: .01em;
@@ -65,7 +65,7 @@ h2 span { color: var(--blue) }
   align-items: center;
   gap: 6px;
   margin-bottom: 14px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .72rem;
   font-weight: 800;
   letter-spacing: .04em;
@@ -92,7 +92,7 @@ h2 span { color: var(--blue) }
   align-items: center;
   gap: 8px;
   padding-bottom: 4px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .8rem;
   font-weight: 500;
   letter-spacing: .02em;
@@ -107,7 +107,7 @@ h2 span { color: var(--blue) }
 
 /* ── Shared section sub-title ── */
 .sec-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: 1.16rem;
   font-weight: 600;
   letter-spacing: .01em;
@@ -187,7 +187,7 @@ h2 span { color: var(--blue) }
   grid-column: 1 / -1;
   padding: 64px 24px;
   opacity: .5;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .82rem;
   font-weight: 500;
   color: var(--text-desc);

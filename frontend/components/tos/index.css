@@ -44,7 +44,7 @@
 
 .tos-section-p {
   margin-bottom: 12px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .86rem;
   color: var(--text-muted);
   line-height: 1.85;

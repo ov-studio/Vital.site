@@ -97,7 +97,7 @@
 }
 
 .ui-modal-author {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .7rem;
   font-weight: 600;
   letter-spacing: .08em;
@@ -117,7 +117,7 @@
 }
 
 .ui-modal-version {
-  font-family: 'Rajdhani', var(--font-rajdhani), sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: .9rem;
   font-weight: 800;
   letter-spacing: 0.6px;
@@ -126,7 +126,7 @@
 
 .ui-modal-name {
   margin: 0 0 6px;
-  font-family: 'Rajdhani', var(--font-rajdhani), sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: .01em;
@@ -147,7 +147,7 @@
 
 .ui-modal-tagline {
   margin: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .82rem;
   font-weight: 500;
   color: var(--dim);
@@ -185,7 +185,7 @@
 
 .ui-modal-desc {
   margin: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .84rem;
   color: var(--text-soft);
   line-height: 1.85;
@@ -211,7 +211,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-weight: 500;
   font-size: .84rem;
   letter-spacing: normal;
@@ -253,7 +253,7 @@
   position: relative;
   margin: 0;
   padding-left: 1.15em;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .84rem;
   line-height: 1.85;
   font-weight: 400;
@@ -310,7 +310,7 @@
 
 .ui-modal-error {
   margin-top: 10px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .74rem;
   color: var(--red);
   flex-shrink: 0;

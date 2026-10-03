@@ -12,7 +12,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;

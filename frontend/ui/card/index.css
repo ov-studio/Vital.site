@@ -36,7 +36,7 @@
 }
 
 .ui-card-author {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .7rem;
   font-weight: 600;
   letter-spacing: .08em;
@@ -45,7 +45,7 @@
 }
 
 .ui-card-version {
-  font-family: 'Rajdhani', var(--font-rajdhani), sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: .9rem;
   font-weight: 800;
   letter-spacing: 0.6px;
@@ -54,7 +54,7 @@
 
 .ui-card-title {
   margin: 0 0 6px;
-  font-family: 'Rajdhani', var(--font-rajdhani), sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: .01em;
@@ -66,7 +66,7 @@
 .ui-card-tagline {
   flex: 1;
   margin: 0 0 18px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 500;
   color: var(--dim);

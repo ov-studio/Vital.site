@@ -176,7 +176,7 @@
 
 .ws-pending-meta {
   min-width: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   line-height: 1.3;

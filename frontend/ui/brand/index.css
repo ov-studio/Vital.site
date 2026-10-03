@@ -43,7 +43,7 @@
 }
 
 .brand_wordmark {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: var(--brand-wordmark-size);
   font-weight: 700;
   letter-spacing: .02em;

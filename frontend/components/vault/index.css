@@ -78,7 +78,7 @@
   top: 12px;
   right: 12px;
   padding: 3px 14px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .65rem;
   font-weight: 800;
   letter-spacing: .05em;
@@ -137,7 +137,7 @@
   background: none;
   border: none;
   padding: 0 0 4px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .8rem;
   font-weight: 500;
   letter-spacing: .02em;
@@ -161,7 +161,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .04em;
@@ -170,7 +170,7 @@
 }
 
 .vault-submit-input {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .86rem;
   font-weight: 400;
   letter-spacing: normal;
@@ -200,7 +200,7 @@
 }
 
 .vault-submit-tag {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .66rem;
   font-weight: 600;
   letter-spacing: .04em;
@@ -221,7 +221,7 @@
 
 .vault-submit-hint {
   margin: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 400;
   letter-spacing: normal;
@@ -230,7 +230,7 @@
   color: var(--text-muted);
 }
 .vault-submit-hint code {
-  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: .74rem;
   color: var(--brand-neon-core);
 }

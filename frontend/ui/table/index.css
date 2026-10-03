@@ -19,7 +19,7 @@
   text-align: left;
   padding: 0 18px;
   height: 44px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.06em;

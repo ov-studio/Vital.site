@@ -57,7 +57,7 @@
 
 .fcluster-label {
   flex: 1;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 600;
   letter-spacing: .05em;
@@ -71,7 +71,7 @@
   position: relative;
   z-index: 1;
   padding: 0 16px 14px 28px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .84rem;
   font-weight: 300;
   line-height: 1.65;
@@ -121,7 +121,7 @@
 
 .fhub-label {
   z-index: 1;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .65rem;
   font-weight: 700;
   letter-spacing: .12em;
@@ -149,7 +149,7 @@
 .fnode {
   position: relative;
   padding: 5px 10px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .7rem;
   font-weight: 700;
   text-transform: uppercase;

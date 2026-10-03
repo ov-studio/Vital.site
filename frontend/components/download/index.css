@@ -13,7 +13,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 2px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: .72rem;
   font-weight: 700;
   letter-spacing: .1em;
@@ -31,7 +31,7 @@
 
 .download-tos-note {
   margin-top: 10px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: .8rem;
   font-weight: 600;
   letter-spacing: .01em;

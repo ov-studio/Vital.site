@@ -45,7 +45,7 @@
 }
 
 .ui-stat-label {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -68,7 +68,7 @@
 
 .ui-stat-value {
   display: block;
-  font-family: 'Rajdhani', 'Geist', sans-serif;
+  font-family: var(--font-rajdhani), var(--font-geist), sans-serif;
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.3;

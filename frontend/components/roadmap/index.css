@@ -29,7 +29,7 @@
 }
 
 .roadmap-summary-pct {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: clamp(1.4rem, 3vw, 1.6rem);
   font-weight: 800;
   line-height: 1;
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .76rem;
   font-weight: 500;
   color: var(--text-muted);
@@ -134,7 +134,7 @@
 .rcard-info { flex: 1; display: flex; flex-direction: column; gap: 5px; min-width: 0; padding-top: 2px; }
 
 .rcard-name {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .05em;
@@ -144,7 +144,7 @@
 }
 
 .rcard-desc {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 500;
   line-height: 1.7;
@@ -166,7 +166,7 @@
 .rcard-pct {
   flex-shrink: 0;
   min-width: 28px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   font-size: .82rem;
   font-weight: 800;
   letter-spacing: .04em;
@@ -216,7 +216,7 @@
 .ritem--pending   .ritem-dot { background: var(--text-muted); opacity: .4; }
 
 .ritem-label {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .76rem;
   font-weight: 500;
   line-height: 1.5;
@@ -227,7 +227,7 @@
 
 .ritem-tag {
   flex-shrink: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-geist), sans-serif;
   font-size: .76rem;
   font-weight: 600;
   color: var(--dim);
