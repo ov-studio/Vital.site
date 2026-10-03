@@ -347,7 +347,7 @@ function VaultSubmitModal({
       maxWidth={780}
     >
       <ui_modal.ModalHeader
-        title="Submit a resource"
+        title="Submit Resource"
         tagline={
           session
             ? 'Publish a community resource to the vault in a few steps'
