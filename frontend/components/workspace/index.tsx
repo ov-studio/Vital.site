@@ -82,6 +82,7 @@ const empty_state = (icon: react.ReactNode, text: string) => ({ icon, text });
 
 export function Workspace() {
   const [session, setSession] = react.useState<lib_auth_session.AuthSession | null>(null);
+  const [autoClose, setAutoClose] = react.useState(false);
   const [data, setData] = react.useState<ApiState | null>(null);
   const [loading, setLoading] = react.useState(true);
   const [name, setName] = react.useState('');
@@ -173,14 +174,34 @@ export function Workspace() {
     if (typeof window === 'undefined') return;
     const params = new URLSearchParams(window.location.search);
     const err = params.get('error');
+    const auto_close = params.get('auto_close') === '1' || params.get('auto_close') === 'true';
+    setAutoClose(auto_close);
     if (err) {
       setError(err);
-      window.history.replaceState(null, '', window.location.pathname);
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname + (auto_close ? '?auto_close=1' : '')
+      );
     }
     lib_auth_session.capture_oauth_hash();
     refresh_session();
     load();
-    const on_auth = () => { refresh_session(); load(); };
+
+    const try_auto_close = () => {
+      if (!auto_close) return;
+      if (!lib_auth_session.read_auth_session()) return;
+      window.setTimeout(() => {
+        window.close();
+      }, 400);
+    };
+    try_auto_close();
+
+    const on_auth = () => {
+      refresh_session();
+      load();
+      try_auto_close();
+    };
     window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
     return () => {
       window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, on_auth);
@@ -188,7 +209,12 @@ export function Workspace() {
   }, [refresh_session, load]);
 
   const login = react.useCallback(() => {
-    window.location.href = lib_api_url.get_api_url('/auth/github');
+    const params = new URLSearchParams(window.location.search);
+    const auto_close = params.get('auto_close') === '1' || params.get('auto_close') === 'true';
+    const next = auto_close ? '/workspace?auto_close=1' : '/workspace';
+    window.location.href = lib_api_url.get_api_url(
+      `/auth/github?next=${encodeURIComponent(next)}`
+    );
   }, []);
 
   const act = react.useCallback(async (
@@ -293,7 +319,11 @@ export function Workspace() {
 
         {!session ? (
           <ui_panel.Panel className="ws-panel--narrow">
-            <p className="ws-text">Sign in with GitHub to open your workspace.</p>
+            <p className="ws-text">
+              {autoClose
+                ? 'Sign in with GitHub to continue your vault submission. This tab will close when you are done.'
+                : 'Sign in with GitHub to open your workspace.'}
+            </p>
             {error_banner}
             <ui_button.Button variant="secondary" className="ws-btn" onClick={login}>
               Sign in with GitHub
