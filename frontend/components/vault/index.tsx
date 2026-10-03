@@ -325,7 +325,7 @@ function VaultSubmitModal({
         tagline={
           session
             ? 'Select a public repo with a manifest.yaml — we add the submodule and open the PR.'
-            : 'GitHub sign-in is required to publish community resources to the vault.'
+            : 'Sign-in is required to publish community resources to the vault.'
         }
       />
 
@@ -348,7 +348,7 @@ function VaultSubmitModal({
         <ui_modal.ModalBody>
           <div className="vault-submit-gate">
             <p className="ui-modal-desc vault-submit-gate-lead">
-              You must be signed in with GitHub before you can submit a resource.
+              You must be signed into workspace before you can submit a resource.
             </p>
             <ul className="vault-submit-gate-list">
               <li>List public repositories you own</li>
@@ -356,7 +356,7 @@ function VaultSubmitModal({
               <li>Open a pull request on <code>Vital.vault</code> to add the submodule</li>
             </ul>
             <p className="vault-submit-hint">
-              Sign in opens the workspace in a new tab. After you finish, that tab closes and
+              Sign in opens the workspace in a new tab. After you finish, that tab auto-closes and
               this page stays on the vault so you can continue your submission.
             </p>
           </div>
