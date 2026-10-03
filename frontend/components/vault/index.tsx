@@ -351,7 +351,7 @@ function VaultSubmitModal({
         tagline={
           session
             ? 'Submit a community resource to the vault in a few steps'
-            : 'Sign in to workspace to publish a community resource to the vault'
+            : 'Sign in to workspace to submit a community resource to the vault'
         }
       />
 
@@ -395,8 +395,7 @@ function VaultSubmitModal({
                 <>Your repository must include a valid <code>manifest.yaml</code> at the root.</>
               ) : (
                 <>
-                  Sign in opens workspace in a new tab. When you finish, that tab closes automatically
-                  and you can continue from here.
+                  Opens workspace sign-in in a new tab. After a successful login, that tab closes and you can continue here.
                 </>
               )}
             </p>
