@@ -166,7 +166,7 @@
   font-family: var(--font-geist), sans-serif;
   font-size: .86rem;
   line-height: 1.5;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 
 .vault-submit-gate-list code {
