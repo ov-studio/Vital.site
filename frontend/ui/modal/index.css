@@ -3,7 +3,6 @@
   inset: 0;
   z-index: 600;
   box-sizing: border-box;
-  /* No asymmetric padding — frame is positioned at true viewport center */
   padding: 0;
   background: color-mix(in srgb, var(--bg2) 80%, transparent);
   backdrop-filter: blur(20px) !important;
@@ -20,15 +19,13 @@
   left: 50%;
   top: 50%;
   box-sizing: border-box;
-  /* Viewport-centered: width leaves equal gutters on both sides */
-  width: min(calc(100% - 32px), 780px);
-  max-width: calc(100vw - 32px);
-  max-height: min(90vh, calc(100dvh - 32px));
+  width: min(780px, calc(100% - 32px));
+  max-width: calc(100% - 32px);
+  max-height: min(90vh, calc(100% - 32px));
   display: flex;
   flex-direction: column;
   background: var(--brand-neon-core);
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
-  /* Centering translate is owned by the modal keyframes (must keep -50%/-50%) */
   transform: translate(-50%, -50%);
   animation: ui-modal-in .35s ease forwards;
 }
