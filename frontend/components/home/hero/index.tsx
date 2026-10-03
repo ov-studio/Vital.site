@@ -1,4 +1,5 @@
 'use client';
+import * as config_site         from '@/configs/site';
 import * as config_home         from '@/configs/home';
 import * as ui_brand            from '@/ui/brand';
 import * as ui_wallpaper        from '@/ui/wallpaper';
@@ -61,7 +62,7 @@ export function Hero() {
 
         <div className="hero-sub">
           <p className="hero-sub-lead">
-             An open-source, high-performance sandbox built on Godot-Engine and powered by C++17 & Lua
+            {config_site.description}
           </p>
           <p className="hero-sub-mid">
             Full control over rendering, networking, threading, and assets — one seamless workflow.<br/>
