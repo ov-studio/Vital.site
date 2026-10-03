@@ -20,7 +20,7 @@
   text-align: left;
   color: var(--brand-neon-core);
   background: linear-gradient(var(--b07), var(--b07)), var(--bg5);
-  border: 1px solid var(--b10);
+  border: 2px solid var(--b10);
   border-radius: 6px;
   outline: none;
   cursor: pointer;
@@ -93,7 +93,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
-  border: 1px solid var(--b15);
+  border: 2px solid var(--b15);
   border-radius: 8px;
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.55),
