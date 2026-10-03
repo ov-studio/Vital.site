@@ -151,7 +151,13 @@
   color: var(--brand-neon-core);
 }
 
-.vault-submit-gate {
+.vault-submit-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vault-submit-section {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -175,17 +181,11 @@
   color: var(--blue);
 }
 
-.vault-submit-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 30px;
-}
-
 .vault-submit-label {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0;
   font-family: var(--font-geist), sans-serif;
   font-size: .72rem;
   font-weight: 600;
@@ -195,7 +195,7 @@
 }
 
 .vault-submit-hint {
-  margin-top: 15px;
+  margin: 0;
   font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 400;
@@ -204,6 +204,7 @@
   line-height: 1.5;
   color: var(--text-muted);
 }
+
 .vault-submit-hint code {
   font-size: .74rem;
   color: var(--blue);
