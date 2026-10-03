@@ -382,7 +382,7 @@ function VaultSubmitModal({
                 onChange={set_repo}
                 disabled={busy}
                 loading={loading_repos}
-                placeholder="Select a public repo you own"
+                placeholder="Select a public repository you own"
                 aria-label="Repository"
                 options={repos.map((r) => ({
                   value: r.full_name,
