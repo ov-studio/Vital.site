@@ -140,6 +140,7 @@ html {
   overflow-x: hidden;
   font-variant-ligatures: none;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 * {
@@ -147,6 +148,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--b10) var(--rule7);
 }
+
 *::-webkit-scrollbar { width: 6px; height: 6px; }
 *::-webkit-scrollbar-track { background: var(--rule7); }
 *::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
