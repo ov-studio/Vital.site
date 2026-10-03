@@ -13,6 +13,7 @@ import * as ui_divider       from '@/ui/divider';
 import * as ui_page          from '@/ui/page';
 import * as ui_pagehead      from '@/ui/pagehead';
 import * as ui_empty         from '@/ui/empty';
+import * as ui_select        from '@/ui/select';
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_hooks        from '@/lib/hooks';
@@ -318,7 +319,7 @@ function VaultSubmitModal({
       closing={closing}
       onClose={on_close}
       label="Submit resource"
-      maxWidth={session ? 560 : 780}
+      maxWidth={780}
     >
       <ui_modal.ModalHeader
         title="Submit a resource"
@@ -363,24 +364,31 @@ function VaultSubmitModal({
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
+          <div className="vault-submit-gate">
+            <p className="ui-modal-desc vault-submit-gate-lead">
+              Choose a public repository you own. We’ll read its manifest and open a pull request.
+            </p>
+            <ul className="vault-submit-gate-list">
+              <li>List public repositories you own</li>
+              <li>Read <code>manifest.yaml</code> (name, tags, description)</li>
+              <li>Open a pull request on <code>Vital.vault</code> to add the submodule</li>
+            </ul>
+          </div>
           <div className="vault-submit-fields">
             <label className="vault-submit-label">
               Repository
-              <select
-                className="vault-submit-input"
+              <ui_select.Select
                 value={repo}
-                onChange={(e) => set_repo(e.target.value)}
-                disabled={loading_repos || busy}
-              >
-                <option value="">
-                  {loading_repos ? 'Loading repositories…' : 'Select a public repo you own'}
-                </option>
-                {repos.map((r) => (
-                  <option key={r.full_name} value={r.full_name}>
-                    {r.full_name}
-                  </option>
-                ))}
-              </select>
+                onChange={set_repo}
+                disabled={busy}
+                loading={loading_repos}
+                placeholder="Select a public repo you own"
+                aria-label="Repository"
+                options={repos.map((r) => ({
+                  value: r.full_name,
+                  label: r.full_name,
+                }))}
+              />
             </label>
             <p className="vault-submit-hint">
               Requires a <code>manifest.yaml</code> at the repo root (same format as existing vault resources).

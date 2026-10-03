@@ -185,69 +185,21 @@
 .vault-submit-fields {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 4px;
 }
 
 .vault-submit-label {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   font-family: var(--font-geist), sans-serif;
   font-size: .72rem;
   font-weight: 600;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--text-muted);
-}
-
-.vault-submit-input {
-  font-family: var(--font-geist), sans-serif;
-  font-size: .86rem;
-  font-weight: 400;
-  letter-spacing: normal;
-  text-transform: none;
-  color: var(--fg);
-  background: var(--bg5);
-  border: 1px solid var(--b10);
-  border-radius: 6px;
-  padding: 10px 12px;
-  outline: none;
-  transition: border-color .2s;
-}
-.vault-submit-input:focus {
-  border-color: color-mix(in srgb, var(--blue) 45%, var(--b10));
-}
-
-.vault-submit-textarea {
-  resize: vertical;
-  min-height: 96px;
-  line-height: 1.5;
-}
-
-.vault-submit-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.vault-submit-tag {
-  font-family: var(--font-geist), sans-serif;
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: var(--bg5);
-  border: 1px solid var(--b10);
-  border-radius: 999px;
-  padding: 5px 10px;
-  transition: border-color .2s, color .2s, background .2s;
-}
-
-.vault-submit-tag.is-on {
-  color: var(--bg);
-  background: var(--blue);
-  border-color: var(--blue);
 }
 
 .vault-submit-hint {
