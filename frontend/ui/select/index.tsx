@@ -170,7 +170,7 @@ export function Select({
         className,
       ].filter(Boolean).join(' ')}
     >
-      {name ? <input type="hidden" name={name} value={value} /> : null}
+      {name ? <input type="hidden" name={name} value={value}/> : null}
       <button
         ref={triggerRef}
         type="button"
@@ -186,7 +186,7 @@ export function Select({
           {display}
         </span>
         {loading ? (
-          <span className="ui-select-spinner" aria-hidden />
+          <span className="ui-select-spinner" aria-hidden/>
         ) : (
           <lucide.ChevronDown
             className="ui-select-chevron"

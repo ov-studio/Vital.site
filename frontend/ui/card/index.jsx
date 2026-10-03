@@ -160,7 +160,7 @@ export function CardMeta({
               {left}
             </span>
           ) : (
-            <span />
+            <span/>
           )}
           {right != null ? (
             <span className={`ui-card-version${versionClassName ? ` ${versionClassName}` : ''}`}>

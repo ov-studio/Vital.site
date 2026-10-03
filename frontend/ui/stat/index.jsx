@@ -47,7 +47,7 @@ export function Stat({
               {label}
             </span>
           ) : (
-            <span />
+            <span/>
           )}
           {icon != null ? (
             <span className={`ui-stat-icon${iconClassName ? ` ${iconClassName}` : ''}`}>
