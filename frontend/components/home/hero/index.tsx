@@ -62,7 +62,7 @@ export function Hero() {
 
         <div className="hero-sub">
           <p className="hero-sub-lead">
-            {config_site.description}
+            {config_site.info.description}
           </p>
           <p className="hero-sub-mid">
             Full control over rendering, networking, threading, and assets — one seamless workflow.<br/>
