@@ -364,16 +364,7 @@ function VaultSubmitModal({
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
-          <div className="vault-submit-gate">
-            <p className="ui-modal-desc vault-submit-label">
-              Procedures
-            </p>
-            <ul className="vault-submit-gate-list">
-              <li>Select a public repository you own</li>
-              <li>We read <code>manifest.yaml</code> for name, tags, and description</li>
-              <li>A pull request is opened on <code>Vital.vault</code> to add the submodule</li>
-            </ul>
-          </div>
+          <SubmitProcedures />
           <div className="vault-submit-fields">
             <label className="vault-submit-label">
               Repository
@@ -384,10 +375,7 @@ function VaultSubmitModal({
                 loading={loading_repos}
                 placeholder="Select a public repository you own"
                 aria-label="Repository"
-                options={repos.map((r) => ({
-                  value: r.full_name,
-                  label: r.full_name,
-                }))}
+                options={repo_options}
               />
             </label>
             <p className="vault-submit-hint">
