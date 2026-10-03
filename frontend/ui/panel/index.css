@@ -9,7 +9,6 @@
   overflow: hidden;
 }
 
-/* Panel with a tab head: tabs sit above a bordered table */
 .ui-panel:has(> .ui-panel-head) {
   overflow: visible;
   background: transparent;
@@ -43,6 +42,8 @@
   transform: translateZ(0);
 }
 
+
+/* ── @media ── */
 @media (max-width: 720px) {
   .ui-panel-head {
     flex-direction: column;

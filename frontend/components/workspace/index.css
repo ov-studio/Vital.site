@@ -118,7 +118,6 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
 
-/* ── Profile row (Stat tiles) + apply/pending row beneath ── */
 .ws-profile-row {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;

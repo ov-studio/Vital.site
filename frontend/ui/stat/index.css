@@ -76,6 +76,8 @@
   word-break: break-word;
 }
 
+
+/* ── @media ── */
 @media (max-width: 720px) {
   .ui-stat-grid--cols-4 {
     grid-template-columns: repeat(2, 1fr);

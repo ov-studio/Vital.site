@@ -154,7 +154,7 @@ export function Workspace() {
             .filter((r: VaultPublished) => Boolean(r.id));
         }
       }
-      catch { /* optional */ }
+      catch {}
 
       if (s.staff) {
         const vr = await lib_api_request.api_request('/vault/submissions');
@@ -192,7 +192,6 @@ export function Workspace() {
     window.location.href = lib_api_url.get_api_url('/auth/github');
   }, []);
 
-  /** Shared mutation: busy/error handling, reload on success. */
   const act = react.useCallback(async (
     path: string,
     method: 'POST' | 'DELETE',

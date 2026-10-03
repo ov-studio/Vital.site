@@ -112,7 +112,6 @@ export function Studio() {
       canvas: HTMLDivElement | null;
       nativeW: number;
       nativeH: number;
-      /** Banner: frame stays full-width. OG/logo: frame hugs scaled canvas. */
       fillWidth: boolean;
     };
 
