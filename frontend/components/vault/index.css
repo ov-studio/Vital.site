@@ -199,7 +199,7 @@
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 
 .vault-submit-hint {
