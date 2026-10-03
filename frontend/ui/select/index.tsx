@@ -167,7 +167,6 @@ export function Select({
         'ui-select',
         open ? 'is-open' : '',
         isDisabled ? 'is-disabled' : '',
-        value ? 'has-value' : '',
         className,
       ].filter(Boolean).join(' ')}
     >
