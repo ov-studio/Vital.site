@@ -102,7 +102,7 @@
 }
 
 @media (max-width: 640px) {
-  #hero          { padding-top: calc(var(--nav-h)*1.4);     }
+  #hero          { padding-top: calc(var(--nav-h)*1.6);     }
   .hero-center   { overflow: visible; padding: 25px 20px;   }
   .hcorner       { display: none;                           }
   .hero-sub-lead { margin-bottom: 8px !important;           }
