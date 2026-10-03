@@ -395,7 +395,7 @@ function VaultSubmitModal({
         <ui_modal.ModalActions>
           {!session ? (
             <ui_button.Button variant="primary" onClick={login}>
-              Sign in on workspace
+              Sign in workspace
             </ui_button.Button>
           ) : done ? (
             <ui_button.Button variant="primary" onClick={on_close}>

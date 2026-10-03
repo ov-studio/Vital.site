@@ -154,14 +154,14 @@
 .vault-submit-gate {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
 
 .vault-submit-gate-lead {
   margin: 0;
   font-size: .95rem;
   line-height: 1.55;
-  color: var(--fg);
+  color: var(--text-soft);
 }
 
 .vault-submit-gate-list {
@@ -169,11 +169,11 @@
   padding-left: 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   font-family: var(--font-geist), sans-serif;
   font-size: .86rem;
   line-height: 1.5;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 
 .vault-submit-gate-list code {
@@ -251,7 +251,7 @@
 }
 
 .vault-submit-hint {
-  margin: 0;
+  margin-top: 10px;
   font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
   font-weight: 400;
