@@ -68,7 +68,7 @@ author: "YourName"
 version: "1.0.0"
 
 author_url: "https://github.com/YourName" # Required for Vault
-banner: "https://raw.githubusercontent.com/<org>/<repo>/main/resources/<name>/banner.png" # Required for Vault
+# banner: optional — defaults to .vault/banner.png next to this resource
 tagline: "One-line summary of what this resource does" # Required for Vault
 featured: false # Required for Vault
 
@@ -106,7 +106,7 @@ files:
 | `author` | `string` | No | `""` | Sandbox, Vault | Free-text author/credit string |
 | `version` | `string` | No | `""` | Sandbox, Vault | Free-text version string |
 | `author_url` | `string` | No | `https://github.com/<author>` | Vault | Link wrapped around the author name |
-| `banner` | `string` | No | `null` | Vault | Full URL to a banner image |
+| `banner` | `string` | No | `.vault/banner.png` | Vault | Full URL to a banner image. If omitted, Vault uses `<resource>/.vault/banner.png` when that file exists |
 | `tagline` | `string` | No | `"N/A"` | Vault | Short one-line summary |
 | `featured` | `boolean` | No | `false` | Vault | Pins the resource to the top of Vault |
 | `description` | `string` | No | `"N/A"` | Vault | Longer brief summary |
