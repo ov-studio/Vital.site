@@ -65,6 +65,7 @@
 
 .studio-controls .ui-search input {
   width: 100%;
+  background: var(--b10);
 }
 
 .studio-preview-wrap {

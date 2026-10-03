@@ -220,10 +220,6 @@
   width: 100% !important;
   max-width: none;
   height: auto;
-  padding: 6px 12px 6px 30px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.25;
   background: var(--b10);
   box-sizing: border-box;
   transition: border-color 0.2s;
