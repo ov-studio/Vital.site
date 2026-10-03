@@ -34,10 +34,11 @@ interface ModalHeaderProps {
 function use_scroll_lock(active: boolean) {
   react.useEffect(() => {
     if (!active || typeof document === 'undefined') return;
-    const prev_ov = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = 'hidden';
+    const html = document.documentElement;
+    const prev_ov = html.style.overflow;
+    html.style.overflow = 'hidden';
     return () => {
-      document.documentElement.style.overflow = prev_ov;
+      html.style.overflow = prev_ov;
     };
   }, [active]);
 }
