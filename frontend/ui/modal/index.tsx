@@ -34,38 +34,10 @@ interface ModalHeaderProps {
 function use_scroll_lock(active: boolean) {
   react.useEffect(() => {
     if (!active || typeof document === 'undefined') return;
-
-    const sw = window.innerWidth - document.documentElement.clientWidth;
-    if (sw <= 0) {
-      const prev = document.documentElement.style.overflow;
-      document.documentElement.style.overflow = 'hidden';
-      return () => {
-        document.documentElement.style.overflow = prev;
-      };
-    }
-
-    const fixed: { el: HTMLElement; prev: string }[] = [];
-    document
-      .querySelectorAll<HTMLElement>('nav, header, [data-fixed], .ui-modal-overlay')
-      .forEach((el) => {
-        const s = getComputedStyle(el);
-        if (s.position === 'fixed' || s.position === 'sticky') {
-          fixed.push({ el, prev: el.style.paddingRight });
-          el.style.paddingRight = `${(parseFloat(s.paddingRight) || 0) + sw}px`;
-        }
-      });
-
     const prev_ov = document.documentElement.style.overflow;
-    const prev_pr = document.body.style.paddingRight;
     document.documentElement.style.overflow = 'hidden';
-    document.body.style.paddingRight = `${sw}px`;
-
     return () => {
       document.documentElement.style.overflow = prev_ov;
-      document.body.style.paddingRight = prev_pr;
-      fixed.forEach(({ el, prev }) => {
-        el.style.paddingRight = prev;
-      });
     };
   }, [active]);
 }

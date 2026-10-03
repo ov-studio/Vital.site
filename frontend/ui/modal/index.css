@@ -2,10 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+  box-sizing: border-box;
+  /* No asymmetric padding — frame is positioned at true viewport center */
+  padding: 0;
   background: color-mix(in srgb, var(--bg2) 80%, transparent);
   backdrop-filter: blur(20px) !important;
   animation: fade-in .25s ease forwards;
@@ -17,20 +16,35 @@
 }
 
 .ui-modal-frame {
-  position: relative;
-  width: 100%;
-  max-width: 780px;
-  max-height: 90vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+  /* Viewport-centered: width leaves equal gutters on both sides */
+  width: min(calc(100% - 32px), 780px);
+  max-width: calc(100vw - 32px);
+  max-height: min(90vh, calc(100dvh - 32px));
   display: flex;
   flex-direction: column;
   background: var(--brand-neon-core);
   clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
-  transform: translateZ(0);
-  animation: slide-up .35s ease forwards;
+  /* Centering translate is owned by the modal keyframes (must keep -50%/-50%) */
+  transform: translate(-50%, -50%);
+  animation: ui-modal-in .35s ease forwards;
 }
 
 .ui-modal-frame.closing {
-  animation: slide-down .205s ease forwards;
+  animation: ui-modal-out .205s ease forwards;
+}
+
+@keyframes ui-modal-in {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 24px)); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes ui-modal-out {
+  from { opacity: 1; transform: translate(-50%, -50%); }
+  to   { opacity: 0; transform: translate(-50%, calc(-50% + 24px)); }
 }
 
 .ui-modal {
@@ -319,9 +333,6 @@
 
 /* ── @media ── */
 @media (max-width: 640px) {
-  .ui-modal-overlay {
-    padding: 16px;
-  }
   .ui-modal-frame {
     max-height: 92vh;
   }
