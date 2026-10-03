@@ -178,9 +178,8 @@
 .vault-submit-fields {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 20px;
-  padding-top: 4px;
+  gap: 10px;
+  margin-top: 30px;
 }
 
 .vault-submit-label {
