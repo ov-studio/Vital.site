@@ -468,6 +468,7 @@ function VaultInner() {
   react.useEffect(() => {
     lib_auth_session.capture_oauth_hash();
   }, []);
+
   const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(() => {
     const t = searchParams.get('tag') as config_vault.VaultTag | null;
     return t && (config_vault.ALL_TAGS as readonly string[]).includes(t) ? t : null;
@@ -475,13 +476,17 @@ function VaultInner() {
   const [initial_modal_id, set_initial_modal_id] = react.useState(() => searchParams.get('modal'));
 
   react.useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash.includes('auth_token')) return;
     const params = new URLSearchParams();
     if (active_tag) params.set('tag', active_tag);
     if (search.trim()) params.set('search', search.trim());
     if (selected) params.set('modal', selected.id);
     const qs = params.toString();
-    router.replace(`/vault${qs ? `?${qs}` : ''}`, { scroll: false });
-  }, [active_tag, search, selected]);
+    const next = `/vault${qs ? `?${qs}` : ''}`;
+    const cur = window.location.pathname + window.location.search;
+    if (cur === next) return;
+    router.replace(next, { scroll: false });
+  }, [active_tag, search, selected, router]);
 
   react.useEffect(() => {
     if (state !== 'done' || !initial_modal_id) return;
