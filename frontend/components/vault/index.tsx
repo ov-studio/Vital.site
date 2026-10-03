@@ -343,14 +343,14 @@ function VaultSubmitModal({
     <ui_modal.Modal
       closing={closing}
       onClose={on_close}
-      label="Submit resource"
+      label="Publish resource"
       maxWidth={780}
     >
       <ui_modal.ModalHeader
-        title="Submit Resource"
+        title="Publish Resource"
         tagline={
           session
-            ? 'Publish a community resource to the vault in a few steps'
+            ? 'submit a community resource to the vault in a few steps'
             : 'Sign in to workspace to publish a community resource to the vault'
         }
       />
@@ -444,7 +444,7 @@ function VaultHead({ on_submit }: { on_submit: () => void }) {
       <div className="page-intro vault-intro sec-head sec-head--intro">
         <div>{config_pages.pages.vault.description}</div>
         <button type="button" className="sec-link" onClick={on_submit}>
-          :: Submit Resource
+          :: Publish Resource
         </button>
       </div>
     </ui_pagehead.PageHead>
