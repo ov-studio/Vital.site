@@ -13,14 +13,14 @@ export async function OPTIONS() {
 }
 
 type GhPr = {
-  number: number;
-  title: string;
-  html_url: string;
-  user?: { login?: string };
+  number:     number;
+  title:      string;
+  html_url:   string;
+  user?:      { login?: string };
   created_at: string;
-  body?: string | null;
+  body?:      string | null;
   merged_at?: string | null;
-  state?: string;
+  state?:     string;
 };
 
 async function gh(token: string, path: string, init: RequestInit = {}) {
@@ -132,12 +132,12 @@ export async function GET(req: Request) {
   );
 
   let published: {
-    id: string;
-    name: string;
-    author: string;
-    path: string;
-    source_url?: string;
-    version?: string;
+    id:            string;
+    name:          string;
+    author:        string;
+    path:          string;
+    source_url?:   string;
+    version?:      string;
     is_submodule?: boolean;
   }[] = [];
 
@@ -145,11 +145,11 @@ export async function GET(req: Request) {
     try {
       const vj = await vault_json_res.json() as {
         resources?: {
-          id?: string;
-          name?: string;
-          author?: string;
-          source_url?: string;
-          version?: string;
+          id?:           string;
+          name?:         string;
+          author?:       string;
+          source_url?:   string;
+          version?:      string;
           is_submodule?: boolean;
         }[];
       };

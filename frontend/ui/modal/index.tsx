@@ -220,7 +220,7 @@ export function ModalBody({
   children,
   className = ''
 }: {
-  children: react.ReactNode;
+  children:   react.ReactNode;
   className?: string;
 }) {
   return (
@@ -241,7 +241,7 @@ export function ModalFooter({
   children,
   className = ''
 }: {
-  children: react.ReactNode;
+  children:   react.ReactNode;
   className?: string;
 }) {
   return (
@@ -262,7 +262,7 @@ export function ModalActions({
   children,
   className = ''
 }: {
-  children: react.ReactNode;
+  children:   react.ReactNode;
   className?: string;
 }) {
   return (

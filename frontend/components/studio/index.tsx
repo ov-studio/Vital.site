@@ -106,12 +106,12 @@ export function Studio() {
 
   react.useEffect(() => {
     type Pair = {
-      active: boolean;
-      wrap: HTMLDivElement | null;
-      frame: HTMLDivElement | null;
-      canvas: HTMLDivElement | null;
-      nativeW: number;
-      nativeH: number;
+      active:    boolean;
+      wrap:      HTMLDivElement | null;
+      frame:     HTMLDivElement | null;
+      canvas:    HTMLDivElement | null;
+      nativeW:   number;
+      nativeH:   number;
       fillWidth: boolean;
     };
 
@@ -309,12 +309,12 @@ export function Studio() {
     }
 
     type LogoPreset = {
-      path: string;
-      neon: boolean;
-      rays: boolean;
-      bg: boolean;
+      path:   string;
+      neon:   boolean;
+      rays:   boolean;
+      bg:     boolean;
       square: boolean;
-      round: boolean;
+      round:  boolean;
     };
 
     const presets: LogoPreset[] = [

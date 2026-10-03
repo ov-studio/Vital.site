@@ -5,16 +5,16 @@ import * as lib_redis   from '@/lib/redis';
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected';
 
 export type Application = {
-  appId:       string;
-  login:       string;
-  name:        string;
-  status:      ApplicationStatus;
-  createdAt:   number;
-  decidedAt?:  number;
-  decidedBy?:  string;
-  token?:      string;
+  appId:         string;
+  login:         string;
+  name:          string;
+  status:        ApplicationStatus;
+  createdAt:     number;
+  decidedAt?:    number;
+  decidedBy?:    string;
+  token?:        string;
   /** Internal token hash — never shown to non-staff clients. */
-  id?:         string;
+  id?:           string;
   tokenClaimed?: boolean;
 };
 

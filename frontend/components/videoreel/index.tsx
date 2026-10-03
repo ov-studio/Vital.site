@@ -218,7 +218,7 @@ function VideoModal({
   video,
   on_close,
 }: {
-  video: VideoReelItem;
+  video:    VideoReelItem;
   on_close: () => void;
 }) {
   const [closing, set_closing] = react.useState(false);

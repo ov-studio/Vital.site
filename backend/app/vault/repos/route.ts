@@ -10,14 +10,14 @@ export async function OPTIONS() {
 }
 
 type GhRepo = {
-  full_name: string;
-  html_url: string;
-  description: string | null;
-  private: boolean;
-  fork: boolean;
+  full_name:        string;
+  html_url:         string;
+  description:      string | null;
+  private:          boolean;
+  fork:             boolean;
   stargazers_count: number;
-  updated_at: string;
-  default_branch: string;
+  updated_at:       string;
+  default_branch:   string;
 };
 
 export async function GET(req: Request) {

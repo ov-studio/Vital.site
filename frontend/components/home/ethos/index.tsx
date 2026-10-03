@@ -12,8 +12,8 @@ interface BenchmarkTest {
 }
 
 interface BenchmarkResponse {
-  tag?:  string;
-  data?: {
+  tag?:             string;
+  data?:            {
     scripting_tests?: BenchmarkTest[];
   };
   scripting_tests?: BenchmarkTest[];

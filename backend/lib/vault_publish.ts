@@ -75,11 +75,11 @@ export type PublishResult =
  * (branch on upstream — no user fork required).
  */
 export async function publish_resource_pr(opts: {
-  token: string;
-  login: string;
+  token:              string;
+  login:              string;
   resource_repo_full: string;
-  resource_repo_url: string;
-  display_name: string;
+  resource_repo_url:  string;
+  display_name:       string;
 }): Promise<PublishResult> {
   const vault = config_site.info.git.vault;
   const upstream = `${vault.user}/${vault.repo}`;
@@ -243,7 +243,7 @@ export async function publish_resource_pr(opts: {
 
 export async function remove_resource_pr(opts: {
   token: string;
-  path: string;
+  path:  string;
   actor: string;
 }): Promise<PublishResult> {
   const vault = config_site.info.git.vault;

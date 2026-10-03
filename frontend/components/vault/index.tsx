@@ -246,8 +246,8 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
 
 
 type GhRepo = {
-  full_name: string;
-  html_url: string;
+  full_name:   string;
+  html_url:    string;
   description: string | null;
 };
 
@@ -256,7 +256,7 @@ function VaultSubmitModal({
   closing,
 }: {
   on_close: () => void;
-  closing: boolean;
+  closing:  boolean;
 }) {
   const session = lib_hooks.use_auth_session();
   const [repos, set_repos] = react.useState<GhRepo[]>([]);

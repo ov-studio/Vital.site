@@ -78,10 +78,10 @@ export async function POST(req: Request) {
   }
   const repo = (await repo_res.json()) as {
     full_name: string;
-    html_url: string;
-    private: boolean;
-    name: string;
-    owner?: { login?: string };
+    html_url:  string;
+    private:   boolean;
+    name:      string;
+    owner?:    { login?: string };
   };
   if (repo.private) {
     return Response.json({ error: 'Only public repositories can be submitted' }, { status: 400 });

@@ -83,7 +83,7 @@ export function BrandOgMarkup({
   label,
   placeholderSrc,
 }: {
-  label: string;
+  label:          string;
   placeholderSrc: string;
 }) {
   const top = og_tagline_top();

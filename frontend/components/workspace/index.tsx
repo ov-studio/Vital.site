@@ -32,35 +32,35 @@ type Application = {
 };
 
 type VaultSub = {
-  id: string;
-  login: string;
+  id:        string;
+  login:     string;
   repo_full: string;
-  repo_url: string;
-  name: string;
-  path?: string;
-  kind?: string;
-  status: string;
+  repo_url:  string;
+  name:      string;
+  path?:     string;
+  kind?:     string;
+  status:    string;
   createdAt: number;
-  pr_url?: string | null;
+  pr_url?:   string | null;
 };
 
 type VaultPublished = {
-  id: string;
-  name: string;
-  author: string;
-  path: string;
-  source_url?: string;
-  version?: string;
+  id:            string;
+  name:          string;
+  author:        string;
+  path:          string;
+  source_url?:   string;
+  version?:      string;
   is_submodule?: boolean;
 };
 
 type ApiState = {
-  pending:       Application | null;
-  applications:  Application[];
-  staffPending?: Application[];
-  staffTokens?:  Application[];
-  vaultPending?: VaultSub[];
-  vaultPublished?: VaultPublished[];
+  pending:           Application | null;
+  applications:      Application[];
+  staffPending?:     Application[];
+  staffTokens?:      Application[];
+  vaultPending?:     VaultSub[];
+  vaultPublished?:   VaultPublished[];
   myVaultResources?: VaultPublished[];
 };
 

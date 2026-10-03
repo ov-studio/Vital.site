@@ -32,7 +32,7 @@ interface BenchmarkResponse {
   tag?:          string;
   published_at?: string | null;
   asset_url?:    string | null;
-  data?: {
+  data?:         {
     environment?:       Record<string, unknown>;
     scripting_tests?:   ScriptTest[];
     note?:              string;

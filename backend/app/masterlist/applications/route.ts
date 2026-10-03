@@ -22,8 +22,8 @@ export async function GET(req: Request) {
   const approvedMine = await lib_applications.list_user_approved(session.login);
 
   const body: {
-    pending:      ReturnType<typeof lib_applications.sanitize_for_owner> | null;
-    applications: ReturnType<typeof lib_applications.sanitize_for_owner>[];
+    pending:       ReturnType<typeof lib_applications.sanitize_for_owner> | null;
+    applications:  ReturnType<typeof lib_applications.sanitize_for_owner>[];
     staffPending?: ReturnType<typeof lib_applications.sanitize_for_staff>[];
     staffTokens?:  ReturnType<typeof lib_applications.sanitize_for_staff>[];
   } = {
