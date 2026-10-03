@@ -172,7 +172,7 @@
 .vault-submit-gate-list code {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: .8rem;
-  color: var(--brand-neon-core);
+  color: var(--blue);
 }
 
 .vault-submit-fields {
@@ -191,7 +191,7 @@
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--brand-neon-core);
 }
 
 .vault-submit-hint {
@@ -205,9 +205,8 @@
   color: var(--text-muted);
 }
 .vault-submit-hint code {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: .74rem;
-  color: var(--brand-neon-core);
+  color: var(--blue);
 }
 
 
