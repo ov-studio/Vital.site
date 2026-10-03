@@ -11,15 +11,29 @@ export function use_page_loading(loading: boolean) {
   react.useEffect(() => () => lib_page_loading.set_page_loading(false), []);
 }
 
-/** Current auth session; captures the OAuth hash and follows session events. */
+/** Current auth session; captures the OAuth hash and follows session events (same-tab + cross-tab). */
 export function use_auth_session(): lib_auth_session.AuthSession | null {
   const [session, set_session] = react.useState<lib_auth_session.AuthSession | null>(null);
   react.useEffect(() => {
     lib_auth_session.capture_oauth_hash();
     const sync = () => set_session(lib_auth_session.read_auth_session());
     sync();
+    const on_storage = (e: StorageEvent) => {
+      if (
+        e.key === lib_auth_session.AUTH_TOKEN_KEY ||
+        e.key === lib_auth_session.AUTH_LOGIN_KEY ||
+        e.key === lib_auth_session.AUTH_STAFF_KEY ||
+        e.key === null
+      ) sync();
+    };
     window.addEventListener(lib_auth_session.AUTH_SESSION_EVENT, sync);
-    return () => window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, sync);
+    window.addEventListener('storage', on_storage);
+    window.addEventListener('focus', sync);
+    return () => {
+      window.removeEventListener(lib_auth_session.AUTH_SESSION_EVENT, sync);
+      window.removeEventListener('storage', on_storage);
+      window.removeEventListener('focus', sync);
+    };
   }, []);
   return session;
 }
