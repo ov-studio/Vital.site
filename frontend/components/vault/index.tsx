@@ -391,7 +391,7 @@ function VaultSubmitModal({
               />
             </label>
             <p className="vault-submit-hint">
-              Your repo must include a <code>manifest.yaml</code> at the root (same format as existing vault resources).
+              Your repository must include a valid <code>manifest.yaml</code> at the root.
             </p>
           </div>
         </ui_modal.ModalBody>
