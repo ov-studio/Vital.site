@@ -205,9 +205,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.get_platform',           status: 'completed' },
           { label: '[Shared] API: core.engine.get_timestamp',          status: 'completed' },
           { label: '[Shared] API: core.engine.get_timestamp_tag',      status: 'completed' },
-          { label: '[Client] API: core.engine.get_resolution',         status: 'completed' },
           { label: '[Client] API: core.engine.get_serial',             status: 'completed' },
           { label: '[Server] API: core.engine.get_peers',              status: 'completed' },
+          { label: '[Server] API: core.engine.get_peer_serial',        status: 'completed' },
           { label: '[Shared] API: core.engine.get_entity_types',       status: 'completed' },
           { label: '[Shared] API: core.engine.get_entities',           status: 'completed' },
           { label: '[Shared] API: core.engine.get_entity_by_net_id',   status: 'completed' },
@@ -216,7 +216,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.inspect',                status: 'completed' },
           { label: '[Shared] API: core.engine.compile_string',         status: 'completed' },
           { label: '[Shared] API: core.engine.load_string',            status: 'completed' },
-          { label: '[Client] API: core.engine.screenshot',             status: 'completed' },
           { label: '[Client] API: core.engine.quit',                   status: 'completed' },
           { label: '[Server] API: core.engine.disconnect_peer',        status: 'completed' },
           { label: '[Client] API: core.engine.world_to_screen',        status: 'completed' },
@@ -227,6 +226,20 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: core.engine.draw_circle',            status: 'completed' },
           { label: '[Client] API: core.engine.draw_material',          status: 'completed' },
           { label: '[Client] API: core.engine.draw_text',              status: 'completed' }
+        ]
+      },
+      {
+        label: 'Display',
+        desc:  'Main window output — resolution query, live scene texture, and screenshot capture from Lua',
+        icon:  <lucide.Monitor {...config_site.info.lucide}/>,
+        items: [
+          { label: 'Lifecycle hooks',                                         status: 'completed' },
+          { label: '[Client] API: core.display.get_resolution',               status: 'completed' },
+          { label: '[Client] API: core.display.get_texture',                  status: 'completed' },
+          { label: '[Client] API: core.display.screenshot',                   status: 'completed' },
+          { label: '[Client] API: self:is_type',                              status: 'completed' },
+          { label: '[Client] API: self:get_type',                             status: 'completed' },
+          { label: '[Client] API: self:destroy',                              status: 'completed' }
         ]
       },
       {
