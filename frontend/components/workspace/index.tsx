@@ -64,8 +64,6 @@ type ApiState = {
   myVaultResources?: VaultPublished[];
 };
 
-const fmt_date = lib_format.fmt_date;
-
 const ACCOUNT_TABS = [
   { id: 'servers',   label: 'Servers',   icon: <lucide.Server size={14} strokeWidth={2.25}/> },
   { id: 'resources', label: 'Resources', icon: <lucide.Package size={14} strokeWidth={2.25}/> },
@@ -243,6 +241,7 @@ export function Workspace() {
     setRevealed((prev) => ({ ...prev, [key]: !prev[key] }));
   }, []);
 
+  const first_load = loading && !data;
   const pendingApp = data?.pending ?? null;
   const myApps = data?.applications ?? [];
   const myVault = data?.myVaultResources ?? [];
@@ -305,12 +304,12 @@ export function Workspace() {
               <ui_stat.Stat
                 label="Servers"
                 icon={<lucide.Server size={16} strokeWidth={2}/>}
-                value={loading ? '—' : myApps.length}
+                value={myApps.length}
               />
               <ui_stat.Stat
                 label="Resources"
                 icon={<lucide.Package size={16} strokeWidth={2}/>}
-                value={loading ? '—' : myVault.length}
+                value={myVault.length}
               />
             </div>
 
@@ -321,7 +320,7 @@ export function Workspace() {
               {pendingApp ? (
                 <div className="ws-pending-bottom">
                   <div className="ws-pending-meta">
-                    Waiting for staff review · submitted {fmt_date(pendingApp.createdAt)}
+                    Waiting for staff review · submitted {lib_format.fmt_date(pendingApp.createdAt)}
                   </div>
                   <ui_button.Button variant="action" size="lg" danger onClick={() => cancel(pendingApp.appId)} disabled={busy}>
                     Cancel
@@ -360,8 +359,7 @@ export function Workspace() {
                   rowKey={(app) => app.appId}
                   empty={empty_state(
                     <lucide.Server size={24} strokeWidth={2.5}/>,
-                    loading
-                      ? 'Loading…'
+                    first_load ? 'Loading…'
                       : pendingApp
                         ? 'No approved servers yet — your request is under review.'
                         : 'No approved servers yet. Apply above to get a token.'
@@ -371,7 +369,7 @@ export function Workspace() {
                     return (
                       <>
                         <td><ui_table.TableTitle>{app.name}</ui_table.TableTitle></td>
-                        <td>{fmt_date(app.decidedAt ?? app.createdAt)}</td>
+                        <td>{lib_format.fmt_date(app.decidedAt ?? app.createdAt)}</td>
                         <td>
                           {app.token ? (
                             <ui_secret.Secret value={app.token} open={isOpen} onToggle={() => toggleReveal(app.appId)}/>
@@ -406,7 +404,7 @@ export function Workspace() {
                   rowKey={(r) => r.id}
                   empty={empty_state(
                     <lucide.Package size={24} strokeWidth={2.5}/>,
-                    loading ? 'Loading…' : 'No vault resources linked to your GitHub account.'
+                    first_load ? 'Loading…' : 'No vault resources linked to your GitHub account.'
                   )}
                   renderRow={(r) => (
                     <>
@@ -425,12 +423,12 @@ export function Workspace() {
                   <ui_stat.Stat
                     label="Issued"
                     icon={<lucide.KeyRound size={16} strokeWidth={2}/>}
-                    value={loading ? '—' : staffTokens.length}
+                    value={staffTokens.length}
                   />
                   <ui_stat.Stat
                     label="Pending"
                     icon={<lucide.Clock size={16} strokeWidth={2}/>}
-                    value={loading ? '—' : staffPending.length}
+                    value={staffPending.length}
                   />
                 </ui_stat.StatGrid>
 
@@ -449,13 +447,13 @@ export function Workspace() {
                       rowKey={(p) => p.appId}
                       empty={empty_state(
                         <lucide.Inbox size={24} strokeWidth={2.5}/>,
-                        loading ? 'Loading…' : 'No pending requests.'
+                        first_load ? 'Loading…' : 'No pending requests.'
                       )}
                       renderRow={(p) => (
                         <>
                           <td><ui_table.TableTitle>{p.name}</ui_table.TableTitle></td>
                           <td>@{p.login}</td>
-                          <td>{fmt_date(p.createdAt)}</td>
+                          <td>{lib_format.fmt_date(p.createdAt)}</td>
                           <ui_table.TableActions>
                             <ui_button.Button variant="action" disabled={busy} onClick={() => decide(p.appId, 'approve')}>Approve</ui_button.Button>
                             <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(p.appId, 'reject')}>Reject</ui_button.Button>
@@ -472,14 +470,14 @@ export function Workspace() {
                       rowKey={(t) => t.appId}
                       empty={empty_state(
                         <lucide.KeyRound size={24} strokeWidth={2.5}/>,
-                        loading ? 'Loading…' : 'No issued tokens.'
+                        first_load ? 'Loading…' : 'No issued tokens.'
                       )}
                       renderRow={(t) => (
                         <>
                           <td><ui_table.TableTitle>{t.name}</ui_table.TableTitle></td>
                           <td>@{t.login}</td>
                           <td>{t.decidedBy ? `@${t.decidedBy}` : '—'}</td>
-                          <td>{fmt_date(t.decidedAt ?? t.createdAt)}</td>
+                          <td>{lib_format.fmt_date(t.decidedAt ?? t.createdAt)}</td>
                           <ui_table.TableActions>
                             <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide(t.appId, 'revoke')}>Revoke</ui_button.Button>
                           </ui_table.TableActions>
@@ -494,12 +492,12 @@ export function Workspace() {
                   <ui_stat.Stat
                     label="Published"
                     icon={<lucide.Package size={16} strokeWidth={2}/>}
-                    value={loading ? '—' : vaultPublished.length}
+                    value={vaultPublished.length}
                   />
                   <ui_stat.Stat
                     label="Pending"
                     icon={<lucide.Inbox size={16} strokeWidth={2}/>}
-                    value={loading ? '—' : vaultPending.length}
+                    value={vaultPending.length}
                   />
                 </ui_stat.StatGrid>
 
@@ -519,13 +517,13 @@ export function Workspace() {
                       rowKey={(v) => v.id}
                       empty={empty_state(
                         <lucide.Inbox size={24} strokeWidth={2.5}/>,
-                        loading ? 'Loading…' : 'No open resource pull requests.'
+                        first_load ? 'Loading…' : 'No open resource pull requests.'
                       )}
                       renderRow={(v) => (
                         <>
                           <td><ui_table.TableTitle href={v.repo_url || undefined} sub={v.repo_full || v.kind}>{v.name}</ui_table.TableTitle></td>
                           <td>@{v.login}</td>
-                          <td>{fmt_date(v.createdAt)}</td>
+                          <td>{lib_format.fmt_date(v.createdAt)}</td>
                           <ui_table.TableActions>
                             <ui_button.Button variant="action" disabled={busy} onClick={() => decide_vault(v.id, 'approved')}>Approve</ui_button.Button>
                             <ui_button.Button variant="action" danger disabled={busy} onClick={() => decide_vault(v.id, 'rejected')}>Reject</ui_button.Button>
@@ -542,7 +540,7 @@ export function Workspace() {
                       rowKey={(r) => r.id}
                       empty={empty_state(
                         <lucide.Package size={24} strokeWidth={2.5}/>,
-                        loading ? 'Loading…' : 'No published vault resources.'
+                        first_load ? 'Loading…' : 'No published vault resources.'
                       )}
                       renderRow={(r) => (
                         <>

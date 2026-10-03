@@ -175,21 +175,11 @@ export function auth_callback_url(
   return `${base}${path}#${params.toString()}`;
 }
 
-/** @deprecated use auth_callback_url */
-export function workspace_callback_url(session_token: string, login: string, is_staff: boolean): string {
-  return auth_callback_url('/workspace', session_token, login, is_staff);
-}
-
 export function auth_error_url(next_path: string, message: string): string {
   const base = lib_api_url.get_frontend_url();
   const path = next_path.startsWith('/') ? next_path : '/workspace';
   return `${base}${path}?error=${encodeURIComponent(message)}`;
 }
-
-export function workspace_error_url(message: string): string {
-  return auth_error_url('/workspace', message);
-}
-
 
 /** Server-side token for staff vault PR merge/close (classic PAT or fine-grained). */
 export function vault_github_token(): string | null {
