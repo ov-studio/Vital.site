@@ -14,6 +14,42 @@ function avatar_for(login: string): string {
   return `https://avatars.githubusercontent.com/${encodeURIComponent(login)}?s=64`;
 }
 
+function store(): Storage | null {
+  if (typeof window === 'undefined') return null;
+  try { return window.localStorage; }
+  catch { return null; }
+}
+
+function get_item(key: string): string | null {
+  const ls = store();
+  if (!ls) return null;
+  const from_ls = ls.getItem(key);
+  if (from_ls) return from_ls;
+  try {
+    const from_ss = sessionStorage.getItem(key);
+    if (from_ss) {
+      ls.setItem(key, from_ss);
+      sessionStorage.removeItem(key);
+      return from_ss;
+    }
+  }
+  catch { }
+  return null;
+}
+
+function set_item(key: string, value: string): void {
+  const ls = store();
+  if (!ls) return;
+  ls.setItem(key, value);
+  try { sessionStorage.removeItem(key); } catch { }
+}
+
+function remove_item(key: string): void {
+  const ls = store();
+  if (ls) ls.removeItem(key);
+  try { sessionStorage.removeItem(key); } catch { }
+}
+
 export function session_from_parts(
   token: string | null | undefined,
   login: string | null | undefined,
@@ -23,8 +59,8 @@ export function session_from_parts(
   const normalized = login.toLowerCase();
   return {
     token,
-    login:     normalized,
-    staff:   staff_flag === '1' || staff_flag === 'true',
+    login:  normalized,
+    staff:  staff_flag === '1' || staff_flag === 'true',
     avatar: avatar_for(normalized)
   };
 }
@@ -32,9 +68,9 @@ export function session_from_parts(
 export function read_auth_session(): AuthSession | null {
   if (typeof window === 'undefined') return null;
   return session_from_parts(
-    sessionStorage.getItem(AUTH_TOKEN_KEY),
-    sessionStorage.getItem(AUTH_LOGIN_KEY),
-    sessionStorage.getItem(AUTH_STAFF_KEY)
+    get_item(AUTH_TOKEN_KEY),
+    get_item(AUTH_LOGIN_KEY),
+    get_item(AUTH_STAFF_KEY)
   );
 }
 
@@ -45,18 +81,18 @@ export function write_auth_session(token: string, login: string, is_staff: boole
     clear_auth_session();
     return null;
   }
-  sessionStorage.setItem(AUTH_TOKEN_KEY, session.token);
-  sessionStorage.setItem(AUTH_LOGIN_KEY, session.login);
-  sessionStorage.setItem(AUTH_STAFF_KEY, session.staff ? '1' : '0');
+  set_item(AUTH_TOKEN_KEY, session.token);
+  set_item(AUTH_LOGIN_KEY, session.login);
+  set_item(AUTH_STAFF_KEY, session.staff ? '1' : '0');
   window.dispatchEvent(new Event(AUTH_SESSION_EVENT));
   return session;
 }
 
 export function clear_auth_session(): void {
   if (typeof window === 'undefined') return;
-  sessionStorage.removeItem(AUTH_TOKEN_KEY);
-  sessionStorage.removeItem(AUTH_LOGIN_KEY);
-  sessionStorage.removeItem(AUTH_STAFF_KEY);
+  remove_item(AUTH_TOKEN_KEY);
+  remove_item(AUTH_LOGIN_KEY);
+  remove_item(AUTH_STAFF_KEY);
   window.dispatchEvent(new Event(AUTH_SESSION_EVENT));
 }
 
