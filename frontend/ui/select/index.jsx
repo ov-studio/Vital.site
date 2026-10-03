@@ -4,27 +4,19 @@ import * as react     from 'react';
 import * as react_dom from 'react-dom';
 import './index.css';
 
-export type SelectOption = {
-  value:     string;
-  label:     string;
-  disabled?: boolean;
-};
-
-interface SelectProps {
-  value?:        string;
-  onChange?:     (value: string) => void;
-  options?:      SelectOption[];
-  placeholder?:  string;
-  disabled?:     boolean;
-  loading?:      boolean;
-  className?:    string;
-  id?:           string;
-  name?:         string;
-  'aria-label'?: string;
-}
-
 /**
  * Themed select with portaled dropdown — floats outside modal overflow/clip.
+ *
+ * @param {Object} props
+ * @param {string} [props.value]
+ * @param {(value: string) => void} [props.onChange]
+ * @param {{ value: string, label: string, disabled?: boolean }[]} [props.options]
+ * @param {string} [props.placeholder]
+ * @param {boolean} [props.disabled]
+ * @param {boolean} [props.loading]
+ * @param {string} [props.className]
+ * @param {string} [props.id]
+ * @param {string} [props.name]  Renders a hidden input when set
  */
 export function Select({
   value = '',
@@ -37,12 +29,12 @@ export function Select({
   id,
   name,
   'aria-label': ariaLabel,
-}: SelectProps) {
+}) {
   const [open, setOpen] = react.useState(false);
-  const [menuStyle, setMenuStyle] = react.useState<react.CSSProperties>({});
-  const rootRef = react.useRef<HTMLDivElement>(null);
-  const triggerRef = react.useRef<HTMLButtonElement>(null);
-  const listRef = react.useRef<HTMLUListElement>(null);
+  const [menuStyle, setMenuStyle] = react.useState({});
+  const rootRef = react.useRef(null);
+  const triggerRef = react.useRef(null);
+  const listRef = react.useRef(null);
 
   const selected = options.find((o) => o.value === value);
   const isDisabled = disabled || loading;
@@ -75,13 +67,13 @@ export function Select({
   react.useEffect(() => {
     if (!open) return;
     positionMenu();
-    function onDoc(e: MouseEvent) {
-      const t = e.target as Node;
+    function onDoc(e) {
+      const t = e.target;
       if (rootRef.current?.contains(t)) return;
       if (listRef.current?.contains(t)) return;
       close();
     }
-    function onKey(e: KeyboardEvent) {
+    function onKey(e) {
       if (e.key === 'Escape') close();
     }
     function onReposition() {
@@ -101,11 +93,11 @@ export function Select({
 
   react.useEffect(() => {
     if (!open || !listRef.current) return;
-    const active = listRef.current.querySelector<HTMLElement>('[data-selected="true"]');
+    const active = listRef.current.querySelector('[data-selected="true"]');
     active?.scrollIntoView({ block: 'nearest' });
   }, [open, value]);
 
-  const pick = (v: string) => {
+  const pick = (v) => {
     if (isDisabled) return;
     onChange?.(v);
     close();

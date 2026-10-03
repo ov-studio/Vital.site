@@ -1,37 +1,11 @@
 'use client';
-import * as ui_iconbutton from '@/ui/iconbutton';
+import * as ui_iconbutton from '../iconbutton';
 import * as lucide        from 'lucide-react';
 import * as react         from 'react';
 import * as react_dom     from 'react-dom';
 import './index.css';
 
-interface ModalProps {
-  closing?:        boolean;
-  onClose:         () => void;
-  controls?:       react.ReactNode;
-  media?:          react.ReactNode;
-  children:        react.ReactNode;
-  className?:      string;
-  frameClassName?: string;
-  labelledBy?:     string;
-  label?:          string;
-  maxWidth?:       number | string;
-  showClose?:      boolean;
-}
-
-interface ModalHeaderProps {
-  author?:         string;
-  authorHref?:     string;
-  version?:        string;
-  meta?:           react.ReactNode;
-  value?:          react.ReactNode;
-  title?:          string;
-  tagline?:        string;
-  divider?:        boolean;
-  titleClassName?: string;
-}
-
-function use_scroll_lock(active: boolean) {
+function use_scroll_lock(active) {
   react.useEffect(() => {
     if (!active || typeof document === 'undefined') return;
     const html = document.documentElement;
@@ -71,11 +45,11 @@ export function Modal({
   label,
   maxWidth = 780,
   showClose = true
-}: ModalProps) {
+}) {
   use_scroll_lock(true);
 
   react.useEffect(() => {
-    function on_key(e: KeyboardEvent) {
+    function on_key(e) {
       if (e.key === 'Escape') onClose();
     }
     window.addEventListener('keydown', on_key);
@@ -145,7 +119,7 @@ export function ModalHeader({
   tagline,
   divider = true,
   titleClassName = ''
-}: ModalHeaderProps) {
+}) {
   const left = meta !== undefined ? meta : author;
   const right = value !== undefined ? value : version;
   const has_eyebrow = left != null || right != null;
@@ -192,9 +166,6 @@ export function ModalHeader({
 export function ModalBody({
   children,
   className = ''
-}: {
-  children:   react.ReactNode;
-  className?: string;
 }) {
   return (
     <div className={`ui-modal-desc-scroll${className ? ` ${className}` : ''}`}>
@@ -213,9 +184,6 @@ export function ModalBody({
 export function ModalFooter({
   children,
   className = ''
-}: {
-  children:   react.ReactNode;
-  className?: string;
 }) {
   return (
     <div className={`ui-modal-footer${className ? ` ${className}` : ''}`}>
@@ -234,9 +202,6 @@ export function ModalFooter({
 export function ModalActions({
   children,
   className = ''
-}: {
-  children:   react.ReactNode;
-  className?: string;
 }) {
   return (
     <div className={`ui-modal-actions${className ? ` ${className}` : ''}`}>

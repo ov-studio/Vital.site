@@ -2,21 +2,6 @@
 import * as react from 'react';
 import './index.css';
 
-type BrandSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-type BrandVariant = 'full' | 'logo-only' | 'wordmark-only';
-
-interface BrandProps {
-  name?:      string;
-  size?:      BrandSize;
-  variant?:   BrandVariant;
-  className?: string;
-  color?:     string;
-  href?:      string;
-  neon?:      boolean;
-  flicker?:   boolean;
-  rays?:      boolean;
-}
-
 /**
  * Brand mark and wordmark.
  *
@@ -41,8 +26,8 @@ export function Brand({
   neon = false,
   flicker = false,
   rays = true
-}: BrandProps) {
-  const color_style = color ? ({ '--brand-color': color } as React.CSSProperties) : undefined;
+}) {
+  const color_style = color ? ({ '--brand-color': color }) : undefined;
   const [glitch, setGlitch] = react.useState(false);
   const show_rays = neon && rays;
 
@@ -58,9 +43,9 @@ export function Brand({
     if (reduced) return;
 
     let cancelled = false;
-    let timer: ReturnType<typeof setTimeout>;
+    let timer;
 
-    const rand = (min: number, max: number) =>
+    const rand = (min, max) =>
       min + Math.random() * (max - min);
 
     const run = () => {
