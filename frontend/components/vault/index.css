@@ -157,13 +157,6 @@
   gap: 8px;
 }
 
-.vault-submit-gate-lead {
-  margin: 0;
-  font-size: .95rem;
-  line-height: 1.55;
-  color: var(--text-soft);
-}
-
 .vault-submit-gate-list {
   margin: 0;
   padding-left: 1.15rem;
