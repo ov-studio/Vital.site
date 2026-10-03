@@ -325,8 +325,8 @@ function VaultSubmitModal({
         title="Submit a resource"
         tagline={
           session
-            ? 'Select a public repo with a manifest.yaml — we add the submodule and open the PR.'
-            : 'Sign-in is required to publish community resources to the vault.'
+            ? 'Publish a community resource to the vault in a few steps.'
+            : 'Sign in to workspace to publish a community resource to the vault.'
         }
       />
 
@@ -348,30 +348,30 @@ function VaultSubmitModal({
       ) : !session ? (
         <ui_modal.ModalBody>
           <div className="vault-submit-gate">
-            <p className="ui-modal-desc vault-submit-gate-lead">
-              You must be signed into workspace before you can submit a resource.
+            <p className="ui-modal-desc vault-submit-label">
+              Procedures
             </p>
             <ul className="vault-submit-gate-list">
-              <li>List public repositories you own</li>
-              <li>Read <code>manifest.yaml</code> (name, tags, description)</li>
-              <li>Open a pull request on <code>Vital.vault</code> to add the submodule</li>
+              <li>Select a public repository you own</li>
+              <li>We read <code>manifest.yaml</code> for name, tags, and description</li>
+              <li>A pull request is opened on <code>Vital.vault</code> to add the submodule</li>
             </ul>
             <p className="vault-submit-hint">
-              Sign in opens the workspace in a new tab. After you finish, that tab auto-closes and
-              this page stays on the vault so you can continue your submission.
+              Sign in opens workspace in a new tab. When you finish, that tab closes automatically
+              and you can continue from here.
             </p>
           </div>
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
           <div className="vault-submit-gate">
-            <p className="ui-modal-desc vault-submit-gate-lead">
-              Choose a public repository you own. We’ll read its manifest and open a pull request.
+            <p className="ui-modal-desc vault-submit-label">
+              Procedures
             </p>
             <ul className="vault-submit-gate-list">
-              <li>List public repositories you own</li>
-              <li>Read <code>manifest.yaml</code> (name, tags, description)</li>
-              <li>Open a pull request on <code>Vital.vault</code> to add the submodule</li>
+              <li>Select a public repository you own</li>
+              <li>We read <code>manifest.yaml</code> for name, tags, and description</li>
+              <li>A pull request is opened on <code>Vital.vault</code> to add the submodule</li>
             </ul>
           </div>
           <div className="vault-submit-fields">
@@ -391,7 +391,7 @@ function VaultSubmitModal({
               />
             </label>
             <p className="vault-submit-hint">
-              Requires a <code>manifest.yaml</code> at the repo root (same format as existing vault resources).
+              Your repo must include a <code>manifest.yaml</code> at the root (same format as existing vault resources).
             </p>
           </div>
         </ui_modal.ModalBody>
