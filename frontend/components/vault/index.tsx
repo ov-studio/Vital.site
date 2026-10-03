@@ -86,9 +86,7 @@ async function download_directory_zip(folder: string): Promise<void> {
   const zip = new JSZip();
 
   await Promise.all(files.map(async file => {
-    const r = await fetch(
-      `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`
-    );
+    const r = await fetch(`https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/${file.path}`);
     if (!r.ok) return;
     zip.file(file.path.slice(prefix.length), await r.arrayBuffer());
   }));
@@ -252,6 +250,28 @@ type GhRepo = {
   description: string | null;
 };
 
+const REAUTH_MESSAGE = 'Sign in again to grant repository access.';
+
+const SUBMIT_STEPS: react.ReactNode[] = [
+  'Select a public repository you own',
+  <>We read <code>manifest.yaml</code> for name, tags, and description</>,
+  <>A pull request is opened on <code>Vital.vault</code> to add the submodule</>,
+];
+
+function SubmitProcedures({ hint }: { hint?: react.ReactNode }) {
+  return (
+    <div className="vault-submit-gate">
+      <p className="ui-modal-desc vault-submit-label">Procedures</p>
+      <ul className="vault-submit-gate-list">
+        {SUBMIT_STEPS.map((step, i) => (
+          <li key={i}>{step}</li>
+        ))}
+      </ul>
+      {hint ? <p className="vault-submit-hint">{hint}</p> : null}
+    </div>
+  );
+}
+
 function VaultSubmitModal({
   on_close,
   closing,
@@ -267,7 +287,8 @@ function VaultSubmitModal({
   const [error, set_error] = react.useState<string | null>(null);
   const [done, set_done] = react.useState<{ pr_url?: string | null; path?: string; updated?: boolean } | null>(null);
 
-  const REAUTH_MESSAGE = 'Sign in again to grant repository access.';
+  const is_reauth = (r: { status: number; error?: string }) =>
+    r.status === 403 && r.error === 'reauth_required';
 
   const load_repos = react.useCallback(async () => {
     if (!lib_auth_session.read_auth_session()) return;
@@ -275,7 +296,7 @@ function VaultSubmitModal({
     set_error(null);
     try {
       const r = await lib_api_request.api_request('/vault/repos');
-      if (r.status === 403 && r.error === 'reauth_required') { set_error(REAUTH_MESSAGE); return; }
+      if (is_reauth(r)) { set_error(REAUTH_MESSAGE); return; }
       if (!r.ok) throw new Error(r.error || 'Failed to load repositories');
       set_repos(Array.isArray(r.json.repos) ? r.json.repos : []);
     }
@@ -294,7 +315,7 @@ function VaultSubmitModal({
   const login = () => {
     const url = '/workspace?auto_close=1';
     const w = window.open(url, '_blank');
-    if (!w) { window.location.href = url; }
+    if (!w) window.location.href = url;
   };
 
   const submit = async () => {
@@ -302,7 +323,7 @@ function VaultSubmitModal({
     set_error(null);
     try {
       const r = await lib_api_request.api_request('/vault/submit', { method: 'POST', body: { repo } });
-      if (r.status === 403 && r.error === 'reauth_required') { set_error(REAUTH_MESSAGE); return; }
+      if (is_reauth(r)) { set_error(REAUTH_MESSAGE); return; }
       if (!r.ok) throw new Error(r.error || 'Submission failed');
       set_done({ pr_url: r.json.pr_url, path: r.json.path, updated: Boolean(r.json.updated) });
     }
@@ -313,6 +334,11 @@ function VaultSubmitModal({
       set_busy(false);
     }
   };
+
+  const repo_options = react.useMemo(
+    () => repos.map((r) => ({ value: r.full_name, label: r.full_name })),
+    [repos],
+  );
 
   return (
     <ui_modal.Modal
@@ -347,20 +373,14 @@ function VaultSubmitModal({
         </ui_modal.ModalBody>
       ) : !session ? (
         <ui_modal.ModalBody>
-          <div className="vault-submit-gate">
-            <p className="ui-modal-desc vault-submit-label">
-              Procedures
-            </p>
-            <ul className="vault-submit-gate-list">
-              <li>Select a public repository you own</li>
-              <li>We read <code>manifest.yaml</code> for name, tags, and description</li>
-              <li>A pull request is opened on <code>Vital.vault</code> to add the submodule</li>
-            </ul>
-            <p className="vault-submit-hint">
-              Sign in opens workspace in a new tab. When you finish, that tab closes automatically
-              and you can continue from here.
-            </p>
-          </div>
+          <SubmitProcedures
+            hint={
+              <>
+                Sign in opens workspace in a new tab. When you finish, that tab closes automatically
+                and you can continue from here.
+              </>
+            }
+          />
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
