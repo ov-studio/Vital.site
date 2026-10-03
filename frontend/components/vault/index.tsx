@@ -286,7 +286,7 @@ function VaultSubmitModal({
   const [error, set_error] = react.useState<string | null>(null);
   const [done, set_done] = react.useState<{ pr_url?: string | null; path?: string; updated?: boolean } | null>(null);
 
-  const is_reauth = (r: { status: number; error?: string }) =>
+  const is_reauth = (r: { status: number; error?: string | null }) =>
     r.status === 403 && r.error === 'reauth_required';
 
   const load_repos = react.useCallback(async () => {
