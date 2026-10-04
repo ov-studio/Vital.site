@@ -236,10 +236,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks',                                         status: 'completed' },
           { label: '[Client] API: core.display.get_resolution',               status: 'completed' },
           { label: '[Client] API: core.display.get_texture',                  status: 'completed' },
-          { label: '[Client] API: core.display.screenshot',                   status: 'completed' },
-          { label: '[Client] API: self:is_type',                              status: 'completed' },
-          { label: '[Client] API: self:get_type',                             status: 'completed' },
-          { label: '[Client] API: self:destroy',                              status: 'completed' }
+          { label: '[Client] API: core.display.screenshot',                   status: 'completed' }
         ]
       },
       {
