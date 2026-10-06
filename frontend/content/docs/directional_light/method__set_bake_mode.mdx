@@ -16,7 +16,7 @@ local status = self:set_bake_mode(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | mode | Bake mode enum value to apply |
+| [`light.directional.bake_mode`](/docs/directional_light/enum/bake_mode) | mode | Bake mode to apply |
 
 ### Returns
 
@@ -31,5 +31,5 @@ local status = self:set_bake_mode(
 ```lua lineNumbers title="Apply bake mode on a directional light"
 local entity = light.directional.create()
 
-entity:set_bake_mode(1)
+entity:set_bake_mode(light.directional.bake_mode.STATIC)
 ```

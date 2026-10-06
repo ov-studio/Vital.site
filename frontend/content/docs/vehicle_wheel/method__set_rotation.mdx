@@ -1,22 +1,26 @@
 ---
 title: self:set_rotation
-description: Sets the local rotation of the vehicle wheel in degrees
-badge: client
+description: Sets the local rotation of the vehicle wheel in radians
+badge: shared
 ---
 
 ### Syntax
 
 ```lua
 local status = self:set_rotation(
-    euler_degrees
+    rotation
 )
 ```
+
+<Callout type="info">
+  **Use `self:set_rotation_degrees` to provide the rotation in degrees instead.**
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | euler_degrees | Rotation to apply in degrees as `{x, y, z}` |
+| `vector3` | rotation | Rotation to apply in radians as `{x, y, z}` |
 
 ### Returns
 
@@ -29,7 +33,8 @@ local status = self:set_rotation(
 ### Examples
 
 ```lua lineNumbers title="Set the local rotation of a vehicle wheel"
-local entity = physics.vehicle_wheel.create()
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
 
-entity:set_rotation({0, 90, 0})
+entity:set_rotation({0, math.pi*0.5, 0})
 ```

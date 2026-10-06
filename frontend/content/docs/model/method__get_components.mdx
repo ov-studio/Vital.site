@@ -7,13 +7,16 @@ badge: shared
 ### Syntax
 
 ```lua
-local components = self:get_components()
+local components = self:get_components(
+    include_all = false
+)
 ```
 
 ### Parameters
 
-| No parameters are accepted by this function |
-|---------------------------------------------|
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | include_all | Whether to include every node of the model, not only mesh components<br/>Defaults to `false` |
 
 ### Returns
 

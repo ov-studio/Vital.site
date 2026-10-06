@@ -7,7 +7,7 @@ badge: client
 When a shader is applied to a model via `shader:apply_to_material(...)`, Vital automatically reads the
 model surface's original `BaseMaterial3D` and feeds matching values into your shader uniforms.
 Name your uniforms to match the table below and they are populated for free. Any value you set
-manually via `shader:set_param` / `shader:set_param_texture` takes priority over the auto-bind.
+manually via `shader:set_param` takes priority over the auto-bind.
 
 ---
 
@@ -76,14 +76,14 @@ void fragment() {
 ## Canvas Item
 
 Canvas Item shaders use a different pipeline — no `BaseMaterial3D` is involved.
-No uniforms are auto-inherited. Use `shader:set_param` / `shader:set_param_texture` to feed all values.
+No uniforms are auto-inherited. Use `shader:set_param` to feed all values.
 
 ---
 
 ## Priority
 
 ```
-shader:set_param / shader:set_param_texture   ← always wins
+shader:set_param   ← always wins
         ↓ (only if above not set)
 auto-bind from original surface material
         ↓ (only if no original material or no match)

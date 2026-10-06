@@ -1,7 +1,7 @@
 ---
 title: self:look_at_from_position
 description: Moves the character body to a position and rotates it so its -Z axis points toward the given target
-badge: client
+badge: shared
 ---
 
 ### Syntax
@@ -10,7 +10,7 @@ badge: client
 local status = self:look_at_from_position(
     position,
     target,
-    up
+    up = {0, 1, 0}
 )
 ```
 
@@ -20,7 +20,7 @@ local status = self:look_at_from_position(
 |------|------|-------------|
 | `vector3` | position | World-space position to move to as `{x, y, z}` |
 | `vector3` | target | World-space position to look at as `{x, y, z}` |
-| `vector3` | up | Up vector used to determine orientation as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}`<br/>Defaults to `{0, 1, 0}` |
 
 ### Returns
 

@@ -3,9 +3,9 @@
     "icon": "PersonStanding",
     "pages": [
         "---Enum---",
+        "enum__axis",
         "enum__motion_mode",
         "enum__platform_on_leave",
-        "enum__axis",
 
         "---Base---",
         "create",
@@ -21,6 +21,8 @@
         "method__is_on_floor",
         "method__is_on_ceiling",
         "method__is_on_wall",
+        "method__is_remote",
+        "method__is_streamed",
 
         "---⁝⁝Getter---",
         "method__get_position",
@@ -46,6 +48,11 @@
         "method__get_real_velocity",
         "method__get_platform_velocity",
         "method__get_platform_angular_velocity",
+        "method__get_parent",
+        "method__get_net_id",
+        "method__get_sync_authority",
+        "method__get_slide_collision_count",
+        "method__get_slide_collision",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -71,6 +78,8 @@
         "method__set_floor_snap_length",
         "method__set_floor_stop_on_slope_enabled",
         "method__set_slide_on_ceiling_enabled",
+        "method__set_parent",
+        "method__set_syncer",
 
         "---⁝⁝Misc---",
         "method__translate",

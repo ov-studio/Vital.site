@@ -43,6 +43,7 @@
         "method__get_overlapping_areas",
         "method__overlaps_body",
         "method__overlaps_area",
+        "method__get_parent",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -64,6 +65,7 @@
         "method__set_priority",
         "method__set_monitoring",
         "method__set_monitorable",
+        "method__set_parent",
 
         "---⁝⁝Misc---",
         "method__translate",

@@ -54,7 +54,7 @@ local status = core.engine.draw_material(
 ### Examples
 
 ```lua lineNumbers title="Draw an image from a file path"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
@@ -67,7 +67,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a tinted image"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
@@ -83,7 +83,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw an image rotated around its center"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 
 util.event.on("sandbox:draw", function()
@@ -98,7 +98,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw from an image instance"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 local image = core.image.create("assets/logo.png")
 
@@ -112,7 +112,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw from an SVG instance"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 local svg = core.svg.create("assets/icon.svg")
 
@@ -126,7 +126,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw from a rendertarget instance"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 local rendertarget = core.rendertarget.create(1920, 1080)
 
@@ -145,7 +145,7 @@ local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shad
 util.event.on("sandbox:draw", function()
     core.engine.draw_material(
         {0, 0}, 
-        core.engine.get_resolution(), 
+        core.display.get_resolution(), 
         entity
     )
 end)

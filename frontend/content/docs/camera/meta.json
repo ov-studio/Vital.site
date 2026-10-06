@@ -58,6 +58,7 @@
         "method__get_dof_blur_far_transition",
         "method__get_dof_blur_near_distance",
         "method__get_dof_blur_near_transition",
+        "method__get_parent",
 
         "---⁝⁝Setter---",
         "method__set_active",
@@ -88,6 +89,7 @@
         "method__set_dof_blur_near_enabled",
         "method__set_dof_blur_near_distance",
         "method__set_dof_blur_near_transition",
+        "method__set_parent",
 
         "---⁝⁝Misc---",
         "method__translate",

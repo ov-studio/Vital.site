@@ -2,13 +2,15 @@
     "title": "Area Light",
     "icon": "Square",
     "pages": [
+        "---Enum---",
+        "enum__bake_mode",
+
         "---Base---",
         "create",
         "...",
 
         "---⁝⁝Lifecycle---",
         "method__is_type",
-        "method__is_remote",
         "method__is_streamed",
         "method__get_type",
         "method__destroy",
@@ -52,6 +54,7 @@
         "method__get_distance_fade_begin",
         "method__get_distance_fade_shadow",
         "method__get_distance_fade_length",
+        "method__get_parent",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -89,6 +92,7 @@
         "method__set_distance_fade_begin",
         "method__set_distance_fade_shadow",
         "method__set_distance_fade_length",
+        "method__set_parent",
         
         "---⁝⁝Misc---",
         "method__translate",

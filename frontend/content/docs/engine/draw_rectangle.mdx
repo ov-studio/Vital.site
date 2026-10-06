@@ -49,7 +49,7 @@ local status = core.engine.draw_rectangle(
 ### Examples
 
 ```lua lineNumbers title="Draw a plain white rectangle"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 local size = {200, 100}
 
@@ -62,7 +62,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a filled rectangle with an outline"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 local size = {200, 100}
 
@@ -78,7 +78,7 @@ end)
 ```
 
 ```lua lineNumbers title="Draw a rectangle rotated around its center"
-local resolution = core.engine.get_resolution()
+local resolution = core.display.get_resolution()
 local center = {resolution[1]*0.5, resolution[2]*0.5}
 local size = {200, 100}
 

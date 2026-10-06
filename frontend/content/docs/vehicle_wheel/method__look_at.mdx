@@ -1,7 +1,7 @@
 ---
 title: self:look_at
 description: Rotates the vehicle wheel so its -Z axis points toward the given world-space target
-badge: client
+badge: shared
 ---
 
 ### Syntax
@@ -9,7 +9,7 @@ badge: client
 ```lua
 local status = self:look_at(
     target,
-    up
+    up = {0, 1, 0}
 )
 ```
 
@@ -18,7 +18,7 @@ local status = self:look_at(
 | Type | Name | Description |
 |------|------|-------------|
 | `vector3` | target | World-space position to look at as `{x, y, z}` |
-| `vector3` | up | Up vector used to determine orientation as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}`<br/>Defaults to `{0, 1, 0}` |
 
 ### Returns
 

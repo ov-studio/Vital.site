@@ -8,7 +8,8 @@ badge: shared
 
 ```lua
 local entity = core.model.create(
-    name
+    name,
+    authority = 1
 )
 ```
 
@@ -17,6 +18,7 @@ local entity = core.model.create(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name of the loaded model to instantiate |
+| `int` | authority | Peer id that holds sync authority over the model<br/>Defaults to `1` (the server) |
 
 ### Returns
 

@@ -19,6 +19,7 @@
 
         "---Core---",
         "engine",
+        "display",
         "database",
         "db_query",
         "discord",

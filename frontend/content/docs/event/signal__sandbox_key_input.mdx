@@ -14,7 +14,7 @@ badge: client
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | keycode | Godot `Key` or `MouseButton` enum value identifying the key or button |
+| [`util.input.key`](/docs/input/enum/key) | keycode | Key or mouse button identifier |
 | `bool` | pressed | `true` if pressed, `false` if released |
 
 <Callout type="info">
@@ -22,7 +22,7 @@ badge: client
 
   - Key-repeat echoes are suppressed — only the initial press and release are reported.
   - If the engine console intercepts a key on press, that key will not fire this signal.
-  - Refer to Godot's `Key` and `MouseButton` enums via [`util.input`](/docs/input) for keycode values.
+  - Refer to the [`util.input.key`](/docs/input/enum/key) enum for keycode values.
 </Callout>
 
 ---
@@ -39,7 +39,7 @@ end)
 
 ```lua lineNumbers title="Detect left mouse button"
 util.event.on("sandbox:key_input", function(keycode, pressed)
-    if keycode == util.input.mouse_button.LEFT then
+    if keycode == util.input.key.MOUSE_LEFT then
         core.engine.print("info", "LMB " .. (pressed and "down" or "up"))
     end
 end)

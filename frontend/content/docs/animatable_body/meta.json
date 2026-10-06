@@ -5,6 +5,7 @@
         "---Enum---",
         "enum__axis",
 
+
         "---Base---",
         "create",
 
@@ -17,6 +18,8 @@
         "method__is_visible",
         "method__is_visible_in_tree",
         "method__is_sync_to_physics_enabled",
+        "method__is_remote",
+        "method__is_streamed",
 
         "---⁝⁝Getter---",
         "method__get_position",
@@ -35,6 +38,9 @@
         "method__get_axis_lock",
         "method__get_constant_linear_velocity",
         "method__get_constant_angular_velocity",
+        "method__get_parent",
+        "method__get_net_id",
+        "method__get_sync_authority",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -56,6 +62,8 @@
         "method__set_constant_linear_velocity",
         "method__set_constant_angular_velocity",
         "method__set_sync_to_physics",
+        "method__set_parent",
+        "method__set_syncer",
 
         "---⁝⁝Misc---",
         "method__translate",

@@ -23,6 +23,7 @@
         "method__is_autoplayed",
         "method__is_emission_angle_enabled",
         "method__is_fx_enabled",
+        "method__is_streamed",
         
         "---⁝⁝Getter---",
         "method__get_position",
@@ -40,6 +41,7 @@
         "method__get_emission_angle_filter_attenuation_db",
         "method__get_attenuation_filter_cutoff_hz",
         "method__get_attenuation_filter_db",
+        "method__get_parent",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -60,6 +62,7 @@
         "method__set_attenuation_filter_cutoff_hz",
         "method__set_attenuation_filter_db",
         "method__set_fx_enabled",
+        "method__set_parent",
 
         "---⁝⁝Misc---",
         "method__translate",

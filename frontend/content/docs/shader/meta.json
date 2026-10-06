@@ -21,12 +21,10 @@
 
         "---⁝⁝Setter---",
         "method__set_param",
-        "method__set_param_color",
-        "method__set_param_texture",
-        "method__set_param_rt",
 
         "---⁝⁝Misc---",
-        "method__apply_to_model",
+        "method__apply_to_material",
+        "method__remove_from_material",
 
         "---⁝⁝Reference---",
         "cheatsheet__uniforms"
