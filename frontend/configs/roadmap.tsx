@@ -416,8 +416,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:project_ray_origin',                 status: 'completed' },
           { label: '[Client] API: self:project_position',                   status: 'completed' },
           { label: '[Client] API: self:unproject_position',                 status: 'completed' },
-          { label: '[Client] API: self:get_parent',                           status: 'completed' },
-          { label: '[Client] API: self:set_parent',                           status: 'completed' }
+          { label: '[Client] API: self:get_parent',                         status: 'completed' },
+          { label: '[Client] API: self:set_parent',                         status: 'completed' }
         ]
       },
       {
@@ -459,7 +459,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:zoom',                           status: 'completed' },
           { label: '[Client] API: self:eval',                           status: 'completed' },
           { label: '[Client] API: self:emit',                           status: 'completed' },
-          { label: '[Client] API: self:is_overlay',              status: 'completed' }
+          { label: '[Client] API: self:is_overlay',                     status: 'completed' }
         ]
       },
       {
@@ -478,8 +478,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:destroy',           status: 'completed' },
           { label: '[Client] API: self:get_oversampling',  status: 'completed' },
           { label: '[Client] API: self:set_oversampling',  status: 'completed' },
-          { label: '[Client] API: self:is_antialiased',      status: 'completed' },
-          { label: '[Client] API: self:set_antialiased',     status: 'completed' }
+          { label: '[Client] API: self:is_antialiased',    status: 'completed' },
+          { label: '[Client] API: self:set_antialiased',   status: 'completed' }
         ]
       },
       {
@@ -487,28 +487,28 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Runtime image loading, unloading, and rendering with implicit cache for draw calls',
         icon:  <lucide.Image {...config_site.info.lucide}/>,
         items: [
-          { label: 'Lifecycle hooks',                               status: 'completed' },
-          { label: 'Format: JPG | JPEG',                            status: 'completed' },
-          { label: 'Format: PNG',                                   status: 'completed' },
-          { label: 'Format: WEBP',                                  status: 'completed' },
-          { label: 'Format: BMP',                                   status: 'completed' },
-          { label: 'Format: DDS',                                   status: 'completed' },
-          { label: 'Format: KTX',                                   status: 'completed' },
-          { label: 'Format: EXR',                                   status: 'completed' },
-          { label: '[Client] Enum: core.image.texel_format',        status: 'completed' },
-          { label: '[Client] Enum: core.image.texture_filter',              status: 'completed' },
-          { label: '[Client] Enum: core.image.compression_mode',    status: 'completed' },
-          { label: '[Client] API: core.image.create',               status: 'completed' },
-          { label: '[Client] API: self:is_type',                    status: 'completed' },
-          { label: '[Client] API: self:get_type',                   status: 'completed' },
-          { label: '[Client] API: self:destroy',                    status: 'completed' },
-          { label: '[Client] API: self:has_mipmaps',                status: 'completed' },
-          { label: '[Client] API: self:is_compressed',              status: 'completed' },
-          { label: '[Client] API: self:get_size',                   status: 'completed' },
-          { label: '[Client] API: self:get_filter',                 status: 'completed' },
-          { label: '[Client] API: self:set_filter',                 status: 'completed' },
-          { label: '[Client] API: self:convert',                    status: 'completed' },
-          { label: '[Client] API: self:compress',                   status: 'completed' }
+          { label: 'Lifecycle hooks',                             status: 'completed' },
+          { label: 'Format: JPG | JPEG',                          status: 'completed' },
+          { label: 'Format: PNG',                                 status: 'completed' },
+          { label: 'Format: WEBP',                                status: 'completed' },
+          { label: 'Format: BMP',                                 status: 'completed' },
+          { label: 'Format: DDS',                                 status: 'completed' },
+          { label: 'Format: KTX',                                 status: 'completed' },
+          { label: 'Format: EXR',                                 status: 'completed' },
+          { label: '[Client] Enum: core.image.texel_format',      status: 'completed' },
+          { label: '[Client] Enum: core.image.texture_filter',    status: 'completed' },
+          { label: '[Client] Enum: core.image.compression_mode',  status: 'completed' },
+          { label: '[Client] API: core.image.create',             status: 'completed' },
+          { label: '[Client] API: self:is_type',                  status: 'completed' },
+          { label: '[Client] API: self:get_type',                 status: 'completed' },
+          { label: '[Client] API: self:destroy',                  status: 'completed' },
+          { label: '[Client] API: self:has_mipmaps',              status: 'completed' },
+          { label: '[Client] API: self:is_compressed',            status: 'completed' },
+          { label: '[Client] API: self:get_size',                 status: 'completed' },
+          { label: '[Client] API: self:get_filter',               status: 'completed' },
+          { label: '[Client] API: self:set_filter',               status: 'completed' },
+          { label: '[Client] API: self:convert',                  status: 'completed' },
+          { label: '[Client] API: self:compress',                 status: 'completed' }
         ]
       },
       {
@@ -517,7 +517,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.FileCode {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                         status: 'completed' },
-          { label: '[Client] Enum: core.svg.svg_filter',          status: 'completed' },
+          { label: '[Client] Enum: core.svg.svg_filter',      status: 'completed' },
           { label: '[Client] API: core.svg.create',           status: 'completed' },
           { label: '[Client] API: core.svg.create_from_raw',  status: 'completed' },
           { label: '[Client] API: self:is_type',              status: 'completed' },
@@ -675,9 +675,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:remove_fx',                                 status: 'completed' },
           { label: '[Client] API: self:update_fx',                                 status: 'completed' },
           { label: '[Client] API: self:list_fx',                                   status: 'completed' },
-          { label: '[Client] API: self:get_parent',                                  status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                                 status: 'completed' },
-          { label: '[Client] API: self:set_parent',                                  status: 'completed' }
+          { label: '[Client] API: self:get_parent',                                status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                               status: 'completed' },
+          { label: '[Client] API: self:set_parent',                                status: 'completed' }
         ]
       },
       {
@@ -1153,9 +1153,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:look_at_from_position',                 status: 'completed' },
           { label: '[Client] API: self:to_global',                             status: 'completed' },
           { label: '[Client] API: self:to_local',                              status: 'completed' },
-          { label: '[Client] Enum: light.directional.bake_mode',                 status: 'completed' },
-          { label: '[Client] API: self:get_parent',                              status: 'completed' },
-          { label: '[Client] API: self:set_parent',                              status: 'completed' }
+          { label: '[Client] Enum: light.directional.bake_mode',               status: 'completed' },
+          { label: '[Client] API: self:get_parent',                            status: 'completed' },
+          { label: '[Client] API: self:set_parent',                            status: 'completed' }
         ]
       },
       {
@@ -1250,10 +1250,10 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:look_at_from_position',                 status: 'completed' },
           { label: '[Client] API: self:to_global',                             status: 'completed' },
           { label: '[Client] API: self:to_local',                              status: 'completed' },
-          { label: '[Client] Enum: light.point.bake_mode',                       status: 'completed' },
-          { label: '[Client] Enum: light.point.shadow_mode',                     status: 'completed' },
-          { label: '[Client] API: self:get_parent',                              status: 'completed' },
-          { label: '[Client] API: self:set_parent',                              status: 'completed' }
+          { label: '[Client] Enum: light.point.bake_mode',                     status: 'completed' },
+          { label: '[Client] Enum: light.point.shadow_mode',                   status: 'completed' },
+          { label: '[Client] API: self:get_parent',                            status: 'completed' },
+          { label: '[Client] API: self:set_parent',                            status: 'completed' }
         ]
       },
       {
@@ -1350,9 +1350,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:look_at_from_position',                 status: 'completed' },
           { label: '[Client] API: self:to_global',                             status: 'completed' },
           { label: '[Client] API: self:to_local',                              status: 'completed' },
-          { label: '[Client] Enum: light.spot.bake_mode',                        status: 'completed' },
-          { label: '[Client] API: self:get_parent',                              status: 'completed' },
-          { label: '[Client] API: self:set_parent',                              status: 'completed' }
+          { label: '[Client] Enum: light.spot.bake_mode',                      status: 'completed' },
+          { label: '[Client] API: self:get_parent',                            status: 'completed' },
+          { label: '[Client] API: self:set_parent',                            status: 'completed' }
         ]
       },
       {
@@ -1446,9 +1446,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:look_at_from_position',                 status: 'completed' },
           { label: '[Client] API: self:to_global',                             status: 'completed' },
           { label: '[Client] API: self:to_local',                              status: 'completed' },
-          { label: '[Client] Enum: light.area.bake_mode',                        status: 'completed' },
-          { label: '[Client] API: self:get_parent',                              status: 'completed' },
-          { label: '[Client] API: self:set_parent',                              status: 'completed' }
+          { label: '[Client] Enum: light.area.bake_mode',                      status: 'completed' },
+          { label: '[Client] API: self:get_parent',                            status: 'completed' },
+          { label: '[Client] API: self:set_parent',                            status: 'completed' }
         ]
       }
     ]
@@ -1852,7 +1852,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Enum: physics.rigid.freeze_mode',                    status: 'completed' },
           { label: '[Shared] Enum: physics.rigid.center_of_mass_mode',            status: 'completed' },
           { label: '[Shared] Enum: physics.rigid.damp_mode',                      status: 'completed' },
-          { label: '[Shared] Enum: physics.rigid.axis',                                 status: 'completed' },
+          { label: '[Shared] Enum: physics.rigid.axis',                           status: 'completed' },
           { label: '[Shared] API: physics.rigid.create',                          status: 'completed' },
           { label: '[Shared] API: self:is_type',                                  status: 'completed' },
           { label: '[Shared] API: self:get_type',                                 status: 'completed' },
@@ -1941,13 +1941,13 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:add_constant_torque',                      status: 'completed' },
           { label: '[Shared] API: self:set_constant_force',                       status: 'completed' },
           { label: '[Shared] API: self:set_constant_torque',                      status: 'completed' },
-          { label: '[Shared] API: self:get_net_id',                                 status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                                 status: 'completed' },
-          { label: '[Server] API: self:get_sync_authority',                         status: 'completed' },
-          { label: '[Client] API: self:is_remote',                                  status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                                status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                                 status: 'completed' },
-          { label: '[Server] API: self:set_syncer',                                 status: 'completed' }
+          { label: '[Shared] API: self:get_net_id',                               status: 'completed' },
+          { label: '[Shared] API: self:get_parent',                               status: 'completed' },
+          { label: '[Server] API: self:get_sync_authority',                       status: 'completed' },
+          { label: '[Client] API: self:is_remote',                                status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                              status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                               status: 'completed' },
+          { label: '[Server] API: self:set_syncer',                               status: 'completed' }
         ]
       },
       {
@@ -1955,7 +1955,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Immovable collision surface — constant velocity conveyance and physics material control from Lua',
         icon:  <lucide.Anchor {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] Enum: physics.static.axis',               status: 'completed' },
+          { label: '[Shared] Enum: physics.static.axis',                  status: 'completed' },
           { label: '[Shared] API: physics.static.create',                 status: 'completed' },
           { label: '[Shared] API: self:is_type',                          status: 'completed' },
           { label: '[Shared] API: self:get_type',                         status: 'completed' },
@@ -2007,13 +2007,13 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:to_local',                         status: 'completed' },
           { label: '[Shared] API: self:to_global',                        status: 'completed' },
           { label: '[Shared] API: self:move_and_collide',                 status: 'completed' },
-          { label: '[Shared] API: self:get_net_id',                         status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                         status: 'completed' },
-          { label: '[Server] API: self:get_sync_authority',                 status: 'completed' },
-          { label: '[Client] API: self:is_remote',                          status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                        status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                         status: 'completed' },
-          { label: '[Server] API: self:set_syncer',                         status: 'completed' }
+          { label: '[Shared] API: self:get_net_id',                       status: 'completed' },
+          { label: '[Shared] API: self:get_parent',                       status: 'completed' },
+          { label: '[Server] API: self:get_sync_authority',               status: 'completed' },
+          { label: '[Client] API: self:is_remote',                        status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                      status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                       status: 'completed' },
+          { label: '[Server] API: self:set_syncer',                       status: 'completed' }
         ]
       },
       {
@@ -2023,7 +2023,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: '[Shared] Enum: physics.character.motion_mode',        status: 'completed' },
           { label: '[Shared] Enum: physics.character.platform_on_leave',  status: 'completed' },
-          { label: '[Shared] Enum: physics.character.axis',            status: 'completed' },
+          { label: '[Shared] Enum: physics.character.axis',               status: 'completed' },
           { label: '[Shared] API: physics.character.create',              status: 'completed' },
           { label: '[Shared] API: self:is_type',                          status: 'completed' },
           { label: '[Shared] API: self:get_type',                         status: 'completed' },
@@ -2092,15 +2092,15 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:move_and_collide',                 status: 'completed' },
           { label: '[Shared] API: self:move_and_slide',                   status: 'completed' },
           { label: '[Shared] API: self:apply_floor_snap',                 status: 'completed' },
-          { label: '[Shared] API: self:get_net_id',                         status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                         status: 'completed' },
-          { label: '[Shared] API: self:get_slide_collision',                status: 'completed' },
-          { label: '[Shared] API: self:get_slide_collision_count',          status: 'completed' },
-          { label: '[Server] API: self:get_sync_authority',                 status: 'completed' },
-          { label: '[Client] API: self:is_remote',                          status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                        status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                         status: 'completed' },
-          { label: '[Server] API: self:set_syncer',                         status: 'completed' }
+          { label: '[Shared] API: self:get_net_id',                       status: 'completed' },
+          { label: '[Shared] API: self:get_parent',                       status: 'completed' },
+          { label: '[Shared] API: self:get_slide_collision',              status: 'completed' },
+          { label: '[Shared] API: self:get_slide_collision_count',        status: 'completed' },
+          { label: '[Server] API: self:get_sync_authority',               status: 'completed' },
+          { label: '[Client] API: self:is_remote',                        status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                      status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                       status: 'completed' },
+          { label: '[Server] API: self:set_syncer',                       status: 'completed' }
         ]
       },
       {
@@ -2108,7 +2108,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Code-driven kinematic body — moved by script each frame while correctly pushing other physics bodies',
         icon:  <lucide.Ship {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] Enum: physics.animatable.axis',           status: 'completed' },
+          { label: '[Shared] Enum: physics.animatable.axis',              status: 'completed' },
           { label: '[Shared] API: physics.animatable.create',             status: 'completed' },
           { label: '[Shared] API: self:is_type',                          status: 'completed' },
           { label: '[Shared] API: self:get_type',                         status: 'completed' },
@@ -2162,13 +2162,13 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:to_local',                         status: 'completed' },
           { label: '[Shared] API: self:to_global',                        status: 'completed' },
           { label: '[Shared] API: self:move_and_collide',                 status: 'completed' },
-          { label: '[Shared] API: self:get_net_id',                         status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                         status: 'completed' },
-          { label: '[Server] API: self:get_sync_authority',                 status: 'completed' },
-          { label: '[Client] API: self:is_remote',                          status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                        status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                         status: 'completed' },
-          { label: '[Server] API: self:set_syncer',                         status: 'completed' }
+          { label: '[Shared] API: self:get_net_id',                       status: 'completed' },
+          { label: '[Shared] API: self:get_parent',                       status: 'completed' },
+          { label: '[Server] API: self:get_sync_authority',               status: 'completed' },
+          { label: '[Client] API: self:is_remote',                        status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                      status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                       status: 'completed' },
+          { label: '[Server] API: self:set_syncer',                       status: 'completed' }
         ]
       },
       {
@@ -2177,7 +2177,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Car {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] Enum: physics.vehicle.freeze_mode',                  status: 'completed' },
-          { label: '[Shared] Enum: physics.vehicle.axis',              status: 'completed' },
+          { label: '[Shared] Enum: physics.vehicle.axis',                         status: 'completed' },
           { label: '[Shared] API: physics.vehicle.create',                        status: 'completed' },
           { label: '[Shared] API: self:is_type',                                  status: 'completed' },
           { label: '[Shared] API: self:get_type',                                 status: 'completed' },
@@ -2231,32 +2231,32 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:to_local',                                 status: 'completed' },
           { label: '[Shared] API: self:to_global',                                status: 'completed' },
           { label: '[Shared] API: self:move_and_collide',                         status: 'completed' },
-          { label: '[Shared] API: self:get_net_id',                         status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                         status: 'completed' },
-          { label: '[Server] API: self:get_sync_authority',                 status: 'completed' },
-          { label: '[Client] API: self:is_remote',                          status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                        status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                         status: 'completed' },
-          { label: '[Server] API: self:set_syncer',                         status: 'completed' },
-          { label: '[Shared] API: self:is_sleeping',                     status: 'completed' },
-          { label: '[Shared] API: self:is_using_continuous_collision_detection', status: 'completed' },
-          { label: '[Shared] API: self:get_mass',                        status: 'completed' },
-          { label: '[Shared] API: self:get_linear_damp',                 status: 'completed' },
-          { label: '[Shared] API: self:get_angular_damp',                status: 'completed' },
-          { label: '[Shared] API: self:get_linear_velocity',             status: 'completed' },
-          { label: '[Shared] API: self:get_angular_velocity',            status: 'completed' },
-          { label: '[Shared] API: self:set_mass',                        status: 'completed' },
-          { label: '[Shared] API: self:set_linear_damp',                 status: 'completed' },
-          { label: '[Shared] API: self:set_angular_damp',                status: 'completed' },
-          { label: '[Shared] API: self:set_sleeping',                    status: 'completed' },
-          { label: '[Shared] API: self:set_use_continuous_collision_detection', status: 'completed' },
-          { label: '[Shared] API: self:set_freeze_mode',                 status: 'completed' },
-          { label: '[Shared] API: self:set_linear_velocity',             status: 'completed' },
-          { label: '[Shared] API: self:set_angular_velocity',            status: 'completed' },
-          { label: '[Shared] API: self:apply_central_impulse',           status: 'completed' },
-          { label: '[Shared] API: self:apply_impulse',                   status: 'completed' },
-          { label: '[Shared] API: self:apply_central_force',             status: 'completed' },
-          { label: '[Shared] API: self:apply_force',                     status: 'completed' }
+          { label: '[Shared] API: self:get_net_id',                               status: 'completed' },
+          { label: '[Shared] API: self:get_parent',                               status: 'completed' },
+          { label: '[Server] API: self:get_sync_authority',                       status: 'completed' },
+          { label: '[Client] API: self:is_remote',                                status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                              status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                               status: 'completed' },
+          { label: '[Server] API: self:set_syncer',                               status: 'completed' },
+          { label: '[Shared] API: self:is_sleeping',                              status: 'completed' },
+          { label: '[Shared] API: self:is_using_continuous_collision_detection',  status: 'completed' },
+          { label: '[Shared] API: self:get_mass',                                 status: 'completed' },
+          { label: '[Shared] API: self:get_linear_damp',                          status: 'completed' },
+          { label: '[Shared] API: self:get_angular_damp',                         status: 'completed' },
+          { label: '[Shared] API: self:get_linear_velocity',                      status: 'completed' },
+          { label: '[Shared] API: self:get_angular_velocity',                     status: 'completed' },
+          { label: '[Shared] API: self:set_mass',                                 status: 'completed' },
+          { label: '[Shared] API: self:set_linear_damp',                          status: 'completed' },
+          { label: '[Shared] API: self:set_angular_damp',                         status: 'completed' },
+          { label: '[Shared] API: self:set_sleeping',                             status: 'completed' },
+          { label: '[Shared] API: self:set_use_continuous_collision_detection',   status: 'completed' },
+          { label: '[Shared] API: self:set_freeze_mode',                          status: 'completed' },
+          { label: '[Shared] API: self:set_linear_velocity',                      status: 'completed' },
+          { label: '[Shared] API: self:set_angular_velocity',                     status: 'completed' },
+          { label: '[Shared] API: self:apply_central_impulse',                    status: 'completed' },
+          { label: '[Shared] API: self:apply_impulse',                            status: 'completed' },
+          { label: '[Shared] API: self:apply_central_force',                      status: 'completed' },
+          { label: '[Shared] API: self:apply_force',                              status: 'completed' }
         ]
       },
       {
