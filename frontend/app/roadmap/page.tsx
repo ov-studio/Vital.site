@@ -6,7 +6,7 @@ import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_roadmap     from '@/components/roadmap';
 import * as component_clientshell from '@/components/clientshell';
-import * as lib_source            from '@/lib/source';
+import * as lib_anchor            from '@/lib/anchor';
 import * as next                  from 'next';
 
 export const metadata: next.Metadata = {
@@ -19,7 +19,7 @@ export const metadata: next.Metadata = {
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
   label: `# ${s.name}`,
-  href:  `#${lib_source.to_anchor(s.name)}`,
+  href:  `#${lib_anchor.to_anchor(s.name)}`,
 }));
 
 export default function RoadmapPage() {

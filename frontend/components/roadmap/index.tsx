@@ -3,7 +3,7 @@ import * as config_pages   from '@/configs/pages';
 import * as config_roadmap from '@/configs/roadmap';
 import * as ui_page        from '@/ui/page';
 import * as ui_pagehead    from '@/ui/pagehead';
-import * as lib_source     from '@/lib/source';
+import * as lib_anchor     from '@/lib/anchor';
 import * as react          from 'react';
 import './index.css';
 
@@ -141,9 +141,9 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
   section.cards.forEach((card, i) => columns[i % COLS].push(card));
 
   return (
-    <div id={lib_source.to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
+    <div id={lib_anchor.to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
       <div className="rcategory-head">
-        <a className="sec-title" href={`#${lib_source.to_anchor(section.name)}`}>
+        <a className="sec-title" href={`#${lib_anchor.to_anchor(section.name)}`}>
           # {section.name}
         </a>
       </div>
