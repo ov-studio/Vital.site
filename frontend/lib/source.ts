@@ -4,7 +4,6 @@ import * as icons                from '@/lib/icons';
 import * as fumadocs_core_source from 'fumadocs-core/source';
 import * as fumadocs_mdx_server  from 'fumadocs-mdx:collections/server';
 
-// Re-export for server callers that already import from here
 export { to_anchor } from '@/lib/anchor';
 
 export const source = fumadocs_core_source.loader({
