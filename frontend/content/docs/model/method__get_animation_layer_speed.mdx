@@ -1,0 +1,36 @@
+---
+title: self:get_animation_layer_speed
+description: Retrieves the playback speed of an animation layer
+badge: shared
+---
+
+### Syntax
+
+```lua
+local speed = self:get_animation_layer_speed(
+    layer
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Index of the animation layer to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | speed | Current playback speed multiplier of the layer |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the speed of a layer"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+core.engine.print("info", "Speed:", entity:get_animation_layer_speed(0))
+```

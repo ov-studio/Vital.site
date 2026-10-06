@@ -1,0 +1,34 @@
+---
+title: peer:resource:started
+description: Fired when a connected peer has finished starting a resource
+badge: server
+---
+
+### Signal
+
+```lua
+"peer:resource:started"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Id of the peer that started the resource |
+| `string` | name | Name of the resource the peer started |
+
+<Callout type="info">
+  **This signal is only fired on the server.**
+
+  - It is fired once per peer after that peer has loaded the resource the server started.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="React to a peer starting a resource"
+util.event.on("peer:resource:started", function(peer_id, name)
+    core.engine.print("info", "Peer " .. peer_id .. " started:", name)
+end)
+```

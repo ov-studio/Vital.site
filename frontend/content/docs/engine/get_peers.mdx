@@ -1,0 +1,32 @@
+---
+title: core.engine.get_peers
+description: Retrieves the ids of all connected peers
+badge: server
+---
+
+### Syntax
+
+```lua
+local peers = core.engine.get_peers()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table` | peers | Array of connected peer ids |
+
+---
+
+### Examples
+
+```lua lineNumbers title="List every connected peer"
+for _, peer_id in ipairs(core.engine.get_peers()) do
+    core.engine.print("info", "Peer connected:", peer_id)
+end
+```

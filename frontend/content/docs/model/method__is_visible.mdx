@@ -1,0 +1,33 @@
+---
+title: self:is_visible
+description: Checks whether the model is visible
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check visibility of a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+core.engine.print("info", "Model visible:", entity:is_visible())
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_net_id
+description: Retrieves the network id of the animatable body
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:get_net_id()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int | bool` | result | Network id of the instance, `false` if the instance is not replicated |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the network id of a animatable body"
+local entity = physics.animatable.create()
+
+core.engine.print("info", "Net ID:", entity:get_net_id())
+```

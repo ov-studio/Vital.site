@@ -1,0 +1,37 @@
+---
+title: self:get_current_animation_layer
+description: Retrieves the name of the animation playing on the given layer
+badge: shared
+---
+
+### Syntax
+
+```lua
+local name = self:get_current_animation_layer(
+    layer
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Index of the animation layer to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the animation playing on the layer, empty when nothing is playing |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the animation playing on a layer"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:play_animation_layer(0, "idle")
+core.engine.print("info", "Layer 0:", entity:get_current_animation_layer(0))
+```

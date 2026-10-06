@@ -1,0 +1,40 @@
+---
+title: self:look_at_from_position
+description: Moves the model to a position and rotates it so its -Z axis points toward the given target
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:look_at_from_position(
+    position,
+    target,
+    up = {0, 1, 0}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | World-space position to move to as `{x, y, z}` |
+| `vector3` | target | World-space position to look at as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}`<br/>Defaults to `{0, 1, 0}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Position and point a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:look_at_from_position({0, 10, 0}, {0, 0, 0}, {0, 1, 0})
+```

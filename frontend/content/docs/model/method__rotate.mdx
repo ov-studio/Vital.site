@@ -1,0 +1,38 @@
+---
+title: self:rotate
+description: Rotates the model around an axis in the parent's coordinate space
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:rotate(
+    axis,
+    degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | axis | Axis to rotate around as `{x, y, z}` |
+| `float` | degrees | Angle to rotate by in degrees |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:rotate({0, 1, 0}, 45)
+```

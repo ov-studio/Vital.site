@@ -1,0 +1,36 @@
+---
+title: self:get_parent
+description: Retrieves the entity the vehicle body is currently parented to
+badge: shared
+---
+
+### Syntax
+
+```lua
+local parent = self:get_parent()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `entity | bool` | parent | Parent entity instance, `false` if the instance has no parent |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the parent of a vehicle body"
+local parent = physics.vehicle.create()
+local child = physics.vehicle.create()
+
+child:set_parent(parent)
+
+core.engine.print("info", child:get_parent() == parent) -- true
+core.engine.print("info", parent:get_parent()) -- false
+```

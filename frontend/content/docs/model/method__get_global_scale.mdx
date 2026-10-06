@@ -1,0 +1,34 @@
+---
+title: self:get_global_scale
+description: Retrieves the global scale of the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local scale = self:get_global_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Current global scale as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the global scale of a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+local scale = entity:get_global_scale()
+
+core.engine.print("info", "Model scale:", util.table.unpack(scale))
+```

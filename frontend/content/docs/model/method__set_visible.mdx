@@ -1,0 +1,36 @@
+---
+title: self:set_visible
+description: Sets whether the model is visible
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_visible(
+    visible
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | visible | `true` to show the entity, `false` to hide it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle visibility of a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:set_visible(false)
+```

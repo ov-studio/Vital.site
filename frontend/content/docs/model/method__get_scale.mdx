@@ -1,0 +1,34 @@
+---
+title: self:get_scale
+description: Retrieves the local scale of the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local scale = self:get_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Current local scale as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local scale of a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+local scale = entity:get_scale()
+
+core.engine.print("info", "Model scale:", util.table.unpack(scale))
+```

@@ -1,0 +1,39 @@
+---
+title: self:look_at
+description: Rotates the model so its -Z axis points toward the given world-space target
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:look_at(
+    target,
+    up = {0, 1, 0}
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | target | World-space position to look at as `{x, y, z}` |
+| `vector3` | up | Up vector used to determine orientation as `{x, y, z}`<br/>Defaults to `{0, 1, 0}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Point a model at the world origin"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+entity:set_position({0, 10, 0})
+
+entity:look_at({0, 0, 0}, {0, 1, 0})
+```

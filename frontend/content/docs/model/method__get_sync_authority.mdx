@@ -1,0 +1,34 @@
+---
+title: self:get_sync_authority
+description: Retrieves the peer id currently holding sync authority over the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local peer_id = self:get_sync_authority()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Peer id with sync authority, `1` when the server itself is the authority |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the sync authority of a model"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+core.engine.print("info", "Sync authority:", entity:get_sync_authority())
+```

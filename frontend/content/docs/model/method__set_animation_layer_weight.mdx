@@ -1,0 +1,43 @@
+---
+title: self:set_animation_layer_weight
+description: Sets the blend weight of an animation layer
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_animation_layer_weight(
+    layer,
+    weight,
+    blend_time = 0,
+    sync = true
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Index of the animation layer to modify |
+| `float` | weight | New blend weight of the layer |
+| `float` | blend_time | Time in seconds to blend to the new weight<br/>Defaults to `0` |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Defaults to `true` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Fade a layer out over half a second"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:play_animation_layer(1, "wave")
+entity:set_animation_layer_weight(1, 0, 0.5)
+```

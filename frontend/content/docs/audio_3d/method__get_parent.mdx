@@ -1,0 +1,36 @@
+---
+title: self:get_parent
+description: Retrieves the entity the audio-3d instance is currently parented to
+badge: client
+---
+
+### Syntax
+
+```lua
+local parent = self:get_parent()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `entity | bool` | parent | Parent entity instance, `false` if the instance has no parent |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the parent of a audio-3d instance"
+local parent = core.audio_3d.create("sounds/ambient.ogg")
+local child = core.audio_3d.create("sounds/ambient.ogg")
+
+child:set_parent(parent)
+
+core.engine.print("info", child:get_parent() == parent) -- true
+core.engine.print("info", parent:get_parent()) -- false
+```

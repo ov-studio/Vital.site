@@ -1,0 +1,41 @@
+---
+title: core.engine.disconnect_peer
+description: Disconnects a connected peer from the server
+badge: server
+---
+
+### Syntax
+
+```lua
+local status = core.engine.disconnect_peer(
+    peer_id
+)
+```
+
+<Callout type="warn">
+  **The peer must be currently connected.**
+
+  - An error is raised if `peer_id` does not belong to a connected peer.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Peer id to disconnect |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Disconnect a peer when it joins"
+util.event.on("network:peer:join", function(peer_id)
+    core.engine.disconnect_peer(peer_id)
+end)
+```

@@ -1,0 +1,19 @@
+{
+    "title": "Display",
+    "icon": "Monitor",
+    "pages": [
+        "---Base---",
+        "get_texture",
+
+        "---Getter---",
+        "get_resolution",
+
+        "---Misc---",
+        "screenshot",
+
+        "---⁝⁝Lifecycle---",
+        "method__is_type",
+        "method__get_type",
+        "method__destroy"
+    ]
+}

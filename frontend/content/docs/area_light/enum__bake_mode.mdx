@@ -1,0 +1,23 @@
+---
+title: light.area.bake_mode
+description: Enumeration of baking behaviors for a area light
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `light.area.bake_mode.DISABLED` | Light is not baked and contributes only to real-time lighting |
+| `light.area.bake_mode.STATIC` | Light is baked into lightmaps and global illumination, and does not update at runtime |
+| `light.area.bake_mode.DYNAMIC` | Light is baked into global illumination but can still be modified at runtime |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the bake mode of a area light"
+local entity = light.area.create()
+
+entity:set_bake_mode(light.area.bake_mode.STATIC)
+```

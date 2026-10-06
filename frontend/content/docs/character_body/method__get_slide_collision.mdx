@@ -1,0 +1,54 @@
+---
+title: self:get_slide_collision
+description: Retrieves the details of a collision recorded during the last slide movement
+badge: shared
+---
+
+### Syntax
+
+```lua
+local collision = self:get_slide_collision(
+    index
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | index | Zero-based index of the collision, up to `self:get_slide_collision_count() - 1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `table | bool` | collision | Collision data, `false` if the index is out of range<br/>Refer [**Collision**](#collision) section |
+
+---
+
+### Collision
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | collider_net_id | Network id of the collider, `0` if it is not replicated |
+| `vector3` | normal | Collision normal as `{x, y, z}` |
+| `vector3` | travel | Distance travelled before the collision as `{x, y, z}` |
+| `vector3` | remainder | Remaining motion after the collision as `{x, y, z}` |
+| `vector3` | position | World-space collision point as `{x, y, z}` |
+| `vector3` | collider_velocity | Velocity of the collider as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print every slide collision normal"
+local entity = physics.character.create()
+
+for index = 0, entity:get_slide_collision_count() - 1 do
+    local collision = entity:get_slide_collision(index)
+
+    if collision then
+        core.engine.print("info", "Normal:", util.table.unpack(collision.normal))
+    end
+end
+```

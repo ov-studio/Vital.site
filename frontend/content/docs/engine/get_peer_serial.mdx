@@ -1,0 +1,35 @@
+---
+title: core.engine.get_peer_serial
+description: Retrieves the serial of a connected peer
+badge: server
+---
+
+### Syntax
+
+```lua
+local serial = core.engine.get_peer_serial(
+    peer_id
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Peer id to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string | bool` | serial | Serial of the peer, `false` if the peer has no serial |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the serial of every peer"
+for _, peer_id in ipairs(core.engine.get_peers()) do
+    core.engine.print("info", peer_id, core.engine.get_peer_serial(peer_id))
+end
+```

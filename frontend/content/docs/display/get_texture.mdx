@@ -1,0 +1,49 @@
+---
+title: core.display.get_texture
+description: Retrieves the display texture of the main viewport
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = core.display.get_texture(
+    last_frame = false
+)
+```
+
+<Callout type="idea">
+  **The live viewport cannot be sampled while it is being rendered.**
+
+  - **Live viewport** — `last_frame = false` references the main viewport directly.
+  - **Previous frame** — `last_frame = true` references a copy of the last rendered frame; use it as a shader input such as in `self:set_param`.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | last_frame | Whether to retrieve the copy of the previously rendered frame instead of the live viewport<br/>Defaults to `false` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `display` | instance | Display texture instance, reused when one with the same `last_frame` mode already exists |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Retrieve the display texture"
+local display = core.display.get_texture()
+
+core.engine.print("info", display:get_type()) -- "display"
+```
+
+```lua lineNumbers title="Feed the previous frame into a shader"
+local shader = core.shader.create("assets/shaders/blur.glsl", core.shader.shader_mode.CANVAS_ITEM)
+local display = core.display.get_texture(true)
+
+shader:set_param("screen_texture", display)
+```

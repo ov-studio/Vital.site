@@ -1,0 +1,48 @@
+---
+title: self:remove_from_material
+description: Removes a shader override previously applied with `self:apply_to_material`
+badge: client
+---
+
+### Syntax
+
+```lua
+local count = self:remove_from_material(
+    model,
+    component,
+    material
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `model | string | nil` | model | Model instance to clear, or `"*"` / `nil` to remove the persistent registration and clear every live model |
+| `string` | component | Mesh component name or wildcard pattern to match |
+| `string` | material | Surface material name or wildcard pattern to match |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | count | Number of surfaces whose override was changed |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove a shader from one model"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+core.model.load("character", "models/character.glb")
+local model = core.model.create("character")
+
+entity:apply_to_material(model, "*", "*")
+entity:remove_from_material(model, "*", "*")
+```
+
+```lua lineNumbers title="Remove a persistent shader assignment from all models"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:remove_from_material("*", "*", "*")
+```

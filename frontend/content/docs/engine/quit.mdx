@@ -1,0 +1,32 @@
+---
+title: core.engine.quit
+description: Shuts down the application
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.engine.quit()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Quit the game from a key bind"
+util.input.bind(util.input.key.ESCAPE, "down", function(key, direction)
+    core.engine.quit()
+end)
+```

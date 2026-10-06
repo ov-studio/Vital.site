@@ -1,0 +1,36 @@
+---
+title: sandbox:physics_process
+description: Fired every fixed physics step — the update loop for physics-driven logic
+badge: shared
+---
+
+### Signal
+
+```lua
+"sandbox:physics_process"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | delta | Time in seconds elapsed since the last physics step |
+
+<Callout type="info">
+  **This hook runs at a fixed rate, independent of the render framerate.**
+
+  - Prefer this over [`sandbox:process`](/docs/event/signal/sandbox_process) for forces, velocities and any other physics-body updates.
+  - Do not make `core.engine.draw_*` calls here — use [`sandbox:draw`](/docs/event/signal/sandbox_draw) for all rendering.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Apply a force every physics step"
+local body = physics.rigid.create()
+
+util.event.on("sandbox:physics_process", function(delta)
+    body:apply_central_force({0, 100*delta, 0})
+end)
+```

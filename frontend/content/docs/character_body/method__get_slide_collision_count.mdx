@@ -1,0 +1,32 @@
+---
+title: self:get_slide_collision_count
+description: Retrieves the number of collisions recorded during the last slide movement
+badge: shared
+---
+
+### Syntax
+
+```lua
+local count = self:get_slide_collision_count()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | count | Number of slide collisions |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Count slide collisions"
+local entity = physics.character.create()
+
+core.engine.print("info", "Collisions:", entity:get_slide_collision_count())
+```

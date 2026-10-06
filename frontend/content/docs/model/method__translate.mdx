@@ -1,0 +1,36 @@
+---
+title: self:translate
+description: Translates the model by an offset in the parent's coordinate space
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:translate(
+    offset
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | offset | Offset to translate by as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Translate a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:translate({0, 1, 0})
+```

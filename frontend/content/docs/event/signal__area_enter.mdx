@@ -1,0 +1,37 @@
+---
+title: area:enter
+description: Fired when a body or another area enters the area
+badge: shared
+---
+
+### Signal
+
+```lua
+"area:enter"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `area` | area | Area instance that was affected |
+| `userdata` | entity | Rigid, static, character, animatable body or area instance that triggered the signal |
+
+<Callout type="info">
+  **Only physics entities known to the sandbox trigger this signal.**
+
+  - Fires for rigid, static, character and animatable bodies, as well as other areas.
+  - Refer [`physics.area`](/docs/area) to create and configure the area that emits it.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="React when an entity enters an area"
+local area = physics.area.create()
+
+util.event.on("area:enter", function(area, entity)
+    core.engine.print("info", "area:enter:", entity:get_type())
+end)
+```

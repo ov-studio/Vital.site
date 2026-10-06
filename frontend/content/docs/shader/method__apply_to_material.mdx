@@ -1,0 +1,55 @@
+---
+title: self:apply_to_material
+description: Applies the shader to matching materials of a model, or of every model
+badge: client
+---
+
+### Syntax
+
+```lua
+local count = self:apply_to_material(
+    model,
+    component,
+    material
+)
+```
+
+<Callout type="info">
+  **The shader automatically inherits values from the surface's original material.**
+
+  - **Model instance** — applies immediately to that model only and does not persist for future spawns.
+  - **Wildcard `"*"`** — applies to all live models and is registered persistently for models spawned later.
+  - **Auto-binding** — refer [**Shader Uniform Cheatsheet**](/docs/shader/cheatsheet/uniforms) for uniform names populated automatically.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `model | string | nil` | model | Model instance to apply to, or `"*"` / `nil` to match every model and register the assignment for future spawns |
+| `string` | component | Mesh component name or wildcard pattern to match |
+| `string` | material | Surface material name or wildcard pattern to match |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | count | Number of surfaces updated on already-live models |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a shader to every material of one model"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+core.model.load("character", "models/character.glb")
+local model = core.model.create("character")
+
+entity:apply_to_material(model, "*", "*")
+```
+
+```lua lineNumbers title="Apply a shader to a single material on all models, including future spawns"
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:apply_to_material("*", "Skeleton3D/Body", "skin")
+```

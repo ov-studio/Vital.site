@@ -1,0 +1,37 @@
+---
+title: self:is_animation_layer_playing
+description: Checks whether an animation is playing on the given layer
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_animation_layer_playing(
+    layer
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Index of the animation layer to check |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the layer is playing an animation, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a layer is playing"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:play_animation_layer(0, "idle")
+core.engine.print("info", entity:is_animation_layer_playing(0)) -- true
+```

@@ -1,0 +1,36 @@
+---
+title: self:scale_global
+description: Scales the model in the global coordinate space
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:scale_global(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | scale | Scale factor to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Scale a model globally"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:scale_global({2, 2, 2})
+```

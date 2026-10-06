@@ -1,0 +1,36 @@
+---
+title: self:set_global_position
+description: Sets the global position of the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_global_position(
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Position to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the global position of a model"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:set_global_position({0, 5, 0})
+```

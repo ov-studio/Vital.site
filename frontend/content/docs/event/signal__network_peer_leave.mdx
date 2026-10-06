@@ -1,0 +1,35 @@
+---
+title: network:peer:leave
+description: Fired when a peer disconnects from the server
+badge: server
+---
+
+### Signal
+
+```lua
+"network:peer:leave"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Id of the peer that left |
+
+<Callout type="info">
+  **This signal is only fired on the server.**
+
+  - Use it to clean up any state you keep per peer.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Clean up after a leaving peer"
+local players = {}
+
+util.event.on("network:peer:leave", function(peer_id)
+    players[peer_id] = nil
+end)
+```

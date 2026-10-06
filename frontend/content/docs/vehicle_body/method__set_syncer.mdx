@@ -1,0 +1,39 @@
+---
+title: self:set_syncer
+description: Assigns the peer that holds sync authority over the vehicle body
+badge: server
+---
+
+### Syntax
+
+```lua
+local status = self:set_syncer(
+    peer_id
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Peer id to grant sync authority to, `1` (or lower) hands authority back to the server |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Hand a vehicle body to a connected peer"
+local entity = physics.vehicle.create()
+
+local peers = core.engine.get_peers()
+
+if peers[1] then
+    entity:set_syncer(peers[1])
+end
+```

@@ -1,0 +1,36 @@
+---
+title: self:set_rotation_degrees
+description: Sets the local rotation of the vehicle wheel in degrees
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_rotation_degrees(
+    rotation
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Rotation to apply in degrees as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the local rotation of a vehicle wheel in degrees"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_rotation_degrees({0, 90, 0})
+```

@@ -1,0 +1,44 @@
+---
+title: self:set_component_rendered
+description: Sets whether a component of the model is rendered
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_rendered(
+    component,
+    state
+)
+```
+
+<Callout type="info">
+  **Rendered state is separate from visibility.**
+
+  - See `self:set_component_visible` to toggle the component's visibility instead.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Component path to modify, as returned by `self:get_components` |
+| `bool` | state | `true` to render the component, `false` to stop rendering it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Stop rendering a component"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:set_component_rendered("Skeleton3D/Hat", false)
+```

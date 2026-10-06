@@ -1,0 +1,38 @@
+---
+title: self:get_parent
+description: Retrieves the entity the collision shape is currently parented to
+badge: shared
+---
+
+### Syntax
+
+```lua
+local parent = self:get_parent()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `entity | bool` | parent | Parent entity instance, `false` if the instance has no parent |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the parent of a collision shape"
+local parent_owner = physics.rigid.create()
+local parent = physics.collision_shape.create(parent_owner)
+local child_owner = physics.rigid.create()
+local child = physics.collision_shape.create(child_owner)
+
+child:set_parent(parent)
+
+core.engine.print("info", child:get_parent() == parent) -- true
+core.engine.print("info", parent:get_parent()) -- false
+```

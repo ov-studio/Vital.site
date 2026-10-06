@@ -1,0 +1,23 @@
+---
+title: light.point.bake_mode
+description: Enumeration of baking behaviors for a point light
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `light.point.bake_mode.DISABLED` | Light is not baked and contributes only to real-time lighting |
+| `light.point.bake_mode.STATIC` | Light is baked into lightmaps and global illumination, and does not update at runtime |
+| `light.point.bake_mode.DYNAMIC` | Light is baked into global illumination but can still be modified at runtime |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the bake mode of a point light"
+local entity = light.point.create()
+
+entity:set_bake_mode(light.point.bake_mode.STATIC)
+```

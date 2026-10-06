@@ -1,0 +1,36 @@
+---
+title: self:is_component_rendered
+description: Checks whether a component of the model is rendered
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:is_component_rendered(
+    component
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Component path to check, as returned by `self:get_components` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the component is rendered, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a component is rendered"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+core.engine.print("info", "Rendered:", entity:is_component_rendered("Skeleton3D/Hat"))
+```

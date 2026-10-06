@@ -1,0 +1,57 @@
+---
+title: self:play_animation_layer
+description: Plays an animation on the given layer of the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:play_animation_layer(
+    layer,
+    name,
+    loop = true,
+    speed = 1,
+    weight = 1,
+    blend_time = 0.25,
+    sync = true
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Index of the animation layer to play on |
+| `string` | name | Name of the animation to play |
+| `bool` | loop | Whether the animation loops<br/>Defaults to `true` |
+| `float` | speed | Playback speed multiplier<br/>Defaults to `1` |
+| `float` | weight | Blend weight of the layer<br/>Defaults to `1` |
+| `float` | blend_time | Time in seconds to blend into the animation<br/>Defaults to `0.25` |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Defaults to `true` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Play a looping animation on layer 0"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:play_animation_layer(0, "idle")
+```
+
+```lua lineNumbers title="Layer an upper-body animation over a base animation"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+entity:play_animation_layer(0, "walk")
+entity:set_animation_layer_filter(1, true, {"Skeleton3D:spine", "Skeleton3D:arm_l", "Skeleton3D:arm_r"})
+entity:play_animation_layer(1, "wave", false, 1, 1, 0.1)
+```

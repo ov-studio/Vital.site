@@ -1,0 +1,32 @@
+---
+title: self:is_overlay
+description: Retrieves whether the webview is rendered as an overlay
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_overlay()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the webview is an overlay, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a webview is an overlay"
+local entity = core.webview.create({1280, 720})
+
+core.engine.print("info", "Overlay:", entity:is_overlay())
+```

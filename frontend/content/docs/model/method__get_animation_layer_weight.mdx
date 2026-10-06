@@ -1,0 +1,36 @@
+---
+title: self:get_animation_layer_weight
+description: Retrieves the blend weight of an animation layer
+badge: shared
+---
+
+### Syntax
+
+```lua
+local weight = self:get_animation_layer_weight(
+    layer
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | layer | Index of the animation layer to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | weight | Current blend weight of the layer |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the weight of a layer"
+core.model.load("character", "models/character.glb")
+local entity = core.model.create("character")
+
+core.engine.print("info", "Weight:", entity:get_animation_layer_weight(0))
+```

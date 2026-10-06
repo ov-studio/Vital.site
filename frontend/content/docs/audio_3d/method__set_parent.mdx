@@ -1,0 +1,51 @@
+---
+title: self:set_parent
+description: Attaches the audio-3d instance to another entity, or detaches it when no entity is given
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_parent(
+    entity = nil
+)
+```
+
+<Callout type="warn">
+  **Parenting between server and client entities is restricted.**
+
+  - **On the client** — cannot be called on a server entity; raises an error.
+  - **On the server** — a server entity can only be parented to another server (network-synced) entity.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `entity` | entity | Parent entity instance, omit or pass `nil` to detach the instance |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` if the reparent is invalid (target is itself or one of its descendants) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Parent one audio-3d instance to another"
+local parent = core.audio_3d.create("sounds/ambient.ogg")
+local child = core.audio_3d.create("sounds/ambient.ogg")
+
+child:set_parent(parent)
+```
+
+```lua lineNumbers title="Detach a audio-3d instance from its parent"
+local parent = core.audio_3d.create("sounds/ambient.ogg")
+local child = core.audio_3d.create("sounds/ambient.ogg")
+
+child:set_parent(parent)
+child:set_parent()
+```

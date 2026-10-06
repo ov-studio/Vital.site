@@ -1,0 +1,33 @@
+---
+title: network:peer:join
+description: Fired when a peer connects to the server
+badge: server
+---
+
+### Signal
+
+```lua
+"network:peer:join"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Id of the peer that joined |
+
+<Callout type="info">
+  **This signal is only fired on the server.**
+
+  - The server starts every running resource on the peer after this fires.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Greet a joining peer"
+util.event.on("network:peer:join", function(peer_id)
+    core.engine.print("info", "Peer joined:", peer_id)
+end)
+```
