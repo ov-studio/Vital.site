@@ -2264,7 +2264,7 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Individual wheel node for vehicle bodies — suspension, friction, traction, steering, and per-wheel force control',
         icon:  <lucide.CircleDot {...config_site.info.lucide}/>,
         items: [
-          { label: '[Shared] API: physics.vehicle_wheel.create',      status: 'completed' },
+          { label: '[Shared] API: physics.vehicle_wheel.create',     status: 'completed' },
           { label: '[Shared] API: self:is_type',                     status: 'completed' },
           { label: '[Shared] API: self:get_type',                    status: 'completed' },
           { label: '[Shared] API: self:destroy',                     status: 'completed' },
@@ -2328,11 +2328,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:look_at_from_position',       status: 'completed' },
           { label: '[Shared] API: self:to_local',                    status: 'completed' },
           { label: '[Shared] API: self:to_global',                   status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                    status: 'completed' },
-          { label: '[Client] API: self:is_remote',                     status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                   status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                    status: 'completed' },
-          { label: '[Shared] API: self:set_rotation_degrees',          status: 'completed' }
+          { label: '[Shared] API: self:get_parent',                  status: 'completed' },
+          { label: '[Client] API: self:is_remote',                   status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                 status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                  status: 'completed' },
+          { label: '[Shared] API: self:set_rotation_degrees',        status: 'completed' }
         ]
       },
       {
@@ -2401,8 +2401,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:look_at_from_position',            status: 'completed' },
           { label: '[Shared] API: self:to_local',                         status: 'completed' },
           { label: '[Shared] API: self:to_global',                        status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                         status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                         status: 'completed' }
+          { label: '[Shared] API: self:get_parent',                       status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                       status: 'completed' }
         ]
       },
       {
@@ -2451,12 +2451,12 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:look_at_from_position',             status: 'completed' },
           { label: '[Shared] API: self:to_local',                          status: 'completed' },
           { label: '[Shared] API: self:to_global',                         status: 'completed' },
-          { label: '[Client] API: physics.collision_shape.is_debug_all',     status: 'completed' },
-          { label: '[Shared] API: self:get_parent',                          status: 'completed' },
-          { label: '[Client] API: self:is_remote',                           status: 'completed' },
-          { label: '[Client] API: self:is_streamed',                         status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                          status: 'completed' },
-          { label: '[Shared] API: self:set_shape_mesh',                      status: 'completed' }
+          { label: '[Client] API: physics.collision_shape.is_debug_all',   status: 'completed' },
+          { label: '[Shared] API: self:get_parent',                        status: 'completed' },
+          { label: '[Client] API: self:is_remote',                         status: 'completed' },
+          { label: '[Client] API: self:is_streamed',                       status: 'completed' },
+          { label: '[Shared] API: self:set_parent',                        status: 'completed' },
+          { label: '[Shared] API: self:set_shape_mesh',                    status: 'completed' }
         ]
       },
       {
@@ -2549,5 +2549,5 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       }
     ]
-  },
+  }
 ]);
