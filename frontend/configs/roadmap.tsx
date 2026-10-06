@@ -233,13 +233,13 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Main window output — resolution query, live scene texture, and screenshot capture from Lua',
         icon:  <lucide.Monitor {...config_site.info.lucide}/>,
         items: [
-          { label: 'Lifecycle hooks',                                         status: 'completed' },
-          { label: '[Client] API: core.display.get_resolution',               status: 'completed' },
-          { label: '[Client] API: core.display.get_texture',                  status: 'completed' },
-          { label: '[Client] API: core.display.screenshot',                   status: 'completed' },
-          { label: '[Client] API: self:destroy',                   status: 'completed' },
-          { label: '[Client] API: self:get_type',                  status: 'completed' },
-          { label: '[Client] API: self:is_type',                   status: 'completed' }
+          { label: 'Lifecycle hooks',                            status: 'completed' },
+          { label: '[Client] API: core.display.get_resolution',  status: 'completed' },
+          { label: '[Client] API: core.display.get_texture',     status: 'completed' },
+          { label: '[Client] API: core.display.screenshot',      status: 'completed' },
+          { label: '[Client] API: self:is_type',                 status: 'completed' },
+          { label: '[Client] API: self:get_type',                status: 'completed' },
+          { label: '[Client] API: self:destroy',                 status: 'completed' }
         ]
       },
       {
