@@ -95,16 +95,16 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Splash',
-        desc:  'Vital.wry powered splash screen — animated Vital and Godot logo reveals with CRT-style effects',
+        desc:  'Vital.kit splash (Vite + WebView) — Neon logo stroke-draw, CRT scanlines, and three-stage exit into main menu',
         icon:  <lucide.Sparkles {...config_site.info.lucide}/>,
         items: [
-          { label: 'Vital logo reveal (SVG stroke-draw animation)',                status: 'completed' },
-          { label: 'Godot logo reveal (SVG stroke-draw animation)',                status: 'completed' },
-          { label: 'Transition effects - flash / ripple / particle burst',         status: 'completed' },
-          { label: 'Ambient CRT flicker, vignette & scanline overlay',             status: 'completed' },
-          { label: 'Configurable timing - delays, hold durations, stroke speed',   status: 'completed' },
+          { label: 'Neon logo reveal (SVG stroke-draw + fill)',                    status: 'completed' },
+          { label: 'Shared brand treatment via vital-sandbox.com/cdn',             status: 'completed' },
+          { label: 'Neon glitch / idle flicker + flash & ripple ignition',         status: 'completed' },
+          { label: 'Ambient CRT scanline overlay',                                 status: 'completed' },
+          { label: 'Configurable timing - delay, stroke speed, hold, exit fades',  status: 'completed' },
           { label: 'Three-stage exit - fade to black, hold, fade to transparent',  status: 'completed' },
-          { label: 'WebView IPC handshake - ready / init / hide',                  status: 'completed' },
+          { label: 'WebView IPC - ready / init / hide (+ prehide for main menu)',  status: 'completed' },
           { label: 'Boot lifecycle integration - wire into kit startup',           status: 'completed' }
         ]
       },
