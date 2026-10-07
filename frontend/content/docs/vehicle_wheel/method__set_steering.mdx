@@ -16,7 +16,7 @@ local status = self:set_steering(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | steering | Per-wheel steering angle override to apply |
+| `float` | steering | Per-wheel steering angle override in degrees to apply in degrees |
 
 ### Returns
 
@@ -32,5 +32,5 @@ local status = self:set_steering(
 local car = physics.vehicle.create()
 local entity = physics.vehicle_wheel.create(car)
 
-entity:set_steering(0.3)
+entity:set_steering(15)
 ```

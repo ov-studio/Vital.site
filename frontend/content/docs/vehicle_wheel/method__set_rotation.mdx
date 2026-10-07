@@ -1,6 +1,6 @@
 ---
 title: self:set_rotation
-description: Sets the local rotation of the vehicle wheel in radians
+description: Sets the local rotation of the vehicle wheel
 badge: shared
 ---
 
@@ -12,15 +12,11 @@ local status = self:set_rotation(
 )
 ```
 
-<Callout type="info">
-  **Use `self:set_rotation_degrees` to provide the rotation in degrees instead.**
-</Callout>
-
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | rotation | Rotation to apply in radians as `{x, y, z}` |
+| `vector3` | rotation | Rotation to apply in degrees as `{x, y, z}` |
 
 ### Returns
 
@@ -36,5 +32,5 @@ local status = self:set_rotation(
 local car = physics.vehicle.create()
 local entity = physics.vehicle_wheel.create(car)
 
-entity:set_rotation({0, math.pi*0.5, 0})
+entity:set_rotation({0, 90, 0})
 ```

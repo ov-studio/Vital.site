@@ -46,7 +46,6 @@
         "method__set_global_position",
         "method__set_scale",
         "method__set_rotation",
-        "method__set_rotation_degrees",
         "method__set_global_rotation",
         "method__set_quaternion",
         "method__set_visible",

@@ -16,7 +16,7 @@ local status = gfx.sky.set_rotation(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | rotation | Sky rotation to apply as `{x, y, z}` in radians |
+| `vector3` | rotation | Sky rotation to apply in degrees as `{x, y, z}` |
 
 ### Returns
 
@@ -29,5 +29,5 @@ local status = gfx.sky.set_rotation(
 ### Examples
 
 ```lua lineNumbers title="Set sky rotation"
-gfx.sky.set_rotation({0.0, 1.5708, 0.0})
+gfx.sky.set_rotation({0, 90, 0})
 ```

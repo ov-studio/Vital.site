@@ -16,7 +16,7 @@ local status = self:set_steering(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | steering | Steering angle to apply across the whole chassis |
+| `float` | steering | Steering angle to apply across the whole chassis in degrees |
 
 ### Returns
 
@@ -31,5 +31,5 @@ local status = self:set_steering(
 ```lua lineNumbers title="Steer a vehicle body"
 local entity = physics.vehicle.create()
 
-entity:set_steering(0.3)
+entity:set_steering(15)
 ```
