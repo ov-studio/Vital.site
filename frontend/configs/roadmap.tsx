@@ -2331,8 +2331,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:get_parent',                  status: 'completed' },
           { label: '[Client] API: self:is_remote',                   status: 'completed' },
           { label: '[Client] API: self:is_streamed',                 status: 'completed' },
-          { label: '[Shared] API: self:set_parent',                  status: 'completed' },
-          { label: '[Shared] API: self:set_rotation_degrees',        status: 'completed' }
+          { label: '[Shared] API: self:set_parent',                  status: 'completed' }
         ]
       },
       {
