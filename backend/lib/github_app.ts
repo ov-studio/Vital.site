@@ -11,6 +11,7 @@ function read_private_key(): string | null {
   return raw.includes('\\n') ? raw.replace(/\\n/g, '\n') : raw;
 }
 
+/** Whether GitHub App credentials are configured. */
 export function github_app_configured(): boolean {
   return Boolean(
     process.env.GITHUB_APP_ID &&
@@ -19,6 +20,7 @@ export function github_app_configured(): boolean {
   );
 }
 
+/** Sign a short-lived JWT for the GitHub App. */
 export function app_jwt(): string {
   const app_id = process.env.GITHUB_APP_ID;
   const key = read_private_key();
@@ -36,6 +38,7 @@ export function app_jwt(): string {
   return `${data}.${b64url(sig)}`;
 }
 
+/** Installation access token for the configured GitHub App install. */
 export async function installation_token(): Promise<string> {
   const installation_id = process.env.GITHUB_APP_INSTALLATION_ID;
   if (!installation_id) throw new Error('GITHUB_APP_INSTALLATION_ID missing');

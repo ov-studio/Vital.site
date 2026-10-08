@@ -67,6 +67,7 @@ function serialize_gitmodules(entries: { path: string; url: string }[]): string 
   return lines.length ? lines.join('\n') + '\n' : '';
 }
 
+/** Result of opening a vault submodule PR (success URL or error). */
 export type PublishResult =
   | { ok: true; pr_url: string; branch: string; path: string; updated: boolean }
   | { ok: false; error: string };
@@ -242,6 +243,7 @@ export async function publish_resource_pr(opts: {
   return { ok: true, pr_url: pr.data.html_url, branch, path: sub_path, updated: is_update };
 }
 
+/** Open a PR that removes a vault submodule path. */
 export async function remove_resource_pr(opts: {
   token: string;
   path:  string;

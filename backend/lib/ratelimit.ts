@@ -13,10 +13,12 @@ const ratelimit = lib_redis.redis_configured
     })
   : null;
 
+/** Client IP from request headers (x-forwarded-for / x-real-ip). */
 export function get_ip(req: Request): string {
   return req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
 }
 
+/** Return a 429 Response when the IP exceeds the rate limit; otherwise null. */
 export async function check(req: Request): Promise<Response | null> {
   if (!ratelimit) return null;
 

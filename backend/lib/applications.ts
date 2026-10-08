@@ -2,8 +2,10 @@ import * as crypto      from 'crypto';
 import * as config_site from '@/configs/site';
 import * as lib_redis   from '@/lib/redis';
 
+/** Lifecycle status of a masterlist application. */
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected';
 
+/** Masterlist application record stored in Redis. */
 export type Application = {
   appId:         string;
   login:         string;
@@ -33,6 +35,7 @@ function new_app_id(): string {
   return crypto.randomBytes(16).toString('hex');
 }
 
+/** Fetch a single application by id. */
 export async function get_application(appId: string): Promise<Application | null> {
   if (!lib_redis.redis) return null;
   const raw = await lib_redis.redis.get(lib_redis.application_key(appId));
@@ -40,6 +43,7 @@ export async function get_application(appId: string): Promise<Application | null
   return parse_application(raw);
 }
 
+/** Upsert an application; optional TTL for approved/rejected entries. */
 export async function set_application(app: Application, ttl_seconds?: number): Promise<void> {
   if (!lib_redis.redis) throw new Error('Redis not configured');
   const key = lib_redis.application_key(app.appId);
@@ -48,6 +52,7 @@ export async function set_application(app: Application, ttl_seconds?: number): P
   await lib_redis.redis.sadd(lib_redis.user_apps_key(app.login), app.appId);
 }
 
+/** Delete an application and clean secondary indexes. */
 export async function delete_application(appId: string): Promise<void> {
   if (!lib_redis.redis) return;
   const app = await get_application(appId);
@@ -82,16 +87,19 @@ export async function list_user_applications(login: string): Promise<Application
   return out;
 }
 
+/** Pending application for a login, if any. */
 export async function get_user_pending(login: string): Promise<Application | null> {
   const apps = await list_user_applications(login);
   return apps.find((a) => a.status === 'pending') ?? null;
 }
 
+/** Approved applications owned by a login. */
 export async function list_user_approved(login: string): Promise<Application[]> {
   const apps = await list_user_applications(login);
   return apps.filter((a) => a.status === 'approved');
 }
 
+/** All pending applications (staff queue). */
 export async function list_pending(): Promise<Application[]> {
   if (!lib_redis.redis) return [];
   const ids = await lib_redis.redis.smembers(lib_redis.applications_pending_key);
@@ -113,6 +121,7 @@ export async function list_pending(): Promise<Application[]> {
   return out;
 }
 
+/** All approved applications. */
 export async function list_approved(): Promise<Application[]> {
   if (!lib_redis.redis) return [];
   const ids = await lib_redis.redis.smembers(lib_redis.applications_approved_key);
@@ -150,6 +159,7 @@ export function sanitize_for_staff(app: Application): Omit<Application, 'token'>
   return rest;
 }
 
+/** Create a pending masterlist application for a login. */
 export async function create_pending(login: string, name: string): Promise<Application | { error: string }> {
   const existingPending = await get_user_pending(login);
   if (existingPending) {
@@ -175,6 +185,7 @@ export async function create_pending(login: string, name: string): Promise<Appli
   return app;
 }
 
+/** Cancel a pending application owned by the login. */
 export async function cancel_pending(login: string, appId?: string): Promise<{ ok: true } | { error: string }> {
   let existing: Application | null = null;
   if (appId) {
@@ -191,6 +202,7 @@ export async function cancel_pending(login: string, appId?: string): Promise<{ o
   return { ok: true };
 }
 
+/** Approve a pending application and issue a claimable token. */
 export async function approve_application(
   appId: string,
   staff_login: string
@@ -218,6 +230,7 @@ export async function approve_application(
   return { app };
 }
 
+/** Reject a pending application with an optional reason. */
 export async function reject_application(
   appId: string,
   staff_login: string
@@ -239,6 +252,7 @@ export async function reject_application(
   return { app };
 }
 
+/** Owner claims the issued masterlist token after approval. */
 export async function claim_token(login: string, appId: string): Promise<{ ok: true } | { error: string }> {
   const existing = await get_application(appId);
   if (!existing) return { error: 'No application found' };
@@ -253,6 +267,7 @@ export async function claim_token(login: string, appId: string): Promise<{ ok: t
   return { ok: true };
 }
 
+/** Staff revokes an issued masterlist token. */
 export async function revoke_token(appId: string, staff_login: string): Promise<{ ok: true } | { error: string }> {
   const existing = await get_application(appId);
   if (!existing?.id) return { error: 'No approved token for this application' };

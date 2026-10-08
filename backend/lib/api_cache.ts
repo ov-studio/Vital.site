@@ -13,6 +13,7 @@ interface CacheEntry<T> {
   fetched_at: number;
 }
 
+/** Options for a cached GET route handler (fetcher + cache key + TTL). */
 export interface CachedRouteOptions<T> {
   label:            string;
   ttl_ms?:          number;
@@ -22,6 +23,7 @@ export interface CachedRouteOptions<T> {
   fallback_data?:   T;
 }
 
+/** Build a Next.js GET handler with Redis/memory cache and SWR-style headers. */
 export function create_cached_route<T>(opts: CachedRouteOptions<T>) {
   let cache: CacheEntry<T> | null = null;
   const ttl_ms = opts.ttl_ms ?? config_site.info.api.cache_ttl_ms;

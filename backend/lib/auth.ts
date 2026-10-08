@@ -8,6 +8,7 @@ const GITHUB_AUTHORIZE = 'https://github.com/login/oauth/authorize';
 const GITHUB_TOKEN = 'https://github.com/login/oauth/access_token';
 const GITHUB_USER = 'https://api.github.com/user';
 
+/** Server-side auth session (login + staff flag). */
 export type AuthSession = {
   login: string;
   staff: boolean;
@@ -22,24 +23,29 @@ function oauth_client_secret(): string | undefined {
   return process.env.GITHUB_APP_CLIENT_SECRET || process.env.GITHUB_CLIENT_SECRET;
 }
 
+/** Whether GitHub OAuth env vars are present. */
 export function auth_configured(): boolean {
   return Boolean(oauth_client_id() && oauth_client_secret() && lib_redis.redis_configured);
 }
 
+/** True when the login is in the staff allow-list. */
 export function is_staff_login(login: string): boolean {
   return lib_staff.is_staff_login(login);
 }
 
+/** Generate a random OAuth state string. */
 export function make_oauth_state(): string {
   return crypto.randomBytes(24).toString('hex');
 }
 
+/** Persist OAuth state (+ optional next path) in Redis with short TTL. */
 export async function store_oauth_state(state: string, next_path?: string): Promise<void> {
   if (!lib_redis.redis) throw new Error('Redis not configured');
   const payload = JSON.stringify({ next: next_path && next_path.startsWith('/') ? next_path : '/workspace' });
   await lib_redis.redis.set(lib_redis.auth_oauth_state_key(state), payload, { ex: 600 });
 }
 
+/** One-time read of OAuth state; returns next path when valid. */
 export async function consume_oauth_state(state: string): Promise<{ ok: boolean; next: string }> {
   if (!lib_redis.redis || !state) return { ok: false, next: '/workspace' };
   const key = lib_redis.auth_oauth_state_key(state);
@@ -58,6 +64,7 @@ export async function consume_oauth_state(state: string): Promise<{ ok: boolean;
 
 
 
+/** Create a session token for a login; optionally bind a GitHub user token. */
 export async function issue_session(login: string, github_token?: string): Promise<string> {
   if (!lib_redis.redis) throw new Error('Redis not configured');
   const session_token = crypto.randomBytes(32).toString('hex');
@@ -80,17 +87,20 @@ export async function issue_session(login: string, github_token?: string): Promi
   return session_token;
 }
 
+/** GitHub user access token bound to a session, if stored. */
 export async function github_token_from_session(session_token: string): Promise<string | null> {
   if (!lib_redis.redis || !session_token) return null;
   const t = await lib_redis.redis.get(lib_redis.auth_github_token_key(session_token));
   return typeof t === 'string' && t ? t : null;
 }
 
+/** Resolve GitHub user token from an Authorization Bearer header. */
 export async function github_token_from_auth_header(auth_header: string | null): Promise<string | null> {
   if (!auth_header?.startsWith('Bearer ')) return null;
   return github_token_from_session(auth_header.slice(7).trim());
 }
 
+/** Validate a session token and return the AuthSession, or null. */
 export async function verify_session(session_token: string): Promise<AuthSession | null> {
   if (!lib_redis.redis || !session_token) return null;
   const raw = await lib_redis.redis.get(lib_redis.auth_session_key(session_token));
@@ -106,6 +116,7 @@ export async function verify_session(session_token: string): Promise<AuthSession
   catch { return null; }
 }
 
+/** Parse Authorization header and verify the session. */
 export async function session_from_auth_header(auth_header: string | null): Promise<AuthSession | null> {
   if (!auth_header?.startsWith('Bearer ')) return null;
   const token = auth_header.slice(7).trim();
@@ -113,6 +124,7 @@ export async function session_from_auth_header(auth_header: string | null): Prom
   return verify_session(token);
 }
 
+/** GitHub OAuth authorize URL for the configured client. */
 export function github_authorize_url(state: string): string {
   const client_id = oauth_client_id()!;
   const redirect_uri = `${lib_api_url.get_backend_url()}/auth/github/callback`;
@@ -125,6 +137,7 @@ export function github_authorize_url(state: string): string {
   return `${GITHUB_AUTHORIZE}?${params}`;
 }
 
+/** Exchange an OAuth code for a GitHub access token. */
 export async function exchange_github_code(code: string): Promise<{ access_token: string } | { error: string }> {
   const client_id     = oauth_client_id();
   const client_secret = oauth_client_secret();
@@ -145,6 +158,7 @@ export async function exchange_github_code(code: string): Promise<{ access_token
   return { access_token: data.access_token };
 }
 
+/** Fetch the GitHub login for an access token. */
 export async function fetch_github_login(access_token: string): Promise<{ login: string } | { error: string }> {
   const res = await fetch(GITHUB_USER, {
     headers: {
@@ -159,6 +173,7 @@ export async function fetch_github_login(access_token: string): Promise<{ login:
   return { login: data.login };
 }
 
+/** Frontend callback URL with auth token in the hash fragment. */
 export function auth_callback_url(
   next_path: string,
   session_token: string,
@@ -175,6 +190,7 @@ export function auth_callback_url(
   return `${base}${path}#${params.toString()}`;
 }
 
+/** Frontend URL that surfaces an OAuth/auth error query param. */
 export function auth_error_url(next_path: string, message: string): string {
   const base = lib_api_url.get_frontend_url();
   const path = next_path.startsWith('/') ? next_path : '/workspace';
