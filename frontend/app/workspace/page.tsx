@@ -10,7 +10,6 @@ import * as next                  from 'next';
 export const metadata: next.Metadata = {
   title: config_pages.pages.workspace.title,
   description: config_pages.pages.workspace.description,
-  robots: { index: false, follow: false },
   openGraph: {
     images: [{ url: '/og/workspace' }]
   }
