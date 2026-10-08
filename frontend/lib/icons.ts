@@ -1,4 +1,4 @@
-/** Explicit, statically-analyzable Lucide icon map for documentation pages. */
+// Explicit, statically-analyzable icon map.
 import {
   Anchor,
   Aperture,
