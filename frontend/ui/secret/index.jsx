@@ -20,7 +20,7 @@ export function Secret({
       type="button"
       className={`ui-secret${open ? ' ui-secret--open' : ''}${className ? ` ${className}` : ''}`}
       onClick={onToggle}
-      title={open ? 'Click to hide' : 'Click to reveal'}
+      aria-label={open ? 'Hide secret' : 'Reveal secret'}
     >
       <code className="ui-secret-value">
         {open ? value : '•'.repeat(Math.min(48, value.length))}
