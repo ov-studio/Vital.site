@@ -639,9 +639,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Volume2 {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                           status: 'completed' },
-          { label: 'Format: OGG',                               status: 'completed' },
-          { label: 'Format: WAV',                               status: 'completed' },
-          { label: 'Format: MP3',                               status: 'completed' },
+          { label: 'File formats: OGG / WAV / MP3',             status: 'completed' },
           { label: '[Client] Enum: core.audio_2d.effect',       status: 'completed' },
           { label: '[Client] API: core.audio_2d.create',        status: 'completed' },
           { label: '[Client] API: self:is_type',                status: 'completed' },
