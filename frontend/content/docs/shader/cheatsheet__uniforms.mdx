@@ -80,6 +80,17 @@ No uniforms are auto-inherited. Use `shader:set_param` to feed all values.
 
 ---
 
+## Post Process
+
+Post Process shaders are spatial shaders drawn on a full-screen quad — no `BaseMaterial3D` is involved.
+No uniforms are auto-inherited. Use `shader:set_param` to feed all values.
+
+- **Defaults** — `shader_type spatial;` and `render_mode unshaded, cull_disabled, depth_test_disabled, depth_draw_never;` are added when your source omits them.
+- **Full-screen quad** — set `POSITION = vec4(VERTEX.xy, 1.0, 1.0);` in `vertex()` so the quad covers the screen.
+- **Drawing** — render it with `core.engine.draw_material` inside `"sandbox:draw"`.
+
+---
+
 ## Priority
 
 ```
