@@ -17,6 +17,7 @@ export interface ServerInfo {
   description: string | null;
   discord:     string | null;
   website:     string | null;
+  tags:        string[];
   lastSeen:    number;
 }
 
@@ -30,6 +31,7 @@ export async function GET() {
   const servers: ServerInfo[] = values
     .filter((v): v is NonNullable<unknown> => Boolean(v))
     .map((v) => (typeof v === 'string' ? JSON.parse(v) : v) as ServerInfo)
+    .map((s) => ({ ...s, tags: Array.isArray(s.tags) ? s.tags : [] }))
     .sort((a, b) => b.players - a.players);
 
   return Response.json(servers, { headers: cache_headers() });
