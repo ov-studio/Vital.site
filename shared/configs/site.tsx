@@ -25,8 +25,8 @@ export const info = {
 
   api: {
     cache_ttl_ms:         5 * 60 * 1000, // 5 minutes — shared TTL for all cached api routes
-    cache_swr_multiplier: 5,         // stale-while-revalidate window = ttl * this
-    cache_stale_divisor:  2,         // fallback s-maxage when serving stale-on-error = ttl / this
+    cache_swr_multiplier: 5,  // stale-while-revalidate window = ttl * this
+    cache_stale_divisor:  2, // fallback s-maxage when serving stale-on-error = ttl / this
     github_headers: {
       'Accept': 'application/vnd.github+json',
       'User-Agent': 'Vital.site/1.0'
@@ -34,8 +34,8 @@ export const info = {
   },
 
   ratelimit: {
-    requests_per_window: 30,       // max requests allowed per window per IP
-    window_duration:     '1 m',    // sliding window duration (Upstash duration string)
+    requests_per_window: 30, // max requests allowed per window per IP
+    window_duration:     '1 m', // sliding window duration (Upstash duration string)
     routes: [
       '/build',
       '/contributors',
@@ -53,7 +53,7 @@ export const info = {
   },
 
   masterlist: {
-    heartbeat_interval_ms: 5 * 60 * 1000,  // 5 minutes — servers should heartbeat at or below this
+    heartbeat_interval_ms: 5 * 60 * 1000, // 5 minutes — servers should heartbeat at or below this
     ttl_ms:                11 * 60 * 1000, // ~2x interval — tolerates one missed heartbeat before delisting
     cache_s_maxage_ms:     15 * 1000,    // edge cache freshness window for GET /masterlist
     cache_swr_multiplier:  4           // stale-while-revalidate = s_maxage * this
