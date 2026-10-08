@@ -304,7 +304,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Box {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                                  status: 'completed' },
-          { label: 'Format: GLB',                                      status: 'completed' },
+          { label: 'File formats: GLB',                                status: 'completed' },
           { label: 'Model loader / unloader',                          status: 'completed' },
           { label: 'Transform (position / rotation / scale) control',  status: 'completed' },
           { label: 'Animation playback (per-layer play / stop)',       status: 'completed' },
