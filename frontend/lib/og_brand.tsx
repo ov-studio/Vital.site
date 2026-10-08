@@ -16,6 +16,7 @@ const SECTION_SKIP = new Set([
   'og',
 ]);
 
+/** App route segments that get a brand OG image (excludes api/docs/og). */
 export function site_og_sections(): string[] {
   const app_dir = path.join(process.cwd(), 'app');
   if (!fs.existsSync(app_dir)) return [];
@@ -41,6 +42,7 @@ export function og_host(): string {
   return lib_api_url.get_frontend_host();
 }
 
+/** Uppercase host + path label drawn on brand OG images. */
 export function og_label(route_path: string): string {
   const host = og_host();
   const p = route_path.startsWith('/') ? route_path : `/${route_path}`;
@@ -48,24 +50,28 @@ export function og_label(route_path: string): string {
   return `${host}${p}`.toUpperCase();
 }
 
+/** Load the Rajdhani SemiBold font buffer for OG image generation. */
 export function load_og_font(): ArrayBuffer {
   const file = path.join(process.cwd(), 'public/font/Rajdhani-SemiBold.ttf');
   const buf = fs.readFileSync(file);
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
 }
 
+/** Load the OG background placeholder as a base64 data URI. */
 export function load_og_placeholder_data_uri(): string {
   const file = path.join(process.cwd(), 'public/og/placeholder.png');
   const buf = fs.readFileSync(file);
   return `data:image/png;base64,${buf.toString('base64')}`;
 }
 
+/** Y position of the tagline, vertically centering logo + gap + text. */
 export function og_tagline_top(): number {
   const group_h = OG_LOGO_H + OG_GAP + OG_TAG_SIZE;
   const group_top = (OG_H - group_h) / 2;
   return group_top + OG_LOGO_H + OG_GAP;
 }
 
+/** Bundle label, font, placeholder, and dimensions for a brand OG route. */
 export function brand_og_payload(route_path: string) {
   return {
     label: og_label(route_path),
@@ -76,6 +82,7 @@ export function brand_og_payload(route_path: string) {
   };
 }
 
+/** JSX markup for a brand Open Graph image (Satori / ImageResponse). */
 export function BrandOgMarkup({
   label,
   placeholderSrc,
