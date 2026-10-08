@@ -220,7 +220,7 @@ export async function publish_resource_pr(opts: {
     '**Submitted by:** @' + login,
     '',
     '---',
-    `Opened via [/vault](${lib_api_url.frontend_path('/vault')}).`
+    `Opened via [/vault](${lib_api_url.get_page_url('/vault')}).`
   ].join('\n');
 
   const pr = await gh<{ html_url?: string }>(opts.token, `/repos/${upstream}/pulls`, {
@@ -349,7 +349,7 @@ export async function remove_resource_pr(opts: {
         `**Requested by:** @${opts.actor}`,
         '',
         '---',
-        `Opened via [/vault](${lib_api_url.frontend_path('/vault')}).`
+        `Opened via [/vault](${lib_api_url.get_page_url('/vault')}).`
       ].join('\n')
     })
   });

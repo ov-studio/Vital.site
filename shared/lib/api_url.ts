@@ -43,8 +43,8 @@ export function get_frontend_host(): string {
   }
 }
 
-/** Absolute frontend path: get_frontend_url() + path */
-export function frontend_path(path: string): string {
+/** Absolute page URL: get_frontend_url() + path */
+export function get_page_url(path: string): string {
   const base = get_frontend_url().replace(/\/$/, '');
   const p = path.startsWith('/') ? path : `/${path}`;
   return `${base}${p}`;
