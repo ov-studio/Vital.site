@@ -9,7 +9,7 @@ export default function robots(): next.MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/']
+        disallow: ['/api/', '/workspace']
       }
     ],
     sitemap: `${lib_api_url.get_frontend_url()}/sitemap.xml`
