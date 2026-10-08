@@ -106,6 +106,10 @@ export function clear_auth_session(): void {
   window.dispatchEvent(new Event(AUTH_SESSION_EVENT));
 }
 
+/**
+ * After OAuth redirect: parse #auth_token&login&staff from the hash,
+ * persist the session, and strip the hash from the URL.
+ */
 export function capture_oauth_hash(): AuthSession | null {
   if (typeof window === 'undefined') return null;
   const hash = window.location.hash.replace(/^#/, '');
