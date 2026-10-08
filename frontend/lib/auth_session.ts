@@ -50,6 +50,10 @@ function remove_item(key: string): void {
   try { sessionStorage.removeItem(key); } catch { }
 }
 
+/**
+ * Build an AuthSession from raw token / login / staff flag strings.
+ * Returns null when token or login is missing.
+ */
 export function session_from_parts(
   token: string | null | undefined,
   login: string | null | undefined,
@@ -65,6 +69,7 @@ export function session_from_parts(
   };
 }
 
+/** Read the current auth session from localStorage (client only). */
 export function read_auth_session(): AuthSession | null {
   if (typeof window === 'undefined') return null;
   return session_from_parts(
@@ -74,6 +79,10 @@ export function read_auth_session(): AuthSession | null {
   );
 }
 
+/**
+ * Persist a new auth session and notify listeners via AUTH_SESSION_EVENT.
+ * Clears storage and returns null when the session cannot be built.
+ */
 export function write_auth_session(token: string, login: string, is_staff: boolean): AuthSession | null {
   if (typeof window === 'undefined') return null;
   const session = session_from_parts(token, login, is_staff ? '1' : '0');
@@ -88,6 +97,7 @@ export function write_auth_session(token: string, login: string, is_staff: boole
   return session;
 }
 
+/** Remove stored auth keys and dispatch AUTH_SESSION_EVENT. */
 export function clear_auth_session(): void {
   if (typeof window === 'undefined') return;
   remove_item(AUTH_TOKEN_KEY);
