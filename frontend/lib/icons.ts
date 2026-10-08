@@ -1,4 +1,4 @@
-// Explicit, statically-analyzable icon map.
+/** Explicit, statically-analyzable Lucide icon map for documentation pages. */
 import {
   Anchor,
   Aperture,
@@ -60,6 +60,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
+/** Lucide icon map for docs sidebar / frontmatter icon names. */
 export const doc: Record<string, LucideIcon> = {
   Anchor,
   Aperture,

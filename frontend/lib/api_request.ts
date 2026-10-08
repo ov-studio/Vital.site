@@ -1,6 +1,7 @@
 import * as lib_api_url      from '@/lib/api_url';
 import * as lib_auth_session from '@/lib/auth_session';
 
+/** Normalized result of an authenticated API call. */
 export type ApiResult = {
   ok:     boolean;
   status: number;

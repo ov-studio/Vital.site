@@ -1,3 +1,4 @@
+/** CustomEvent name for global page-loading state. */
 export const PAGE_LOADING_EVENT = 'vital:page-loading';
 
 const MIN_VISIBLE_MS = 1500;
@@ -13,6 +14,10 @@ function emit() {
   );
 }
 
+/**
+ * Show or hide the global page loader.
+ * Enforces a minimum visible duration so the spinner does not flicker.
+ */
 export function set_page_loading(loading: boolean) {
   if (typeof window === 'undefined') {
     _loading = !!loading;
@@ -50,10 +55,12 @@ export function set_page_loading(loading: boolean) {
   }, wait);
 }
 
+/** Current page-loading flag (sync read). */
 export function get_page_loading(): boolean {
   return _loading;
 }
 
+/** Extract the loading boolean from a PAGE_LOADING_EVENT. */
 export function read_page_loading_detail(e: Event): boolean {
   const d = (e as CustomEvent<{ loading?: boolean }>).detail;
   return !!d?.loading;

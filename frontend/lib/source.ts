@@ -4,8 +4,10 @@ import * as icons                from '@/lib/icons';
 import * as fumadocs_core_source from 'fumadocs-core/source';
 import * as fumadocs_mdx_server  from 'fumadocs-mdx:collections/server';
 
+/** Re-export client-safe anchor helper for docs. */
 export { to_anchor } from '@/lib/anchor';
 
+/** Fumadocs content source loader for /docs. */
 export const source = fumadocs_core_source.loader({
   baseUrl: '/docs',
   source: fumadocs_mdx_server.docs.toFumadocsSource(),
@@ -25,6 +27,7 @@ export const source = fumadocs_core_source.loader({
   },
 });
 
+/** OG image path segments and URL for a docs page. */
 export function getPageImage(page: fumadocs_core_source.InferPageType<typeof source>) {
   const path = page.slugs.length ? page.slugs.join('--') : '_';
   return {
@@ -33,6 +36,7 @@ export function getPageImage(page: fumadocs_core_source.InferPageType<typeof sou
   };
 }
 
+/** Flatten a docs page to markdown text for LLM / search indexing. */
 export async function getLLMText(page: fumadocs_core_source.InferPageType<typeof source>) {
   const processed = await page.data.getText('processed');
   return `# ${page.data.title}\n\n${processed}`;

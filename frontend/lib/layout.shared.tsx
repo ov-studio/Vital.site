@@ -2,6 +2,7 @@ import * as config_site            from '@/configs/site';
 import * as ui_brand               from '@/ui/brand';
 import * as fumadocs_layout_shared from 'fumadocs-ui/layouts/shared';
 
+/** Shared fumadocs layout options (nav brand, theme switch disabled). */
 export function baseOptions(): fumadocs_layout_shared.BaseLayoutProps {
   return {
     nav: {
