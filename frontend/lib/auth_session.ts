@@ -115,19 +115,20 @@ export function capture_oauth_hash(): AuthSession | null {
   const hash = window.location.hash.replace(/^#/, '');
   if (!hash) return null;
   const params = new URLSearchParams(hash);
-  const token = params.get('auth_token');
-  const login = params.get('login');
-  const staff = params.get('staff');
-  if (!token || !login) return null;
-  window.history.replaceState(null, '', window.location.pathname + window.location.search);
-  return write_auth_session(token, login, staff === '1');
+  const session = session_from_parts(
+    params.get('auth_token'),
+    params.get('login'),
+    params.get('staff')
+  );
+  if (!session) return null;
+  write_auth_session(session.token, session.login, session.staff);
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  return session;
 }
 
+/** Authorization headers for authenticated API fetches (empty when logged out). */
 export function auth_headers(): HeadersInit {
-  const s = read_auth_session();
-  if (!s) return {};
-  return {
-    'Authorization': `Bearer ${s.token}`,
-    'Content-Type': 'application/json'
-  };
+  const session = read_auth_session();
+  if (!session) return {};
+  return { Authorization: `Bearer ${session.token}` };
 }
