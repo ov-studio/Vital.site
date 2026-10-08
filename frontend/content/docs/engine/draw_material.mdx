@@ -32,6 +32,13 @@ local status = core.engine.draw_material(
   - **Ignored** — `fragment()` bare-assigns `COLOR`, e.g. `COLOR = vec4(...);`.
 </Callout>
 
+<Callout type="info">
+  **`POST_PROCESS` shaders render full-screen.** `position`, `size`, `rotation`, `pivot` and `color` are ignored.
+
+  - **Coverage** — the effect always covers the entire screen from the active camera.
+  - **Lifetime** — call it every frame inside `"sandbox:draw"`; the effect turns off on the first frame it is not drawn.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -148,5 +155,23 @@ util.event.on("sandbox:draw", function()
         core.display.get_resolution(), 
         entity
     )
+end)
+```
+
+```lua lineNumbers title="Draw a post-process shader across the whole screen"
+local entity = core.shader.create_from_raw([[
+    uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
+
+    void vertex() {
+        POSITION = vec4(VERTEX.xy, 1.0, 1.0);
+    }
+
+    void fragment() {
+        ALBEDO = 1.0 - texture(screen_texture, SCREEN_UV).rgb;
+    }
+]], core.shader.shader_mode.POST_PROCESS)
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_material({0, 0}, {0, 0}, entity)
 end)
 ```
