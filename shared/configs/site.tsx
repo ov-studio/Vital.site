@@ -97,7 +97,7 @@ export const info = {
       'tower-defense',
       'trading',
       'zombies'
-    ] as readonly string[]
+    ]
   },
 
   applications: {
