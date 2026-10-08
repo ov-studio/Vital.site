@@ -16,10 +16,30 @@ function base_domain(): string | undefined {
   return host.replace(/^api\./, '');
 }
 
+function host_of(url: string, fallback = 'localhost'): string {
+  try {
+    return new URL(url).hostname;
+  }
+  catch {
+    return fallback;
+  }
+}
+
+function with_path(base: string, path: string): string {
+  const b = base.replace(/\/$/, '');
+  const p = path.startsWith('/') ? path : `/${path}`;
+  return `${b}${p}`;
+}
+
 /** Frontend origin, e.g. https://vital-sandbox.com or http://localhost:3000 */
 export function get_frontend_url(): string {
   const domain = base_domain();
   return domain ? `https://${domain}` : LOCAL_FRONTEND_URL;
+}
+
+/** Hostname only from frontend URL */
+export function get_frontend_host(): string {
+  return host_of(get_frontend_url());
 }
 
 /** Backend origin, e.g. https://api.vital-sandbox.com or http://localhost:3001 */
@@ -28,24 +48,17 @@ export function get_backend_url(): string {
   return domain ? `https://api.${domain}` : LOCAL_BACKEND_URL;
 }
 
-/** Absolute API URL: get_backend_url() + path */
-export function get_api_url(path: string): string {
-  const p = path.startsWith('/') ? path : `/${path}`;
-  return `${get_backend_url()}${p}`;
+/** Hostname only from backend URL */
+export function get_backend_host(): string {
+  return host_of(get_backend_url());
 }
 
-/** Hostname only from frontend URL */
-export function get_frontend_host(): string {
-  try {
-    return new URL(get_frontend_url()).hostname;
-  } catch {
-    return 'localhost';
-  }
+/** Absolute API URL: get_backend_url() + path */
+export function get_api_url(path: string): string {
+  return with_path(get_backend_url(), path);
 }
 
 /** Absolute page URL: get_frontend_url() + path */
 export function get_page_url(path: string): string {
-  const base = get_frontend_url().replace(/\/$/, '');
-  const p = path.startsWith('/') ? path : `/${path}`;
-  return `${base}${p}`;
+  return with_path(get_frontend_url(), path);
 }
