@@ -1,3 +1,4 @@
+import * as config_site      from '@/configs/site';
 import * as lib_redis         from '@/lib/redis';
 import * as crypto            from 'crypto';
 import * as upstash_ratelimit from '@upstash/ratelimit';
@@ -18,6 +19,7 @@ interface HeartbeatBody {
   description?: string;
   discord?:     string;
   website?:     string;
+  tags?:        unknown;
 }
 
 const ratelimit = lib_redis.redis_configured
@@ -47,13 +49,26 @@ const OFFLINE_SCRIPT = `
   end
 `;
 
+function id_of(token: string): string {
+  return crypto.createHash('sha256').update(token).digest('hex');
+}
+
 function clamp_int(n: unknown, min: number, max: number): number {
   const v = typeof n === 'number' ? Math.trunc(n) : 0;
   return Math.min(max, Math.max(min, v));
 }
 
-function id_of(token: string): string {
-  return crypto.createHash('sha256').update(token).digest('hex');
+function clean_tags(raw: unknown): string[] {
+  if (!Array.isArray(raw)) return [];
+  const { tags: allowed, max_tags } = config_site.info.masterlist;
+  const out: string[] = [];
+  for (const item of raw) {
+    if (out.length >= max_tags) break;
+    if (typeof item !== 'string') continue;
+    const tag = item.trim().toLowerCase();
+    if (allowed.includes(tag) && !out.includes(tag)) out.push(tag);
+  }
+  return out;
 }
 
 export async function POST(req: Request) {
@@ -61,7 +76,7 @@ export async function POST(req: Request) {
   try { body = await req.json(); }
   catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
-  const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website } = body;
+  const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website, tags } = body;
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
   if (!token || !name || !ip || !port) return Response.json({ error: 'missing required fields (token, name, ip, port)' }, { status: 400 });
 
@@ -93,6 +108,7 @@ export async function POST(req: Request) {
     description: description ?? null,
     discord:     discord ?? null,
     website:     website ?? null,
+    tags:        clean_tags(tags),
     lastSeen:    Date.now()
   };
 
