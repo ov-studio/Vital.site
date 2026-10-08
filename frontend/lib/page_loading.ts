@@ -1,4 +1,3 @@
-/** CustomEvent name for global page-loading state. */
 export const PAGE_LOADING_EVENT = 'vital:page-loading';
 
 const MIN_VISIBLE_MS = 1500;
