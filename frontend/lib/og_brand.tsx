@@ -1,5 +1,6 @@
-import * as fs   from 'fs';
-import * as path from 'path';
+import * as fs          from 'fs';
+import * as path        from 'path';
+import * as lib_api_url from '@/lib/api_url';
 
 export const OG_SCALE = 2;
 export const OG_W = 1000 * OG_SCALE;
@@ -9,7 +10,6 @@ export const OG_GAP = 35 * OG_SCALE;
 export const OG_TAG_SIZE = 15.2 * OG_SCALE;
 export const OG_BLUE = '#87aefb';
 
-const DEFAULT_HOST = 'vital-sandbox.com';
 const SECTION_SKIP = new Set([
   'api',
   'docs',
@@ -35,13 +35,9 @@ export function site_og_sections(): string[] {
 }
 
 export function og_host(): string {
-  const env =
-    process.env.OG_HOST ||
-    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    '';
-  if (!env) return DEFAULT_HOST;
-  return env.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0] || DEFAULT_HOST;
+  const override = process.env.OG_HOST?.trim();
+  if (override) return override.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0] || lib_api_url.get_frontend_host();
+  return lib_api_url.get_frontend_host();
 }
 
 export function og_label(route_path: string): string {

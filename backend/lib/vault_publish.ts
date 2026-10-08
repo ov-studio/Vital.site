@@ -1,4 +1,5 @@
 import * as config_site from '@/configs/site';
+import * as lib_api_url from '@/lib/api_url';
 
 const UA = 'Vital.site/1.0';
 const GH = 'https://api.github.com';
@@ -219,7 +220,7 @@ export async function publish_resource_pr(opts: {
     '**Submitted by:** @' + login,
     '',
     '---',
-    'Opened via [/vault](https://vital-sandbox.com/vault).'
+    `Opened via [/vault](${lib_api_url.frontend_path('/vault')}).`
   ].join('\n');
 
   const pr = await gh<{ html_url?: string }>(opts.token, `/repos/${upstream}/pulls`, {
@@ -348,7 +349,7 @@ export async function remove_resource_pr(opts: {
         `**Requested by:** @${opts.actor}`,
         '',
         '---',
-        'Opened via [/vault](https://vital-sandbox.com/vault).'
+        `Opened via [/vault](${lib_api_url.frontend_path('/vault')}).`
       ].join('\n')
     })
   });
