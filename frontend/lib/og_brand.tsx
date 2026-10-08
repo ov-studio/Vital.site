@@ -34,6 +34,7 @@ export function site_og_sections(): string[] {
     .sort();
 }
 
+/** Host for OG labels — derived from shared api_url (Vercel env / localhost). Optional OG_HOST override. */
 export function og_host(): string {
   const override = process.env.OG_HOST?.trim();
   if (override) return override.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0] || lib_api_url.get_frontend_host();
