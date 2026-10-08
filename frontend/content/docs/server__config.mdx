@@ -39,6 +39,7 @@ server:
   name: "Vital.sandbox Server"
   version: "1.0.0"
   description: "A Vital.sandbox server"
+  tags: []
 
 network:
   port: 7777
@@ -78,20 +79,30 @@ masterlist:
 
 #### Server
 
-Controls the display name, version string, and description exposed to clients and integrations.
+Controls the display name, version string, description, and browse tags exposed to clients and integrations.
 
 ```yaml
 server:
   name: "Vital.sandbox Server"
   version: "1.0.0"
   description: "A Vital.sandbox server"
+  tags: ["roleplay", "freeroam"]
 ```
+
+<Callout type="info">
+  **Tags are picked from a fixed list.**
+
+  - **Up to 5 tags** — extras are dropped.
+  - **Valid values only** — choose from the list in the table below; anything else is ignored and the server logs a warning on its next master-list heartbeat.
+  - **Used for filtering** — players filter the in-game server browser by these tags, so pick the ones that describe your server best.
+</Callout>
 
 | Key | Type | Default | Description |
 |---|---|---|---|
 | `name` | `string` | `"Vital.sandbox Server"` | Display name shown in the master-list |
 | `version` | `string` | `"1.0.0"` | Free-text version identifier — not validated or compared |
 | `description` | `string` | `""` | Optional description shown in the master-list |
+| `tags` | `string[]` | `[]` | Genres used to filter the server browser (max 5). Valid tags:<br/>• `action`<br/>• `adventure`<br/>• `arcade`<br/>• `battle-royale`<br/>• `building`<br/>• `casual`<br/>• `co-op`<br/>• `competitive`<br/>• `crafting`<br/>• `creative`<br/>• `deathmatch`<br/>• `drifting`<br/>• `economy`<br/>• `fantasy`<br/>• `fps`<br/>• `freeroam`<br/>• `hardcore`<br/>• `horror`<br/>• `minigames`<br/>• `mmo`<br/>• `modded`<br/>• `parkour`<br/>• `pve`<br/>• `pvp`<br/>• `racing`<br/>• `realistic`<br/>• `roleplay`<br/>• `sandbox`<br/>• `sci-fi`<br/>• `simulation`<br/>• `social`<br/>• `sports`<br/>• `strategy`<br/>• `survival`<br/>• `tower-defense`<br/>• `trading`<br/>• `zombies` |
 
 ---
 
