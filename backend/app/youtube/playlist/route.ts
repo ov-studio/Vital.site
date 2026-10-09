@@ -94,7 +94,6 @@ export async function GET(req: Request) {
 
   const now = Date.now();
   const cached = cache.get(list);
-
   if (cached && now - cached.fetched_at < TTL_MS) return Response.json(cached.data, {
     headers: { 'Cache-Control': `public, s-maxage=${TTL_S}, stale-while-revalidate=${SWR_S}`, 'X-Playlist-Cache': 'HIT' }
   });
