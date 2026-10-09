@@ -16,7 +16,7 @@
 }
 
 .dark {
-  --color-fd-primary:    var(--brand-neon-core);
+  --color-fd-primary: var(--brand-neon-core);
   --color-fd-background: var(--bg4);
 }
 
