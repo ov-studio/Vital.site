@@ -79,7 +79,7 @@ button[aria-label="Open Search"] kbd {
 
 #nd-sidebar {
   transition: width 0.2s ease, min-width 0.2s ease !important;
-  border-right: 1px solid var(--rule12);
+  border-right: 1px solid var(--bg);
 }
 
 aside#nd-sidebar[data-collapsed="true"] {
