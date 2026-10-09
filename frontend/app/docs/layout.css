@@ -20,7 +20,6 @@
   --color-fd-background: var(--bg4);
 }
 
-.prose a { text-decoration: none; }
 .dark #nd-sidebar {
   background: var(--bg7) !important;
   backdrop-filter: none !important;
