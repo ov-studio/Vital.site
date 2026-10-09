@@ -154,7 +154,7 @@ button[aria-label="Open Search"] {
   gap: 8px !important;
   height: 34px !important;
   min-height: 34px !important;
-  min-width: 0 !important;
+  max-width: 350px !important;
   padding: 0 12px !important;
   font-family: var(--font-geist), sans-serif !important;
   font-size: 0.8rem !important;
