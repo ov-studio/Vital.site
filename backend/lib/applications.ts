@@ -1,6 +1,6 @@
-import * as crypto      from 'crypto';
-import * as config_site from '@/configs/site';
-import * as lib_redis   from '@/lib/redis';
+import * as config_workspace from '@/configs/workspace';
+import * as crypto           from 'crypto';
+import * as lib_redis        from '@/lib/redis';
 
 /** Lifecycle status of a masterlist application. */
 export type ApplicationStatus = 'pending' | 'approved' | 'rejected';
@@ -179,7 +179,7 @@ export async function create_pending(login: string, name: string): Promise<Appli
     status:    'pending',
     createdAt: Date.now()
   };
-  const ttl_seconds = Math.floor(config_site.info.applications.pending_ttl_ms / 1000);
+  const ttl_seconds = Math.floor(config_workspace.info.applications.pending_ttl_ms / 1000);
   await set_application(app, ttl_seconds);
   await lib_redis.redis!.sadd(lib_redis.applications_pending_key, app.appId);
   return app;
