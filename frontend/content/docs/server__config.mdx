@@ -39,6 +39,8 @@ server:
   name: "Vital.sandbox Server"
   version: "1.0.0"
   description: "A Vital.sandbox server"
+  logo: ""
+  banner: ""
   tags: []
 
 network:
@@ -86,6 +88,8 @@ server:
   name: "Vital.sandbox Server"
   version: "1.0.0"
   description: "A Vital.sandbox server"
+  logo: "https://example.com/logo.png"
+  banner: "https://example.com/banner.jpg"
   tags: ["roleplay", "freeroam"]
 ```
 
@@ -102,6 +106,8 @@ server:
 | `name` | `string` | `"Vital.sandbox Server"` | Display name shown in the master-list |
 | `version` | `string` | `"1.0.0"` | Free-text version identifier — not validated or compared |
 | `description` | `string` | `""` | Optional description shown in the master-list |
+| `logo` | `string` | `""` | Optional square logo (`https://` image URL) shown on your server card in the server browser |
+| `banner` | `string` | `""` | Optional wide banner / cover (`https://` image URL) shown behind your server card and in the featured list |
 | `tags` | `string[]` | `[]` | Genres used to filter the server browser (max 5). Valid tags:<br/><MasterlistTags/> |
 
 ---
