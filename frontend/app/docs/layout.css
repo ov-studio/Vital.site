@@ -18,6 +18,7 @@
 .dark {
   --color-fd-primary: var(--brand-neon-core);
   --color-fd-background: var(--bg4);
+  --color-fd-card: var(--bg6);
 }
 
 .dark #nd-sidebar {
