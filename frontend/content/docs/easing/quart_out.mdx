@@ -56,7 +56,7 @@ local start_tick = core.engine.get_tick()
 
 util.event.on("sandbox:draw", function()
     local elapsed = (core.engine.get_tick() - start_tick) / 1000.0
-    local t = math.min(elapsed / duration, 1.0)
+    local t = util.math.min(elapsed / duration, 1.0)
     local x = util.easing.lerp(0, resolution[1], util.easing.quart_out(t))
 
     core.engine.draw_circle({x, resolution[2]*0.5}, 16, {1, 1, 1, 1})

@@ -35,7 +35,7 @@ core.engine.print("info", util.math.random(100)) -- always the same value
 ```
 
 ```lua lineNumbers title="Seed with the current time for unique sequences"
-util.math.randomseed(os.time())
+util.math.randomseed(core.engine.get_tick())
 
 core.engine.print("info", util.math.random(100)) -- varies per run
 ```
@@ -68,7 +68,7 @@ core.engine.iprint(deck)
 ```
 
 ```lua lineNumbers title="Use two seed components for a broader range"
-util.math.randomseed(os.time(), os.clock()*1e9)
+util.math.randomseed(core.engine.get_tick(), core.engine.get_timestamp().second)
 
 core.engine.print("info", util.math.random()) -- 0.74392 (varies)
 ```
