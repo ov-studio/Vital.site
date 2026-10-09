@@ -1,17 +1,4 @@
-export const ALL_TAGS = [
-  'animation', 
-  'asset', 
-  'gamemode', 
-  'gfx', 
-  'library',
-  'map', 
-  'physx', 
-  'sfx', 
-  'shader', 
-  'ui', 
-  'utility', 
-  'vfx'
-] as const;
+import * as config_site from '@/configs/site';
 
 export type VaultTag = typeof ALL_TAGS[number];
 
