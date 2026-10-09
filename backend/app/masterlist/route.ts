@@ -10,9 +10,9 @@ export interface ServerInfo {
   name:        string;
   ip:          string;
   port:        number;
-  httpPort:    number | null;
+  http_port:   number | null;
   players:     number;
-  maxPlayers:  number;
+  max_players: number;
   version:     string | null;
   description: string | null;
   discord:     string | null;
@@ -20,7 +20,7 @@ export interface ServerInfo {
   logo:        string | null;
   banner:      string | null;
   tags:        string[];
-  lastSeen:    number;
+  last_seen:   number;
 }
 
 export async function GET() {
