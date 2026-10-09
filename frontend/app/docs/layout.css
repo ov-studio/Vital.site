@@ -106,7 +106,6 @@ button[aria-label="Collapse Sidebar"] {
 [class*="border-fd-foreground"] a {
   font-family: var(--font-geist), sans-serif;
   font-weight: 600;
-  letter-spacing: .01em;
   letter-spacing: 0.01em;
   font-size: 0.8rem;
 }
