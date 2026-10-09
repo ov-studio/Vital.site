@@ -209,6 +209,15 @@ button[aria-label="Collapse Sidebar"] {
 #nd-toc a[data-active="true"] {
   color: var(--brand-neon-core);
 }
+
+/* ── Page content typography (slightly tighter) ── */
+.prose a {
+  text-decoration: none;
+}
+.prose a:hover {
+  color: var(--brand-neon-core);
+}
+
 #nd-docs-layout h1,
 #nd-page h1 {
   font-family: var(--font-geist), sans-serif;
