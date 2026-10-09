@@ -16,8 +16,6 @@ export const info = {
   ]
 };
 
-export const ALL_TAGS: readonly string[] = info.tags;
-
 export type VaultTag = string;
 
 export type VaultFiltersProps = {
