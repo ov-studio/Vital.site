@@ -220,6 +220,13 @@ article#nd-page {
   justify-self: center;
 }
 
+#nd-page > p:first-of-type,
+#nd-page p.text-fd-muted-foreground {
+  font-size: clamp(0.96rem, 1.76vw, 1.01rem);
+  line-height: 1.5;
+  color: var(--text-mid);
+}
+
 #nd-docs-layout h1,
 #nd-page h1 {
   font-family: var(--font-geist), sans-serif;
