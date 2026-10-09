@@ -482,12 +482,6 @@ article#nd-page {
     max-width: 240px !important;
     padding: 0 10px !important;
   }
-
-  #nd-subnav a:has(.brand),
-  #nd-nav a:has(.brand),
-  header a:has(.brand) {
-    left: var(--nav-inline-pad) !important;
-  }
 }
 
 
@@ -576,7 +570,7 @@ article#nd-page {
   #nd-subnav a:has(.brand),
   #nd-nav a:has(.brand),
   header a:has(.brand) {
-    left: var(--nav-inline-pad) !important;
+    left: calc(var(--nav-inline-pad)*0.5) !important;
     right: auto !important;
     max-width: calc(100vw - 110px) !important;
     transform: translateY(-50%) !important;
