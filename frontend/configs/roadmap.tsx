@@ -44,18 +44,19 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Public-facing Next.js + Fumadocs site — homepage, vault, docs, and live roadmap, powered by the backend routes',
         icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
-          { label: 'Homepage - hero, features, ethos section',            status: 'completed' },
-          { label: 'Homepage - live release/build info widget',           status: 'completed' },
-          { label: 'Homepage - live GitHub repo stats',                   status: 'completed' },
-          { label: 'Homepage - live contributors',                        status: 'completed' },
-          { label: 'Workspace - GitHub login, apply & manage tokens',     status: 'completed' },
-          { label: 'Workspace - staff review queue (approve / reject)',   status: 'completed' },
-          { label: 'Benchmarks - live Lua vs GDScript results page',      status: 'completed' },
-          { label: 'Vault - community resource browser with filtering',   status: 'completed' },
-          { label: 'Studio - brand asset exporter (OG, logos, banners)',  status: 'completed' },
-          { label: 'Docs - apis / enums / signals / guides',              status: 'completed' },
-          { label: 'Roadmap - this page, live status breakdown',          status: 'completed' },
-          { label: 'Terms of Service page',                               status: 'completed' }
+          { label: 'Homepage - hero, features, ethos section',               status: 'completed' },
+          { label: 'Homepage - live release/build info widget',              status: 'completed' },
+          { label: 'Homepage - live GitHub repo stats',                      status: 'completed' },
+          { label: 'Homepage - live contributors',                           status: 'completed' },
+          { label: 'Homepage - YouTube video reel',                          status: 'completed' },
+          { label: 'Workspace - GitHub login, apply & manage tokens',        status: 'completed' },
+          { label: 'Workspace - staff review queue (approve / reject)',      status: 'completed' },
+          { label: 'Benchmarks - live Lua vs GDScript results page',         status: 'completed' },
+          { label: 'Vault - community resource browser with tag filters',    status: 'completed' },
+          { label: 'Studio - brand asset exporter (OG, logos, banners)',     status: 'completed' },
+          { label: 'Docs - apis / enums / signals / guides',                 status: 'completed' },
+          { label: 'Roadmap - this page, live status breakdown',             status: 'completed' },
+          { label: 'Terms of Service page',                                  status: 'completed' }
         ]
       },
       {
