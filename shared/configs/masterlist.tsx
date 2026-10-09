@@ -10,7 +10,6 @@ export const info = {
     'adventure',
     'arcade',
     'battle-royale',
-    'building',
     'co-op',
     'competitive',
     'crafting',
