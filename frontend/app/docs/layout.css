@@ -19,9 +19,14 @@
   --color-fd-primary:    var(--brand-neon-core);
   --color-fd-background: var(--bg4);
 }
-.dark #nd-sidebar { background-color: var(--bg7); }
 
 .prose a { text-decoration: none; }
+.dark #nd-sidebar {
+  background: var(--bg7) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 button[data-search-full],
 button[aria-label="Open Search"] {
   display: inline-flex !important;
