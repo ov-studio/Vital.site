@@ -7,6 +7,8 @@
 /* ── Variables ── */
 :root {
   --fd-layout-width: 100vw;
+  --fd-header-height: var(--nav-h);
+  --fd-banner-height: 0px;
   --sidebar-width:   340px;
 }
 
