@@ -316,7 +316,7 @@ button[aria-label="Collapse Sidebar"] {
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--bg4);
-  background: var(--brand-neon-mid);
+  background: var(--blue);
   border-radius: 4px;
   padding: 0.15rem 0.5rem;
 }
@@ -614,24 +614,50 @@ article#nd-page {
   }
 }
 
-/* ── Search dialog above sticky navbar ── */
-/* fumadocs/radix search uses z-50; navbar is also z-50 — raise dialog */
+/* ── Search dialog: desktop dropdown under nav, above navbar z ── */
 [role="dialog"][data-state="open"],
 div[role="dialog"],
-[cmdk-dialog],
-[cmdk-overlay],
-div.fixed[class*="z-50"][role="dialog"],
-div.fixed.left-1\/2.top-4,
-div[data-state="open"].fixed.left-1\/2 {
+[cmdk-dialog] {
   z-index: 110 !important;
 }
 
-/* Search backdrop/overlay */
 div.fixed.inset-0.z-50[data-state="open"],
 div.fixed.inset-0[class*="backdrop"][data-state="open"],
 div.fixed.inset-0[class*="animate-fd-fade"][data-state="open"],
 div[data-state="open"].fixed.inset-0.z-50 {
   z-index: 105 !important;
+}
+
+/* Desktop: anchor dialog under the header as a dropdown panel (not a big centered modal) */
+@media (min-width: 769px) {
+  /* Soften full-screen dim — still clickable to dismiss */
+  div.fixed.inset-0[data-state="open"][class*="backdrop"],
+  div.fixed.inset-0.z-50[data-state="open"],
+  div[data-state="open"].fixed.inset-0[class*="animate-fd-fade"] {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Panel sits just under navbar, centered like the search chip */
+  [role="dialog"][data-state="open"],
+  div[role="dialog"][data-state="open"] {
+    position: fixed !important;
+    top: calc(var(--nav-h) + 8px) !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    width: min(520px, calc(100vw - 48px)) !important;
+    max-width: 520px !important;
+    max-height: min(420px, calc(100vh - var(--nav-h) - 24px)) !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--b10) !important;
+    background: var(--bg7) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
+    overflow: hidden !important;
+  }
 }
 
 /* ── No layout shift when search/dialog locks scroll ── */
