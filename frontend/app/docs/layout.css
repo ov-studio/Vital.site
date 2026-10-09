@@ -87,7 +87,7 @@ button[aria-label="Open Search"] kbd {
   font-weight: 500 !important;
   color: var(--text-faint) !important;
   background: var(--bg8) !important;
-  border: 1px solid var(--rule12) !important;
+  border: 1px solid var(--b05) !important;
   border-radius: 3px !important;
   box-shadow: none !important;
 }
@@ -307,7 +307,7 @@ article#nd-page {
   color: var(--text-muted);
   background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
   padding: 0.6rem 1rem;
-  border-bottom: 1px solid var(--rule12);
+  border-bottom: 1px solid var(--b05);
 }
 
 #nd-page tbody td,
