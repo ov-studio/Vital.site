@@ -33,5 +33,5 @@ local body = physics.rigid.create()
 local entity = physics.collision_shape.create(body)
 
 core.engine.print("info", entity:is_type("physics.collision_shape")) -- true
-core.engine.print("info", entity:is_type("model"))  -- false
+core.engine.print("info", entity:is_type("core.model"))  -- false
 ```

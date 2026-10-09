@@ -28,5 +28,5 @@ local result = self:get_type()
 ```lua lineNumbers title="Get the type of a database instance"
 local entity = core.database.create("127.0.0.1", "root", "", "vital_sandbox")
 
-core.engine.print("info", entity:get_type()) -- 'database'
+core.engine.print("info", entity:get_type()) -- 'core.database'
 ```

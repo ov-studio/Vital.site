@@ -31,6 +31,6 @@ local result = self:is_type(
 ```lua lineNumbers title="Check the type of an image instance"
 local entity = core.image.create("assets/sprite.png")
 
-core.engine.print("info", entity:is_type("image")) -- true
-core.engine.print("info", entity:is_type("svg")) -- false
+core.engine.print("info", entity:is_type("core.image")) -- true
+core.engine.print("info", entity:is_type("core.svg")) -- false
 ```
