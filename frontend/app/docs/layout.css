@@ -40,8 +40,6 @@
   -webkit-backdrop-filter: none !important;
 }
 
-
-
 /* ── Header: brand left | search center | social right ──
    All three are position:absolute so nesting/flex wrappers cannot re-center them. */
 html, body, :root, .dark,
@@ -180,8 +178,6 @@ button[aria-label="Open Search"] kbd {
   display: none !important;
 }
 
-
-
 #nd-sidebar {
   transition: width 0.2s ease, min-width 0.2s ease !important;
   border-right: 1px solid var(--bg);
@@ -217,7 +213,6 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--bg9);
 }
 
-
 /* ── Section folder labels — original selectors preserved ── */
 [class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
   font-family: var(--font-geist), sans-serif;
@@ -244,7 +239,6 @@ button[aria-label="Collapse Sidebar"] {
   margin-top: 15px !important;
 }
 
-
 /* ── Sidebar page links — readable, not forced uppercase ── */
 #nd-sidebar a {
   font-family: var(--font-geist), sans-serif;
@@ -268,7 +262,6 @@ button[aria-label="Collapse Sidebar"] {
   font-weight: 500;
 }
 
-
 /* ── Folder/folder-row items with chevron ── */
 #nd-sidebar button[data-state],
 #nd-sidebar [data-state="open"],
@@ -284,7 +277,6 @@ button[aria-label="Collapse Sidebar"] {
   color: var(--white);
   background: var(--b10);
 }
-
 
 /* ── TOC ── */
 #nd-toc,
@@ -484,7 +476,6 @@ article#nd-page {
   }
 }
 
-
 /* Phone: brand left | search then collapse on the right */
 @media (max-width: 768px) {
   .nav-social {
@@ -584,7 +575,6 @@ article#nd-page {
     transform: none !important;
   }
 }
-
 
 /* ── Mobile sidebar (#nd-sidebar-mobile) above navbar ── */
 @media (max-width: 1024px) {
