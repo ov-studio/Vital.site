@@ -192,8 +192,6 @@ article#nd-page {
 
 /* ── @media ── */
 @media (min-width: 1600px) {
-  #nd-sidebar       { width: var(--sidebar-width); }
-  #nd-sidebar > *   { overflow: visible; width: var(--sidebar-width); min-width: var(--sidebar-width); }
   #nd-sidebar {
     width: var(--sidebar-width);
   }
