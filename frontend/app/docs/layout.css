@@ -249,7 +249,7 @@ article#nd-page {
   font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 2;
-  color: var(--blue);
+  color: var(--brand-neon-mid);
   border-bottom: 1px solid var(--b10);
 }
 
