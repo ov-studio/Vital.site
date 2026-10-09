@@ -220,6 +220,23 @@ article#nd-page {
   justify-self: center;
 }
 
+/* ── Breadcrumb ── */
+#nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground {
+  margin-bottom: 0.35rem;
+}
+
+#nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground>span.truncate.text-fd-primary,
+#nd-page span.truncate.text-fd-primary.font-medium {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--bg4);
+  background: var(--blue);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
 #nd-page > p:first-of-type,
 #nd-page p.text-fd-muted-foreground {
   font-size: clamp(0.96rem, 1.76vw, 1.01rem);
