@@ -24,10 +24,8 @@
 .prose a { text-decoration: none; }
 
 #nd-sidebar {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  mask-image: linear-gradient(to bottom, transparent 0px, var(--bg4) 20px, var(--bg4) calc(100% - 20px), transparent 100%);
-  transition: width .2s ease, min-width .2s ease !important;
+  transition: width 0.2s ease, min-width 0.2s ease !important;
+  border-right: 1px solid var(--rule12);
 }
 
 aside#nd-sidebar[data-collapsed="true"] {
