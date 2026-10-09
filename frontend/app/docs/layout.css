@@ -245,9 +245,12 @@ article#nd-page {
 #nd-docs-layout h3,
 #nd-page h3 {
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: clamp(1.25rem, 2vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.1rem);
   font-weight: 600;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
+  line-height: 2;
+  color: var(--blue);
+  border-bottom: 1px solid var(--b10);
 }
 
 #nd-docs-layout h4,
