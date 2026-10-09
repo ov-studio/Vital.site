@@ -22,7 +22,6 @@ export const info = {
     'freeroam',
     'hardcore',
     'horror',
-    'minigames',
     'mmo',
     'parkour',
     'racing',
