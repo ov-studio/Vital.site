@@ -432,13 +432,6 @@ article#nd-page {
   border-bottom: none;
 }
 
-
-
-
-
-
-
-
 /* Article content centered in the main column (don't break TOC grid) */
 #nd-page {
   margin-inline: auto;
@@ -483,7 +476,7 @@ article#nd-page {
   header .brand,
   #nd-subnav a:has(.brand),
   #nd-nav a:has(.brand) {
-    left: 12px !important;
+    left: 16px !important;
   }
 }
 
@@ -533,7 +526,7 @@ article#nd-page {
   /* Search — left of collapse */
   button[data-search-full],
   button[aria-label="Open Search"] {
-    right: 52px !important; /* 12 + 36 + 4 gap */
+    right: 56px !important; /* 16 + 36 + 4 gap */
     left: auto !important;
   }
 
@@ -565,7 +558,7 @@ article#nd-page {
   header button:has(svg.lucide-panel-left),
   header button:has(svg.lucide-panel-right),
   header button:has(svg.lucide-menu) {
-    right: 12px !important;
+    right: 16px !important;
     left: auto !important;
   }
 
@@ -574,7 +567,7 @@ article#nd-page {
   header .brand,
   #nd-subnav a:has(.brand),
   #nd-nav a:has(.brand) {
-    left: 12px !important;
+    left: 16px !important;
     right: auto !important;
     max-width: calc(100vw - 110px) !important;
     transform: translateY(-50%) !important;
