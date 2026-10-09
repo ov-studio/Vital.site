@@ -26,12 +26,10 @@ export const info = {
     'horror',
     'minigames',
     'mmo',
-    'modded',
     'parkour',
     'pve',
     'pvp',
     'racing',
-    'realistic',
     'roleplay',
     'sandbox',
     'sci-fi',
@@ -40,8 +38,6 @@ export const info = {
     'sports',
     'strategy',
     'survival',
-    'tower-defense',
-    'trading',
     'zombies'
   ]
 };
