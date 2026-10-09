@@ -19,6 +19,8 @@ interface HeartbeatBody {
   description?: string;
   discord?:     string;
   website?:     string;
+  logo?:        string;
+  banner?:      string;
   tags?:        unknown;
 }
 
