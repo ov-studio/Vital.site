@@ -36,6 +36,20 @@
   -webkit-backdrop-filter: none !important;
 }
 
+/* ── Top nav — solid like home scrolled nav (no see-through blur) ── */
+#nd-docs-layout > header,
+#nd-docs-layout header,
+header.sticky,
+#nd-nav,
+nav[class*="sticky"] {
+  height: var(--nav-h) !important;
+  background: var(--bg7) !important;
+  border-bottom: 1px solid var(--bg) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
 button[data-search-full],
 button[aria-label="Open Search"] {
   display: inline-flex !important;
