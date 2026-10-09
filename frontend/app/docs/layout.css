@@ -105,20 +105,6 @@ header a:has(.brand) {
   height: auto !important;
 }
 
-/* If brand is not wrapped in a link, position .brand itself */
-#nd-subnav > .brand,
-#nd-nav > .brand,
-header > .brand,
-#nd-subnav > * > .brand:only-child,
-#nd-nav > * > .brand:only-child {
-  position: absolute !important;
-  left: var(--nav-inline-pad) !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  margin: 0 !important;
-  z-index: 5 !important;
-}
-
 /* Inner .brand never adds its own left offset */
 #nd-subnav a:has(.brand) .brand,
 #nd-nav a:has(.brand) .brand,
