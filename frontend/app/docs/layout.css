@@ -22,6 +22,46 @@
 .dark #nd-sidebar { background-color: var(--bg7); }
 
 .prose a { text-decoration: none; }
+button[data-search-full],
+button[aria-label="Open Search"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 12px !important;
+  font-family: var(--font-geist), sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: var(--text-soft) !important;
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg4) !important;
+  border: 2px solid transparent !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s, width 0.2s !important;
+}
+
+button[data-search-full]:hover,
+button[aria-label="Open Search"]:hover {
+  border-color: var(--b10) !important;
+  color: var(--white) !important;
+}
+
+button[data-search-full] kbd,
+button[aria-label="Open Search"] kbd {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 20px !important;
+  padding: 0 5px !important;
+  font-family: var(--font-geist-mono), ui-monospace, monospace !important;
+  font-size: 0.65rem !important;
+  font-weight: 500 !important;
+  color: var(--text-faint) !important;
+  background: var(--bg8) !important;
+  border: 1px solid var(--rule12) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+}
 
 #nd-sidebar {
   transition: width 0.2s ease, min-width 0.2s ease !important;
