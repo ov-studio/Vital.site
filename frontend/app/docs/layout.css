@@ -110,6 +110,14 @@ button[aria-label="Collapse Sidebar"] {
   font-size: 0.8rem;
 }
 
+#nd-toc a {
+  color: var(--text-mid);
+  transition: color 0.15s;
+}
+#nd-toc a:hover,
+#nd-toc a[data-active="true"] {
+  color: var(--brand-neon-core);
+}
 #nd-docs-layout h1,
 #nd-page h1 {
   font-family: var(--font-geist), sans-serif;
