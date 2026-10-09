@@ -1,5 +1,6 @@
-import * as config_site   from '@/configs/site';
-import * as upstash_redis from '@upstash/redis';
+import * as config_masterlist from '@/configs/masterlist';
+import * as config_workspace  from '@/configs/workspace';
+import * as upstash_redis     from '@upstash/redis';
 
 /** True when Upstash Redis env vars are set. */
 export const redis_configured = Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
@@ -17,9 +18,9 @@ export const redis = redis_configured
   : null;
 
 /** TTL (seconds) for masterlist server keys. */
-export const masterlist_ttl_seconds = Math.floor(config_site.info.masterlist.ttl_ms/1000);
+export const masterlist_ttl_seconds = Math.floor(config_masterlist.info.ttl_ms/1000);
 /** TTL (seconds) for approved application records. */
-export const applications_approved_ttl_seconds = Math.floor(config_site.info.applications.approved_ttl_ms / 1000);
+export const applications_approved_ttl_seconds = Math.floor(config_workspace.info.applications.approved_ttl_ms / 1000);
 
 /** Redis key for a masterlist server entry. */
 export function server_key(id: string) {
