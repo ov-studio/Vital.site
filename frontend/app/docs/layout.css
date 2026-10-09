@@ -10,7 +10,7 @@
   --fd-header-height: var(--nav-h);
   --fd-banner-height: 0px;
   --sidebar-width: 340px;
-  --nav-inline-pad: 12px;
+  --nav-inline-pad: 24px;
 }
 
 @theme {
@@ -88,12 +88,10 @@ header#nd-subnav > * {
   display: block !important;
 }
 
-/* LEFT — brand */
-#nd-subnav .brand,
-#nd-nav .brand,
-header .brand,
+/* LEFT — brand (position outer link OR .brand once — avoid nested double offset) */
 #nd-subnav a:has(.brand),
-#nd-nav a:has(.brand) {
+#nd-nav a:has(.brand),
+header a:has(.brand) {
   position: absolute !important;
   left: var(--nav-inline-pad) !important;
   top: 50% !important;
@@ -101,9 +99,37 @@ header .brand,
   display: inline-flex !important;
   align-items: center !important;
   margin: 0 !important;
+  padding: 0 !important;
   z-index: 5 !important;
   width: auto !important;
   height: auto !important;
+}
+
+/* If brand is not wrapped in a link, position .brand itself */
+#nd-subnav > .brand,
+#nd-nav > .brand,
+header > .brand,
+#nd-subnav > * > .brand:only-child,
+#nd-nav > * > .brand:only-child {
+  position: absolute !important;
+  left: var(--nav-inline-pad) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  z-index: 5 !important;
+}
+
+/* Inner .brand never adds its own left offset */
+#nd-subnav a:has(.brand) .brand,
+#nd-nav a:has(.brand) .brand,
+header a:has(.brand) .brand {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 !important;
 }
 
 /* CENTER — search */
@@ -124,7 +150,7 @@ button[aria-label="Open Search"] {
 /* RIGHT — social + sidebar toggle */
 .nav-social {
   position: absolute !important;
-  right: var(--nav-inline-pad) !important;
+  right: calc(var(--nav-inline-pad)*0.5) !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex !important;
@@ -471,14 +497,13 @@ article#nd-page {
     padding: 0 10px !important;
   }
 
-  #nd-subnav .brand,
-  #nd-nav .brand,
-  header .brand,
   #nd-subnav a:has(.brand),
-  #nd-nav a:has(.brand) {
-    left: 16px !important;
+  #nd-nav a:has(.brand),
+  header a:has(.brand) {
+    left: var(--nav-inline-pad) !important;
   }
 }
+
 
 /* Phone: brand left | search then collapse on the right */
 @media (max-width: 768px) {
@@ -526,7 +551,7 @@ article#nd-page {
   /* Search — left of collapse */
   button[data-search-full],
   button[aria-label="Open Search"] {
-    right: 56px !important; /* 16 + 36 + 4 gap */
+    right: 52px !important; /* 12 + 36 + 4 gap */
     left: auto !important;
   }
 
@@ -558,21 +583,28 @@ article#nd-page {
   header button:has(svg.lucide-panel-left),
   header button:has(svg.lucide-panel-right),
   header button:has(svg.lucide-menu) {
-    right: 16px !important;
+    right: 12px !important;
     left: auto !important;
   }
 
-  #nd-subnav .brand,
-  #nd-nav .brand,
-  header .brand,
   #nd-subnav a:has(.brand),
-  #nd-nav a:has(.brand) {
-    left: 16px !important;
+  #nd-nav a:has(.brand),
+  header a:has(.brand) {
+    left: var(--nav-inline-pad) !important;
     right: auto !important;
     max-width: calc(100vw - 110px) !important;
     transform: translateY(-50%) !important;
   }
+
+  #nd-subnav a:has(.brand) .brand,
+  #nd-nav a:has(.brand) .brand,
+  header a:has(.brand) .brand {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+  }
 }
+
 
 /* ── Mobile sidebar (#nd-sidebar-mobile) above navbar ── */
 @media (max-width: 1024px) {
