@@ -194,6 +194,14 @@ article#nd-page {
 @media (min-width: 1600px) {
   #nd-sidebar       { width: var(--sidebar-width); }
   #nd-sidebar > *   { overflow: visible; width: var(--sidebar-width); min-width: var(--sidebar-width); }
+  #nd-sidebar {
+    width: var(--sidebar-width);
+  }
+  #nd-sidebar > * {
+    overflow: visible;
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+  }
 }
 
 @media (max-width: 2000px) {
