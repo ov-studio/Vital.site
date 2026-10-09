@@ -15,6 +15,6 @@
   position: absolute;
   margin-right: 50px;
   width: 1px;
-  height: 18px;
-  background: var(--color-fd-border);
+  height: 20px;
+  background: var(--rule12);
 }
