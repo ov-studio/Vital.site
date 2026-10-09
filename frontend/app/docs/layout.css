@@ -9,7 +9,8 @@
   --fd-layout-width: 100vw;
   --fd-header-height: var(--nav-h);
   --fd-banner-height: 0px;
-  --sidebar-width:   340px;
+  --sidebar-width: 340px;
+  --nav-inline-pad: 12px;
 }
 
 @theme {
@@ -94,7 +95,7 @@ header .brand,
 #nd-subnav a:has(.brand),
 #nd-nav a:has(.brand) {
   position: absolute !important;
-  left: 16px !important;
+  left: var(--nav-inline-pad) !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: inline-flex !important;
@@ -123,7 +124,7 @@ button[aria-label="Open Search"] {
 /* RIGHT — social + sidebar toggle */
 .nav-social {
   position: absolute !important;
-  right: 16px !important;
+  right: var(--nav-inline-pad) !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex !important;
