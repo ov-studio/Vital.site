@@ -60,7 +60,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Backend',
-        desc:  'Next.js API routes — cached, rate-limit-safe endpoints for build info, contributors, stats, vault and server listings',
+        desc:  'Next.js API routes — cached, rate-limited endpoints for auth, stats, vault, masterlist and workspace tokens',
         icon:  <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
           { label: 'GitHub OAuth - workspace session auth',                 status: 'completed' },
