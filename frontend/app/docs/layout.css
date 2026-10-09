@@ -76,8 +76,9 @@ aside#nd-sidebar[data-collapsed="true"] {
   border: none !important;
 }
 
-button[aria-label="Collapse Sidebar"] { display: none !important; }
+button[aria-label="Collapse Sidebar"] {
   display: none !important;
+}
 
 .sidebar-header-row {
   display: flex;
