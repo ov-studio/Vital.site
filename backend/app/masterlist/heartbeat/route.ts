@@ -1,4 +1,4 @@
-import * as config_site      from '@/configs/site';
+import * as config_masterlist from '@/configs/masterlist';
 import * as lib_redis         from '@/lib/redis';
 import * as crypto            from 'crypto';
 import * as upstash_ratelimit from '@upstash/ratelimit';
@@ -62,7 +62,7 @@ function clean_tags(raw: unknown): { tags: string[]; ignored: string[] } {
   const tags: string[] = [];
   const ignored: string[] = [];
   if (!Array.isArray(raw)) return { tags, ignored };
-  const { tags: allowed, max_tags } = config_site.info.masterlist;
+  const { tags: allowed, max_tags } = config_masterlist.info;
   for (const item of raw) {
     const tag = String(item);
     if (allowed.includes(tag) && !tags.includes(tag) && tags.length < max_tags) tags.push(tag);
