@@ -207,19 +207,6 @@ button[aria-label="Collapse Sidebar"] {
   color: var(--brand-neon-core);
 }
 
-/* ── Page content typography (slightly tighter) ── */
-.prose a {
-  text-decoration: none;
-}
-.prose a:hover {
-  color: var(--brand-neon-core);
-}
-
-article#nd-page {
-  width: clamp(100px, 100%, 960px);
-  justify-self: center;
-}
-
 /* ── Breadcrumb ── */
 #nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground {
   margin-bottom: 0.35rem;
@@ -235,6 +222,19 @@ article#nd-page {
   background: var(--blue);
   border-radius: 4px;
   padding: 0.15rem 0.5rem;
+}
+
+/* ── Page content typography (slightly tighter) ── */
+.prose a {
+  text-decoration: none;
+}
+.prose a:hover {
+  color: var(--brand-neon-core);
+}
+
+article#nd-page {
+  width: clamp(100px, 100%, 960px);
+  justify-self: center;
 }
 
 #nd-page > p:first-of-type,
