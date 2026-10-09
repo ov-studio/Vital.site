@@ -101,6 +101,7 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--bg9);
 }
 
+/* ── TOC ─────────────────────────────────── */
 #nd-toc,
 [class*="border-fd-foreground"] a {
   font-family: var(--font-geist), sans-serif;
