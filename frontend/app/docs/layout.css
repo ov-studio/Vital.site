@@ -111,6 +111,20 @@ button[aria-label="Collapse Sidebar"] {
   color: var(--text-soft);
   border-radius: 6px;
   transition: color 0.15s, background 0.15s;
+}
+
+#nd-sidebar a:hover {
+  color: var(--white);
+  background: var(--b10);
+}
+
+#nd-sidebar a[data-active="true"],
+#nd-sidebar a[aria-current="page"] {
+  color: var(--brand-neon-core);
+  background: var(--b15);
+  font-weight: 500;
+}
+
 /* ── TOC ─────────────────────────────────── */
 #nd-toc,
 [class*="border-fd-foreground"] a {
