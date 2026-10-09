@@ -21,7 +21,7 @@
   --color-fd-card: var(--bg6);
   --color-fd-muted: var(--text-faint);
   --color-fd-muted-foreground: var(--text-mid);
-  --color-fd-border: var(--rule12);
+  --color-fd-border: var(--rule);
   --color-fd-accent: var(--b10);
   --color-fd-accent-foreground: var(--white);
   --color-fd-popover: var(--bg6);
