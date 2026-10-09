@@ -114,8 +114,8 @@ button[aria-label="Open Search"] {
   transform: translate(-50%, -50%) !important;
   z-index: 5 !important;
   margin: 0 !important;
-  width: min(420px, 40vw) !important;
-  min-width: 280px !important;
+  width: clamp(140px, 36vw, 420px) !important;
+  min-width: 0 !important;
   max-width: 480px !important;
   height: 34px !important;
 }
@@ -143,7 +143,7 @@ button[aria-label="Open Search"] {
   gap: 8px !important;
   height: 34px !important;
   min-height: 34px !important;
-  min-width: 320px !important;
+  min-width: 0 !important;
   padding: 0 12px !important;
   font-family: var(--font-geist), sans-serif !important;
   font-size: 0.8rem !important;
@@ -457,8 +457,125 @@ article#nd-page {
   }
 }
 
-@media (max-width: 960px) {
+/* Tablet + mobile: hide desktop social row & collapse (fumadocs has its own menu) */
+@media (max-width: 1024px) {
   .nav-social {
-    gap: 10px;
+    display: none !important;
+  }
+
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  button[data-search-full],
+  button[aria-label="Open Search"] {
+    width: clamp(100px, 30vw, 240px) !important;
+    min-width: 0 !important;
+    max-width: 240px !important;
+    padding: 0 10px !important;
+  }
+
+  #nd-subnav .brand,
+  #nd-nav .brand,
+  header .brand,
+  #nd-subnav a:has(.brand),
+  #nd-nav a:has(.brand) {
+    left: 12px !important;
+  }
+}
+
+/* Phone: brand left | search then collapse on the right */
+@media (max-width: 768px) {
+  .nav-social {
+    display: none !important;
+  }
+
+  /* Shared chip style for search + collapse */
+  button[data-search-full],
+  button[aria-label="Open Search"],
+  #nd-subnav button[aria-label="Collapse Sidebar"],
+  #nd-subnav button[aria-label="Open Sidebar"],
+  #nd-subnav button[aria-label="Toggle Sidebar"],
+  #nd-nav button[aria-label="Collapse Sidebar"],
+  #nd-nav button[aria-label="Open Sidebar"],
+  header button[aria-label*="Sidebar"],
+  header button[aria-label*="sidebar"],
+  header button[aria-label*="Menu"],
+  header button[aria-label*="menu"],
+  header button:has(svg.lucide-panel-left),
+  header button:has(svg.lucide-panel-right),
+  header button:has(svg.lucide-menu) {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    z-index: 6 !important;
+    border-radius: 6px !important;
+    border: 2px solid transparent !important;
+    background: linear-gradient(var(--b10), var(--b10)), var(--bg4) !important;
+    color: var(--text-soft) !important;
+    box-shadow: none !important;
+  }
+
+  /* Search — left of collapse */
+  button[data-search-full],
+  button[aria-label="Open Search"] {
+    right: 52px !important; /* 12 + 36 + 4 gap */
+    left: auto !important;
+  }
+
+  button[data-search-full] > span,
+  button[aria-label="Open Search"] > span,
+  button[data-search-full] kbd,
+  button[aria-label="Open Search"] kbd {
+    display: none !important;
+  }
+
+  button[data-search-full] svg,
+  button[aria-label="Open Search"] svg {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Collapse — rightmost */
+  #nd-subnav button[aria-label="Collapse Sidebar"],
+  #nd-subnav button[aria-label="Open Sidebar"],
+  #nd-subnav button[aria-label="Toggle Sidebar"],
+  #nd-nav button[aria-label="Collapse Sidebar"],
+  #nd-nav button[aria-label="Open Sidebar"],
+  header button[aria-label*="Sidebar"],
+  header button[aria-label*="sidebar"],
+  header button[aria-label*="Menu"],
+  header button[aria-label*="menu"],
+  header button:has(svg.lucide-panel-left),
+  header button:has(svg.lucide-panel-right),
+  header button:has(svg.lucide-menu) {
+    right: 12px !important;
+    left: auto !important;
+  }
+
+  #nd-subnav .brand,
+  #nd-nav .brand,
+  header .brand,
+  #nd-subnav a:has(.brand),
+  #nd-nav a:has(.brand) {
+    left: 12px !important;
+    right: auto !important;
+    max-width: calc(100vw - 110px) !important;
+    transform: translateY(-50%) !important;
   }
 }
