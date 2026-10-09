@@ -12,9 +12,9 @@ interface HeartbeatBody {
   name:         string;
   ip:           string;
   port:         number;
-  httpPort?:    number;
+  http_port?:   number;
   players:      number;
-  maxPlayers:   number;
+  max_peers?:   number;
   version?:     string;
   description?: string;
   discord?:     string;
@@ -83,7 +83,7 @@ export async function POST(req: Request) {
   try { body = await req.json(); }
   catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
-  const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website, logo, banner, tags } = body;
+  const { token, name, ip, port, http_port, players, max_peers, version, description, discord, website, logo, banner, tags } = body;
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
   if (!token || !name || !ip || !port) return Response.json({ error: 'missing required fields (token, name, ip, port)' }, { status: 400 });
 
@@ -109,9 +109,9 @@ export async function POST(req: Request) {
     name,
     ip,
     port,
-    httpPort:    httpPort ?? null,
+    http_port:   http_port ?? null,
     players:     clamp_int(players, 0, 100_000),
-    maxPlayers:  clamp_int(maxPlayers, 0, 100_000),
+    max_players: clamp_int(max_peers, 0, 100_000),
     version:     version ?? null,
     description: description ?? null,
     discord:     discord ?? null,
@@ -119,7 +119,7 @@ export async function POST(req: Request) {
     logo:        clean_image(logo),
     banner:      clean_image(banner),
     tags:        cleaned.tags,
-    lastSeen:    Date.now()
+    last_seen:   Date.now()
   };
 
   const ok = await lib_redis.redis!.eval(
