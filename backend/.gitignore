@@ -4,7 +4,10 @@
 # Auto-copied from shared/ by sync.js — do not edit this block manually
 app/global.css
 app/theme.css
+configs/applications.tsx
+configs/masterlist.tsx
 configs/site.tsx
 configs/staff.json
+configs/vault.tsx
 lib/api_url.ts
 # </sync:shared>
