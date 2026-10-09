@@ -78,7 +78,7 @@ export async function POST(req: Request) {
   try { body = await req.json(); }
   catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
-  const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website, tags } = body;
+  const { token, name, ip, port, httpPort, players, maxPlayers, version, description, discord, website, logo, banner, tags } = body;
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
   if (!token || !name || !ip || !port) return Response.json({ error: 'missing required fields (token, name, ip, port)' }, { status: 400 });
 
