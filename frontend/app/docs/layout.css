@@ -291,11 +291,6 @@ article#nd-page {
   gap: 20px;
 }
 
-article#nd-page {
-  width: clamp(100px, 100%, 960px);
-  justify-self: center;
-}
-
 /* ── @media ── */
 @media (min-width: 1600px) {
   #nd-sidebar {
