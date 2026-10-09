@@ -1,6 +1,5 @@
 import * as config_site from '@/configs/site';
 
-/** Resource tags live in the site config (single source of truth). */
 export const ALL_TAGS: readonly string[] = config_site.info.vault.tags;
 
 export type VaultTag = string;
