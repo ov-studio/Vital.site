@@ -53,6 +53,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Workspace - staff review queue (approve / reject)',      status: 'completed' },
           { label: 'Benchmarks - live Lua vs GDScript results page',         status: 'completed' },
           { label: 'Vault - community resource browser with tag filters',    status: 'completed' },
+          { label: 'Vault - submit a resource from your GitHub repos',       status: 'completed' },
           { label: 'Studio - brand asset exporter (OG, logos, banners)',     status: 'completed' },
           { label: 'Docs - apis / enums / signals / guides',                 status: 'completed' },
           { label: 'Roadmap - this page, live status breakdown',             status: 'completed' },
