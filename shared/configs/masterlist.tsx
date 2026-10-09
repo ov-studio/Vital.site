@@ -11,7 +11,6 @@ export const info = {
     'arcade',
     'battle-royale',
     'building',
-    'casual',
     'co-op',
     'competitive',
     'crafting',
