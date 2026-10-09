@@ -127,6 +127,15 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--bg9);
 }
 
+/* Section folder labels — original selectors preserved */
+[class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
 /* Sidebar page links — readable, not forced uppercase */
 #nd-sidebar a {
   font-family: var(--font-geist), sans-serif;
