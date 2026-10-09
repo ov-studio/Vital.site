@@ -7,10 +7,16 @@ function MasterlistTags() {
   return <>{config_site.info.masterlist.tags.map((tag) => <span key={tag}>• <code>{tag}</code><br/></span>)}</>;
 }
 
+/** Bullet list of every valid resource tag, straight from the site config so the docs can never drift from what the Vault accepts. */
+function VaultTags() {
+  return <>{config_site.info.vault.tags.map((tag) => <span key={tag}>• <code>{tag}</code><br/></span>)}</>;
+}
+
 export function getMDXComponents(components?: mdx_types.MDXComponents): mdx_types.MDXComponents {
   return {
     ...fumadocs_mdx.default,
     MasterlistTags,
+    VaultTags,
     ...components
   };
 }
