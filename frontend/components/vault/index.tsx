@@ -31,7 +31,7 @@ const BANNER_CFG = {
 } as const;
 
 function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[] {
-  return tags.filter(t => (config_vault.ALL_TAGS as readonly string[]).includes(t));
+  return tags.filter(t => config_vault.ALL_TAGS.includes(t));
 }
 
 function render_with_code(text: string): react.ReactNode[] {
@@ -456,7 +456,7 @@ function VaultFilters({ search = '', on_search, active_tag = null, on_tag, disab
       <ui_filter.Filter
         className="vault-filter-tags"
         buttonClassName="vault-filter-btn"
-        tags={config_vault.ALL_TAGS as unknown as string[]}
+        tags={[...config_vault.ALL_TAGS]}
         active={active_tag}
         onChange={on_tag}
         disabled={disabled}
@@ -501,7 +501,7 @@ function VaultInner() {
 
   const [active_tag, set_active_tag] = react.useState<config_vault.VaultTag | null>(() => {
     const t = searchParams.get('tag') as config_vault.VaultTag | null;
-    return t && (config_vault.ALL_TAGS as readonly string[]).includes(t) ? t : null;
+    return t && config_vault.ALL_TAGS.includes(t) ? t : null;
   });
   const [initial_modal_id, set_initial_modal_id] = react.useState(() => searchParams.get('modal'));
 
