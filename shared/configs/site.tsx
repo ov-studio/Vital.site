@@ -59,7 +59,7 @@ export const info = {
     cache_swr_multiplier:  4, // stale-while-revalidate = s_maxage * this
     max_tags:              5, // tags a server may list (extras are dropped)
     tags: [
-      // Premade genre tags a server can choose from (config.yaml `server.tags`). Anything else is dropped on heartbeat.
+      // Premade genre tags a server can choose from
       'action',
       'adventure',
       'arcade',
