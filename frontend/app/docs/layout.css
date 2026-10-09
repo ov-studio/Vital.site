@@ -257,13 +257,12 @@ article#nd-page {
   letter-spacing: 0.01em;
 }
 
-/* ── Sidebar nav labels ──────────────────── */
-[class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
+#nd-page .prose,
+#nd-page article {
   font-family: var(--font-geist), sans-serif;
-  font-size: .72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--blue);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--dim);
 }
 
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
