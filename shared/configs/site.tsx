@@ -25,7 +25,7 @@ export const info = {
 
   api: {
     cache_ttl_ms:         5 * 60 * 1000, // 5 minutes — shared TTL for all cached api routes
-    cache_swr_multiplier: 5,  // stale-while-revalidate window = ttl * this
+    cache_swr_multiplier: 5, // stale-while-revalidate window = ttl * this
     cache_stale_divisor:  2, // fallback s-maxage when serving stale-on-error = ttl / this
     github_headers: {
       'Accept': 'application/vnd.github+json',
