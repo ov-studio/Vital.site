@@ -50,6 +50,7 @@ nav[class*="sticky"] {
   opacity: 1 !important;
 }
 
+/* ── Search trigger — match .ui-search ───── */
 button[data-search-full],
 button[aria-label="Open Search"] {
   display: inline-flex !important;
