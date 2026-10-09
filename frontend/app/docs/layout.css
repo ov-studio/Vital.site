@@ -273,22 +273,15 @@ article#nd-page {
 #nd-page thead th,
 .prose thead th {
   font-family: var(--font-geist), sans-serif;
-  font-size: .68rem;
-  font-weight: 800;
-  letter-spacing: .04em;
-  line-height: .6;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--blue) !important;
-  border-radius: 6px;
+  color: var(--text-muted);
   background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
   padding: 0.6rem 1rem;
   border-bottom: 1px solid var(--rule12);
 }
-[class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
-  margin-top: 15px !important;
 
 #nd-page tbody td,
 .prose tbody td {
