@@ -21,7 +21,7 @@
   --color-fd-card: var(--bg7);
   --color-fd-muted: var(--text-faint);
   --color-fd-muted-foreground: var(--text-mid);
-  --color-fd-border: var(--rule);
+  --color-fd-border: var(--b05);
   --color-fd-accent: var(--b10);
   --color-fd-accent-foreground: var(--white);
   --color-fd-popover: var(--bg7);
@@ -118,7 +118,7 @@ button[aria-label="Collapse Sidebar"] {
 .sidebar-toggle-btn {
   width: 28px;
   height: 28px;
-  border: 1px solid var(--rule12);
+  border: 1px solid var(--b10);
   color: var(--text-mid);
   border-radius: 6px;
 }
@@ -292,7 +292,7 @@ article#nd-page {
 #nd-page table,
 .prose table {
   font-size: 0.85rem;
-  border: 1px solid var(--rule12);
+  border: 1px solid var(--b05);
   border-radius: 8px;
   overflow: hidden;
 }
