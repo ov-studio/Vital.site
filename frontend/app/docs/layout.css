@@ -3,7 +3,8 @@
 @import 'fumadocs-ui/css/preset.css';
 @import '../theme.css';
 
-/* ── Variables ───────────────────────────── */
+
+/* ── Variables ── */
 :root {
   --fd-layout-width: 100vw;
   --sidebar-width:   340px;
@@ -11,8 +12,8 @@
 
 @theme {
   --color-fd-primary: var(--blue);
-  --font-sans:        var(--font-geist);
-  --font-mono:        var(--font-geist-mono);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
 }
 
 .dark {
@@ -36,6 +37,7 @@
   -webkit-backdrop-filter: none !important;
 }
 
+
 /* ── Top nav — solid like home scrolled nav (no see-through blur) ── */
 #nd-docs-layout > header,
 #nd-docs-layout header,
@@ -50,7 +52,8 @@ nav[class*="sticky"] {
   opacity: 1 !important;
 }
 
-/* ── Search trigger — match .ui-search ───── */
+
+/* ── Search trigger — match .ui-search ── */
 button[data-search-full],
 button[aria-label="Open Search"] {
   display: inline-flex !important;
@@ -117,7 +120,8 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--bg9);
 }
 
-/* Section folder labels — original selectors preserved */
+
+/* ── Section folder labels — original selectors preserved ── */
 [class*="mb-1.5"][class*="inline-flex"][class*="first:mt-0"] {
   font-family: var(--font-geist), sans-serif;
   font-size: 0.72rem;
@@ -143,7 +147,8 @@ button[aria-label="Collapse Sidebar"] {
   margin-top: 15px !important;
 }
 
-/* Sidebar page links — readable, not forced uppercase */
+
+/* ── Sidebar page links — readable, not forced uppercase ── */
 #nd-sidebar a {
   font-family: var(--font-geist), sans-serif;
   font-size: 0.85rem;
@@ -166,7 +171,8 @@ button[aria-label="Collapse Sidebar"] {
   font-weight: 500;
 }
 
-/* Folder/folder-row items with chevron */
+
+/* ── Folder/folder-row items with chevron ── */
 #nd-sidebar button[data-state],
 #nd-sidebar [data-state="open"],
 #nd-sidebar [data-state="closed"] {
@@ -182,7 +188,8 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--b10);
 }
 
-/* ── TOC ─────────────────────────────────── */
+
+/* ── TOC ── */
 #nd-toc,
 [class*="border-fd-foreground"] a {
   font-family: var(--font-geist), sans-serif;
