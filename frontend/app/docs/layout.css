@@ -218,6 +218,11 @@ button[aria-label="Collapse Sidebar"] {
   color: var(--brand-neon-core);
 }
 
+article#nd-page {
+  width: clamp(100px, 100%, 960px);
+  justify-self: center;
+}
+
 #nd-docs-layout h1,
 #nd-page h1 {
   font-family: var(--font-geist), sans-serif;
