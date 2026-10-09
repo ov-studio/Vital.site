@@ -105,6 +105,7 @@ button[aria-label="Collapse Sidebar"] {
   height: 28px;
   border: 1px solid var(--rule12);
   color: var(--text-mid);
+  border-radius: 6px;
 }
 .sidebar-toggle-btn:hover {
   color: var(--white);
