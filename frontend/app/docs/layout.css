@@ -344,13 +344,6 @@ article#nd-page {
   border-bottom: none;
 }
 
-.nav-social {
-  position: absolute;
-  right: 1em;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 
 
 /* ── @media ── */
