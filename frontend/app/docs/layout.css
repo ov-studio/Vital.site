@@ -579,3 +579,32 @@ article#nd-page {
     transform: translateY(-50%) !important;
   }
 }
+
+/* ── Mobile sidebar (#nd-sidebar-mobile) above navbar ── */
+@media (max-width: 1024px) {
+  /* fumadocs uses z-40 by default — navbar is z-50, so raise the drawer */
+  #nd-sidebar-mobile,
+  aside#nd-sidebar-mobile,
+  #nd-sidebar-mobile[data-state="open"] {
+    z-index: 100 !important;
+    top: 0 !important;
+  }
+
+  /* Backdrop that closes the drawer */
+  div.fixed.inset-0[class*="backdrop"],
+  div.fixed.inset-0[class*="bg-black"],
+  div.fixed.z-40.inset-0,
+  div[class*="animate-fd-fade"] {
+    z-index: 90 !important;
+  }
+
+  /* Navbar stays under open drawer */
+  #nd-subnav,
+  #nd-nav,
+  header#nd-subnav,
+  #nd-docs-layout > header,
+  #nd-notebook-layout > header {
+    z-index: 50 !important;
+  }
+}
+
