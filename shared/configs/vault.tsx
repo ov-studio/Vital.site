@@ -1,4 +1,3 @@
-// Vault resource settings and shared types.
 export const info = {
   tags: [
     // Premade vault tags a resource can choose from
@@ -17,7 +16,6 @@ export const info = {
   ]
 };
 
-/** Premade resource tags (manifest.yaml `tags`) — single source of truth. */
 export const ALL_TAGS: readonly string[] = info.tags;
 
 export type VaultTag = string;
