@@ -183,7 +183,6 @@ article#nd-page {
 }
 
 @media (max-width: 2000px) {
-  .nav-social { display: none; }
   .nav-social {
     display: none;
   }
