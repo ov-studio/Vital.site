@@ -58,17 +58,17 @@ function clamp_int(n: unknown, min: number, max: number): number {
   return Math.min(max, Math.max(min, v));
 }
 
-function clean_tags(raw: unknown): string[] {
-  if (!Array.isArray(raw)) return [];
+function clean_tags(raw: unknown): { tags: string[]; ignored: string[] } {
+  const tags: string[] = [];
+  const ignored: string[] = [];
+  if (!Array.isArray(raw)) return { tags, ignored };
   const { tags: allowed, max_tags } = config_site.info.masterlist;
-  const out: string[] = [];
   for (const item of raw) {
-    if (out.length >= max_tags) break;
-    if (typeof item !== 'string') continue;
-    const tag = item.trim().toLowerCase();
-    if (allowed.includes(tag) && !out.includes(tag)) out.push(tag);
+    const tag = String(item);
+    if (allowed.includes(tag) && !tags.includes(tag) && tags.length < max_tags) tags.push(tag);
+    else if (!tags.includes(tag)) ignored.push(tag.slice(0, 32));
   }
-  return out;
+  return { tags, ignored: ignored.slice(0, max_tags * 2) };
 }
 
 export async function POST(req: Request) {
@@ -85,6 +85,7 @@ export async function POST(req: Request) {
     const { success } = await ratelimit.limit(id);
     if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
   }
+  const cleaned = clean_tags(tags);
 
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const strict_ip = process.env.MASTERLIST_STRICT_IP !== 'false';
@@ -108,7 +109,7 @@ export async function POST(req: Request) {
     description: description ?? null,
     discord:     discord ?? null,
     website:     website ?? null,
-    tags:        clean_tags(tags),
+    tags:        cleaned.tags,
     lastSeen:    Date.now()
   };
 
@@ -119,7 +120,7 @@ export async function POST(req: Request) {
   );
   if (!ok) return Response.json({ error: 'unknown token — register first' }, { status: 401 });
 
-  return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds });
+  return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds, ignoredTags: cleaned.ignored });
 }
 
 export async function DELETE(req: Request) {
