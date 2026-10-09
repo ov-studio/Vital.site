@@ -33,6 +33,6 @@ local entity = util.timer.create(function(count)
     core.engine.print("info", "Counter:", count)
 end, 1000, 1)
 
-core.engine.print("info", entity:is_type("timer")) -- true
-core.engine.print("info", entity:is_type("texture")) -- false
+core.engine.print("info", entity:is_type("util.timer")) -- true
+core.engine.print("info", entity:is_type("core.image")) -- false
 ```

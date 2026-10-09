@@ -31,6 +31,6 @@ local result = self:is_type(
 ```lua lineNumbers title="Check the type of a camera instance"
 local entity = core.camera.create()
 
-core.engine.print("info", entity:is_type("camera")) -- true
-core.engine.print("info", entity:is_type("model"))  -- false
+core.engine.print("info", entity:is_type("core.camera")) -- true
+core.engine.print("info", entity:is_type("core.model"))  -- false
 ```
