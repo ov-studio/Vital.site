@@ -56,6 +56,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Vault - submit a resource from your GitHub repos',       status: 'completed' },
           { label: 'Studio - brand asset exporter (OG, logos, banners)',     status: 'completed' },
           { label: 'Docs - apis / enums / signals / guides',                 status: 'completed' },
+          { label: 'Docs - server config & resource manifest (live tags)',   status: 'completed' },
+          { label: 'Dynamic OG images for pages and docs',                   status: 'completed' },
           { label: 'Roadmap - this page, live status breakdown',             status: 'completed' },
           { label: 'Terms of Service page',                                  status: 'completed' }
         ]
@@ -65,19 +67,30 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Next.js API routes — cached, rate-limited endpoints for auth, stats, vault, masterlist and workspace tokens',
         icon:  <lucide.ServerCog {...config_site.info.lucide}/>,
         items: [
-          { label: 'GitHub OAuth - workspace session auth',                 status: 'completed' },
-          { label: 'Masterlist applications - apply / claim / decide',      status: 'completed' },
-          { label: 'GET /build - latest build info',                        status: 'completed' },
-          { label: 'GET /contributors - contributor list',                  status: 'completed' },
-          { label: 'GET /stats - aggregated GitHub repo stats',             status: 'completed' },
-          { label: 'GET /benchmark - latest sandbox benchmark',             status: 'completed' },
-          { label: 'GET /vault - community vault resource list',            status: 'completed' },
-          { label: 'GET /vault/tree - vault directory tree',                status: 'completed' },
-          { label: 'GET /masterlist - live server list',                    status: 'completed' },
-          { label: 'POST /masterlist/heartbeat - server heartbeat',         status: 'completed' },
-          { label: 'POST /masterlist/register - server register',           status: 'completed' },
-          { label: 'GET /ip - client IP lookup',                            status: 'completed' },
-          { label: 'GET /youtube/playlist - cached YouTube playlist feed',  status: 'completed' }
+          { label: 'GET /auth/github - GitHub OAuth sign-in',                         status: 'completed' },
+          { label: 'GET /auth/github/callback - OAuth callback & session',            status: 'completed' },
+          { label: 'GET /build - latest build info',                                  status: 'completed' },
+          { label: 'GET /contributors - contributor list',                            status: 'completed' },
+          { label: 'GET /stats - aggregated GitHub repo stats',                       status: 'completed' },
+          { label: 'GET /benchmark - latest sandbox benchmark',                       status: 'completed' },
+          { label: 'GET /vault - community vault resource list',                      status: 'completed' },
+          { label: 'GET /vault/tree - vault directory tree',                          status: 'completed' },
+          { label: 'GET /vault/tags - valid resource tags',                           status: 'completed' },
+          { label: 'GET /vault/repos - your GitHub repos for submission',             status: 'completed' },
+          { label: 'POST /vault/submit - submit a resource to the vault',             status: 'completed' },
+          { label: 'GET, POST /vault/submissions - manage submissions',       status: 'completed' },
+          { label: 'GET /masterlist - live server list (tags, logo, banner)',         status: 'completed' },
+          { label: 'GET /masterlist/tags - valid server tags',                        status: 'completed' },
+          { label: 'POST /masterlist/heartbeat - server heartbeat',  status: 'completed' },
+          { label: 'DELETE /masterlist/heartbeat - server offline',                   status: 'completed' },
+          { label: 'POST /masterlist/register - staff mint server token',             status: 'completed' },
+          { label: 'GET, POST, DELETE /masterlist/applications - requests', status: 'completed' },
+          { label: 'POST /masterlist/applications/claim - claim approved token',      status: 'completed' },
+          { label: 'POST /masterlist/applications/decide - approve / reject',   status: 'completed' },
+          { label: 'GET /ip - client IP lookup',                                      status: 'completed' },
+          { label: 'GET /youtube/playlist - cached YouTube playlist feed',            status: 'completed' },
+          { label: 'Per-route rate limiting (Upstash)',                               status: 'completed' },
+          { label: 'Shared config - masterlist / vault / workspace',                  status: 'completed' }
         ]
       }
     ]
