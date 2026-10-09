@@ -35,7 +35,7 @@
 }
 
 .dark #nd-sidebar {
-  background: var(--bg7) !important;
+  background: var(--bg6) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
@@ -63,7 +63,6 @@ header.sticky,
   max-height: var(--nav-h) !important;
   display: block !important; /* avoid flex re-centering the inner wrapper */
   background: var(--bg7) !important;
-  background-color: var(--bg7) !important;
   border-bottom: 1px solid var(--bg) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
