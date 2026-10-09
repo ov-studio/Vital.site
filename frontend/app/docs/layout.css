@@ -136,6 +136,23 @@ button[aria-label="Collapse Sidebar"] {
   color: var(--blue);
 }
 
+[class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]) {
+  margin-top: 30px !important;
+  margin-left: 17px !important;
+  padding: 0 4px !important;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 0.6;
+  text-transform: uppercase;
+  color: var(--brand-neon-mid) !important;
+  border-radius: 6px;
+}
+[class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
+  margin-top: 15px !important;
+}
+
 /* Sidebar page links — readable, not forced uppercase */
 #nd-sidebar a {
   font-family: var(--font-geist), sans-serif;
