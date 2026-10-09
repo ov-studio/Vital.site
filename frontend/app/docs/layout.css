@@ -40,20 +40,100 @@
 }
 
 
-/* ── Top nav — solid like home scrolled nav (no see-through blur) ── */
-#nd-docs-layout > header,
-#nd-docs-layout header,
-header.sticky,
+
+/* ── Header: brand left | search center | social right ──
+   All three are position:absolute so nesting/flex wrappers cannot re-center them. */
+html, body, :root, .dark,
+#nd-notebook-layout,
+#nd-docs-layout {
+  --fd-header-height: var(--nav-h) !important;
+  --fd-banner-height: 0px !important;
+}
+
+#nd-subnav,
 #nd-nav,
-nav[class*="sticky"] {
+header#nd-subnav,
+header.sticky,
+#nd-docs-layout > header,
+#nd-notebook-layout > header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
   height: var(--nav-h) !important;
+  min-height: var(--nav-h) !important;
+  max-height: var(--nav-h) !important;
+  display: block !important; /* avoid flex re-centering the inner wrapper */
   background: var(--bg7) !important;
+  background-color: var(--bg7) !important;
   border-bottom: 1px solid var(--bg) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  opacity: 1 !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
+/* Kill centering on any inner wrapper fumadocs injects */
+#nd-subnav > *,
+#nd-nav > *,
+header#nd-subnav > * {
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* LEFT — brand */
+#nd-subnav .brand,
+#nd-nav .brand,
+header .brand,
+#nd-subnav a:has(.brand),
+#nd-nav a:has(.brand) {
+  position: absolute !important;
+  left: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  z-index: 5 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* CENTER — search */
+button[data-search-full],
+button[aria-label="Open Search"] {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+  width: min(420px, 40vw) !important;
+  min-width: 280px !important;
+  max-width: 480px !important;
+  height: 34px !important;
+}
+
+/* RIGHT — social + sidebar toggle */
+.nav-social {
+  position: absolute !important;
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
 
 /* ── Search trigger — match .ui-search ── */
 button[data-search-full],
@@ -63,6 +143,7 @@ button[aria-label="Open Search"] {
   gap: 8px !important;
   height: 34px !important;
   min-height: 34px !important;
+  min-width: 320px !important;
   padding: 0 12px !important;
   font-family: var(--font-geist), sans-serif !important;
   font-size: 0.8rem !important;
@@ -82,10 +163,11 @@ button[aria-label="Open Search"]:hover {
 }
 
 button[data-search-full] kbd,
-button[aria-label="Open Search"] kbd,
-button[data-search-full] span:not(:has(svg)):not([class*="sr"]) {
+button[aria-label="Open Search"] kbd {
   display: none !important;
 }
+
+
 
 #nd-sidebar {
   transition: width 0.2s ease, min-width 0.2s ease !important;
@@ -235,7 +317,10 @@ button[aria-label="Collapse Sidebar"] {
 }
 
 article#nd-page {
-  width: clamp(100px, 100%, 960px);
+  width: min(960px, 100%);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   justify-self: center;
 }
 
@@ -348,6 +433,18 @@ article#nd-page {
 
 
 
+
+
+
+
+
+/* Article content centered in the main column (don't break TOC grid) */
+#nd-page {
+  margin-inline: auto;
+  width: min(960px, 100%);
+  max-width: 960px;
+}
+
 /* ── @media ── */
 @media (min-width: 1600px) {
   #nd-sidebar {
@@ -360,8 +457,8 @@ article#nd-page {
   }
 }
 
-@media (max-width: 2000px) {
+@media (max-width: 960px) {
   .nav-social {
-    display: none;
+    gap: 10px;
   }
 }
