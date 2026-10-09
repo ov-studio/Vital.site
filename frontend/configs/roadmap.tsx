@@ -88,9 +88,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'POST /masterlist/applications/claim - claim approved token',      status: 'completed' },
           { label: 'POST /masterlist/applications/decide - approve / reject',   status: 'completed' },
           { label: 'GET /ip - client IP lookup',                                      status: 'completed' },
-          { label: 'GET /youtube/playlist - cached YouTube playlist feed',            status: 'completed' },
-          { label: 'Per-route rate limiting (Upstash)',                               status: 'completed' },
-          { label: 'Shared config - masterlist / vault / workspace',                  status: 'completed' }
+          { label: 'GET /youtube/playlist - cached YouTube playlist feed',            status: 'completed' }
         ]
       }
     ]
