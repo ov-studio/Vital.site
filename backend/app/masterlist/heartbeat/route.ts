@@ -60,6 +60,11 @@ function clamp_int(n: unknown, min: number, max: number): number {
   return Math.min(max, Math.max(min, v));
 }
 
+function clean_image(raw: unknown): string | null {
+  const url = typeof raw === 'string' ? raw.trim() : '';
+  return /^https:\/\//i.test(url) ? url : null;
+}
+
 function clean_tags(raw: unknown): { tags: string[]; ignored: string[] } {
   const tags: string[] = [];
   const ignored: string[] = [];
@@ -111,6 +116,8 @@ export async function POST(req: Request) {
     description: description ?? null,
     discord:     discord ?? null,
     website:     website ?? null,
+    logo:        clean_image(logo),
+    banner:      clean_image(banner),
     tags:        cleaned.tags,
     lastSeen:    Date.now()
   };
