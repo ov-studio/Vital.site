@@ -270,6 +270,34 @@ article#nd-page {
   margin-top: 30px !important;
   margin-left: 17px !important;
   padding: 0 4px !important;
+#nd-page code:not(pre code),
+.prose code:not(pre code) {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  background: var(--b10);
+  color: var(--brand-neon-core);
+}
+
+#nd-page pre,
+.prose pre {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.95em;
+  line-height: 1.55;
+  background: var(--bg6);
+  border-radius: 8px;
+}
+
+#nd-page table,
+.prose table {
+  font-size: 0.85rem;
+  border: 1px solid var(--rule12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 #nd-page thead th,
 .prose thead th {
   font-family: var(--font-geist), sans-serif;
