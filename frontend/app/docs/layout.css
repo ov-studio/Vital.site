@@ -176,6 +176,22 @@ button[aria-label="Collapse Sidebar"] {
   font-weight: 500;
 }
 
+/* Folder/folder-row items with chevron */
+#nd-sidebar button[data-state],
+#nd-sidebar [data-state="open"],
+#nd-sidebar [data-state="closed"] {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  border-radius: 6px;
+}
+
+#nd-sidebar button[data-state]:hover {
+  color: var(--white);
+  background: var(--b10);
+}
+
 /* ── TOC ─────────────────────────────────── */
 #nd-toc,
 [class*="border-fd-foreground"] a {
