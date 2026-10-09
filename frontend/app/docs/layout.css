@@ -281,6 +281,17 @@ article#nd-page {
 }
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
   margin-top: 15px !important;
+#nd-page tbody td,
+.prose tbody td {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--w04);
+}
+
+#nd-page tbody tr:last-child td,
+.prose tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .nav-social {
