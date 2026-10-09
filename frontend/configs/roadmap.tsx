@@ -57,7 +57,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Studio - brand asset exporter (OG, logos, banners)',     status: 'completed' },
           { label: 'Docs - apis / enums / signals / guides',                 status: 'completed' },
           { label: 'Docs - server config & resource manifest (live tags)',   status: 'completed' },
-          { label: 'Dynamic OG images for pages and docs',                   status: 'completed' },
           { label: 'Roadmap - this page, live status breakdown',             status: 'completed' },
           { label: 'Terms of Service page',                                  status: 'completed' }
         ]
