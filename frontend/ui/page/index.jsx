@@ -4,7 +4,7 @@ import { Wallpaper } from '../wallpaper';
  * Standard page shell: section + wallpaper + `.sw` content wrapper.
  *
  * @param {Object} props
- * @param {number} props.wallpaper  Wallpaper variant
+ * @param {number} [props.wallpaper=2]  Wallpaper variant
  * @param {string} [props.id]
  * @param {'section' | 'main'} [props.as='section']
  * @param {string} [props.className]
