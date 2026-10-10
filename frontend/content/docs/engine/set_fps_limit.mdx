@@ -1,0 +1,45 @@
+---
+title: core.engine.set_fps_limit
+description: Sets the maximum frames per second
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = core.engine.set_fps_limit(
+    limit
+)
+```
+
+<Callout type="info">
+  **Behaviour depends on where it is called.**
+
+  - **Server** — sets the FPS limit for every connected client. It applies instantly to all connected clients when changed at runtime, and to any client that joins later.
+  - **Client** — sets the local FPS limit, which can never exceed the server's limit. The lower of the two always applies.
+  - **Default** — `0` on both sides, which means no limit.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | limit | Maximum frames per second<br/>• `0` - no limit<br/>• Negative values are treated as `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Limits the FPS to 60"
+core.engine.set_fps_limit(60)
+```
+
+```lua lineNumbers title="Removes the FPS limit"
+core.engine.set_fps_limit(0)
+```

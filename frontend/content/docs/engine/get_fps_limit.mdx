@@ -1,0 +1,37 @@
+---
+title: core.engine.get_fps_limit
+description: Retrieves current maximum frames per second
+badge: shared
+---
+
+### Syntax
+
+```lua
+local limit = core.engine.get_fps_limit()
+```
+
+<Callout type="info">
+  **Behaviour depends on where it is called.**
+
+  - **Server** — returns the FPS limit currently enforced on all clients.
+  - **Client** — returns the FPS limit currently in effect, which is the lower of the server's limit and the local limit.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | limit | Current maximum frames per second<br/>• `0` - no limit |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current FPS limit"
+core.engine.print("info", "FPS Limit:", core.engine.get_fps_limit())
+```
