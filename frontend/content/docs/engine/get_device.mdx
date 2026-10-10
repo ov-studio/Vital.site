@@ -1,0 +1,30 @@
+---
+title: core.engine.get_device
+description: Retrieves current device type
+badge: shared
+---
+
+### Syntax
+
+```lua
+local device = core.engine.get_device()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | device | Current device type:<br/>• `"windows"` - indicates Windows execution<br/>• `"linux"` - indicates Linux execution<br/>• `"macos"` - indicates macOS execution<br/>• `"android"` - indicates Android execution<br/>• `"ios"` - indicates iOS execution<br/>• `"web"` - indicates Web execution<br/>• `"freebsd"`, `"netbsd"`, `"openbsd"`, `"bsd"` - indicates BSD execution |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current device type"
+core.engine.print("info", "Device Type:", core.engine.get_device())
+```

@@ -15,6 +15,7 @@
         "get_tick",
         "get_version",
         "get_platform",
+        "get_device",
         "get_timestamp",
         "get_timestamp_tag",
         "get_serial",
