@@ -380,7 +380,7 @@ export function Studio() {
   }
 
   return (
-    <ui_page.Page id="studio" wallpaper={4}>
+    <ui_page.Page id="studio">
         <ui_pagehead.PageHead
           label="Studio"
           title={<>Brand assets,<br/>ready to <span>export.</span></>}

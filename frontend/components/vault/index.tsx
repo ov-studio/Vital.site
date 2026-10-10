@@ -477,7 +477,7 @@ function VaultSkeleton() {
   lib_hooks.use_page_loading(true);
 
   return (
-    <ui_page.Page id="vault" wallpaper={18}>
+    <ui_page.Page id="vault">
       <VaultHead on_submit={() => {}}/>
       <VaultFilters disabled/>
       <ui_divider.Divider className="anim-in anim-in--3"/>
@@ -559,7 +559,7 @@ function VaultInner() {
 
   return (
     <>
-      <ui_page.Page id="vault" wallpaper={18}>
+      <ui_page.Page id="vault">
         <VaultHead on_submit={() => { set_submit_closing(false); set_submit_open(true); }}/>
 
         <VaultFilters

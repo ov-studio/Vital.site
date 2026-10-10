@@ -167,7 +167,7 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
 
 export function Roadmap() {
   return (
-    <ui_page.Page id="roadmap" wallpaper={9}>
+    <ui_page.Page id="roadmap">
       <ui_pagehead.PageHead
         label="Roadmap"
         title={<>What's built,<br/>What's <span>coming?</span></>}

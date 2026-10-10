@@ -310,7 +310,7 @@ export function Workspace() {
   );
 
   return (
-    <ui_page.Page as="main" className="ws-page" wallpaper={3}>
+    <ui_page.Page as="main" className="ws-page">
       <ui_pagehead.PageHead
         label="Workspace"
         title={<>Your servers.<br/>Managed in one <span>place.</span></>}

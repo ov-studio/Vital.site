@@ -103,7 +103,7 @@ export function Benchmarks() {
   const env   = data?.environment ?? {};
 
   return (
-    <ui_page.Page id="benchmarks" wallpaper={11}>
+    <ui_page.Page id="benchmarks">
       <ui_pagehead.PageHead
         label="Benchmarks"
         title={<>Lua vs GDScript.<br/>Measured, not <span>marketed.</span></>}

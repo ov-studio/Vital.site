@@ -7,7 +7,7 @@ import './index.css';
 
 export function TOS() {
   return (
-    <ui_page.Page id="tos" wallpaper={5}>
+    <ui_page.Page id="tos">
       <ui_pagehead.PageHead
         label="Legal"
         title={<>Terms of <span>Service</span></>}

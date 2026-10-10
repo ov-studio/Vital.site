@@ -11,7 +11,7 @@ import { Wallpaper } from '../wallpaper';
  * @param {import('react').ReactNode} props.children
  */
 export function Page({
-  wallpaper,
+  wallpaper = 2,
   id = undefined,
   as: Tag = 'section',
   className = '',
