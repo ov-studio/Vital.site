@@ -13,6 +13,7 @@ import * as ui_section       from '@/ui/section';
 import * as ui_secret        from '@/ui/secret';
 import * as ui_button        from '@/ui/button';
 import * as ui_iconbutton    from '@/ui/iconbutton';
+import * as ui_alert         from '@/ui/alert';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
 import * as ui_stat          from '@/ui/stat';
@@ -297,16 +298,7 @@ export function Workspace() {
   }, [act]);
 
   const error_banner = error && (
-    <div className="ws-error" role="alert">
-      <span>Error: {error}</span>
-      <ui_iconbutton.IconButton
-        className="ws-error-close"
-        icon={lucide.X}
-        iconProps={{ size: 14, strokeWidth: 2.5 }}
-        title="Dismiss"
-        onClick={() => setError(null)}
-      />
-    </div>
+    <ui_alert.Alert onClose={() => setError(null)}>{error}</ui_alert.Alert>
   );
 
   return (

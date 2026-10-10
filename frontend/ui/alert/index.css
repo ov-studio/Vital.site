@@ -1,0 +1,49 @@
+.ui-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--red-soft);
+  background: var(--r10);
+  border: 1px solid var(--r25, rgba(255, 60, 60, 0.25));
+  border-radius: 4px;
+}
+
+.ui-alert_text {
+  min-width: 0;
+  flex: 1 1 auto;
+  word-break: break-word;
+}
+
+.ui-alert_prefix {
+  font-weight: 600;
+}
+
+.ui-alert_close {
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.ui-alert_close:hover {
+  opacity: 1;
+}
+
+/* Inside modal body — full width of content column, space below before sections */
+.ui-modal-body > .ui-alert {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 16px;
+}
+
+.ui-modal-footer .ui-alert {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 8px;
+}

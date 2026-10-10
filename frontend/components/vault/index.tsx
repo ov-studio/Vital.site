@@ -3,6 +3,7 @@ import * as config_site      from '@/configs/site';
 import * as config_pages     from '@/configs/pages';
 import * as config_vault     from '@/configs/vault';
 import * as ui_modal         from '@/ui/modal';
+import * as ui_alert         from '@/ui/alert';
 import * as ui_tagpill       from '@/ui/tagpill';
 import * as ui_iconbutton    from '@/ui/iconbutton';
 import * as ui_card          from '@/ui/card';
@@ -207,7 +208,9 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
             </ui_button.Button>
           )}
         </ui_modal.ModalActions>
-        {dl_error && <p className="ui-modal-error">{dl_error}</p>}
+        {dl_error && (
+          <ui_alert.Alert onClose={() => set_dl_error(null)}>{dl_error}</ui_alert.Alert>
+        )}
       </ui_modal.ModalFooter>
     </ui_modal.Modal>
   );
@@ -372,6 +375,9 @@ function VaultSubmitModal({
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
+          {error && (
+            <ui_alert.Alert onClose={() => set_error(null)}>{error}</ui_alert.Alert>
+          )}
           <div className="vault-submit-stack">
             <SubmitProcedures />
             {session ? (
@@ -402,8 +408,6 @@ function VaultSubmitModal({
           </div>
         </ui_modal.ModalBody>
       )}
-
-      {error && <p className="ui-modal-error">{error}</p>}
 
       <ui_modal.ModalFooter>
         <ui_modal.ModalActions>
