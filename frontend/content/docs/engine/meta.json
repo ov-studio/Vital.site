@@ -18,12 +18,16 @@
         "get_device",
         "get_timestamp",
         "get_timestamp_tag",
+        "get_fps_limit",
         "get_serial",
         "get_peers",
         "get_peer_serial",
         "get_entity_types",
         "get_entities",
         "get_entity_by_net_id",
+
+        "---Setter---",
+        "set_fps_limit",
 
         "---Misc---",
         "print",
