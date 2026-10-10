@@ -93,7 +93,7 @@ export async function POST(req: Request) {
   const manifest_raw = await fetch_manifest(gh, repo.full_name);
   if (!manifest_raw) {
     return Response.json(
-      { error: 'Repository needs a manifest.yaml (or manifest.yml) at the root — metadata is read from it by the vault build' },
+      { error: 'Repository needs a manifest.yaml at the root — metadata is read from it by the vault build' },
       { status: 400 }
     );
   }
