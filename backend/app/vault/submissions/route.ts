@@ -89,9 +89,8 @@ async function manifest_name(token: string, repo_full: string): Promise<string |
 export async function GET(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  if (!lib_auth.auth_configured()) {
-    return Response.json({ error: 'Unavailable' }, { status: 503 });
-  }
+  if (!lib_auth.auth_configured()) return Response.json({ error: 'Unavailable' }, { status: 503 });
+
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
   if (!session.staff) return Response.json({ error: 'forbidden' }, { status: 403 });
@@ -170,9 +169,8 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-  if (!lib_auth.auth_configured()) {
-    return Response.json({ error: 'Unavailable' }, { status: 503 });
-  }
+  if (!lib_auth.auth_configured()) return Response.json({ error: 'Unavailable' }, { status: 503 });
+
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
   if (!session.staff) return Response.json({ error: 'forbidden' }, { status: 403 });
@@ -205,9 +203,7 @@ export async function POST(req: Request) {
   const id = typeof body?.id === 'string' ? body.id : '';
   const decision = body?.decision === 'approved' || body?.decision === 'rejected' ? body.decision : null;
   const pr_number = Number(id);
-  if (!pr_number || !decision) {
-    return Response.json({ error: 'id (PR number) and decision required' }, { status: 400 });
-  }
+  if (!pr_number || !decision) return Response.json({ error: 'id (PR number) and decision required' }, { status: 400 });
 
   if (decision === 'approved') {
     const merge = await gh(token, `/repos/${repo}/pulls/${pr_number}/merge`, {
