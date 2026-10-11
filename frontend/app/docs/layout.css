@@ -370,7 +370,8 @@ article#nd-page {
   line-height: 1.5;
   color: var(--text-mid);
   margin-top: -0.6rem !important;
-  margin-bottom: 2.5rem !important;
+  margin-bottom: 3rem !important;
+  border-bottom: 1px solid var(--red);
 }
 
 .docs-title-row {
