@@ -297,7 +297,7 @@ button[aria-label="Collapse Sidebar"] {
 
 /* ── Breadcrumb ── */
 #nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 #nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground>span.truncate.text-fd-primary,
