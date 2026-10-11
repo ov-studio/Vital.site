@@ -1,4 +1,4 @@
-import * as component_badge from '@/components/badge';
+import * as ui_badge        from '@/ui/badge';
 import * as lib_source      from '@/lib/source';
 import * as mdx_components  from '@/mdx-components';
 import * as fumadocs_page   from 'fumadocs-ui/page';
@@ -16,7 +16,9 @@ export default async function Page({params}: {params: Promise<Params>;}) {
     <fumadocs_page.DocsPage toc={page.data.toc} full={page.data.full}>
       <div className="docs-title-row">
         <fumadocs_page.DocsTitle>{page.data.title}</fumadocs_page.DocsTitle>
-        {page.data.badge && <component_badge.Badge type={page.data.badge}/>}
+        {page.data.badge && (
+          <ui_badge.Badge type={page.data.badge}/>
+        )}
       </div>
       <fumadocs_page.DocsDescription>{page.data.description}</fumadocs_page.DocsDescription>
       <fumadocs_page.DocsBody>
