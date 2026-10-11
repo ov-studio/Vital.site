@@ -297,7 +297,7 @@ button[aria-label="Collapse Sidebar"] {
 
 /* ── Breadcrumb ── */
 #nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
 }
 
 #nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground>span.truncate.text-fd-primary,
@@ -312,8 +312,7 @@ button[aria-label="Collapse Sidebar"] {
   padding: 0.15rem 0.5rem;
 }
 
-
-/* Title + side badge (Shared / Client / Server) — same row, badge rightmost */
+/* Title + side badge — same row, badge rightmost; tight under breadcrumb */
 .docs-title-row {
   display: flex !important;
   flex-direction: row !important;
@@ -322,20 +321,27 @@ button[aria-label="Collapse Sidebar"] {
   gap: 12px !important;
   flex-wrap: nowrap !important;
   width: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
 }
 
 .docs-title-row h1,
 .docs-title-row > h1 {
   margin: 0 !important;
+  padding: 0 !important;
   min-width: 0 !important;
   flex: 1 1 auto !important;
   width: auto !important;
   max-width: none !important;
+  line-height: 1.2 !important;
 }
 
 .docs-title-row .docs-badge {
   flex: 0 0 auto !important;
   margin-left: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   align-self: center !important;
 }
 
