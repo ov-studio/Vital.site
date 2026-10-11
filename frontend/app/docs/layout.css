@@ -300,16 +300,24 @@ button[aria-label="Collapse Sidebar"] {
   margin-bottom: 0.6rem;
 }
 
+/* Breadcrumb last segment — same pill as ui/badge (primary) */
 #nd-page .flex.items-center.gap-1\.5.text-sm.text-fd-muted-foreground>span.truncate.text-fd-primary,
 #nd-page span.truncate.text-fd-primary.font-medium {
+  display: inline-block;
+  flex-shrink: 0;
+  box-sizing: border-box;
   font-family: var(--font-geist), sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--bg4);
-  background: var(--blue);
+  line-height: normal;
   border-radius: 4px;
   padding: 0.15rem 0.5rem;
+  border: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  color: var(--bg4);
+  background: var(--blue);
 }
 
 /* Title + side badge — same row, badge rightmost; tight under breadcrumb */
