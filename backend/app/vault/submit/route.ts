@@ -12,23 +12,19 @@ export async function OPTIONS() {
 }
 
 async function fetch_manifest(token: string, full_name: string): Promise<string | null> {
-  for (const file of ['manifest.yaml', 'manifest.yml']) {
-    const res = await fetch(
-      `https://api.github.com/repos/${full_name}/contents/${file}`,
-      {
-        headers: {
-          Accept: 'application/vnd.github+json',
-          Authorization: `Bearer ${token}`,
-          'User-Agent': 'Vital.site/1.0'
-        }
-      }
-    );
-    if (!res.ok) continue;
-    const json = (await res.json().catch(() => null)) as { content?: string } | null;
-    if (json?.content) {
-      try { return Buffer.from(json.content, 'base64').toString('utf8'); }
-      catch { /* */ }
+  const res = await fetch(`https://api.github.com/repos/${full_name}/contents/manifest.yaml`, {
+    headers: {
+      Accept: 'application/vnd.github+json',
+      Authorization: `Bearer ${token}`,
+      'User-Agent': 'Vital.site/1.0'
     }
+  });
+  if (!res.ok) return null;
+
+  const json = (await res.json().catch(() => null)) as { content?: string } | null;
+  if (json?.content) {
+    try { return Buffer.from(json.content, 'base64').toString('utf8'); }
+    catch { /* */ }
   }
   return null;
 }
@@ -123,7 +119,7 @@ export async function POST(req: Request) {
     return Response.json({ error: published.error }, { status: 400 });
   }
 
-return Response.json({
+  return Response.json({
     ok: true,
     pr_url: published.pr_url,
     path: published.path,

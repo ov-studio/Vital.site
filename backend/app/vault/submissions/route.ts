@@ -54,8 +54,7 @@ function parse_resource(title: string, body?: string | null) {
 
 function map_pr(pr: GhPr) {
   const meta = parse_resource(pr.title, pr.body);
-  const kind = /^(remove):/i.test(pr.title) ? 'remove'
-    : /^(update):/i.test(pr.title) ? 'update' : 'add';
+  const kind = /^(remove):/i.test(pr.title) ? 'remove' : /^(update):/i.test(pr.title) ? 'update' : 'add';
   const login = (meta.submitted_by || pr.user?.login || '').toLowerCase();
   return {
     id: String(pr.number),
@@ -72,19 +71,18 @@ function map_pr(pr: GhPr) {
 }
 
 async function manifest_name(token: string, repo_full: string): Promise<string | null> {
-  for (const file of ['manifest.yaml', 'manifest.yml']) {
-    const res = await gh(token, `/repos/${repo_full}/contents/${file}`);
-    if (!res.ok) continue;
-    const content = (res.data as { content?: string }).content;
-    if (!content) continue;
-    try {
-      const raw = Buffer.from(content, 'base64').toString('utf8');
-      const m =
-        raw.match(/^[ \t]*name:[ \t]*["']([^"']+)["']/m) ||
-        raw.match(/^[ \t]*name:[ \t]*([^\n#]+)/m);
-      if (m?.[1]?.trim()) return m[1].trim();
-    } catch { /* */ }
-  }
+  const res = await gh(token, `/repos/${repo_full}/contents/manifest.yaml`);
+  if (!res.ok) return null;
+  const content = (res.data as { content?: string }).content;
+  if (!content) return null;
+
+  try {
+    const raw = Buffer.from(content, 'base64').toString('utf8');
+    const m =
+      raw.match(/^[ \t]*name:[ \t]*["']([^"']+)["']/m) ||
+      raw.match(/^[ \t]*name:[ \t]*([^\n#]+)/m);
+    if (m?.[1]?.trim()) return m[1].trim();
+  } catch { /* */ }
   return null;
 }
 
@@ -108,7 +106,6 @@ export async function GET(req: Request) {
 
   const vault = config_site.info.git.vault;
   const repo = `${vault.user}/${vault.repo}`;
-
   const [open_res, vault_json_res] = await Promise.all([
     gh(token, `/repos/${repo}/pulls?state=open&per_page=50`),
     fetch(
@@ -119,7 +116,6 @@ export async function GET(req: Request) {
 
   const open_prs = (Array.isArray(open_res.data) ? open_res.data : []) as GhPr[];
   const is_resource_pr = (t: string) => /^(add|update|remove):\s*resource\s+/i.test(t);
-
   const pending_raw = open_prs.filter((pr) => is_resource_pr(pr.title)).map(map_pr);
   const pending = await Promise.all(
     pending_raw.map(async (row) => {
