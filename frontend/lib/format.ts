@@ -7,8 +7,8 @@ export function fmt_date(ts?: number): string {
   try {
     return new Date(ts).toLocaleDateString(undefined, {
       month: 'short',
-      day: 'numeric',
-      year: 'numeric'
+      day:   'numeric',
+      year:  'numeric'
     });
   } 
   catch {
