@@ -361,11 +361,20 @@ article#nd-page {
   justify-self: center;
 }
 
+/* Description — tight under title */
 #nd-page > p:first-of-type,
+#nd-page h1 + p,
+.docs-title-row + p,
 #nd-page p.text-fd-muted-foreground {
   font-size: clamp(0.96rem, 1.76vw, 1.01rem);
   line-height: 1.5;
   color: var(--text-mid);
+  margin-top: -0.35rem !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.docs-title-row {
+  margin-bottom: 0 !important;
 }
 
 #nd-docs-layout h1,
