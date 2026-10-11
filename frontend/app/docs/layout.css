@@ -649,49 +649,44 @@ article#nd-page {
   }
 }
 
-/* ── Search dialog: desktop dropdown under nav, above navbar z ── */
+/* ── Search dialog + overlay (match ui/modal) ── */
 [role="dialog"][data-state="open"],
-div[role="dialog"],
+div[role="dialog"][data-state="open"],
 [cmdk-dialog] {
   z-index: 110 !important;
 }
 
-/* Search overlay only — do not raise the mobile sidebar dim (z-40) */
+/* Overlay — same recipe as .ui-modal-overlay (mobile + desktop) */
 div.fixed.inset-0.z-50[data-state="open"],
-div[data-state="open"].fixed.inset-0.z-50 {
+div[data-state="open"].fixed.inset-0.z-50,
+div.fixed.inset-0.z-50.bg-fd-overlay[data-state="open"],
+div.fixed.inset-0[class*="bg-fd-overlay"][data-state="open"] {
   z-index: 105 !important;
+  background: color-mix(in srgb, var(--bg2) 80%, transparent) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
 }
 
-/* Desktop: anchor dialog under the header as a dropdown panel (not a big centered modal) */
-@media (min-width: 769px) {
-  /* Soften full-screen dim — still clickable to dismiss */
-  div.fixed.inset-0[data-state="open"][class*="backdrop"],
-  div.fixed.inset-0.z-50[data-state="open"],
-  div[data-state="open"].fixed.inset-0[class*="animate-fd-fade"] {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  /* Panel sits just under navbar, centered like the search chip */
-  [role="dialog"][data-state="open"],
-  div[role="dialog"][data-state="open"] {
-    position: fixed !important;
-    top: calc(var(--nav-h) + 8px) !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: translateX(-50%) !important;
-    width: min(520px, calc(100vw - 48px)) !important;
-    max-width: 520px !important;
-    max-height: min(420px, calc(100vh - var(--nav-h) - 24px)) !important;
-    margin: 0 !important;
-    border-radius: 10px !important;
-    border: 1px solid var(--b10) !important;
-    background: var(--bg7) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
-    overflow: hidden !important;
-  }
+/* Centered search panel under navbar */
+[role="dialog"][data-state="open"],
+div[role="dialog"][data-state="open"] {
+  position: fixed !important;
+  top: calc(var(--nav-h, 68px) + 12px) !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  /* override fumadocs left-1/2 + -translate-x-1/2 / md:top-4 stack */
+  transform: translateX(-50%) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: min(560px, calc(100vw - 32px)) !important;
+  max-width: min(560px, calc(100vw - 32px)) !important;
+  max-height: min(480px, calc(100vh - var(--nav-h, 68px) - 32px)) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--b10) !important;
+  background: var(--bg7) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
+  overflow: hidden !important;
 }
 
 /* ── No layout shift when search/dialog locks scroll ── */
