@@ -617,25 +617,24 @@ article#nd-page {
   }
 }
 
-/* ── Mobile sidebar (#nd-sidebar-mobile) above navbar ── */
+/* ── Mobile sidebar above blur overlay + navbar ── */
 @media (max-width: 1024px) {
-  /* fumadocs uses z-40 by default — navbar is z-50, so raise the drawer */
+  /* Panel must sit above the dim layer (search rules can boost backdrops to 105) */
   #nd-sidebar-mobile,
   aside#nd-sidebar-mobile,
   #nd-sidebar-mobile[data-state="open"] {
-    z-index: 100 !important;
+    z-index: 200 !important;
     top: 0 !important;
   }
 
-  /* Backdrop that closes the drawer */
-  div.fixed.inset-0[class*="backdrop"],
-  div.fixed.inset-0[class*="bg-black"],
+  /* Dim/blur behind the drawer — below panel, above page/nav */
+  div.fixed.inset-0.z-40,
   div.fixed.z-40.inset-0,
-  div[class*="animate-fd-fade"] {
-    z-index: 90 !important;
+  div.fixed.inset-0[class*="backdrop-blur"]:not([role="dialog"]),
+  body > div.fixed.inset-0[class*="backdrop"] {
+    z-index: 190 !important;
   }
 
-  /* Navbar stays under open drawer */
   #nd-subnav,
   #nd-nav,
   header#nd-subnav,
@@ -652,9 +651,8 @@ div[role="dialog"],
   z-index: 110 !important;
 }
 
+/* Search overlay only — do not raise the mobile sidebar dim (z-40) */
 div.fixed.inset-0.z-50[data-state="open"],
-div.fixed.inset-0[class*="backdrop"][data-state="open"],
-div.fixed.inset-0[class*="animate-fd-fade"][data-state="open"],
 div[data-state="open"].fixed.inset-0.z-50 {
   z-index: 105 !important;
 }
