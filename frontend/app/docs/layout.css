@@ -627,12 +627,17 @@ article#nd-page {
     top: 0 !important;
   }
 
-  /* Dim/blur behind the drawer — below panel, above page/nav */
+  /* Dim layer — match ui/modal overlay (bg2 mix + blur 20px) */
   div.fixed.inset-0.z-40,
   div.fixed.z-40.inset-0,
   div.fixed.inset-0[class*="backdrop-blur"]:not([role="dialog"]),
   body > div.fixed.inset-0[class*="backdrop"] {
     z-index: 190 !important;
+    background: color-mix(in srgb, var(--bg2) 80%, transparent) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    /* kill fumadocs default dim if different */
+    opacity: 1 !important;
   }
 
   #nd-subnav,
