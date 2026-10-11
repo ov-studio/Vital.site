@@ -162,15 +162,11 @@ export function sanitize_for_staff(app: Application): Omit<Application, 'token'>
 /** Create a pending masterlist application for a login. */
 export async function create_pending(login: string, name: string): Promise<Application | { error: string }> {
   const existingPending = await get_user_pending(login);
-  if (existingPending) {
-    return { error: 'You already have a pending application. Cancel it or wait for a decision.' };
-  }
+  if (existingPending) return { error: 'You already have a pending application. Cancel it or wait for a decision.' };
 
   const approved = await list_user_approved(login);
   const unclaimed = approved.find((a) => !a.tokenClaimed && a.token);
-  if (unclaimed) {
-    return { error: 'You have an approved token waiting to be claimed. Open workspace to view it first.' };
-  }
+  if (unclaimed) return { error: 'You have an approved token waiting to be claimed. Open workspace to view it first.' };
 
   const app: Application = {
     appId:     new_app_id(),

@@ -173,9 +173,7 @@ export async function publish_resource_pr(opts: {
       ]
     })
   });
-  if (!tree.ok || !tree.data.sha) {
-    return { ok: false, error: `Failed to create tree (HTTP ${tree.status}): ${tree.text.slice(0, 160)}` };
-  }
+  if (!tree.ok || !tree.data.sha) return { ok: false, error: `Failed to create tree (HTTP ${tree.status}): ${tree.text.slice(0, 160)}` };
 
   const msg = is_update
     ? `update: resource ${slug}`
@@ -192,13 +190,10 @@ export async function publish_resource_pr(opts: {
       }
     })
   });
-  if (!commit.ok || !commit.data.sha) {
-    return { ok: false, error: `Failed to create commit (HTTP ${commit.status}): ${commit.text.slice(0, 160)}` };
-  }
+  if (!commit.ok || !commit.data.sha) return { ok: false, error: `Failed to create commit (HTTP ${commit.status}): ${commit.text.slice(0, 160)}` };
 
   const short = commit.data.sha.slice(0, 7);
   const branch = `vault-${is_update ? 'update' : 'add'}-${slug}-${short}`.slice(0, 60);
-
   const cr = await gh(opts.token, `/repos/${upstream}/git/refs`, {
     method: 'POST',
     body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: commit.data.sha })
@@ -279,9 +274,7 @@ export async function remove_resource_pr(opts: {
   }
 
   const entries = parse_gitmodules(gitmodules);
-  if (!entries.has(sub_path)) {
-    return { ok: false, error: `No submodule at ${sub_path}` };
-  }
+  if (!entries.has(sub_path)) return { ok: false, error: `No submodule at ${sub_path}` };
   entries.delete(sub_path);
   const gm_body = serialize_gitmodules([...entries.values()]);
 
@@ -289,17 +282,13 @@ export async function remove_resource_pr(opts: {
     method: 'POST',
     body: JSON.stringify({ content: gm_body, encoding: 'utf-8' })
   });
-  if (!blob.ok || !blob.data.sha) {
-    return { ok: false, error: `Failed to write .gitmodules (HTTP ${blob.status})` };
-  }
+  if (!blob.ok || !blob.data.sha) return { ok: false, error: `Failed to write .gitmodules (HTTP ${blob.status})` };
 
   const full = await gh<{ tree?: { path?: string; mode?: string; type?: string; sha?: string }[] }>(
     opts.token,
     `/repos/${upstream}/git/trees/${base_tree}?recursive=1`
   );
-  if (!full.ok || !full.data.tree) {
-    return { ok: false, error: 'Failed to load vault tree' };
-  }
+  if (!full.ok || !full.data.tree) return { ok: false, error: 'Failed to load vault tree' };
   const filtered = full.data.tree
     .filter((e) => e.type !== 'tree' && e.path !== sub_path && e.path !== '.gitmodules')
     .map((e) => ({ path: e.path!, mode: e.mode!, type: e.type!, sha: e.sha! }));
@@ -309,9 +298,7 @@ export async function remove_resource_pr(opts: {
     method: 'POST',
     body: JSON.stringify({ tree: filtered })
   });
-  if (!tree.ok || !tree.data.sha) {
-    return { ok: false, error: 'Failed to create removal tree' };
-  }
+  if (!tree.ok || !tree.data.sha) return { ok: false, error: 'Failed to create removal tree' };
 
   const commit = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/commits`, {
     method: 'POST',
@@ -321,9 +308,7 @@ export async function remove_resource_pr(opts: {
       parents: [base_sha]
     })
   });
-  if (!commit.ok || !commit.data.sha) {
-    return { ok: false, error: 'Failed to create removal commit' };
-  }
+  if (!commit.ok || !commit.data.sha) return { ok: false, error: 'Failed to create removal commit' };
 
   const branch = `vault-remove-${leaf}-${commit.data.sha.slice(0, 7)}`.slice(0, 60);
   const cr = await gh(opts.token, `/repos/${upstream}/git/refs`, {
@@ -355,8 +340,7 @@ export async function remove_resource_pr(opts: {
       ].join('\n')
     })
   });
-  if (!pr.ok || !pr.data.html_url) {
-    return { ok: false, error: 'Removal branch created but PR failed' };
-  }
+  if (!pr.ok || !pr.data.html_url) return { ok: false, error: 'Removal branch created but PR failed' };
+
   return { ok: true, pr_url: pr.data.html_url, branch, path: sub_path, updated: false };
 }

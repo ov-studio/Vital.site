@@ -63,9 +63,8 @@ export async function POST(req: Request) {
       'User-Agent': 'Vital.site/1.0'
     }
   });
-  if (!repo_res.ok) {
-    return Response.json({ error: 'Repository not found or not accessible' }, { status: 400 });
-  }
+  if (!repo_res.ok) return Response.json({ error: 'Repository not found or not accessible' }, { status: 400 });
+
   const repo = (await repo_res.json()) as {
     full_name: string;
     html_url:  string;
@@ -73,12 +72,8 @@ export async function POST(req: Request) {
     name:      string;
     owner?:    { login?: string };
   };
-  if (repo.private) {
-    return Response.json({ error: 'Only public repositories can be submitted' }, { status: 400 });
-  }
-  if (repo.owner?.login?.toLowerCase() !== session.login) {
-    return Response.json({ error: 'You must own the repository' }, { status: 403 });
-  }
+  if (repo.private) return Response.json({ error: 'Only public repositories can be submitted' }, { status: 400 });
+  if (repo.owner?.login?.toLowerCase() !== session.login) return Response.json({ error: 'You must own the repository' }, { status: 403 });
 
   const manifest_raw = await fetch_manifest(gh, repo.full_name);
   if (!manifest_raw) {
@@ -89,7 +84,6 @@ export async function POST(req: Request) {
   }
 
   const display_name = manifest_display_name(manifest_raw, repo.name);
-
   const app_token = await lib_github_app.vault_write_token();
   if (!app_token) {
     return Response.json(
@@ -108,10 +102,7 @@ export async function POST(req: Request) {
     resource_repo_url: repo.html_url,
     display_name
   });
-
-  if (!published.ok) {
-    return Response.json({ error: published.error }, { status: 400 });
-  }
+  if (!published.ok) return Response.json({ error: published.error }, { status: 400 });
 
   return Response.json({
     ok: true,
