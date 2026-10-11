@@ -39,10 +39,7 @@ function manifest_display_name(raw: string, fallback: string): string {
 export async function POST(req: Request) {
   const limited = await lib_ratelimit.check(req);
   if (limited) return limited;
-
-  if (!lib_auth.auth_configured()) {
-    return Response.json({ error: 'Unavailable' }, { status: 503 });
-  }
+  if (!lib_auth.auth_configured()) return Response.json({ error: 'Unavailable' }, { status: 503 });
 
   const session = await lib_auth.session_from_auth_header(req.headers.get('authorization'));
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
@@ -57,10 +54,7 @@ export async function POST(req: Request) {
 
   const body = await req.json().catch(() => ({}));
   const repo_full = typeof body?.repo === 'string' ? body.repo.trim() : '';
-
-  if (!/^[\w.-]+\/[\w.-]+$/.test(repo_full)) {
-    return Response.json({ error: 'Invalid repository' }, { status: 400 });
-  }
+  if (!/^[\w.-]+\/[\w.-]+$/.test(repo_full)) return Response.json({ error: 'Invalid repository' }, { status: 400 });
 
   const repo_res = await fetch(`https://api.github.com/repos/${repo_full}`, {
     headers: {
