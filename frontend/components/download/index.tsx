@@ -15,7 +15,7 @@ interface ReleaseInfo {
 
 export function Download() {
   const [info, setInfo] = react.useState<ReleaseInfo | null>(null);
-
+  
   react.useEffect(() => {
     fetch(lib_api_url.get_api_url('/build'))
       .then((r) => r.json())
