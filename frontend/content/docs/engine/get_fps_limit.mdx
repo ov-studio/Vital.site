@@ -15,6 +15,7 @@ local limit = core.engine.get_fps_limit()
 
   - **Server** — returns the FPS limit currently enforced on all clients.
   - **Client** — returns the FPS limit currently in effect, which is the lower of the server's limit and the local limit.
+  - **No limit** — `0` means no limit is applied.
 </Callout>
 
 ### Parameters
@@ -26,7 +27,7 @@ local limit = core.engine.get_fps_limit()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | limit | Current maximum frames per second<br/>• `0` - no limit |
+| `int` | limit | Current maximum frames per second |
 
 ---
 
