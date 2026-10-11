@@ -362,10 +362,7 @@ article#nd-page {
 }
 
 /* Description — tight under title */
-#nd-page > p:first-of-type,
-#nd-page h1 + p,
-.docs-title-row + p,
-#nd-page p.text-fd-muted-foreground {
+.docs-title-row + p {
   font-size: clamp(0.92rem, 1.76vw, 0.97rem);
   line-height: 1.5;
   color: var(--text-mid);
