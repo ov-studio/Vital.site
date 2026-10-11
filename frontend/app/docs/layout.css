@@ -667,26 +667,44 @@ div.fixed.inset-0[class*="bg-fd-overlay"][data-state="open"] {
   -webkit-backdrop-filter: blur(20px) !important;
 }
 
-/* Centered search panel under navbar */
-[role="dialog"][data-state="open"],
-div[role="dialog"][data-state="open"] {
+/* Centered search panel */
+html body > div[role="dialog"][data-state="open"],
+html body div[role="dialog"][data-state="open"],
+html body [role="dialog"][data-state="open"] {
+  /* kill Tailwind translate CSS variables used by -translate-x-1/2 */
+  --tw-translate-x: 0px !important;
+  --tw-translate-y: 0px !important;
+  --tw-translate-z: 0px !important;
+  --tw-rotate: 0deg !important;
+  --tw-scale-x: 1 !important;
+  --tw-scale-y: 1 !important;
+
   position: fixed !important;
   top: calc(var(--nav-h, 68px) + 12px) !important;
-  left: 50% !important;
-  right: auto !important;
   bottom: auto !important;
-  /* override fumadocs left-1/2 + -translate-x-1/2 / md:top-4 stack */
-  transform: translateX(-50%) !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: min(560px, calc(100vw - 32px)) !important;
-  max-width: min(560px, calc(100vw - 32px)) !important;
-  max-height: min(480px, calc(100vh - var(--nav-h, 68px) - 32px)) !important;
+  left: 0 !important;
+  right: 0 !important;
+  inset-inline: 0 !important;
+
+  width: min(34rem, calc(100vw - 2rem)) !important;
+  min-width: 0 !important;
+  max-width: min(34rem, calc(100vw - 2rem)) !important;
+
+  margin: 0 auto !important;
+
+  transform: none !important;
+  -webkit-transform: none !important;
+  translate: none !important;
+  animation: none !important;
+  transition: none !important;
+
+  max-height: min(30rem, calc(100vh - var(--nav-h, 68px) - 2rem)) !important;
   border-radius: 10px !important;
   border: 1px solid var(--b10) !important;
   background: var(--bg7) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
   overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 
 /* ── No layout shift when search/dialog locks scroll ── */
