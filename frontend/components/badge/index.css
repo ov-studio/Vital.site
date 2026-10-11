@@ -1,0 +1,35 @@
+.docs-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  border: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.docs-badge--shared {
+  color: var(--bg4, #0a0a0c);
+  background: #e8a04a;
+}
+
+.docs-badge--client {
+  color: var(--bg4, #0a0a0c);
+  background: var(--blue, #5b8cff);
+}
+
+.docs-badge--server {
+  color: var(--bg4, #0a0a0c);
+  background: #4caf7a;
+}
+
+.docs-badge--deprecated {
+  color: var(--text-soft, #b0b0b8);
+  background: var(--b15, rgba(255, 255, 255, 0.12));
+}
