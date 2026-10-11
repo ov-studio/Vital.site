@@ -14,7 +14,7 @@ export default async function Page({params}: {params: Promise<Params>;}) {
   const MDXContent = page.data.body;
   return (
     <fumadocs_page.DocsPage toc={page.data.toc} full={page.data.full}>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="docs-title-row">
         <fumadocs_page.DocsTitle>{page.data.title}</fumadocs_page.DocsTitle>
         {page.data.badge && <component_badge.Badge type={page.data.badge}/>}
       </div>
