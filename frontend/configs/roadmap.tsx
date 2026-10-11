@@ -754,18 +754,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:is_streamed',                               status: 'completed' },
           { label: '[Client] API: self:set_parent',                                status: 'completed' }
         ]
-      },
-      {
-        // TODO: WIP
-        label: 'MeshInstance & Primitives',
-        desc:  'Create primitive meshes (box, sphere, capsule, cylinder) and control MeshInstance3D from Lua',
-        icon:  <lucide.Shapes {...config_site.info.lucide}/>,
-        items: [
-          { label: 'BoxMesh / SphereMesh / CapsuleMesh',  status: 'pending' },
-          { label: 'CylinderMesh / PlaneMesh',            status: 'pending' },
-          { label: 'MeshInstance3D creation',             status: 'pending' },
-          { label: 'Surface material assignment',         status: 'pending' },
-        ]
       }
     ]
   },
