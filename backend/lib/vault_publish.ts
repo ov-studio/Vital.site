@@ -175,9 +175,7 @@ export async function publish_resource_pr(opts: {
   });
   if (!tree.ok || !tree.data.sha) return { ok: false, error: `Failed to create tree (HTTP ${tree.status}): ${tree.text.slice(0, 160)}` };
 
-  const msg = is_update
-    ? `update: resource ${slug}`
-    : `add: resource ${slug}`;
+  const msg = is_update ? `update: resource ${slug}` : `add: resource ${slug}`;
   const commit = await gh<{ sha?: string }>(opts.token, `/repos/${upstream}/git/commits`, {
     method: 'POST',
     body: JSON.stringify({
