@@ -65,6 +65,7 @@ export async function installation_token(): Promise<string> {
 /** Installation token for vault write (merge/close/remove). */
 export async function vault_write_token(): Promise<string | null> {
   if (!github_app_configured()) return null;
+  
   try {
     return await installation_token();
   }

@@ -51,6 +51,7 @@ export async function consume_oauth_state(state: string): Promise<{ ok: boolean;
   const key = lib_redis.auth_oauth_state_key(state);
   const raw = await lib_redis.redis.get(key);
   if (!raw) return { ok: false, next: '/workspace' };
+
   await lib_redis.redis.del(key);
   try {
     const data = (typeof raw === 'string' ? JSON.parse(raw) : raw) as { next?: string };
@@ -61,8 +62,6 @@ export async function consume_oauth_state(state: string): Promise<{ ok: boolean;
     return { ok: true, next: '/workspace' };
   }
 }
-
-
 
 /** Create a session token for a login; optionally bind a GitHub user token. */
 export async function issue_session(login: string, github_token?: string): Promise<string> {
