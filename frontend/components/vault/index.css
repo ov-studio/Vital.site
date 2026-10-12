@@ -25,7 +25,7 @@
 
 .vault-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
