@@ -1,0 +1,43 @@
+---
+title: self:set_visibility_aabb
+description: Sets the box outside of which particles are culled
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_visibility_aabb(
+    position,
+    size
+)
+```
+
+<Callout type="idea">
+  **Raise the box when particles travel far from the emitter.**
+
+  - Particles outside the box are not drawn, which makes fast or long-lived particles pop out of view.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Corner of the box as `{x, y, z}` |
+| `vector3` | size | Size of the box as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Give the culling box more room"
+local entity = particle.gpu.create()
+
+entity:set_visibility_aabb({-15, -15, -15}, {30, 30, 30})
+```

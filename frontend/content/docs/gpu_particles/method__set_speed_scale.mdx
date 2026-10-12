@@ -1,0 +1,35 @@
+---
+title: self:set_speed_scale
+description: Sets the simulation speed multiplier of the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_speed_scale(
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | scale | Speed scale, at least `0` — `1` is normal speed |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Run an emitter in slow motion"
+local entity = particle.gpu.create()
+
+entity:set_speed_scale(0.5)
+```

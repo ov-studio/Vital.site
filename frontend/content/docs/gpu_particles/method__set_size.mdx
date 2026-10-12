@@ -1,0 +1,41 @@
+---
+title: self:set_size
+description: Sets the size of the particle quad
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_size(
+    size
+)
+```
+
+<Callout type="info">
+  **Meshes use the `SCALE` parameter instead.**
+
+  - See [`self:set_mesh`](/docs/gpu_particles/method/set_mesh) — `size` only resizes the quad.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | size | Particle size as `{width, height}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Make particles 30 cm wide"
+local entity = particle.gpu.create()
+
+entity:set_size({0.3, 0.3})
+```

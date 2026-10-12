@@ -1,0 +1,32 @@
+---
+title: self:get_amount
+description: Retrieves the number of particles emitted per cycle
+badge: client
+---
+
+### Syntax
+
+```lua
+local amount = self:get_amount()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | amount | Number of particles |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the particle amount"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_amount())
+```

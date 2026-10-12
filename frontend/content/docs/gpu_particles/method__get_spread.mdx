@@ -1,0 +1,32 @@
+---
+title: self:get_spread
+description: Retrieves the cone angle particles are spread across
+badge: client
+---
+
+### Syntax
+
+```lua
+local degrees = self:get_spread()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | degrees | Spread angle in degrees |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the spread"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_spread())
+```

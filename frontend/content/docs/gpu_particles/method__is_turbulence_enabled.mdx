@@ -1,0 +1,32 @@
+---
+title: self:is_turbulence_enabled
+description: Checks whether turbulence is applied to the particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_turbulence_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if turbulence is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether turbulence is enabled"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:is_turbulence_enabled())
+```

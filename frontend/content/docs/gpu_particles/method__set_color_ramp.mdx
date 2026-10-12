@@ -1,0 +1,37 @@
+---
+title: self:set_color_ramp
+description: Fades the particle color over its lifetime
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_color_ramp(
+    from,
+    to
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | from | Color at the start of the particle lifetime as `{r, g, b, a}` |
+| `color` | to | Color at the end of the particle lifetime as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Fade from yellow to transparent red"
+local entity = particle.gpu.create()
+
+entity:set_color_ramp({1, 0.9, 0.3, 1}, {1, 0.2, 0, 0})
+```

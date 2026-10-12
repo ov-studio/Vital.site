@@ -1,0 +1,32 @@
+---
+title: self:get_flatness
+description: Retrieves how flattened the emission cone is
+badge: client
+---
+
+### Syntax
+
+```lua
+local amount = self:get_flatness()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | amount | Flatness between `0` and `1` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the flatness"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_flatness())
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_lifetime_randomness
+description: Retrieves how much the lifetime of each particle varies
+badge: client
+---
+
+### Syntax
+
+```lua
+local ratio = self:get_lifetime_randomness()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | ratio | Lifetime randomness between `0` and `1` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the lifetime randomness"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_lifetime_randomness())
+```

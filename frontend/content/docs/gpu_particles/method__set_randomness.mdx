@@ -1,0 +1,35 @@
+---
+title: self:set_randomness
+description: Sets how random the emission timing is
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_randomness(
+    ratio
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | ratio | Randomness between `0` and `1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Randomize the emission timing"
+local entity = particle.gpu.create()
+
+entity:set_randomness(0.5)
+```

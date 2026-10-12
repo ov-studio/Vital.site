@@ -1,0 +1,34 @@
+---
+title: self:get_gravity
+description: Retrieves the gravity applied to particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local gravity = self:get_gravity()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | gravity | Gravity as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the gravity"
+local entity = particle.gpu.create()
+
+local gravity = entity:get_gravity()
+
+core.engine.print("info", util.table.unpack(gravity))
+```

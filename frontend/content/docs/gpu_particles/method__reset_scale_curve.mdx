@@ -1,0 +1,33 @@
+---
+title: self:reset_scale_curve
+description: Removes the scale curve applied with `self:set_scale_curve`
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:reset_scale_curve()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Remove the scale curve"
+local entity = particle.gpu.create()
+
+entity:set_scale_curve(1, 0)
+entity:reset_scale_curve()
+```

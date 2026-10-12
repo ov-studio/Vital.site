@@ -1,0 +1,43 @@
+---
+title: self:set_scale_curve
+description: Scales the particle over its lifetime
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_scale_curve(
+    from,
+    to
+)
+```
+
+<Callout type="info">
+  **The curve multiplies the `SCALE` parameter.**
+
+  - See [`particle.gpu.param`](/docs/gpu_particles/enum/param) to set the base scale.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | from | Scale multiplier at the start of the particle lifetime, at least `0` |
+| `float` | to | Scale multiplier at the end of the particle lifetime, at least `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Shrink particles to nothing"
+local entity = particle.gpu.create()
+
+entity:set_scale_curve(1, 0)
+```

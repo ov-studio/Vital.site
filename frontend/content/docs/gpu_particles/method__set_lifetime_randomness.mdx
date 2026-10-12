@@ -1,0 +1,35 @@
+---
+title: self:set_lifetime_randomness
+description: Sets how much the lifetime of each particle varies
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_lifetime_randomness(
+    ratio
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | ratio | Lifetime randomness between `0` and `1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Vary particle lifetimes"
+local entity = particle.gpu.create()
+
+entity:set_lifetime_randomness(0.4)
+```

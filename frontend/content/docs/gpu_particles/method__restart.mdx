@@ -1,0 +1,33 @@
+---
+title: self:restart
+description: Restarts the emitter, clearing every live particle
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:restart()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Restart the emitter"
+local entity = particle.gpu.create()
+
+entity:emit()
+entity:restart()
+```

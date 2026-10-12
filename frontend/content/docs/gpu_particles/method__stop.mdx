@@ -1,0 +1,33 @@
+---
+title: self:stop
+description: Stops emitting new particles — particles already alive finish their lifetime
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:stop()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Stop emitting"
+local entity = particle.gpu.create()
+
+entity:emit()
+entity:stop()
+```

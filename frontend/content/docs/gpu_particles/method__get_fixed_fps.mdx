@@ -1,0 +1,32 @@
+---
+title: self:get_fixed_fps
+description: Retrieves the fixed simulation framerate of the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local fps = self:get_fixed_fps()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | fps | Fixed framerate, `0` when the emitter is not locked to a framerate |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the fixed framerate"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_fixed_fps())
+```

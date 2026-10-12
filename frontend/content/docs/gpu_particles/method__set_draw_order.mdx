@@ -1,0 +1,35 @@
+---
+title: self:set_draw_order
+description: Sets the order in which particles are drawn
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_draw_order(
+    order
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.draw_order`](/docs/gpu_particles/enum/draw_order) | order | Draw order to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw the closest particles last"
+local entity = particle.gpu.create()
+
+entity:set_draw_order(particle.gpu.draw_order.VIEW_DEPTH)
+```

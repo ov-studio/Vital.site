@@ -1,0 +1,35 @@
+---
+title: self:set_fixed_fps
+description: Sets the fixed simulation framerate of the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_fixed_fps(
+    fps
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | fps | Fixed framerate, `0` to follow the render framerate |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Lock an emitter to 30 FPS"
+local entity = particle.gpu.create()
+
+entity:set_fixed_fps(30)
+```

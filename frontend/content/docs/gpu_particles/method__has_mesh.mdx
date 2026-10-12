@@ -1,0 +1,32 @@
+---
+title: self:has_mesh
+description: Checks whether particles are drawn as a model mesh
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:has_mesh()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if a mesh is applied, `false` if particles are quads |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a mesh is applied"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:has_mesh())
+```

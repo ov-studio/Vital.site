@@ -1,0 +1,32 @@
+---
+title: self:is_trail_enabled
+description: Checks whether particles draw a trail
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_trail_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if particles draw a trail, `false` if they are drawn as quads |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether trails are enabled"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:is_trail_enabled())
+```

@@ -1,0 +1,32 @@
+---
+title: self:get_explosiveness
+description: Retrieves how much of the emission happens at once
+badge: client
+---
+
+### Syntax
+
+```lua
+local ratio = self:get_explosiveness()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | ratio | Explosiveness between `0` (steady stream) and `1` (every particle at once) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the explosiveness"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_explosiveness())
+```

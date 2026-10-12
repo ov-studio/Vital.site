@@ -1,0 +1,51 @@
+---
+title: particle.gpu.create
+description: Creates a new GPU particle emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = particle.gpu.create()
+```
+
+<Callout type="info">
+  **The emitter is created idle.**
+
+  - **Quad particles** — each particle is a camera-facing quad by default.
+  - **Look** — see [`self:set_material`](/docs/gpu_particles/method/set_material), [`self:set_mesh`](/docs/gpu_particles/method/set_mesh) and [`self:set_trail`](/docs/gpu_particles/method/set_trail) to change what is drawn.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `particle` | instance | GPU particles instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create a GPU particle emitter"
+local entity = particle.gpu.create()
+entity:set_position({0, 1, 0})
+entity:emit()
+```
+
+```lua lineNumbers title="Spawn a one-off burst and clean it up"
+local entity = particle.gpu.create()
+entity:set_position({0, 1, 0})
+entity:set_one_shot(true)
+entity:burst()
+
+-- fire and forget: destroy once the cycle has finished
+util.timer.create(function()
+    entity:destroy()
+end, util.math.floor(entity:get_lifetime() * 1000), 1)
+```

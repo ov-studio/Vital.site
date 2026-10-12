@@ -1,0 +1,41 @@
+---
+title: self:set_amount
+description: Sets the number of particles emitted per cycle
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_amount(
+    amount
+)
+```
+
+<Callout type="warn">
+  **Changing the amount restarts the emitter.**
+
+  - All live particles are cleared when the amount changes.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | amount | Number of particles, at least `1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the particle amount"
+local entity = particle.gpu.create()
+
+entity:set_amount(60)
+```

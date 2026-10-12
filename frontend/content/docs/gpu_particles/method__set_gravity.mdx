@@ -1,0 +1,35 @@
+---
+title: self:set_gravity
+description: Sets the gravity applied to particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_gravity(
+    gravity
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | gravity | Gravity as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Make particles float upwards"
+local entity = particle.gpu.create()
+
+entity:set_gravity({0, 1, 0})
+```

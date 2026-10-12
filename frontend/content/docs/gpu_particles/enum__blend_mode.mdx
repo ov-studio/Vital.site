@@ -1,0 +1,24 @@
+---
+title: particle.gpu.blend_mode
+description: Enumeration of the blend modes used to draw particles
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `particle.gpu.blend_mode.MIX` | Standard alpha blending |
+| `particle.gpu.blend_mode.ADD` | Adds the particle color to the scene — glowing effects such as fire and sparks |
+| `particle.gpu.blend_mode.SUB` | Subtracts the particle color from the scene |
+| `particle.gpu.blend_mode.MUL` | Multiplies the particle color with the scene |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw glowing particles"
+local entity = particle.gpu.create()
+
+entity:set_blend_mode(particle.gpu.blend_mode.ADD)
+```

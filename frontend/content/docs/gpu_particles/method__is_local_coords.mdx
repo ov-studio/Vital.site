@@ -1,0 +1,32 @@
+---
+title: self:is_local_coords
+description: Checks whether particles move with the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_local_coords()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if particles move with the emitter, `false` if they are left behind in world space |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether particles use local coordinates"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:is_local_coords())
+```

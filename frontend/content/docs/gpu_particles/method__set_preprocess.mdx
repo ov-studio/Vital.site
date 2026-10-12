@@ -1,0 +1,35 @@
+---
+title: self:set_preprocess
+description: Sets how long the emitter is simulated ahead before it first draws
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_preprocess(
+    seconds
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | seconds | Preprocess time in seconds, at least `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Pre-warm an emitter"
+local entity = particle.gpu.create()
+
+entity:set_preprocess(2)
+```

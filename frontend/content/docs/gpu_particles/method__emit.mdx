@@ -1,0 +1,32 @@
+---
+title: self:emit
+description: Starts emitting particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:emit()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Start emitting"
+local entity = particle.gpu.create()
+
+entity:emit()
+```

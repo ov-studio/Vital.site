@@ -1,0 +1,38 @@
+---
+title: self:get_param
+description: Retrieves the randomization range of a particle parameter
+badge: client
+---
+
+### Syntax
+
+```lua
+local min, max = self:get_param(
+    param
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.param`](/docs/gpu_particles/enum/param) | param | Particle parameter to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | min | Minimum value of the parameter |
+| `float` | max | Maximum value of the parameter |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the velocity range"
+local entity = particle.gpu.create()
+
+local min, max = entity:get_param(particle.gpu.param.VELOCITY)
+
+core.engine.print("info", min, max)
+```

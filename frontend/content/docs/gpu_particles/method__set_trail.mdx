@@ -1,0 +1,51 @@
+---
+title: self:set_trail
+description: Draws a ribbon trail behind each particle instead of a quad
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_trail(
+    state,
+    lifetime = 0.3
+)
+```
+
+<Callout type="idea">
+  **Keep the trail lifetime below the particle lifetime.**
+
+  - Trails reach far from the emitter — raise [`self:set_visibility_aabb`](/docs/gpu_particles/method/set_visibility_aabb) so they are not culled.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to draw trails, `false` to go back to quads |
+| `float` | lifetime | How long the trail stays behind each particle in seconds, at least `0.01`<br/>Defaults to `0.3` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw glowing sparks with trails"
+local entity = particle.gpu.create()
+
+entity:set_trail(true, 0.8)
+entity:set_blend_mode(particle.gpu.blend_mode.ADD)
+```
+
+```lua lineNumbers title="Go back to quads"
+local entity = particle.gpu.create()
+
+entity:set_trail(true)
+entity:set_trail(false)
+```

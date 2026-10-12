@@ -1,0 +1,35 @@
+---
+title: self:set_color
+description: Sets the base color of the particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_color(
+    color
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Particle color as `{r, g, b, a}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Tint particles orange"
+local entity = particle.gpu.create()
+
+entity:set_color({1, 0.5, 0, 1})
+```

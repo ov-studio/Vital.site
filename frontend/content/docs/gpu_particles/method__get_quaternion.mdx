@@ -1,0 +1,33 @@
+---
+title: self:get_quaternion
+description: Retrieves the rotation of the particle emitter as a quaternion
+badge: client
+---
+
+### Syntax
+
+```lua
+local quaternion = self:get_quaternion()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `quaternion` | quaternion | Current rotation quaternion as `{x, y, z, w}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the quaternion rotation of a particle emitter"
+local entity = particle.gpu.create()
+local quaternion = entity:get_quaternion()
+
+core.engine.print("info", "Emitter quaternion:", util.table.unpack(quaternion))
+```

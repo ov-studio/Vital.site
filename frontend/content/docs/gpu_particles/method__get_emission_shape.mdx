@@ -1,0 +1,32 @@
+---
+title: self:get_emission_shape
+description: Retrieves the shape particles are emitted from
+badge: client
+---
+
+### Syntax
+
+```lua
+local shape = self:get_emission_shape()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.emission_shape`](/docs/gpu_particles/enum/emission_shape) | shape | Current emission shape |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the emission shape"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_emission_shape())
+```

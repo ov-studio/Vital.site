@@ -1,0 +1,56 @@
+---
+title: self:set_mesh
+description: Draws every particle as the mesh of a model instead of a quad
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_mesh(
+    model,
+    component = all
+)
+```
+
+<Callout type="info">
+  **The model is only a mesh source.**
+
+  - **Model** — the model keeps existing, destroy or hide it if it is only a mesh source.
+  - **Components** — without `component` every component is used, each as its own draw pass (max `4`).
+  - **Look** — billboarding turns off, size comes from the `SCALE` parameter, and the mesh keeps its own materials unless [`self:set_material`](/docs/gpu_particles/method/set_material) is used.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `model` | model | Model instance to take the mesh from |
+| `string` | component | Name of a single mesh component to use<br/>Defaults to every component of the model (up to `4`) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw particles as a leaf model"
+core.model.load("leaf", "assets/leaf.glb")
+local leaf = core.model.create("leaf")
+local entity = particle.gpu.create()
+
+entity:set_mesh(leaf)
+leaf:destroy()
+```
+
+```lua lineNumbers title="Use a single component"
+core.model.load("leaf", "assets/leaf.glb")
+local leaf = core.model.create("leaf")
+local entity = particle.gpu.create()
+
+entity:set_mesh(leaf, "Leaf")
+```

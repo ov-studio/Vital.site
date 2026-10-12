@@ -1,0 +1,35 @@
+---
+title: self:set_explosiveness
+description: Sets how much of the emission happens at once
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_explosiveness(
+    ratio
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | ratio | Explosiveness between `0` (steady stream) and `1` (every particle at once) |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Emit every particle at once"
+local entity = particle.gpu.create()
+
+entity:set_explosiveness(1)
+```

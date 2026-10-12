@@ -1,0 +1,35 @@
+---
+title: self:set_spread
+description: Sets the cone angle particles are spread across
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_spread(
+    degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | degrees | Spread angle in degrees, between `0` and `180` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Spread particles across a 45 degree cone"
+local entity = particle.gpu.create()
+
+entity:set_spread(45)
+```

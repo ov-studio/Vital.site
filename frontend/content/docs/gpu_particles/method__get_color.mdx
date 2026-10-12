@@ -1,0 +1,34 @@
+---
+title: self:get_color
+description: Retrieves the base color of the particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local color = self:get_color()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | color | Particle color as `{r, g, b, a}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the particle color"
+local entity = particle.gpu.create()
+
+local color = entity:get_color()
+
+core.engine.print("info", util.table.unpack(color))
+```

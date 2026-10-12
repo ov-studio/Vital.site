@@ -1,0 +1,35 @@
+---
+title: self:set_local_coords
+description: Sets whether particles move with the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_local_coords(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` for particles that move with the emitter, `false` to leave them in world space |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Keep particles in world space"
+local entity = particle.gpu.create()
+
+entity:set_local_coords(false)
+```

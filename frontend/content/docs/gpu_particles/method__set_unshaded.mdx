@@ -1,0 +1,35 @@
+---
+title: self:set_unshaded
+description: Sets whether particles ignore scene lighting
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_unshaded(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to ignore lighting, `false` to light the particles |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Light the particles"
+local entity = particle.gpu.create()
+
+entity:set_unshaded(false)
+```

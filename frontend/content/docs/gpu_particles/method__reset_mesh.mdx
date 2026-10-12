@@ -1,0 +1,35 @@
+---
+title: self:reset_mesh
+description: Goes back to drawing particles as a quad
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:reset_mesh()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Go back to quads"
+core.model.load("leaf", "assets/leaf.glb")
+local leaf = core.model.create("leaf")
+local entity = particle.gpu.create()
+
+entity:set_mesh(leaf)
+entity:reset_mesh()
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_blend_mode
+description: Sets the blend mode used to draw particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_blend_mode(
+    mode
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.blend_mode`](/docs/gpu_particles/enum/blend_mode) | mode | Blend mode to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw glowing particles"
+local entity = particle.gpu.create()
+
+entity:set_blend_mode(particle.gpu.blend_mode.ADD)
+```

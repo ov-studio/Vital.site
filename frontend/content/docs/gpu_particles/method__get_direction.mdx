@@ -1,0 +1,34 @@
+---
+title: self:get_direction
+description: Retrieves the direction particles are emitted in
+badge: client
+---
+
+### Syntax
+
+```lua
+local direction = self:get_direction()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | direction | Emission direction as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the emission direction"
+local entity = particle.gpu.create()
+
+local direction = entity:get_direction()
+
+core.engine.print("info", util.table.unpack(direction))
+```

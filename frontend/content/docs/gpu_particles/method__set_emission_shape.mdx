@@ -1,0 +1,53 @@
+---
+title: self:set_emission_shape
+description: Sets the shape particles are emitted from
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_emission_shape(
+    shape,
+    radius = 1,
+    inner_radius = 0,
+    height = 1
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.emission_shape`](/docs/gpu_particles/enum/emission_shape) | shape | Emission shape to apply |
+| `float` \| `vector3` | radius | Size of the shape, depending on `shape`:<br/>• `SPHERE` / `SPHERE_SURFACE` - radius as a `float`<br/>• `BOX` - extents as `{x, y, z}`<br/>• `RING` - radius as a `float`<br/>Defaults to `1` |
+| `float` | inner_radius | Inner radius of the ring, only used by `RING`<br/>Defaults to `0` |
+| `float` | height | Height of the ring, only used by `RING`<br/>Defaults to `1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Emit from a sphere"
+local entity = particle.gpu.create()
+
+entity:set_emission_shape(particle.gpu.emission_shape.SPHERE, 0.5)
+```
+
+```lua lineNumbers title="Emit from a wide, flat box"
+local entity = particle.gpu.create()
+
+entity:set_emission_shape(particle.gpu.emission_shape.BOX, {1, 0.5, 1})
+```
+
+```lua lineNumbers title="Emit from a ring"
+local entity = particle.gpu.create()
+
+entity:set_emission_shape(particle.gpu.emission_shape.RING, 2, 1.5, 0.2)
+```

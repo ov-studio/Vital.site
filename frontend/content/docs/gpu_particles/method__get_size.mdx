@@ -1,0 +1,34 @@
+---
+title: self:get_size
+description: Retrieves the size of the particle quad
+badge: client
+---
+
+### Syntax
+
+```lua
+local size = self:get_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector2` | size | Particle size as `{width, height}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the particle size"
+local entity = particle.gpu.create()
+
+local size = entity:get_size()
+
+core.engine.print("info", util.table.unpack(size))
+```

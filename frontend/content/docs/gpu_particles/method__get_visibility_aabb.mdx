@@ -1,0 +1,36 @@
+---
+title: self:get_visibility_aabb
+description: Retrieves the box outside of which particles are culled
+badge: client
+---
+
+### Syntax
+
+```lua
+local position, size = self:get_visibility_aabb()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Corner of the box as `{x, y, z}` |
+| `vector3` | size | Size of the box as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the visibility box"
+local entity = particle.gpu.create()
+
+local position, size = entity:get_visibility_aabb()
+
+core.engine.print("info", util.table.unpack(position))
+core.engine.print("info", util.table.unpack(size))
+```

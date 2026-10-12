@@ -1,0 +1,32 @@
+---
+title: self:is_unshaded
+description: Checks whether particles ignore scene lighting
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_unshaded()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if particles ignore lighting, `false` if they are lit |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether particles are unshaded"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:is_unshaded())
+```

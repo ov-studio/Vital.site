@@ -1,0 +1,35 @@
+---
+title: self:set_lifetime
+description: Sets how long each particle lives
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_lifetime(
+    seconds
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | seconds | Particle lifetime in seconds, at least `0.01` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the particle lifetime"
+local entity = particle.gpu.create()
+
+entity:set_lifetime(4)
+```

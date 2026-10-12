@@ -1,0 +1,32 @@
+---
+title: self:get_draw_order
+description: Retrieves the order in which particles are drawn
+badge: client
+---
+
+### Syntax
+
+```lua
+local order = self:get_draw_order()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.draw_order`](/docs/gpu_particles/enum/draw_order) | order | Current draw order |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the draw order"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_draw_order())
+```

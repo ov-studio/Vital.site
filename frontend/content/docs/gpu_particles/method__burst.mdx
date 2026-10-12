@@ -1,0 +1,39 @@
+---
+title: self:burst
+description: Emits a single cycle of particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:burst()
+```
+
+<Callout type="info">
+  **Fire-and-forget effects need cleaning up.**
+
+  - Call `self:destroy` once a cycle has finished — roughly `lifetime / speed_scale` seconds after `self:burst`.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Emit a single cycle"
+local entity = particle.gpu.create()
+
+entity:set_one_shot(true)
+entity:burst()
+```

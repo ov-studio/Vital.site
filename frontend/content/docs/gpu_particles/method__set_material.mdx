@@ -1,0 +1,49 @@
+---
+title: self:set_material
+description: Sets the material particles are drawn with
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_material(
+    material
+)
+```
+
+<Callout type="info">
+  **Textures keep the built-in material behavior.**
+
+  - **Image, SVG, rendertarget or path** — billboard, blend mode, unshaded and the particle color keep working.
+  - **Shader** — replaces the built-in material, draw the particles however you like.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `image` \| `svg` \| `rendertarget` \| `string` \| `shader` | material | Material to apply:<br/>• `image`, `svg`, `rendertarget` or a file path - shown through the built-in material<br/>• `shader` - a `SPATIAL` shader that replaces the built-in material |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw particles with a texture"
+local entity = particle.gpu.create()
+
+entity:set_material("assets/spark.png")
+```
+
+```lua lineNumbers title="Draw particles with a shader"
+local entity = particle.gpu.create()
+local shader = core.shader.create("assets/shaders/flower.glsl", core.shader.shader_mode.SPATIAL)
+
+entity:set_material(shader)
+```

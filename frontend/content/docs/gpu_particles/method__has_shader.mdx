@@ -1,0 +1,32 @@
+---
+title: self:has_shader
+description: Checks whether a shader is used as the particle material
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:has_shader()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if a shader is applied, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether a shader is applied"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:has_shader())
+```

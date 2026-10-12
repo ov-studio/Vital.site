@@ -1,0 +1,33 @@
+---
+title: self:get_rotation
+description: Retrieves the local rotation of the particle emitter in Euler degrees
+badge: client
+---
+
+### Syntax
+
+```lua
+local rotation = self:get_rotation()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | rotation | Current local rotation as Euler degrees `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the local rotation of a particle emitter"
+local entity = particle.gpu.create()
+local rotation = entity:get_rotation()
+
+core.engine.print("info", "Emitter rotation:", util.table.unpack(rotation))
+```

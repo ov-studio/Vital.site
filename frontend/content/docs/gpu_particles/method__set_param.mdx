@@ -1,0 +1,51 @@
+---
+title: self:set_param
+description: Sets the randomization range of a particle parameter
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_param(
+    param,
+    min,
+    max = min
+)
+```
+
+<Callout type="info">
+  **The values are sorted automatically.**
+
+  - `min` and `max` may be passed in any order — the smaller one becomes the minimum.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.param`](/docs/gpu_particles/enum/param) | param | Particle parameter to modify |
+| `float` | min | Minimum value of the parameter |
+| `float` | max | Maximum value of the parameter<br/>Defaults to `min` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Randomize the initial velocity"
+local entity = particle.gpu.create()
+
+entity:set_param(particle.gpu.param.VELOCITY, 0.5, 1.5)
+```
+
+```lua lineNumbers title="Set a fixed value"
+local entity = particle.gpu.create()
+
+entity:set_param(particle.gpu.param.SCALE, 0.8)
+```

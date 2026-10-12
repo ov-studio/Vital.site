@@ -1,0 +1,32 @@
+---
+title: self:get_blend_mode
+description: Retrieves the blend mode used to draw particles
+badge: client
+---
+
+### Syntax
+
+```lua
+local mode = self:get_blend_mode()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.blend_mode`](/docs/gpu_particles/enum/blend_mode) | mode | Current blend mode |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the blend mode"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_blend_mode())
+```

@@ -1,0 +1,35 @@
+---
+title: self:set_direction
+description: Sets the direction particles are emitted in
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_direction(
+    direction
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | direction | Emission direction as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Emit upwards"
+local entity = particle.gpu.create()
+
+entity:set_direction({0, 1, 0})
+```

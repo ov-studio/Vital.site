@@ -1,0 +1,32 @@
+---
+title: self:get_speed_scale
+description: Retrieves the simulation speed multiplier of the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local scale = self:get_speed_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | scale | Speed scale, `1` is normal speed |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the speed scale"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_speed_scale())
+```

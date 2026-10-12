@@ -1,0 +1,35 @@
+---
+title: self:set_flatness
+description: Sets how flattened the emission cone is
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_flatness(
+    amount
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | amount | Flatness between `0` and `1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Flatten the emission cone"
+local entity = particle.gpu.create()
+
+entity:set_flatness(0.5)
+```

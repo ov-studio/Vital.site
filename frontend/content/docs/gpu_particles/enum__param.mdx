@@ -1,0 +1,30 @@
+---
+title: particle.gpu.param
+description: Enumeration of the per-particle values that can be randomized between a minimum and a maximum
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `particle.gpu.param.VELOCITY` | Initial speed of each particle along the emission direction |
+| `particle.gpu.param.ANGULAR_VELOCITY` | Spin speed of each particle in degrees per second |
+| `particle.gpu.param.ORBIT_VELOCITY` | Speed at which each particle orbits the emitter |
+| `particle.gpu.param.LINEAR_ACCEL` | Acceleration along the direction of travel |
+| `particle.gpu.param.RADIAL_ACCEL` | Acceleration away from (or towards) the emitter |
+| `particle.gpu.param.TANGENTIAL_ACCEL` | Acceleration perpendicular to the direction of travel |
+| `particle.gpu.param.DAMPING` | Rate at which particles slow down |
+| `particle.gpu.param.ANGLE` | Initial rotation of each particle in degrees |
+| `particle.gpu.param.SCALE` | Size multiplier of each particle |
+| `particle.gpu.param.HUE_VARIATION` | Random hue shift applied to each particle |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Randomize the initial velocity"
+local entity = particle.gpu.create()
+
+entity:set_param(particle.gpu.param.VELOCITY, 0.5, 1.5)
+```

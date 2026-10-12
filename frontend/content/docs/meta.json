@@ -74,6 +74,9 @@
         "fog",
         "volumetric_fog",
 
+        "---Particle---",
+        "gpu_particles",
+
         "---Physics---",
         "rigid_body",
         "static_body",

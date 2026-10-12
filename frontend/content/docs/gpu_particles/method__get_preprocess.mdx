@@ -1,0 +1,32 @@
+---
+title: self:get_preprocess
+description: Retrieves how long the emitter is simulated ahead before it first draws
+badge: client
+---
+
+### Syntax
+
+```lua
+local seconds = self:get_preprocess()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | seconds | Preprocess time in seconds |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the preprocess time"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:get_preprocess())
+```

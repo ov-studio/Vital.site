@@ -1,0 +1,25 @@
+---
+title: particle.gpu.emission_shape
+description: Enumeration of the shapes particles are emitted from
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `particle.gpu.emission_shape.POINT` | Particles spawn at the emitter position |
+| `particle.gpu.emission_shape.SPHERE` | Particles spawn anywhere inside a sphere |
+| `particle.gpu.emission_shape.SPHERE_SURFACE` | Particles spawn on the surface of a sphere |
+| `particle.gpu.emission_shape.BOX` | Particles spawn anywhere inside a box |
+| `particle.gpu.emission_shape.RING` | Particles spawn inside a ring around the Y axis |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Emit from a sphere"
+local entity = particle.gpu.create()
+
+entity:set_emission_shape(particle.gpu.emission_shape.SPHERE, 0.5)
+```

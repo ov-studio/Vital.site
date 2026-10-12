@@ -1,0 +1,32 @@
+---
+title: self:is_one_shot
+description: Checks whether the emitter emits a single cycle and then stops
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_one_shot()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the emitter is one-shot, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check whether an emitter is one-shot"
+local entity = particle.gpu.create()
+
+core.engine.print("info", entity:is_one_shot())
+```
