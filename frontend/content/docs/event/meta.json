@@ -29,6 +29,8 @@
         "signal__webview_preload",
         "signal__webview_load",
         "signal__webview_resize",
-        "signal__webview_message"
+        "signal__webview_message",
+        "signal__particle_emit",
+        "signal__particle_finished"
     ]
 }
