@@ -15,6 +15,7 @@ local instance = particle.gpu.create()
 
   - **Quad particles** — each particle is a camera-facing quad by default.
   - **Look** — see [`self:set_material`](/docs/gpu_particles/method/set_material), [`self:set_mesh`](/docs/gpu_particles/method/set_mesh) and [`self:set_trail`](/docs/gpu_particles/method/set_trail) to change what is drawn.
+  - **Draw distance** — emitters stop rendering past the camera far plane scaled by the player's particle distance setting, at `100%` only the far plane limits them.
 </Callout>
 
 ### Parameters
