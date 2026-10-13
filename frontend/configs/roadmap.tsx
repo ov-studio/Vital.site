@@ -1908,6 +1908,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Turbulence, color ramp & scale curve',                  status: 'completed' },
           { label: 'Blend modes & draw order',                              status: 'completed' },
           { label: 'Ribbon trails',                                         status: 'completed' },
+          { label: 'Distance culling - particle distance setting',          status: 'completed' },
           { label: 'Custom materials - image, SVG, rendertarget, shader',   status: 'completed' },
           { label: 'Mesh particles - draw particles as model meshes',       status: 'completed' },
           { label: '[Client] Enum: particle.gpu.draw_order',                status: 'completed' },
