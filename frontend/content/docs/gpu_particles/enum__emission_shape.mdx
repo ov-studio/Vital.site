@@ -13,13 +13,3 @@ badge: client
 | `particle.gpu.emission_shape.SPHERE_SURFACE` | Particles spawn on the surface of a sphere |
 | `particle.gpu.emission_shape.BOX` | Particles spawn anywhere inside a box |
 | `particle.gpu.emission_shape.RING` | Particles spawn inside a ring around the Y axis |
-
----
-
-### Examples
-
-```lua lineNumbers title="Emit from a sphere"
-local entity = particle.gpu.create()
-
-entity:set_emission_shape(particle.gpu.emission_shape.SPHERE, 0.5)
-```

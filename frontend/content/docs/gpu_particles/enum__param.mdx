@@ -18,13 +18,3 @@ badge: client
 | `particle.gpu.param.ANGLE` | Initial rotation of each particle in degrees |
 | `particle.gpu.param.SCALE` | Size multiplier of each particle |
 | `particle.gpu.param.HUE_VARIATION` | Random hue shift applied to each particle |
-
----
-
-### Examples
-
-```lua lineNumbers title="Randomize the initial velocity"
-local entity = particle.gpu.create()
-
-entity:set_param(particle.gpu.param.VELOCITY, 0.5, 1.5)
-```
