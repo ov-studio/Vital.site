@@ -1,0 +1,39 @@
+---
+title: particle:emit
+description: Fired when a particle emitter starts an emission cycle
+badge: client
+---
+
+### Signal
+
+```lua
+"particle:emit"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | emitter | Particle emitter that started emitting |
+
+<Callout type="info">
+  **Fires once per emission cycle, not once per particle.**
+
+  - Triggered by [`self:emit`](/docs/gpu_particles/method/emit) (only if the emitter was not already emitting), [`self:burst`](/docs/gpu_particles/method/burst) and [`self:restart`](/docs/gpu_particles/method/restart).
+  - Also fires when emission is switched on by the engine itself, e.g. a freshly created emitter that emits by default.
+  - Calling [`self:emit`](/docs/gpu_particles/method/emit) on an emitter that is already emitting does nothing and does not fire the signal.
+  - Fires for every particle emitter type. Refer [`particle.gpu`](/docs/gpu_particles/create) to create and configure an emitter that fires it.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="React when an emitter starts emitting"
+util.event.on("particle:emit", function(emitter)
+    core.engine.print("info", "particle:emit:", emitter:get_amount(), "particles")
+end)
+
+local emitter = particle.gpu.create()
+emitter:burst()
+```
