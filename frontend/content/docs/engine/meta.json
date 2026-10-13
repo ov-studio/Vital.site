@@ -20,6 +20,7 @@
         "get_timestamp_tag",
         "get_fps_limit",
         "get_serial",
+        "get_peer_id",
         "get_peers",
         "get_peer_serial",
         "get_entity_types",
