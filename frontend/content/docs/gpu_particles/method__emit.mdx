@@ -10,6 +10,12 @@ badge: client
 local status = self:emit()
 ```
 
+<Callout type="info">
+  **Fires [`particle:emit`](/docs/event/signal/particle_emit) when emission actually starts.**
+
+  - Calling it on an emitter that is already emitting does nothing and fires no signal.
+</Callout>
+
 ### Parameters
 
 | No parameters are accepted by this function |
