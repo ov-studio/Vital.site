@@ -1905,7 +1905,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Blend modes & draw order',                               status: 'completed' },
           { label: 'Custom materials: image / SVG / rendertarget / shader',  status: 'completed' },
           { label: 'Mesh particles - draw particles as 3d meshes',           status: 'completed' },
-          { label: 'Distance culling - wired with main menu',                status: 'completed' },
+          { label: 'Distance culling - wired with main-menu',                status: 'completed' },
           { label: '[Client] Enum: particle.gpu.draw_order',                 status: 'completed' },
           { label: '[Client] Enum: particle.gpu.emission_shape',             status: 'completed' },
           { label: '[Client] Enum: particle.gpu.param',                      status: 'completed' },
