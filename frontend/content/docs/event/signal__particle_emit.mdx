@@ -30,10 +30,14 @@ badge: client
 ### Example
 
 ```lua lineNumbers title="React when an emitter starts emitting"
+local function launch()
+    local emitter = particle.gpu.create()
+    emitter:burst()
+end
+
 util.event.on("particle:emit", function(emitter)
     core.engine.print("info", "particle:emit:", emitter:get_amount(), "particles")
 end)
 
-local emitter = particle.gpu.create()
-emitter:burst()
+launch()
 ```
