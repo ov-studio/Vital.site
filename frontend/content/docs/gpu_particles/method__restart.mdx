@@ -11,7 +11,11 @@ local status = self:restart()
 ```
 
 <Callout type="info">
-  **Fires [`particle:emit`](/docs/event/signal/particle_emit)** as the new cycle starts.
+  **Fires [`particle:emit`](/docs/event/signal/particle_emit) as the new cycle starts.**
+
+  - Fires on every call, even if the emitter was already emitting, because a new cycle begins each time.
+  - Every live particle is cleared and the cycle starts again from the beginning.
+  - Use it to replay a one-shot emitter straight after [`particle:finished`](/docs/event/signal/particle_finished).
 </Callout>
 
 ### Parameters

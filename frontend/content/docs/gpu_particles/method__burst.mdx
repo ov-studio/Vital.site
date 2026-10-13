@@ -15,6 +15,7 @@ local status = self:burst()
 
   - Listen for [`particle:finished`](/docs/event/signal/particle_finished) and call `self:destroy` from it — it fires once every particle of the cycle is gone.
   - [`particle:emit`](/docs/event/signal/particle_emit) fires as soon as the burst starts.
+  - Switches the emitter to one-shot, so it plays a single cycle and then stops.
 </Callout>
 
 ### Parameters
