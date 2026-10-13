@@ -2007,10 +2007,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:look_at',                             status: 'completed' },
           { label: '[Client] API: self:look_at_from_position',               status: 'completed' },
           { label: '[Client] API: self:to_local',                            status: 'completed' },
-          { label: '[Client] API: self:to_global',                           status: 'completed' },
-          { label: 'Emitter events',                                         status: 'pending'   },
-          { label: '[Client] Signal: "particle:emit"',                       status: 'pending'   },
-          { label: '[Client] Signal: "particle:finished"',                   status: 'pending'   }
+          { label: '[Client] API: self:to_global',                           status: 'completed' }
         ]
       }
     ]
