@@ -75,8 +75,8 @@
 
 .vault-card-featured-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 8px;
+  right: 8px;
   font-size: 0.6rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.04em;
