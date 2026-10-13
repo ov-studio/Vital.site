@@ -77,15 +77,10 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  padding: 3px 14px;
-  font-family: var(--font-geist), sans-serif;
-  font-size: .65rem;
-  font-weight: 800;
-  letter-spacing: .05em;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--bg);
-  background: var(--blue);
-  clip-path: polygon(6px 0%,100% 0%,100% calc(100% - 6px),calc(100% - 6px) 100%,0% 100%,0% 6px);
 }
 
 .vault-card-body {

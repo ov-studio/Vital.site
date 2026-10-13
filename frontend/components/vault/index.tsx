@@ -7,6 +7,7 @@ import * as ui_alert         from '@/ui/alert';
 import * as ui_tagpill       from '@/ui/tagpill';
 import * as ui_iconbutton    from '@/ui/iconbutton';
 import * as ui_card          from '@/ui/card';
+import * as ui_badge         from '@/ui/badge';
 import * as ui_filter        from '@/ui/filter';
 import * as ui_search        from '@/ui/search';
 import * as ui_button        from '@/ui/button';
@@ -223,7 +224,7 @@ function VaultCard({ resource, onClick }: { resource: config_vault.VaultResource
       className={`vault-card rev${resource.featured ? ' featured' : ''}`}
       onClick={onClick}
       coverNode={<Banner src={resource.banner} size="card"/>}
-      topRight={resource.featured && <span className="vault-card-featured-badge">Featured</span>}
+      topRight={resource.featured && <ui_badge.Badge className="vault-card-featured-badge">Featured</ui_badge.Badge>}
       bodyClassName="vault-card-body"
       bodyContent={
         <>
