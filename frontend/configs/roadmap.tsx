@@ -1066,7 +1066,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] Signal: "webview:preload"',          status: 'completed' },
           { label: '[Client] Signal: "webview:load"',             status: 'completed' },
           { label: '[Client] Signal: "webview:resize"',           status: 'completed' },
-          { label: '[Client] Signal: "webview:message"',          status: 'completed' }
+          { label: '[Client] Signal: "webview:message"',          status: 'completed' },
+          { label: '[Client] Signal: "particle:emit"',            status: 'completed' },
+          { label: '[Client] Signal: "particle:finished"',        status: 'completed' }
         ]
       },
       {
