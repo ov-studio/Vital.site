@@ -37,7 +37,7 @@
 
 .ui-card-author {
   font-family: var(--font-geist), sans-serif;
-  font-size: .7rem;
+  font-size: .65rem;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -46,7 +46,7 @@
 
 .ui-card-version {
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: .9rem;
+  font-size: .85rem;
   font-weight: 800;
   letter-spacing: 0.6px;
   color: var(--text-muted);
@@ -55,7 +55,7 @@
 .ui-card-title {
   margin: 0 0 6px;
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: .01em;
   line-height: 1.15;
@@ -67,7 +67,7 @@
   flex: 1;
   margin: 0 0 18px;
   font-family: var(--font-geist), sans-serif;
-  font-size: .78rem;
+  font-size: .73rem;
   font-weight: 500;
   color: var(--dim);
 }
