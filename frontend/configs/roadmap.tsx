@@ -1900,7 +1900,6 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Wind {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                                       status: 'completed' },
-          { label: 'GPUParticles3D node access',                            status: 'completed' },
           { label: 'Emit / stop / restart / burst',                         status: 'completed' },
           { label: 'Amount, lifetime, speed scale',                         status: 'completed' },
           { label: 'Process material param overrides',                      status: 'completed' },
