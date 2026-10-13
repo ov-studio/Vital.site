@@ -8,25 +8,25 @@ export const Features = [
     id:    'sandbox',
     label: 'Sandbox',
     angle: 0,
-    desc:  'Runtime backbone of client and server — per-resource Lua environments, resource lifecycle management, hash-based asset streaming, and cross-resource exports.'
+    desc:  'Runtime backbone of client and server — per-resource Lua environments, dependency-aware resource lifecycle, hash-verified asset streaming, cross-resource exports, and a built-in console.'
   },
   {
     id:    'core',
     label: 'Core',
     angle: 51,
-    desc:  'Full programmatic control of every scene entity and surface — database, model, webview, canvas, font, image, svg, rendertarget, shader, camera, discord, and custom performance monitors.'
+    desc:  'Full programmatic control of every scene entity and surface — database, model, webview, canvas, font, image, svg, rendertarget, shader, camera, display, discord, and performance monitors.'
   },
   {
     id:    'utility',
     label: 'Utility',
     angle: 102,
-    desc:  'All primitives a runtime script needs — math, string, table, crypto, timer, thread, promise, http, file, shrinker, and a priority-ordered event system.'
+    desc:  'All primitives a runtime script needs — math, string, table, easing, crypto, timer, thread, promise, http, file, shrinker, input, and a priority-ordered event system.'
   },
   {
     id:    'graphics',
     label: 'Graphics',
     angle: 180,
-    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/SSR/SSIL, glow, volumetric fog, dynamic lighting, and runtime shaders.'
+    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/SSR/SSIL, glow, volumetric fog, antialiasing, color grading, lighting, and GPU particles.'
   },
   {
     id:    'physics',
@@ -44,7 +44,7 @@ export const Features = [
     id:    'network',
     label: 'Network',
     angle: 333,
-    desc:  'Full multiplayer stack — ENet UDP transport with live RTT and packet-loss stats, a custom packet-batched replication layer, and automatic physics body sync.'
+    desc:  'Full multiplayer stack — ENet UDP transport with live RTT and packet-loss stats, packet-batched replication with client interpolation and late-join sync, and automatic physics body sync.'
   }
 ];
 
