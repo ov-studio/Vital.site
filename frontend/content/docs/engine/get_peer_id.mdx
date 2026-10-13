@@ -1,0 +1,30 @@
+---
+title: core.engine.get_peer_id
+description: Retrieves current peer id
+badge: client
+---
+
+### Syntax
+
+```lua
+local peer_id = core.engine.get_peer_id()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Current peer id |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current peer id"
+core.engine.print("info", "Current peer id:", core.engine.get_peer_id())
+```
