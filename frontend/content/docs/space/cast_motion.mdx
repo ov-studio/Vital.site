@@ -19,10 +19,10 @@ local motion_result = physics.space.cast_motion(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `table` | shape | Shape descriptor table: `{type = "box"/"sphere"/"capsule"/"cylinder", ...}` with shape-specific fields such as `size`, `radius`, or `height` |
+| `table` | shape | Shape descriptor table<br/>Refer [Shape](#shape) section |
 | `vector3` | position | World-space starting position of the shape as `{x, y, z}` |
 | `vector3` | motion | Motion vector to test as `{x, y, z}` |
-| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, `collide_areas`, and `dimension` fields, `dimension` is the dimension to query (default `0`), from `0` to `65535`, anything else raises an error |
+| `table` | options | Optional query options table<br/>Refer [Options](#options) section |
 
 ### Returns
 
