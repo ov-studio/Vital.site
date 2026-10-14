@@ -25,37 +25,37 @@ local result = core.engine.get_entity_types()
 
 ### Entity Types
 
-| Category | Availability | Streamable | Notes |
-|----------|-------------|-----------|-------|
-| `core.model` | `client` \| `server` | ✓ | Frustum-culled |
-| `core.camera` | `client` | — | |
-| `core.webview` | `client` | — | |
-| `core.font` | `client` | — | |
-| `core.image` | `client` | — | |
-| `core.svg` | `client` | — | |
-| `core.rendertarget` | `client` | — | |
-| `core.display` | `client` | — | |
-| `core.shader` | `client` | — | |
-| `core.audio_2d` | `client` | — | |
-| `core.audio_3d` | `client` | ✓ | Frustum-culled positional audio |
-| `core.database` | `server` | — | |
-| `core.db_query` | `server` | — | |
-| `util.timer` | `client` \| `server` | — | |
-| `util.promise` | `client` \| `server` | — | |
-| `util.thread` | `client` \| `server` | — | |
-| `light.directional` | `client` | ✓ | Always streamed |
-| `light.point` | `client` | ✓ | Frustum-culled |
-| `light.spot` | `client` | ✓ | Frustum-culled |
-| `light.area` | `client` | ✓ | Frustum-culled |
-| `particle.gpu` | `client` | ✓ | Frustum-culled |
-| `physics.rigid` | `client` \| `server` | ✓ | Frustum-culled |
-| `physics.static` | `client` \| `server` | ✓ | Frustum-culled |
-| `physics.character` | `client` \| `server` | ✓ | Frustum-culled |
-| `physics.animatable` | `client` \| `server` | ✓ | Frustum-culled |
-| `physics.vehicle` | `client` \| `server` | ✓ | Frustum-culled |
-| `physics.vehicle_wheel` | `client` \| `server` | ✓ | Frustum-culled |
-| `physics.area` | `client` \| `server` | — | |
-| `physics.collision_shape` | `client` \| `server` | ✓ | Frustum-culled |
+| Category | Availability | Streamable | Dimension | Notes |
+|----------|-------------|-----------|-----------|-------|
+| `core.model` | `client` \| `server` | ✓ | ✓ | Frustum-culled |
+| `core.camera` | `client` | — | ✓ | Selects the dimension it renders |
+| `core.webview` | `client` | — | — | |
+| `core.font` | `client` | — | — | |
+| `core.image` | `client` | — | — | |
+| `core.svg` | `client` | — | — | |
+| `core.rendertarget` | `client` | — | — | |
+| `core.display` | `client` | — | — | |
+| `core.shader` | `client` | — | — | |
+| `core.audio_2d` | `client` | — | — | |
+| `core.audio_3d` | `client` | ✓ | ✓ | Frustum-culled positional audio |
+| `core.database` | `server` | — | — | |
+| `core.db_query` | `server` | — | — | |
+| `util.timer` | `client` \| `server` | — | — | |
+| `util.promise` | `client` \| `server` | — | — | |
+| `util.thread` | `client` \| `server` | — | — | |
+| `light.directional` | `client` | ✓ | ✓ | Always streamed |
+| `light.point` | `client` | ✓ | ✓ | Frustum-culled |
+| `light.spot` | `client` | ✓ | ✓ | Frustum-culled |
+| `light.area` | `client` | ✓ | ✓ | Frustum-culled |
+| `particle.gpu` | `client` | ✓ | ✓ | Frustum-culled |
+| `physics.rigid` | `client` \| `server` | ✓ | ✓ | Frustum-culled |
+| `physics.static` | `client` \| `server` | ✓ | ✓ | Frustum-culled |
+| `physics.character` | `client` \| `server` | ✓ | ✓ | Frustum-culled |
+| `physics.animatable` | `client` \| `server` | ✓ | ✓ | Frustum-culled |
+| `physics.vehicle` | `client` \| `server` | ✓ | ✓ | Frustum-culled |
+| `physics.vehicle_wheel` | `client` \| `server` | ✓ | ✓ | Frustum-culled, follows its parent's dimension |
+| `physics.area` | `client` \| `server` | — | ✓ | |
+| `physics.collision_shape` | `client` \| `server` | ✓ | ✓ | Frustum-culled, follows its parent's dimension |
 
 ---
 
