@@ -1,0 +1,42 @@
+---
+title: self:set_dimension
+description: Sets the dimension of the audio-3d instance
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dimension(
+    dimension
+)
+```
+
+<Callout type="idea">
+  **Audio is only heard from the dimension it is in.**
+
+  - **Hearing** — the client mutes the instance while its active camera is in a different dimension. Playback keeps running while muted, so the timeline stays in sync.
+  - **Attached** — an instance parented to another entity always follows its parent's dimension and cannot set its own, the call raises an error. Detaching it keeps the dimension it had.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | dimension | Dimension id to apply, from `0` to `65535` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the dimension of an audio-3d instance"
+local entity = core.audio_3d.create("sounds/ambient.ogg", true)
+
+entity:set_dimension(1)
+```
