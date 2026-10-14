@@ -36,7 +36,7 @@ Shapes are described by a table, only the fields of the chosen `type` are read.
 
 | Type | Key | Shape | Default | Description |
 |------|-----|-------|---------|-------------|
-| `string` | type | All | - | Shape kind to build<br/>• `"box"` - uses `size`<br/>• `"sphere"` - uses `radius`<br/>• `"capsule"` - uses `radius` and `height`<br/>• `"cylinder"` - uses `radius` and `height`<br/>• Required, an unknown type makes the query return an empty table |
+| `string` | type | All | - | Shape kind to build<br/>• `"box"` - uses `size`<br/>• `"sphere"` - uses `radius`<br/>• `"capsule"` - uses `radius` and `height`<br/>• `"cylinder"` - uses `radius` and `height`<br/>Required, an unknown type makes the query return an empty table |
 | `vector3` | size | `box` | `{1, 1, 1}` | Full extents of the box as `{x, y, z}` |
 | `number` | radius | `sphere`, `capsule`, `cylinder` | • `sphere` - `0.5`<br/>• `capsule`, `cylinder` - `0.4` | Radius of the shape |
 | `number` | height | `capsule`, `cylinder` | `1.8` | Total height of the shape |
@@ -49,8 +49,8 @@ All fields are optional and fall back to their defaults if not specified.
 
 | Type | Key | Default | Side | Description |
 |------|-----|---------|------|-------------|
-| `int` | mask | `4294967295` | Shared | Collision layers to test against, as a bitmask<br/>• The default matches every layer |
-| `table` | exclude | `{}` | Shared | Array of entities to ignore<br/>• Only physics bodies and areas are accepted, any other value is skipped |
+| `int` | mask | `4294967295` | Shared | Collision layers to test against, as a bitmask<br/>The default matches every layer |
+| `table` | exclude | `{}` | Shared | Array of entities to ignore<br/>Only physics bodies and areas are accepted, any other value is skipped |
 | `int` | max_results | `32` | Shared | Maximum number of colliders returned |
 | `number` | margin | `0.04` | Shared | Extra collision margin applied to the shape |
 | `bool` | collide_bodies | `true` | Shared | • When `true` - physics bodies are tested<br/>• When `false` - physics bodies are ignored |
