@@ -1,0 +1,32 @@
+---
+title: self:get_dimension
+description: Retrieves the dimension the camera renders
+badge: client
+---
+
+### Syntax
+
+```lua
+local dimension = self:get_dimension()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | dimension | Current dimension id the camera renders |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the dimension of a camera"
+local entity = core.camera.create()
+
+core.engine.print("info", "Camera dimension:", entity:get_dimension())
+```

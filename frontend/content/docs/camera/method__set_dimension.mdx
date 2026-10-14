@@ -1,0 +1,42 @@
+---
+title: self:set_dimension
+description: Sets the dimension the camera renders
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dimension(
+    dimension
+)
+```
+
+<Callout type="idea">
+  **The client only renders the dimension of its active camera.**
+
+  - **Active camera** — entities outside the camera's dimension are hidden.
+  - **Inactive camera** — the new dimension is applied once the camera becomes active.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | dimension | Dimension id the camera will render, must be `0` or greater |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` if the dimension is negative |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the dimension of a camera"
+local entity = core.camera.create()
+
+entity:set_dimension(1)
+```

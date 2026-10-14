@@ -1,0 +1,42 @@
+---
+title: self:set_dimension
+description: Sets the dimension of the spot light
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_dimension(
+    dimension
+)
+```
+
+<Callout type="idea">
+  **Dimensions are fully isolated from each other.**
+
+  - **Rendering** — the client only shows entities that match the dimension of its active camera.
+  - **Hierarchy** — the dimension applies to the entity and all of its children.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | dimension | Dimension id to apply, must be `0` or greater |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` if the dimension is negative |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the dimension of a spot light"
+local entity = light.spot.create()
+
+entity:set_dimension(1)
+```

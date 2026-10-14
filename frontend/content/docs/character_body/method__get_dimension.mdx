@@ -1,0 +1,32 @@
+---
+title: self:get_dimension
+description: Retrieves the dimension of the character body
+badge: shared
+---
+
+### Syntax
+
+```lua
+local dimension = self:get_dimension()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | dimension | Current dimension id, inherited from the parent entity when none is set directly (`0` by default) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the dimension of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", "Character body dimension:", entity:get_dimension())
+```
