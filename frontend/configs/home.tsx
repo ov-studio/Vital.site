@@ -32,7 +32,7 @@ export const Features = [
     id:    'physics',
     label: 'Physics',
     angle: 231,
-    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, and a per-shape collision wireframe debugger.'
+    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, up to 65,535 isolated virtual dimensions, and a per-shape collision wireframe debugger.'
   },
   {
     id:    'audio',
@@ -44,7 +44,7 @@ export const Features = [
     id:    'network',
     label: 'Network',
     angle: 333,
-    desc:  'Full multiplayer stack — ENet UDP transport with live RTT and packet-loss stats, packet-batched replication with client interpolation and late-join sync, and automatic physics body sync.'
+    desc:  'Full multiplayer stack — ENet UDP transport with live RTT and packet-loss stats, packet-batched replication with client interpolation and late-join sync, and automatic physics body and dimension sync.'
   }
 ];
 
