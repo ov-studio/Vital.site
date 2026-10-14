@@ -32,13 +32,13 @@ local status = self:set_dimension(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | dimension | Dimension id to apply, must be `0` or greater |
+| `int` | dimension | Dimension id to apply, from `0` to `65535` |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | status | `true` on successful execution, `false` if the dimension is negative or the entity is attached to a parent |
+| `bool` | status | `true` on successful execution, `false` if the dimension is outside `0` to `65535`, or the entity is attached to a parent |
 
 ---
 
