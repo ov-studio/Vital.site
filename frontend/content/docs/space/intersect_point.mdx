@@ -28,6 +28,21 @@ local results = physics.space.intersect_point(
 
 ---
 
+### Options
+
+All fields are optional and fall back to their defaults if not specified.
+
+| Type | Key | Default | Side | Description |
+|------|-----|---------|------|-------------|
+| `int` | mask | `4294967295` | Shared | Collision layers to test against, as a bitmask<br/>• The default matches every layer |
+| `table` | exclude | `{}` | Shared | Array of entities to ignore<br/>• Only physics bodies and areas are accepted, any other value is skipped |
+| `int` | max_results | `32` | Shared | Maximum number of colliders returned |
+| `bool` | collide_bodies | `true` | Shared | • When `true` - physics bodies are tested<br/>• When `false` - physics bodies are ignored |
+| `bool` | collide_areas | `false` | Shared | • When `true` - areas are tested<br/>• When `false` - areas are ignored |
+| `int` | dimension | `0` | Shared | Dimension whose physics world is queried, from `0` to `65535`<br/>• Anything outside this range raises an error<br/>• A dimension with nothing in it simply finds nothing |
+
+---
+
 ### Examples
 
 ```lua lineNumbers title="Query colliders at a point"
