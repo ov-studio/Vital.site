@@ -2723,6 +2723,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Vehicle wheel transform sync',                    status: 'completed' },
           { label: 'Component visibility sync',                       status: 'completed' },
           { label: 'Component render sync',                           status: 'completed' },
+          { label: 'Dimension sync',                                  status: 'completed' },
           { label: 'Blendshape replication',                          status: 'pending'   },
           { label: 'Animation state replication',                     status: 'completed' },
           { label: 'Animation layer sync',                            status: 'completed' },
@@ -2731,6 +2732,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Late-join full state dump (reliable)',            status: 'completed' },
           { label: 'Late-join shape sync replay',                     status: 'completed' },
           { label: 'Late-join component state replay',                status: 'completed' },
+          { label: 'Late-join dimension replay',                      status: 'completed' },
           { label: 'Late-join blendshape replay',                     status: 'pending'   },
           { label: 'Late-join animation layer replay',                status: 'completed' }
         ]
