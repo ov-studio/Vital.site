@@ -42,7 +42,7 @@ All fields are optional and fall back to their defaults if not specified.
 | `bool` | collide_areas | `false` | Shared | • When `true` - areas are tested<br/>• When `false` - areas are ignored |
 | `bool` | hit_from_inside | `false` | Shared | • When `true` - a ray starting inside a collider reports a hit<br/>• When `false` - colliders the ray starts inside of are ignored |
 | `bool` | hit_back_faces | `true` | Shared | • When `true` - back faces of concave shapes can be hit<br/>• When `false` - only front faces are hit |
-| `int` | dimension | `0` | Shared | Dimension whose physics world is queried, from `0` to `65535`<br/>• Anything outside this range raises an error<br/>• A dimension with nothing in it simply finds nothing |
+| `int` | dimension | `0` | Shared | Dimension whose physics world is queried<br/>Must be within `0` to `65535`, otherwise an error is raised<br/>An unused dimension simply finds nothing |
 
 ---
 

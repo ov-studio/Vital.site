@@ -39,7 +39,7 @@ All fields are optional and fall back to their defaults if not specified.
 | `int` | max_results | `32` | Shared | Maximum number of colliders returned |
 | `bool` | collide_bodies | `true` | Shared | • When `true` - physics bodies are tested<br/>• When `false` - physics bodies are ignored |
 | `bool` | collide_areas | `false` | Shared | • When `true` - areas are tested<br/>• When `false` - areas are ignored |
-| `int` | dimension | `0` | Shared | Dimension whose physics world is queried, from `0` to `65535`<br/>• Anything outside this range raises an error<br/>• A dimension with nothing in it simply finds nothing |
+| `int` | dimension | `0` | Shared | Dimension whose physics world is queried<br/>Must be within `0` to `65535`, otherwise an error is raised<br/>An unused dimension simply finds nothing |
 
 ---
 

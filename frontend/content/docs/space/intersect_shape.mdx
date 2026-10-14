@@ -36,9 +36,9 @@ Shapes are described by a table, only the fields of the chosen `type` are read.
 
 | Type | Key | Shape | Default | Description |
 |------|-----|-------|---------|-------------|
-| `string` | type | All | - | Shape kind: `"box"`, `"sphere"`, `"capsule"` or `"cylinder"`<br/>• Required, an unknown type returns an empty table |
+| `string` | type | All | - | Shape kind to build<br/>• `"box"` - uses `size`<br/>• `"sphere"` - uses `radius`<br/>• `"capsule"` - uses `radius` and `height`<br/>• `"cylinder"` - uses `radius` and `height`<br/>• Required, an unknown type makes the query return an empty table |
 | `vector3` | size | `box` | `{1, 1, 1}` | Full extents of the box as `{x, y, z}` |
-| `number` | radius | `sphere`, `capsule`, `cylinder` | `0.5` sphere, `0.4` capsule and cylinder | Radius of the shape |
+| `number` | radius | `sphere`, `capsule`, `cylinder` | • `sphere` - `0.5`<br/>• `capsule`, `cylinder` - `0.4` | Radius of the shape |
 | `number` | height | `capsule`, `cylinder` | `1.8` | Total height of the shape |
 
 ---
@@ -55,7 +55,7 @@ All fields are optional and fall back to their defaults if not specified.
 | `number` | margin | `0.04` | Shared | Extra collision margin applied to the shape |
 | `bool` | collide_bodies | `true` | Shared | • When `true` - physics bodies are tested<br/>• When `false` - physics bodies are ignored |
 | `bool` | collide_areas | `false` | Shared | • When `true` - areas are tested<br/>• When `false` - areas are ignored |
-| `int` | dimension | `0` | Shared | Dimension whose physics world is queried, from `0` to `65535`<br/>• Anything outside this range raises an error<br/>• A dimension with nothing in it simply finds nothing |
+| `int` | dimension | `0` | Shared | Dimension whose physics world is queried<br/>Must be within `0` to `65535`, otherwise an error is raised<br/>An unused dimension simply finds nothing |
 
 ---
 
