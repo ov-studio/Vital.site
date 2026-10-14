@@ -20,7 +20,7 @@ local hit = physics.space.raycast(
 |------|------|-------------|
 | `vector3` | from | World-space start position of the ray as `{x, y, z}` |
 | `vector3` | to | World-space end position of the ray as `{x, y, z}` |
-| `table` | options | Optional table with `mask`, `exclude`, `collide_bodies`, `collide_areas`, `hit_from_inside`, `hit_back_faces`, and `dimension` fields, `dimension` is the dimension to query (default `0`), from `0` to `65535`, anything else raises an error |
+| `table` | options | Optional query options table<br/>Refer [Options](#options) section |
 
 ### Returns
 
