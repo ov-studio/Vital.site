@@ -32,6 +32,33 @@ local motion_result = physics.space.cast_motion(
 
 ---
 
+### Shape
+
+Shapes are described by a table, only the fields of the chosen `type` are read.
+
+| Type | Key | Shape | Default | Description |
+|------|-----|-------|---------|-------------|
+| `string` | type | All | - | Shape kind: `"box"`, `"sphere"`, `"capsule"` or `"cylinder"`<br/>• Required, an unknown type makes the query return `false` |
+| `vector3` | size | `box` | `{1, 1, 1}` | Full extents of the box as `{x, y, z}` |
+| `number` | radius | `sphere`, `capsule`, `cylinder` | `0.5` sphere, `0.4` capsule and cylinder | Radius of the shape |
+| `number` | height | `capsule`, `cylinder` | `1.8` | Total height of the shape |
+
+---
+
+### Options
+
+All fields are optional and fall back to their defaults if not specified.
+
+| Type | Key | Default | Side | Description |
+|------|-----|---------|------|-------------|
+| `int` | mask | `4294967295` | Shared | Collision layers to test against, as a bitmask<br/>• The default matches every layer |
+| `table` | exclude | `{}` | Shared | Array of entities to ignore<br/>• Only physics bodies and areas are accepted, any other value is skipped |
+| `bool` | collide_bodies | `true` | Shared | • When `true` - physics bodies are tested<br/>• When `false` - physics bodies are ignored |
+| `bool` | collide_areas | `false` | Shared | • When `true` - areas are tested<br/>• When `false` - areas are ignored |
+| `int` | dimension | `0` | Shared | Dimension whose physics world is queried, from `0` to `65535`<br/>• Anything outside this range raises an error<br/>• A dimension with nothing in it simply finds nothing |
+
+---
+
 ### Examples
 
 ```lua lineNumbers title="Predict a capsule's movement"
