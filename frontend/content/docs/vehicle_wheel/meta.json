@@ -2,7 +2,9 @@
     "title": "Vehicle Wheel",
     "icon": "CircleDot",
     "pages": [
+        "---Base---",
         "create",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",

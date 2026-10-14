@@ -2,9 +2,11 @@
     "title": "Space Query",
     "icon": "Crosshair",
     "pages": [
+        "---Base---",
         "raycast",
         "intersect_point",
         "intersect_shape",
-        "cast_motion"
+        "cast_motion",
+        "..."
     ]
 }
