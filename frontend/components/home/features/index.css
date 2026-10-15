@@ -114,7 +114,7 @@
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: var(--bg);
+  background: var(--bg3);
   border: 10px solid var(--b30);
   border-radius: 50%;
 }
