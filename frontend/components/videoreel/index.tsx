@@ -235,7 +235,6 @@ function VideoModal({
       closing={closing}
       onClose={close}
       label={display_title(video.title)}
-      maxWidth={880}
       media={
         <div className="video-reel-modal-player">
           <iframe
