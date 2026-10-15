@@ -30,7 +30,7 @@ function use_scroll_lock(active) {
  * @param {string} [props.frameClassName]  Frame class
  * @param {string} [props.labelledBy]  aria-labelledby
  * @param {string} [props.label]  aria-label
- * @param {number | string} [props.maxWidth=800]
+ * @param {number | string} [props.maxWidth=850]
  * @param {boolean} [props.showClose=true]  Default close control when controls unset
  */
 export function Modal({
@@ -43,7 +43,7 @@ export function Modal({
   frameClassName = '',
   labelledBy,
   label,
-  maxWidth = 800,
+  maxWidth = 850,
   showClose = true
 }) {
   use_scroll_lock(true);

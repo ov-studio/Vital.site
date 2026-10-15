@@ -19,7 +19,7 @@
   left: 50%;
   top: 50%;
   box-sizing: border-box;
-  width: min(800px, calc(100% - 32px));
+  width: min(850px, calc(100% - 32px));
   max-width: calc(100% - 32px);
   max-height: min(90vh, calc(100% - 32px));
   display: flex;
@@ -130,7 +130,7 @@
 .ui-modal-version {
   font-family: var(--font-rajdhani), sans-serif;
   font-size: .9rem;
-  font-weight: 800;
+  font-weight: 850;
   letter-spacing: 0.6px;
   color: var(--text-muted);
 }
