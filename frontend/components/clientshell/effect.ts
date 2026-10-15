@@ -109,35 +109,57 @@ export function useClientShellEffect() {
     }, { threshold: 0.08 });
     rev_els.forEach(el => rev_observer.observe(el));
 
-    /* Search: neutralize Radix body lock so layout never shifts.
-       Only freeze scrolling on <html>, leave sticky chrome alone. */
     const body_el = document.body;
+    let search_was_open = false;
+    let saved_scroll_y = 0;
     const is_search_open = () =>
       !!document.querySelector(
         '[role="dialog"][data-state="open"], [cmdk-dialog], [data-radix-dialog-content][data-state="open"]'
       );
 
+    const strip_body_lock = () => {
+      body_el.style.removeProperty('position');
+      body_el.style.removeProperty('top');
+      body_el.style.removeProperty('left');
+      body_el.style.removeProperty('right');
+      body_el.style.removeProperty('width');
+      body_el.style.removeProperty('overflow');
+      body_el.style.setProperty('padding-right', '0', 'important');
+      body_el.style.setProperty('margin-right', '0', 'important');
+    };
+
     const neutralize_lock = () => {
       const open = is_search_open() || body_el.hasAttribute('data-scroll-locked');
+
+      if (open && !search_was_open) {
+        saved_scroll_y = window.scrollY || window.pageYOffset || 0;
+        search_was_open = true;
+      }
+
       if (open) {
         document.documentElement.style.setProperty('overflow', 'hidden', 'important');
-        /* strip body position lock that causes jump */
-        body_el.style.removeProperty('position');
-        body_el.style.removeProperty('top');
-        body_el.style.removeProperty('left');
-        body_el.style.removeProperty('right');
-        body_el.style.removeProperty('width');
-        body_el.style.removeProperty('overflow');
-        body_el.style.setProperty('padding-right', '0', 'important');
-        body_el.style.setProperty('margin-right', '0', 'important');
-      } else {
+        strip_body_lock();
+      } 
+      else if (search_was_open) {
+        search_was_open = false;
         document.documentElement.style.removeProperty('overflow');
         body_el.style.removeProperty('padding-right');
         body_el.style.removeProperty('margin-right');
+        strip_body_lock();
+        const y = saved_scroll_y;
+        window.scrollTo(0, y);
+        requestAnimationFrame(() => {
+          window.scrollTo(0, y);
+          requestAnimationFrame(() => window.scrollTo(0, y));
+        });
+      }
+      else {
+        strip_body_lock();
       }
     };
 
     const mo_lock = new MutationObserver(() => {
+      neutralize_lock();
       requestAnimationFrame(neutralize_lock);
     });
     mo_lock.observe(body_el, { attributes: true, attributeFilter: ['data-scroll-locked', 'style', 'class'] });
