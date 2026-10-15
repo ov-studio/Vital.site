@@ -56,7 +56,7 @@
   padding: 0;
   border: 1px solid var(--rule);
   border-radius: 10px;
-  background: color-mix(in srgb, var(--bg4) 92%, transparent);
+  background: color-mix(in srgb, var(--bg5) 92%, transparent);
   color: inherit;
   text-align: left;
   overflow: hidden;

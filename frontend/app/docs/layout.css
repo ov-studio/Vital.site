@@ -21,7 +21,7 @@
 
 .dark {
   --color-fd-primary: var(--brand-neon-core);
-  --color-fd-background: var(--bg4);
+  --color-fd-background: var(--bg5);
   --color-fd-card: var(--bg7);
   --color-fd-muted: var(--text-faint);
   --color-fd-muted-foreground: var(--text-mid);
@@ -69,7 +69,7 @@ header.sticky,
   width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
-  box-shadow: 0 0px 4px 2px var(--bg4) !important;
+  box-shadow: 0 0px 4px 2px var(--bg5) !important;
 }
 
 /* Kill centering on any inner wrapper fumadocs injects */
@@ -158,7 +158,7 @@ button[aria-label="Open Search"] {
   font-size: 0.8rem !important;
   font-weight: 600 !important;
   color: var(--text-soft) !important;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4) !important;
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg5) !important;
   border: 2px solid transparent !important;
   border-radius: 4px !important;
   box-shadow: none !important;
@@ -305,7 +305,7 @@ button[aria-label="Collapse Sidebar"] {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--bg4);
+  color: var(--bg5);
   background: var(--blue);
   border-radius: 4px;
   padding: 0.15rem 0.5rem;
@@ -554,7 +554,7 @@ article#nd-page {
     z-index: 6 !important;
     border-radius: 6px !important;
     border: 2px solid transparent !important;
-    background: linear-gradient(var(--b10), var(--b10)), var(--bg4) !important;
+    background: linear-gradient(var(--b10), var(--b10)), var(--bg5) !important;
     color: var(--text-soft) !important;
     box-shadow: none !important;
   }

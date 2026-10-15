@@ -92,7 +92,7 @@
   list-style: none;
   overflow-y: auto;
   box-sizing: border-box;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg4);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg5);
   border: 2px solid var(--b15);
   border-radius: 8px;
   box-shadow:
