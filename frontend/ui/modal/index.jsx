@@ -30,7 +30,7 @@ function use_scroll_lock(active) {
  * @param {string} [props.frameClassName]  Frame class
  * @param {string} [props.labelledBy]  aria-labelledby
  * @param {string} [props.label]  aria-label
- * @param {number | string} [props.maxWidth=780]
+ * @param {number | string} [props.maxWidth=800]
  * @param {boolean} [props.showClose=true]  Default close control when controls unset
  */
 export function Modal({
@@ -43,7 +43,7 @@ export function Modal({
   frameClassName = '',
   labelledBy,
   label,
-  maxWidth = 780,
+  maxWidth = 800,
   showClose = true
 }) {
   use_scroll_lock(true);
@@ -77,7 +77,7 @@ export function Modal({
     >
       <div
         className={`ui-modal-frame${closing ? ' closing' : ''}${frameClassName ? ` ${frameClassName}` : ''}`}
-        style={{ maxWidth: max_w }}
+        style={{ maxWidth: max_w, width: max_w }}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

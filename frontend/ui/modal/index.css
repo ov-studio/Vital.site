@@ -19,7 +19,7 @@
   left: 50%;
   top: 50%;
   box-sizing: border-box;
-  width: min(780px, calc(100% - 32px));
+  width: min(800px, calc(100% - 32px));
   max-width: calc(100% - 32px);
   max-height: min(90vh, calc(100% - 32px));
   display: flex;
