@@ -126,21 +126,9 @@
 }
 
 .vault-intro .sec-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   background: none;
   border: none;
   padding: 0 0 4px;
-  font-family: var(--font-geist), sans-serif;
-  font-size: .8rem;
-  font-weight: 500;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: color .3s ease;
 }
 .vault-intro .sec-link:hover {
   color: var(--brand-neon-core);
