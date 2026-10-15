@@ -96,7 +96,7 @@
   border: 2px solid var(--b15);
   border-radius: 8px;
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 16px 48px var(--k45),
     0 0 0 1px color-mix(in srgb, var(--blue) 8%, transparent);
   animation: ui-select-menu-in .14s ease forwards;
 }

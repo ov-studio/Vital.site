@@ -8,7 +8,7 @@ export const OG_H = 300 * OG_SCALE;
 export const OG_LOGO_H = 88 * OG_SCALE;
 export const OG_GAP = 35 * OG_SCALE;
 export const OG_TAG_SIZE = 15.2 * OG_SCALE;
-export const OG_BLUE = '#87aefb';
+export const OG_BLUE = '#5CADFF';
 
 const SECTION_SKIP = new Set([
   'api',
@@ -98,7 +98,7 @@ export function BrandOgMarkup({
         height: '100%',
         display: 'flex',
         position: 'relative',
-        backgroundColor: '#0b0a0f'
+        backgroundColor: '#0C0F1A'
       }}
     >
       <img

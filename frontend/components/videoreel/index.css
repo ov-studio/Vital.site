@@ -127,7 +127,7 @@
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--fg);
+  color: var(--white);
   line-height: 1.25;
   white-space: nowrap;
   overflow: hidden;
@@ -137,7 +137,7 @@
 .video-reel-tagline {
   font-size: 0.68rem;
   line-height: 1.35;
-  color: var(--fg3);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -147,7 +147,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #000;
+  background: var(--bg);
   flex-shrink: 0;
 }
 
