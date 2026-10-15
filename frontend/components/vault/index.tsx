@@ -160,6 +160,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
       controls={controls}
       media={<Banner src={resource.banner} size="modal"/>}
       label={resource.name}
+      maxWidth={780}
     >
       <ui_modal.ModalHeader
         author={resource.author}
@@ -348,6 +349,7 @@ function VaultSubmitModal({
       closing={closing}
       onClose={on_close}
       label="Publish resource"
+      maxWidth={780}
     >
       <ui_modal.ModalHeader
         title="Publish Resource"
