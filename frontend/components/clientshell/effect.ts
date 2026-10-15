@@ -109,7 +109,43 @@ export function useClientShellEffect() {
     }, { threshold: 0.08 });
     rev_els.forEach(el => rev_observer.observe(el));
 
+    /* Search: neutralize Radix body lock so layout never shifts.
+       Only freeze scrolling on <html>, leave sticky chrome alone. */
+    const body_el = document.body;
+    const is_search_open = () =>
+      !!document.querySelector(
+        '[role="dialog"][data-state="open"], [cmdk-dialog], [data-radix-dialog-content][data-state="open"]'
+      );
+
+    const neutralize_lock = () => {
+      const open = is_search_open() || body_el.hasAttribute('data-scroll-locked');
+      if (open) {
+        document.documentElement.style.setProperty('overflow', 'hidden', 'important');
+        /* strip body position lock that causes jump */
+        body_el.style.removeProperty('position');
+        body_el.style.removeProperty('top');
+        body_el.style.removeProperty('left');
+        body_el.style.removeProperty('right');
+        body_el.style.removeProperty('width');
+        body_el.style.removeProperty('overflow');
+        body_el.style.setProperty('padding-right', '0', 'important');
+        body_el.style.setProperty('margin-right', '0', 'important');
+      } else {
+        document.documentElement.style.removeProperty('overflow');
+        body_el.style.removeProperty('padding-right');
+        body_el.style.removeProperty('margin-right');
+      }
+    };
+
+    const mo_lock = new MutationObserver(() => {
+      requestAnimationFrame(neutralize_lock);
+    });
+    mo_lock.observe(body_el, { attributes: true, attributeFilter: ['data-scroll-locked', 'style', 'class'] });
+    mo_lock.observe(document.body, { childList: true, subtree: true });
+
     return () => {
+      mo_lock.disconnect();
+      document.documentElement.style.removeProperty('overflow');
       document.removeEventListener('mousemove', on_mouse_move);
       window.removeEventListener('scroll', on_nav_blur);
       window.removeEventListener('scroll', on_scroll_active);

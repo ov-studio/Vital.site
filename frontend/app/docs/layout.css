@@ -727,3 +727,44 @@ html:has([role="dialog"][data-state="open"]) {
   scrollbar-gutter: stable;
 }
 
+/* ── Search: no layout shift — kill body position lock, overlay only ── */
+html:has([role="dialog"][data-state="open"]),
+html:has(body[data-scroll-locked]) {
+  overflow: hidden !important;
+  scrollbar-gutter: stable;
+}
+
+body[data-scroll-locked],
+body[data-scroll-locked][style],
+html body[style*="overflow"],
+body[style*="padding-right"],
+body[style*="position: fixed"],
+body[style*="position:fixed"] {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+div.fixed.inset-0[data-state="open"],
+div.fixed.inset-0.z-50[data-state="open"],
+div.fixed.inset-0[class*="bg-fd-overlay"],
+div.fixed.inset-0[class*="backdrop"] {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  z-index: 105 !important;
+}
+
+[role="dialog"][data-state="open"],
+div[role="dialog"][data-state="open"],
+[cmdk-dialog] {
+  z-index: 110 !important;
+}
