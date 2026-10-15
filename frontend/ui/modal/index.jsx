@@ -77,7 +77,7 @@ export function Modal({
     >
       <div
         className={`ui-modal-frame${closing ? ' closing' : ''}${frameClassName ? ` ${frameClassName}` : ''}`}
-        style={{ maxWidth: max_w, width: max_w }}
+        style={{ ['--ui-modal-max']: max_w }}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

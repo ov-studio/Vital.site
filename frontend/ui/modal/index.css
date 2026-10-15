@@ -19,9 +19,9 @@
   left: 50%;
   top: 50%;
   box-sizing: border-box;
-  width: min(850px, calc(100% - 32px));
-  max-width: calc(100% - 32px);
-  max-height: min(90vh, calc(100% - 32px));
+  width: min(var(--ui-modal-max, 850px), calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  max-height: min(90vh, calc(100dvh - 32px));
   display: flex;
   flex-direction: column;
   background: var(--brand-neon-core);
@@ -330,20 +330,59 @@
 
 /* ── @media ── */
 @media (max-width: 640px) {
-  .ui-modal-frame {
-    max-height: 92vh;
+  .ui-modal-overlay {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  .ui-modal-frame {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: calc(100dvh - 32px) !important;
+    margin: 0;
+    animation: ui-modal-in-mobile .35s ease forwards;
+  }
+
+  .ui-modal-frame.closing {
+    animation: ui-modal-out-mobile .205s ease forwards;
+  }
+
   .ui-modal-body {
     padding: 24px 20px 28px;
   }
+
   .ui-modal-name {
     font-size: 1.5rem;
   }
+
   .ui-modal-actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 12px;
   }
+
   .ui-modal-actions .ui-btn--secondary {
     margin-left: 0;
   }
+
+  .ui-modal-controls {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+@keyframes ui-modal-in-mobile {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes ui-modal-out-mobile {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateY(16px); }
 }
