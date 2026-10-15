@@ -1,32 +1,32 @@
 :root {
   /* ── Base ── */
-  --bg: hsl(250, 25%, 2.5%);
-  --bg2: hsl(248, 22%, 3%);
-  --bg3: hsl(252, 20%, 4%);
-  --bg4: hsl(252, 20%, 4.5%);
-  --bg5: hsl(250, 21%, 5.5%);
-  --bg6: hsl(250, 21%, 6.5%);
-  --bg7: hsl(250, 21%, 7.5%);
-  --bg8: hsl(250, 21%, 8.5%);
-  --bg9: hsl(250, 21%, 9.5%);
+  --bg:  hsl(228, 32%, 7%);
+  --bg2: hsl(226, 30%, 8.5%);
+  --bg3: hsl(224, 28%, 10%);
+  --bg4: hsl(222, 26%, 11.5%);
+  --bg5: hsl(220, 26%, 13%);
+  --bg6: hsl(218, 24%, 15%);
+  --bg7: hsl(216, 22%, 17%);
+  --bg8: hsl(214, 22%, 19%);
+  --bg9: hsl(212, 20%, 22%);
 
 
   /* ── Accent ── */
-  --blue: hsl(220, 95%, 76%);
-  --b90: hsla(220, 95%, 76%, .9);
-  --b80: hsla(220, 95%, 76%, .8);
-  --b70: hsla(220, 95%, 76%, .7);
-  --b60: hsla(220, 95%, 76%, .6);
-  --b50: hsla(220, 95%, 76%, .5);
-  --b40: hsla(220, 95%, 76%, .4);
-  --b30: hsla(220, 95%, 76%, .3);
-  --b20: hsla(220, 95%, 76%, .2);
-  --b18: hsla(220, 95%, 76%, .18);
-  --b15: hsla(220, 95%, 76%, .15);
-  --b10: hsla(220, 95%, 76%, .1);
-  --b07: hsla(220, 95%, 76%, .07);
-  --b05: hsla(220, 95%, 76%, .05);
-  --blue-scanline: hsla(220, 95%, 76%, .012);
+  --blue: hsl(212, 100%, 68%);
+  --b90: hsla(212, 100%, 68%, .9);
+  --b80: hsla(212, 100%, 68%, .8);
+  --b70: hsla(212, 100%, 68%, .7);
+  --b60: hsla(212, 100%, 68%, .6);
+  --b50: hsla(212, 100%, 68%, .5);
+  --b40: hsla(212, 100%, 68%, .4);
+  --b30: hsla(212, 100%, 68%, .3);
+  --b20: hsla(212, 100%, 68%, .2);
+  --b18: hsla(212, 100%, 68%, .18);
+  --b15: hsla(212, 100%, 68%, .15);
+  --b10: hsla(212, 100%, 68%, .1);
+  --b07: hsla(212, 100%, 68%, .07);
+  --b05: hsla(212, 100%, 68%, .05);
+  --blue-scanline: hsla(212, 100%, 68%, .018);
 
   
   /* ── Status ── */
@@ -39,70 +39,70 @@
   --r25: rgba(255, 80, 80, 0.25);
   --r45: rgba(255, 80, 80, 0.45);
 
-  --amber: hsl(45, 80%, 58%);
-  --a30: hsla(45, 80%, 58%, .3);
-  --a60: hsla(45, 80%, 58%, .6);
+  --amber: hsl(42, 92%, 58%);
+  --a30: hsla(42, 92%, 58%, .3);
+  --a60: hsla(42, 92%, 58%, .6);
 
 
   /* ── Text ── */
-  --white: hsl(0, 0%, 97%);
-  --dim: hsl(220, 10%, 70%);
-  --dark: hsl(220, 10%, 42%);
-  --text-muted: hsl(220, 10%, 55%);
-  --text-faint: hsl(220, 10%, 38%);
-  --text-mid: hsl(220, 10%, 50%);
-  --text-soft: hsl(220, 10%, 65%);
-  --text-dim2: hsl(220, 10%, 30%);
-  --text-desc: hsl(220, 10%, 45%);
-  --text-desc-hover: hsl(220, 10%, 60%);
+  --white: hsl(210, 40%, 98%);
+  --dim: hsl(214, 22%, 78%);
+  --dark: hsl(214, 16%, 48%);
+  --text-muted: hsl(214, 16%, 62%);
+  --text-faint: hsl(214, 14%, 44%);
+  --text-mid: hsl(214, 16%, 56%);
+  --text-soft: hsl(214, 20%, 72%);
+  --text-dim2: hsl(214, 14%, 36%);
+  --text-desc: hsl(214, 14%, 52%);
+  --text-desc-hover: hsl(214, 18%, 68%);
 
 
   /* ── Borders ── */
-  --rule: hsl(220, 18%, 9%);
-  --rule20: hsl(220, 18%, 20%);
-  --rule12: hsl(220, 18%, 12%);
-  --rule7: hsl(220, 18%, 7%);
+  --rule: hsl(220, 22%, 16%);
+  --rule20: hsl(214, 24%, 28%);
+  --rule12: hsl(218, 22%, 20%);
+  --rule7: hsl(222, 24%, 12%);
   
 
   /* ── Overlays ── */
-  --w03: rgba(255, 255, 255, 0.03);
-  --w04: rgba(255, 255, 255, 0.04);
-  --w05: rgba(255, 255, 255, 0.05);
-  --w06: hsla(220, 18%, 100%, .06);
-  --w08: rgba(255, 255, 255, 0.08);
-  --w10: rgba(255, 255, 255, 0.1);
-  --w12: rgba(255, 255, 255, 0.12);
+  --w03: rgba(255, 255, 255, 0.04);
+  --w04: rgba(255, 255, 255, 0.05);
+  --w05: rgba(255, 255, 255, 0.06);
+  --w06: hsla(212, 40%, 100%, .07);
+  --w08: rgba(255, 255, 255, 0.09);
+  --w10: rgba(255, 255, 255, 0.11);
+  --w12: rgba(255, 255, 255, 0.13);
   --w18: rgba(255, 255, 255, 0.18);
   --w30: rgba(255, 255, 255, 0.3);
   --w70: rgba(255, 255, 255, 0.7);
   --w80: rgba(255, 255, 255, 0.8);
   --w90: rgba(255, 255, 255, 0.9);
-  --k22: rgba(0, 0, 0, 0.22);
-  --k45: rgba(0, 0, 0, 0.45);
-  --vignette: hsla(250, 30%, 1.5%, .75);
-  --mid-20: hsla(220, 10%, 50%, .2);
+  --k22: rgba(8, 12, 28, 0.28);
+  --k45: rgba(6, 10, 24, 0.5);
+  --vignette: hsla(228, 40%, 5%, .55);
+  --mid-20: hsla(214, 20%, 55%, .22);
 
 
   /* ── Syntax highlight ── */
-  --syn-fn: hsl(195, 65%, 65%);
-  --syn-st: hsl(142, 42%, 58%);
-  --syn-cm: hsl(220, 10%, 48%);
-  --syn-nm: hsl(30, 75%, 62%);
-  --syn-pu: hsl(220, 12%, 50%);
+  --syn-fn: hsl(195, 75%, 68%);
+  --syn-st: hsl(142, 48%, 58%);
+  --syn-cm: hsl(214, 14%, 52%);
+  --syn-nm: hsl(32, 85%, 62%);
+  --syn-pu: hsl(214, 16%, 58%);
 
 
   /* ── Selection ── */
   --selection-text: var(--white);
-  --selection-bg: hsl(220, 40%, 40%);
-  --selection-border: hsl(220, 25%, 15%);
+  --selection-bg: hsl(212, 55%, 38%);
+  --selection-border: hsl(212, 35%, 24%);
 
 
   /* ── Brand ── */
   --brand-color: var(--blue);
-  --brand-muted: hsl(220, 20%, 60%);
-  --brand-neon-core: hsl(220, 100%, 85%);
-  --brand-neon-mid: hsl(220, 95%, 70%);
-  --brand-neon-glow: hsla(220, 95%, 65%, 0.55);
+  --brand-muted: hsl(214, 28%, 64%);
+  --brand-neon-core: hsl(210, 100%, 88%);
+  --brand-neon-mid: hsl(212, 100%, 70%);
+  --brand-neon-glow: hsla(212, 100%, 62%, 0.5);
 
 
   /* ── Fonts ── */
@@ -130,8 +130,8 @@
   --anim-delay-5: .55s;
 
   /* ── Social ── */
-  --social-color: hsl(220, 10%, 60%);
-  --social-hover-bg: hsla(220, 20%, 100%, .06);
+  --social-color: hsl(214, 18%, 64%);
+  --social-hover-bg: hsla(212, 40%, 100%, .07);
 }
 
 
@@ -145,13 +145,13 @@ html {
 * {
   cursor: none;
   scrollbar-width: thin;
-  scrollbar-color: var(--b10) var(--rule7);
+  scrollbar-color: var(--b20) var(--rule7);
 }
 
 *::-webkit-scrollbar { width: 6px; height: 6px; }
 *::-webkit-scrollbar-track { background: var(--rule7); }
-*::-webkit-scrollbar-thumb { background: var(--b10); border-radius: 3px; }
-*::-webkit-scrollbar-thumb:hover { background: var(--b20); }
+*::-webkit-scrollbar-thumb { background: var(--b20); border-radius: 3px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--b40); }
 
 *:focus {
   outline: none;
