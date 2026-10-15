@@ -70,7 +70,7 @@ header.sticky,
   width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
-  box-shadow: 0 0px 4px 2px var(--bg) !important;
+  box-shadow: 0 0px 4px 2px var(--bg4) !important;
 }
 
 /* Kill centering on any inner wrapper fumadocs injects */
