@@ -1,0 +1,35 @@
+---
+title: self:set_width
+description: Sets the width of the ribbon at the trail
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_width(
+    width
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | width | Ribbon width in world units, it thins out to nothing at the end |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the ribbon width"
+local entity = particle.trail.create()
+
+entity:set_width(0.08)
+```

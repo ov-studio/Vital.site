@@ -1,0 +1,35 @@
+---
+title: self:set_lifetime
+description: Sets how long the ribbon takes to fade out
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_lifetime(
+    seconds
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | seconds | Ribbon lifetime in seconds, at least `0.01` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the ribbon lifetime"
+local entity = particle.trail.create()
+
+entity:set_lifetime(0.4)
+```

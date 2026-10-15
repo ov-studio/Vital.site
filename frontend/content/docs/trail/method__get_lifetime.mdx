@@ -1,0 +1,32 @@
+---
+title: self:get_lifetime
+description: Retrieves how long the ribbon takes to fade out
+badge: client
+---
+
+### Syntax
+
+```lua
+local seconds = self:get_lifetime()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | seconds | Ribbon lifetime in seconds |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the ribbon lifetime"
+local entity = particle.trail.create()
+
+core.engine.print("info", entity:get_lifetime())
+```

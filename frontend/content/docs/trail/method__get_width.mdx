@@ -1,0 +1,32 @@
+---
+title: self:get_width
+description: Retrieves the width of the ribbon at the trail
+badge: client
+---
+
+### Syntax
+
+```lua
+local width = self:get_width()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | width | Ribbon width in world units |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the ribbon width"
+local entity = particle.trail.create()
+
+core.engine.print("info", entity:get_width())
+```

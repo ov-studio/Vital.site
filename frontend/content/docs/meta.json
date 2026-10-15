@@ -76,6 +76,7 @@
 
         "---Particle---",
         "gpu_particles",
+        "trail",
 
         "---Physics---",
         "rigid_body",

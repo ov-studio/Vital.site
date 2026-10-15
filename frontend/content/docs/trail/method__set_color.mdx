@@ -1,0 +1,40 @@
+---
+title: self:set_color
+description: Sets the colors of the ribbon
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_color(
+    from,
+    to = from faded out
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `color` | from | Color at the trail as `{r, g, b, a}` |
+| `color` | to | Color at the end of the ribbon as `{r, g, b, a}`<br/>Defaults to `from` fully faded out |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Fade from yellow to transparent red"
+local entity = particle.trail.create()
+
+entity:set_color({1, 0.9, 0.3, 1}, {1, 0.2, 0, 0})
+
+-- or fade out in the same color
+entity:set_color({0.1, 0.5, 0.8, 0.9})
+```

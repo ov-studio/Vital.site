@@ -1,0 +1,32 @@
+---
+title: self:get_dimension
+description: Retrieves the dimension of the trail
+badge: client
+---
+
+### Syntax
+
+```lua
+local dimension = self:get_dimension()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | dimension | Current dimension id |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the dimension of a trail"
+local entity = particle.trail.create()
+
+core.engine.print("info", "Trail dimension:", entity:get_dimension())
+```

@@ -1,0 +1,47 @@
+---
+title: particle.trail.create
+description: Creates a new trail
+badge: client
+---
+
+### Syntax
+
+```lua
+local instance = particle.trail.create()
+```
+
+<Callout type="info">
+  **A trail draws a ribbon along the path it travels.**
+
+  - **Follows the trail** — move it every frame, for example onto a bone with `model:get_bone_position`, and the ribbon draws the path it travelled.
+  - **Fades out** — the ribbon is full width and color at the trail, then thins out and fades towards its end, see [`self:set_lifetime`](/docs/trail/method/set_lifetime), [`self:set_width`](/docs/trail/method/set_width) and [`self:set_color`](/docs/trail/method/set_color).
+  - **At rest** — while the trail stands still the ribbon shrinks away on its own.
+  - **Not a particle emitter** — the ribbon is a mesh built from the path of the trail, so it needs no emission, amount or velocity settings.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `trail` | instance | Trail instance |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw a ribbon behind a hand"
+local trail = particle.trail.create()
+
+trail:set_width(0.08)
+trail:set_lifetime(0.4)
+trail:set_color({0.1, 0.5, 0.8, 0.9}, {0.55, 0.8, 1, 0})
+
+util.event.on("sandbox:process", function()
+    trail:set_global_position(model:get_bone_position("DEF-hand.R"))
+end)
+```

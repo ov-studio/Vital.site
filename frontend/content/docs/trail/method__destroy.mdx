@@ -1,0 +1,32 @@
+---
+title: self:destroy
+description: Destroys the trail instance and frees its resources
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:destroy()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Destroy a trail instance"
+local entity = particle.trail.create()
+
+entity:destroy()
+```

@@ -1,0 +1,33 @@
+---
+title: self:clear
+description: Removes the current ribbon
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:clear()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reposition without a ribbon streaking across"
+local entity = particle.trail.create()
+
+entity:set_global_position({10, 1, 0})
+entity:clear()
+```
