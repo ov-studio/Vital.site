@@ -348,7 +348,7 @@ function VaultSubmitModal({
       closing={closing}
       onClose={on_close}
       label="Publish resource"
-      maxWidth={780}
+      maxWidth={880}
     >
       <ui_modal.ModalHeader
         title="Publish Resource"
