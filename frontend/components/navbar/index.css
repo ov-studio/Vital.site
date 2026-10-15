@@ -4,7 +4,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 500;
-  height: 68px;
+  height: var(--nav-h);
   display: flex;
   align-items: center;
 }

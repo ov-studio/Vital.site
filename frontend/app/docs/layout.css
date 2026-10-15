@@ -679,7 +679,7 @@ html body [role="dialog"][data-state="open"] {
   --tw-scale-y: 1 !important;
 
   position: fixed !important;
-  top: calc(var(--nav-h, 68px) + 12px) !important;
+  top: calc(var(--nav-h) + 12px) !important;
   bottom: auto !important;
   left: 0 !important;
   right: 0 !important;
@@ -697,7 +697,7 @@ html body [role="dialog"][data-state="open"] {
   animation: none !important;
   transition: none !important;
 
-  max-height: min(30rem, calc(100vh - var(--nav-h, 68px) - 2rem)) !important;
+  max-height: min(30rem, calc(100vh - var(--nav-h) - 2rem)) !important;
   border-radius: 10px !important;
   border: 1px solid var(--b10) !important;
   background: var(--bg7) !important;
