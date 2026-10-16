@@ -22,15 +22,15 @@
 .dark {
   --color-fd-primary: var(--brand-neon-core);
   --color-fd-background: var(--bg6);
-  --color-fd-card: var(--bg7);
+  --color-fd-card: var(--bg8);
   --color-fd-muted: var(--text-faint);
   --color-fd-muted-foreground: var(--text-mid);
   --color-fd-border: var(--b05);
   --color-fd-accent: var(--b10);
   --color-fd-accent-foreground: var(--white);
-  --color-fd-popover: var(--bg7);
+  --color-fd-popover: var(--bg8);
   --color-fd-popover-foreground: var(--white);
-  --color-fd-secondary: var(--bg7);
+  --color-fd-secondary: var(--bg8);
   --color-fd-secondary-foreground: var(--text-soft);
 }
 
@@ -438,7 +438,7 @@ article#nd-page {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.95em;
   line-height: 1.55;
-  background: var(--bg7);
+  background: var(--bg8);
   border-radius: 8px;
 }
 
@@ -700,7 +700,7 @@ html body [role="dialog"][data-state="open"] {
   max-height: min(30rem, calc(100vh - var(--nav-h) - 2rem)) !important;
   border-radius: 10px !important;
   border: 1px solid var(--b10) !important;
-  background: var(--bg7) !important;
+  background: var(--bg8) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
