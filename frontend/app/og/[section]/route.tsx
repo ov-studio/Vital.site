@@ -14,12 +14,12 @@ export async function GET(
   const allowed = new Set(lib_og_brand.site_og_sections());
   if (!allowed.has(section)) next_navigation.notFound();
 
-  const { label, font, placeholder, width, height } = lib_og_brand.brand_og_payload(
+  const { host, path, font, placeholder, width, height } = lib_og_brand.brand_og_payload(
     `/${section}`
   );
 
   return new next_og.ImageResponse(
-    <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder}/>,
+    <lib_og_brand.BrandOgMarkup host={host} path={path} placeholderSrc={placeholder}/>,
     {
       width,
       height,

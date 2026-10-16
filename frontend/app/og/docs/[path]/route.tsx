@@ -23,10 +23,10 @@ export async function GET(
   if (!page) next_navigation.notFound();
 
   const route_path = page.url.startsWith('/') ? page.url : `/${page.url}`;
-  const { label, font, placeholder, width, height } = lib_og_brand.brand_og_payload(route_path);
+  const { host, path, font, placeholder, width, height } = lib_og_brand.brand_og_payload(route_path);
 
   return new next_og.ImageResponse(
-    <lib_og_brand.BrandOgMarkup label={label} placeholderSrc={placeholder}/>,
+    <lib_og_brand.BrandOgMarkup host={host} path={path} placeholderSrc={placeholder}/>,
     {
       width,
       height,

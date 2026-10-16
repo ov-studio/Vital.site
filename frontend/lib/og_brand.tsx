@@ -2,17 +2,13 @@ import * as fs          from 'fs';
 import * as path        from 'path';
 import * as lib_api_url from '@/lib/api_url';
 
-export {
-  OG_SCALE,
-  OG_BASE_W,
-  OG_BASE_H,
-  OG_W,
-  OG_H,
-  OG_LOGO_H,
-  OG_GAP,
-  OG_TAG_SIZE,
-  OG_BLUE,
-} from '@/lib/og_sizes';
+export const OG_SCALE = 2;
+export const OG_W = 1000 * OG_SCALE;
+export const OG_H = 375 * OG_SCALE;
+export const OG_LOGO_H = 88 * OG_SCALE;
+export const OG_GAP = 35 * OG_SCALE;
+export const OG_TAG_SIZE = 15.2 * OG_SCALE;
+export const OG_BLUE = '#5CADFF';
 
 const SECTION_SKIP = new Set([
   'api',
@@ -46,12 +42,23 @@ export function og_host(): string {
   return lib_api_url.get_frontend_host();
 }
 
-/** Uppercase host + path label drawn on brand OG images. */
-export function og_label(route_path: string): string {
-  const host = og_host();
+/** Uppercase host for brand OG images. */
+export function og_label_host(): string {
+  return og_host().toUpperCase();
+}
+
+/** Uppercase path segment (e.g. `/NEWS`), or empty for site root. */
+export function og_label_path(route_path: string): string {
   const p = route_path.startsWith('/') ? route_path : `/${route_path}`;
-  if (p === '/') return host.toUpperCase();
-  return `${host}${p}`.toUpperCase();
+  if (p === '/') return '';
+  return p.toUpperCase();
+}
+
+/** Full uppercase host + path label (legacy single-string form). */
+export function og_label(route_path: string): string {
+  const host = og_label_host();
+  const p = og_label_path(route_path);
+  return p ? `${host}${p}` : host;
 }
 
 /** Load the Rajdhani SemiBold font buffer for OG image generation. */
@@ -75,10 +82,14 @@ export function og_tagline_top(): number {
   return group_top + OG_LOGO_H + OG_GAP;
 }
 
-/** Bundle label, font, placeholder, and dimensions for a brand OG route. */
+/** Bundle host/path label parts, font, placeholder, and dimensions for a brand OG route. */
 export function brand_og_payload(route_path: string) {
+  const host = og_label_host();
+  const path = og_label_path(route_path);
   return {
-    label: og_label(route_path),
+    host,
+    path,
+    label: path ? `${host}${path}` : host,
     font: load_og_font(),
     placeholder: load_og_placeholder_data_uri(),
     width: OG_W,
@@ -86,12 +97,16 @@ export function brand_og_payload(route_path: string) {
   };
 }
 
-/** JSX markup for a brand Open Graph image (Satori / ImageResponse). */
+/** JSX markup for a brand Open Graph image (Satori / ImageResponse).
+ *  Host stays brand blue; path (`/NEWS`, `/VAULT`, …) is white.
+ */
 export function BrandOgMarkup({
-  label,
+  host,
+  path: pathPart = '',
   placeholderSrc,
 }: {
-  label:          string;
+  host:           string;
+  path?:          string;
   placeholderSrc: string;
 }) {
   const top = og_tagline_top();
@@ -133,18 +148,21 @@ export function BrandOgMarkup({
         <div
           style={{
             display: 'flex',
+            flexDirection: 'row',
             fontFamily: 'Rajdhani',
             fontSize: OG_TAG_SIZE,
             fontWeight: 600,
             letterSpacing: '0.1em',
-            color: OG_BLUE,
             textTransform: 'uppercase',
             lineHeight: 1,
             maxWidth: '100%',
             overflow: 'hidden'
           }}
         >
-          {label}
+          <span style={{ color: OG_BLUE }}>{host}</span>
+          {pathPart ? (
+            <span style={{ color: '#F7F7F7' }}>{pathPart}</span>
+          ) : null}
         </div>
       </div>
     </div>
