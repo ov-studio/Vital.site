@@ -158,7 +158,7 @@ button[aria-label="Open Search"] {
   font-size: 0.8rem !important;
   font-weight: 600 !important;
   color: var(--text-soft) !important;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg5) !important;
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg12) !important;
   border: 2px solid transparent !important;
   border-radius: 4px !important;
   box-shadow: none !important;
