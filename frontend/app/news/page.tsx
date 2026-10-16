@@ -32,8 +32,7 @@ export default function NewsPage() {
       <component_navbar.Navbar links={[
         { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' },
-        { label: 'News', href: '/news' }
+        { label: 'Roadmap', href: '/roadmap' }
       ]}/>
       <react.Suspense>
         <component_news.News posts={posts} bodies={bodies}/>
