@@ -10,15 +10,18 @@ badge: client
 local count = self:apply_to_material(
     model,
     component,
-    material
+    material,
+    priority = 0
 )
 ```
 
 <Callout type="info">
   **The shader automatically inherits values from the surface's original material.**
 
-  - **Model instance** — applies immediately to that model only and does not persist for future spawns.
+  - **Model instance** — applies to that model only and lasts as long as the model does. It does not apply to models spawned later.
   - **Wildcard `"*"`** — applies to all live models and is registered persistently for models spawned later.
+  - **Priority** — when several shaders cover the same surface, the one with the highest `priority` is shown. On equal priority, the most recently applied shader wins. Applying the same shader to the same target again updates its priority and counts as the latest apply.
+  - **Fallback** — when the shown shader is removed with [`self:remove_from_material`](/docs/shader/method/remove_from_material), destroyed or its resource stops, the next best shader takes over automatically. The surface only returns to its original material when no other shader covers it.
   - **Auto-binding** — refer [**Shader Uniform Cheatsheet**](/docs/shader/cheatsheet/uniforms) for uniform names populated automatically.
 </Callout>
 
@@ -29,12 +32,13 @@ local count = self:apply_to_material(
 | `model` \| `string` \| `nil` | model | Model instance to apply to, or `"*"` / `nil` to match every model and register the assignment for future spawns |
 | `string` | component | Mesh component name or wildcard pattern to match |
 | `string` | material | Surface material name or wildcard pattern to match |
+| `int` | priority | Priority of this assignment, higher values win<br/>Can be negative<br/>Defaults to `0` |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | count | Number of surfaces updated on already-live models |
+| `int` | count | Number of surfaces on already-live models that matched |
 
 ---
 
@@ -52,4 +56,14 @@ entity:apply_to_material(model, "*", "*")
 local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
 
 entity:apply_to_material("*", "Skeleton3D/Body", "skin")
+```
+
+```lua lineNumbers title="Let a higher priority shader win regardless of apply order"
+local base = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
+local highlight = core.shader.create("assets/shaders/highlight.glsl", core.shader.shader_mode.SPATIAL)
+core.model.load("character", "models/character.glb")
+local model = core.model.create("character")
+
+highlight:apply_to_material(model, "*", "*", 100)
+base:apply_to_material(model, "*", "*") -- highlight is still shown, priority 100 beats 0
 ```
