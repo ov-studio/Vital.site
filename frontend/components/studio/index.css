@@ -91,7 +91,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 4px;
-  background: var(--bg5);
+  background: var(--bg6);
   flex-shrink: 0;
 }
 
@@ -111,7 +111,7 @@
 }
 
 .studio-og {
-  background-color: var(--bg5);
+  background-color: var(--bg6);
 }
 
 .studio-og-content {
@@ -145,15 +145,15 @@
 }
 
 .studio-logo.has-bg {
-  background: var(--bg5);
+  background: var(--bg6);
 }
 
 .studio-logo.no-bg {
   background-image:
-    linear-gradient(45deg, var(--bg5) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--bg5) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, var(--bg5) 75%),
-    linear-gradient(-45deg, transparent 75%, var(--bg5) 75%);
+    linear-gradient(45deg, var(--bg6) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--bg6) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--bg6) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--bg6) 75%);
   background-size: 24px 24px;
   background-position: 0 0, 0 12px, 12px -12px, -12px 0;
 }
@@ -224,14 +224,14 @@
   aspect-ratio: 2560 / 640;
   overflow: hidden;
   border-radius: 4px;
-  background: var(--bg5);
+  background: var(--bg6);
 }
 
 .studio-banner {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--bg5);
+  background-color: var(--bg6);
   overflow: hidden;
   width: 2560px;
   height: 640px;
