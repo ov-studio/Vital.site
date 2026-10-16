@@ -1,6 +1,6 @@
 ---
 title: self:remove_from_material
-description: Removes a shader assignment previously made with `self:apply_to_material`
+description: Removes a shader override previously applied with `self:apply_to_material`
 badge: client
 ---
 
@@ -14,19 +14,11 @@ local count = self:remove_from_material(
 )
 ```
 
-<Callout type="info">
-  **Surfaces fall back to the next best shader.**
-
-  - **What is removed** — this shader's own assignments on the given target that are covered by `component` and `material`. `"*"` covers everything, so `self:remove_from_material(model, "*", "*")` removes all of them.
-  - **Fallback** — each affected surface is handed to the next best assignment (highest priority, then most recently applied) and returns to its original material only when no other shader covers it.
-  - **Target** — a model instance removes assignments made for that model. `"*"` / `nil` removes assignments made with `"*"`. The two do not affect each other.
-</Callout>
-
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `model` \| `string` \| `nil` | model | Model instance to remove from, or `"*"` / `nil` to remove the persistent assignment made for every model |
+| `model` \| `string` \| `nil` | model | Model instance to clear, or `"*"` / `nil` to remove the persistent registration and clear every live model |
 | `string` | component | Mesh component name or wildcard pattern to match |
 | `string` | material | Surface material name or wildcard pattern to match |
 
@@ -34,7 +26,7 @@ local count = self:remove_from_material(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | count | Number of surfaces that were handed to another shader or restored |
+| `int` | count | Number of surfaces whose override was changed |
 
 ---
 
@@ -53,15 +45,4 @@ entity:remove_from_material(model, "*", "*")
 local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
 
 entity:remove_from_material("*", "*", "*")
-```
-
-```lua lineNumbers title="Fall back to the previous shader"
-local a = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
-local b = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
-core.model.load("character", "models/character.glb")
-local model = core.model.create("character")
-
-a:apply_to_material(model, "*", "*")
-b:apply_to_material(model, "*", "*") -- b is shown
-b:remove_from_material(model, "*", "*") -- a is shown again
 ```
