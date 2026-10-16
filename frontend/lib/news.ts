@@ -43,3 +43,8 @@ export function to_entry(page: NewsPage) {
     hue2:        (hue + 60) % 360
   };
 }
+
+/** Cover formats the OG image generator can crop. */
+export function has_og_cover(cover?: string): cover is string {
+  return !!cover && /\.(png|jpe?g|gif)$/i.test(cover);
+}
