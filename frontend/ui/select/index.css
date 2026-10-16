@@ -29,7 +29,7 @@
 
 .ui-select-trigger:hover:not(:disabled) {
   border-color: color-mix(in srgb, var(--blue) 40%, var(--b10));
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg5);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
 }
 
 .ui-select-trigger:focus-visible {
@@ -39,7 +39,7 @@
 
 .ui-select.is-open .ui-select-trigger {
   border-color: color-mix(in srgb, var(--blue) 50%, var(--b10));
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg5);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
 }
 
 .ui-select.is-disabled .ui-select-trigger {
@@ -92,7 +92,7 @@
   list-style: none;
   overflow-y: auto;
   box-sizing: border-box;
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg5);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
   border: 2px solid var(--b15);
   border-radius: 8px;
   box-shadow:

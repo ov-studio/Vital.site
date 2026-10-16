@@ -48,7 +48,7 @@
 }
 
 .ui-table tbody tr:hover:not(.ui-table-empty) td {
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg5);
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
 }
 
 .ui-table-empty:hover td {
