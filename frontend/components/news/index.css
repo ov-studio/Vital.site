@@ -1,3 +1,8 @@
+#news {
+  position: relative;
+  min-height: 100dvh;
+}
+
 /* ── Banner (generated art when a post has no cover) ── */
 .news-banner {
   position: relative;
