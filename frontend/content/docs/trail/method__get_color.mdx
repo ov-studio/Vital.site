@@ -1,6 +1,6 @@
 ---
 title: self:get_color
-description: Retrieves the start and end colors of the ribbon
+description: Retrieves the start and end colors of the trail
 badge: client
 ---
 
@@ -19,14 +19,14 @@ local from, to = self:get_color()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `color` | from | Color at the start of the ribbon as `{r, g, b, a}` |
-| `color` | to | Color at the end of the ribbon as `{r, g, b, a}` |
+| `color` | from | Color at the start of the trail as `{r, g, b, a}` |
+| `color` | to | Color at the end of the trail as `{r, g, b, a}` |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the ribbon colors"
+```lua lineNumbers title="Get the trail colors"
 local entity = particle.trail.create()
 
 local from, to = entity:get_color()
