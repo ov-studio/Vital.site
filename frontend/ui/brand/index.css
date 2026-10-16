@@ -35,7 +35,6 @@
   -webkit-mask-image: none;
   filter:
     brightness(0) saturate(100%)
-    invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(105%) contrast(105%)
     drop-shadow(0 0 var(--brand-neon-ring) var(--blue))
     drop-shadow(0 0 var(--brand-neon-core-blur) var(--brand-neon-core))
     drop-shadow(0 0 var(--brand-neon-mid-blur) var(--brand-neon-mid))
