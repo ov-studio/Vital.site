@@ -138,7 +138,7 @@ export function News({ posts, bodies }: { posts: NewsEntry[]; bodies: Record<str
     <ui_page.Page id="news">
       <ui_pagehead.PageHead
         label="News"
-        title={<>Latest <span>News</span></>}
+        title={<>Project updates,<br/>Delivered as they <span>ship.</span></>}
         intro={config_pages.pages.news.description}
       />
 
