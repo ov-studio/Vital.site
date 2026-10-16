@@ -39,9 +39,61 @@ function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[]
 function render_with_code(text: string): react.ReactNode[] {
   return text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g).map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>;
-    if (part.length > 1 && part.startsWith('`') && part.endsWith('`')) return <code key={i} className="code-pill">{part.slice(1, -1)}</code>;
+    if (part.length > 1 && part.startsWith('`') && part.endsWith('`')) return <code key={i}>{part.slice(1, -1)}</code>;
     return <react.Fragment key={i}>{part}</react.Fragment>;
   });
+}
+
+const BULLET_RE = /^\s*(?:[•\-*])\s+/;
+
+function as_heading(line: string): string | null {
+  const t = line.trim();
+  const bold = t.match(/^\*\*(.+?)\*\*:?$/);
+  if (bold) return bold[1].replace(/:$/, '').trim();
+  if (t.length <= 40 && t.endsWith(':') && !/[.!?]/.test(t.slice(0, -1)) && !t.includes('`')) return t.slice(0, -1).trim();
+  return null;
+}
+
+/** Turns the plain-text description into paragraphs, headings and bullet lists. */
+function render_description(text: string): react.ReactNode[] {
+  const out: react.ReactNode[] = [];
+  let para: string[] = [];
+  let items: string[] = [];
+  let key = 0;
+
+  const flush_para = () => {
+    if (!para.length) return;
+    out.push(<p key={key++}>{render_with_code(para.join('\n'))}</p>);
+    para = [];
+  };
+  const flush_items = () => {
+    if (!items.length) return;
+    out.push(<ul key={key++}>{items.map((it, i) => <li key={i}>{render_with_code(it)}</li>)}</ul>);
+    items = [];
+  };
+
+  for (const raw of text.replace(/\r\n?/g, '\n').split('\n')) {
+    const line = raw.trim();
+    if (!line) { flush_para(); flush_items(); continue; }
+
+    if (BULLET_RE.test(raw)) {
+      flush_para();
+      items.push(line.replace(BULLET_RE, ''));
+      continue;
+    }
+
+    const heading = as_heading(line);
+    if (heading) {
+      flush_para(); flush_items();
+      out.push(<h2 key={key++}>{heading}</h2>);
+      continue;
+    }
+
+    flush_items();
+    para.push(line);
+  }
+  flush_para(); flush_items();
+  return out;
 }
 
 function use_vault_resources() {
@@ -170,7 +222,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
         tagline={resource.tagline}
       />
       <ui_modal.ModalBody>
-        <p className="ui-modal-desc">{render_with_code(resource.description)}</p>
+        <article className="vault-prose">{render_description(resource.description)}</article>
       </ui_modal.ModalBody>
       <ui_modal.ModalFooter>
         <div className="ui-modal-tags">
