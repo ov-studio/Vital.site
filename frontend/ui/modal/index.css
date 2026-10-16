@@ -207,13 +207,13 @@
 .ui-modal-prose > * + h3 { margin-top: 36px; }
 .ui-modal-prose h2 {
   padding-bottom: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   text-transform: none;
   color: var(--brand-neon-core);
   border-bottom: 1px solid var(--b10);
 }
 .ui-modal-prose h3 {
-  font-size: .85rem;
+  font-size: .8rem;
   text-transform: none;
   color: var(--white);
 }
