@@ -147,7 +147,6 @@
 
 .news-prose img {
   max-width: 100%;
-  border: 1px solid var(--b05);
   border-radius: 8px;
 }
 
@@ -183,7 +182,6 @@
   border-spacing: 0;
   font-size: .85rem;
   background: var(--bg7);
-  border: 1px solid var(--b05);
   border-radius: 8px;
   overflow: hidden;
 }
