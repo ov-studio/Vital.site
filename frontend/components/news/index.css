@@ -21,13 +21,6 @@
   transition: transform .4s ease;
 }
 
-.news-banner-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(to bottom, transparent 55%, var(--bg6) 100%);
-}
-
 .news-tags {
   display: flex;
   flex-wrap: wrap;

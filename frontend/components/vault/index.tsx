@@ -28,8 +28,8 @@ import * as next_navigation  from 'next/navigation';
 import './index.css';
 
 const BANNER_CFG = {
-  card: { wrap: 'vault-card-banner', ph: 'vault-card-banner-placeholder', overlay: 'vault-card-banner-overlay', ico: 48 },
-  modal: { wrap: 'vault-modal-banner', ph: 'vault-modal-banner-placeholder', overlay: 'vault-modal-banner-overlay', ico: 80 },
+  card: { wrap: 'vault-card-banner', ph: 'vault-card-banner-placeholder', ico: 48 },
+  modal: { wrap: 'vault-modal-banner', ph: 'vault-modal-banner-placeholder', ico: 80 },
 } as const;
 
 function valid_tags(tags: config_vault.VaultTag[] = []): config_vault.VaultTag[] {
@@ -155,14 +155,13 @@ async function download_directory_zip(folder: string): Promise<void> {
 }
 
 function Banner({ src, size = 'card' }: { src?: string; size?: 'card' | 'modal' }) {
-  const { wrap, ph, overlay, ico } = BANNER_CFG[size];
+  const { wrap, ph, ico } = BANNER_CFG[size];
   return (
     <div className={wrap}>
       {src
         ? <img src={src} alt="Resource banner"/>
         : <div className={ph}><lucide.Package size={ico} color="var(--blue)"/></div>
       }
-      <div className={overlay}/>
     </div>
   );
 }

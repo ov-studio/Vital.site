@@ -70,10 +70,6 @@
 .vault-card-banner-placeholder  svg { opacity: .12; }
 .vault-modal-banner-placeholder svg { opacity: .1; }
 
-.vault-card-banner-overlay,
-.vault-modal-banner-overlay { position: absolute; inset: 0; pointer-events: none; }
-.vault-modal-banner-overlay { background: linear-gradient(to bottom, transparent 55%, var(--bg6) 100%); }
-
 .vault-card-featured-badge {
   position: absolute;
   top: 8px;

@@ -28,7 +28,6 @@ function Banner({ post, size }: { post: NewsEntry; size: 'card' | 'modal' }) {
   return (
     <div className={`news-banner news-banner--${size}`}>
       {post.cover && <img src={post.cover} alt={post.title}/>}
-      <div className="news-banner-overlay"/>
     </div>
   );
 }
