@@ -1,0 +1,30 @@
+---
+title: gfx.antialiasing.get_scaling_3d_scale
+description: Retrieves the current 3D render scale used for supersampling
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.antialiasing.get_scaling_3d_scale()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current 3D render scale<br/>`1.0` means the scene is rendered at the window size |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print current 3D render scale"
+core.engine.print("info", "3D render scale:", gfx.antialiasing.get_scaling_3d_scale())
+```

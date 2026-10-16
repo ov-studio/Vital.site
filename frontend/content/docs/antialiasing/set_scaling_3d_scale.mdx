@@ -1,0 +1,51 @@
+---
+title: gfx.antialiasing.set_scaling_3d_scale
+description: Sets the 3D render scale used for supersampling
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.antialiasing.set_scaling_3d_scale(
+    scale
+)
+```
+
+<Callout type="idea">
+  **Supersampling antialiases what MSAA cannot reach.**
+
+  - **How it works** — The 3D scene, including post-process shaders that read the screen, depth and normal buffers, is rendered at `scale` times the window size and then filtered down to it.
+  - **Above `1.0`** — Antialiases shader-drawn output such as depth-based outlines, which MSAA and FXAA cannot smooth properly.
+  - **Below `1.0`** — Renders fewer pixels and upscales the result, trading image quality for performance.
+  - **Cost** — GPU cost grows with the square of the scale, so `2.0` renders four times as many pixels.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | scale | 3D render scale to apply<br/>Clamped between `0.25` and `2.0`. `1.0` disables supersampling, `1.5` is a light setting and `2.0` gives the cleanest result |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Enable 2x supersampling"
+gfx.antialiasing.set_scaling_3d_scale(2.0)
+```
+
+```lua lineNumbers title="Combine with 4x MSAA"
+gfx.antialiasing.set_msaa_mode(gfx.antialiasing.msaa_mode.X4)
+gfx.antialiasing.set_scaling_3d_scale(1.5)
+```
+
+```lua lineNumbers title="Disable supersampling"
+gfx.antialiasing.set_scaling_3d_scale(1.0)
+```

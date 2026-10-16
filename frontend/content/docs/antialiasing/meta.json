@@ -9,10 +9,12 @@
         "---Getter---",
         "get_mode",
         "get_msaa_mode",
+        "get_scaling_3d_scale",
 
         "---Setter---",
         "set_mode",
         "set_msaa_mode",
+        "set_scaling_3d_scale",
         "..."
     ]
 }
