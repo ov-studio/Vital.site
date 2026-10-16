@@ -27,7 +27,7 @@ nav.s::after {
 
 .ni {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -119,7 +119,7 @@ nav.s::after {
 .nav-staff-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 10;
   border: none;
   background: transparent;
 }
@@ -128,7 +128,7 @@ nav.s::after {
   position: absolute;
   top: calc(100% + 14px);
   right: 0;
-  z-index: 1;
+  z-index: 11;
   min-width: 250px;
   padding: 8px;
   background: linear-gradient(var(--b15), var(--b15)), var(--bg6);
@@ -191,7 +191,7 @@ nav.s::after {
   right: 0;
   top: 100%;
   height: 2px;
-  z-index: 2;
+  z-index: 1;
   overflow: hidden;
   pointer-events: none;
   opacity: 0;
