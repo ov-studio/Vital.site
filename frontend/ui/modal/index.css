@@ -194,6 +194,10 @@
   overflow-y: auto;
 }
 
+.ui-modal-desc-scroll:last-child {
+  margin-bottom: 0;
+}
+
 .ui-modal-desc {
   margin: 0;
   font-family: var(--font-geist), sans-serif;
