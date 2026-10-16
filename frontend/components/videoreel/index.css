@@ -56,7 +56,7 @@
   padding: 0;
   border: 1px solid var(--rule);
   border-radius: 10px;
-  background: color-mix(in srgb, var(--bg5) 92%, transparent);
+  background: color-mix(in srgb, var(--bg6) 92%, transparent);
   color: inherit;
   text-align: left;
   overflow: hidden;
@@ -72,7 +72,7 @@
 
 .video-reel-card:hover {
   border-color: var(--blue);
-  background: var(--bg5);
+  background: var(--bg6);
 }
 
 .video-reel-thumb {
