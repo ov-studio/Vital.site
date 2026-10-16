@@ -19,9 +19,12 @@ export function fmt_post_date(date: Date): string {
   });
 }
 
-/** Every post, newest first. */
+/** Published posts only, newest first. `publish` defaults to false. */
 export function get_posts() {
-  return news.getPages().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  return news
+    .getPages()
+    .filter((p) => p.data.publish === true)
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
 /** Plain, serializable post data for the client components. */

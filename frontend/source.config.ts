@@ -20,10 +20,11 @@ export const news = fumadocs_config.defineDocs({
   dir: 'content/news',
   docs: {
     schema: fumadocs_config.frontmatterSchema.extend({
-      date:   zod.z.coerce.date(),
-      author: zod.z.string().optional(),
-      cover:  zod.z.string().optional(),
-      tags:   zod.z.array(zod.z.string()).default([])
+      date:    zod.z.coerce.date(),
+      author:  zod.z.string().optional(),
+      cover:   zod.z.string().optional(),
+      tags:    zod.z.array(zod.z.string()).default([]),
+      publish: zod.z.boolean().default(false)
     })
   }
 });
