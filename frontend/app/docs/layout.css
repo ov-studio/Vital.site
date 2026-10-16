@@ -69,7 +69,7 @@ header.sticky,
   width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
-  box-shadow: 0 0px 4px 2px var(--bg5) !important;
+  box-shadow: 0 0px 4px 2px var(--bg6) !important;
 }
 
 /* Kill centering on any inner wrapper fumadocs injects */
@@ -305,7 +305,7 @@ button[aria-label="Collapse Sidebar"] {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--bg5);
+  color: var(--bg6);
   background: var(--blue);
   border-radius: 4px;
   padding: 0.15rem 0.5rem;

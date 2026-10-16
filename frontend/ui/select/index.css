@@ -19,7 +19,7 @@
   text-transform: none;
   text-align: left;
   color: var(--brand-neon-core);
-  background: linear-gradient(var(--b07), var(--b07)), var(--bg5);
+  background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
   border: 2px solid var(--b10);
   border-radius: 6px;
   outline: none;
