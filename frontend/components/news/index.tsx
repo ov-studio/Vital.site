@@ -42,7 +42,7 @@ function NewsModal({ post, body, on_close, closing }: {
   const copied = copied_key !== null;
 
   const handle_share = react.useCallback(() => {
-    copy(`${window.location.origin}/news?modal=${post.slug}`);
+    copy(`${window.location.origin}/news/${post.slug}`);
   }, [post.slug, copy]);
 
   const controls = (
@@ -94,33 +94,36 @@ function NewsModal({ post, body, on_close, closing }: {
   );
 }
 
-export function News({ posts, bodies }: { posts: NewsEntry[]; bodies: Record<string, react.ReactNode> }) {
-  const router       = next_navigation.useRouter();
+export function News({ posts, bodies, initial }: {
+  posts:    NewsEntry[];
+  bodies:   Record<string, react.ReactNode>;
+  initial?: string;
+}) {
   const searchParams = next_navigation.useSearchParams();
   const [slug,    set_slug]    = react.useState<string | null>(null);
   const [closing, set_closing] = react.useState(false);
 
-  react.useEffect(() => {
-    const m = searchParams.get('modal');
-    if (m) set_slug(m);
-  }, []);
+  const set_url = (path: string) => {
+    if (window.location.pathname !== path) window.history.replaceState(null, '', path);
+  };
 
   react.useEffect(() => {
-    const next = `/news${slug ? `?modal=${slug}` : ''}`;
-    const cur  = window.location.pathname + window.location.search;
-    if (cur === next) return;
-    router.replace(next, { scroll: false });
-  }, [slug, router]);
+    const s = initial ?? searchParams.get('modal');
+    if (!s) return;
+    set_slug(s);
+    set_url(`/news/${s}`);
+  }, []);
 
   const open = react.useCallback((s: string) => {
     set_closing(false);
     set_slug(s);
+    set_url(`/news/${s}`);
   }, []);
 
   const close = react.useCallback(() => {
     set_closing(prev => {
       if (prev) return prev;
-      window.setTimeout(() => { set_slug(null); set_closing(false); }, 220);
+      window.setTimeout(() => { set_slug(null); set_closing(false); set_url('/news'); }, 220);
       return true;
     });
   }, []);
