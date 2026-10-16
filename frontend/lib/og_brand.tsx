@@ -2,13 +2,17 @@ import * as fs          from 'fs';
 import * as path        from 'path';
 import * as lib_api_url from '@/lib/api_url';
 
-export const OG_SCALE = 2;
-export const OG_W = 1000 * OG_SCALE;
-export const OG_H = 375 * OG_SCALE;
-export const OG_LOGO_H = 88 * OG_SCALE;
-export const OG_GAP = 35 * OG_SCALE;
-export const OG_TAG_SIZE = 15.2 * OG_SCALE;
-export const OG_BLUE = '#5CADFF';
+export {
+  OG_SCALE,
+  OG_BASE_W,
+  OG_BASE_H,
+  OG_W,
+  OG_H,
+  OG_LOGO_H,
+  OG_GAP,
+  OG_TAG_SIZE,
+  OG_BLUE,
+} from '@/lib/og_sizes';
 
 const SECTION_SKIP = new Set([
   'api',
