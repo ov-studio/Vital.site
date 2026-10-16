@@ -1,4 +1,5 @@
 import { Divider } from '../divider';
+import './index.css';
 
 /**
  * Section heading with its divider underneath.
@@ -15,7 +16,7 @@ export function Section({
 }) {
   return (
     <>
-      <div className={`sec-title${titleClassName ? ` ${titleClassName}` : ''}`}>{children}</div>
+      <div className={`sec-title ui-section-title${titleClassName ? ` ${titleClassName}` : ''}`}>{children}</div>
       <Divider className={className}/>
     </>
   );
