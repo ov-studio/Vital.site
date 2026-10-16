@@ -35,10 +35,13 @@
   -webkit-mask-image: none;
   filter:
     brightness(0) saturate(100%)
+    invert(72%) sepia(48%) saturate(1200%) hue-rotate(190deg) brightness(108%) contrast(112%)
     drop-shadow(0 0 var(--brand-neon-ring) var(--blue))
     drop-shadow(0 0 var(--brand-neon-core-blur) var(--brand-neon-core))
     drop-shadow(0 0 var(--brand-neon-mid-blur) var(--brand-neon-mid))
     drop-shadow(0 0 var(--brand-neon-outer-blur) var(--brand-neon-glow));
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .brand_wordmark {
@@ -65,63 +68,63 @@
   --brand-wordmark-size: 1rem;
   --brand-gap: 10px;
   --brand-neon-ring: 0px;
-  --brand-neon-core-blur: 0.35px;
-  --brand-neon-mid-blur: 0.75px;
-  --brand-neon-outer-blur: 1.25px;
+  --brand-neon-core-blur: 0.25px;
+  --brand-neon-mid-blur: 0.5px;
+  --brand-neon-outer-blur: 1px;
 }
 .brand--xs {
   --brand-logo-size: 1.6rem;
   --brand-wordmark-size: 1.28rem;
   --brand-gap: 12px;
   --brand-neon-ring: 0px;
-  --brand-neon-core-blur: 0.4px;
-  --brand-neon-mid-blur: 1px;
-  --brand-neon-outer-blur: 1.75px;
+  --brand-neon-core-blur: 0.3px;
+  --brand-neon-mid-blur: 0.75px;
+  --brand-neon-outer-blur: 1.25px;
 }
 .brand--sm {
   --brand-logo-size: 2rem;
   --brand-wordmark-size: 1.6rem;
   --brand-gap: 14px;
-  --brand-neon-ring: 0.15px;
-  --brand-neon-core-blur: 0.5px;
-  --brand-neon-mid-blur: 1.25px;
-  --brand-neon-outer-blur: 2.25px;
+  --brand-neon-ring: 0.1px;
+  --brand-neon-core-blur: 0.4px;
+  --brand-neon-mid-blur: 1px;
+  --brand-neon-outer-blur: 1.75px;
 }
 .brand--md {
   --brand-logo-size: 2.75rem;
   --brand-wordmark-size: 2.2rem;
   --brand-gap: 18px;
-  --brand-neon-ring: 0.25px;
-  --brand-neon-core-blur: 0.6px;
-  --brand-neon-mid-blur: 2px;
-  --brand-neon-outer-blur: 4px;
+  --brand-neon-ring: 0.2px;
+  --brand-neon-core-blur: 0.5px;
+  --brand-neon-mid-blur: 1.5px;
+  --brand-neon-outer-blur: 3px;
 }
 .brand--lg {
   --brand-logo-size: 4rem;
   --brand-wordmark-size: 3.2rem;
   --brand-gap: 24px;
-  --brand-neon-ring: 0.35px;
-  --brand-neon-core-blur: 0.8px;
-  --brand-neon-mid-blur: 3.5px;
-  --brand-neon-outer-blur: 7px;
+  --brand-neon-ring: 0.25px;
+  --brand-neon-core-blur: 0.6px;
+  --brand-neon-mid-blur: 2px;
+  --brand-neon-outer-blur: 4px;
 }
 .brand--xl {
   --brand-logo-size: 5.5rem;
   --brand-wordmark-size: 4.5rem;
   --brand-gap: 30px;
-  --brand-neon-ring: 0.5px;
-  --brand-neon-core-blur: 1px;
-  --brand-neon-mid-blur: 6px;
-  --brand-neon-outer-blur: 14px;
+  --brand-neon-ring: 0.35px;
+  --brand-neon-core-blur: 0.75px;
+  --brand-neon-mid-blur: 2.5px;
+  --brand-neon-outer-blur: 5px;
 }
 .brand--xxl {
   --brand-logo-size: 9.5rem;
   --brand-wordmark-size: 6.8rem;
   --brand-gap: 40px;
-  --brand-neon-ring: 0.5px;
-  --brand-neon-core-blur: 1px;
-  --brand-neon-mid-blur: 6px;
-  --brand-neon-outer-blur: 15px;
+  --brand-neon-ring: 0.4px;
+  --brand-neon-core-blur: 0.85px;
+  --brand-neon-mid-blur: 3px;
+  --brand-neon-outer-blur: 6px;
 }
 
 .brand--flicker .brand_logo--neon {
@@ -214,9 +217,33 @@
 
 /* ── @media ── */
 @media (max-width: 640px) {
-  .brand--lg  { --brand-logo-size: clamp(2.2rem, 8vw, 4.2rem);  --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem); --brand-gap: clamp(10px, 3vw, 22px); }
-  .brand--xl  { --brand-logo-size: clamp(2.8rem, 10vw, 5.7rem); --brand-wordmark-size: clamp(2.2rem, 9vw, 4.5rem); --brand-gap: clamp(14px, 4vw, 30px); }
-  .brand--xxl { --brand-logo-size: clamp(5rem, 24vw, 9.7rem);   --brand-wordmark-size: clamp(3rem, 17vw, 6.8rem);  --brand-gap: clamp(18px, 11vw, 40px); }
+  .brand--lg  {
+    --brand-logo-size: clamp(2.2rem, 8vw, 4.2rem);
+    --brand-wordmark-size: clamp(1.8rem, 7vw, 3.2rem);
+    --brand-gap: clamp(10px, 3vw, 22px);
+    --brand-neon-ring: 0.15px;
+    --brand-neon-core-blur: 0.4px;
+    --brand-neon-mid-blur: 1.25px;
+    --brand-neon-outer-blur: 2.5px;
+  }
+  .brand--xl  {
+    --brand-logo-size: clamp(2.8rem, 10vw, 5.7rem);
+    --brand-wordmark-size: clamp(2.2rem, 9vw, 4.5rem);
+    --brand-gap: clamp(14px, 4vw, 30px);
+    --brand-neon-ring: 0.2px;
+    --brand-neon-core-blur: 0.5px;
+    --brand-neon-mid-blur: 1.5px;
+    --brand-neon-outer-blur: 3px;
+  }
+  .brand--xxl {
+    --brand-logo-size: clamp(5rem, 24vw, 9.7rem);
+    --brand-wordmark-size: clamp(3rem, 17vw, 6.8rem);
+    --brand-gap: clamp(18px, 11vw, 40px);
+    --brand-neon-ring: 0.25px;
+    --brand-neon-core-blur: 0.6px;
+    --brand-neon-mid-blur: 2px;
+    --brand-neon-outer-blur: 4px;
+  }
 }
 
 @media (max-width: 450px) {
