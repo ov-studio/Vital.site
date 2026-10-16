@@ -41,9 +41,10 @@ local count = self:remove_from_material(
 ### Examples
 
 ```lua lineNumbers title="Remove a shader from one model"
-local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
 core.model.load("character", "models/character.glb")
+
 local model = core.model.create("character")
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
 
 entity:apply_to_material(model, "*", "*")
 entity:remove_from_material(model, "*", "*")
@@ -56,10 +57,11 @@ entity:remove_from_material("*", "*", "*")
 ```
 
 ```lua lineNumbers title="Fall back to the previous shader"
+core.model.load("character", "models/character.glb")
+
+local model = core.model.create("character")
 local a = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
 local b = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
-core.model.load("character", "models/character.glb")
-local model = core.model.create("character")
 
 a:apply_to_material(model, "*", "*")
 b:apply_to_material(model, "*", "*") -- b is shown
