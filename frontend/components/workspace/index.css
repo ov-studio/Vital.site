@@ -23,7 +23,7 @@
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--bg5);
+  background: var(--bg6);
   box-shadow: 0 0 0 4px var(--brand-neon-core);
   transition: box-shadow 0.25s ease;
 }
