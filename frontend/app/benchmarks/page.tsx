@@ -22,7 +22,8 @@ export default function BenchmarksPage() {
       <component_navbar.Navbar links={[
         { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' }
+        { label: 'Roadmap', href: '/roadmap' },
+        { label: 'News', href: '/news' }
       ]}/>
       <component_benchmarks.Benchmarks/>
       <component_footer.Footer/>
