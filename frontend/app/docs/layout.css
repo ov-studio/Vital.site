@@ -208,7 +208,6 @@ button[aria-label="Collapse Sidebar"] {
 }
 .sidebar-toggle-btn:hover {
   color: var(--white);
-  background: var(--bg9);
 }
 
 /* ── Section folder labels — original selectors preserved ── */
