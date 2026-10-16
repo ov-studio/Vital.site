@@ -257,9 +257,9 @@
 }
 
 .ui-modal-prose code {
-  padding: 2px 6px;
+  padding: 4px 6px;
   font-family: var(--font-geist-mono), monospace;
-  font-size: .85em;
+  font-size: .88em;
   font-variant-ligatures: none;
   color: var(--blue);
   background: var(--b10);
