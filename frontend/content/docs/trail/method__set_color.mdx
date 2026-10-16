@@ -1,6 +1,6 @@
 ---
 title: self:set_color
-description: Sets the colors of the ribbon
+description: Sets the start and end colors of the ribbon
 badge: client
 ---
 
@@ -9,7 +9,7 @@ badge: client
 ```lua
 local status = self:set_color(
     from,
-    to = from faded out
+    to = from
 )
 ```
 
@@ -17,8 +17,8 @@ local status = self:set_color(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `color` | from | Color at the trail as `{r, g, b, a}` |
-| `color` | to | Color at the end of the ribbon as `{r, g, b, a}` |
+| `color` | from | Color at the start of the ribbon as `{r, g, b, a}` |
+| `color` | to | Color at the end of the ribbon as `{r, g, b, a}`<br/>Defaults to `from` with its alpha set to `0`, so the ribbon fades out |
 
 ### Returns
 
