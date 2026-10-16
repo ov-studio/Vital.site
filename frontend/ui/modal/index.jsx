@@ -157,19 +157,23 @@ export function ModalHeader({
 }
 
 /**
- * Scrollable description region inside the modal body.
+ * Scrollable body region. Children are wrapped in `.ui-modal-prose`, so plain
+ * semantic markup (p, h2/h3, ul/ol, code, a, blockquote, pre, table, img…)
+ * is styled automatically in every modal.
  *
  * @param {Object} props
  * @param {import('react').ReactNode} props.children
  * @param {string} [props.className]
+ * @param {boolean} [props.prose=true]  Set false to render children unstyled
  */
 export function ModalBody({
   children,
-  className = ''
+  className = '',
+  prose = true
 }) {
   return (
     <div className={`ui-modal-desc-scroll${className ? ` ${className}` : ''}`}>
-      {children}
+      {prose ? <div className="ui-modal-prose">{children}</div> : children}
     </div>
   );
 }
