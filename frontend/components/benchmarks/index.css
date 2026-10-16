@@ -15,13 +15,17 @@
 }
 
 .sec-title.bm-section-title {
-  margin: 50px 0 0;
+  margin: var(--section-gap, 72px) 0 0;
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-2) forwards;
 }
 
 .sec-title.bm-section-title--table {
   animation-delay: .48s;
+}
+
+.sec-title.bm-section-title:not(.bm-section-title--table) {
+  margin-top: 28px;
 }
 
 .sec-title.bm-section-title + .ui-divider {
