@@ -462,6 +462,24 @@ article#nd-page {
   border-bottom: 1px solid var(--b05);
 }
 
+/* Codeblock titlebar + icon — same muted tone as table head */
+#nd-page figure.shiki > div:first-child,
+.prose figure.shiki > div:first-child {
+  color: var(--text-soft);
+}
+
+#nd-page figure.shiki > div:first-child figcaption,
+.prose figure.shiki > div:first-child figcaption {
+  color: var(--text-soft);
+}
+
+#nd-page figure.shiki > div:first-child svg,
+.prose figure.shiki > div:first-child svg,
+#nd-page figure.shiki > div:first-child [class*="size-"] svg,
+.prose figure.shiki > div:first-child [class*="size-"] svg {
+  color: var(--text-soft);
+}
+
 #nd-page tbody td,
 .prose tbody td {
   font-size: 0.9rem;
