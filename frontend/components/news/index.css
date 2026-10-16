@@ -3,7 +3,6 @@
   min-height: 100dvh;
 }
 
-/* ── Banner (plain --bg6 when a post has no cover) ── */
 .news-banner {
   position: relative;
   width: 100%;
@@ -29,14 +28,12 @@
   background: linear-gradient(to bottom, transparent 55%, var(--bg6) 100%);
 }
 
-/* ── Tags ── */
 .news-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-/* ── Grid ── */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -54,7 +51,6 @@
 .news-card.ui-card:hover .news-banner img { transform: scale(1.06); }
 .news-card .ui-card-body { flex: 1; padding: 22px; }
 
-/* ── Post body (inside modal) ── */
 .news-prose {
   font-family: var(--font-geist), sans-serif;
   font-size: .9rem;
@@ -105,7 +101,6 @@
   color: var(--text-soft);
   border-left: 3px solid transparent;
   border-radius: 0 8px 8px 0;
-  /* left bar = same color as the table header (b30 over bg5), body = bg7 */
   background:
     linear-gradient(var(--b30), var(--b30)) left / 3px 100% no-repeat,
     linear-gradient(var(--bg6), var(--bg6)) left / 3px 100% no-repeat,
