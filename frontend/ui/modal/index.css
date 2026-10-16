@@ -304,6 +304,10 @@
   flex-shrink: 0;
 }
 
+.ui-modal-tags:last-child {
+  margin-bottom: 0;
+}
+
 .ui-modal-tag {
   font-size: .66rem;
 }
