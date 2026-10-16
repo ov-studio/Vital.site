@@ -11,12 +11,12 @@ local instance = particle.trail.create()
 ```
 
 <Callout type="info">
-  **A trail draws a ribbon along the path it travels.**
+  **A trail draws the path it travels.**
 
-  - **Follows the node** — move it every frame, for example onto a bone with `model:get_bone_position`, and the ribbon draws the path it travelled.
-  - **Fades out** — the ribbon is full width and color at the start, then thins out and fades towards its end, see [`self:set_lifetime`](/docs/trail/method/set_lifetime), [`self:set_width`](/docs/trail/method/set_width) and [`self:set_color`](/docs/trail/method/set_color).
-  - **At rest** — while the node stands still the ribbon shrinks away on its own.
-  - **Not a particle emitter** — the ribbon is a mesh built from the path of the node, so it needs no emission, amount or velocity settings.
+  - **Follows its position** — move it every frame, for example onto a bone with `model:get_bone_position`, and the trail draws the path it travelled.
+  - **Fades out** — the trail is full width and color at its start, then thins out and fades towards its end, see [`self:set_lifetime`](/docs/trail/method/set_lifetime), [`self:set_width`](/docs/trail/method/set_width) and [`self:set_color`](/docs/trail/method/set_color).
+  - **At rest** — while the trail stands still it shrinks away on its own.
+  - **Not a particle emitter** — the trail is a mesh built from the path it travels, so it needs no emission, amount or velocity settings.
 </Callout>
 
 ### Parameters
@@ -34,7 +34,7 @@ local instance = particle.trail.create()
 
 ### Examples
 
-```lua lineNumbers title="Draw a ribbon behind a hand"
+```lua lineNumbers title="Draw a trail behind a hand"
 local trail = particle.trail.create()
 
 trail:set_width(0.08)
