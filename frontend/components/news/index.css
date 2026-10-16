@@ -130,12 +130,16 @@
 
 .news-prose blockquote {
   padding: 14px 20px;
-  font-style: italic;
   font-weight: 500;
   color: var(--text-soft);
-  background: linear-gradient(90deg, var(--b10), var(--b05));
-  border-left: 3px solid var(--blue);
+  border-left: 3px solid transparent;
   border-radius: 0 6px 6px 0;
+  /* left bar = same color as the table header (b30 over bg5), body = bg7 */
+  background:
+    linear-gradient(var(--b30), var(--b30)) left / 3px 100% no-repeat,
+    linear-gradient(var(--bg5), var(--bg5)) left / 3px 100% no-repeat,
+    var(--bg7);
+  background-origin: border-box;
 }
 .news-prose blockquote > * + * { margin-top: 8px; }
 
