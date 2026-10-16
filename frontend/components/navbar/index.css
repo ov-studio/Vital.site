@@ -20,7 +20,7 @@ nav::after {
 }
 
 nav.s::after {
-  background: var(--bg9);
+  background: var(--bg12);
   border-color: var(--bg5);
   backdrop-filter: blur(20px);
 }
