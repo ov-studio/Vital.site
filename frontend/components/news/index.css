@@ -9,7 +9,7 @@
   width: 100%;
   flex-shrink: 0;
   overflow: hidden;
-  background: var(--bg5);
+  background: var(--bg6);
 }
 .news-banner--card    { aspect-ratio: 16 / 7; }
 .news-banner--modal { aspect-ratio: 16 / 6; }
@@ -54,7 +54,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent 55%, var(--bg5) 100%);
+  background: linear-gradient(to bottom, transparent 55%, var(--bg6) 100%);
 }
 
 /* ── Tags ── */
@@ -137,7 +137,7 @@
   /* left bar = same color as the table header (b30 over bg5), body = bg7 */
   background:
     linear-gradient(var(--b30), var(--b30)) left / 3px 100% no-repeat,
-    linear-gradient(var(--bg5), var(--bg5)) left / 3px 100% no-repeat,
+    linear-gradient(var(--bg6), var(--bg6)) left / 3px 100% no-repeat,
     var(--bg7);
   background-origin: border-box;
 }
@@ -196,7 +196,7 @@
   letter-spacing: .05em;
   text-transform: uppercase;
   color: var(--text-soft);
-  background: linear-gradient(var(--b30), var(--b30)), var(--bg5);
+  background: linear-gradient(var(--b30), var(--b30)), var(--bg6);
   border-bottom: 1px solid var(--b10);
 }
 .news-prose tbody td {
