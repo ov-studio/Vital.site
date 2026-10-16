@@ -265,14 +265,14 @@ const SUBMIT_STEPS: react.ReactNode[] = [
 
 function SubmitProcedures() {
   return (
-    <div className="vault-submit-section">
-      <p className="vault-submit-label">Procedures</p>
-      <ul className="vault-submit-gate-list">
+    <>
+      <h2>Procedures</h2>
+      <ol>
         {SUBMIT_STEPS.map((step, i) => (
           <li key={i}>{step}</li>
         ))}
-      </ul>
-    </div>
+      </ol>
+    </>
   );
 }
 
@@ -352,6 +352,7 @@ function VaultSubmitModal({
       maxWidth={780}
     >
       <ui_modal.ModalHeader
+        author="Vital.vault"
         title="Publish Resource"
         tagline={
           session
@@ -362,52 +363,48 @@ function VaultSubmitModal({
 
       {done ? (
         <ui_modal.ModalBody>
-          <p className="ui-modal-desc">
-            {done.updated ? 'Update pull request opened on Vital.vault' : 'Pull request opened on Vital.vault'}
-            {done.path ? <> at <code>{done.path}</code></> : null}.
-            {done.pr_url ? (
-              <>
-                {' '}
-                <a href={done.pr_url} target="_blank" rel="noreferrer">
-                  View pull request
-                </a>
-              </>
-            ) : null}
-          </p>
+          <article className="vault-prose">
+            <p>
+              {done.updated ? 'Update pull request opened on ' : 'Pull request opened on '}
+              <code>Vital.vault</code>
+              {done.path ? <> at <code>{done.path}</code></> : null}.
+              {done.pr_url ? (
+                <>
+                  {' '}
+                  <a href={done.pr_url} target="_blank" rel="noreferrer">
+                    View pull request
+                  </a>
+                </>
+              ) : null}
+            </p>
+          </article>
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
-          {error && (
-            <ui_alert.Alert onClose={() => set_error(null)}>{error}</ui_alert.Alert>
-          )}
-          <div className="vault-submit-stack">
+          <article className="vault-prose">
             <SubmitProcedures />
             {session ? (
-              <div className="vault-submit-section">
-                <label className="vault-submit-label">
-                  Repository
-                  <ui_select.Select
-                    value={repo}
-                    onChange={set_repo}
-                    disabled={busy}
-                    loading={loading_repos}
-                    placeholder="Select a public repository you own"
-                    aria-label="Repository"
-                    options={repo_options}
-                  />
-                </label>
-              </div>
+              <>
+                <h2>Repository</h2>
+                <ui_select.Select
+                  value={repo}
+                  onChange={set_repo}
+                  disabled={busy}
+                  loading={loading_repos}
+                  placeholder="Select a public repository you own"
+                  aria-label="Repository"
+                  options={repo_options}
+                />
+              </>
             ) : null}
-            <p className="vault-submit-hint">
+            <p className="vault-prose-hint">
               {session ? (
                 <>Your repository must include a valid <code>manifest.yaml</code> at the root.</>
               ) : (
-                <>
-                  Opens workspace sign-in in a new tab. After a successful login, that tab closes and you can continue here.
-                </>
+                <>Opens workspace sign-in in a new tab. After a successful login, that tab closes and you can continue here.</>
               )}
             </p>
-          </div>
+          </article>
         </ui_modal.ModalBody>
       )}
 
@@ -435,6 +432,9 @@ function VaultSubmitModal({
             Cancel
           </ui_button.Button>
         </ui_modal.ModalActions>
+        {error && (
+          <ui_alert.Alert onClose={() => set_error(null)}>{error}</ui_alert.Alert>
+        )}
       </ui_modal.ModalFooter>
     </ui_modal.Modal>
   );
