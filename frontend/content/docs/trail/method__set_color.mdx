@@ -13,6 +13,13 @@ local status = self:set_color(
 )
 ```
 
+<Callout type="info">
+  **The end color is optional.**
+
+  - **Without `to`** — the trail fades out in the `from` color, its alpha going down to `0`.
+  - **With `to`** — the trail blends from `from` at its start to `to` at its end, so the two can differ in both color and alpha.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
