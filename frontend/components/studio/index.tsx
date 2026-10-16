@@ -202,7 +202,7 @@ export function Studio() {
     try {
       const dataUrl = await toPng(el, {
         cacheBust: true,
-        pixelRatio: 2,
+        pixelRatio: 3,
         width,
         height,
         backgroundColor: opts?.transparent ? 'transparent' : undefined,
