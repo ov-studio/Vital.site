@@ -18,7 +18,8 @@ export default function HomePage() {
         { label: '# Contributors', href: '#contributors' },
         { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' }
+        { label: 'Roadmap', href: '/roadmap' },
+        { label: 'News', href: '/news' }
       ]}/>
       <component_home_hero.Hero/>
       <component_home_features.Features/>
