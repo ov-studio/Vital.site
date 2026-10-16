@@ -45,9 +45,10 @@ local count = self:apply_to_material(
 ### Examples
 
 ```lua lineNumbers title="Apply a shader to every material of one model"
-local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
 core.model.load("character", "models/character.glb")
+
 local model = core.model.create("character")
+local entity = core.shader.create("assets/shaders/dissolve.glsl", core.shader.shader_mode.SPATIAL)
 
 entity:apply_to_material(model, "*", "*")
 ```
@@ -59,10 +60,11 @@ entity:apply_to_material("*", "Skeleton3D/Body", "skin")
 ```
 
 ```lua lineNumbers title="Let a higher priority shader win regardless of apply order"
+core.model.load("character", "models/character.glb")
+
+local model = core.model.create("character")
 local base = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
 local highlight = core.shader.create("assets/shaders/highlight.glsl", core.shader.shader_mode.SPATIAL)
-core.model.load("character", "models/character.glb")
-local model = core.model.create("character")
 
 highlight:apply_to_material(model, "*", "*", 100)
 base:apply_to_material(model, "*", "*") -- highlight is still shown, priority 100 beats 0
