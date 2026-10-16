@@ -99,7 +99,7 @@
   padding: 14px 20px;
   font-weight: 500;
   color: var(--text-soft);
-  border-left: 3px solid transparent;
+  border-left: 3px solid var(--blue);
   border-radius: 0 8px 8px 0;
   background:
     linear-gradient(var(--b30), var(--b30)) left / 3px 100% no-repeat,
