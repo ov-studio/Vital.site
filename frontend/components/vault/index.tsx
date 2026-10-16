@@ -63,7 +63,13 @@ function render_description(text: string): react.ReactNode[] {
 
   const flush_para = () => {
     if (!para.length) return;
-    out.push(<p key={key++}>{render_with_code(para.join('\n'))}</p>);
+    out.push(
+      <p key={key++}>
+        {para.map((l, i) => (
+          <react.Fragment key={i}>{i > 0 && <br/>}{render_with_code(l)}</react.Fragment>
+        ))}
+      </p>
+    );
     para = [];
   };
   const flush_items = () => {
@@ -222,7 +228,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
         tagline={resource.tagline}
       />
       <ui_modal.ModalBody>
-        <article className="vault-prose">{render_description(resource.description)}</article>
+        {render_description(resource.description)}
       </ui_modal.ModalBody>
       <ui_modal.ModalFooter>
         <div className="ui-modal-tags">
@@ -415,48 +421,44 @@ function VaultSubmitModal({
 
       {done ? (
         <ui_modal.ModalBody>
-          <article className="vault-prose">
-            <p>
-              {done.updated ? 'Update pull request opened on ' : 'Pull request opened on '}
-              <code>Vital.vault</code>
-              {done.path ? <> at <code>{done.path}</code></> : null}.
-              {done.pr_url ? (
-                <>
-                  {' '}
-                  <a href={done.pr_url} target="_blank" rel="noreferrer">
-                    View pull request
-                  </a>
-                </>
-              ) : null}
-            </p>
-          </article>
+        <p>
+          {done.updated ? 'Update pull request opened on ' : 'Pull request opened on '}
+          <code>Vital.vault</code>
+          {done.path ? <> at <code>{done.path}</code></> : null}.
+          {done.pr_url ? (
+            <>
+              {' '}
+              <a href={done.pr_url} target="_blank" rel="noreferrer">
+                View pull request
+              </a>
+            </>
+          ) : null}
+        </p>
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
-          <article className="vault-prose">
-            <SubmitProcedures />
-            {session ? (
-              <>
-                <h2>Repository</h2>
-                <ui_select.Select
-                  value={repo}
-                  onChange={set_repo}
-                  disabled={busy}
-                  loading={loading_repos}
-                  placeholder="Select a public repository you own"
-                  aria-label="Repository"
-                  options={repo_options}
-                />
-              </>
-            ) : null}
-            <p className="vault-prose-hint">
-              {session ? (
-                <>Your repository must include a valid <code>manifest.yaml</code> at the root.</>
-              ) : (
-                <>Opens workspace sign-in in a new tab. After a successful login, that tab closes and you can continue here.</>
-              )}
-            </p>
-          </article>
+        <SubmitProcedures />
+        {session ? (
+          <>
+            <h2>Repository</h2>
+            <ui_select.Select
+              value={repo}
+              onChange={set_repo}
+              disabled={busy}
+              loading={loading_repos}
+              placeholder="Select a public repository you own"
+              aria-label="Repository"
+              options={repo_options}
+            />
+          </>
+        ) : null}
+        <p className="ui-modal-note">
+          {session ? (
+            <>Your repository must include a valid <code>manifest.yaml</code> at the root.</>
+          ) : (
+            <>Opens workspace sign-in in a new tab. After a successful login, that tab closes and you can continue here.</>
+          )}
+        </p>
         </ui_modal.ModalBody>
       )}
 

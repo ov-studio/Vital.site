@@ -80,7 +80,7 @@ function NewsModal({ post, body, on_close, closing }: {
         titleClassName="ui-modal-name--wrap"
       />
       <ui_modal.ModalBody>
-        <article className="news-prose">{body}</article>
+        {body}
       </ui_modal.ModalBody>
       <ui_modal.ModalFooter>
         {post.tags.length > 0 && (

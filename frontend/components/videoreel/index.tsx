@@ -189,19 +189,12 @@ function DescriptionBody({ raw }: { raw: string }) {
   const blocks = filter_desc_blocks(parse_yt_markdown(raw));
   if (!blocks.length) return null;
   return (
-    <div className="ui-modal-desc">
+    <>
       {blocks.map((b, i) => {
-        if (b.type === 'h') {
-          const label = b.text.replace(/:+\s*$/, '') + ':';
-          return (
-            <p key={i} className="ui-modal-desc-h">
-              <strong>{label}</strong>
-            </p>
-          );
-        }
+        if (b.type === 'h') return <h2 key={i}>{b.text.replace(/:+\s*$/, '')}</h2>;
         if (b.type === 'ul') {
           return (
-            <ul key={i} >
+            <ul key={i}>
               {b.items.map((item, j) => (
                 <li key={j}>{linkify(item)}</li>
               ))}
@@ -210,7 +203,7 @@ function DescriptionBody({ raw }: { raw: string }) {
         }
         return <p key={i}>{linkify(b.text)}</p>;
       })}
-    </div>
+    </>
   );
 }
 
