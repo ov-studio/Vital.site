@@ -31,10 +31,8 @@
 
 .download-tos-note {
   margin-top: 10px;
-  font-family: var(--font-rajdhani), sans-serif;
-  font-size: .8rem;
-  font-weight: 600;
-  letter-spacing: .01em;
+  font-size: .75rem;
+  font-weight: 500;
   line-height: 1.45;
   color: var(--text-mid);
   text-align: center;
