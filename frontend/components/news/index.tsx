@@ -26,14 +26,8 @@ export interface NewsEntry {
 
 function Banner({ post, size }: { post: NewsEntry; size: 'card' | 'modal' }) {
   return (
-    <div
-      className={`news-banner news-banner--${size}`}
-      style={{ '--hue': post.hue, '--hue2': post.hue2 } as React.CSSProperties}
-    >
-      {post.cover
-        ? <img src={post.cover} alt={post.title}/>
-        : <div className="news-banner-art"><lucide.Newspaper size={size === 'card' ? 48 : 80} strokeWidth={1.25}/></div>
-      }
+    <div className={`news-banner news-banner--${size}`}>
+      {post.cover && <img src={post.cover} alt={post.title}/>}
       <div className="news-banner-overlay"/>
     </div>
   );
