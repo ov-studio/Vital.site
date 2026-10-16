@@ -161,17 +161,34 @@
 .news-prose .shiki span { color: var(--shiki-dark, inherit); }
 
 .news-prose table {
-  display: block;
-  overflow-x: auto;
-  border-collapse: collapse;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: .85rem;
+  background: var(--bg7);
+  border: 1px solid var(--b05);
+  border-radius: 8px;
+  overflow: hidden;
 }
-.news-prose th,
-.news-prose td {
-  padding: 8px 14px;
+.news-prose thead th {
+  padding: .6rem 1rem;
   text-align: left;
-  border: 1px solid var(--b10);
+  font-family: var(--font-geist), sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  background: linear-gradient(var(--b30), var(--b30)), var(--bg5);
+  border-bottom: 1px solid var(--b10);
 }
-.news-prose th { color: var(--brand-neon-core); background: var(--b05); }
+.news-prose tbody td {
+  padding: .5rem 1rem;
+  font-size: .9rem;
+  color: var(--text-mid);
+  border-bottom: 1px solid var(--w04);
+}
+.news-prose tbody tr:last-child td { border-bottom: none; }
 
 
 /* ── @media ── */
