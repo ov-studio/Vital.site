@@ -72,7 +72,7 @@
   align-items: center;
   gap: 2px;
   padding: 6px 10px;
-  background: var(--bg9);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
   border-radius: 4px;
   white-space: nowrap;
   opacity: 0;
@@ -93,7 +93,7 @@
   font-style: normal;
   font-size: .66rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--dim);
 }
 
 
