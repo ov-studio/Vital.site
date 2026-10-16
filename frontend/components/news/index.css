@@ -103,7 +103,7 @@
   padding-bottom: 8px;
   font-size: 0.95rem;
   text-transform: none;
-  color: var(--blue);
+  color: var(--brand-neon-core);
   border-bottom: 1px solid var(--b10);
 }
 .news-prose h3 {
