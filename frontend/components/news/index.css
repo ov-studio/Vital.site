@@ -96,18 +96,18 @@
 .news-prose h3 {
   margin-top: 36px;
   font-family: var(--font-geist), sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
 }
 .news-prose h2 {
   padding-bottom: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-transform: none;
   color: var(--blue);
   border-bottom: 1px solid var(--b10);
 }
 .news-prose h3 {
-  font-size: .9rem;
+  font-size: .85rem;
   text-transform: none;
   color: var(--white);
 }
