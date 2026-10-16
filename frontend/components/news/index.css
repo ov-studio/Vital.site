@@ -133,7 +133,7 @@
   font-weight: 500;
   color: var(--text-soft);
   border-left: 3px solid transparent;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 8px 8px 0;
   /* left bar = same color as the table header (b30 over bg5), body = bg7 */
   background:
     linear-gradient(var(--b30), var(--b30)) left / 3px 100% no-repeat,
@@ -147,8 +147,8 @@
 
 .news-prose img {
   max-width: 100%;
-  border: 3px solid var(--b10);
-  border-radius: 4px;
+  border: 1px solid var(--b05);
+  border-radius: 8px;
 }
 
 .news-prose code {
@@ -166,8 +166,8 @@
   padding: 16px 18px;
   line-height: 1.6;
   background: var(--bg7);
-  border: 3px solid var(--b10);
-  border-radius: 4px;
+  border: 1px solid var(--b05);
+  border-radius: 8px;
 }
 .news-prose pre code {
   padding: 0;
