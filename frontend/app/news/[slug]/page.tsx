@@ -1,6 +1,7 @@
 import '@/app/global.css';
 import * as component_news from '@/components/news/server';
 import * as lib_news       from '@/lib/news';
+import * as lib_og_brand   from '@/lib/og_brand';
 import * as next           from 'next';
 import * as next_navigation from 'next/navigation';
 
@@ -24,7 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const page = lib_news.news.getPage([slug]);
   if (!page) next_navigation.notFound();
 
-  const image = page.data.cover ?? '/og/news';
+  const image = {
+    url:    lib_news.has_og_cover(page.data.cover) ? `/og/posts/${slug}` : '/og/news',
+    width:  lib_og_brand.OG_W,
+    height: lib_og_brand.OG_H
+  };
   return {
     title: page.data.title,
     description: page.data.description,
@@ -33,13 +38,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       description: page.data.description,
       type: 'article',
       publishedTime: page.data.date.toISOString(),
-      images: [{ url: image }]
+      images: [image]
     },
     twitter: {
       card: 'summary_large_image',
       title: page.data.title,
       description: page.data.description,
-      images: [image]
+      images: [image.url]
     }
   };
 }
