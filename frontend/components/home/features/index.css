@@ -154,7 +154,7 @@
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: var(--bg5);
+  background: var(--bg6);
   white-space: nowrap;
   transition: border-color .3s, color .25s;
 }
