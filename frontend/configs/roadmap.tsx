@@ -992,20 +992,13 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Cryptographic primitives for hashing, signing, and securing sensitive payloads',
         icon:  <lucide.Lock {...config_site.info.lucide}/>,
         items: [
-          { label: 'Hash algorithm: SHA1',               status: 'completed' },
-          { label: 'Hash algorithm: SHA224',             status: 'completed' },
-          { label: 'Hash algorithm: SHA256',             status: 'completed' },
-          { label: 'Hash algorithm: SHA384',             status: 'completed' },
-          { label: 'Hash algorithm: SHA512',             status: 'completed' },
-          { label: 'Encoding algorithm: Base64',         status: 'completed' },
-          { label: 'Encryption algorithm: AES128',       status: 'completed' },
-          { label: 'Encryption algorithm: AES192',       status: 'completed' },
-          { label: 'Encryption algorithm: AES256',       status: 'completed' },
-          { label: '[Shared] API: util.crypto.hash',     status: 'completed' },
-          { label: '[Shared] API: util.crypto.encode',   status: 'completed' },
-          { label: '[Shared] API: util.crypto.decode',   status: 'completed' },
-          { label: '[Shared] API: util.crypto.encrypt',  status: 'completed' },
-          { label: '[Shared] API: util.crypto.decrypt',  status: 'completed' }
+          { label: 'Hashing algorithms: SHA1 / SHA224 / SHA256 / SHA384 / SHA512',  status: 'completed' },
+          { label: 'Encoding algorithms: Base64 / AES128 / AES192 / AES256',        status: 'completed' },
+          { label: '[Shared] API: util.crypto.hash',                                status: 'completed' },
+          { label: '[Shared] API: util.crypto.encode',                              status: 'completed' },
+          { label: '[Shared] API: util.crypto.decode',                              status: 'completed' },
+          { label: '[Shared] API: util.crypto.encrypt',                             status: 'completed' },
+          { label: '[Shared] API: util.crypto.decrypt',                             status: 'completed' }
         ]
       },
       {
