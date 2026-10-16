@@ -1,6 +1,6 @@
 ---
 title: self:get_width
-description: Retrieves the width of the ribbon at its start
+description: Retrieves the width of the trail at its start
 badge: client
 ---
 
@@ -19,13 +19,13 @@ local width = self:get_width()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | width | Ribbon width at its start in world units |
+| `float` | width | Trail width at its start in world units |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the ribbon width"
+```lua lineNumbers title="Get the trail width"
 local entity = particle.trail.create()
 
 core.engine.print("info", entity:get_width())
