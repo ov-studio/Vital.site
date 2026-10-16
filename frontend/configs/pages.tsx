@@ -23,7 +23,7 @@ export const pages = {
 
   news: {
     title: 'News',
-    description: 'Announcements, release notes, and updates from the Vital.sandbox team'
+    description: 'Announcements, release notes, and updates from the team'
   },
 
   studio: {
