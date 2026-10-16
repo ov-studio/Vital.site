@@ -21,6 +21,11 @@ export const pages = {
     description: 'Complete breakdown of every feature in the sandbox; shipped, in-progress and planned'
   },
 
+  news: {
+    title: 'News',
+    description: 'Announcements, release notes, and updates from the Vital.sandbox team'
+  },
+
   studio: {
     title: 'Studio',
     description: 'Open Graph images, neon logos, and channel banners using the real Brand component.'
