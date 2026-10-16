@@ -1,6 +1,6 @@
 ---
 title: self:set_width
-description: Sets the width of the ribbon at its start
+description: Sets the width of the trail at its start
 badge: client
 ---
 
@@ -16,7 +16,7 @@ local status = self:set_width(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | width | Ribbon width at its start in world units, it thins out to nothing at the end |
+| `float` | width | Trail width at its start in world units, it thins out to nothing at the end |
 
 ### Returns
 
@@ -28,7 +28,7 @@ local status = self:set_width(
 
 ### Examples
 
-```lua lineNumbers title="Set the ribbon width"
+```lua lineNumbers title="Set the trail width"
 local entity = particle.trail.create()
 
 entity:set_width(0.08)
