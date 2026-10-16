@@ -73,7 +73,7 @@
 
 .news-card.ui-card {
   cursor: pointer;
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg6);
   border: 3px solid var(--b10);
   border-radius: 4px;
   transition: border-color .25s;

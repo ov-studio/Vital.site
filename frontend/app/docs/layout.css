@@ -458,7 +458,7 @@ article#nd-page {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg6);
   padding: 0.6rem 1rem;
   border-bottom: 1px solid var(--b05);
 }
