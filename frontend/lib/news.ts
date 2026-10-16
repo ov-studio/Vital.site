@@ -29,7 +29,7 @@ export function to_entry(page: NewsPage) {
   const hash = [...page.slugs.join('/')].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
   const hue  = 190 + (hash % 100);
   return {
-    url:         page.url,
+    slug:        page.slugs[0],
     title:       page.data.title,
     description: page.data.description ?? '',
     date:        fmt_post_date(page.data.date),
