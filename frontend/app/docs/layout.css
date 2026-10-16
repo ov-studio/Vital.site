@@ -462,6 +462,19 @@ article#nd-page {
   border-bottom: 1px solid var(--b05);
 }
 
+#nd-page tbody td,
+.prose tbody td {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--w04);
+}
+
+#nd-page tbody tr:last-child td,
+.prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* Codeblock titlebar + icon — same muted tone as table head */
 #nd-page figure.shiki > div:first-child,
 .prose figure.shiki > div:first-child {
@@ -478,19 +491,6 @@ article#nd-page {
 #nd-page figure.shiki > div:first-child [class*="size-"] svg,
 .prose figure.shiki > div:first-child [class*="size-"] svg {
   color: var(--text-soft);
-}
-
-#nd-page tbody td,
-.prose tbody td {
-  font-size: 0.9rem;
-  color: var(--text-mid);
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--w04);
-}
-
-#nd-page tbody tr:last-child td,
-.prose tbody tr:last-child td {
-  border-bottom: none;
 }
 
 /* Article content centered in the main column (don't break TOC grid) */
