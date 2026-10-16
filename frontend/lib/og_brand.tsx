@@ -4,7 +4,7 @@ import * as lib_api_url from '@/lib/api_url';
 
 export const OG_SCALE = 2;
 export const OG_W = 1000 * OG_SCALE;
-export const OG_H = 300 * OG_SCALE;
+export const OG_H = 375 * OG_SCALE;
 export const OG_LOGO_H = 88 * OG_SCALE;
 export const OG_GAP = 35 * OG_SCALE;
 export const OG_TAG_SIZE = 15.2 * OG_SCALE;
