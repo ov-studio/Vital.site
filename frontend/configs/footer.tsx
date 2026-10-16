@@ -19,7 +19,6 @@ export const Footer = [
       { label: 'Vault',          href: '/vault'         },
       { label: 'Documentations', href: '/docs'          },
       { label: 'Roadmap',        href: '/roadmap'       },
-      { label: 'News',           href: '/news'          },
       { label: 'Contributing',   href: '/docs/building' }
     ]
   },
@@ -32,10 +31,13 @@ export const Footer = [
   },
   {
     heading: 'Social',
-    links: Object.entries(config_site.info.social).map(([key, { label, href }]) => ({
-      label,
-      href,
-      icon: key
-    }))
+    links: [
+      { label: 'News', href: '/news' },
+      ...Object.entries(config_site.info.social).map(([key, { label, href }]) => ({
+        label,
+        href,
+        icon: key
+      }))
+    ]
   }
 ];
