@@ -20,9 +20,9 @@ local status = self:set_emission_shape(
 | Type | Name | Description |
 |------|------|-------------|
 | [`particle.gpu.emission_shape`](/docs/gpu_particles/enum/emission_shape) | shape | Emission shape to apply |
-| `float` \| `vector3` | radius | Size of the shape, depending on `shape`:<br/>• `SPHERE` / `SPHERE_SURFACE` - radius as a `float`<br/>• `BOX` - extents as `{x, y, z}`<br/>• `RING` - radius as a `float`<br/>Defaults to `1` |
-| `float` | inner_radius | Inner radius of the ring, only used by `RING`<br/>Defaults to `0` |
-| `float` | height | Height of the ring, only used by `RING`<br/>Defaults to `1` |
+| `float` \| `vector3` | radius | Size of the shape, depending on `shape`:<br/>• `SPHERE` / `SPHERE_SURFACE` - radius as a `float`<br/>• `BOX` - extents as `{x, y, z}`<br/>• `RING` - radius as a `float` |
+| `float` | inner_radius | Inner radius of the ring, only used by `RING` |
+| `float` | height | Height of the ring, only used by `RING` |
 
 ### Returns
 
