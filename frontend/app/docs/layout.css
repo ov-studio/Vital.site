@@ -21,7 +21,7 @@
 
 .dark {
   --color-fd-primary: var(--brand-neon-core);
-  --color-fd-background: var(--bg5);
+  --color-fd-background: var(--bg6);
   --color-fd-card: var(--bg7);
   --color-fd-muted: var(--text-faint);
   --color-fd-muted-foreground: var(--text-mid);
