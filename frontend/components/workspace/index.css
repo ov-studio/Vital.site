@@ -86,9 +86,9 @@
 
 .ws-page .sec-title {
   opacity: 0;
-  margin: 50px 0 0;
-  padding-bottom: 12px;
-  line-height: 1.2;
+  margin: var(--section-gap, 72px) 0 0;
+  padding-bottom: 8px;
+  line-height: 1.3;
   animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
 }
 
