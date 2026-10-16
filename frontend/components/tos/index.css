@@ -34,8 +34,8 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--rule12);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--b10);
 }
 
 .tos-section .sec-title {
