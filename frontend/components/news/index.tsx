@@ -1,6 +1,5 @@
 'use client';
 import * as config_pages  from '@/configs/pages';
-import * as ui_button     from '@/ui/button';
 import * as ui_card       from '@/ui/card';
 import * as ui_iconbutton from '@/ui/iconbutton';
 import * as ui_modal      from '@/ui/modal';
@@ -97,9 +96,6 @@ function NewsModal({ post, body, on_close, closing }: {
             ))}
           </div>
         )}
-        <ui_modal.ModalActions>
-          <ui_button.Button variant="primary" onClick={on_close}>Close</ui_button.Button>
-        </ui_modal.ModalActions>
       </ui_modal.ModalFooter>
     </ui_modal.Modal>
   );
