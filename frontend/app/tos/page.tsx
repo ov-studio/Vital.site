@@ -22,7 +22,8 @@ export default function TOSPage() {
       <component_navbar.Navbar links={[
         { label: 'Vault', href: '/vault' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' }
+        { label: 'Roadmap', href: '/roadmap' },
+        { label: 'News', href: '/news' }
       ]}/>
       <component_tos.TOS/>
       <component_footer.Footer/>

@@ -22,7 +22,8 @@ export default function StudioPage() {
       <component_navbar.Navbar
         links={[
           { label: 'Documentations', href: '/docs' },
-          { label: 'Roadmap', href: '/roadmap' }
+          { label: 'Roadmap', href: '/roadmap' },
+          { label: 'News', href: '/news' }
         ]}
       />
       <component_studio.Studio/>

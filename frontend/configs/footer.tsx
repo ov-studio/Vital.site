@@ -19,6 +19,7 @@ export const Footer = [
       { label: 'Vault',          href: '/vault'         },
       { label: 'Documentations', href: '/docs'          },
       { label: 'Roadmap',        href: '/roadmap'       },
+      { label: 'News',           href: '/news'          },
       { label: 'Contributing',   href: '/docs/building' }
     ]
   },
