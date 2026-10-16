@@ -21,15 +21,15 @@
   inset: 0;
   background:
     linear-gradient(to bottom,
-        var(--bg5) 0%,
+        var(--bg6) 0%,
         transparent 23%,
         transparent 77%,
-        var(--bg5) 100%),
+        var(--bg6) 100%),
       linear-gradient(to right,
-        var(--bg5) 0%,
+        var(--bg6) 0%,
         transparent 13%,
         transparent 87%,
-        var(--bg5) 100%);
+        var(--bg6) 100%);
   pointer-events: none;
 }
 
