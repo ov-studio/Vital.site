@@ -1,6 +1,6 @@
 ---
 title: self:get_lifetime
-description: Retrieves how long the ribbon takes to fade out
+description: Retrieves how long the trail takes to fade out
 badge: client
 ---
 
@@ -19,13 +19,13 @@ local seconds = self:get_lifetime()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | seconds | Ribbon lifetime in seconds |
+| `float` | seconds | Trail lifetime in seconds |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the ribbon lifetime"
+```lua lineNumbers title="Get the trail lifetime"
 local entity = particle.trail.create()
 
 core.engine.print("info", entity:get_lifetime())
