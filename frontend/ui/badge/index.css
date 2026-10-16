@@ -14,27 +14,27 @@
   pointer-events: none;
   white-space: nowrap;
   vertical-align: middle;
-  color: var(--bg5);
+  color: var(--bg6);
   background: var(--blue);
 }
 
 .ui-badge--primary {
-  color: var(--bg5);
+  color: var(--bg6);
   background: var(--blue);
 }
 
 .ui-badge--shared {
-  color: var(--bg5);
+  color: var(--bg6);
   background: #e8a04a;
 }
 
 .ui-badge--client {
-  color: var(--bg5);
+  color: var(--bg6);
   background: var(--blue);
 }
 
 .ui-badge--server {
-  color: var(--bg5);
+  color: var(--bg6);
   background: #4caf7a;
 }
 
