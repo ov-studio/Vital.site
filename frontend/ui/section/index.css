@@ -13,5 +13,5 @@
 .ui-section-title + .ui-divider {
   margin-bottom: 16px;
   padding-bottom: 0;
-  border-bottom-color: var(--b10);
+  border-bottom-color: var(--rule12);
 }
