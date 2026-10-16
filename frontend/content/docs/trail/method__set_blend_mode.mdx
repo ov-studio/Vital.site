@@ -1,6 +1,6 @@
 ---
 title: self:set_blend_mode
-description: Sets the blend mode used to draw the ribbon
+description: Sets the blend mode used to draw the trail
 badge: client
 ---
 
@@ -28,7 +28,7 @@ local status = self:set_blend_mode(
 
 ### Examples
 
-```lua lineNumbers title="Draw a glowing ribbon"
+```lua lineNumbers title="Draw a glowing trail"
 local entity = particle.trail.create()
 
 entity:set_blend_mode(particle.trail.blend_mode.ADD)
