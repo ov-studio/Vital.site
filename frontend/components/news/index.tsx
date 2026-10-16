@@ -77,7 +77,7 @@ function NewsModal({ post, body, on_close, closing }: {
       controls={controls}
       media={<Banner post={post} size="modal"/>}
       label={post.title}
-      maxWidth={820}
+      maxWidth={875}
     >
       <ui_modal.ModalHeader
         author={post.author}
