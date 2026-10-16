@@ -457,7 +457,7 @@ article#nd-page {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-soft);
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg9);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg8);
   padding: 0.6rem 1rem;
   border-bottom: 1px solid var(--b05);
 }
@@ -479,6 +479,7 @@ article#nd-page {
 #nd-page figure.shiki > div:first-child,
 .prose figure.shiki > div:first-child {
   color: var(--text-soft);
+  background: var(--bg12);
 }
 
 #nd-page figure.shiki > div:first-child figcaption,
