@@ -1,0 +1,17 @@
+.ui-section-title {
+  margin-top: var(--section-gap, 72px);
+  padding-bottom: 8px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--brand-neon-core);
+}
+
+.ui-section-title + .ui-divider {
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom-color: var(--b10);
+}
