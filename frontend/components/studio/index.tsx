@@ -9,14 +9,15 @@ import * as ui_page      from '@/ui/page';
 import * as ui_pagehead  from '@/ui/pagehead';
 import * as ui_checkbox  from '@/ui/checkbox';
 import * as lib_download from '@/lib/download';
+import * as lib_og_sizes from '@/lib/og_sizes';
 import * as react        from 'react';
 import * as lucide       from 'lucide-react';
 import './index.css';
 
 type Section = 'og' | 'logo' | 'banner';
 
-const OG_W = 1000;
-const OG_H = 300;
+const OG_W = lib_og_sizes.OG_BASE_W;
+const OG_H = lib_og_sizes.OG_BASE_H;
 const LOGO_W = 1000;
 const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
