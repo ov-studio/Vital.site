@@ -2,7 +2,7 @@
 
 API service for Vital.sandbox — every route that needs a live server lives here. This is the **backend half** of the project: a normal Next.js deployment (no static export), split out so the docs/marketing frontend can ship as a fully static site.
 
-Hosts the Vital.sandbox **masterlist** (a live server directory backed by Upstash Redis), **scripting benchmarks** (sourced from GitHub Release assets), and cached GitHub-backed endpoints for build info, contributors, stats, vault resources, and news posts. Also handles GitHub OAuth (workspace login) and vault resource PR automation via a GitHub App.
+Hosts the Vital.sandbox **masterlist** (a live server directory backed by Upstash Redis), **scripting benchmarks** (sourced from GitHub Release assets), and cached GitHub-backed endpoints for build info, contributors, stats, vault resources, news posts, and the YouTube playlist feed. Also handles GitHub OAuth (workspace login) and vault resource PR automation via a GitHub App.
 
 ## Getting Started
 
@@ -69,25 +69,30 @@ Anyone with a GitHub account can sign in at `/workspace` and request a server to
 
 ## Vault resources
 
-Users submit a public repo with a root `manifest.yaml` from `/vault`. The backend opens a PR on `Vital.vault` (submodule add/update). Staff review open PRs in `/workspace` → **Vault resources** (Pending / Published / Merged). Merge and remove run as the GitHub App installation, not as a personal account.
+Users submit a public repo with a root `manifest.yaml` from `/vault`. The backend opens a PR on `Vital.vault` (submodule add/update). Staff review open PRs in `/workspace` → **Vault resources** (Pending / Published / Merged). Merge and remove run as the GitHub App installation, not as a personal account. `/vault/share/:id` serves link-preview tags and redirects to `/vault?modal=:id`, with the resource banner cropped by `/vault/og/:id`.
 
 ## News posts
 
-Posts live in [`Vital.news`](https://github.com/ov-studio/Vital.news) as `.mdx` files. Its workflow builds a `news.json` on every push, and `/news` serves that file (cached, with stale fallback) to the frontend, so publishing a post never needs a site rebuild. `/news/share/:slug` serves link-preview tags and redirects to `/news?modal=:slug`.
+Posts live in [`Vital.news`](https://github.com/ov-studio/Vital.news) as `.mdx` files. Its workflow builds a `news.json` on every push, and `/news` serves that file (cached, with stale fallback) to the frontend, so publishing a post never needs a site rebuild. `/news/share/:slug` serves link-preview tags and redirects to `/news?modal=:slug`, with the post cover cropped by `/news/og/:slug`.
 
 ## Structure
 
-- **`lib`** — Redis, cache, rate-limit, auth sessions, GitHub App, vault publish, applications, staff list
+Listed in the same order as the roadmap:
+
+- **`lib`** — Redis, cache, rate-limit, auth sessions, GitHub App, vault publish, applications, news index, staff list
+- **`app/route.ts`** — API status check
 - **`app/auth/github`** — OAuth start + callback
 - **`app/build`** — latest sandbox release info
-- **`app/stats`** — repository stats
 - **`app/contributors`** — contributor list
+- **`app/stats`** — repository stats
 - **`app/benchmark`** — scripting benchmark results
-- **`app/masterlist`** — live list, heartbeat, register, applications
-- **`app/vault`** — vault list, tree, submit, submissions
+- **`app/vault`** — vault list, tree, tags, repos, submit, submissions, share links, banner OG images
 - **`app/news`** — live news posts, share links, cover OG images
+- **`app/masterlist`** — live list, tags, heartbeat, register, applications
 - **`app/ip`** — client IP helper
+- **`app/youtube`** — cached YouTube playlist feed
+- **`proxy.ts`** — rate limiting for cached GET routes
 
 ## Contributing
 
-Keep new routes consistent with existing patterns. Document new env vars here and in `.env.example`. Rate limiting lives in `middleware.ts` for cached GET routes.
+Keep new routes consistent with existing patterns. Document new env vars here and in `.env.example`. Rate limiting lives in `proxy.ts` for cached GET routes (route list in `shared/configs/site.tsx`).
