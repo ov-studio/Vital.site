@@ -2,7 +2,7 @@
 
 Official documentation and resource hub for Vital.sandbox — covering API references, scripting guides, and everything needed to build with confidence.
 
-Built on Next.js and powered by Fumadocs. All content is authored in MDX. This is the **frontend half** of the project: a fully static export (`output: 'export'`) with no server-side rendering and no API routes of its own beyond a build-time search index. Everything that needs a live server — masterlist, GitHub-backed stats, vault data, benchmark results — is served by the sibling [`backend`](../backend) project and fetched client-side.
+Built on Next.js and powered by Fumadocs. All content is authored in MDX. This is the **frontend half** of the project: a fully static export (`output: 'export'`) with no server-side rendering and no API routes of its own beyond a build-time search index. Everything that needs a live server — masterlist, GitHub-backed stats, vault data, news posts, benchmark results — is served by the sibling [`backend`](../backend) project and fetched client-side.
 
 ## Getting Started
 
@@ -36,6 +36,7 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 - **`app/docs`** — documentation layout and MDX pages
 - **`app/tos`** — terms of service page
 - **`app/vault`** — vault browser UI
+- **`app/news`** — news feed, posts are fetched live from the backend (published from [`Vital.news`](https://github.com/ov-studio/Vital.news))
 - **`app/roadmap`** — roadmap page with auto-calculated completion scores
 - **`app/benchmarks`** — scripting benchmark viewer (Lua vs GDScript, fetched from backend at runtime)
 - **`app/workspace`** — masterlist application portal (GitHub OAuth, staff approval UI — not indexed by search engines)
