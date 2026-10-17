@@ -32,6 +32,7 @@ local status = self:rotate_local(
 
 ```lua lineNumbers title="Rotate a model locally"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 entity:rotate_local({0, 1, 0}, 45)

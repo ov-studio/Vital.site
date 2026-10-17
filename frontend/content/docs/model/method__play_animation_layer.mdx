@@ -42,6 +42,7 @@ local status = self:play_animation_layer(
 
 ```lua lineNumbers title="Play a looping animation on layer 0"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 entity:play_animation_layer(0, "idle")
@@ -49,6 +50,7 @@ entity:play_animation_layer(0, "idle")
 
 ```lua lineNumbers title="Layer an upper-body animation over a base animation"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 entity:play_animation_layer(0, "walk")

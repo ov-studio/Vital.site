@@ -30,6 +30,7 @@ local status = self:translate_local(
 
 ```lua lineNumbers title="Translate a model locally"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 entity:translate_local({0, 0, -1})

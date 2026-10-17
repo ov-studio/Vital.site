@@ -34,6 +34,7 @@ local status = self:look_at_from_position(
 
 ```lua lineNumbers title="Position and point a model"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 entity:look_at_from_position({0, 10, 0}, {0, 0, 0}, {0, 1, 0})
