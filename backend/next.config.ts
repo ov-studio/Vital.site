@@ -27,7 +27,8 @@ const config: next.NextConfig = {
   },
 
   async redirects() {
-    return Object.entries(config_site.info.social).map(([key, { href, populate_url }]) => ({
+    const social = config_site.info.social as Record<string, { href: string; populate_url?: boolean }>;
+    return Object.entries(social).map(([key, { href, populate_url }]) => ({
       source: '/:path*',
       has: [{ type: 'host' as const, value: `${key}.${frontend_host}` }],
       destination: resolve_destination(href, populate_url),
