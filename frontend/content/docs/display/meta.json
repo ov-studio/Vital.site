@@ -2,16 +2,16 @@
     "title": "Display",
     "icon": "Monitor",
     "pages": [
-        "---⁝⁝Lifecycle---",
-        "method__is_type",
-        "method__get_type",
-        "method__destroy",
-        
         "---Getter---",
         "get_resolution",
         "get_texture",
 
         "---Misc---",
-        "screenshot"
+        "screenshot",
+
+        "---⁝⁝Lifecycle---",
+        "method__is_type",
+        "method__get_type",
+        "method__destroy"
     ]
 }
