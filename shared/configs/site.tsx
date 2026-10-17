@@ -2,7 +2,7 @@ export type SocialLink = {
   label:           string;
   href:            string;
   populate_url?:   boolean;
-  hide_on_widget?: boolean;
+  hide_on_social?: boolean;
 };
 
 export type GitLink = {
@@ -30,7 +30,7 @@ export const info = {
   }),
 
   social: define_social({
-    news:    { label: 'News',    href: '/news', populate_url: true, hide_on_widget: true },
+    news:    { label: 'News',    href: '/news', populate_url: true, hide_on_social: true },
     kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio'                      },
     github:  { label: 'GitHub',  href: 'https://github.com/ov-studio'                    },
     discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW'                       },
