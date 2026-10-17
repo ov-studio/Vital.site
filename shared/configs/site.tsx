@@ -17,7 +17,8 @@ export const info = {
     kit:     { user: 'ov-studio', repo: 'Vital.kit',     branch: 'main' },
     wry:     { user: 'ov-studio', repo: 'Vital.wry',     branch: 'main' },
     sandbox: { user: 'ov-studio', repo: 'Vital.sandbox', branch: 'main' },
-    vault:   { user: 'ov-studio', repo: 'Vital.vault',   branch: 'main' }
+    vault:   { user: 'ov-studio', repo: 'Vital.vault',   branch: 'main' },
+    news:    { user: 'ov-studio', repo: 'Vital.news',    branch: 'main' }
   },
 
   social: define_social({
@@ -56,6 +57,7 @@ export const info = {
       '/vault/repos',
       '/vault/submit',
       '/vault/submissions',
+      '/news',
       '/masterlist',
       '/ip',
       '/youtube/playlist'
