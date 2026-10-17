@@ -17,9 +17,9 @@ export default function HomePage() {
         { label: '# Ethos', href: '#ethos' },
         { label: '# Contributors', href: '#contributors' },
         { label: 'Vault', href: '/vault' },
+        { label: 'News', href: '/news' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' },
-        { label: 'News', href: '/news' }
+        { label: 'Roadmap', href: '/roadmap' }
       ]}/>
       <component_home_hero.Hero/>
       <component_home_features.Features/>

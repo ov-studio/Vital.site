@@ -21,9 +21,9 @@ export default function TOSPage() {
       <component_overlay.Overlay/>
       <component_navbar.Navbar links={[
         { label: 'Vault', href: '/vault' },
+        { label: 'News', href: '/news' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' },
-        { label: 'News', href: '/news' }
+        { label: 'Roadmap', href: '/roadmap' }
       ]}/>
       <component_tos.TOS/>
       <component_footer.Footer/>

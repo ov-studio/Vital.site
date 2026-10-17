@@ -21,9 +21,9 @@ export default function VaultPage() {
     <component_clientshell.ClientShell>
       <component_overlay.Overlay/>
       <component_navbar.Navbar links={[
+        { label: 'News', href: '/news' },
         { label: 'Documentations', href: '/docs' },
-        { label: 'Roadmap', href: '/roadmap' },
-        { label: 'News', href: '/news' }
+        { label: 'Roadmap', href: '/roadmap' }
       ]}/>
       <react.Suspense>
         <component_vault.Vault/>

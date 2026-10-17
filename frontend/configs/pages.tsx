@@ -16,14 +16,14 @@ export const pages = {
     description: 'Community-built scripts, gamemodes, tools, and libraries for Vital.sandbox'
   },
 
-  roadmap: {
-    title: 'Roadmap',
-    description: 'Complete breakdown of every feature in the sandbox; shipped, in-progress and planned'
-  },
-
   news: {
     title: 'News',
     description: 'Announcements, release notes, and updates from the team'
+  },
+  
+  roadmap: {
+    title: 'Roadmap',
+    description: 'Complete breakdown of every feature in the sandbox; shipped, in-progress and planned'
   },
 
   studio: {
