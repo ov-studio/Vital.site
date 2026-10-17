@@ -40,7 +40,7 @@ Listed in the same order as the roadmap:
 - **`app/workspace`** — masterlist application portal (GitHub OAuth, staff approval UI — not indexed by search engines)
 - **`app/benchmarks`** — scripting benchmark viewer (Lua vs GDScript, fetched from backend at runtime)
 - **`app/vault`** — vault browser UI; shared resource links (`/vault/:id`) resolve through the backend
-- **`app/news`** — news feed, posts are fetched live from the backend (published from [`Vital.news`](https://github.com/ov-studio/Vital.news)); shared post links (`/news/:slug`) resolve through the backend
+- **`app/news`** — news feed, posts are fetched live from the backend; shared post links (`/news/:slug`) resolve through the backend
 - **`app/studio`** — brand asset exporter (OG images, logos, banners)
 - **`app/docs`** — documentation layout and MDX pages
 - **`app/api/search`** — static search index, built at compile time and queried client-side
