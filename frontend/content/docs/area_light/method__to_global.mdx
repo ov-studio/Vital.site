@@ -32,7 +32,5 @@ local world_position = self:to_global(
 local entity = light.area.create()
 entity:set_position({10, 0, 0})
 
-local world_pos = entity:to_global({1, 0, 0})
-
-core.engine.print("info", util.table.unpack(world_pos))
+core.engine.print("info", util.table.unpack(entity:to_global({1, 0, 0})))
 ```

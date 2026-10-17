@@ -32,7 +32,5 @@ local global_point = self:to_global(
 local entity = particle.trail.create()
 entity:set_position({0, 5, 0})
 
-local world_point = entity:to_global({1, 0, 0})
-
-core.engine.print("info", "World point:", util.table.unpack(world_point))
+core.engine.print("info", "World point:", util.table.unpack(entity:to_global({1, 0, 0})))
 ```
