@@ -41,7 +41,7 @@ export const Roadmap: RoadmapSection[] = build([
     cards: [
       {
         label: 'Frontend',
-        desc:  'Public-facing Next.js + Fumadocs site — homepage, vault, news, docs, and live roadmap, powered by the backend routes',
+        desc: 'Public Next.js + Fumadocs site — homepage, news, vault, docs, and live roadmap, powered by the backend',
         icon:  <lucide.LayoutDashboard {...config_site.info.lucide}/>,
         items: [
           { label: 'Homepage - hero, features, ethos section',                  status: 'completed' },
