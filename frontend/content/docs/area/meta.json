@@ -31,6 +31,7 @@
         "method__get_global_rotation",
         "method__get_quaternion",
         "method__get_dimension",
+        "method__get_parent",
         "method__get_collision_layer",
         "method__get_collision_mask",
         "method__get_collision_layer_value",
@@ -44,7 +45,6 @@
         "method__get_overlapping_areas",
         "method__overlaps_body",
         "method__overlaps_area",
-        "method__get_parent",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -55,6 +55,7 @@
         "method__set_quaternion",
         "method__set_dimension",
         "method__set_visible",
+        "method__set_parent",
         "method__set_collision_layer",
         "method__set_collision_mask",
         "method__set_collision_layer_value",
@@ -67,7 +68,6 @@
         "method__set_priority",
         "method__set_monitoring",
         "method__set_monitorable",
-        "method__set_parent",
 
         "---⁝⁝Misc---",
         "method__translate",

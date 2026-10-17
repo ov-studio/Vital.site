@@ -43,6 +43,7 @@
         "method__set_global_rotation",
         "method__set_quaternion",
         "method__set_visible",
+        "method__set_parent",
         "method__set_disabled",
         "method__set_debug_visible",
         "method__set_shape_box",
@@ -52,7 +53,6 @@
         "method__set_shape_cylinder",
         "method__set_shape_world_boundary",
         "method__set_shape_separation_ray",
-        "method__set_parent",
 
         "---⁝⁝Misc---",
         "method__translate",

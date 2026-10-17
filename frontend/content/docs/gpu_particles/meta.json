@@ -102,14 +102,6 @@
         "method__set_mesh",
 
         "---⁝⁝Misc---",
-        "method__emit",
-        "method__stop",
-        "method__restart",
-        "method__burst",
-        "method__reset_color_ramp",
-        "method__reset_scale_curve",
-        "method__reset_material",
-        "method__reset_mesh",
         "method__translate",
         "method__translate_local",
         "method__rotate",
@@ -119,6 +111,14 @@
         "method__look_at",
         "method__look_at_from_position",
         "method__to_local",
-        "method__to_global"
+        "method__to_global",
+        "method__emit",
+        "method__stop",
+        "method__restart",
+        "method__burst",
+        "method__reset_color_ramp",
+        "method__reset_scale_curve",
+        "method__reset_material",
+        "method__reset_mesh"
     ]
 }

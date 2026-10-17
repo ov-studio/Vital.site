@@ -44,7 +44,6 @@
         "method__set_color",
         "method__set_blend_mode",
         "---⁝⁝Misc---",
-        "method__clear",
         "method__translate",
         "method__translate_local",
         "method__rotate",
@@ -54,6 +53,7 @@
         "method__look_at",
         "method__look_at_from_position",
         "method__to_local",
-        "method__to_global"
+        "method__to_global",
+        "method__clear"
     ]
 }
