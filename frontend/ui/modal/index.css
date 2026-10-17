@@ -270,7 +270,7 @@
   overflow-x: auto;
   padding: 16px 18px;
   line-height: 1.6;
-  background: var(--bg10);
+  background: var(--bg9);
   border: 1px solid var(--b05);
   border-radius: 8px;
 }
@@ -287,7 +287,7 @@
   border-collapse: separate;
   border-spacing: 0;
   font-size: .85rem;
-  background: var(--bg10);
+  background: var(--bg9);
   border-radius: 8px;
   overflow: hidden;
 }
