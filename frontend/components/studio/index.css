@@ -136,6 +136,7 @@
 }
 
 .studio-og-tagline .hl {
+  font-weight: 700;
   color: var(--white);
 }
 
