@@ -13,14 +13,14 @@ const config: next.NextConfig = {
     unoptimized: true
   },
 
-  // Dev only: mirrors the vercel.json rewrites so shared links (/vault/:id, /news/:slug)
+  // Dev only: mirrors the vercel.json rewrites so shared links (/vault/:id, /news/:slug+)
   // reach the backend share routes locally. Static export (build) doesn't support rewrites.
   ...(is_dev && {
     async rewrites() {
       const api = lib_api_url.get_backend_url();
       return [
-        { source: '/vault/:id',  destination: `${api}/vault/share/:id` },
-        { source: '/news/:slug', destination: `${api}/news/share/:slug` }
+        { source: '/vault/:id',   destination: `${api}/vault/share/:id`   },
+        { source: '/news/:slug+', destination: `${api}/news/share/:slug+` }
       ];
     }
   })

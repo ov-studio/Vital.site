@@ -5,7 +5,7 @@
 
   "rewrites": [
     { "source": "/vault/:id", "destination": "https://api.vital-sandbox.com/vault/share/:id" },
-    { "source": "/news/:slug", "destination": "https://api.vital-sandbox.com/news/share/:slug" }
+    { "source": "/news/:slug+", "destination": "https://api.vital-sandbox.com/news/share/:slug+" }
   ],
 
   "headers": [

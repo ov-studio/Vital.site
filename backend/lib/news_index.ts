@@ -26,6 +26,11 @@ export async function find_news_post(slug: string): Promise<NewsListing | null> 
   }
 }
 
+/** Slug (may contain folders, e.g. `16-10-2026/pre-launch`) as a URL path, encoding each segment. */
+export function slug_path(slug: string): string {
+  return slug.split('/').map(encodeURIComponent).join('/');
+}
+
 /** Cover formats the OG image generator can crop. */
 export function has_og_cover(cover?: string | null): cover is string {
   return !!cover && /\.(png|jpe?g|gif)$/i.test(cover);

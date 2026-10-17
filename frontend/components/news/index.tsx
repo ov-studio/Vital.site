@@ -83,7 +83,7 @@ function NewsModal({ post, on_close, closing }: {
   const copied = copied_key !== null;
 
   const handle_share = react.useCallback(() => {
-    copy(`${window.location.origin}/news/${encodeURIComponent(post.slug)}`);
+    copy(`${window.location.origin}/news/${post.slug.split('/').map(encodeURIComponent).join('/')}`);
   }, [post.slug, copy]);
 
   const controls = (
