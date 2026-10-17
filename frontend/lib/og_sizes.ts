@@ -16,3 +16,4 @@ export const OG_LOGO_H = 88 * OG_SCALE;
 export const OG_GAP = 35 * OG_SCALE;
 export const OG_TAG_SIZE = 15.2 * OG_SCALE;
 export const OG_BLUE = '#5CADFF';
+export const OG_WHITE = '#F7F7F7';
