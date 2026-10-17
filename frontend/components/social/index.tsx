@@ -7,7 +7,7 @@ export function Social() {
   return (
     <div className="social">
       {Object.entries(config_site.info.social).map(([key, item]) => {
-        if (item.hide_on_widget) return null;
+        if (item.hide_on_social) return null;
         const Icon = component_atom_icon.icon[key as keyof typeof component_atom_icon.icon];
         if (!Icon) return null;
         
