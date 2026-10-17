@@ -22,7 +22,7 @@ For env var setup and deployment details, see each project's readme:
 ## Structure
 
 - **`frontend/`** — static docs + marketing site (Next.js, output: export)
-- **`backend/`** — API service (masterlist, stats, contributors, vault, build, auth)
+- **`backend/`** — API service (masterlist, stats, contributors, vault, news, build, auth)
 - **`shared/`** — CSS, config, and utilities synced into both projects at build time
 - **`dev.py`** — development launcher
 
