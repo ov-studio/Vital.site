@@ -9,6 +9,7 @@
         "method__is_type",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
@@ -17,6 +18,7 @@
         "method__is_in_contact",
         "method__is_remote",
         "method__is_streamed",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -44,6 +46,7 @@
         "method__get_contact_body",
         "method__get_contact_point",
         "method__get_contact_normal",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -67,6 +70,7 @@
         "method__set_engine_force",
         "method__set_brake",
         "method__set_steering",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",

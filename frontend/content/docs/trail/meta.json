@@ -4,17 +4,21 @@
     "pages": [
         "---Enum---",
         "enum__blend_mode",
+
         "---Base---",
         "create",
         "...",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__is_streamed",
         "method__get_type",
         "method__destroy",
+
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
+
         "---⁝⁝Getter---",
         "method__get_position",
         "method__get_global_position",
@@ -29,6 +33,7 @@
         "method__get_width",
         "method__get_color",
         "method__get_blend_mode",
+
         "---⁝⁝Setter---",
         "method__set_position",
         "method__set_global_position",
@@ -43,6 +48,7 @@
         "method__set_width",
         "method__set_color",
         "method__set_blend_mode",
+
         "---⁝⁝Misc---",
         "method__translate",
         "method__translate_local",
