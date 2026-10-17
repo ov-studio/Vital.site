@@ -5,6 +5,11 @@ import type * as next        from 'next';
 const frontend_url = lib_api_url.get_frontend_url();
 const frontend_host = new URL(frontend_url).hostname;
 
+const resolve_destination = (href: string, populate_url?: boolean) => {
+  if (populate_url) return `${frontend_url.replace(/\/+$/, '')}/${href.replace(/^\/+/, '')}`;
+  return href.startsWith('http') ? href : `https://${href}`;
+};
+
 const config: next.NextConfig = {
   reactStrictMode: true,
 
@@ -22,11 +27,11 @@ const config: next.NextConfig = {
   },
 
   async redirects() {
-    return Object.entries(config_site.info.social).map(([key, { href }]) => ({
-      source:      '/:path*',
-      has:         [{ type: 'host' as const, value: `${key}.${frontend_host}` }],
-      destination: href.startsWith('http') ? href : `https://${href}`,
-      permanent:   false
+    return Object.entries(config_site.info.social).map(([key, { href, populate_url }]) => ({
+      source: '/:path*',
+      has: [{ type: 'host' as const, value: `${key}.${frontend_host}` }],
+      destination: resolve_destination(href, populate_url),
+      permanent: false
     }));
   }
 };
