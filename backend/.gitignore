@@ -10,4 +10,5 @@ configs/staff.json
 configs/vault.tsx
 configs/workspace.tsx
 lib/api_url.ts
+lib/og_sizes.ts
 # </sync:shared>
