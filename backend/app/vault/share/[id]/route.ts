@@ -1,9 +1,7 @@
 import * as config_site     from '@/configs/site';
 import * as lib_api_url     from '@/lib/api_url';
 import * as lib_vault_index from '@/lib/vault_index';
-
-const OG_W = 2000;
-const OG_H = 600;
+import * as lib_og_sizes    from '@/lib/og_sizes';
 
 function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -41,8 +39,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:image" content="${esc(image)}">
-<meta property="og:image:width" content="${OG_W}">
-<meta property="og:image:height" content="${OG_H}">
+<meta property="og:image:width" content="${lib_og_sizes.OG_W}">
+<meta property="og:image:height" content="${lib_og_sizes.OG_H}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
