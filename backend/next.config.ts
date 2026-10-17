@@ -1,7 +1,8 @@
-import *      as config_site from './configs/site.tsx';
 import *      as lib_api_url from './lib/api_url.ts';
 import type * as next        from 'next';
 
+if (typeof require !== 'undefined' && !require.extensions['.tsx'] && require.extensions['.ts']) require.extensions['.tsx'] = require.extensions['.ts'];
+const config_site = require('./configs/site.tsx') as typeof import('./configs/site.tsx');
 const frontend_url = lib_api_url.get_frontend_url();
 const frontend_host = new URL(frontend_url).hostname;
 
