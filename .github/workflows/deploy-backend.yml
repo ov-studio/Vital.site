@@ -28,4 +28,4 @@ jobs:
 
       - run: vercel build --prod --token=$VERCEL_TOKEN
 
-      - run: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+      - run: vercel deploy --prebuilt --prod --archive=tgz --token=$VERCEL_TOKEN
