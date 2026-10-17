@@ -5,6 +5,14 @@ export type SocialLink = {
   hide_on_widget?: boolean;
 };
 
+export type GitLink = {
+  user:             string;
+  repo:             string;
+  branch:           string;
+  hide_on_footer?:  boolean;
+};
+
+const define_git    = <K extends string>(links: Record<K, GitLink>) => links;
 const define_social = <K extends string>(links: Record<K, SocialLink>) => links;
 
 export const info = {
@@ -12,14 +20,14 @@ export const info = {
   author: "ov-studio",
   description: "An open-source, high-performance sandbox built on Godot-Engine and powered by C++17 & Lua",
 
-  git: {
-    site:    { user: 'ov-studio', repo: 'Vital.site',    branch: 'main' },
-    kit:     { user: 'ov-studio', repo: 'Vital.kit',     branch: 'main' },
-    wry:     { user: 'ov-studio', repo: 'Vital.wry',     branch: 'main' },
-    sandbox: { user: 'ov-studio', repo: 'Vital.sandbox', branch: 'main' },
-    vault:   { user: 'ov-studio', repo: 'Vital.vault',   branch: 'main' },
-    news:    { user: 'ov-studio', repo: 'Vital.news',    branch: 'main' }
-  },
+  git: define_git({
+    site:    { user: 'ov-studio', repo: 'Vital.site',    branch: 'main', hide_on_footer: true },
+    kit:     { user: 'ov-studio', repo: 'Vital.kit',     branch: 'main'                       },
+    wry:     { user: 'ov-studio', repo: 'Vital.wry',     branch: 'main'                       },
+    sandbox: { user: 'ov-studio', repo: 'Vital.sandbox', branch: 'main'                       },
+    vault:   { user: 'ov-studio', repo: 'Vital.vault',   branch: 'main'                       },
+    news:    { user: 'ov-studio', repo: 'Vital.news',    branch: 'main'                       }
+  }),
 
   social: define_social({
     news:    { label: 'News',    href: '/news', populate_url: true, hide_on_widget: true },

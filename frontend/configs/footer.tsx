@@ -24,7 +24,7 @@ export const Footer = [
   },
   {
     heading: 'Resource',
-    links: Object.values(config_site.info.git).map(({ user, repo }) => ({
+    links: Object.values(config_site.info.git).filter(({ hide_on_footer }) => !hide_on_footer).map(({ user, repo }) => ({
       label: repo,
       href:  `https://github.com/${user}/${repo}`
     }))
