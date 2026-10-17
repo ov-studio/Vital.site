@@ -33,5 +33,6 @@ local entity = core.camera.create()
 entity:set_active()
 
 local ray = entity:project_local_ray_normal({960, 540})
+
 core.engine.print("info", "Local ray:", util.table.unpack(ray))
 ```

@@ -33,5 +33,6 @@ local entity = core.camera.create()
 entity:set_active()
 
 local origin = entity:project_ray_origin({960, 540})
+
 core.engine.print("info", "Ray origin:", util.table.unpack(origin))
 ```

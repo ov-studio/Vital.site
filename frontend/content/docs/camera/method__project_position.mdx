@@ -35,5 +35,6 @@ local entity = core.camera.create()
 entity:set_active()
 
 local world_pos = entity:project_position({960, 540}, 10)
+
 core.engine.print("info", "World position:", util.table.unpack(world_pos))
 ```
