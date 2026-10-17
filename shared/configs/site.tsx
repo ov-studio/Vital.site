@@ -1,3 +1,12 @@
+export type SocialLink = {
+  label:           string;
+  href:            string;
+  populate_url?:   boolean;
+  hide_on_widget?: boolean;
+};
+
+const define_social = <K extends string>(links: Record<K, SocialLink>) => links;
+
 export const info = {
   name: "Vital.sandbox",
   author: "ov-studio",
@@ -11,13 +20,13 @@ export const info = {
     vault:   { user: 'ov-studio', repo: 'Vital.vault',   branch: 'main' }
   },
 
-  social: {
+  social: define_social({
     news:    { label: 'News',    href: '/news', populate_url: true, hide_on_widget: true },
     kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio'                      },
     github:  { label: 'GitHub',  href: 'https://github.com/ov-studio'                    },
     discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW'                       },
     youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community'           }
-  },
+  }),
 
   lucide: {
     size:        18,
