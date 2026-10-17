@@ -563,6 +563,7 @@ function VaultInner() {
 
   react.useEffect(() => {
     if (typeof window !== 'undefined' && window.location.hash.includes('auth_token')) return;
+    if (initial_modal_id) return;
     const params = new URLSearchParams();
     if (active_tag) params.set('tag', active_tag);
     if (search.trim()) params.set('search', search.trim());
@@ -572,10 +573,10 @@ function VaultInner() {
     const cur = window.location.pathname + window.location.search;
     if (cur === next) return;
     router.replace(next, { scroll: false });
-  }, [active_tag, search, selected, router]);
+  }, [active_tag, search, selected, initial_modal_id, router]);
 
   react.useEffect(() => {
-    if (state !== 'done' || !initial_modal_id) return;
+    if (state === 'loading' || !initial_modal_id) return;
     const match = resources.find(r => r.id === initial_modal_id);
     if (match) { set_closing(false); set_selected(match); }
     set_initial_modal_id(null);

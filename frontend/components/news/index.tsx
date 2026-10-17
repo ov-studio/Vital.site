@@ -144,6 +144,7 @@ export function News() {
   const [initial_modal_slug, set_initial_modal_slug] = react.useState(() => searchParams.get('modal'));
 
   react.useEffect(() => {
+    if (initial_modal_slug) return; 
     const params = new URLSearchParams();
     if (selected) params.set('modal', selected.slug);
     const qs   = params.toString();
@@ -151,10 +152,10 @@ export function News() {
     const cur  = window.location.pathname + window.location.search;
     if (cur === next) return;
     router.replace(next, { scroll: false });
-  }, [selected, router]);
+  }, [selected, initial_modal_slug, router]);
 
   react.useEffect(() => {
-    if (state !== 'done' || !initial_modal_slug) return;
+    if (state === 'loading' || !initial_modal_slug) return;
     const match = posts.find(p => p.slug === initial_modal_slug);
     if (match) { set_closing(false); set_selected(match); }
     set_initial_modal_slug(null);
