@@ -2,6 +2,7 @@ import * as fs          from 'fs';
 import * as path        from 'path';
 import * as lib_api_url from '@/lib/api_url';
 import * as next_og     from 'next/og';
+import sharp            from 'sharp';
 
 export {
   OG_SCALE,
@@ -70,10 +71,16 @@ export function og_label_path(route_path: string): string {
   return p.toUpperCase();
 }
 
+const font_cache = new Map<string, ArrayBuffer>();
+
 function load_font_file(name: string): ArrayBuffer {
+  const cached = font_cache.get(name);
+  if (cached) return cached;
   const file = path.join(process.cwd(), 'public/font', name);
   const buf = fs.readFileSync(file);
-  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+  const data = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
+  font_cache.set(name, data);
+  return data;
 }
 
 /** Rajdhani SemiBold (600) — path / default weight. */
@@ -110,7 +117,6 @@ export function brand_og_payload(route_path: string) {
     label: path ? `${host}${path}` : host,
     font: load_og_font(),
     fontBold: load_og_font_bold(),
-    placeholder: load_og_placeholder_data_uri(),
     width: OG_W,
     height: OG_H,
   };
@@ -124,17 +130,40 @@ export function brand_og_fonts(font: ArrayBuffer, fontBold: ArrayBuffer) {
   ];
 }
 
-/** Full brand OG ImageResponse for a route path — used by section + docs routes. */
-export function brand_og_image(route_path: string) {
-  const { host, path, font, fontBold, placeholder, width, height } = brand_og_payload(route_path);
-  return new next_og.ImageResponse(
-    <BrandOgMarkup host={host} path={path} placeholderSrc={placeholder} />,
+/** Background scaled once to the OG size and reused by every image (the slow part of OG rendering). */
+let background_png: Promise<Buffer> | undefined;
+
+function og_background(): Promise<Buffer> {
+  background_png ??= sharp(path.join(process.cwd(), 'public/og/placeholder.png'))
+    .resize(OG_W, OG_H, { fit: 'cover' })
+    .png({ compressionLevel: 6 })
+    .toBuffer();
+  return background_png;
+}
+
+/** Full brand OG image for a route path — used by section + docs routes.
+ *  Only the text is rendered through Satori (transparent layer); the background is composited with sharp.
+ */
+export async function brand_og_image(route_path: string) {
+  const { host, path, font, fontBold, width, height } = brand_og_payload(route_path);
+  const text_layer = new next_og.ImageResponse(
+    <BrandOgMarkup host={host} path={path} />,
     {
       width,
       height,
       fonts: brand_og_fonts(font, fontBold),
     }
   );
+
+  const [bg, layer] = await Promise.all([og_background(), text_layer.arrayBuffer()]);
+  const png = await sharp(bg).composite([{ input: Buffer.from(layer) }]).png({ compressionLevel: 3 }).toBuffer();
+
+  return new Response(new Uint8Array(png), {
+    headers: {
+      'Content-Type': 'image/png',
+      'Cache-Control': 'public, immutable, no-transform, max-age=31536000'
+    }
+  });
 }
 
 /** JSX markup for a brand Open Graph image (Satori / ImageResponse).
@@ -147,7 +176,7 @@ export function BrandOgMarkup({
 }: {
   host:           string;
   path?:          string;
-  placeholderSrc: string;
+  placeholderSrc?: string;
 }) {
   const top = og_tagline_top();
   return (
@@ -157,22 +186,24 @@ export function BrandOgMarkup({
         height: '100%',
         display: 'flex',
         position: 'relative',
-        backgroundColor: '#0C0F1A'
+        backgroundColor: placeholderSrc ? '#0C0F1A' : 'transparent'
       }}
     >
-      <img
-        src={placeholderSrc}
-        alt=""
-        width={OG_W}
-        height={OG_H}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover'
-        }}
-      />
+      {placeholderSrc ? (
+        <img
+          src={placeholderSrc}
+          alt=""
+          width={OG_W}
+          height={OG_H}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+      ) : null}
       <div
         style={{
           position: 'absolute',
