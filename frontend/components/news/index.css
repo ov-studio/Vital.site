@@ -33,6 +33,8 @@
   gap: 12px;
 }
 
+.news-grid > .state-empty { grid-column: 1 / -1; }
+
 .news-card.ui-card {
   cursor: pointer;
   background: linear-gradient(var(--b15), var(--b15)), var(--bg6);

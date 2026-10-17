@@ -2,7 +2,7 @@
 
 API service for Vital.sandbox — every route that needs a live server lives here. This is the **backend half** of the project: a normal Next.js deployment (no static export), split out so the docs/marketing frontend can ship as a fully static site.
 
-Hosts the Vital.sandbox **masterlist** (a live server directory backed by Upstash Redis), **scripting benchmarks** (sourced from GitHub Release assets), and cached GitHub-backed endpoints for build info, contributors, stats, and vault resources. Also handles GitHub OAuth (workspace login) and vault resource PR automation via a GitHub App.
+Hosts the Vital.sandbox **masterlist** (a live server directory backed by Upstash Redis), **scripting benchmarks** (sourced from GitHub Release assets), and cached GitHub-backed endpoints for build info, contributors, stats, vault resources, and news posts. Also handles GitHub OAuth (workspace login) and vault resource PR automation via a GitHub App.
 
 ## Getting Started
 
@@ -71,6 +71,10 @@ Anyone with a GitHub account can sign in at `/workspace` and request a server to
 
 Users submit a public repo with a root `manifest.yaml` from `/vault`. The backend opens a PR on `Vital.vault` (submodule add/update). Staff review open PRs in `/workspace` → **Vault resources** (Pending / Published / Merged). Merge and remove run as the GitHub App installation, not as a personal account.
 
+## News posts
+
+Posts live in [`Vital.news`](https://github.com/ov-studio/Vital.news) as `.mdx` files. Its workflow builds a `news.json` on every push, and `/news` serves that file (cached, with stale fallback) to the frontend, so publishing a post never needs a site rebuild. `/news/share/:slug` serves link-preview tags and redirects to `/news?modal=:slug`.
+
 ## Structure
 
 - **`lib`** — Redis, cache, rate-limit, auth sessions, GitHub App, vault publish, applications, staff list
@@ -81,6 +85,7 @@ Users submit a public repo with a root `manifest.yaml` from `/vault`. The backen
 - **`app/benchmark`** — scripting benchmark results
 - **`app/masterlist`** — live list, heartbeat, register, applications
 - **`app/vault`** — vault list, tree, submit, submissions
+- **`app/news`** — live news posts, share links, cover OG images
 - **`app/ip`** — client IP helper
 
 ## Contributing
