@@ -1,4 +1,4 @@
-name: Deploy backend
+name: Deploy Backend
 
 # Manual only: Actions tab -> "Deploy backend" -> Run workflow
 on:

@@ -1,4 +1,4 @@
-name: Deploy frontend
+name: Deploy Frontend
 
 # Manual only: Actions tab -> "Deploy frontend" -> Run workflow
 on:
