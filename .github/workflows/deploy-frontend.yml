@@ -1,0 +1,31 @@
+name: Deploy frontend
+
+# Manual only: Actions tab -> "Deploy frontend" -> Run workflow
+on:
+  workflow_dispatch:
+
+env:
+  VERCEL_ORG_ID:     ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_TOKEN:      ${{ secrets.VERCEL_TOKEN }}
+  # Baked into the build (OG labels, sitemap, API url). Override with a repo variable SITE_DOMAIN.
+  NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: ${{ vars.SITE_DOMAIN || 'vital-sandbox.com' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install --global vercel@latest
+
+      - run: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+
+      - run: vercel build --prod --token=$VERCEL_TOKEN
+
+      - run: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
