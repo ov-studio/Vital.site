@@ -20,7 +20,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). For masterlist, stats, vault, and benchmark data to load locally, the backend needs to be running too.
+Open [http://localhost:3000](http://localhost:3000). For masterlist, stats, vault, news, and benchmark data to load locally, the backend needs to be running too.
+
+Shared links (`/vault/:id`, `/news/:slug`) are rewritten to the backend's share routes so link previews work. In production this is done by `vercel.json`; in dev, `next.config.ts` does the same.
 
 ### 3. Build for production
 
@@ -32,19 +34,22 @@ Outputs a fully static site to `out/`, ready to deploy to any static host.
 
 ## Structure
 
+Listed in the same order as the roadmap:
+
 - **`app/(home)`** — landing page
-- **`app/docs`** — documentation layout and MDX pages
-- **`app/tos`** — terms of service page
-- **`app/vault`** — vault browser UI
-- **`app/news`** — news feed, posts are fetched live from the backend (published from [`Vital.news`](https://github.com/ov-studio/Vital.news))
-- **`app/roadmap`** — roadmap page with auto-calculated completion scores
-- **`app/benchmarks`** — scripting benchmark viewer (Lua vs GDScript, fetched from backend at runtime)
 - **`app/workspace`** — masterlist application portal (GitHub OAuth, staff approval UI — not indexed by search engines)
+- **`app/benchmarks`** — scripting benchmark viewer (Lua vs GDScript, fetched from backend at runtime)
+- **`app/vault`** — vault browser UI; shared resource links (`/vault/:id`) resolve through the backend
+- **`app/news`** — news feed, posts are fetched live from the backend (published from [`Vital.news`](https://github.com/ov-studio/Vital.news)); shared post links (`/news/:slug`) resolve through the backend
+- **`app/studio`** — brand asset exporter (OG images, logos, banners)
+- **`app/docs`** — documentation layout and MDX pages
 - **`app/api/search`** — static search index, built at compile time and queried client-side
-- **`app/og`** — OG image generation for docs pages
+- **`app/roadmap`** — roadmap page with auto-calculated completion scores
+- **`app/tos`** — terms of service page
+- **`app/og`** — brand link-preview (OG) images for every page and docs page
 - **`components`** — shared UI components
 - **`ui`** — generic UI primitives, mirrored to `public/cdn/ui/` for reuse by `Vital.kit` / `Vital.vault`
-- **`configs`** — page-level configuration (footer, home, roadmap, tos, vault)
+- **`configs`** — page-level configuration (pages, footer, home, roadmap, tos) plus shared configs synced from `shared/`
 - **`content/docs`** — MDX source files for all documentation
 - **`lib`** — shared utilities
 
