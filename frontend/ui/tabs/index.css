@@ -21,7 +21,7 @@
   background: var(--rule);
   border: none;
   padding: 11px 16px 14px;
-  margin: 0 0 -2px;
+  margin: 0 0 2px;
   border-radius: 6px 6px 0 0;
   z-index: 3;
   transition: color 0.18s ease, background 0.18s ease;
