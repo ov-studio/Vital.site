@@ -1,6 +1,5 @@
 import * as lib_og_brand    from '@/lib/og_brand';
 import * as next_navigation from 'next/navigation';
-import * as next_og         from 'next/og';
 
 export const revalidate = false;
 export const dynamicParams = false;
@@ -14,21 +13,7 @@ export async function GET(
   const allowed = new Set(lib_og_brand.site_og_sections());
   if (!allowed.has(section)) next_navigation.notFound();
 
-  const { host, path, font, fontBold, placeholder, width, height } = lib_og_brand.brand_og_payload(
-    `/${section}`
-  );
-
-  return new next_og.ImageResponse(
-    <lib_og_brand.BrandOgMarkup host={host} path={path} placeholderSrc={placeholder}/>,
-    {
-      width,
-      height,
-      fonts: [
-        { name: 'Rajdhani', data: font, weight: 600, style: 'normal' },
-        { name: 'Rajdhani', data: fontBold, weight: 700, style: 'normal' },
-      ],
-    }
-  );
+  return lib_og_brand.brand_og_image(`/${section}`);
 }
 
 export function generateStaticParams() {

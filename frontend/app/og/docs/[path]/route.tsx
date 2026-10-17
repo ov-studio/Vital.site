@@ -1,7 +1,6 @@
 import * as lib_source      from '@/lib/source';
 import * as lib_og_brand    from '@/lib/og_brand';
 import * as next_navigation from 'next/navigation';
-import * as next_og         from 'next/og';
 
 export const revalidate = false;
 export const dynamicParams = false;
@@ -23,19 +22,7 @@ export async function GET(
   if (!page) next_navigation.notFound();
 
   const route_path = page.url.startsWith('/') ? page.url : `/${page.url}`;
-  const { host, path, font, fontBold, placeholder, width, height } = lib_og_brand.brand_og_payload(route_path);
-
-  return new next_og.ImageResponse(
-    <lib_og_brand.BrandOgMarkup host={host} path={path} placeholderSrc={placeholder}/>,
-    {
-      width,
-      height,
-      fonts: [
-        { name: 'Rajdhani', data: font, weight: 600, style: 'normal' },
-        { name: 'Rajdhani', data: fontBold, weight: 700, style: 'normal' },
-      ]
-    }
-  );
+  return lib_og_brand.brand_og_image(route_path);
 }
 
 export function generateStaticParams() {

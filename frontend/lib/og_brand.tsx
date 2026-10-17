@@ -1,15 +1,30 @@
 import * as fs          from 'fs';
 import * as path        from 'path';
 import * as lib_api_url from '@/lib/api_url';
+import * as next_og     from 'next/og';
 
-export const OG_SCALE = 2;
-export const OG_W = 1000 * OG_SCALE;
-export const OG_H = 350 * OG_SCALE;
-export const OG_LOGO_H = 88 * OG_SCALE;
-export const OG_GAP = 40 * OG_SCALE;
-export const OG_TAG_SIZE = 15.2 * OG_SCALE;
-export const OG_BLUE = '#7EA1E9';
-export const OG_WHITE = '#F7F7F7';
+export {
+  OG_SCALE,
+  OG_BASE_W,
+  OG_BASE_H,
+  OG_W,
+  OG_H,
+  OG_LOGO_H,
+  OG_GAP,
+  OG_TAG_SIZE,
+  OG_BLUE,
+  OG_WHITE,
+} from '@/lib/og_sizes';
+
+import {
+  OG_W,
+  OG_H,
+  OG_LOGO_H,
+  OG_GAP,
+  OG_TAG_SIZE,
+  OG_BLUE,
+  OG_WHITE,
+} from '@/lib/og_sizes';
 
 const SECTION_SKIP = new Set([
   'api',
@@ -108,9 +123,29 @@ export function brand_og_payload(route_path: string) {
   };
 }
 
+/** Shared Satori font list for brand OG ImageResponses. */
+export function brand_og_fonts(font: ArrayBuffer, fontBold: ArrayBuffer) {
+  return [
+    { name: 'Rajdhani', data: font, weight: 600 as const, style: 'normal' as const },
+    { name: 'Rajdhani', data: fontBold, weight: 700 as const, style: 'normal' as const },
+  ];
+}
+
+/** Full brand OG ImageResponse for a route path — used by section + docs routes. */
+export function brand_og_image(route_path: string) {
+  const { host, path, font, fontBold, placeholder, width, height } = brand_og_payload(route_path);
+  return new next_og.ImageResponse(
+    <BrandOgMarkup host={host} path={path} placeholderSrc={placeholder} />,
+    {
+      width,
+      height,
+      fonts: brand_og_fonts(font, fontBold),
+    }
+  );
+}
+
 /** JSX markup for a brand Open Graph image (Satori / ImageResponse).
  *  Host stays brand blue + Bold (700); path (`/NEWS`, …) is white SemiBold (600).
- *  Both weights must be registered on the ImageResponse (see routes).
  */
 export function BrandOgMarkup({
   host,
@@ -170,7 +205,7 @@ export function BrandOgMarkup({
             overflow: 'hidden'
           }}
         >
-          <span style={{ color: OG_BLUE, fontWeight: 700 }}>vital-sandbox.com</span>
+          <span style={{ color: OG_BLUE, fontWeight: 700 }}>{host}</span>
           {pathPart ? (
             <span style={{ color: OG_WHITE, fontWeight: 600 }}>{pathPart}</span>
           ) : null}
