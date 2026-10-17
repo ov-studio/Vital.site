@@ -70,13 +70,6 @@ export function og_label_path(route_path: string): string {
   return p.toUpperCase();
 }
 
-/** Full uppercase host + path label (legacy single-string form). */
-export function og_label(route_path: string): string {
-  const host = og_label_host();
-  const p = og_label_path(route_path);
-  return p ? `${host}${p}` : host;
-}
-
 function load_font_file(name: string): ArrayBuffer {
   const file = path.join(process.cwd(), 'public/font', name);
   const buf = fs.readFileSync(file);

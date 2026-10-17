@@ -48,11 +48,6 @@ export function get_backend_url(): string {
   return domain ? `https://api.${domain}` : LOCAL_BACKEND_URL;
 }
 
-/** Hostname only from backend URL */
-export function get_backend_host(): string {
-  return host_of(get_backend_url());
-}
-
 /** Absolute API URL: get_backend_url() + path */
 export function get_api_url(path: string): string {
   return with_path(get_backend_url(), path);

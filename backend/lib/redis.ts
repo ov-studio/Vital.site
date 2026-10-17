@@ -57,16 +57,6 @@ export const applications_pending_key = 'masterlist:applications:pending';
 /** Redis set key of approved application ids. */
 export const applications_approved_key = 'masterlist:applications:approved';
 
-/** Redis key for a vault submission record. */
-export function vault_submission_key(id: string) {
-  return `vault:submission:${id}`;
-}
-
-/** Redis key for a user's vault submission id set. */
-export function vault_user_submissions_key(login: string) {
-  return `vault:user:${login.toLowerCase()}:submissions`;
-}
-
 
 /** Redis key binding a session to a GitHub user access token. */
 export function auth_github_token_key(session_token: string) {

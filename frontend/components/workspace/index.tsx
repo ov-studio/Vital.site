@@ -12,7 +12,6 @@ import * as ui_panel         from '@/ui/panel';
 import * as ui_section       from '@/ui/section';
 import * as ui_secret        from '@/ui/secret';
 import * as ui_button        from '@/ui/button';
-import * as ui_iconbutton    from '@/ui/iconbutton';
 import * as ui_alert         from '@/ui/alert';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';

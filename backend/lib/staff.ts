@@ -46,7 +46,3 @@ export function is_staff_login(login: string): boolean {
   return staff_logins().has(login.toLowerCase());
 }
 
-/** All configured staff GitHub logins (lowercased). */
-export function all_staff_logins(): string[] {
-  return Array.from(staff_logins());
-}

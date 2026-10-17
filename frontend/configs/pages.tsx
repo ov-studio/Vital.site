@@ -36,5 +36,3 @@ export const pages = {
     description: 'Apply for masterlist tokens, track application status, and review requests'
   }
 } as const;
-
-export type PageKey = keyof typeof pages;

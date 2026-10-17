@@ -196,8 +196,3 @@ export function auth_error_url(next_path: string, message: string): string {
   return `${base}${path}?error=${encodeURIComponent(message)}`;
 }
 
-/** Server-side token for staff vault PR merge/close (classic PAT or fine-grained). */
-export function vault_github_token(): string | null {
-  const t = process.env.GITHUB_VAULT_TOKEN || process.env.GITHUB_TOKEN || null;
-  return t && t.trim() ? t.trim() : null;
-}

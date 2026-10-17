@@ -40,8 +40,3 @@ export function getPageImage(page: fumadocs_core_source.InferPageType<typeof sou
   };
 }
 
-/** Flatten a docs page to markdown text for LLM / search indexing. */
-export async function getLLMText(page: fumadocs_core_source.InferPageType<typeof source>) {
-  const processed = await page.data.getText('processed');
-  return `# ${page.data.title}\n\n${processed}`;
-}
