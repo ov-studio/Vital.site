@@ -61,11 +61,20 @@ export function og_label(route_path: string): string {
   return p ? `${host}${p}` : host;
 }
 
-/** Load the Rajdhani SemiBold font buffer for OG image generation. */
-export function load_og_font(): ArrayBuffer {
-  const file = path.join(process.cwd(), 'public/font/Rajdhani-SemiBold.ttf');
+function load_font_file(name: string): ArrayBuffer {
+  const file = path.join(process.cwd(), 'public/font', name);
   const buf = fs.readFileSync(file);
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+}
+
+/** Rajdhani SemiBold (600) — path / default weight. */
+export function load_og_font(): ArrayBuffer {
+  return load_font_file('Rajdhani-SemiBold.ttf');
+}
+
+/** Rajdhani Bold (700) — host label weight. */
+export function load_og_font_bold(): ArrayBuffer {
+  return load_font_file('Rajdhani-Bold.ttf');
 }
 
 /** Load the OG background placeholder as a base64 data URI. */
@@ -82,7 +91,7 @@ export function og_tagline_top(): number {
   return group_top + OG_LOGO_H + OG_GAP;
 }
 
-/** Bundle host/path label parts, font, placeholder, and dimensions for a brand OG route. */
+/** Bundle host/path label parts, fonts, placeholder, and dimensions for a brand OG route. */
 export function brand_og_payload(route_path: string) {
   const host = og_label_host();
   const path = og_label_path(route_path);
@@ -91,6 +100,7 @@ export function brand_og_payload(route_path: string) {
     path,
     label: path ? `${host}${path}` : host,
     font: load_og_font(),
+    fontBold: load_og_font_bold(),
     placeholder: load_og_placeholder_data_uri(),
     width: OG_W,
     height: OG_H,
@@ -98,7 +108,8 @@ export function brand_og_payload(route_path: string) {
 }
 
 /** JSX markup for a brand Open Graph image (Satori / ImageResponse).
- *  Host stays brand blue; path (`/NEWS`, `/VAULT`, …) is white.
+ *  Host stays brand blue + Bold (700); path (`/NEWS`, …) is white SemiBold (600).
+ *  Both weights must be registered on the ImageResponse (see routes).
  */
 export function BrandOgMarkup({
   host,
@@ -151,7 +162,6 @@ export function BrandOgMarkup({
             flexDirection: 'row',
             fontFamily: 'Rajdhani',
             fontSize: OG_TAG_SIZE,
-            fontWeight: 600,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             lineHeight: 1,
@@ -159,9 +169,9 @@ export function BrandOgMarkup({
             overflow: 'hidden'
           }}
         >
-          <span style={{ color: OG_BLUE }}>{host}</span>
+          <span style={{ color: OG_BLUE, fontWeight: 700 }}>{host}</span>
           {pathPart ? (
-            <span style={{ color: '#F7F7F7' }}>{pathPart}</span>
+            <span style={{ color: '#F7F7F7', fontWeight: 600 }}>{pathPart}</span>
           ) : null}
         </div>
       </div>
