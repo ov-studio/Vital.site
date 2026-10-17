@@ -3,6 +3,10 @@
     "deploymentEnabled": false
   },
 
+  "rewrites": [
+    { "source": "/vault/:id", "destination": "https://api.vital-sandbox.com/vault/share/:id" }
+  ],
+
   "headers": [
     {
       "source": "/_next/static/:path*",

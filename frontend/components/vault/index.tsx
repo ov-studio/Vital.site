@@ -175,10 +175,7 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   const copied = copied_key !== null;
 
   const handle_share = react.useCallback(() => {
-    const params = new URLSearchParams(window.location.search);
-    params.set('modal', resource.id);
-    const url = `${window.location.origin}/vault?${params.toString()}`;
-    copy(url);
+    copy(`${window.location.origin}/vault/${encodeURIComponent(resource.id)}`);
   }, [resource.id, copy]);
 
   const handle_download = react.useCallback(async () => {
