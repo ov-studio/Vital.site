@@ -38,5 +38,6 @@ local source = core.image.create("assets/tiles/grass0.png")
 source:set_filter(core.image.texture_filter.NEAREST)
 
 local target = core.image.create("assets/tiles/stone0.png")
+
 target:set_filter(source:get_filter())
 ```

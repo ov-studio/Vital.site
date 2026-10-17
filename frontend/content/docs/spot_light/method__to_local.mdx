@@ -33,5 +33,6 @@ local entity = light.spot.create()
 entity:set_position({10, 0, 0})
 
 local local_pos = entity:to_local({10, 0, 5})
+
 core.engine.print("info", util.table.unpack(local_pos))
 ```

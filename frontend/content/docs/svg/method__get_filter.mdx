@@ -38,5 +38,6 @@ local source = core.svg.create("assets/icon.svg")
 source:set_filter(core.svg.svg_filter.NEAREST)
 
 local target = core.svg.create("assets/logo.svg")
+
 target:set_filter(source:get_filter())
 ```
