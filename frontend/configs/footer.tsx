@@ -32,12 +32,12 @@ export const Footer = [
   {
     heading: 'Social',
     links: [
-      { label: 'News', href: '/news' },
-      ...Object.entries(config_site.info.social).map(([key, { label, href }]) => ({
-        label,
-        href,
-        icon: key
-      }))
+      ...Object.entries(config_site.info.social)
+        .map(([key, { label, href }]) => ({
+          label,
+          href,
+          icon: key
+        }))
     ]
   }
 ];
