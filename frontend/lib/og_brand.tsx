@@ -9,6 +9,7 @@ export const OG_LOGO_H = 88 * OG_SCALE;
 export const OG_GAP = 40 * OG_SCALE;
 export const OG_TAG_SIZE = 15.2 * OG_SCALE;
 export const OG_BLUE = '#7EA1E9';
+export const OG_WHITE = '#F7F7F7';
 
 const SECTION_SKIP = new Set([
   'api',
@@ -171,7 +172,7 @@ export function BrandOgMarkup({
         >
           <span style={{ color: OG_BLUE, fontWeight: 700 }}>vital-sandbox.com</span>
           {pathPart ? (
-            <span style={{ color: '#F7F7F7', fontWeight: 600 }}>{pathPart}</span>
+            <span style={{ color: OG_WHITE, fontWeight: 600 }}>{pathPart}</span>
           ) : null}
         </div>
       </div>
