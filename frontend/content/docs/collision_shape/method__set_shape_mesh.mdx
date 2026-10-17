@@ -42,6 +42,7 @@ local status = self:set_shape_mesh(
 
 ```lua lineNumbers title="Generate a convex shape from a model"
 core.model.load("crate", "models/crate.glb")
+
 local model = core.model.create("crate")
 local body = physics.static.create()
 local entity = physics.collision_shape.create(body)
@@ -51,6 +52,7 @@ entity:set_shape_mesh(model)
 
 ```lua lineNumbers title="Generate a concave shape for a specific component"
 core.model.load("crate", "models/crate.glb")
+
 local model = core.model.create("crate")
 local body = physics.static.create()
 local entity = physics.collision_shape.create(body)

@@ -40,6 +40,7 @@ local status = self:set_mesh(
 
 ```lua lineNumbers title="Draw particles as a leaf model"
 core.model.load("leaf", "assets/leaf.glb")
+
 local leaf = core.model.create("leaf")
 local entity = particle.gpu.create()
 
@@ -49,6 +50,7 @@ leaf:destroy()
 
 ```lua lineNumbers title="Use a single component"
 core.model.load("leaf", "assets/leaf.glb")
+
 local leaf = core.model.create("leaf")
 local entity = particle.gpu.create()
 

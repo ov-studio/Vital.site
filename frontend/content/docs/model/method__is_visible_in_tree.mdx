@@ -27,6 +27,7 @@ local result = self:is_visible_in_tree()
 
 ```lua lineNumbers title="Check tree visibility of a model"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 core.engine.print("info", "Model visible in tree:", entity:is_visible_in_tree())

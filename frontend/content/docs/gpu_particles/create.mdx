@@ -35,12 +35,14 @@ local instance = particle.gpu.create()
 
 ```lua lineNumbers title="Create a GPU particle emitter"
 local entity = particle.gpu.create()
+
 entity:set_position({0, 1, 0})
 entity:emit()
 ```
 
 ```lua lineNumbers title="Spawn a one-off burst and clean it up"
 local entity = particle.gpu.create()
+
 entity:set_position({0, 1, 0})
 entity:set_one_shot(true)
 entity:burst()

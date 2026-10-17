@@ -27,6 +27,7 @@ local result = self:is_visible()
 
 ```lua lineNumbers title="Check visibility of a model"
 core.model.load("character", "models/character.glb")
+
 local entity = core.model.create("character")
 
 core.engine.print("info", "Model visible:", entity:is_visible())

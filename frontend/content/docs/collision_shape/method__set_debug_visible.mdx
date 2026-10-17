@@ -31,7 +31,7 @@ local status = self:set_debug_visible(
 ```lua lineNumbers title="Show the debug wireframe on a collision shape"
 local body = physics.rigid.create()
 local entity = physics.collision_shape.create(body)
-entity:set_shape_box({1, 1, 1})
 
+entity:set_shape_box({1, 1, 1})
 entity:set_debug_visible(true)
 ```

@@ -32,8 +32,9 @@ local status = self:look_at(
 
 ```lua lineNumbers title="Point a model at the world origin"
 core.model.load("character", "models/character.glb")
-local entity = core.model.create("character")
-entity:set_position({0, 10, 0})
 
+local entity = core.model.create("character")
+
+entity:set_position({0, 10, 0})
 entity:look_at({0, 0, 0}, {0, 1, 0})
 ```
