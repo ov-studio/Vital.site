@@ -12,11 +12,11 @@ export const info = {
   },
 
   social: {
-    news:    { label: 'News',    href: 'https://vital-sandbox.com/news', hide_on_widget: true },
-    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio'                           },
-    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio'                         },
-    discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW'                            },
-    youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community'                }
+    news:    { label: 'News',    href: '/news', populate_url: true, hide_on_widget: true },
+    kofi:    { label: 'Ko-fi',   href: 'https://ko-fi.com/ovstudio'                      },
+    github:  { label: 'GitHub',  href: 'https://github.com/ov-studio'                    },
+    discord: { label: 'Discord', href: 'http://discord.gg/sVCnxPW'                       },
+    youtube: { label: 'Youtube', href: 'https://www.youtube.com/@ov-community'           }
   },
 
   lucide: {
