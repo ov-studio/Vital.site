@@ -63,9 +63,9 @@ local env = setmetatable({}, {__index = _G})
 
 core.engine.load_string([[
     foo = "hello"
-]], nil, true, true, env)
+]], nil, true, env)
 
 core.engine.load_string([[
     core.engine.print("info", foo) -- prints "hello"
-]], nil, true, true, env)
+]], nil, true, env)
 ```
