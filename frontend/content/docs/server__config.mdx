@@ -134,10 +134,22 @@ network:
   - **`max_peers`** — once the limit is reached, incoming connections are refused until a slot becomes available.
 </Callout>
 
+<Callout type="info">
+  **Join rate limit protects against reconnect spam.**
+
+  - **Counted per IP** — at most `auth_rate_max` connections from the same address may authenticate within `auth_rate_window` seconds; extra attempts are rejected.
+  - **Why it exists** — every successful join makes the server send the full world state, so rapid reconnects would otherwise be expensive.
+  - **Shared addresses** — raise `auth_rate_max` if many players join from one IP (LAN parties, NAT, cafés).
+  - **Window length** — a short `auth_rate_window` is forgiving, a long one is stricter.
+  - **Disabling** — set `auth_rate_max: 0` to turn the limit off; `auth_rate_window` is then ignored.
+</Callout>
+
 | Key | Type | Default | Description |
 |---|---|---|---|
 | `port` | `integer` | `7777` | UDP port the ENet multiplayer server listens on |
 | `max_peers` | `integer` | `32` | Maximum number of concurrent client connections |
+| `auth_rate_max` | `integer` | `6` | Maximum number of connections per IP that may authenticate within `auth_rate_window` seconds (0–1000). Extra attempts are rejected, `0` disables the limit |
+| `auth_rate_window` | `integer` | `10` | Length of the join rate limit window in seconds (1–3600). Only used when `auth_rate_max` is above `0` |
 | `physics_tick_rate` | `integer` | `60` | Physics simulation steps per second (1–120). Sets the ceiling for `sync.rate` |
 
 ---
