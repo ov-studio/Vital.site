@@ -24,7 +24,10 @@ local promise = util.http.get(
 </Callout>
 
 <Callout type="warn">
-  **Responses are limited to 64 MiB.** Use [`util.http.download`](/docs/http/download) to save larger files directly to disk.
+  **Responses are limited to 64 MiB.** Anything larger is rejected.
+
+  - **In memory** — the whole response is held in memory and returned as a single string.
+  - **Larger files** — use [`util.http.download`](/docs/http/download) to stream them straight to disk instead.
 </Callout>
 
 ### Parameters
