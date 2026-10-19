@@ -37,6 +37,14 @@ local status = util.event.emit(
   - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost.
 </Callout>
 
+<Callout type="warn">
+  **Server to client [`util.event.emit`](/docs/event/emit) requires a valid `peer`.**
+
+  - `peer` is **mandatory** when calling with `{ remote = true }` from the server — omitting it throws an error.
+  - `peer` must refer to a currently connected peer — passing a disconnected or invalid peer-id throws an error.
+  - Broadcasting to all peers is not built in — loop over [`core.engine.get_peers`](/docs/engine/get_peers) and emit to each peer instead.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
