@@ -46,7 +46,8 @@
   --a30: hsla(45, 80%, 58%, .3);
   --a60: hsla(45, 80%, 58%, .6);
 
-  /* Side badges: client = blue, server = orange, shared = lime */
+  /* Side badges: client = teal, server = orange, shared = lime */
+  --teal: hsl(172, 62%, 62%);
   --orange: hsl(24, 92%, 70%);
   --lime: hsl(72, 68%, 60%);
 

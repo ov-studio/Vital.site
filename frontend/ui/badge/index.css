@@ -30,7 +30,7 @@
 
 .ui-badge--client {
   color: var(--bg6);
-  background: var(--blue);
+  background: var(--teal);
 }
 
 .ui-badge--server {
