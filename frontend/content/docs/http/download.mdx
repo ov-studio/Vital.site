@@ -1,0 +1,105 @@
+---
+title: util.http.download
+description: Downloads a file from specified url and saves it to disk
+badge: shared
+---
+
+### Syntax
+
+```lua
+local promise = util.http.download(
+    url,
+    path,
+    headers = {
+        "Content-Type: application/json"
+    },
+    timeout = 60
+)
+```
+
+<Callout type="info">
+  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+
+  - **Inside a thread** — `self:await(util.http.download(...))` yields until the file is saved, then returns the resolved values.
+  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
+</Callout>
+
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to save into another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/files/data.zip` saves `files/data.zip` inside `resource_a`.
+</Callout>
+
+<Callout type="warn">
+  **Downloads are limited to 1 GiB.** The file is streamed straight to disk, so large downloads do not use memory. An existing file at `path` is only replaced once the download completes successfully.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | url | Request URL to download from |
+| `string` | path | File path to save the download to |
+| `table` | headers | Request headers for query |
+| `int` | timeout | Read timeout in seconds |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `promise` | promise | Refer [**Settlements**](#settlements) section |
+
+---
+
+### Settlements
+
+| Type | Name | Description |
+|---------|------|-------------|
+| `bool` | status | `true` on success, `false` otherwise |
+| `bool` | resolved | `true` once the file has been saved |
+| `string` | rejected | Error message describing the failure |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Download a file"
+util.thread.create(function(self)
+    local ok, result = self:await(util.http.download("https://example.com/files/pack.zip", "downloads/pack.zip"))
+
+    if ok then
+        core.engine.print("info", "Download complete")
+    else
+        core.engine.print("error", "Download failed:", result)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Download with custom headers and timeout"
+util.thread.create(function(self)
+    local ok, result = self:await(util.http.download("https://example.com/files/pack.zip", "downloads/pack.zip",
+        {
+            "Authorization: Bearer token"
+        },
+        120
+    ))
+
+    if ok then
+        core.engine.print("info", "Download complete")
+    else
+        core.engine.print("error", "Download failed:", result)
+    end
+end):resume()
+```
+
+```lua lineNumbers title="Download into another running resource"
+util.thread.create(function(self)
+    local ok, result = self:await(util.http.download("https://example.com/files/data.json", ":resource_a/files/data.json"))
+
+    if not ok then
+        core.engine.print("error", "Download failed:", result)
+    end
+end):resume()
+```
