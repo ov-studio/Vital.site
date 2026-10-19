@@ -173,3 +173,29 @@ else
     end):resume()
 end
 ```
+
+```lua lineNumbers title="Handle a handler error"
+util.event.on("on_risky", function() error("boom") end)
+util.event.on("on_risky", function() return "fine" end)
+
+util.thread.create(function(self)
+    -- Without collect_all only the first handler runs - it errors, so the promise is rejected
+    local ok, value = self:await(util.event.emit_callback("on_risky"))
+    core.engine.print("info", ok, value) -- false  nil
+
+    -- With collect_all the failing handler is an empty slot, the others still return
+    local ok, results = self:await(util.event.emit_callback("on_risky", { collect_all = true }))
+    core.engine.print("info", ok, #results[1], results[2][1]) -- true  0  'fine'
+end):resume()
+```
+
+```lua lineNumbers title="Skip a peer that is not connected"
+util.thread.create(function(self)
+    local ok, result = self:await(util.event.emit_callback("on_request_position", { remote = true, peer = 123456 }))
+    if not ok then
+        core.engine.print("warn", "Request failed (peer not connected or handler error)")
+        return
+    end
+    core.engine.print("info", "Reply:", result)
+end):resume()
+```
