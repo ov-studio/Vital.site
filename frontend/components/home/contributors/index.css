@@ -72,7 +72,7 @@
   align-items: center;
   gap: 2px;
   padding: 6px 10px;
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg6);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg7);
   border-radius: 4px;
   white-space: nowrap;
   opacity: 0;

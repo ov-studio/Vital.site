@@ -25,7 +25,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-soft);
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg6);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg7);
   background-clip: padding-box;
   white-space: nowrap;
   vertical-align: middle;
