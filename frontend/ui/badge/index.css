@@ -25,7 +25,7 @@
 
 .ui-badge--shared {
   color: var(--bg6);
-  background: #e8a04a;
+  background: var(--lime);
 }
 
 .ui-badge--client {
@@ -35,7 +35,7 @@
 
 .ui-badge--server {
   color: var(--bg6);
-  background: #4caf7a;
+  background: var(--orange);
 }
 
 .ui-badge--deprecated {
