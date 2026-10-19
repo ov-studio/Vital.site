@@ -69,7 +69,7 @@
   font-family: var(--font-geist), sans-serif;
   font-size: .75rem;
   font-weight: 500;
-  color: var(--dim);
+  color: var(--text-soft);
 }
 
 .ui-card-body:not(:has(.ui-card-tagline)) .ui-card-title {
