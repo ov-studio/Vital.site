@@ -68,7 +68,7 @@ How that promise resolves depends on the number of registered handlers and the `
 
   - `peer` is **mandatory** when calling with `{ remote = true }` from the server — omitting it throws an error.
   - `peer` should refer to a currently connected peer — a disconnected or invalid peer-id does not throw: a warning is logged and the returned promise is rejected immediately (`ok = false`).
-  - Broadcasting a callback to multiple clients is not supported — use [`util.event.emit`](/docs/event/emit) instead if you need to notify all peers without expecting a reply.
+  - Broadcasting a callback to multiple clients is not supported — to notify all peers without expecting a reply, loop over [`core.engine.get_peers`](/docs/engine/get_peers) and call [`util.event.emit`](/docs/event/emit) for each peer.
 </Callout>
 
 | Type | Key | Default | Side | Description |
