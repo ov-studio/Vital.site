@@ -59,6 +59,24 @@ How that promise resolves depends on the number of registered handlers and the `
 | `true` | None | Resolves immediately with no values |
 | `true` | One or more | Resolves with `{[1]={...}, [2]={...}, ...}`<br/>Each slot is always a table of that handler's return values, even if only one value was returned |
 
+### Errors
+
+A handler that throws a Lua error never leaves the promise pending. The error message is printed to the console of the side where the handler ran. It is not passed to the caller.
+
+| Situation | Result |
+|-----------|--------|
+| `collect_all = false`, the handler errors | Promise is **rejected** - `await` returns `ok = false` with no values<br/>Only the first handler is fired, the remaining handlers are not tried |
+| `collect_all = true`, a handler errors | Promise still **resolves** - that handler's slot is an empty table `{}`, all other slots hold their return values<br/>This also applies when every handler errors |
+| Remote call, the remote handler errors | Same rules as above - a single handler rejects the caller's promise, with `collect_all` the slot is empty |
+| Server calls a peer that is not connected | Promise is **rejected** immediately and a warning is logged |
+| Remote side never replies | Promise is **rejected** after 30 seconds (e.g. the peer disconnected or the resource stopped) |
+
+<Callout type="info">
+  **An empty slot cannot be told apart from a handler that returned nothing.**
+
+  With `collect_all = true`, `results[i][1] == nil` means either the handler failed or it simply returned no value. Return an explicit value (e.g. `true`) from handlers whose success you need to check.
+</Callout>
+
 ---
 
 ### Options
