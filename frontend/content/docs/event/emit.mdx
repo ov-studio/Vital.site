@@ -90,13 +90,15 @@ else
 end
 ```
 
-```lua lineNumbers title="Broadcast an event from server to all clients"
+```lua lineNumbers title="Send an event from server to all clients by looping over peers"
 if core.engine.get_platform() == "client" then
     util.event.on("on_round_start", function(round, map)
         core.engine.print("info", "Round started:", round, map)
     end)
 else
-    util.event.emit("on_round_start", { remote = true }, 1, "sandstorm")
+    for _, peer_id in ipairs(core.engine.get_peers()) do
+        util.event.emit("on_round_start", { remote = true, peer = peer_id }, 1, "sandstorm")
+    end
 end
 ```
 
