@@ -990,10 +990,11 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Full async HTTP layer for communicating with external REST APIs and asset servers',
         icon:  <lucide.Globe {...config_site.info.lucide}/>,
         items: [
-          { label: 'Customizable headers',          status: 'completed' },
-          { label: 'Customizable timeout',          status: 'completed' },
-          { label: '[Shared] API: util.http.get',   status: 'completed' },
-          { label: '[Shared] API: util.http.post',  status: 'completed' }
+          { label: 'Customizable headers',              status: 'completed' },
+          { label: 'Customizable timeout',              status: 'completed' },
+          { label: '[Shared] API: util.http.get',       status: 'completed' },
+          { label: '[Shared] API: util.http.post',      status: 'completed' },
+          { label: '[Shared] API: util.http.download',  status: 'completed' }
         ]
       },
       {
