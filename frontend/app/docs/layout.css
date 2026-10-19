@@ -702,19 +702,15 @@ html body [role="dialog"][data-state="open"] {
   left: 0 !important;
   right: 0 !important;
   inset-inline: 0 !important;
-
   width: min(34rem, calc(100vw - 2rem)) !important;
   min-width: 0 !important;
   max-width: min(34rem, calc(100vw - 2rem)) !important;
-
   margin: 0 auto !important;
-
   transform: none !important;
   -webkit-transform: none !important;
   translate: none !important;
   animation: none !important;
   transition: none !important;
-
   max-height: min(30rem, calc(100vh - var(--nav-h) - 2rem)) !important;
   border-radius: 10px !important;
   border: 1px solid var(--b10) !important;
