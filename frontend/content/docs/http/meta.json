@@ -5,6 +5,7 @@
         "---Base---",
         "get",
         "post",
+        "download",
         "..."
     ]
 }
