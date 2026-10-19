@@ -151,7 +151,7 @@
   font-family: var(--font-geist), sans-serif;
   font-size: .82rem;
   font-weight: 500;
-  color: var(--dim);
+  color: var(--text-soft);
   flex-shrink: 0;
   white-space: nowrap;
   overflow: hidden;
