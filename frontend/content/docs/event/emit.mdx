@@ -37,14 +37,6 @@ local status = util.event.emit(
   - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost.
 </Callout>
 
-<Callout type="warn">
-  **Server to client [`util.event.emit`](/docs/event/emit) requires a valid `peer`.**
-
-  - `peer` is **mandatory** when calling with `{ remote = true }` from the server — omitting it throws an error.
-  - `peer` must refer to a currently connected peer — passing a disconnected or invalid peer-id throws an error.
-  - Broadcasting to all peers is not built in — loop over [`core.engine.get_peers`](/docs/engine/get_peers) and emit to each peer instead.
-</Callout>
-
 ### Parameters
 
 | Type | Name | Description |
@@ -65,8 +57,8 @@ local status = util.event.emit(
 
 | Type | Key | Default | Side | Description |
 |------|-----|---------|------|-------------|
-| `bool` | remote | `false` | Shared | • When `true` - transmits the event to the remote side; client sends to the server, server sends to the peer given by `peer`<br/>• When `false` - fires handlers on the current side only |
-| `int` | peer | `0` | Server | Target peer-id for server-side remote dispatch (ignored on client)<br/>• Required on the server when `remote = true` - omitting it throws an error<br/>• Sends to that specific peer only |
+| `bool` | remote | `false` | Shared | • When `true` - transmits the event to the remote side; client sends to server, server broadcasts to all peers<br/>• When `false` - fires handlers on the current side only |
+| `int` | peer | `0` | Server | Target peer-id for directed server-side remote dispatch (ignored on client)<br/>• When `0` - broadcasts to all connected peers<br/>• When `> 0` - sends to that specific peer only, throws an error if that peer is not connected |
 
 ---
 
@@ -90,15 +82,13 @@ else
 end
 ```
 
-```lua lineNumbers title="Send an event from server to all clients by looping over peers"
+```lua lineNumbers title="Broadcast an event from server to all clients"
 if core.engine.get_platform() == "client" then
     util.event.on("on_round_start", function(round, map)
         core.engine.print("info", "Round started:", round, map)
     end)
 else
-    for _, peer_id in ipairs(core.engine.get_peers()) do
-        util.event.emit("on_round_start", { remote = true, peer = peer_id }, 1, "sandstorm")
-    end
+    util.event.emit("on_round_start", { remote = true }, 1, "sandstorm")
 end
 ```
 
