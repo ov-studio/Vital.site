@@ -19,22 +19,18 @@
 }
 
 .ui-badge--primary {
-  color: var(--bg6);
   background: var(--blue);
 }
 
 .ui-badge--shared {
-  color: var(--bg6);
   background: var(--lime);
 }
 
 .ui-badge--client {
-  color: var(--bg6);
   background: var(--teal);
 }
 
 .ui-badge--server {
-  color: var(--bg6);
   background: var(--orange);
 }
 
