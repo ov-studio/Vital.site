@@ -92,7 +92,7 @@ A handler that throws a Lua error never leaves the promise pending. The error me
 | Type | Key | Default | Side | Description |
 |------|-----|---------|------|-------------|
 | `bool` | remote | `false` | Shared | • When `true` - transmits the event to the remote side; client sends to the server, server sends to the peer given by `peer`<br/>• When `false` - fires handlers on the current side only |
-| `int` | peer | `0` | Server | Target peer-id for server-side remote dispatch (ignored on client)<br/>• Required on the server when `remote = true` - omitting it throws an error<br/>• Sends to that specific peer only |
+| `int` | peer | `0` | Server | Target peer-id for server-side remote dispatch (ignored on client)<br/>• Required on the server when `remote = true` - omitting it or passing `0` throws an error<br/>• Sends to that specific peer only |
 | `bool` | collect_all | `false` | Shared | • When `false` - only the highest-[`priority`](/docs/event/on#config) handler is fired and its return values are resolved directly, unpacked<br/>• When `true` - all registered handlers are fired, in `priority` order, and results are resolved as a table of tables, one entry per handler |
 
 ### Examples
