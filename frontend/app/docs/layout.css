@@ -35,7 +35,7 @@
 }
 
 .dark #nd-sidebar {
-  background: var(--bg8) !important;
+  background: var(--bg9) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
