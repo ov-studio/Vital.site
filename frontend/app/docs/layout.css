@@ -572,7 +572,7 @@ article#nd-page {
     z-index: 6 !important;
     border-radius: 6px !important;
     border: 2px solid transparent !important;
-    background: linear-gradient(var(--b10), var(--b10)), var(--bg12) !important;
+    background: linear-gradient(var(--b20), var(--b20)), var(--bg5) !important;
     color: var(--text-soft) !important;
     box-shadow: none !important;
   }
