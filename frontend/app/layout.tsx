@@ -1,7 +1,5 @@
-import * as config_site                from '@/configs/site';
-import * as lib_api_url                from '@/lib/api_url';
+import * as lib_page_meta              from '@/lib/page_meta';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
-import * as next                       from 'next';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
 
@@ -23,29 +21,7 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
-export const metadata: next.Metadata = {
-  metadataBase: new URL(lib_api_url.get_frontend_url()),
-  title: {
-    template: `%s - ${config_site.info.name}`,
-    default: config_site.info.name,
-  },
-  description: config_site.info.description,
-  alternates: { canonical: '/' },
-  openGraph: {
-    title: config_site.info.name,
-    description: config_site.info.description,
-    url: '/',
-    siteName: config_site.info.name,
-    type: 'website',
-    images: [{ url: '/og/default.png' }]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: config_site.info.name,
-    description: config_site.info.description,
-    images: ['/og/default.png']
-  }
-};
+export const metadata = lib_page_meta.root_meta();
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
