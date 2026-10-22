@@ -24,8 +24,8 @@ local status = self:set_component_rendered(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | component | Component path to modify, as returned by `self:get_components` |
-| `bool` | state | `true` to render the component, `false` to stop rendering it |
+| `string` | component | Path of the component to update<br/>Supports `*` as a wildcard to match multiple components by pattern |
+| `bool` | state | Determines the component's rendered state:<br/>• When `true` - the component is rendered<br/>• When `false` - the component stops rendering |
 
 ### Returns
 
