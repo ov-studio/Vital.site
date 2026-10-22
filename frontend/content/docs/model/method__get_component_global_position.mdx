@@ -1,0 +1,38 @@
+---
+title: self:get_component_global_position
+description: Retrieves the global position of a component on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local position = self:get_component_global_position(
+    component
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to read, as returned by `self:get_components` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `vector3` | position | Current global position of the component as `{x, y, z}` |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the global position of a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+local position = entity:get_component_global_position("Skeleton3D/Hat")
+
+core.engine.print("info", "Component position:", util.table.unpack(position))
+```
