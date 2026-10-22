@@ -1,8 +1,8 @@
-import * as config_site  from '@/configs/site';
-import * as config_pages from '@/configs/pages';
-import * as lib_api_url  from '@/lib/api_url';
-import { OG_W, OG_H }    from '@/lib/og_sizes';
-import type * as next    from 'next';
+import *      as config_site  from '@/configs/site';
+import *      as config_pages from '@/configs/pages';
+import *      as lib_api_url  from '@/lib/api_url';
+import *      as lib_og_sizes from '@/lib/og_sizes';
+import type * as next         from 'next';
 
 type PageKey = keyof typeof config_pages.pages;
 
@@ -14,14 +14,14 @@ function social(
   image: string,
 ): Pick<next.Metadata, 'alternates' | 'openGraph' | 'twitter'> {
   return {
-    alternates: { canonical: path }
+    alternates: { canonical: path },
     openGraph: {
       title,
       description,
       url: path,
       siteName: config_site.info.name,
       type: 'website',
-      images: [{ url: image, width: OG_W, height: OG_H, type: 'image/png' }]
+      images: [{ url: image, width: lib_og_sizes.OG_W, height: lib_og_sizes.OG_H, type: 'image/png' }]
     },
     twitter: {
       card: 'summary_large_image',
