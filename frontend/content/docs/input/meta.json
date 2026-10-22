@@ -5,6 +5,7 @@
         "---Enum---",
         "enum__key",
         "enum__cursor_mode",
+        "enum__mouse_axis",
 
         "---Checker---",
         "is_pressed",
@@ -13,6 +14,7 @@
         "get_cursor_mode",
         "get_cursor_position",
         "get_cursor_velocity",
+        "get_mouse_sensitivity",
 
         "---Setter---",
         "set_cursor_mode",
