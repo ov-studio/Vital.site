@@ -41,7 +41,7 @@
         "method__get_collision_priority",
         "method__get_gravity",
         "method__get_axis_lock",
-        "method__get_sync_authority",
+        "method__get_syncer",
         "method__get_net_id",
         "method__get_velocity",
         "method__get_up_direction",

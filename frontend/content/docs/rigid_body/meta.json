@@ -50,7 +50,7 @@
         "method__get_angular_damp",
         "method__get_linear_velocity",
         "method__get_angular_velocity",
-        "method__get_sync_authority",
+        "method__get_syncer",
         "method__get_net_id",
         "method__get_gravity_scale",
         "method__get_max_contacts_reported",
