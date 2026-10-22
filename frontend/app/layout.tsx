@@ -30,12 +30,20 @@ export const metadata: next.Metadata = {
     default: config_site.info.name,
   },
   description: config_site.info.description,
+  alternates: { canonical: '/' },
   openGraph: {
     title: config_site.info.name,
     description: config_site.info.description,
+    url: '/',
     siteName: config_site.info.name,
     type: 'website',
     images: [{ url: '/og/default.png' }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: config_site.info.name,
+    description: config_site.info.description,
+    images: ['/og/default.png']
   }
 };
 

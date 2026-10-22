@@ -1,19 +1,12 @@
 import '@/app/global.css';
-import * as config_pages          from '@/configs/pages';
+import * as lib_page_meta         from '@/lib/page_meta';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_tos         from '@/components/tos';
 import * as component_clientshell from '@/components/clientshell';
-import * as next                  from 'next';
 
-export const metadata: next.Metadata = {
-  title: config_pages.pages.tos.title,
-  description: config_pages.pages.tos.description,
-  openGraph: {
-    images: [{ url: '/og/tos' }]
-  }
-};
+export const metadata = lib_page_meta.page_meta('tos', '/tos');
 
 export default function TOSPage() {
   return (

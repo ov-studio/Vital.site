@@ -1,19 +1,12 @@
 import '@/app/global.css';
-import * as config_pages          from '@/configs/pages';
+import * as lib_page_meta         from '@/lib/page_meta';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_workspace   from '@/components/workspace';
 import * as component_clientshell from '@/components/clientshell';
-import * as next                  from 'next';
 
-export const metadata: next.Metadata = {
-  title: config_pages.pages.workspace.title,
-  description: config_pages.pages.workspace.description,
-  openGraph: {
-    images: [{ url: '/og/workspace' }]
-  }
-};
+export const metadata = lib_page_meta.page_meta('workspace', '/workspace');
 
 export default function WorkspacePage() {
   return (

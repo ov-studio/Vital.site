@@ -1,5 +1,5 @@
 import '@/app/global.css';
-import * as config_pages          from '@/configs/pages';
+import * as lib_page_meta         from '@/lib/page_meta';
 import * as config_roadmap        from '@/configs/roadmap';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
@@ -7,15 +7,8 @@ import * as component_footer      from '@/components/footer';
 import * as component_roadmap     from '@/components/roadmap';
 import * as component_clientshell from '@/components/clientshell';
 import * as lib_anchor            from '@/lib/anchor';
-import * as next                  from 'next';
 
-export const metadata: next.Metadata = {
-  title: config_pages.pages.roadmap.title,
-  description: config_pages.pages.roadmap.description,
-  openGraph: {
-    images: [{ url: '/og/roadmap' }]
-  }
-};
+export const metadata = lib_page_meta.page_meta('roadmap', '/roadmap');
 
 const Roadmap_Link = config_roadmap.Roadmap.map(s => ({
   label: `# ${s.name}`,

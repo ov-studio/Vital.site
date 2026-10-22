@@ -1,20 +1,13 @@
 import '@/app/global.css';
-import * as config_pages          from '@/configs/pages';
+import * as lib_page_meta         from '@/lib/page_meta';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
 import * as component_vault       from '@/components/vault';
 import * as component_clientshell from '@/components/clientshell';
 import * as react                 from 'react';
-import * as next                  from 'next';
 
-export const metadata: next.Metadata = {
-  title: config_pages.pages.vault.title,
-  description: config_pages.pages.vault.description,
-  openGraph: {
-    images: [{ url: '/og/vault' }]
-  }
-};
+export const metadata = lib_page_meta.page_meta('vault', '/vault');
 
 export default function VaultPage() {
   return (
