@@ -1,0 +1,45 @@
+---
+title: util.input.get_mouse_sensitivity
+description: Retrieves the player's mouse sensitivity multiplier for the given axis
+badge: client
+---
+
+### Syntax
+
+```lua
+local sensitivity = util.input.get_mouse_sensitivity(
+    axis
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`util.input.mouse_axis`](/docs/input/enum/mouse_axis) | axis | Mouse axis to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | sensitivity | Sensitivity multiplier configured in the main menu settings, between `0.01` and `2.0` (default `1.0`) |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the mouse sensitivities"
+core.engine.print("info", "Horizontal sensitivity:", util.input.get_mouse_sensitivity(util.input.mouse_axis.HORIZONTAL))
+core.engine.print("info", "Vertical sensitivity:", util.input.get_mouse_sensitivity(util.input.mouse_axis.VERTICAL))
+```
+
+```lua lineNumbers title="Apply player sensitivity to FPS camera rotation"
+util.input.set_cursor_mode(util.input.cursor_mode.CAPTURED)
+
+local base_sensitivity = 0.1
+local velocity = util.input.get_cursor_velocity()
+local yaw = velocity[1]*base_sensitivity*util.input.get_mouse_sensitivity(util.input.mouse_axis.HORIZONTAL)
+local pitch = velocity[2]*base_sensitivity*util.input.get_mouse_sensitivity(util.input.mouse_axis.VERTICAL)
+
+core.engine.print("info", "Yaw delta:", yaw, "Pitch delta:", pitch)
+```
