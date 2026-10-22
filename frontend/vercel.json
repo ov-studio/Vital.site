@@ -25,6 +25,7 @@
     {
       "source": "/og/:path*",
       "headers": [
+        { "key": "Content-Type", "value": "image/png" },
         { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }
       ]
     },
