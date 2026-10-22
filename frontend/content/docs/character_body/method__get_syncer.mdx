@@ -1,0 +1,32 @@
+---
+title: self:get_syncer
+description: Retrieves the peer id currently holding sync authority over the character body
+badge: shared
+---
+
+### Syntax
+
+```lua
+local peer_id = self:get_syncer()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Peer id that syncs this character body, `0` when the server itself is the syncer |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the syncer of a character body"
+local entity = physics.character.create()
+
+core.engine.print("info", "Syncer:", entity:get_syncer())
+```
