@@ -1,6 +1,6 @@
 ---
 title: util.input.get_mouse_sensitivity
-description: Retrieves the player's mouse sensitivity multiplier for the given axis
+description: Retrieves the mouse sensitivity multiplier of the specified axis
 badge: client
 ---
 
@@ -16,24 +16,24 @@ local sensitivity = util.input.get_mouse_sensitivity(
 
 | Type | Name | Description |
 |------|------|-------------|
-| [`util.input.mouse_axis`](/docs/input/enum/mouse_axis) | axis | Mouse axis to query |
+| [`util.input.mouse_axis`](/docs/input/enum/mouse_axis) | axis | Mouse axis to retrieve the sensitivity of |
 
 ### Returns
 
 | Type | Name | Description |
 |------|------|-------------|
-| `float` | sensitivity | Sensitivity multiplier configured in the main menu settings, between `0.01` and `2.0` (default `1.0`) |
+| `float` | sensitivity | Sensitivity multiplier of the specified axis, ranging from `0.01` to `2.0` |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Print the mouse sensitivities"
+```lua lineNumbers title="Print the mouse sensitivity of each axis"
 core.engine.print("info", "Horizontal sensitivity:", util.input.get_mouse_sensitivity(util.input.mouse_axis.HORIZONTAL))
 core.engine.print("info", "Vertical sensitivity:", util.input.get_mouse_sensitivity(util.input.mouse_axis.VERTICAL))
 ```
 
-```lua lineNumbers title="Apply player sensitivity to FPS camera rotation"
+```lua lineNumbers title="Scale FPS camera rotation by the player's mouse sensitivity"
 util.input.set_cursor_mode(util.input.cursor_mode.CAPTURED)
 
 local base_sensitivity = 0.1
