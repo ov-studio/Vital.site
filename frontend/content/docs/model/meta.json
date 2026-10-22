@@ -40,7 +40,7 @@
         "method__get_dimension",
         "method__get_parent",
         "method__get_net_id",
-        "method__get_sync_authority",
+        "method__get_syncer",
         "method__get_components",
         "method__get_materials",
         "method__get_blendshapes",
