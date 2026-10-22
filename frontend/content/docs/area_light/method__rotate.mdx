@@ -1,6 +1,6 @@
 ---
 title: self:rotate
-description: Rotates the area light around the given world-space axis by the specified angle
+description: Rotates the area light around an axis in the parent's coordinate space
 badge: client
 ---
 
@@ -17,7 +17,7 @@ local status = self:rotate(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | axis | World-space axis to rotate around as `{x, y, z}` |
+| `vector3` | axis | Axis to rotate around as `{x, y, z}` |
 | `float` | degrees | Angle in degrees |
 
 ### Returns

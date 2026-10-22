@@ -1,6 +1,6 @@
 ---
 title: self:translate
-description: Moves the point light by the given offset in world space
+description: Moves the point light by the given offset in the parent's coordinate space
 badge: client
 ---
 
@@ -16,7 +16,7 @@ local status = self:translate(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | offset | World-space offset to apply as `{x, y, z}` |
+| `vector3` | offset | Offset to translate by as `{x, y, z}` |
 
 ### Returns
 

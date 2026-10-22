@@ -1,6 +1,6 @@
 ---
 title: self:get_position
-description: Retrieves the current position of the model
+description: Retrieves the local position of the model
 badge: shared
 ---
 
@@ -19,13 +19,13 @@ local position = self:get_position()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | Current world-space position of the model as `{x, y, z}` |
+| `vector3` | position | Current local position as `{x, y, z}` |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the world-space position of a model"
+```lua lineNumbers title="Get the local position of a model"
 local entity = core.model.create("character")
 local position = entity:get_position()
 

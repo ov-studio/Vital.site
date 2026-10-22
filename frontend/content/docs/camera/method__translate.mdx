@@ -1,6 +1,6 @@
 ---
 title: self:translate
-description: Translates the camera by an offset in world space
+description: Translates the camera by an offset in the parent's coordinate space
 badge: client
 ---
 
@@ -16,7 +16,7 @@ local status = self:translate(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | offset | Translation offset to apply in world space as `{x, y, z}` |
+| `vector3` | offset | Offset to translate by as `{x, y, z}` |
 
 ### Returns
 
@@ -28,7 +28,7 @@ local status = self:translate(
 
 ### Examples
 
-```lua lineNumbers title="Translate a camera in world space"
+```lua lineNumbers title="Translate a camera"
 local entity = core.camera.create()
 
 entity:translate({0, 1, 0})

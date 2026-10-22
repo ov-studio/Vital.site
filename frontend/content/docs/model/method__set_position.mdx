@@ -1,6 +1,6 @@
 ---
 title: self:set_position
-description: Sets the position of the model
+description: Sets the local position of the model
 badge: shared
 ---
 
@@ -16,7 +16,7 @@ local status = self:set_position(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | position | World-space position to move the model to, as `{x, y, z}` |
+| `vector3` | position | Position to apply as `{x, y, z}` |
 
 ### Returns
 
@@ -28,7 +28,7 @@ local status = self:set_position(
 
 ### Examples
 
-```lua lineNumbers title="Move a model to the world origin"
+```lua lineNumbers title="Set the local position of a model"
 local entity = core.model.create("character")
 
 entity:set_position({0, 0, 0})

@@ -1,6 +1,6 @@
 ---
 title: self:get_rotation
-description: Retrieves the current rotation of the model
+description: Retrieves the local rotation of the model
 badge: shared
 ---
 
@@ -19,13 +19,13 @@ local rotation = self:get_rotation()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `vector3` | rotation | Current world-space rotation of the model in degrees as `{x, y, z}` |
+| `vector3` | rotation | Current local rotation in degrees as `{x, y, z}` |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the world-space rotation of a model"
+```lua lineNumbers title="Get the local rotation of a model"
 local entity = core.model.create("character")
 local rotation = entity:get_rotation()
 
