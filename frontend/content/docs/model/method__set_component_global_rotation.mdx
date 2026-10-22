@@ -1,0 +1,39 @@
+---
+title: self:set_component_global_rotation
+description: Sets the global rotation of a component on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_global_rotation(
+    component,
+    euler_degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to update, as returned by `self:get_components` |
+| `vector3` | euler_degrees | Global rotation in degrees to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the global rotation of a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+entity:set_component_global_rotation("Skeleton3D/Hat", {0, 90, 0})
+```

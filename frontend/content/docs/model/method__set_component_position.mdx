@@ -1,0 +1,39 @@
+---
+title: self:set_component_position
+description: Sets the local position of a component on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_position(
+    component,
+    position
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to update, as returned by `self:get_components` |
+| `vector3` | position | Local position to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the local position of a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+entity:set_component_position("Skeleton3D/Hat", {0, 0.1, 0})
+```

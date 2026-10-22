@@ -1,0 +1,39 @@
+---
+title: self:set_component_rotation
+description: Sets the local rotation of a component on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_rotation(
+    component,
+    euler_degrees
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to update, as returned by `self:get_components` |
+| `vector3` | euler_degrees | Local rotation in degrees to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Rotate a component 25 degrees on the Y axis"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+entity:set_component_rotation("Skeleton3D/Hat", {0, 25, 0})
+```

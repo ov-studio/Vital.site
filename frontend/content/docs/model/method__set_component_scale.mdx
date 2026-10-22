@@ -1,0 +1,39 @@
+---
+title: self:set_component_scale
+description: Sets the local scale of a component on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_scale(
+    component,
+    scale
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to update, as returned by `self:get_components` |
+| `vector3` | scale | Local scale to apply as `{x, y, z}` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the local scale of a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+entity:set_component_scale("Skeleton3D/Hat", {1.2, 1.2, 1.2})
+```
