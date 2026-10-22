@@ -342,7 +342,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Component visibility override per mesh',           status: 'completed' },
           { label: 'Component render override per mesh',               status: 'completed' },
           { label: 'Component transform control per mesh',             status: 'completed' },
-          { label: 'Component transform network sync & late-join',     status: 'completed' },
           { label: 'Parenting (get / set parent)',                     status: 'completed' },
           { label: 'Network sync - net id, sync authority & syncer',   status: 'completed' },
           { label: 'Material visibility override per component',       status: 'completed' },
@@ -2803,6 +2802,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Vehicle wheel transform sync',                    status: 'completed' },
           { label: 'Component visibility sync',                       status: 'completed' },
           { label: 'Component render sync',                           status: 'completed' },
+          { label: 'Component transform sync',                        status: 'completed' },
           { label: 'Dimension sync',                                  status: 'completed' },
           { label: 'Blendshape replication',                          status: 'pending'   },
           { label: 'Animation state replication',                     status: 'completed' },
@@ -2812,6 +2812,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Late-join full state dump (reliable)',            status: 'completed' },
           { label: 'Late-join shape sync replay',                     status: 'completed' },
           { label: 'Late-join component state replay',                status: 'completed' },
+          { label: 'Late-join component transform replay',            status: 'completed' },
           { label: 'Late-join dimension replay',                      status: 'completed' },
           { label: 'Late-join blendshape replay',                     status: 'pending'   },
           { label: 'Late-join animation layer replay',                status: 'completed' }
