@@ -1083,15 +1083,17 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Input',
-        desc:  'Key and mouse button state, mouse velocity, cursor mode, key binds and command handlers from Lua',
+        desc:  'Key and mouse button state, mouse velocity, mouse sensitivity, cursor mode, key binds and command handlers from Lua',
         icon:  <lucide.Gamepad2 {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] Enum: util.input.key',                 status: 'completed' },
           { label: '[Client] Enum: util.input.cursor_mode',         status: 'completed' },
+          { label: '[Client] Enum: util.input.mouse_axis',          status: 'completed' },
           { label: '[Client] API: util.input.is_pressed',           status: 'completed' },
           { label: '[Client] API: util.input.get_cursor_mode',      status: 'completed' },
           { label: '[Client] API: util.input.get_cursor_position',  status: 'completed' },
           { label: '[Client] API: util.input.get_cursor_velocity',  status: 'completed' },
+          { label: '[Client] API: util.input.get_mouse_sensitivity', status: 'completed' },
           { label: '[Client] API: util.input.set_cursor_mode',      status: 'completed' },
           { label: '[Client] API: util.input.set_cursor_position',  status: 'completed' },
           { label: '[Client] API: util.input.bind',                 status: 'completed' },
