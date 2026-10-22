@@ -341,6 +341,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Blendshape (morph target) control',                status: 'completed' },
           { label: 'Component visibility override per mesh',           status: 'completed' },
           { label: 'Component render override per mesh',               status: 'completed' },
+          { label: 'Component transform control per mesh',             status: 'completed' },
+          { label: 'Component transform network sync & late-join',     status: 'completed' },
           { label: 'Parenting (get / set parent)',                     status: 'completed' },
           { label: 'Network sync - net id, sync authority & syncer',   status: 'completed' },
           { label: 'Material visibility override per component',       status: 'completed' },
