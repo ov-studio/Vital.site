@@ -16,7 +16,7 @@ local status = self:set_syncer(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | peer_id | `0` hands sync authority back to the server, any other value must be the id of a connected peer, otherwise an error is raised (`1` is not accepted) |
+| `int` | peer_id | Peer that receives sync authority:<br/>• When `0` - authority is handed back to the server<br/>• Any other value - must be the id of a connected peer, otherwise an error is raised |
 
 ### Returns
 
