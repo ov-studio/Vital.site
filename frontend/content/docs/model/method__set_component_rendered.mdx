@@ -16,7 +16,8 @@ local status = self:set_component_rendered(
 <Callout type="info">
   **Rendered state is separate from visibility.**
 
-  - See `self:set_component_visible` to toggle the component's visibility instead.
+  - See [`self:set_component_visible`](/docs/model/method/set_component_visible) to toggle the component's visibility instead.
+  - A component that stops rendering is kept alive, so it can be rendered again later without reloading the model.
 </Callout>
 
 ### Parameters
