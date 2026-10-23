@@ -3,8 +3,8 @@
     "icon": "Radio",
     "pages": [
         "---Reference---",
-        "cheatsheet",
-        
+        "cheatsheet__event",
+
         "---Base---",
         "on",
         "off",

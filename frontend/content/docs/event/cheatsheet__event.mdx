@@ -1,0 +1,143 @@
+---
+title: Event Cheatsheet
+description: Patterns and rules for writing safe, predictable event handlers
+badge: shared
+---
+
+**On the server, a client can only trigger a handler that was registered with `remote = true`.** Everything below follows from that.
+
+---
+
+## Quick reference
+
+| Goal | Use |
+|------|-----|
+| Listen to an event | [`util.event.on`](/docs/event/on) |
+| Let clients trigger the handler (server) | `util.event.on(name, exec, { remote = true })` |
+| Fire an event on this side | [`util.event.emit`](/docs/event/emit) |
+| Fire an event on the other side | [`util.event.emit`](/docs/event/emit) with `{ remote = true }` |
+| Fire an event and wait for the result | [`util.event.emit_callback`](/docs/event/emit_callback) |
+| Know who triggered the event (server) | [`client`](/docs/event/on#client) |
+
+### Two `remote` options
+
+| Where | Meaning |
+|-------|---------|
+| `util.event.on(..., { remote = true })` | This server handler may be reached by clients |
+| `util.event.emit(name, { remote = true }, ...)` | This emit goes to the other side instead of firing locally |
+
+A client-to-server call needs both.
+
+---
+
+## Who reaches a handler
+
+| Emitted by | Without `remote` | With `remote = true` |
+|------------|------------------|----------------------|
+| The server, locally | Fires | Fires |
+| A client | Skipped | Fires, `client` is the sender's peer id |
+
+- **Built-in signals** such as `network:peer:join` follow the same rule.
+- **Handlers on a client** always receive events from the server and need no `remote` option.
+
+---
+
+## `client`
+
+| Situation | Value |
+|-----------|-------|
+| A client triggered the event | The sender's peer id, taken from the connection |
+| The server emitted it locally | `nil` |
+| Code running on a client | `nil` |
+
+```lua lineNumbers title="Client-callable event"
+util.event.on("on_buy_item", function(item)
+    charge_player(client, item)
+end, { remote = true })
+```
+
+```lua lineNumbers title="Server-only event (no remote option)"
+util.event.on("on_round_end", function(winner)
+    give_rewards(winner)
+end)
+```
+
+```lua lineNumbers title="Server or client caller"
+util.event.on("on_set_name", function(name)
+    if client then name = tostring(name):sub(1, 16) end
+    set_player_name(client or 0, name)
+end, { remote = true })
+```
+
+---
+
+## Rules
+
+| Do | Don't |
+|----|-------|
+| Set `remote = true` only on handlers clients are meant to call | Set it on every handler to make things work |
+| Use `client` as the caller's identity | Trust a peer id, name or role from the arguments |
+| Validate argument types and ranges in `remote = true` handlers | Assume a client sent what your client code would send |
+| Give client-callable events their own names, for example `shop:buy` | Share one name between a server-only and a client-callable handler |
+
+---
+
+## `client` and scope
+
+| Case | Behaviour |
+|------|-----------|
+| Async handler | Valid until the first yield (`thread:sleep`, `thread:await`). Copy it into a local first |
+| Another resource's function | Does not see it. Pass the peer id as an argument |
+| Local emit inside a handler | Sees `nil`, the outer handler's value is restored afterwards |
+| Resource with its own `client` global | Hidden while a handler runs, restored after |
+
+```lua lineNumbers title="Copy before yielding"
+util.event.on("on_buy_item", function(item)
+    local buyer = client
+    util.thread.current():sleep(1000)
+    finish_purchase(buyer, item)
+end, { async = true, remote = true })
+```
+
+```lua lineNumbers title="Hand the caller to another resource"
+util.event.on("on_buy_item", function(item)
+    util.export.call("economy", "charge", client, item)
+end, { remote = true })
+```
+
+---
+
+## Callbacks
+
+| Call | Result |
+|------|--------|
+| Server `emit_callback`, local | Every handler runs, `collect_all` decides how many answer |
+| Client `emit_callback` to the server | Only `remote = true` handlers run, in `priority` order |
+| Client call, no `remote = true` handler | Resolves with no values |
+
+---
+
+## Remote routing
+
+| Direction | Call |
+|-----------|------|
+| Client to server | `util.event.emit("name", { remote = true }, ...)` |
+| Server to every client | `util.event.emit("name", { remote = true }, ...)` |
+| Server to one client | `util.event.emit("name", { remote = true, peer = id }, ...)` |
+| Server to one client, with an answer | `util.event.emit_callback("name", { remote = true, peer = id }, ...)` |
+| Client to server, with an answer | `util.event.emit_callback("name", { remote = true }, ...)` |
+
+Only `nil`, `bool`, `number`, `string` and tables survive the trip. Callbacks without a reply are rejected after 30 seconds.
+
+---
+
+## Common mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| A client emits and the server handler never runs | Register the handler with `remote = true` |
+| A server-only handler was given `remote = true` "just in case" | Remove it, clients can now trigger it |
+| A buy or admin handler reads the player from the arguments | Use `client` |
+| `client` is `nil` after a sleep in an async handler | Copy it before the first yield |
+| `client` is `nil` in a function from another resource | Pass the peer id as an argument |
+| A client handler checks `client` | It only exists on the server, so it is always `nil` there |
