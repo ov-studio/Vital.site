@@ -92,14 +92,18 @@
         "method__set_lifetime_randomness",
         "method__set_turbulence",
         "method__set_color_ramp",
+        "method__reset_color_ramp",
         "method__set_scale_curve",
+        "method__reset_scale_curve",
         "method__set_size",
         "method__set_billboard",
         "method__set_blend_mode",
         "method__set_unshaded",
         "method__set_trail",
         "method__set_material",
+        "method__reset_material",
         "method__set_mesh",
+        "method__reset_mesh",
 
         "---⁝⁝Misc---",
         "method__translate",
@@ -115,10 +119,6 @@
         "method__emit",
         "method__stop",
         "method__restart",
-        "method__burst",
-        "method__reset_color_ramp",
-        "method__reset_scale_curve",
-        "method__reset_material",
-        "method__reset_mesh"
+        "method__burst"
     ]
 }
