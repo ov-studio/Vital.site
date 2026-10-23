@@ -21,6 +21,15 @@ local status = util.event.on(
   - **When `async = false`** — handler runs inline on the calling thread.
 </Callout>
 
+<Callout type="warn">
+  **On the server, handlers are local-only unless registered with `remote = true`.**
+
+  - **Local-only (default)** — the handler fires for events emitted on the server itself. An event sent by a client never reaches it.
+  - **`remote = true`** — the handler can also be triggered by clients. Inside it, [`client`](#client) holds the caller's peer id.
+  - **Built-in signals** — handlers for signals such as [`network:peer:join`](/docs/event/signal__network_peer_join) are local-only too, unless you set `remote = true`.
+  - Refer to the [Event Cheatsheet](/docs/event/cheatsheet__events) for patterns.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
