@@ -2505,8 +2505,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:set_collision_mask_value',                 status: 'completed' },
           { label: '[Shared] API: self:set_collision_priority',                   status: 'completed' },
           { label: '[Shared] API: self:set_axis_lock',                            status: 'completed' },
-          { label: '[Shared] API: self:add_collision_exception_with',             status: 'completed' },
-          { label: '[Shared] API: self:remove_collision_exception_with',          status: 'completed' },
           { label: '[Shared] API: self:set_physics_material',                     status: 'completed' },
           { label: '[Shared] API: self:set_mass',                                 status: 'completed' },
           { label: '[Shared] API: self:set_linear_damp',                          status: 'completed' },
@@ -2529,6 +2527,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:rotate_local',                             status: 'completed' },
           { label: '[Shared] API: self:look_at',                                  status: 'completed' },
           { label: '[Shared] API: self:look_at_from_position',                    status: 'completed' },
+          { label: '[Shared] API: self:add_collision_exception_with',             status: 'completed' },
+          { label: '[Shared] API: self:remove_collision_exception_with',          status: 'completed' },
           { label: '[Shared] API: self:move_and_collide',                         status: 'completed' },
           { label: '[Shared] API: self:apply_central_impulse',                    status: 'completed' },
           { label: '[Shared] API: self:apply_impulse',                            status: 'completed' },
@@ -2648,8 +2648,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:get_priority',                     status: 'completed' },
           { label: '[Shared] API: self:get_overlapping_bodies',           status: 'completed' },
           { label: '[Shared] API: self:get_overlapping_areas',            status: 'completed' },
-          { label: '[Shared] API: self:overlaps_body',                    status: 'completed' },
-          { label: '[Shared] API: self:overlaps_area',                    status: 'completed' },
           { label: '[Shared] API: self:set_position',                     status: 'completed' },
           { label: '[Shared] API: self:set_global_position',              status: 'completed' },
           { label: '[Shared] API: self:set_scale',                        status: 'completed' },
@@ -2681,6 +2679,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:rotate_local',                     status: 'completed' },
           { label: '[Shared] API: self:look_at',                          status: 'completed' },
           { label: '[Shared] API: self:look_at_from_position',            status: 'completed' }
+          { label: '[Shared] API: self:overlaps_body',                    status: 'completed' },
+          { label: '[Shared] API: self:overlaps_area',                    status: 'completed' },
         ]
       },
       {
