@@ -17,7 +17,7 @@ badge: shared
 | Fire an event on this side | [`util.event.emit`](/docs/event/emit) |
 | Fire an event on the other side | [`util.event.emit`](/docs/event/emit) with `{ remote = true }` |
 | Fire an event and wait for the result | [`util.event.emit_callback`](/docs/event/emit_callback) |
-| Know who triggered the event (server) | [`client`](/docs/event/on#client) |
+| Know who triggered the event (server) | [`client`](/docs/event/on#variable-client) |
 
 ### Two `remote` options
 
@@ -42,7 +42,7 @@ A client-to-server call needs both.
 
 ---
 
-## `client`
+## Variable: `client`
 
 | Situation | Value |
 |-----------|-------|
@@ -82,7 +82,7 @@ end, { remote = true })
 
 ---
 
-## `client` and scope
+## Variable: `client` and scope
 
 | Case | Behaviour |
 |------|-----------|
