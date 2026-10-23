@@ -30,6 +30,8 @@
         "method__get_quaternion",
         "method__get_dimension",
         "method__get_parent",
+        "method__get_net_id",
+        "method__get_syncer",
         "method__get_collision_layer",
         "method__get_collision_mask",
         "method__get_collision_layer_value",
@@ -39,8 +41,6 @@
         "method__get_axis_lock",
         "method__get_constant_linear_velocity",
         "method__get_constant_angular_velocity",
-        "method__get_syncer",
-        "method__get_net_id",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -52,6 +52,7 @@
         "method__set_dimension",
         "method__set_visible",
         "method__set_parent",
+        "method__set_syncer",
         "method__set_collision_layer",
         "method__set_collision_mask",
         "method__set_collision_layer_value",
@@ -63,7 +64,6 @@
         "method__set_physics_material",
         "method__set_constant_linear_velocity",
         "method__set_constant_angular_velocity",
-        "method__set_syncer",
 
         "---⁝⁝Misc---",
         "method__translate",
