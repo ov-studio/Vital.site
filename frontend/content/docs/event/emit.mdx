@@ -41,7 +41,7 @@ local status = util.event.emit(
   **On the server, a client's remote event only reaches handlers registered with [`remote = true`](/docs/event/on#config).**
 
   - Handlers without it are local-only and are skipped, so a client cannot trigger them.
-  - Handlers that do receive a client's event see [`client`](/docs/event/on#variable-client) set to the sender's peer id.
+  - Handlers that do receive a client's event see variable [`client`](/docs/event/on#variable-client) set to the sender's peer id.
   - Refer to the [Event Cheatsheet](/docs/event/cheatsheet/event).
 </Callout>
 
