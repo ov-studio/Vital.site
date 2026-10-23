@@ -2351,8 +2351,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:set_collision_mask_value',         status: 'completed' },
           { label: '[Shared] API: self:set_collision_priority',           status: 'completed' },
           { label: '[Shared] API: self:set_axis_lock',                    status: 'completed' },
-          { label: '[Shared] API: self:add_collision_exception_with',     status: 'completed' },
-          { label: '[Shared] API: self:remove_collision_exception_with',  status: 'completed' },
           { label: '[Shared] API: self:set_velocity',                     status: 'completed' },
           { label: '[Shared] API: self:set_up_direction',                 status: 'completed' },
           { label: '[Shared] API: self:set_motion_mode',                  status: 'completed' },
@@ -2371,6 +2369,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:rotate_local',                     status: 'completed' },
           { label: '[Shared] API: self:look_at',                          status: 'completed' },
           { label: '[Shared] API: self:look_at_from_position',            status: 'completed' },
+          { label: '[Shared] API: self:add_collision_exception_with',     status: 'completed' },
+          { label: '[Shared] API: self:remove_collision_exception_with',  status: 'completed' },
           { label: '[Shared] API: self:move_and_collide',                 status: 'completed' },
           { label: '[Shared] API: self:move_and_slide',                   status: 'completed' },
           { label: '[Shared] API: self:apply_floor_snap',                 status: 'completed' }
@@ -2427,8 +2427,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:set_collision_mask_value',         status: 'completed' },
           { label: '[Shared] API: self:set_collision_priority',           status: 'completed' },
           { label: '[Shared] API: self:set_axis_lock',                    status: 'completed' },
-          { label: '[Shared] API: self:add_collision_exception_with',     status: 'completed' },
-          { label: '[Shared] API: self:remove_collision_exception_with',  status: 'completed' },
           { label: '[Shared] API: self:set_physics_material',             status: 'completed' },
           { label: '[Shared] API: self:set_constant_linear_velocity',     status: 'completed' },
           { label: '[Shared] API: self:set_constant_angular_velocity',    status: 'completed' },
@@ -2443,6 +2441,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:rotate_local',                     status: 'completed' },
           { label: '[Shared] API: self:look_at',                          status: 'completed' },
           { label: '[Shared] API: self:look_at_from_position',            status: 'completed' },
+          { label: '[Shared] API: self:add_collision_exception_with',     status: 'completed' },
+          { label: '[Shared] API: self:remove_collision_exception_with',  status: 'completed' },
           { label: '[Shared] API: self:move_and_collide',                 status: 'completed' }
         ]
       },
