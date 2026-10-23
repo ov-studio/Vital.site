@@ -90,6 +90,8 @@
         "method__set_max_contacts_reported",
         "method__set_lock_rotation_enabled",
         "method__set_freeze_enabled",
+        "method__set_constant_force",
+        "method__set_constant_torque",
 
         "---⁝⁝Misc---",
         "method__translate",
@@ -113,8 +115,6 @@
         "method__apply_torque",
         "method__add_constant_central_force",
         "method__add_constant_force",
-        "method__add_constant_torque",
-        "method__set_constant_force",
-        "method__set_constant_torque"
+        "method__add_constant_torque"
     ]
 }

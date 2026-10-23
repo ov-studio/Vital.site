@@ -2193,6 +2193,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:set_max_contacts_reported',                status: 'completed' },
           { label: '[Shared] API: self:set_lock_rotation_enabled',                status: 'completed' },
           { label: '[Shared] API: self:set_freeze_enabled',                       status: 'completed' },
+          { label: '[Shared] API: self:set_constant_force',                       status: 'completed' },
+          { label: '[Shared] API: self:set_constant_torque',                      status: 'completed' }
           { label: '[Shared] API: self:translate',                                status: 'completed' },
           { label: '[Shared] API: self:translate_local',                          status: 'completed' },
           { label: '[Shared] API: self:to_local',                                 status: 'completed' },
@@ -2215,8 +2217,6 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:add_constant_central_force',               status: 'completed' },
           { label: '[Shared] API: self:add_constant_force',                       status: 'completed' },
           { label: '[Shared] API: self:add_constant_torque',                      status: 'completed' },
-          { label: '[Shared] API: self:set_constant_force',                       status: 'completed' },
-          { label: '[Shared] API: self:set_constant_torque',                      status: 'completed' }
         ]
       },
       {
