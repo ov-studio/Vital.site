@@ -1653,7 +1653,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: gfx.sky_panorama.get_texture',            status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.get_energy_multiplier',  status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.set_texture',            status: 'completed' },
-          { label: '[Client] API: gfx.sky_panorama.reset_texture',          status: 'completed' }
+          { label: '[Client] API: gfx.sky_panorama.reset_texture',          status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.set_filtering_enabled',  status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.set_energy_multiplier',  status: 'completed' }
         ]
@@ -2033,7 +2033,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:set_material',                        status: 'completed' },
           { label: '[Client] API: self:reset_material',                      status: 'completed' },
           { label: '[Client] API: self:set_mesh',                            status: 'completed' },
-          { label: '[Client] API: self:reset_mesh',                          status: 'completed' }
+          { label: '[Client] API: self:reset_mesh',                          status: 'completed' },
           { label: '[Client] API: self:translate',                           status: 'completed' },
           { label: '[Client] API: self:translate_local',                     status: 'completed' },
           { label: '[Client] API: self:to_local',                            status: 'completed' },
@@ -2194,7 +2194,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:set_lock_rotation_enabled',                status: 'completed' },
           { label: '[Shared] API: self:set_freeze_enabled',                       status: 'completed' },
           { label: '[Shared] API: self:set_constant_force',                       status: 'completed' },
-          { label: '[Shared] API: self:set_constant_torque',                      status: 'completed' }
+          { label: '[Shared] API: self:set_constant_torque',                      status: 'completed' },
           { label: '[Shared] API: self:translate',                                status: 'completed' },
           { label: '[Shared] API: self:translate_local',                          status: 'completed' },
           { label: '[Shared] API: self:to_local',                                 status: 'completed' },
@@ -2216,7 +2216,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:apply_torque',                             status: 'completed' },
           { label: '[Shared] API: self:add_constant_central_force',               status: 'completed' },
           { label: '[Shared] API: self:add_constant_force',                       status: 'completed' },
-          { label: '[Shared] API: self:add_constant_torque',                      status: 'completed' },
+          { label: '[Shared] API: self:add_constant_torque',                      status: 'completed' }
         ]
       },
       {
@@ -2678,9 +2678,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:rotate',                           status: 'completed' },
           { label: '[Shared] API: self:rotate_local',                     status: 'completed' },
           { label: '[Shared] API: self:look_at',                          status: 'completed' },
-          { label: '[Shared] API: self:look_at_from_position',            status: 'completed' }
+          { label: '[Shared] API: self:look_at_from_position',            status: 'completed' },
           { label: '[Shared] API: self:overlaps_body',                    status: 'completed' },
-          { label: '[Shared] API: self:overlaps_area',                    status: 'completed' },
+          { label: '[Shared] API: self:overlaps_area',                    status: 'completed' }
         ]
       },
       {
