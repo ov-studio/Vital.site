@@ -72,8 +72,6 @@
         "method__set_collision_mask_value",
         "method__set_collision_priority",
         "method__set_axis_lock",
-        "method__add_collision_exception_with",
-        "method__remove_collision_exception_with",
         "method__set_velocity",
         "method__set_up_direction",
         "method__set_motion_mode",
@@ -94,6 +92,8 @@
         "method__rotate_local",
         "method__look_at",
         "method__look_at_from_position",
+        "method__add_collision_exception_with",
+        "method__remove_collision_exception_with",
         "method__move_and_collide",
         "method__move_and_slide",
         "method__apply_floor_snap"
