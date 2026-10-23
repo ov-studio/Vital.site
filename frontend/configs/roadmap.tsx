@@ -1653,9 +1653,9 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: gfx.sky_panorama.get_texture',            status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.get_energy_multiplier',  status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.set_texture',            status: 'completed' },
-          { label: '[Client] API: gfx.sky_panorama.set_filtering_enabled',  status: 'completed' },
-          { label: '[Client] API: gfx.sky_panorama.set_energy_multiplier',  status: 'completed' },
           { label: '[Client] API: gfx.sky_panorama.reset_texture',          status: 'completed' }
+          { label: '[Client] API: gfx.sky_panorama.set_filtering_enabled',  status: 'completed' },
+          { label: '[Client] API: gfx.sky_panorama.set_energy_multiplier',  status: 'completed' }
         ]
       },
       {
@@ -2022,14 +2022,18 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:set_lifetime_randomness',             status: 'completed' },
           { label: '[Client] API: self:set_turbulence',                      status: 'completed' },
           { label: '[Client] API: self:set_color_ramp',                      status: 'completed' },
+          { label: '[Client] API: self:reset_color_ramp',                    status: 'completed' },
           { label: '[Client] API: self:set_scale_curve',                     status: 'completed' },
+          { label: '[Client] API: self:reset_scale_curve',                   status: 'completed' },
           { label: '[Client] API: self:set_size',                            status: 'completed' },
           { label: '[Client] API: self:set_billboard',                       status: 'completed' },
           { label: '[Client] API: self:set_blend_mode',                      status: 'completed' },
           { label: '[Client] API: self:set_unshaded',                        status: 'completed' },
           { label: '[Client] API: self:set_trail',                           status: 'completed' },
           { label: '[Client] API: self:set_material',                        status: 'completed' },
+          { label: '[Client] API: self:reset_material',                      status: 'completed' },
           { label: '[Client] API: self:set_mesh',                            status: 'completed' },
+          { label: '[Client] API: self:reset_mesh',                          status: 'completed' }
           { label: '[Client] API: self:translate',                           status: 'completed' },
           { label: '[Client] API: self:translate_local',                     status: 'completed' },
           { label: '[Client] API: self:to_local',                            status: 'completed' },
@@ -2043,11 +2047,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:emit',                                status: 'completed' },
           { label: '[Client] API: self:stop',                                status: 'completed' },
           { label: '[Client] API: self:restart',                             status: 'completed' },
-          { label: '[Client] API: self:burst',                               status: 'completed' },
-          { label: '[Client] API: self:reset_color_ramp',                    status: 'completed' },
-          { label: '[Client] API: self:reset_scale_curve',                   status: 'completed' },
-          { label: '[Client] API: self:reset_material',                      status: 'completed' },
-          { label: '[Client] API: self:reset_mesh',                          status: 'completed' }
+          { label: '[Client] API: self:burst',                               status: 'completed' }
         ]
       },
       {
