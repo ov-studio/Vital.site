@@ -92,6 +92,36 @@ util.event.on("on_player_join", function(player)
 end)
 ```
 
+```lua lineNumbers title="Let clients trigger a handler and identify the caller"
+util.event.on("on_buy_item", function(item)
+    -- `client` is the real peer id, never trust a peer id sent in the arguments
+    core.engine.print("info", "Peer", client, "wants to buy:", item)
+end, { remote = true })
+```
+
+```lua lineNumbers title="Local-only handler, clients cannot reach it"
+util.event.on("on_round_end", function(winner)
+    give_rewards(winner) -- only runs when the server emits on_round_end itself
+end)
+```
+
+```lua lineNumbers title="Tell a client call from a server call in a remote handler"
+util.event.on("on_set_name", function(name)
+    if client then
+        name = tostring(name):sub(1, 16) -- called by a client, sanitize the input
+    end
+    set_player_name(client or 0, name)
+end, { remote = true })
+```
+
+```lua lineNumbers title="Keep the caller across a yield in an async handler"
+util.event.on("on_buy_item", function(item)
+    local buyer = client -- copy before the first yield
+    util.thread.current():sleep(1000)
+    core.engine.print("info", "Peer", buyer, "bought:", item)
+end, { async = true, remote = true })
+```
+
 ```lua lineNumbers title="Register a handler with a subscription limit"
 util.event.on("on_pickup_collected", function(pickup)
     core.engine.print("info", "Collected:", pickup)
