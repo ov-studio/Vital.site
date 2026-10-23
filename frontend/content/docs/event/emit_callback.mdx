@@ -67,7 +67,7 @@ How that promise resolves depends on the number of registered handlers and the `
 | `true` | None | Resolves immediately with no values |
 | `true` | One or more | Resolves with `{[1]={...}, [2]={...}, ...}`<br/>Each slot is always a table of that handler's return values, even if only one value was returned |
 
-### Errors
+### Failure Cases
 
 A handler that throws a Lua error never leaves the promise pending. The error message is printed to the console of the side where the handler ran. It is not passed to the caller.
 
