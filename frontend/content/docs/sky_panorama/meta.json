@@ -11,9 +11,9 @@
 
         "---Setter---",
         "set_texture",
+        "reset_texture",
         "set_filtering_enabled",
         "set_energy_multiplier",
-        "reset_texture",
         "..."
     ]
 }
