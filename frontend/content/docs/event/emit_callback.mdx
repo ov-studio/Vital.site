@@ -37,6 +37,13 @@ local result = util.event.emit_callback(
   - **Nested tables** — fully supported, but deeply nested structures increase payload size and serialization cost.
 </Callout>
 
+<Callout type="warn">
+  **A client can trigger any server event with `remote = true`, and handlers cannot tell it apart from a local emit unless they check `client`.**
+
+  - On the server, handlers see [`client`](/docs/event/on#client) set to the sender's peer id when the event came from a client.
+  - Check it in every handler that does something privileged. Refer to the [Event Cheatsheet](/docs/event/cheatsheet__events).
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
