@@ -83,8 +83,6 @@
         "method__set_cull_mask",
         "method__set_shadow_caster_mask",
         "method__set_temperature",
-        "method__set_projector",
-        "method__reset_projector",
         "method__set_shadow_enabled",
         "method__set_shadow_bias",
         "method__set_shadow_normal_bias",
@@ -96,6 +94,8 @@
         "method__set_distance_fade_begin",
         "method__set_distance_fade_shadow",
         "method__set_distance_fade_length",
+        "method__set_projector",
+        "method__reset_projector",
         "method__set_shadow_mode",
         
         "---⁝⁝Misc---",
