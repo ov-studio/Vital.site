@@ -22,7 +22,7 @@ local count = self:apply_to_material(
   - **Wildcard `"*"`** — applies to all live models and is registered persistently for models spawned later.
   - **Priority** — when several shaders cover the same surface, the one with the highest `priority` is shown. On equal priority, the most recently applied shader wins. Applying the same shader to the same target again updates its priority and counts as the latest apply.
   - **Fallback** — when the shown shader is removed with [`self:remove_from_material`](/docs/shader/method/remove_from_material), destroyed or its resource stops, the next best shader takes over automatically. The surface only returns to its original material when no other shader covers it.
-  - **Auto-binding** — refer [**Shader Uniform Cheatsheet**](/docs/shader/cheatsheet/uniforms) for uniform names populated automatically.
+  - **Auto-binding** — refer [**Uniform Cheatsheet**](/docs/shader/cheatsheet/uniform) for uniform names populated automatically.
 </Callout>
 
 ### Parameters
