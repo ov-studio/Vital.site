@@ -69,9 +69,13 @@ exec(...)
 
 ---
 
-### `client`
+### Variable: `client`
 
-Inside a handler, `client` is a variable the engine sets for the duration of the call. It exists only on the server.
+A variable the engine sets while a handler runs, so the handler can tell who triggered the event. It exists only on the server.
+
+```lua
+core.engine.print("info", client) -- peer id (int) when a client triggered the event, nil otherwise
+```
 
 | Value | Meaning |
 |-------|---------|
