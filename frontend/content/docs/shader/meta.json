@@ -3,7 +3,7 @@
     "icon": "Sliders",
     "pages": [
         "---Reference---",
-        "cheatsheet",
+        "cheatsheet__uniform",
 
         "---Enum---",
         "enum__shader_mode",
