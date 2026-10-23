@@ -68,6 +68,22 @@ exec(...)
 
 ---
 
+### `client`
+
+Inside a handler, `client` is a variable the engine sets for the duration of the call. It exists only on the server.
+
+| Value | Meaning |
+|-------|---------|
+| `int` | The event was triggered by a client. This is that client's peer id, taken from the connection, so a client cannot fake it. Only handlers registered with `remote = true` are ever called this way |
+| `nil` | The event was emitted locally on the server, or the code is running on a client |
+
+- **Per resource** — `client` is set in the environment the handler function itself runs in. Other resources, and functions called from another resource, do not see it. Pass the peer id along as an argument if they need it.
+- **Nested events** — an event emitted locally from inside a handler sees `client = nil`, and the outer handler's value is restored afterwards.
+- **Existing global** — a resource's own global named `client` is hidden while a handler runs and restored when it returns.
+- **Async handlers** — the value is only available until the handler first yields (for example on `thread:sleep` or `thread:await`). Copy it into a local variable before the first yield.
+
+---
+
 ### Examples
 
 ```lua lineNumbers title="Register a basic event handler"
