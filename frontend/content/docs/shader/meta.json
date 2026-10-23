@@ -2,6 +2,9 @@
     "title": "Shader",
     "icon": "Sliders",
     "pages": [
+        "---Reference---",
+        "cheatsheet",
+
         "---Enum---",
         "enum__shader_mode",
 
@@ -24,9 +27,6 @@
 
         "---⁝⁝Misc---",
         "method__apply_to_material",
-        "method__remove_from_material",
-
-        "---⁝⁝Reference---",
-        "cheatsheet__uniforms"
+        "method__remove_from_material"
     ]
 }
