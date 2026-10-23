@@ -25,7 +25,7 @@ local status = util.event.on(
   **On the server, handlers are local-only unless registered with `remote = true`.**
 
   - **Local-only (default)** — the handler fires for events emitted on the server itself. An event sent by a client never reaches it.
-  - **`remote = true`** — the handler can also be triggered by clients. Inside it, [`client`](#client) holds the caller's peer id.
+  - **`remote = true`** — the handler can also be triggered by clients. Inside it, [`client`](#variable-client) holds the caller's peer id.
   - **Built-in signals** — handlers for signals such as [`network:peer:join`](/docs/event/signal__network_peer_join) are local-only too, unless you set `remote = true`.
   - Refer to the [Event Cheatsheet](/docs/event/cheatsheet/event) for patterns.
 </Callout>
@@ -53,7 +53,7 @@ local status = util.event.on(
 | `bool` | async | `false` | • When `true` - runs the handler inside a dedicated thread<br/>• When `false` - runs the handler inline on the calling thread |
 | `int` | subscription_limit | `nil` | Maximum number of times this handler will fire before being automatically removed<br/>• Must be `>= 1` if set<br/>• Omit for unlimited invocations |
 | `int` | priority | `0` | Determines fire order relative to other handlers on the same event<br/>• Higher values fire earlier, similar to a z-index<br/>• Handlers with equal priority fire in registration order<br/>• May be negative |
-| `bool` | remote | `false` | Server only. Lets clients trigger this handler<br/>• When `true` - events a client emits with `remote = true` reach this handler, and [`client`](#client) holds the caller's peer id<br/>• When `false` - only events emitted on the server reach it, a client's events skip it<br/>• Has no effect on a client, where handlers always receive events from the server |
+| `bool` | remote | `false` | Server only. Lets clients trigger this handler<br/>• When `true` - events a client emits with `remote = true` reach this handler, and [`client`](#variable-client) holds the caller's peer id<br/>• When `false` - only events emitted on the server reach it, a client's events skip it<br/>• Has no effect on a client, where handlers always receive events from the server |
 
 ---
 
@@ -69,7 +69,7 @@ exec(...)
 
 ---
 
-### `client`
+### Variable: `client`
 
 A variable the engine sets while a handler runs, so the handler can tell who triggered the event. It exists only on the server.
 
