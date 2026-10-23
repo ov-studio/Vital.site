@@ -43,8 +43,6 @@
         "method__get_priority",
         "method__get_overlapping_bodies",
         "method__get_overlapping_areas",
-        "method__overlaps_body",
-        "method__overlaps_area",
 
         "---⁝⁝Setter---",
         "method__set_position",
@@ -79,6 +77,8 @@
         "method__rotate",
         "method__rotate_local",
         "method__look_at",
-        "method__look_at_from_position"
+        "method__look_at_from_position",
+        "method__overlaps_body",
+        "method__overlaps_area"
     ]
 }
