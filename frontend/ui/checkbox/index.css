@@ -20,8 +20,8 @@
 .ui-checkbox input {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   box-sizing: border-box;
   margin: 0;
   border: 2px solid transparent;
