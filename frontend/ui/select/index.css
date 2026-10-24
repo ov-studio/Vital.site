@@ -130,8 +130,7 @@
   color: var(--blue);
 }
 
-.ui-select-option.is-selected:hover,
-.ui-select-option.is-selected:focus-visible {
+.ui-select-option.is-selected:hover {
   background: var(--b20);
   color: var(--blue);
 }
