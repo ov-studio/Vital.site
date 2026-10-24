@@ -5,6 +5,12 @@
         "---Base---",
         "create",
 
+        "---Checker---",
+        "is_debug_all",
+
+        "---Setter---",
+        "set_debug_all",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__get_type",
@@ -13,6 +19,7 @@
         "---⁝⁝Checker---",
         "method__is_visible",
         "method__is_visible_in_tree",
+        "method__is_debug_visible",
         "method__is_used_as_traction",
         "method__is_used_as_steering",
         "method__is_in_contact",
@@ -55,6 +62,7 @@
         "method__set_global_rotation",
         "method__set_quaternion",
         "method__set_visible",
+        "method__set_debug_visible",
         "method__set_radius",
         "method__set_suspension_rest_length",
         "method__set_suspension_travel",
