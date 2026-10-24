@@ -2523,7 +2523,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Vehicle Wheel',
-        desc:  'Individual wheel node for vehicle bodies — suspension, friction, traction, steering, per-wheel force control, and debug visuals',
+        desc:  'Wheel node for vehicle bodies — suspension, friction, traction, steering, and debug visuals',
         icon:  <lucide.CircleDot {...config_site.info.lucide}/>,
         items: [
           { label: '[Shared] API: physics.vehicle_wheel.create',        status: 'completed' },
