@@ -21,8 +21,9 @@
   padding: 6px 12px 6px 30px;
   font-family: var(--font-geist), sans-serif;
   font-weight: 600;
-  font-size: .8rem;
-  color: var(--text-soft);
+  font-size: .76rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
   background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
   border: 2px solid transparent;
   border-radius: 4px;
@@ -33,6 +34,7 @@
 
 .ui-search input::placeholder {
   color: var(--text-faint);
+  font-weight: 600;
 }
 
 .ui-search input:focus {
