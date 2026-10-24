@@ -1,0 +1,45 @@
+---
+title: self:set_debug_visible
+description: Shows or hides the debug overlay of the vehicle wheel
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_debug_visible(
+    state
+)
+```
+
+<Callout type="info">
+  **The overlay shows the wheel's live state.**
+
+  - **Ring** — cyan while the wheel has full grip, shifting toward red as it skids, and magenta while it is airborne. The yellow spoke marks wheel rotation.
+  - **Suspension** — a white cross at the connection point, an orange ray down to the bottom of the wheel at rest, a blue bar for the suspension travel range, and a line to the wheel center that turns from green to red as the spring compresses.
+  - **Contact** — a red cross at the contact point, with the surface normal drawn from it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` to show the debug overlay, `false` to hide it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Show the debug overlay on a single vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+entity:set_position({-1, -0.5, 1.5})
+entity:set_debug_visible(true)
+```
