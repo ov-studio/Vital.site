@@ -32,7 +32,7 @@ export const Features = [
     id:    'physics',
     label: 'Physics',
     angle: 231,
-    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, up to 65,535 isolated virtual dimensions, and a per-shape collision wireframe debugger.'
+    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, up to 65,535 isolated virtual dimensions, and collision and wheel debug visualizers.'
   },
   {
     id:    'audio',
