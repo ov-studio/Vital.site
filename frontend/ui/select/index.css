@@ -105,11 +105,6 @@
   animation: ui-select-menu-in .14s ease forwards;
 }
 
-@keyframes ui-select-menu-in {
-  from { opacity: 0; transform: translateY(-3px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .ui-select-option {
   display: block;
   padding: 7px 10px;
@@ -174,8 +169,13 @@
   background: var(--b30);
 }
 
-
 /* ── @keyframes ── */
+
+@keyframes ui-select-menu-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes ui-select-spin {
   to { transform: rotate(360deg); }
 }
