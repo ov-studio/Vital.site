@@ -21,26 +21,29 @@
   text-align: left;
   color: var(--dim);
   background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
-  border: 2px solid var(--b10);
+  /* Inward border (inset) — outer box size stable like search */
+  border: 2px solid transparent;
   border-radius: 4px;
+  box-shadow: inset 0 0 0 2px var(--b10);
   outline: none;
   cursor: pointer;
-  transition: border-color .2s, background .2s, box-shadow .2s;
+  transition: background .2s, box-shadow .2s;
 }
 
 .ui-select-trigger:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--blue) 40%, var(--b10));
   background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--blue) 40%, var(--b10));
 }
 
 .ui-select-trigger:focus-visible {
-  border-color: color-mix(in srgb, var(--blue) 55%, var(--b10));
-  box-shadow: 0 0 0 3px var(--b10);
+  box-shadow:
+    inset 0 0 0 2px color-mix(in srgb, var(--blue) 55%, var(--b10)),
+    0 0 0 3px var(--b10);
 }
 
 .ui-select.is-open .ui-select-trigger {
-  border-color: color-mix(in srgb, var(--blue) 50%, var(--b10));
   background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--blue) 50%, var(--b10));
 }
 
 .ui-select.is-disabled .ui-select-trigger {
