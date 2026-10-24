@@ -171,8 +171,27 @@ export function ModalBody({
   className = '',
   prose = true
 }) {
+  const ref = react.useRef(null);
+  const [scrollable, setScrollable] = react.useState(false);
+  react.useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const check = () => {
+      setScrollable(el.scrollHeight - el.clientHeight > 2);
+    };
+    check();
+    if (typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(check);
+    ro.observe(el);
+    if (el.firstElementChild) ro.observe(el.firstElementChild);
+    return () => ro.disconnect();
+  }, [children]);
+
   return (
-    <div className={`ui-modal-desc-scroll${className ? ` ${className}` : ''}`}>
+    <div
+      ref={ref}
+      className={`ui-modal-desc-scroll${scrollable ? ' is-scrollable' : ''}${className ? ` ${className}` : ''}`}
+    >
       {prose ? <div className="ui-modal-prose">{children}</div> : children}
     </div>
   );

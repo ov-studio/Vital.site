@@ -180,6 +180,10 @@
   flex: 1 1 auto;
   min-height: 0;
   margin-bottom: 20px;
+  overflow-y: hidden;
+}
+
+.ui-modal-desc-scroll.is-scrollable {
   padding-right: 10px;
   overflow-y: auto;
 }
