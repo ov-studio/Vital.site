@@ -11,10 +11,4 @@ configs/vault.tsx
 configs/workspace.tsx
 lib/api_url.ts
 lib/og_sizes.ts
-ui/checkbox/index.css
-ui/checkbox/index.jsx
-ui/rangeslider/index.css
-ui/rangeslider/index.jsx
-ui/select/index.css
-ui/select/index.jsx
 # </sync:shared>

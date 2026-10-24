@@ -13,12 +13,13 @@
   box-sizing: border-box;
   padding: 10px 12px;
   font-family: inherit;
-  font-size: .82rem;
-  font-weight: 500;
+  font-size: .76rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   letter-spacing: normal;
   text-transform: none;
   text-align: left;
-  color: var(--brand-neon-core);
+  color: var(--dim);
   background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
   border: 2px solid var(--b10);
   border-radius: 6px;
@@ -53,10 +54,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--brand-neon-core);
+  color: var(--dim);
   text-transform: none;
-  font-weight: 500;
-  font-size: .82rem;
+  font-weight: 600;
+  font-size: .76rem;
+  font-variant-numeric: tabular-nums;
   letter-spacing: normal;
 }
 
@@ -110,11 +112,12 @@
   display: block;
   padding: 7px 10px;
   font-family: var(--font-geist), sans-serif;
-  font-size: .78rem;
-  font-weight: 400;
+  font-size: .76rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   letter-spacing: normal;
   text-transform: none;
-  color: var(--text-soft);
+  color: var(--dim);
   border-radius: 5px;
   cursor: pointer;
   transition: background .12s, color .12s;
