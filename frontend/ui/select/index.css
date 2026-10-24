@@ -33,11 +33,6 @@
   background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
 }
 
-.ui-select-trigger:focus-visible {
-  border-color: color-mix(in srgb, var(--blue) 55%, var(--b10));
-  box-shadow: 0 0 0 3px var(--b10);
-}
-
 .ui-select.is-open .ui-select-trigger {
   border-color: color-mix(in srgb, var(--blue) 50%, var(--b10));
   background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
