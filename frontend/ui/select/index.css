@@ -96,7 +96,7 @@
   box-sizing: border-box;
   background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
   border: 2px solid var(--b15);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow:
     0 16px 48px var(--k45),
     0 0 0 1px color-mix(in srgb, var(--blue) 8%, transparent);
@@ -118,7 +118,7 @@
   letter-spacing: normal;
   text-transform: none;
   color: var(--dim);
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background .12s, color .12s;
   outline: none;
