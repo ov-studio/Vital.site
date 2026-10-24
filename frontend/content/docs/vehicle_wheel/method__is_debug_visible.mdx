@@ -1,0 +1,33 @@
+---
+title: self:is_debug_visible
+description: Checks whether the debug overlay of the vehicle wheel is currently visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_debug_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the debug overlay is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check debug overlay visibility on a vehicle wheel"
+local car = physics.vehicle.create()
+local entity = physics.vehicle_wheel.create(car)
+
+core.engine.print("info", "Vehicle wheel debug visible:", entity:is_debug_visible())
+```
