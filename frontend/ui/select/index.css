@@ -169,8 +169,8 @@
   background: var(--b30);
 }
 
-/* ── @keyframes ── */
 
+/* ── @keyframes ── */
 @keyframes ui-select-menu-in {
   from { opacity: 0; transform: translateY(-3px); }
   to   { opacity: 1; transform: translateY(0); }
