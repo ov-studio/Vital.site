@@ -2,23 +2,63 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   justify-self: start;
   width: max-content;
   max-width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 500;
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+  cursor: pointer;
+  user-select: none;
 }
 
 .ui-checkbox input {
-  accent-color: var(--blue);
-  width: 15px;
-  height: 15px;
-  flex-shrink: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
   margin: 0;
+  border: 2px solid var(--b10);
+  border-radius: 3px;
+  background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+
+.ui-checkbox input:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--blue) 40%, var(--b10));
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
+}
+
+.ui-checkbox input:checked {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.ui-checkbox input:checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 8px;
+  border: solid var(--bg, #0c0f1a);
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.ui-checkbox input:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--blue) 55%, var(--b10));
+  box-shadow: 0 0 0 3px var(--b10);
 }
 
 .ui-checkbox input:disabled {
