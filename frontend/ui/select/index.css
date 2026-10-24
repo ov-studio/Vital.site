@@ -63,8 +63,10 @@
 }
 
 .ui-select-value.is-placeholder {
-  color: var(--text-muted);
-  font-weight: 400;
+  color: var(--dim);
+  font-weight: 600;
+  font-size: .76rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .ui-select-chevron {
