@@ -11,6 +11,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  margin: 0 0 -2px !important;
   gap: 8px;
   font-family: var(--font-geist), sans-serif;
   font-size: 0.72rem;
