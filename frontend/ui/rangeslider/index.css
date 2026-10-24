@@ -63,9 +63,7 @@
 }
 
 .ui-rangeslider input:hover::-webkit-slider-thumb,
-.ui-rangeslider input:focus-visible::-webkit-slider-thumb,
-.ui-rangeslider input:hover::-moz-range-thumb,
-.ui-rangeslider input:focus-visible::-moz-range-thumb {
+.ui-rangeslider input:hover::-moz-range-thumb {
   box-shadow: 0 0 0 3px var(--b20);
 }
 
