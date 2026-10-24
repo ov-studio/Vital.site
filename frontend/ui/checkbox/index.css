@@ -25,7 +25,7 @@
   box-sizing: border-box;
   margin: 0;
   border: 2px solid var(--b10);
-  border-radius: 4px;
+  border-radius: 3px;
   background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
   cursor: pointer;
   position: relative;
