@@ -34,7 +34,7 @@
 
 .ui-panel:has(> .ui-panel-head) > .ui-table-wrap {
   background: var(--bg7);
-  border: 2px solid var(--b10);
+  border: 2px solid var(--b15);
   border-radius: 0 6px 6px 6px;
   margin-top: 0;
   position: relative;
