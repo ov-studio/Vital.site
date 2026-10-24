@@ -3,7 +3,7 @@
   z-index: 1;
   isolation: isolate;
   background: var(--bg7);
-  border: 2px solid var(--b10);
+  border: 2px solid var(--b15);
   border-radius: 4px;
   margin-bottom: 20px;
   overflow: hidden;
