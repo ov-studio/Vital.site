@@ -119,8 +119,7 @@
   text-overflow: ellipsis;
 }
 
-.ui-select-option:hover,
-.ui-select-option:focus-visible {
+.ui-select-option:hover {
   background: var(--b10);
   color: var(--brand-neon-core);
 }
