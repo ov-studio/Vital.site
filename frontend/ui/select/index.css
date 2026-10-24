@@ -22,7 +22,7 @@
   color: var(--dim);
   background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
   border: 2px solid var(--b10);
-  border-radius: 6px;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   transition: border-color .2s, background .2s, box-shadow .2s;
