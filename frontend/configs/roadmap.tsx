@@ -1082,7 +1082,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Input',
-        desc:  'Key and mouse button state, mouse velocity, mouse sensitivity, cursor mode, key binds and command handlers from Lua',
+        desc:  'Key and mouse state, cursor control, key binds, and command handlers from Lua',
         icon:  <lucide.Gamepad2 {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] Enum: util.input.key',                 status: 'completed' },
