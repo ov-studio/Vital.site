@@ -28,7 +28,7 @@ export function RangeSlider({
   const span = max - min;
   const ratio = span > 0 ? Math.min(1, Math.max(0, (value - min) / span)) : 0;
   const track = useRef(null);
-  const down = useRef(null); 
+  const down = useRef(null);
   const set_p = p => track.current?.style.setProperty('--p', p);
   const on_down = e => {
     down.current = { x: e.clientX };
