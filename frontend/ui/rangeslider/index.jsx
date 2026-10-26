@@ -62,9 +62,9 @@ export function RangeSlider({
   return (
     <div className={`ui-rangeslider${className ? ` ${className}` : ''}`}>
       <div className="ui-rangeslider-track" ref={track} style={{ '--p': ratio }}>
-        <span className="ui-rangeslider-rail" aria-hidden="true" />
-        <span className="ui-rangeslider-fill" aria-hidden="true" />
-        <span className="ui-rangeslider-thumb" aria-hidden="true" />
+        <span className="ui-rangeslider-rail" aria-hidden="true"/>
+        <span className="ui-rangeslider-fill" aria-hidden="true"/>
+        <span className="ui-rangeslider-thumb" aria-hidden="true"/>
         <input
           type="range"
           aria-label={label}
