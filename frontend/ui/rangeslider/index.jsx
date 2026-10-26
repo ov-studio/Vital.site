@@ -25,7 +25,6 @@ export function RangeSlider({
   const track = react.useRef(null);
   const down = react.useRef(null);
   const set_p = p => track.current?.style.setProperty('--p', p);
-
   const on_down = e => {
     down.current = { x: e.clientX };
   };
