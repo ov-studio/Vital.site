@@ -257,7 +257,7 @@
 
 .ui-modal-prose img {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .ui-modal-prose code {
@@ -276,7 +276,7 @@
   line-height: 1.6;
   background: var(--bg9);
   border: 1px solid var(--b05);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ui-modal-prose pre code {
   padding: 0;
@@ -292,7 +292,7 @@
   border-spacing: 0;
   font-size: .85rem;
   background: var(--bg9);
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
 }
 .ui-modal-prose thead th {
