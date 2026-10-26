@@ -1,13 +1,8 @@
-import { useRef } from 'react';
+import * as react from 'react';
 import './index.css';
 
 /**
  * Percent range slider with live readout.
- *
- * The native input stays on top (invisible) for pointer / keyboard / a11y; the
- * visible fill and thumb are separate elements so they can animate smoothly.
- * While dragging, the thumb follows the pointer continuously (no 1% stepping, no
- * easing lag) and eases to the snapped value on release; clicks and keys ease.
  *
  * @param {Object} props
  * @param {string} [props.label]
@@ -27,9 +22,10 @@ export function RangeSlider({
 }) {
   const span = max - min;
   const ratio = span > 0 ? Math.min(1, Math.max(0, (value - min) / span)) : 0;
-  const track = useRef(null);
-  const down = useRef(null);
+  const track = react.useRef(null);
+  const down = react.useRef(null);
   const set_p = p => track.current?.style.setProperty('--p', p);
+
   const on_down = e => {
     down.current = { x: e.clientX };
   };
