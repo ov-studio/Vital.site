@@ -709,7 +709,7 @@ html body [role="dialog"][data-state="open"] {
   animation: none !important;
   transition: none !important;
   max-height: min(30rem, calc(100vh - var(--nav-h) - 2rem)) !important;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   border: 1px solid var(--b10) !important;
   background: linear-gradient(var(--b20), var(--b20)), var(--bg5) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
