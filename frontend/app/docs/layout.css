@@ -265,7 +265,7 @@ button[aria-label="Collapse Sidebar"] {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-soft);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 #nd-sidebar button[data-state]:hover {
