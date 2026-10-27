@@ -306,7 +306,7 @@ button[aria-label="Collapse Sidebar"] {
   letter-spacing: 0.02em;
   color: var(--bg6);
   background: var(--blue);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 0.15rem 0.5rem;
 }
 
