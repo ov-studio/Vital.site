@@ -435,15 +435,14 @@ article#nd-page {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.95em;
   line-height: 1.55;
-  background: var(--color-fd-card);
-  border-radius: 8px;
+  background: transparent;
 }
 
 #nd-page table,
 .prose table {
   font-size: 0.85rem;
   border: 1px solid var(--b05);
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
