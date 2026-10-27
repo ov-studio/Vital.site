@@ -567,7 +567,7 @@ article#nd-page {
     overflow: hidden !important;
     margin: 0 !important;
     z-index: 6 !important;
-    border-radius: 6px !important;
+    border-radius: 4px !important;
     border: 2px solid transparent !important;
     background: linear-gradient(var(--b20), var(--b20)), var(--bg5) !important;
     color: var(--text-soft) !important;
