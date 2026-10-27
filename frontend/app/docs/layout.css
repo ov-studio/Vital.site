@@ -204,7 +204,6 @@ button[aria-label="Collapse Sidebar"] {
   height: 28px;
   border: 1px solid var(--b10);
   color: var(--text-mid);
-  border-radius: 6px;
 }
 .sidebar-toggle-btn:hover {
   color: var(--white);
@@ -230,7 +229,6 @@ button[aria-label="Collapse Sidebar"] {
   line-height: 0.6;
   text-transform: uppercase;
   color: var(--brand-neon-mid) !important;
-  border-radius: 6px;
 }
 [class*="mb-1.5"][class*="inline-flex"]:not([class*="first:mt-0"]):first-of-type {
   margin-top: 15px !important;
@@ -243,7 +241,7 @@ button[aria-label="Collapse Sidebar"] {
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--text-soft);
-  border-radius: 6px;
+  border-radius: 4px;
   transition: color 0.15s, background 0.15s;
 }
 
