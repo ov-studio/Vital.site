@@ -436,6 +436,7 @@ article#nd-page {
   font-size: 0.95em;
   line-height: 1.55;
   background: transparent;
+  border-radius: 6px;
 }
 
 #nd-page table,
