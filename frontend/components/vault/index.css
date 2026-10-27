@@ -74,10 +74,6 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  font-size: 0.6rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .vault-card-body {
