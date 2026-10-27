@@ -446,6 +446,50 @@ article#nd-page {
   overflow: hidden;
 }
 
+/* ── Consistent 6px radius for cards, codeblocks, callouts / notifications ── */
+#nd-page figure,
+.prose figure,
+#nd-page figure.shiki,
+.prose figure.shiki,
+#nd-page .shiki,
+.prose .shiki,
+#nd-page [class*="fd-codeblock"],
+.prose [class*="fd-codeblock"],
+#nd-page div[class*="rounded-lg"]:has(pre),
+.prose div[class*="rounded-lg"]:has(pre),
+#nd-page [data-rehype-pretty-code-figure],
+.prose [data-rehype-pretty-code-figure] {
+  border-radius: 6px !important;
+  overflow: hidden;
+}
+
+#nd-page figure.shiki > div:first-child,
+.prose figure.shiki > div:first-child,
+#nd-page figure > div:first-child,
+.prose figure > div:first-child {
+  border-radius: 6px 6px 0 0 !important;
+}
+
+/* Callouts / info / warning / notification blocks */
+#nd-page [data-callout],
+.prose [data-callout],
+#nd-page .fd-callout,
+.prose .fd-callout,
+#nd-page [class*="callout"],
+.prose [class*="callout"],
+#nd-page aside[class*="border"],
+.prose aside[class*="border"],
+#nd-page .prose > div[class*="rounded"],
+.prose > div[class*="rounded"],
+#nd-page [role="note"],
+.prose [role="note"],
+#nd-page [class*="bg-fd-card"],
+.prose [class*="bg-fd-card"],
+#nd-page .card,
+.prose .card {
+  border-radius: 6px !important;
+}
+
 #nd-page thead th,
 .prose thead th {
   font-family: var(--font-geist), sans-serif;
