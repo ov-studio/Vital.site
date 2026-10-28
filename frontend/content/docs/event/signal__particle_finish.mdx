@@ -1,0 +1,81 @@
+---
+title: particle:finish
+description: Fired when a one-shot particle emitter has finished and every particle is gone
+badge: client
+---
+
+### Signal
+
+```lua
+"particle:finish"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `userdata` | emitter | Particle emitter whose cycle has finished |
+
+<Callout type="warn">
+  **Only one-shot emitters ever finish.**
+
+  - Fires after [`self:burst`](/docs/gpu_particles/method/burst) or any emission cycle with [`self:set_one_shot`](/docs/gpu_particles/method/set_one_shot) enabled, once every particle has died.
+  - Continuous emitters keep spawning particles, so they never fire this signal.
+  - The emitter is still alive when the signal fires — chain the next effect from here, then call [`self:destroy`](/docs/gpu_particles/method/destroy) on it for fire and forget effects.
+</Callout>
+
+---
+
+### Examples
+
+```lua lineNumbers title="Clean up a fire and forget effect"
+local function launch()
+    local emitter = particle.gpu.create()
+    emitter:burst()
+end
+
+util.event.on("particle:finish", function(emitter)
+    emitter:destroy()
+end)
+
+launch()
+```
+
+```lua lineNumbers title="Firework: rocket explodes into sparks when it finishes"
+local function launch(position)
+    local rocket = particle.gpu.create()
+    rocket:set_position(position)
+    rocket:set_amount(1)
+    rocket:set_lifetime(1.2)
+    rocket:set_direction({0, 1, 0})
+    rocket:set_gravity({0, 0, 0})
+    rocket:set_param(particle.gpu.param.VELOCITY, 12)
+    rocket:set_trail(true, 0.4)
+    rocket:burst()
+end
+
+util.event.on("particle:finish", function(emitter)
+    -- The rocket has a single particle, every spark emitter has more
+    if emitter:get_amount() > 1 then
+        emitter:destroy()
+        return
+    end
+
+    local position = emitter:get_position()
+    emitter:destroy()
+
+    local sparks = particle.gpu.create()
+    sparks:set_position(position)
+    sparks:set_amount(120)
+    sparks:set_lifetime(1.5)
+    sparks:set_spread(180)
+    sparks:set_gravity({0, -4, 0})
+    sparks:set_param(particle.gpu.param.VELOCITY, 4, 9)
+    sparks:set_color_ramp({1, 0.8, 0.2, 1}, {1, 0.1, 0, 0})
+    sparks:set_blend_mode(particle.gpu.blend_mode.ADD)
+    sparks:set_explosiveness(1)
+    sparks:burst()
+end)
+
+launch({0, 0, 0})
+```
