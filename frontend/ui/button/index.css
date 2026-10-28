@@ -8,6 +8,10 @@
   border: none;
   font: inherit;
 }
+.ui-btn > svg {
+  display: block;
+  flex: none;
+}
 
 .ui-btn:disabled,
 .ui-btn[aria-disabled='true'] {
@@ -29,6 +33,9 @@
 .ui-btn--primary:hover:not(:disabled):not([aria-disabled='true']) {
   opacity: .85;
   transform: translateY(-2px);
+}
+.ui-btn--primary > svg {
+  transform: translateY(-.03em);
 }
 
 .ui-btn--secondary {
