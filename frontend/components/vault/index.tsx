@@ -433,6 +433,9 @@ function VaultSubmitModal({
         </ui_modal.ModalBody>
       ) : (
         <ui_modal.ModalBody>
+        {error && (
+          <ui_alert.Alert onClose={() => set_error(null)}>{error}</ui_alert.Alert>
+        )}
         <SubmitProcedures />
         {session ? (
           <>
@@ -482,9 +485,6 @@ function VaultSubmitModal({
             Cancel
           </ui_button.Button>
         </ui_modal.ModalActions>
-        {error && (
-          <ui_alert.Alert onClose={() => set_error(null)}>{error}</ui_alert.Alert>
-        )}
       </ui_modal.ModalFooter>
     </ui_modal.Modal>
   );
