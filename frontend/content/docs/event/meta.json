@@ -23,6 +23,7 @@
         "signal__peer_resource_started",
         "signal__network_peer_join",
         "signal__network_peer_leave",
+        "signal__peer_nickname_changed",
         "signal__entity_created",
         "signal__entity_destroyed",
         "signal__area_enter",

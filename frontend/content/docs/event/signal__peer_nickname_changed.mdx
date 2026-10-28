@@ -1,0 +1,44 @@
+---
+title: peer:nickname:changed
+description: Fired when the player nickname is changed
+badge: client
+---
+
+### Signal
+
+```lua
+"peer:nickname:changed"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | old_name | Username before the change |
+| `string` | new_name | Username after the change |
+
+<Callout type="info">
+  **This signal is only fired on the client.**
+
+  - Both arguments are the effective username, an empty nickname resolves to the operating system username.
+  - It is not fired when the resulting username stays the same, for example when only surrounding whitespace changes.
+  - It is not fired for the nickname loaded from the saved settings when the client starts, use [`core.engine.get_username`](/docs/engine/get_username) to read the initial value.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="React to a nickname change"
+util.event.on("peer:nickname:changed", function(old_name, new_name)
+    core.engine.print("info", "Nickname changed:", old_name, "->", new_name)
+end)
+```
+
+```lua lineNumbers title="Keep a cached name up to date"
+local player_name = core.engine.get_username()
+
+util.event.on("peer:nickname:changed", function(_, new_name)
+    player_name = new_name
+end)
+```

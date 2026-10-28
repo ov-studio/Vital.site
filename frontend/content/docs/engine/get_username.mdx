@@ -1,0 +1,56 @@
+---
+title: core.engine.get_username
+description: Retrieves the current player username
+badge: client
+---
+
+### Syntax
+
+```lua
+local username = core.engine.get_username(
+    os_username = false
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | os_username | Determines which name is returned:<br/>• When `true` - returns the operating system username<br/>• When `false` - returns the nickname chosen in the main menu, falling back to the operating system username if none is set |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | username | Current player username, `"Unnamed"` if the operating system username cannot be resolved |
+
+<Callout type="info">
+  **The nickname can be changed at any time from the main menu.**
+
+  - Surrounding whitespace is trimmed from the nickname.
+  - An empty nickname falls back to the operating system username.
+  - Listen to [`peer:nickname:changed`](/docs/event/signal__peer_nickname_changed) to react when the name changes.
+</Callout>
+
+---
+
+### Examples
+
+```lua lineNumbers title="Prints current username"
+core.engine.print("info", "Current username:", core.engine.get_username())
+```
+
+```lua lineNumbers title="Prints operating system username"
+core.engine.print("info", "OS username:", core.engine.get_username(true))
+```
+
+```lua lineNumbers title="Greet the player with their nickname"
+local name = core.engine.get_username()
+local os_name = core.engine.get_username(true)
+
+if name ~= os_name then
+    core.engine.print("info", "Welcome back, " .. name .. " (" .. os_name .. ")")
+else
+    core.engine.print("info", "Welcome, " .. name)
+end
+```
