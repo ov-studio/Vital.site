@@ -1060,14 +1060,14 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] Signal: "sandbox:key_input"',        status: 'completed' },
           { label: '[Client] Signal: "sandbox:mouse_move"',       status: 'completed' },
           { label: '[Shared] Signal: "sandbox:console_input"',    status: 'completed' },
-          { label: '[Shared] Signal: "resource:started"',         status: 'completed' },
-          { label: '[Shared] Signal: "resource:stopped"',         status: 'completed' },
-          { label: '[Server] Signal: "peer:resource:started"',    status: 'completed' },
-          { label: '[Server] Signal: "network:peer:join"',        status: 'completed' },
-          { label: '[Server] Signal: "network:peer:leave"',       status: 'completed' },
-          { label: '[Client] Signal: "peer:nickname:changed"',    status: 'completed' },
-          { label: '[Shared] Signal: "entity:created"',           status: 'completed' },
-          { label: '[Shared] Signal: "entity:destroyed"',         status: 'completed' },
+          { label: '[Shared] Signal: "resource:start"',           status: 'completed' },
+          { label: '[Shared] Signal: "resource:stop"',            status: 'completed' },
+          { label: '[Server] Signal: "peer:resource:start"',      status: 'completed' },
+          { label: '[Server] Signal: "peer:join"',                status: 'completed' },
+          { label: '[Server] Signal: "peer:leave"',               status: 'completed' },
+          { label: '[Client] Signal: "peer:nickname:change"',     status: 'completed' },
+          { label: '[Shared] Signal: "entity:create"',            status: 'completed' },
+          { label: '[Shared] Signal: "entity:destroy"',           status: 'completed' },
           { label: '[Shared] Signal: "area:enter"',               status: 'completed' },
           { label: '[Shared] Signal: "area:leave"',               status: 'completed' },
           { label: '[Shared] Signal: "area:shape_enter"',         status: 'completed' },
@@ -1077,7 +1077,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] Signal: "webview:resize"',           status: 'completed' },
           { label: '[Client] Signal: "webview:message"',          status: 'completed' },
           { label: '[Client] Signal: "particle:emit"',            status: 'completed' },
-          { label: '[Client] Signal: "particle:finished"',        status: 'completed' }
+          { label: '[Client] Signal: "particle:finish"',          status: 'completed' }
         ]
       },
       {
