@@ -1,0 +1,38 @@
+.ui-editbox {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 10px 12px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: .76rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+  background: linear-gradient(var(--b07), var(--b07)), var(--bg6);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  cursor: text;
+  transition: border-color .2s, background .2s;
+}
+
+.ui-editbox::placeholder {
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.ui-editbox:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--blue) 40%, var(--b10));
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
+}
+
+.ui-editbox:focus {
+  border-color: color-mix(in srgb, var(--blue) 50%, var(--b10));
+  background: linear-gradient(var(--b10), var(--b10)), var(--bg6);
+}
+
+.ui-editbox:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
