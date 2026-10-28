@@ -35,7 +35,7 @@ local status = core.engine.disconnect_peer(
 ### Examples
 
 ```lua lineNumbers title="Disconnect a peer when it joins"
-util.event.on("network:peer:join", function(peer_id)
+util.event.on("peer:join", function(peer_id)
     core.engine.disconnect_peer(peer_id)
 end)
 ```

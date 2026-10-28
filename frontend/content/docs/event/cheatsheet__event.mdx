@@ -36,7 +36,7 @@ A client-to-server call needs both.
 | The server, locally | Fires | Fires |
 | A client | Skipped | Fires, `client` is the sender's peer id |
 
-- **Built-in signals** such as `network:peer:join` follow the same rule.
+- **Built-in signals** such as `peer:join` follow the same rule.
 - **Handlers on a client** always receive events from the server and need no `remote` option.
 
 ---

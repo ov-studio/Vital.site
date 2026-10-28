@@ -13,7 +13,7 @@ local status = self:burst()
 <Callout type="info">
   **Fire-and-forget effects need cleaning up.**
 
-  - Listen for [`particle:finished`](/docs/event/signal/particle_finished) and call `self:destroy` from it — it fires once every particle of the cycle is gone.
+  - Listen for [`particle:finish`](/docs/event/signal__particle_finish) and call `self:destroy` from it — it fires once every particle of the cycle is gone.
   - [`particle:emit`](/docs/event/signal/particle_emit) fires as soon as the burst starts.
   - Switches the emitter to one-shot, so it plays a single cycle and then stops.
 </Callout>
@@ -43,7 +43,7 @@ entity:burst()
 ```lua lineNumbers title="Burst and clean up"
 local entity = particle.gpu.create()
 
-util.event.on("particle:finished", function(emitter)
+util.event.on("particle:finish", function(emitter)
     emitter:destroy()
 end)
 

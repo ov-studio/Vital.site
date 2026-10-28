@@ -50,7 +50,7 @@ Script and file paths declared in the manifest are resolved relative to this fol
 <Callout type="info">
   **Reconnecting / late-joining clients**
 
-  - On peer join, the server broadcasts the full asset manifest, then sends a `resource:started` packet for every currently running resource, in the order they were originally started.
+  - On peer join, the server broadcasts the full asset manifest, then sends a `resource:start` packet for every currently running resource, in the order they were originally started.
   - This lets a client that connects mid-session receive every active resource without a full server restart.
 </Callout>
 

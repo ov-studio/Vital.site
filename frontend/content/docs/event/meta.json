@@ -18,14 +18,14 @@
         "signal__sandbox_key_input",
         "signal__sandbox_mouse_move",
         "signal__sandbox_console_input",
-        "signal__resource_started",
-        "signal__resource_stopped",
-        "signal__peer_resource_started",
-        "signal__network_peer_join",
-        "signal__network_peer_leave",
-        "signal__peer_nickname_changed",
-        "signal__entity_created",
-        "signal__entity_destroyed",
+        "signal__resource_start",
+        "signal__resource_stop",
+        "signal__peer_resource_start",
+        "signal__peer_join",
+        "signal__peer_leave",
+        "signal__peer_nickname_change",
+        "signal__entity_create",
+        "signal__entity_destroy",
         "signal__area_enter",
         "signal__area_leave",
         "signal__area_shape_enter",
@@ -35,6 +35,6 @@
         "signal__webview_resize",
         "signal__webview_message",
         "signal__particle_emit",
-        "signal__particle_finished"
+        "signal__particle_finish"
     ]
 }
