@@ -22,7 +22,7 @@ badge: client
 
   - Both arguments are the effective username, an empty nickname resolves to the operating system username.
   - It is not fired when the resulting username stays the same, for example when only surrounding whitespace changes.
-  - It is not fired for the nickname loaded from the saved settings when the client starts, use [`core.engine.get_username`](/docs/engine/get_username) to read the initial value.
+  - It is not fired for the nickname loaded from the saved settings when the client starts, use [`core.engine.get_nickname`](/docs/engine/get_nickname) to read the initial value.
 </Callout>
 
 ---
@@ -36,7 +36,7 @@ end)
 ```
 
 ```lua lineNumbers title="Keep a cached name up to date"
-local player_name = core.engine.get_username()
+local player_name = core.engine.get_nickname()
 
 util.event.on("peer:nickname:change", function(_, new_name)
     player_name = new_name

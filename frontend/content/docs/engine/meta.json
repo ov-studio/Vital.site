@@ -21,7 +21,7 @@
         "get_fps_limit",
         "get_peer_id",
         "get_serial",
-        "get_username",
+        "get_nickname",
         "get_peers",
         "get_peer_serial",
         "get_entity_types",

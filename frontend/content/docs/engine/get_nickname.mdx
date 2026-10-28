@@ -1,5 +1,5 @@
 ---
-title: core.engine.get_username
+title: core.engine.get_nickname
 description: Retrieves the current player username
 badge: client
 ---
@@ -7,7 +7,7 @@ badge: client
 ### Syntax
 
 ```lua
-local username = core.engine.get_username(
+local username = core.engine.get_nickname(
     os_username = false
 )
 ```
@@ -37,16 +37,16 @@ local username = core.engine.get_username(
 ### Examples
 
 ```lua lineNumbers title="Prints current username"
-core.engine.print("info", "Current username:", core.engine.get_username())
+core.engine.print("info", "Current username:", core.engine.get_nickname())
 ```
 
 ```lua lineNumbers title="Prints operating system username"
-core.engine.print("info", "OS username:", core.engine.get_username(true))
+core.engine.print("info", "OS username:", core.engine.get_nickname(true))
 ```
 
 ```lua lineNumbers title="Greet the player with their nickname"
-local name = core.engine.get_username()
-local os_name = core.engine.get_username(true)
+local name = core.engine.get_nickname()
+local os_name = core.engine.get_nickname(true)
 
 if name ~= os_name then
     core.engine.print("info", "Welcome back, " .. name .. " (" .. os_name .. ")")

@@ -228,7 +228,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.engine.get_fps_limit',          status: 'completed' },
           { label: '[Client] API: core.engine.get_peer_id',            status: 'completed' },
           { label: '[Client] API: core.engine.get_serial',             status: 'completed' },
-          { label: '[Client] API: core.engine.get_username',           status: 'completed' },
+          { label: '[Client] API: core.engine.get_nickname',           status: 'completed' },
           { label: '[Server] API: core.engine.get_peers',              status: 'completed' },
           { label: '[Server] API: core.engine.get_peer_serial',        status: 'completed' },
           { label: '[Shared] API: core.engine.get_entity_types',       status: 'completed' },
