@@ -7,10 +7,12 @@ import * as component_home_features     from '@/components/home/features';
 import * as component_home_ethos        from '@/components/home/ethos';
 import * as component_home_contributors from '@/components/home/contributors';
 import * as component_clientshell       from '@/components/clientshell';
+import * as component_jsonld           from '@/components/jsonld';
 
 export default function HomePage() {
   return (
     <component_clientshell.ClientShell>
+      <component_jsonld.JsonLd/>
       <component_overlay.Overlay/>
       <component_navbar.Navbar links={[
         { label: '# Features', href: '#features' },

@@ -38,15 +38,16 @@ function social(
  */
 export function root_meta(): next.Metadata {
   const title = config_site.info.name;
-  const description = config_site.info.description;
+  const seo_title = config_site.info.seo.title;
+  const description = config_site.info.seo.description;
   return {
     metadataBase: new URL(lib_api_url.get_frontend_url()),
     title: {
       template: `%s - ${title}`,
-      default: title
+      default: seo_title
     },
     description,
-    ...social(title, description, '/', '/og/default.png')
+    ...social(seo_title, description, '/', '/og/default.png')
   };
 }
 
