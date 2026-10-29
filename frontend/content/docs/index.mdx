@@ -22,6 +22,48 @@ Four core principles drive everything under the hood:
 
 ---
 
+## Lua scripting in Godot
+
+Scripts live inside **resources**. A resource is a folder under the server's `resources/` directory, described by a [`manifest.yaml`](/docs/resource/manifest) that lists its scripts and files.
+
+```txt title="Example resource folder"
+resources/
+└── hello/
+    ├── manifest.yaml
+    ├── server.lua
+    └── client.lua
+```
+
+```yaml title="resources/hello/manifest.yaml"
+name: "Hello"
+author: "YourName"
+version: "1.0.0"
+
+scripts:
+  - { src: "server.lua", type: "server" }
+  - { src: "client.lua", type: "client" }
+```
+
+Server scripts run on the dedicated server, client scripts run on every connected player, and shared scripts run on both. Clients download a server's resources automatically when they connect.
+
+Scripts communicate through [events](/docs/event/on). A client can only trigger a server handler that was registered with `remote = true`, and the handler receives the sender's peer id in the `client` variable.
+
+```lua lineNumbers title="server.lua"
+util.event.on("hello:request", function(message)
+    core.engine.print("info", "Player " .. client .. " says: " .. message)
+end, { remote = true })
+```
+
+```lua lineNumbers title="client.lua"
+util.event.emit("hello:request", { remote = true }, "Hello from Lua!")
+```
+
+Resources do not share a global environment. Each one gets its own copy of the root global tables, so changing a shared table such as `string` or `math` in one resource does not affect the host or any other resource.
+
+Refer to the [Event Cheatsheet](/docs/event/cheatsheet/event), the [Server config](/docs/server/config) and the [Migration guides](/docs/migration) for more.
+
+---
+
 ## Roadmap
 
 We provide an integrated suite of tools spanning the entire application stack — from low-level threading and asset delivery to rendering, networking, and external integrations.
