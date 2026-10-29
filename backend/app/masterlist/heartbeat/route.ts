@@ -33,22 +33,36 @@ const ratelimit = lib_redis.redis_configured
   : null;
 
 const HEARTBEAT_SCRIPT = `
-  if redis.call('EXISTS', KEYS[1]) == 1 then
-    redis.call('EXPIRE', KEYS[1], ARGV[3])
-    redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
-    return 1
-  else
+  if redis.call('EXISTS', KEYS[1]) == 0 then
     return 0
   end
+  local current = redis.call('GET', KEYS[2])
+  if current then
+    local ok, held = pcall(cjson.decode, current)
+    if ok and type(held) == 'table' and (tostring(held.ip) ~= ARGV[4] or tostring(held.port) ~= ARGV[5]) then
+      return 2
+    end
+  end
+  redis.call('EXPIRE', KEYS[1], ARGV[3])
+  redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
+  return 1
 `;
 
 const OFFLINE_SCRIPT = `
-  if redis.call('EXISTS', KEYS[1]) == 1 then
-    redis.call('DEL', KEYS[2])
-    return 1
-  else
+  if redis.call('EXISTS', KEYS[1]) == 0 then
     return 0
   end
+  if ARGV[1] ~= '' then
+    local current = redis.call('GET', KEYS[2])
+    if current then
+      local ok, held = pcall(cjson.decode, current)
+      if ok and type(held) == 'table' and (tostring(held.ip) ~= ARGV[1] or tostring(held.port) ~= ARGV[2]) then
+        return 2
+      end
+    end
+  end
+  redis.call('DEL', KEYS[2])
+  return 1
 `;
 
 function id_of(token: string): string {
@@ -125,19 +139,23 @@ export async function POST(req: Request) {
   const ok = await lib_redis.redis!.eval(
     HEARTBEAT_SCRIPT,
     [lib_redis.token_key(id), lib_redis.server_key(id)],
-    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.applications_approved_ttl_seconds)]
+    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.applications_approved_ttl_seconds), String(ip), String(port)]
   );
+  if (ok === 2) {
+    console.warn(`[masterlist] rejected duplicate token use for ${id}: claimed=${ip}:${port}`);
+    return Response.json({ error: 'masterlist token already in use' }, { status: 409 });
+  }
   if (!ok) return Response.json({ error: 'unknown token — register first' }, { status: 401 });
 
   return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds, ignoredTags: cleaned.ignored });
 }
 
 export async function DELETE(req: Request) {
-  let body: { token?: string };
+  let body: { token?: string; ip?: string; port?: number };
   try { body = await req.json(); }
   catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
-  const { token } = body;
+  const { token, ip, port } = body;
   if (!token) return Response.json({ error: 'missing token' }, { status: 400 });
   if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
 
@@ -147,7 +165,9 @@ export async function DELETE(req: Request) {
     if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
   }
 
-  const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], []);
+  const claimed = typeof ip === 'string' && ip && port ? [ip, String(port)] : ['', ''];
+  const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], claimed);
+  if (ok === 2) return Response.json({ error: 'masterlist token already in use' }, { status: 409 });
   if (!ok) return Response.json({ error: 'unknown token' }, { status: 401 });
 
   return Response.json({ ok: true });
