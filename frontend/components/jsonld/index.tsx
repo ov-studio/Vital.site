@@ -35,10 +35,9 @@ export function JsonLd() {
         description: config_site.info.seo.description,
         applicationCategory: 'DeveloperApplication',
         operatingSystem: config_site.info.seo.platforms.join(', '),
-        programmingLanguage: ['Lua', 'C++'],
         license: 'https://www.gnu.org/licenses/gpl-3.0.html',
         isAccessibleForFree: true,
-        codeRepository: `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}`,
+        sameAs: [`https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}`],
         author: { '@id': publisher['@id'] },
         publisher: { '@id': publisher['@id'] },
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
