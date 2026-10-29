@@ -24,7 +24,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     ? lib_api_url.get_api_url(`/vault/og/${encodeURIComponent(id)}`)
     : lib_api_url.get_page_url('/og/vault');
   const title       = `${resource.name} - ${config_site.info.name}`;
-  const description = resource.tagline || config_site.info.description;
+  const description = resource.tagline || config_site.info.seo.description;
 
   const html = `<!doctype html>
 <html lang="en">

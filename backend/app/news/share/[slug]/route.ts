@@ -26,7 +26,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     ? lib_api_url.get_api_url(`/news/og/${encodeURIComponent(slug)}`)
     : lib_api_url.get_page_url('/og/news');
   const title       = `${post.title} - ${config_site.info.name}`;
-  const description = post.description || config_site.info.description;
+  const description = post.description || config_site.info.seo.description;
 
   const html = `<!doctype html>
 <html lang="en">
