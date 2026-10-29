@@ -20,6 +20,12 @@ export const info = {
   author: "ov-studio",
   description: "An open-source, high-performance sandbox built on Godot-Engine and powered by C++17 & Lua",
 
+  seo: {
+    title:       "Vital.sandbox - Lua Scripting & Multiplayer Sandbox for Godot",
+    description: "Open-source Godot Engine sandbox with Lua 5.4 scripting, multiplayer, physics and dedicated servers. Build Lua mods, games and gamemodes on Godot.",
+    platforms:   ["Windows"]
+  },
+
   git: define_git({
     site:    { user: 'ov-studio', repo: 'Vital.site',    branch: 'main', hide_on_footer: true },
     kit:     { user: 'ov-studio', repo: 'Vital.kit',     branch: 'main'                       },
