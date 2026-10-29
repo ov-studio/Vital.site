@@ -1,5 +1,6 @@
 import * as lib_page_meta              from '@/lib/page_meta';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
+import * as component_atom_nodrag      from '@/components/atoms/nodrag';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
 
@@ -32,6 +33,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex flex-col min-h-screen font-sans">
         <component_atom_tabtrap.TabTrap/>
+        <component_atom_nodrag.NoDrag/>
         <fumadocs_provider_next.RootProvider
           theme={{ enabled: true, forcedTheme: 'dark' }}
           search={{ options: { type: 'static' } }}
