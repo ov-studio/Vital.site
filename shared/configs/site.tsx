@@ -22,7 +22,7 @@ export const info = {
 
   seo: {
     title:       "Vital.sandbox - Lua Scripting & Multiplayer Sandbox for Godot",
-    description: "Open-source Godot Engine sandbox with Lua 5.4 scripting, multiplayer, physics and dedicated servers. Build Lua mods, games and gamemodes on Godot.",
+    description: "Open-source Godot Engine sandbox with Lua scripting, multiplayer, physics and dedicated servers. Build Lua mods, games and gamemodes on Godot.",
     platforms:   ["Windows"]
   },
 
