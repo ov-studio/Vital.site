@@ -60,7 +60,11 @@ util.event.emit("hello:request", { remote = true }, "Hello from Lua!")
 
 Resources do not share a global environment. Each one gets its own copy of the root global tables, so changing a shared table such as `string` or `math` in one resource does not affect the host or any other resource.
 
-Refer to the [Event Cheatsheet](/docs/event/cheatsheet/event), the [Server config](/docs/server/config) and the [Migration guides](/docs/migration) for more.
+#### References:
+- [Server configuration](/docs/server/config)
+- [Resource manifest](/docs/resource/manifest)
+- [Migration guides](/docs/migration)
+- [Event Cheatsheet](/docs/event/cheatsheet/event)
 
 ---
 
