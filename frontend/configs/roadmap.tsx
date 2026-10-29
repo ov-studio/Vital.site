@@ -111,7 +111,11 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Puzzle {...config_site.info.lucide}/>,
         items: [
           { label: 'Platform: Windows support',  status: 'completed' },
-          { label: 'Platform: Linux support',    status: 'pending'   }
+          { label: 'Platform: Linux support',    status: 'pending'   },
+          { label: 'Platform: macOS support',    status: 'pending'   },
+          { label: 'Platform: Android support',  status: 'pending'   },
+          { label: 'Platform: iOS support',      status: 'pending'   },
+          { label: 'Platform: Web support',      status: 'pending'   }
         ]
       },
       {
