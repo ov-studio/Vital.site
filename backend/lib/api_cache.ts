@@ -1,7 +1,8 @@
 import * as config_site from '@/configs/site';
 
-function cache_control(ttl_s: number): string {
-  return `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s * config_site.info.api.cache_swr_multiplier}`;
+/** Cache-Control header value: fresh for `ttl_s`, then stale-while-revalidate for `ttl_s * swr_multiplier`. */
+export function cache_control(ttl_s: number, swr_multiplier = config_site.info.api.cache_swr_multiplier): string {
+  return `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s * swr_multiplier}`;
 }
 
 function stale_cache_control(ttl_s: number): string {
