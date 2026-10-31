@@ -11,23 +11,23 @@ const MAX_PLAYERS = 100_000;
 export interface ServerInfo {
   id:          string;
   name:        string;
+  version:     string | null;
+  description: string | null;
+  logo:        string | null;
+  banner:      string | null;
+  tags:        string[];
+  discord:     string | null;
+  website:     string | null;
   ip:          string;
   port:        number;
   http_port:   number | null;
   players:     number;
   max_players: number;
-  version:     string | null;
-  description: string | null;
-  discord:     string | null;
-  website:     string | null;
-  logo:        string | null;
-  banner:      string | null;
-  tags:        string[];
   last_seen:   number;
 }
 
 /** ServerInfo fields a server may omit (or null) in its heartbeat. */
-type HeartbeatOptional = 'http_port' | 'version' | 'description' | 'discord' | 'website' | 'logo' | 'banner';
+type HeartbeatOptional = 'version' | 'description' | 'logo' | 'banner' | 'discord' | 'website' | 'http_port';
 
 /** POST /masterlist/heartbeat body, derived from ServerInfo (`max_peers` is the wire name of `max_players`). */
 export type HeartbeatBody =
@@ -85,18 +85,18 @@ export function build_server(id: string, body: HeartbeatBody): { server: ServerI
   const server: ServerInfo = {
     id,
     name:        body.name,
+    version:     body.version ?? null,
+    description: body.description ?? null,
+    logo:        clean_image(body.logo),
+    banner:      clean_image(body.banner),
+    tags,
+    discord:     body.discord ?? null,
+    website:     body.website ?? null,
     ip:          body.ip,
     port:        body.port,
     http_port:   body.http_port ?? null,
     players:     clamp_int(body.players, 0, MAX_PLAYERS),
     max_players: clamp_int(body.max_peers, 0, MAX_PLAYERS),
-    version:     body.version ?? null,
-    description: body.description ?? null,
-    discord:     body.discord ?? null,
-    website:     body.website ?? null,
-    logo:        clean_image(body.logo),
-    banner:      clean_image(body.banner),
-    tags,
     last_seen:   Date.now()
   };
   return { server, ignored_tags: ignored };
