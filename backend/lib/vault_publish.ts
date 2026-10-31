@@ -7,6 +7,11 @@ const GH = 'https://api.github.com';
 /** Untyped GitHub API JSON body. */
 type GhJson = Record<string, unknown>;
 
+/** Result of opening a vault submodule PR (success URL or error). */
+export type PublishResult =
+  | { ok: true; pr_url: string; branch: string; path: string; updated: boolean }
+  | { ok: false; error: string };
+
 /** Call the GitHub REST API with a bearer token. Never throws on HTTP errors; returns the parsed JSON plus the raw text. */
 async function gh<T = GhJson>(
   token: string,
@@ -71,11 +76,6 @@ function serialize_gitmodules(entries: { path: string; url: string }[]): string 
   }
   return lines.length ? lines.join('\n') + '\n' : '';
 }
-
-/** Result of opening a vault submodule PR (success URL or error). */
-export type PublishResult =
-  | { ok: true; pr_url: string; branch: string; path: string; updated: boolean }
-  | { ok: false; error: string };
 
 /**
  * Open a submodule add/update PR on Vital.vault using an installation token

@@ -4,10 +4,7 @@ import * as lib_api_url from '@/lib/api_url';
 import * as next_og     from 'next/og';
 import sharp            from 'sharp';
 
-export {
-  OG_SCALE,
-  OG_BASE_W,
-  OG_BASE_H,
+import {
   OG_W,
   OG_H,
   OG_LOGO_H,
@@ -17,7 +14,10 @@ export {
   OG_WHITE,
 } from '@/lib/og_sizes';
 
-import {
+export {
+  OG_SCALE,
+  OG_BASE_W,
+  OG_BASE_H,
   OG_W,
   OG_H,
   OG_LOGO_H,
@@ -32,6 +32,11 @@ const SECTION_SKIP = new Set([
   'docs',
   'og',
 ]);
+
+const font_cache = new Map<string, ArrayBuffer>();
+
+/** Background scaled once to the OG size and reused by every image (the slow part of OG rendering). */
+let background_png: Promise<Buffer> | undefined;
 
 /** App route segments that get a brand OG image (excludes api/docs/og). */
 export function site_og_sections(): string[] {
@@ -70,8 +75,6 @@ export function og_label_path(route_path: string): string {
   if (p === '/') return '';
   return p.toUpperCase();
 }
-
-const font_cache = new Map<string, ArrayBuffer>();
 
 /** Read a font from public/font once and memoise its ArrayBuffer. */
 function load_font_file(name: string): ArrayBuffer {
@@ -130,9 +133,6 @@ export function brand_og_fonts(font: ArrayBuffer, fontBold: ArrayBuffer) {
     { name: 'Rajdhani', data: fontBold, weight: 700 as const, style: 'normal' as const },
   ];
 }
-
-/** Background scaled once to the OG size and reused by every image (the slow part of OG rendering). */
-let background_png: Promise<Buffer> | undefined;
 
 /** Lazily build (and cache) the resized background PNG. */
 function og_background(): Promise<Buffer> {

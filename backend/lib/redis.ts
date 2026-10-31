@@ -22,6 +22,11 @@ export const masterlist_ttl_seconds = Math.floor(config_masterlist.info.ttl_ms/1
 /** TTL (seconds) for approved application records. */
 export const applications_approved_ttl_seconds = Math.floor(config_workspace.info.applications.approved_ttl_ms / 1000);
 
+/** Redis set key of pending application ids. */
+export const applications_pending_key = 'masterlist:applications:pending';
+/** Redis set key of approved application ids. */
+export const applications_approved_key = 'masterlist:applications:approved';
+
 /** Redis key for a masterlist server entry. */
 export function server_key(id: string) {
   return `masterlist:server:${id}`;
@@ -51,12 +56,6 @@ export function application_key(appId: string) {
 export function user_apps_key(login: string) {
   return `masterlist:user:${login.toLowerCase()}:apps`;
 }
-
-/** Redis set key of pending application ids. */
-export const applications_pending_key = 'masterlist:applications:pending';
-/** Redis set key of approved application ids. */
-export const applications_approved_key = 'masterlist:applications:approved';
-
 
 /** Redis key binding a session to a GitHub user access token. */
 export function auth_github_token_key(session_token: string) {

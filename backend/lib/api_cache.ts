@@ -1,15 +1,5 @@
 import * as config_site from '@/configs/site';
 
-/** Cache-Control header value: fresh for `ttl_s`, then stale-while-revalidate for `ttl_s * swr_multiplier`. */
-export function cache_control(ttl_s: number, swr_multiplier = config_site.info.api.cache_swr_multiplier): string {
-  return `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s * swr_multiplier}`;
-}
-
-/** Cache-Control for stale fallbacks: a short shared-cache window and no revalidation period. */
-function stale_cache_control(ttl_s: number): string {
-  return `public, s-maxage=${Math.floor(ttl_s / config_site.info.api.cache_stale_divisor)}`;
-}
-
 /** In-memory cached payload together with the time it was fetched. */
 interface CacheEntry<T> {
   data:       T;
@@ -24,6 +14,16 @@ export interface CachedRouteOptions<T> {
   fallback_status?: number;
   fallback_error?:  string;
   fallback_data?:   T;
+}
+
+/** Cache-Control header value: fresh for `ttl_s`, then stale-while-revalidate for `ttl_s * swr_multiplier`. */
+export function cache_control(ttl_s: number, swr_multiplier = config_site.info.api.cache_swr_multiplier): string {
+  return `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s * swr_multiplier}`;
+}
+
+/** Cache-Control for stale fallbacks: a short shared-cache window and no revalidation period. */
+function stale_cache_control(ttl_s: number): string {
+  return `public, s-maxage=${Math.floor(ttl_s / config_site.info.api.cache_stale_divisor)}`;
 }
 
 /** Build a Next.js GET handler with Redis/memory cache and SWR-style headers. */
