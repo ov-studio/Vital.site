@@ -1,0 +1,45 @@
+---
+title: anticheat:component
+description: Fired when a peer changes a model component transform on an entity it does not own
+badge: server
+---
+
+### Signal
+
+```lua
+"anticheat:component"
+```
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | peer_id | Id of the peer that sent the rejected data |
+| `string` | reason | Why it was rejected, see below |
+| `int` | net_id | Net id of the entity involved |
+| `int` | count | Violations of this reason since the last signal, at least `1` |
+
+### Reasons
+
+| Reason | Description |
+|--------|-------------|
+| `unauthorized` | The peer changed a component transform on an entity it is not the syncer of |
+
+<Callout type="info">
+  **This signal is only fired on the server.**
+
+  - Fired when a connected peer sends something the server rejects. The server only reports it and never kicks anyone, so your script decides what to do.
+  - Bursts are throttled to one signal per peer and reason per second. `count` is how many violations happened since the last signal.
+  - A single report can be harmless, for example right after the entity's syncer changed with `set_syncer`. Act on repeated `count`, not on the first report.
+  - Use [`core.engine.disconnect_peer`](/docs/engine/disconnect_peer) to kick a peer.
+</Callout>
+
+---
+
+### Example
+
+```lua lineNumbers title="Log component violations"
+util.event.on("anticheat:component", function(peer_id, reason, net_id, count)
+    core.engine.print("warn", "Peer " .. peer_id .. " component violation on", net_id, "x" .. count)
+end)
+```
