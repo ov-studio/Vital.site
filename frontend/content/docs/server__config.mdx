@@ -13,7 +13,7 @@ If the config file is absent or malformed, the server falls back to built-in def
   **Where the config lives**
 
   - **Fixed location** — `config.yaml` must sit at the root of your `Vital.server/` directory.
-  - **Single file** — all sections (`server`, `network`, `http`, `sync`, `bootstrap`, `social`, `masterlist`) live in this one file.
+  - **Single file** — all sections (`server`, `social`, `network`, `http`, `sync`, `masterlist`, `bootstrap`) live in this one file.
   - **Restart to apply** — changes are not hot-reloaded; a server restart is required for any edit to take effect.
 </Callout>
 
@@ -43,6 +43,10 @@ server:
   banner: ""
   tags: []
 
+social:
+  discord: ""
+  website: ""
+
 network:
   port: 7777
   max_peers: 32
@@ -59,17 +63,13 @@ sync:
   jitter_margin: 1.5
   snap_threshold: 5.0
 
-bootstrap:
-  #- "runcode"
-
-social:
-  discord: ""
-  website: ""
-
 masterlist:
   enabled: false
   token: ""
   url: "https://api.vital-sandbox.com/masterlist"
+
+bootstrap:
+  #- "runcode"
 ```
 
 <Callout type="warn">
@@ -111,6 +111,23 @@ server:
 | `logo` | `string` | `""` | Optional square logo (`https://` image URL) shown on your server card in the server browser |
 | `banner` | `string` | `""` | Optional wide banner / cover (`https://` image URL) shown behind your server card and in the featured list |
 | `tags` | `string[]` | `[]` | Genres used to filter the server browser (max 5). Valid tags:<br/><MasterlistTags/> |
+
+---
+
+#### Social
+
+Defines community links surfaced in the master-list.
+
+```yaml
+social:
+  discord: ""
+  website: ""
+```
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `discord` | `string` | `""` | Discord server invite URL shown in the master-list |
+| `website` | `string` | `""` | Community or project website URL shown in the master-list |
 
 ---
 
@@ -206,48 +223,6 @@ sync:
 
 ---
 
-#### Bootstrap
-
-Defines resources that are automatically started after the initial resource scan on server boot. Entries are processed in order and respect full dependency resolution.
-
-```yaml
-bootstrap:
-  - "runcode"
-  - "gamemode"
-```
-
-<Callout type="info">
-  **Bootstrap runs once at startup, after the resource scan completes.**
-
-  - **Order is preserved** — resources start top-to-bottom as listed.
-  - **Dependencies are resolved automatically** — a resource's deps start before it, even if not listed here.
-  - **Each entry must be a valid resource name** — must match a folder under `resources/` (`a-z`, `0-9`, `_` only).
-  - **Already-running resources are skipped** — no error is raised if a resource is already running.
-</Callout>
-
-| Value | Type | Description |
-|---|---|---|
-| entry | `string` | Name of a resource folder under `resources/` to start at boot |
-
----
-
-#### Social
-
-Defines community links surfaced in the master-list.
-
-```yaml
-social:
-  discord: ""
-  website: ""
-```
-
-| Key | Type | Default | Description |
-|---|---|---|---|
-| `discord` | `string` | `""` | Discord server invite URL shown in the master-list |
-| `website` | `string` | `""` | Community or project website URL shown in the master-list |
-
----
-
 #### Masterlist
 
 Controls whether this server is listed on the public Vital.sandbox master-list.
@@ -273,3 +248,28 @@ masterlist:
 | `enabled` | `boolean` | `false` | When `true`, the server reports itself to the public master-list |
 | `token` | `string` | `""` | API token obtained from a staff member |
 | `url` | `string` | `"https://api.vital-sandbox.com/masterlist"` | Base URL of the master-list API |
+
+---
+
+#### Bootstrap
+
+Defines resources that are automatically started after the initial resource scan on server boot. Entries are processed in order and respect full dependency resolution.
+
+```yaml
+bootstrap:
+  - "runcode"
+  - "gamemode"
+```
+
+<Callout type="info">
+  **Bootstrap runs once at startup, after the resource scan completes.**
+
+  - **Order is preserved** — resources start top-to-bottom as listed.
+  - **Dependencies are resolved automatically** — a resource's deps start before it, even if not listed here.
+  - **Each entry must be a valid resource name** — must match a folder under `resources/` (`a-z`, `0-9`, `_` only).
+  - **Already-running resources are skipped** — no error is raised if a resource is already running.
+</Callout>
+
+| Value | Type | Description |
+|---|---|---|
+| entry | `string` | Name of a resource folder under `resources/` to start at boot |
