@@ -13,6 +13,14 @@ local status = core.model.load(
 )
 ```
 
+<Callout type="info">
+  **Models are always registered under the current resource.**
+
+  - **Name scope** — `name` is registered as a model of the current resource, other resources can instantiate it with `core.model.create(":resourcename/name")`.
+  - **No resource prefix** — `:resourcename` is not supported here, `name` is used as given.
+  - **Cleanup** — models are unloaded automatically when the resource that loaded them stops.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
