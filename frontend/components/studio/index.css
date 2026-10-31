@@ -294,5 +294,5 @@
 }
 
 .studio-app.is-server {
-  filter: grayscale(1) sepia(0.3) hue-rotate(8deg) brightness(1.05);
+  filter: hue-rotate(-210deg);
 }
