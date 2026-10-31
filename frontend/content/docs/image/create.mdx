@@ -20,6 +20,14 @@ local instance = core.image.create(
   - **Before compressing** — if both mipmaps and compression are needed, pass `true` here; [`self:compress`](/docs/image/method/compress) cannot generate mipmaps, so this is the only opportunity.
 </Callout>
 
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to load an image from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/assets/photo.jpg` loads `assets/photo.jpg` from inside `resource_a`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

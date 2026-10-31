@@ -19,6 +19,14 @@ local status = gfx.glow.set_map(
   - **Map strength** — use [`gfx.glow.set_map_strength`](/docs/glow/set_map_strength) to control how strongly the map multiplies glow color.
 </Callout>
 
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to load a glow map from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/textures/lens_dirt.png` loads `textures/lens_dirt.png` from inside `resource_a`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

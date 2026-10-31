@@ -13,6 +13,14 @@ local instance = core.audio_3d.create(
 )
 ```
 
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to load an audio file from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/sounds/ambient.ogg` loads `sounds/ambient.ogg` from inside `resource_a`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

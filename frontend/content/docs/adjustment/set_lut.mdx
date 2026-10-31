@@ -21,6 +21,14 @@ local status = gfx.adjustment.set_lut(
   - **File format** — provide the path as a `.png` image using the appropriate layout.
 </Callout>
 
+<Callout type="idea">
+  **Prefix the path with `:resourcename` to load a LUT from another running resource.**
+
+  - **Local path** — resolves relative to the current resource's directory.
+  - **Cross-resource path** — prefix with `:resourcename` to resolve relative to another running resource's directory.
+  - **Example** — `:resource_a/lut/cinematic.png` loads `lut/cinematic.png` from inside `resource_a`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
