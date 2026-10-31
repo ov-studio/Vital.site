@@ -12,6 +12,13 @@ local status = core.model.unload(
 )
 ```
 
+<Callout type="info">
+  **Only models loaded by the current resource can be unloaded.**
+
+  - **Name scope** — `name` always resolves to a model of the current resource.
+  - **No resource prefix** — `:resourcename` is not supported here, `name` is used as given.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

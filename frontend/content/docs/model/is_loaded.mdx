@@ -12,6 +12,14 @@ local result = core.model.is_loaded(
 )
 ```
 
+<Callout type="idea">
+  **Prefix the name with `:resourcename` to check a model loaded by another running resource.**
+
+  - **Local name** — checks models loaded by the current resource.
+  - **Cross-resource name** — prefix with `:resourcename` to check models loaded by another running resource.
+  - **Example** — `:resource_a/character` checks the model `character` loaded by `resource_a`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -30,4 +38,8 @@ local result = core.model.is_loaded(
 
 ```lua lineNumbers title="Check if a model is loaded"
 core.engine.print("info", "Model loaded:", core.model.is_loaded("character"))
+```
+
+```lua lineNumbers title="Check if another resource's model is loaded"
+core.engine.print("info", "Model loaded:", core.model.is_loaded(":resource_a/character"))
 ```

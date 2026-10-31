@@ -12,6 +12,14 @@ local entity = core.model.create(
 )
 ```
 
+<Callout type="idea">
+  **Prefix the name with `:resourcename` to use a model loaded by another running resource.**
+
+  - **Local name** — resolves to a model loaded by the current resource.
+  - **Cross-resource name** — prefix with `:resourcename` to resolve to a model loaded by another running resource.
+  - **Example** — `:resource_a/character` instantiates the model `character` loaded by `resource_a`.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
@@ -32,4 +40,8 @@ local entity = core.model.create(
 core.model.load("character", "models/character.glb")
 
 local entity = core.model.create("character")
+```
+
+```lua lineNumbers title="Create an instance from another resource's model"
+local entity = core.model.create(":resource_a/character")
 ```
