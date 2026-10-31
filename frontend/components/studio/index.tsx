@@ -14,7 +14,7 @@ import * as react        from 'react';
 import * as lucide       from 'lucide-react';
 import './index.css';
 
-type Section = 'og' | 'logo' | 'banner';
+type Section = 'og' | 'logo' | 'app' | 'banner';
 
 const OG_W = lib_og_sizes.OG_BASE_W;
 const OG_H = lib_og_sizes.OG_BASE_H;
@@ -23,6 +23,7 @@ const LOGO_H_TIGHT = 300;
 const LOGO_H_PAD = 400;
 const LOGO_SQ_TIGHT = 380;
 const LOGO_SQ_PAD = 460;
+const APP_SIZE = 256;
 const BANNER_W = 2560;
 const BANNER_H = 640;
 
@@ -88,12 +89,16 @@ export function Studio() {
   const [bannerNeon, setBannerNeon] = react.useState(true);
   const [bannerWallpaper, setBannerWallpaper] = react.useState(true);
   const [bannerVignette, setBannerVignette] = react.useState(true);
+  const [appServer, setAppServer] = react.useState(false);
   const [presetBusy, setPresetBusy] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
   const logoRef = react.useRef<HTMLDivElement>(null);
   const bannerRef = react.useRef<HTMLDivElement>(null);
   const bannerPreviewRef = react.useRef<HTMLDivElement>(null);
+  const appRef = react.useRef<HTMLDivElement>(null);
+  const appWrapRef = react.useRef<HTMLDivElement>(null);
+  const appFrameRef = react.useRef<HTMLDivElement>(null);
 
   const logoSize = logoSquare ? (logoPad ? LOGO_SQ_PAD : LOGO_SQ_TIGHT) : null;
   const logoW = logoSize ?? LOGO_W;
@@ -133,6 +138,15 @@ export function Studio() {
         canvas: logoRef.current,
         nativeW: logoW,
         nativeH: logoH,
+        fillWidth: false,
+      },
+      {
+        active: section === 'app',
+        wrap: appWrapRef.current,
+        frame: appFrameRef.current,
+        canvas: appRef.current,
+        nativeW: APP_SIZE,
+        nativeH: APP_SIZE,
         fillWidth: false,
       },
       {
@@ -380,6 +394,52 @@ export function Studio() {
     }
   }
 
+  async function downloadApp() {
+    await download(appRef, appServer ? 'server.png' : 'client.png', APP_SIZE, APP_SIZE);
+  }
+
+  async function downloadAppPresets() {
+    if (presetBusy) return;
+    setPresetBusy(true);
+
+    const JSZip = await loadJSZip();
+    if (!JSZip) {
+      setPresetBusy(false);
+      return;
+    }
+
+    const prev = appServer;
+    const zip = new JSZip();
+    const folder = zip.folder('public/logo');
+    if (!folder) {
+      setPresetBusy(false);
+      return;
+    }
+
+    try {
+      setAppServer(false);
+      await nextPaint();
+      const clientUrl = await capturePng(appRef, APP_SIZE, APP_SIZE);
+      if (clientUrl) folder.file('client.png', dataUrlToBlob(clientUrl));
+
+      setAppServer(true);
+      await nextPaint();
+      const serverUrl = await capturePng(appRef, APP_SIZE, APP_SIZE);
+      if (serverUrl) folder.file('server.png', dataUrlToBlob(serverUrl));
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      lib_download.trigger_download(blob, 'app-logo-presets.zip');
+    }
+    catch (err) {
+      console.error(err);
+      alert('Preset export failed – check console');
+    }
+    finally {
+      setAppServer(prev);
+      setPresetBusy(false);
+    }
+  }
+
   return (
     <ui_page.Page id="studio">
         <ui_pagehead.PageHead
@@ -405,6 +465,11 @@ export function Studio() {
                   id: 'logo',
                   label: 'Branding',
                   icon: <lucide.Shapes size={14} strokeWidth={2.25}/>,
+                },
+                {
+                  id: 'app',
+                  label: 'App Icon',
+                  icon: <lucide.AppWindow size={14} strokeWidth={2.25}/>,
                 },
                 {
                   id: 'banner',
@@ -547,6 +612,52 @@ export function Studio() {
                   rays={logoNeon && logoRays}
                 />
               </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {section === 'app' && (
+          <div className="studio-panel">
+            <div className="studio-controls">
+              <div className="studio-controls-row">
+                <ui_checkbox.Checkbox label="Server" checked={appServer} onChange={setAppServer}/>
+              </div>
+              <div className="studio-controls-row studio-controls-row--actions">
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
+                  onClick={downloadApp}
+                >
+                  Download Asset
+                </ui_button.Button>
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
+                  disabled={presetBusy}
+                  onClick={downloadAppPresets}
+                >
+                  {presetBusy ? 'Exporting…' : 'Download Preset'}
+                </ui_button.Button>
+              </div>
+            </div>
+
+            <div ref={appWrapRef} className="studio-preview-wrap">
+              <div ref={appFrameRef} className="studio-preview-frame">
+                <div
+                  ref={appRef}
+                  className={[
+                    'studio-canvas',
+                    'studio-logo',
+                    'studio-app',
+                    appServer ? 'is-server' : '',
+                    'has-bg',
+                    'is-center',
+                  ].filter(Boolean).join(' ')}
+                  style={{ width: APP_SIZE, height: APP_SIZE }}
+                >
+                  <ui_brand.Brand size="xxl" variant="logo-only" neon={true} rays={false}/>
+                </div>
               </div>
             </div>
           </div>
