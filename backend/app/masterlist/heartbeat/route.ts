@@ -1,28 +1,10 @@
-import * as config_masterlist from '@/configs/masterlist';
+import * as lib_masterlist    from '@/lib/masterlist';
 import * as lib_redis         from '@/lib/redis';
-import * as crypto            from 'crypto';
 import * as upstash_ratelimit from '@upstash/ratelimit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
-
-interface HeartbeatBody {
-  token:        string;
-  name:         string;
-  ip:           string;
-  port:         number;
-  http_port?:   number;
-  players:      number;
-  max_peers?:   number;
-  version?:     string;
-  description?: string;
-  discord?:     string;
-  website?:     string;
-  logo?:        string;
-  banner?:      string;
-  tags?:        unknown;
-}
 
 const ratelimit = lib_redis.redis_configured
   ? new upstash_ratelimit.Ratelimit({
@@ -32,81 +14,54 @@ const ratelimit = lib_redis.redis_configured
     })
   : null;
 
-const HEARTBEAT_SCRIPT = `
+// Lua: true when the stored entry at `key` belongs to a different ip:port than the caller claims.
+const HELD_ELSEWHERE_LUA = `
+  local function held_elsewhere(key, ip, port)
+    local current = redis.call('GET', key)
+    if not current then return false end
+    local ok, held = pcall(cjson.decode, current)
+    return ok and type(held) == 'table' and (tostring(held.ip) ~= ip or tostring(held.port) ~= port)
+  end
+`;
+
+const HEARTBEAT_SCRIPT = `${HELD_ELSEWHERE_LUA}
   if redis.call('EXISTS', KEYS[1]) == 0 then
     return 0
   end
-  local current = redis.call('GET', KEYS[2])
-  if current then
-    local ok, held = pcall(cjson.decode, current)
-    if ok and type(held) == 'table' and (tostring(held.ip) ~= ARGV[4] or tostring(held.port) ~= ARGV[5]) then
-      return 2
-    end
+  if held_elsewhere(KEYS[2], ARGV[4], ARGV[5]) then
+    return 2
   end
   redis.call('EXPIRE', KEYS[1], ARGV[3])
   redis.call('SET', KEYS[2], ARGV[1], 'EX', ARGV[2])
   return 1
 `;
 
-const OFFLINE_SCRIPT = `
+const OFFLINE_SCRIPT = `${HELD_ELSEWHERE_LUA}
   if redis.call('EXISTS', KEYS[1]) == 0 then
     return 0
   end
-  if ARGV[1] ~= '' then
-    local current = redis.call('GET', KEYS[2])
-    if current then
-      local ok, held = pcall(cjson.decode, current)
-      if ok and type(held) == 'table' and (tostring(held.ip) ~= ARGV[1] or tostring(held.port) ~= ARGV[2]) then
-        return 2
-      end
-    end
+  if ARGV[1] ~= '' and held_elsewhere(KEYS[2], ARGV[1], ARGV[2]) then
+    return 2
   end
   redis.call('DEL', KEYS[2])
   return 1
 `;
 
-function id_of(token: string): string {
-  return crypto.createHash('sha256').update(token).digest('hex');
-}
-
-function clamp_int(n: unknown, min: number, max: number): number {
-  const v = typeof n === 'number' ? Math.trunc(n) : 0;
-  return Math.min(max, Math.max(min, v));
-}
-
-function clean_image(raw: unknown): string | null {
-  const url = typeof raw === 'string' ? raw.trim() : '';
-  return /^https:\/\//i.test(url) ? url : null;
-}
-
-function clean_tags(raw: unknown): { tags: string[]; ignored: string[] } {
-  const tags: string[] = [];
-  const ignored: string[] = [];
-  if (!Array.isArray(raw)) return { tags, ignored };
-  const { tags: allowed, max_tags } = config_masterlist.info;
-  for (const item of raw) {
-    const tag = String(item);
-    if (allowed.includes(tag) && !tags.includes(tag) && tags.length < max_tags) tags.push(tag);
-    else if (!tags.includes(tag)) ignored.push(tag.slice(0, 32));
-  }
-  return { tags, ignored: ignored.slice(0, max_tags * 2) };
+async function is_rate_limited(id: string): Promise<boolean> {
+  return ratelimit ? !(await ratelimit.limit(id)).success : false;
 }
 
 export async function POST(req: Request) {
-  let body: HeartbeatBody;
+  let body: lib_masterlist.HeartbeatBody;
   try { body = await req.json(); }
   catch { return Response.json({ error: 'invalid json' }, { status: 400 }); }
 
-  const { token, name, ip, port, http_port, players, max_peers, version, description, discord, website, logo, banner, tags } = body;
-  if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
+  const { token, name, ip, port } = body;
+  if (!lib_redis.redis_configured) return lib_masterlist.unavailable();
   if (!token || !name || !ip || !port) return Response.json({ error: 'missing required fields (token, name, ip, port)' }, { status: 400 });
 
-  const id = id_of(token);
-  if (ratelimit) {
-    const { success } = await ratelimit.limit(id);
-    if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
-  }
-  const cleaned = clean_tags(tags);
+  const id = lib_masterlist.hash_token(token);
+  if (await is_rate_limited(id)) return Response.json({ error: 'rate limited' }, { status: 429 });
 
   const request_ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const strict_ip = process.env.MASTERLIST_STRICT_IP !== 'false';
@@ -118,28 +73,11 @@ export async function POST(req: Request) {
     console.warn(`[masterlist] ip mismatch for ${id}: claimed=${ip} actual=${request_ip}`);
   }
 
-  const payload = {
-    id,
-    name,
-    ip,
-    port,
-    http_port:   http_port ?? null,
-    players:     clamp_int(players, 0, 100_000),
-    max_players: clamp_int(max_peers, 0, 100_000),
-    version:     version ?? null,
-    description: description ?? null,
-    discord:     discord ?? null,
-    website:     website ?? null,
-    logo:        clean_image(logo),
-    banner:      clean_image(banner),
-    tags:        cleaned.tags,
-    last_seen:   Date.now()
-  };
-
+  const { server, ignored_tags } = lib_masterlist.build_server(id, body);
   const ok = await lib_redis.redis!.eval(
     HEARTBEAT_SCRIPT,
     [lib_redis.token_key(id), lib_redis.server_key(id)],
-    [JSON.stringify(payload), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.applications_approved_ttl_seconds), String(ip), String(port)]
+    [JSON.stringify(server), String(lib_redis.masterlist_ttl_seconds), String(lib_redis.applications_approved_ttl_seconds), String(ip), String(port)]
   );
   if (ok === 2) {
     console.warn(`[masterlist] rejected duplicate token use for ${id}: claimed=${ip}:${port}`);
@@ -147,7 +85,7 @@ export async function POST(req: Request) {
   }
   if (!ok) return Response.json({ error: 'unknown token — register first' }, { status: 401 });
 
-  return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds, ignoredTags: cleaned.ignored });
+  return Response.json({ ok: true, ttlSeconds: lib_redis.masterlist_ttl_seconds, ignoredTags: ignored_tags });
 }
 
 export async function DELETE(req: Request) {
@@ -157,13 +95,10 @@ export async function DELETE(req: Request) {
 
   const { token, ip, port } = body;
   if (!token) return Response.json({ error: 'missing token' }, { status: 400 });
-  if (!lib_redis.redis_configured) return Response.json({ error: 'Masterlist is temporarily unavailable' }, { status: 503 });
+  if (!lib_redis.redis_configured) return lib_masterlist.unavailable();
 
-  const id = id_of(token);
-  if (ratelimit) {
-    const { success } = await ratelimit.limit(id);
-    if (!success) return Response.json({ error: 'rate limited' }, { status: 429 });
-  }
+  const id = lib_masterlist.hash_token(token);
+  if (await is_rate_limited(id)) return Response.json({ error: 'rate limited' }, { status: 429 });
 
   const claimed = typeof ip === 'string' && ip && port ? [ip, String(port)] : ['', ''];
   const ok = await lib_redis.redis!.eval(OFFLINE_SCRIPT, [lib_redis.token_key(id), lib_redis.server_key(id)], claimed);

@@ -1,5 +1,6 @@
 import * as config_workspace from '@/configs/workspace';
 import * as crypto           from 'crypto';
+import * as lib_masterlist   from '@/lib/masterlist';
 import * as lib_redis        from '@/lib/redis';
 
 /** Lifecycle status of a masterlist application. */
@@ -171,7 +172,7 @@ export async function create_pending(login: string, name: string): Promise<Appli
   const app: Application = {
     appId:     new_app_id(),
     login:     login.toLowerCase(),
-    name:      name.trim().slice(0, 64),
+    name:      name.trim().slice(0, lib_masterlist.MAX_NAME_LENGTH),
     status:    'pending',
     createdAt: Date.now()
   };
@@ -207,9 +208,7 @@ export async function approve_application(
   if (!existing) return { error: 'Application not found' };
   if (existing.status !== 'pending') return { error: 'Application is not pending' };
 
-  const token = crypto.randomBytes(32).toString('hex');
-  const id    = crypto.createHash('sha256').update(token).digest('hex');
-  await lib_redis.redis!.set(lib_redis.token_key(id), Date.now(), { ex: lib_redis.applications_approved_ttl_seconds });
+  const { token, id } = await lib_masterlist.issue_token();
 
   const app: Application = {
     ...existing,
