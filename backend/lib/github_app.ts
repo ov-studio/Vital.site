@@ -1,10 +1,12 @@
 import * as crypto from 'crypto';
 
+/** Base64url-encode (no padding) a string or buffer, as required for JWT segments. */
 function b64url(input: Buffer | string): string {
   const buf = typeof input === 'string' ? Buffer.from(input, 'utf8') : input;
   return buf.toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
 }
 
+/** GitHub App private key from the environment (escaped newlines restored); null when unset. */
 function read_private_key(): string | null {
   const raw = process.env.GITHUB_APP_PRIVATE_KEY;
   if (!raw?.trim()) return null;

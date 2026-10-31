@@ -11,6 +11,7 @@ export interface NewsPost {
   html:        string;
 }
 
+/** Shape of news.json: build metadata plus every post. */
 export interface NewsIndex {
   generated_at: string;
   commit:       string;
@@ -18,6 +19,7 @@ export interface NewsIndex {
   posts:        NewsPost[];
 }
 
+/** Fetch lifecycle of the news page. */
 export type NewsLoadState = 'loading' | 'error' | 'done';
 
 /** Short date label (fixed locale/timezone so server and client always match). */

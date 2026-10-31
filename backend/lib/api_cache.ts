@@ -5,10 +5,12 @@ export function cache_control(ttl_s: number, swr_multiplier = config_site.info.a
   return `public, s-maxage=${ttl_s}, stale-while-revalidate=${ttl_s * swr_multiplier}`;
 }
 
+/** Cache-Control for stale fallbacks: a short shared-cache window and no revalidation period. */
 function stale_cache_control(ttl_s: number): string {
   return `public, s-maxage=${Math.floor(ttl_s / config_site.info.api.cache_stale_divisor)}`;
 }
 
+/** In-memory cached payload together with the time it was fetched. */
 interface CacheEntry<T> {
   data:       T;
   fetched_at: number;

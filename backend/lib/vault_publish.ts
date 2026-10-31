@@ -4,8 +4,10 @@ import * as lib_api_url from '@/lib/api_url';
 const UA = 'Vital.site/1.0';
 const GH = 'https://api.github.com';
 
+/** Untyped GitHub API JSON body. */
 type GhJson = Record<string, unknown>;
 
+/** Call the GitHub REST API with a bearer token. Never throws on HTTP errors; returns the parsed JSON plus the raw text. */
 async function gh<T = GhJson>(
   token: string,
   path: string,
@@ -27,6 +29,7 @@ async function gh<T = GhJson>(
   return { ok: res.ok, status: res.status, data, text };
 }
 
+/** Lowercase underscore slug (max 64 chars); falls back to "resource". */
 function slugify(name: string): string {
   return name
     .trim()
@@ -36,6 +39,7 @@ function slugify(name: string): string {
     .slice(0, 64) || 'resource';
 }
 
+/** Parse .gitmodules text into a path -> { path, url } map. */
 function parse_gitmodules(raw: string): Map<string, { path: string; url: string }> {
   const map = new Map<string, { path: string; url: string }>();
   let current: { path?: string; url?: string } = {};
@@ -56,6 +60,7 @@ function parse_gitmodules(raw: string): Map<string, { path: string; url: string 
   return map;
 }
 
+/** Render submodule entries back to .gitmodules text, sorted by path. */
 function serialize_gitmodules(entries: { path: string; url: string }[]): string {
   const sorted = [...entries].sort((a, b) => a.path.localeCompare(b.path));
   const lines: string[] = [];

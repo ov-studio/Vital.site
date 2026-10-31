@@ -2,6 +2,7 @@ import * as config_site from '@/configs/site';
 
 const RAW_URL = `https://raw.githubusercontent.com/${config_site.info.git.vault.user}/${config_site.info.git.vault.repo}/main/vault.json`;
 
+/** Subset of a vault.json resource needed by the share / OG routes. */
 export interface VaultListing {
   id:           string;
   name:         string;

@@ -4,6 +4,7 @@ import *      as lib_api_url  from '@/lib/api_url';
 import *      as lib_og_sizes from '@/lib/og_sizes';
 import type * as next         from 'next';
 
+/** Key of a page entry in configs/pages. */
 type PageKey = keyof typeof config_pages.pages;
 
 /** Shared Open Graph + Twitter + canonical block. */

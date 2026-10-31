@@ -2,6 +2,7 @@ import * as config_site from '@/configs/site';
 
 const RAW_URL = `https://raw.githubusercontent.com/${config_site.info.git.news.user}/${config_site.info.git.news.repo}/${config_site.info.git.news.branch}/news.json`;
 
+/** Subset of a news.json post needed by the share / OG routes. */
 export interface NewsListing {
   slug:         string;
   title:        string;

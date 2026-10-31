@@ -1,6 +1,7 @@
 const LOCAL_FRONTEND_URL = 'http://localhost:3000';
 const LOCAL_BACKEND_URL  = 'http://localhost:3001';
 
+/** Deployment host from the Vercel environment variables, if any. */
 function vercel_host(): string | undefined {
   return (
     process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ??
@@ -10,12 +11,14 @@ function vercel_host(): string | undefined {
   );
 }
 
+/** Public base domain (host without the "api." prefix); undefined on localhost or when unset. */
 function base_domain(): string | undefined {
   const host = vercel_host();
   if (!host || host === 'localhost' || host === '127.0.0.1') return undefined;
   return host.replace(/^api\./, '');
 }
 
+/** Hostname of a URL, or `fallback` when it does not parse. */
 function host_of(url: string, fallback = 'localhost'): string {
   try {
     return new URL(url).hostname;
@@ -25,6 +28,7 @@ function host_of(url: string, fallback = 'localhost'): string {
   }
 }
 
+/** Join a base URL and a path with exactly one slash between them. */
 function with_path(base: string, path: string): string {
   const b = base.replace(/\/$/, '');
   const p = path.startsWith('/') ? path : `/${path}`;

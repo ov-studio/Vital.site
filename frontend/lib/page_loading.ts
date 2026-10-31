@@ -6,6 +6,7 @@ let _loading = false;
 let _shown_at = 0;
 let _hide_timer: ReturnType<typeof setTimeout> | null = null;
 
+/** Broadcast the current loading flag to listeners through a window event. */
 function emit() {
   if (typeof window === 'undefined') return;
   window.dispatchEvent(

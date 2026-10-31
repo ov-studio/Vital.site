@@ -7,6 +7,7 @@ const CACHE_TTL_MS = 10_000;
 let cached_logins: Set<string> = new Set();
 let cached_at = 0;
 
+/** Read and normalise the staff login list from staff.json; keeps the last good list on any error. */
 function read_staff_list(): Set<string> {
   let raw: string;
   try {
@@ -32,6 +33,7 @@ function read_staff_list(): Set<string> {
   }
 }
 
+/** Staff login set, re-read from disk at most once per CACHE_TTL_MS. */
 function staff_logins(): Set<string> {
   const now = Date.now();
   if (now - cached_at > CACHE_TTL_MS) {

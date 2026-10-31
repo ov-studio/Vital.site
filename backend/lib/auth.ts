@@ -19,6 +19,7 @@ function oauth_client_id(): string | undefined {
   return process.env.GITHUB_APP_CLIENT_ID || process.env.GITHUB_CLIENT_ID;
 }
 
+/** Prefer the GitHub App client secret; fall back to the legacy GITHUB_CLIENT_SECRET. */
 function oauth_client_secret(): string | undefined {
   return process.env.GITHUB_APP_CLIENT_SECRET || process.env.GITHUB_CLIENT_SECRET;
 }

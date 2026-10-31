@@ -16,8 +16,10 @@ export function use_auth_session(): lib_auth_session.AuthSession | null {
   const [session, set_session] = react.useState<lib_auth_session.AuthSession | null>(null);
   react.useEffect(() => {
     lib_auth_session.capture_oauth_hash();
+    /** Re-read the stored session into state. */
     const sync = () => set_session(lib_auth_session.read_auth_session());
     sync();
+    /** Cross-tab storage handler: re-sync when an auth key changes or storage is cleared. */
     const on_storage = (e: StorageEvent) => {
       if (
         e.key === lib_auth_session.AUTH_TOKEN_KEY ||

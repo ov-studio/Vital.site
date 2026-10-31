@@ -73,6 +73,7 @@ export function og_label_path(route_path: string): string {
 
 const font_cache = new Map<string, ArrayBuffer>();
 
+/** Read a font from public/font once and memoise its ArrayBuffer. */
 function load_font_file(name: string): ArrayBuffer {
   const cached = font_cache.get(name);
   if (cached) return cached;
@@ -133,6 +134,7 @@ export function brand_og_fonts(font: ArrayBuffer, fontBold: ArrayBuffer) {
 /** Background scaled once to the OG size and reused by every image (the slow part of OG rendering). */
 let background_png: Promise<Buffer> | undefined;
 
+/** Lazily build (and cache) the resized background PNG. */
 function og_background(): Promise<Buffer> {
   background_png ??= sharp(path.join(process.cwd(), 'public/og/placeholder.png'))
     .resize(OG_W, OG_H, { fit: 'cover' })

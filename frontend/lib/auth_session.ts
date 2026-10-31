@@ -3,6 +3,7 @@ export const AUTH_LOGIN_KEY = 'vital_auth_login';
 export const AUTH_STAFF_KEY = 'vital_auth_staff';
 export const AUTH_SESSION_EVENT = 'vital-auth-session';
 
+/** Signed-in user kept client-side: token, GitHub login, staff flag and avatar URL. */
 export type AuthSession = {
   token:  string;
   login:  string;
@@ -10,16 +11,19 @@ export type AuthSession = {
   avatar: string;
 };
 
+/** GitHub avatar URL (64px) for a login. */
 function avatar_for(login: string): string {
   return `https://avatars.githubusercontent.com/${encodeURIComponent(login)}?s=64`;
 }
 
+/** localStorage, or null on the server or when storage is blocked. */
 function store(): Storage | null {
   if (typeof window === 'undefined') return null;
   try { return window.localStorage; }
   catch { return null; }
 }
 
+/** Read a key from localStorage, migrating any legacy sessionStorage value over. */
 function get_item(key: string): string | null {
   const ls = store();
   if (!ls) return null;
@@ -37,6 +41,7 @@ function get_item(key: string): string | null {
   return null;
 }
 
+/** Write a key to localStorage and drop any legacy sessionStorage copy. */
 function set_item(key: string, value: string): void {
   const ls = store();
   if (!ls) return;
@@ -44,6 +49,7 @@ function set_item(key: string, value: string): void {
   try { sessionStorage.removeItem(key); } catch { }
 }
 
+/** Remove a key from both localStorage and sessionStorage. */
 function remove_item(key: string): void {
   const ls = store();
   if (ls) ls.removeItem(key);

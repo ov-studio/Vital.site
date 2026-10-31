@@ -21,6 +21,7 @@ export type Application = {
   tokenClaimed?: boolean;
 };
 
+/** Parse a stored application (JSON string or object); null when malformed. */
 function parse_application(raw: unknown): Application | null {
   try {
     const data = (typeof raw === 'string' ? JSON.parse(raw) : raw) as Application;
@@ -32,6 +33,7 @@ function parse_application(raw: unknown): Application | null {
   catch { return null; }
 }
 
+/** Random 32-character hex id for a new application. */
 function new_app_id(): string {
   return crypto.randomBytes(16).toString('hex');
 }

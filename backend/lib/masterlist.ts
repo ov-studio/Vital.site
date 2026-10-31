@@ -53,16 +53,19 @@ export async function issue_token(): Promise<{ token: string; id: string }> {
   return { token, id };
 }
 
+/** Truncate to an integer and clamp into [min, max]; non-numbers count as 0. */
 function clamp_int(n: unknown, min: number, max: number): number {
   const v = typeof n === 'number' ? Math.trunc(n) : 0;
   return Math.min(max, Math.max(min, v));
 }
 
+/** Trimmed https:// URL, or null for anything else. */
 function clean_image(raw: unknown): string | null {
   const url = typeof raw === 'string' ? raw.trim() : '';
   return /^https:\/\//i.test(url) ? url : null;
 }
 
+/** Split raw tags into allowed ones (deduped, capped at max_tags) and ignored ones (reported back to the server). */
 function clean_tags(raw: unknown): { tags: string[]; ignored: string[] } {
   const tags: string[] = [];
   const ignored: string[] = [];
