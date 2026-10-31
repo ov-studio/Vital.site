@@ -1,4 +1,5 @@
-import * as crypto from 'crypto';
+import * as config_site from '@/configs/site';
+import * as crypto      from 'crypto';
 
 /** Base64url-encode (no padding) a string or buffer, as required for JWT segments. */
 function b64url(input: Buffer | string): string {
@@ -51,9 +52,8 @@ export async function installation_token(): Promise<string> {
     {
       method: 'POST',
       headers: {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${jwt}`,
-        'User-Agent': 'Vital.site/1.0'
+        ...config_site.info.api.github_headers,
+        Authorization: `Bearer ${jwt}`
       }
     }
   );

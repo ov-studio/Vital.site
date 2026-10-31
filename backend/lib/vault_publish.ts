@@ -1,7 +1,6 @@
 import * as config_site from '@/configs/site';
 import * as lib_api_url from '@/lib/api_url';
 
-const UA = 'Vital.site/1.0';
 const GH = 'https://api.github.com';
 
 /** Untyped GitHub API JSON body. */
@@ -21,9 +20,8 @@ async function gh<T = GhJson>(
   const res = await fetch(`${GH}${path}`, {
     ...init,
     headers: {
-      Accept: 'application/vnd.github+json',
+      ...config_site.info.api.github_headers,
       Authorization: `Bearer ${token}`,
-      'User-Agent': UA,
       ...(init.body ? { 'Content-Type': 'application/json' } : {}),
       ...(init.headers || {})
     }

@@ -1,7 +1,8 @@
-import * as lib_auth              from '@/lib/auth';
-import * as lib_ratelimit         from '@/lib/ratelimit';
-import * as lib_vault_publish     from '@/lib/vault_publish';
-import * as lib_github_app       from '@/lib/github_app';
+import * as config_site       from '@/configs/site';
+import * as lib_auth          from '@/lib/auth';
+import * as lib_ratelimit     from '@/lib/ratelimit';
+import * as lib_vault_publish from '@/lib/vault_publish';
+import * as lib_github_app    from '@/lib/github_app';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -14,9 +15,8 @@ export async function OPTIONS() {
 async function fetch_manifest(token: string, full_name: string): Promise<string | null> {
   const res = await fetch(`https://api.github.com/repos/${full_name}/contents/manifest.yaml`, {
     headers: {
-      Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${token}`,
-      'User-Agent': 'Vital.site/1.0'
+      ...config_site.info.api.github_headers,
+      Authorization: `Bearer ${token}`
     }
   });
   if (!res.ok) return null;
@@ -58,9 +58,8 @@ export async function POST(req: Request) {
 
   const repo_res = await fetch(`https://api.github.com/repos/${repo_full}`, {
     headers: {
-      Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${gh}`,
-      'User-Agent': 'Vital.site/1.0'
+      ...config_site.info.api.github_headers,
+      Authorization: `Bearer ${gh}`
     }
   });
   if (!repo_res.ok) return Response.json({ error: 'Repository not found or not accessible' }, { status: 400 });

@@ -27,9 +27,8 @@ async function gh(token: string, path: string, init: RequestInit = {}) {
   const res = await fetch(`https://api.github.com${path}`, {
     ...init,
     headers: {
-      Accept: 'application/vnd.github+json',
+      ...config_site.info.api.github_headers,
       Authorization: `Bearer ${token}`,
-      'User-Agent': 'Vital.site/1.0',
       ...(init.body ? { 'Content-Type': 'application/json' } : {}),
       ...(init.headers || {})
     }
@@ -109,7 +108,7 @@ export async function GET(req: Request) {
     gh(token, `/repos/${repo}/pulls?state=open&per_page=50`),
     fetch(
       `https://raw.githubusercontent.com/${vault.user}/${vault.repo}/${vault.branch || 'main'}/vault.json`,
-      { headers: { 'User-Agent': 'Vital.site/1.0', Accept: 'application/json' }, cache: 'no-store' }
+      { headers: { 'User-Agent': config_site.info.api.user_agent, Accept: 'application/json' }, cache: 'no-store' }
     )
   ]);
 

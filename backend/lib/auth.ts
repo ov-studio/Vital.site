@@ -1,3 +1,4 @@
+import * as config_site from '@/configs/site';
 import * as lib_api_url from '@/lib/api_url';
 import * as lib_redis   from '@/lib/redis';
 import * as lib_staff   from '@/lib/staff';
@@ -162,9 +163,8 @@ export async function exchange_github_code(code: string): Promise<{ access_token
 export async function fetch_github_login(access_token: string): Promise<{ login: string } | { error: string }> {
   const res = await fetch(GITHUB_USER, {
     headers: {
-      'Accept':        'application/vnd.github+json',
-      'Authorization': `Bearer ${access_token}`,
-      'User-Agent':    'Vital.site/1.0'
+      ...config_site.info.api.github_headers,
+      'Authorization': `Bearer ${access_token}`
     }
   });
   if (!res.ok) return { error: 'failed to fetch GitHub user' };

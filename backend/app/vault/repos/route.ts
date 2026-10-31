@@ -1,3 +1,4 @@
+import * as config_site   from '@/configs/site';
 import * as lib_auth      from '@/lib/auth';
 import * as lib_ratelimit from '@/lib/ratelimit';
 
@@ -43,9 +44,8 @@ export async function GET(req: Request) {
       `https://api.github.com/user/repos?per_page=100&page=${page}&sort=updated&affiliation=owner`,
       {
         headers: {
-          Accept: 'application/vnd.github+json',
-          Authorization: `Bearer ${gh}`,
-          'User-Agent': 'Vital.site/1.0'
+          ...config_site.info.api.github_headers,
+          Authorization: `Bearer ${gh}`
         }
       }
     );

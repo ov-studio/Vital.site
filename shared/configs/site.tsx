@@ -14,6 +14,7 @@ export type GitLink = {
 
 const define_git    = <K extends string>(links: Record<K, GitLink>) => links;
 const define_social = <K extends string>(links: Record<K, SocialLink>) => links;
+const user_agent = 'Vital.site/1.0';
 
 export const info = {
   name: "Vital.sandbox",
@@ -52,9 +53,10 @@ export const info = {
     cache_ttl_ms:         5 * 60 * 1000, // 5 minutes — shared TTL for all cached api routes
     cache_swr_multiplier: 5, // stale-while-revalidate window = ttl * this
     cache_stale_divisor:  2, // fallback s-maxage when serving stale-on-error = ttl / this
+    user_agent,
     github_headers: {
       'Accept': 'application/vnd.github+json',
-      'User-Agent': 'Vital.site/1.0'
+      'User-Agent': user_agent
     }
   },
 
