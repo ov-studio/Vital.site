@@ -9,7 +9,8 @@ badge: shared
 ```lua
 local status = self:set_component_scale(
     component,
-    scale
+    scale,
+    sync = true
 )
 ```
 
@@ -19,6 +20,7 @@ local status = self:set_component_scale(
 |------|------|-------------|
 | `string` | component | Path of the component to update |
 | `vector3` | scale | Scale to apply as `{x, y, z}` |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 

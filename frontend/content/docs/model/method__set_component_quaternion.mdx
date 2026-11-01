@@ -9,7 +9,8 @@ badge: shared
 ```lua
 local status = self:set_component_quaternion(
     component,
-    quaternion
+    quaternion,
+    sync = true
 )
 ```
 
@@ -19,6 +20,7 @@ local status = self:set_component_quaternion(
 |------|------|-------------|
 | `string` | component | Path of the component to update |
 | `quaternion` | quaternion | Rotation to apply as `{x, y, z, w}` |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 

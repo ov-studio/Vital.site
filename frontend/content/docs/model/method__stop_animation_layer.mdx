@@ -20,7 +20,7 @@ local status = self:stop_animation_layer(
 |------|------|-------------|
 | `int` | layer | Index of the animation layer to stop |
 | `float` | blend_time | Time in seconds to blend out of the animation |
-| `bool` | sync | Whether the call is replicated to other peers |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 

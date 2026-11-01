@@ -28,7 +28,7 @@ local status = self:play_animation_layer(
 | `float` | speed | Playback speed multiplier |
 | `float` | weight | Blend weight of the layer |
 | `float` | blend_time | Time in seconds to blend into the animation |
-| `bool` | sync | Whether the call is replicated to other peers |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 

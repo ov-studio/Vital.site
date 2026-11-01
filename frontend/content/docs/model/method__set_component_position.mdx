@@ -9,7 +9,8 @@ badge: shared
 ```lua
 local status = self:set_component_position(
     component,
-    position
+    position,
+    sync = true
 )
 ```
 
@@ -19,6 +20,7 @@ local status = self:set_component_position(
 |------|------|-------------|
 | `string` | component | Path of the component to update |
 | `vector3` | position | Position to apply as `{x, y, z}` |
+| `bool` | sync | Whether the call is replicated to other peers<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 
