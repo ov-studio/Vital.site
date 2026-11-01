@@ -296,3 +296,7 @@
 .studio-app.is-server {
   filter: hue-rotate(-210deg);
 }
+
+.studio-app.is-round {
+  border-radius: 18px;
+}

@@ -90,6 +90,7 @@ export function Studio() {
   const [bannerWallpaper, setBannerWallpaper] = react.useState(true);
   const [bannerVignette, setBannerVignette] = react.useState(true);
   const [appServer, setAppServer] = react.useState(false);
+  const [appRound, setAppRound] = react.useState(true);
   const [presetBusy, setPresetBusy] = react.useState(false);
 
   const ogRef = react.useRef<HTMLDivElement>(null);
@@ -410,7 +411,7 @@ export function Studio() {
 
     const prev = appServer;
     const zip = new JSZip();
-    const folder = zip.folder('public/logo');
+    const folder = zip.folder('public/icon');
     if (!folder) {
       setPresetBusy(false);
       return;
@@ -622,6 +623,7 @@ export function Studio() {
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <ui_checkbox.Checkbox label="Server" checked={appServer} onChange={setAppServer}/>
+                <ui_checkbox.Checkbox label="Rounded" checked={appRound} onChange={setAppRound}/>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -651,6 +653,7 @@ export function Studio() {
                     'studio-logo',
                     'studio-app',
                     appServer ? 'is-server' : '',
+                    appRound ? 'is-round' : '',
                     'has-bg',
                     'is-center',
                   ].filter(Boolean).join(' ')}
