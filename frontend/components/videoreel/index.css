@@ -185,7 +185,7 @@
 
 
 /* ── @media ── */
-@media (max-height: 1100px) {
+@media (max-height: 1070px) {
   .video-reel {
     display: none !important;
   }
