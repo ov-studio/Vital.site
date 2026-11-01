@@ -71,11 +71,9 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="hero-cta">
-          <component_download.Download>
-            <component_platforms.Platforms/>
-          </component_download.Download>
-        </div>
+        <component_download.Download>
+          <component_platforms.Platforms/>
+        </component_download.Download>
       </div>
 
       <component_videoreel.VideoReel playlist={config_home.HeroReel}/>
