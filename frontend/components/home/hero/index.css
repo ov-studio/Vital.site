@@ -59,7 +59,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-bottom: clamp(20px, 2.5vw, 20px);
+  margin-bottom: clamp(29px, 2.5vw, 25px);
   font-family: var(--font-geist), sans-serif;
   color: var(--text-muted);
   line-height: 1.65;
