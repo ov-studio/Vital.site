@@ -24,7 +24,7 @@ export const info = {
   seo: {
     title:       "Vital.sandbox - Lua Scripting & Multiplayer Sandbox for Godot",
     description: "An open-source, high-performance sandbox built on Godot-Engine and powered by C++17 & Lua. Multiplayer, physics and dedicated servers out of the box.",
-    platforms:   get_platforms('completed', 'partial').map((p) => p.label)
+    platforms:   platforms.filter((p) => p.status !== 'pending').map((p) => p.label)
   },
 
   platforms,
