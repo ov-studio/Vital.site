@@ -1,0 +1,25 @@
+.ui-avatar {
+  --ui-avatar-size: 100%;
+  --ui-avatar-ring: var(--brand-neon-core);
+  display: block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--ui-avatar-size);
+  height: var(--ui-avatar-size);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg6);
+  box-shadow: 0 0 0 var(--ui-avatar-ring-width, 3px) var(--ui-avatar-ring);
+  transition: box-shadow .25s ease;
+}
+
+.ui-avatar--mid {
+  --ui-avatar-ring: var(--brand-neon-mid);
+}
+
+.ui-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
