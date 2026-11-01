@@ -67,7 +67,7 @@ export function Hero() {
           <span className="hero-stat-sep" aria-hidden="true"/>
 
           <div className="hero-stat hero-stat-stars">
-            <lucide.Star className="hero-stat-icon" size={14} strokeWidth={2.25} aria-hidden="true"/>
+            <lucide.Star className="hero-stat-icon" size={12} strokeWidth={2.25} aria-hidden="true"/>
             <span>
               <strong className="hero-stat-num">{softPlus(data?.stars)}</strong> stargazers
             </span>
