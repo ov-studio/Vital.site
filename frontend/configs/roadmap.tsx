@@ -35,13 +35,6 @@ export interface RoadmapSection {
   cards: RoadmapCard[];
 }
 
-/** Maps platform support status (site config) onto roadmap item status. */
-const PlatformRoadmapStatus: Record<config_site.PlatformStatus, FeatureStatus> = {
-  supported: 'completed',
-  partial:   'partial',
-  planned:   'pending'
-};
-
 export const Roadmap: RoadmapSection[] = build([
   {
     name: 'Website',
@@ -118,7 +111,7 @@ export const Roadmap: RoadmapSection[] = build([
         icon:  <lucide.Puzzle {...config_site.info.lucide}/>,
         items: config_site.info.platforms.map(({ label, status }) => ({
           label:  `Platform: ${label} support`,
-          status: PlatformRoadmapStatus[status]
+          status
         }))
       },
       {
