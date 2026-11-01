@@ -40,6 +40,8 @@
 .platforms-item--soon,
 .platforms-item--soon .platforms-icon { color: var(--text-faint); }
 
+
+/* ── @media ── */
 @media (max-width: 640px) {
   .platforms-list { gap: 14px 20px; }
 }

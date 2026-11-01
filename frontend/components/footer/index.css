@@ -73,6 +73,7 @@ footer {
 }
 .footer-nav-col ul li a:hover { color: var(--white) }
 
+
 /* ── @media ── */
 @media (max-width: 960px) {
   .footer-main { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 40px; }

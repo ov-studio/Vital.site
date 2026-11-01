@@ -51,6 +51,7 @@ body:has(.vault-card:hover) #cur-inner,
 body:has(.fcluster:hover) #cur-inner,
 body:has([role="button"]:hover) #cur-inner { transform: scale(1.6) }
 
+
 /* ── @media ── */
 @media (max-width: 450px) { 
   #cur, #cur-outer { 
