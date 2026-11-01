@@ -4,9 +4,12 @@ import * as lucide      from 'lucide-react';
 export const HeroReel = 'PLT234MFVktHs';
 
 export const Platforms = [
-  { id: 'windows', label: 'Windows', soon: false },
-  { id: 'linux',   label: 'Linux',   soon: true  },
-  { id: 'apple',   label: 'macOS',   soon: true  }
+  { id: 'windows', icon: 'windows', label: 'Windows', soon: false },
+  { id: 'linux',   icon: 'linux',   label: 'Linux',   soon: true  },
+  { id: 'macos',   icon: 'apple',   label: 'macOS',   soon: true  },
+  { id: 'android', icon: 'android', label: 'Android', soon: true  },
+  { id: 'ios',     icon: 'apple',   label: 'iOS',     soon: true  },
+  { id: 'web',     icon: 'web',     label: 'Web',     soon: true  }
 ] as const;
 
 export const Features = [

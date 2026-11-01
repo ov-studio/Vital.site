@@ -10,7 +10,9 @@
 .platforms-list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 28px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -48,5 +50,5 @@
 }
 
 @media (max-width: 640px) {
-  .platforms-list { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .platforms-list { gap: 14px 20px; }
 }

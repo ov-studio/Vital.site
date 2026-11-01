@@ -7,7 +7,7 @@ export function Platforms() {
     <div className="platforms">
       <ul className="platforms-list">
         {config_home.Platforms.map((p) => {
-          const Icon = component_atom_icon.icon[p.id];
+          const Icon = component_atom_icon.icon[p.icon];
           return (
             <li key={p.id} className={`platforms-item${p.soon ? ' platforms-item--soon' : ''}`}>
               <Icon className="platforms-icon"/>
