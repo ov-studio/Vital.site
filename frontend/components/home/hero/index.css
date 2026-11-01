@@ -88,6 +88,30 @@
 }
 
 
+/* ── cta: platforms hang below the download block (no layout height) ── */
+#hero .download-buttons { position: relative; }
+#hero .platforms {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+  margin-top: 2px;
+  padding-top: 13px;
+  transform: translateX(-50%);
+}
+#hero .platforms::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(380px, 90%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--b30), transparent);
+}
+
+
 /* ── @keyframes ── */
 @keyframes corner-fade {
   0%, 100% { opacity: .25 }
