@@ -145,6 +145,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Masterlist - live list, auto-refresh',          status: 'completed' },
           { label: 'Masterlist - search & tag filters',             status: 'completed' },
           { label: 'Server card - Play / Full, Discord, website',   status: 'completed' },
+          { label: 'Server card - logo & banner',                   status: 'completed' },
           { label: 'Favourites - star servers, dedicated view',     status: 'completed' },
           { label: 'Settings - resolution, window mode, VSync',     status: 'completed' },
           { label: 'Settings - draw & particle distance',           status: 'completed' },
