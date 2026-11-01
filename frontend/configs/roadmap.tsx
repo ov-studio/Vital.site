@@ -2762,12 +2762,11 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Server host / close',                        status: 'completed' },
           { label: 'Peer join / leave tracking',                 status: 'completed' },
           { label: 'Peer ID management',                         status: 'completed' },
+          { label: 'Authenticated join with SDK version check',  status: 'completed' },
+          { label: 'Join rate limit per IP',                     status: 'completed' },
           { label: 'Reliable RPC channel',                       status: 'completed' },
           { label: 'Unreliable-ordered sync channel',            status: 'completed' },
-          { label: 'Authenticated join with SDK version check',  status: 'completed' },
           { label: 'send / broadcast API',                       status: 'completed' },
-          { label: 'Join rate limit per IP',                     status: 'completed' },
-          { label: 'Kick with reason',                           status: 'completed' },
           { label: 'Ping & round-trip time',                     status: 'completed' }
         ]
       },
