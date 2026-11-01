@@ -8,6 +8,7 @@ import * as component_platforms from '@/components/platforms';
 import * as component_videoreel from '@/components/videoreel';
 import * as lib_api_url         from '@/lib/api_url';
 import * as react               from 'react';
+import * as lucide              from 'lucide-react';
 import './index.css';
 
 interface StatsInfo {
