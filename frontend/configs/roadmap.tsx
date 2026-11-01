@@ -35,6 +35,13 @@ export interface RoadmapSection {
   cards: RoadmapCard[];
 }
 
+/** Maps platform support status (site config) onto roadmap item status. */
+const PlatformRoadmapStatus: Record<config_site.PlatformStatus, FeatureStatus> = {
+  supported: 'completed',
+  partial:   'partial',
+  planned:   'pending'
+};
+
 export const Roadmap: RoadmapSection[] = build([
   {
     name: 'Website',
@@ -109,14 +116,10 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Framework',
         desc:  'Godot-backed framework — platform targets, build configuration, and low-level engine internals',
         icon:  <lucide.Puzzle {...config_site.info.lucide}/>,
-        items: [
-          { label: 'Platform: Windows support',  status: 'completed' },
-          { label: 'Platform: Linux support',    status: 'pending'   },
-          { label: 'Platform: macOS support',    status: 'pending'   },
-          { label: 'Platform: Android support',  status: 'pending'   },
-          { label: 'Platform: iOS support',      status: 'pending'   },
-          { label: 'Platform: Web support',      status: 'pending'   }
-        ]
+        items: config_site.info.platforms.map(({ label, status }) => ({
+          label:  `Platform: ${label} support`,
+          status: PlatformRoadmapStatus[status]
+        }))
       },
       {
         label: 'Splash',
