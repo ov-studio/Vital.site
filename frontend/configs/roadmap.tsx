@@ -136,6 +136,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Shell - sidebar navigation, persistent views',  status: 'completed' },
           { label: 'Top bar - greeting, links, minimize, exit',     status: 'completed' },
+          { label: 'Top bar - draggable window',                    status: 'completed' },
           { label: 'Menu bind - toggle with fade-out',              status: 'completed' },
           { label: 'Browse - featured hero, auto-rotating',         status: 'completed' },
           { label: 'Browse - news feed, auto-refresh',              status: 'completed' },
