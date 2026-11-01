@@ -1,16 +1,17 @@
 import * as config_site from '@/configs/site';
 import * as lucide      from 'lucide-react';
+import * as fa          from 'react-icons/fa6';
 
 export const HeroReel = 'PLT234MFVktHs';
 
 export const Platforms = [
-  { id: 'windows', icon: 'windows', label: 'Windows', soon: false },
-  { id: 'linux',   icon: 'linux',   label: 'Linux',   soon: true  },
-  { id: 'macos',   icon: 'apple',   label: 'macOS',   soon: true  },
-  { id: 'android', icon: 'android', label: 'Android', soon: true  },
-  { id: 'ios',     icon: 'apple',   label: 'iOS',     soon: true  },
-  { id: 'web',     icon: 'web',     label: 'Web',     soon: true  }
-] as const;
+  { id: 'windows', icon: fa.FaWindows, label: 'Windows', soon: false },
+  { id: 'linux',   icon: fa.FaLinux,   label: 'Linux',   soon: true  },
+  { id: 'macos',   icon: fa.FaApple,   label: 'macOS',   soon: true  },
+  { id: 'android', icon: fa.FaAndroid, label: 'Android', soon: true  },
+  { id: 'ios',     icon: fa.FaApple,   label: 'iOS',     soon: true  },
+  { id: 'web',     icon: fa.FaGlobe,   label: 'Web',     soon: true  }
+];
 
 export const Features = [
   {
