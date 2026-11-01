@@ -4,14 +4,20 @@ import * as fa          from 'react-icons/fa6';
 
 export const HeroReel = 'PLT234MFVktHs';
 
-export const Platforms = [
-  { id: 'windows', icon: fa.FaWindows, label: 'Windows', soon: false },
-  { id: 'linux',   icon: fa.FaLinux,   label: 'Linux',   soon: true  },
-  { id: 'macos',   icon: fa.FaApple,   label: 'macOS',   soon: true  },
-  { id: 'android', icon: fa.FaAndroid, label: 'Android', soon: true  },
-  { id: 'ios',     icon: fa.FaApple,   label: 'iOS',     soon: true  },
-  { id: 'web',     icon: fa.FaGlobe,   label: 'Web',     soon: true  }
-];
+export const Platforms = config_site.info.platforms.map(({ id, label, status }) => ({
+  id,
+  label,
+  status,
+  soon: status === 'planned',
+  icon: ({
+    windows: fa.FaWindows,
+    linux:   fa.FaLinux,
+    macos:   fa.FaApple,
+    android: fa.FaAndroid,
+    ios:     fa.FaApple,
+    web:     fa.FaGlobe
+  } satisfies Record<config_site.PlatformId, React.ComponentType<{ className?: string }>>)[id]
+}));
 
 export const Features = [
   {
