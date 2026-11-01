@@ -17,6 +17,7 @@ local status = core.engine.disconnect_peer(
   **The peer must be currently connected.**
 
   - An error is raised if `peer_id` does not belong to a connected peer.
+  - The `reason` is clipped to 200 characters.
 </Callout>
 
 ### Parameters
@@ -24,6 +25,7 @@ local status = core.engine.disconnect_peer(
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | peer_id | Peer id to disconnect |
+| `string` | reason | Message shown to the player in their main menu |
 
 ### Returns
 
@@ -39,4 +41,8 @@ local status = core.engine.disconnect_peer(
 util.event.on("peer:join", function(peer_id)
     core.engine.disconnect_peer(peer_id)
 end)
+```
+
+```lua lineNumbers title="Kick a peer with a message"
+core.engine.disconnect_peer(peer_id, "Kicked for using a modified client")
 ```
