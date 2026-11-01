@@ -1,7 +1,8 @@
 import * as fumadocs_mdx      from 'fumadocs-ui/mdx';
 import * as mdx_types         from 'mdx/types';
-import * as config_masterlist from '@/configs/masterlist';
+import * as config_site       from '@/configs/site';
 import * as config_vault      from '@/configs/vault';
+import * as config_masterlist from '@/configs/masterlist';
 
 /** Bullet list of every valid server tag, straight from the site config so the docs can never drift from what the masterlist accepts. */
 function MasterlistTags() {
