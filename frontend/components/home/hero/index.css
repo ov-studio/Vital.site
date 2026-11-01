@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: calc(var(--nav-h)*1.8);
+  padding-top: calc(var(--nav-h)*2.5);
   overflow: visible;
   box-sizing: border-box;
 }
@@ -97,12 +97,12 @@
 
 /* ── @media ── */
 @media (max-width: 960px) {
-  #hero        { padding-top: calc(var(--nav-h)*1.5);   }
+  #hero        { padding-top: calc(var(--nav-h)*2.2);   }
   .hero-center { overflow: visible; padding: 25px 24px; }
 }
 
 @media (max-width: 640px) {
-  #hero          { padding-top: calc(var(--nav-h)*1.6);     }
+  #hero          { padding-top: calc(var(--nav-h)*2.3);     }
   .hero-center   { overflow: visible; padding: 25px 20px;   }
   .hcorner       { display: none;                           }
   .hero-sub-lead { margin-bottom: 8px !important;           }

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .platforms-list {
@@ -21,10 +21,10 @@
   align-items: center;
   gap: 7px;
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: .9rem;
+  font-size: .86rem;
   font-weight: 600;
   letter-spacing: .03em;
-  color: var(--white);
+  color: var(--brand-);
 }
 
 .platforms-icon {
