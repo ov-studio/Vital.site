@@ -74,7 +74,7 @@
 }
 
 .hero-sub-lead {
-  color: var(--blue);
+  color: var(--brand-neon-core);
   line-height: 1.3;
   font-family: var(--font-rajdhani), cursive;
   font-weight: 600;
