@@ -12,9 +12,22 @@ export type GitLink = {
   hide_on_footer?:  boolean;
 };
 
+export type PlatformStatus = 'completed' | 'partial' | 'pending';
+
 const define_git    = <K extends string>(links: Record<K, GitLink>) => links;
 const define_social = <K extends string>(links: Record<K, SocialLink>) => links;
 const user_agent = 'Vital.site/1.0';
+const define_platforms = <const T extends readonly { id: string; label: string; status: PlatformStatus }[]>(list: T) => list;
+const platforms = define_platforms([
+  { id: 'windows', label: 'Windows', status: 'completed' },
+  { id: 'linux',   label: 'Linux',   status: 'pending'   },
+  { id: 'macos',   label: 'macOS',   status: 'pending'   },
+  { id: 'android', label: 'Android', status: 'pending'   },
+  { id: 'ios',     label: 'iOS',     status: 'pending'   },
+  { id: 'web',     label: 'Web',     status: 'pending'   }
+]);
+
+export type PlatformId = (typeof platforms)[number]['id'];
 
 export const info = {
   name: "Vital.sandbox",
