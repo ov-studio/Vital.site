@@ -153,8 +153,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Settings - mouse sensitivity',                  status: 'completed' },
           { label: 'Settings - master volume',                      status: 'completed' },
           { label: 'Notifications - update download & install',     status: 'completed' },
-          { label: 'About - component versions',                    status: 'completed' },
-          { label: 'Loading / empty / error states',                status: 'completed' }
+          { label: 'Connection bar - failure & kick reasons',       status: 'completed' },
+          { label: 'About - component versions',                    status: 'completed' }
         ]
       },
       {
