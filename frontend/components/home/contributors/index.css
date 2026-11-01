@@ -42,7 +42,6 @@
   height: 48px;
   flex-shrink: 0;
 }
-
 .contrib-avatar:hover .ui-avatar { --ui-avatar-ring: var(--brand-neon-core); }
 
 .contrib-tip {
