@@ -14,7 +14,6 @@ export type GitLink = {
 
 const define_git    = <K extends string>(links: Record<K, GitLink>) => links;
 const define_social = <K extends string>(links: Record<K, SocialLink>) => links;
-const define_platforms = <const T extends readonly Platform[]>(list: T) => list;
 const user_agent = 'Vital.site/1.0';
 
 export const info = {
