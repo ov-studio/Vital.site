@@ -8,7 +8,7 @@ export const Platforms = config_site.info.platforms.map(({ id, label, status }) 
   id,
   label,
   status,
-  soon: status === 'planned',
+  soon: status === 'pending',
   icon: ({
     windows: fa.FaWindows,
     linux:   fa.FaLinux,
