@@ -2,9 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
-  opacity: 0;
-  animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
+  margin-top: 14px;
 }
 
 .platforms-list {
@@ -12,7 +10,7 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px 28px;
+  gap: 14px 24px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -21,9 +19,9 @@
 .platforms-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: .95rem;
+  font-size: .9rem;
   font-weight: 600;
   letter-spacing: .03em;
   color: var(--white);
@@ -32,8 +30,8 @@
 .platforms-icon {
   display: block;
   flex: none;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   color: var(--white);
 }
 
