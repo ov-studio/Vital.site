@@ -1,5 +1,6 @@
 'use client';
 import * as config_site  from '@/configs/site';
+import * as ui_avatar    from '@/ui/avatar';
 import * as ui_wallpaper from '@/ui/wallpaper';
 import * as ui_empty     from '@/ui/empty';
 import * as lib_api_url  from '@/lib/api_url';
@@ -56,9 +57,7 @@ export function Contributors() {
         <div className="contrib-grid rev">
           {list?.map((c) => (
             <a key={c.login} href={c.profile_url} target="_blank" rel="noreferrer" className="contrib-avatar">
-              <span className="contrib-avatar-img">
-                <img src={c.avatar_url} alt={c.login} loading="lazy"/>
-              </span>
+              <ui_avatar.Avatar src={c.avatar_url} alt={c.login} size="fill" ring={4} tone="mid" lazy/>
               <span className="contrib-tip">
                 <strong>{c.login}</strong>
                 <em>{c.contributions} commit{c.contributions === 1 ? '' : 's'}</em>

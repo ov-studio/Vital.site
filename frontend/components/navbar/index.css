@@ -103,19 +103,6 @@ nav.s::after {
 }
 .nav-avatar-btn:hover { opacity: .85 }
 
-.nav-avatar {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--brand-neon-core);
-  object-fit: cover;
-}
-.nav-avatar--sm {
-  width: 28px;
-  height: 28px;
-}
-
 .nav-staff-backdrop {
   position: fixed;
   inset: 0;

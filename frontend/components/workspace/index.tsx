@@ -16,6 +16,7 @@ import * as ui_alert         from '@/ui/alert';
 import * as ui_table         from '@/ui/table';
 import * as ui_search        from '@/ui/search';
 import * as ui_stat          from '@/ui/stat';
+import * as ui_avatar        from '@/ui/avatar';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
 import './index.css';
@@ -329,11 +330,7 @@ export function Workspace() {
 
             <div className="ws-profile-row">
               <ui_stat.Stat className="ws-profile-card">
-                <div className="ws-avatar">
-                  <div className="ws-avatar-img">
-                    <img src={session.avatar} alt="" width={56} height={56} referrerPolicy="no-referrer"/>
-                  </div>
-                </div>
+                <ui_avatar.Avatar className="ws-avatar" src={session.avatar} size={36} ring={4}/>
                 <div>
                   <div className="ws-login">@{session.login}</div>
                   <div className="ws-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>

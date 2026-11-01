@@ -1,6 +1,7 @@
 'use client';
 import * as config_site      from '@/configs/site';
 import * as component_social from '@/components/social';
+import * as ui_avatar        from '@/ui/avatar';
 import * as ui_brand         from '@/ui/brand';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
@@ -112,14 +113,7 @@ export function Navbar({ links = [] }: NavbarProps) {
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((o) => !o)}
               >
-                <img
-                  className="nav-avatar"
-                  src={session.avatar}
-                  alt=""
-                  width={28}
-                  height={28}
-                  referrerPolicy="no-referrer"
-                />
+                <ui_avatar.Avatar src={session.avatar} size={20}/>
               </button>
               {menuOpen && (
                 <>
@@ -131,14 +125,7 @@ export function Navbar({ links = [] }: NavbarProps) {
                   />
                   <div className="nav-staff-menu" role="menu">
                     <div className="nav-staff-meta">
-                      <img
-                        className="nav-avatar nav-avatar--sm"
-                        src={session.avatar}
-                        alt=""
-                        width={28}
-                        height={28}
-                        referrerPolicy="no-referrer"
-                      />
+                      <ui_avatar.Avatar src={session.avatar} size={28}/>
                       <div>
                         <div className="nav-staff-login">@{session.login}</div>
                           <div className="nav-staff-role">{session.staff ? 'Authorized Personnel' : 'Unauthorized Personnel'}</div>

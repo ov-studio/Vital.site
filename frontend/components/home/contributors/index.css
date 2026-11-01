@@ -43,24 +43,7 @@
   flex-shrink: 0;
 }
 
-.contrib-avatar-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--bg6);
-  box-shadow: 0 0 0px 4px var(--brand-neon-mid);
-  transition: box-shadow .25s ease;
-}
-.contrib-avatar:hover .contrib-avatar-img { box-shadow: 0 0 0px 4px var(--brand-neon-core); }
-
-.contrib-avatar-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.contrib-avatar:hover .ui-avatar { --ui-avatar-ring: var(--brand-neon-core); }
 
 .contrib-tip {
   position: absolute;
