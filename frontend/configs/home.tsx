@@ -3,6 +3,12 @@ import * as lucide      from 'lucide-react';
 
 export const HeroReel = 'PLT234MFVktHs';
 
+export const Platforms = [
+  { id: 'windows', label: 'Windows', soon: false },
+  { id: 'linux',   label: 'Linux',   soon: true  },
+  { id: 'apple',   label: 'macOS',   soon: true  }
+] as const;
+
 export const Features = [
   {
     id:    'sandbox',

@@ -4,6 +4,7 @@ import * as config_home         from '@/configs/home';
 import * as ui_brand            from '@/ui/brand';
 import * as ui_wallpaper        from '@/ui/wallpaper';
 import * as component_download  from '@/components/download';
+import * as component_platforms from '@/components/platforms';
 import * as component_videoreel from '@/components/videoreel';
 import * as lib_api_url         from '@/lib/api_url';
 import * as react               from 'react';
@@ -71,6 +72,7 @@ export function Hero() {
         </div>
 
         <component_download.Download/>
+        <component_platforms.Platforms/>
       </div>
 
       <component_videoreel.VideoReel playlist={config_home.HeroReel}/>
