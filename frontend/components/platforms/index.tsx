@@ -9,7 +9,6 @@ export function Platforms() {
           <li key={id} className={`platforms-item${soon ? ' platforms-item--soon' : ''}`}>
             <Icon className="platforms-icon"/>
             <span className="platforms-name">{label}</span>
-            {soon && <span className="platforms-soon">Soon</span>}
           </li>
         ))}
       </ul>

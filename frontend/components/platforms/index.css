@@ -40,15 +40,6 @@
 .platforms-item--soon,
 .platforms-item--soon .platforms-icon { color: var(--text-faint); }
 
-.platforms-soon {
-  font-family: var(--font-geist), sans-serif;
-  font-size: .56rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--text-dim2);
-}
-
 @media (max-width: 640px) {
   .platforms-list { gap: 14px 20px; }
 }
