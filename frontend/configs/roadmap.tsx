@@ -147,6 +147,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Server card - Play / Full, Discord, website',   status: 'completed' },
           { label: 'Server card - logo & banner',                   status: 'completed' },
           { label: 'Favourites - star servers, dedicated view',     status: 'completed' },
+          { label: 'Settings - nickname',                           status: 'completed' },
           { label: 'Settings - resolution, window mode, VSync',     status: 'completed' },
           { label: 'Settings - draw & particle distance',           status: 'completed' },
           { label: 'Settings - mouse sensitivity',                  status: 'completed' },
