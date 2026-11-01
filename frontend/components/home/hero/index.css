@@ -45,13 +45,55 @@
 }
 
 .hero-motto {
-  opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
   margin-bottom: clamp(50px, 3vw, 50px);
   font-family: var(--font-geist), sans-serif;
   font-weight: 400;
   font-size: clamp(0.8rem, 0.53vw, 14px);
+  letter-spacing: .02em;
   color: var(--text-muted);
+  opacity: 0;
   animation: slide-up .7s .35s forwards;
+}
+
+.hero-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.hero-stat-num {
+  font-family: var(--font-mono);
+  font-weight: 200;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat-icon {
+  flex: none;
+  color: var(--brand-neon-core);
+  fill: var(--brand-neon-core);
+  transition: transform .25s ease, fill .25s ease;
+}
+.hero-stat-supporters .hero-stat-icon { 
+  color: var(--red);
+  fill: var(--red);
+  animation: stat-beat 2.6s ease-in-out infinite; 
+}
+.hero-stat-stars      .hero-stat-icon { 
+  color: var(--amber);
+  fill: var(--amber);
+  animation: stat-twinkle 3.2s ease-in-out infinite; 
+}
+
+.hero-stat-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--text-faint);
 }
 
 .hero-sub {

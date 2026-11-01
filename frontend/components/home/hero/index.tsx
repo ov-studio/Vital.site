@@ -57,9 +57,21 @@ export function Hero() {
         </div>
 
         <div className="hero-motto">
-          Backed by {softPlus(data?.supporters)} Supporters ❤️
-          {' '}&{' '}
-          {softPlus(data?.stars)} Stargazers 🌟
+          <div className="hero-stat hero-stat-supporters">
+            <lucide.Heart className="hero-stat-icon" size={14} strokeWidth={2.25} aria-hidden="true"/>
+            <span>
+              <strong className="hero-stat-num">{softPlus(data?.supporters)}</strong> supporters
+            </span>
+          </div>
+
+          <span className="hero-stat-sep" aria-hidden="true"/>
+
+          <div className="hero-stat hero-stat-stars">
+            <lucide.Star className="hero-stat-icon" size={14} strokeWidth={2.25} aria-hidden="true"/>
+            <span>
+              <strong className="hero-stat-num">{softPlus(data?.stars)}</strong> stargazers
+            </span>
+          </div>
         </div>
 
         <div className="hero-sub">
