@@ -2758,16 +2758,17 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'ENet UDP transport layer — reliable RPC and unreliable-ordered sync delivery with auto-reconnect',
         icon:  <lucide.Network {...config_site.info.lucide}/>,
         items: [
-          { label: 'Client connect / disconnect',             status: 'completed' },
-          { label: 'Server host / close',                     status: 'completed' },
-          { label: 'Peer join / leave tracking',              status: 'completed' },
-          { label: 'Peer ID management',                      status: 'completed' },
-          { label: 'Reliable RPC channel',                    status: 'completed' },
-          { label: 'Unreliable-ordered sync channel',         status: 'completed' },
-          { label: 'Auto-reconnect with attempts and delay',  status: 'completed' },
-          { label: 'send / broadcast API',                    status: 'completed' },
-          { label: 'Peer handshake on connect',               status: 'completed' },
-          { label: 'Ping & round-trip time',                  status: 'completed' }
+          { label: 'Client connect / disconnect',                status: 'completed' },
+          { label: 'Server host / close',                        status: 'completed' },
+          { label: 'Peer join / leave tracking',                 status: 'completed' },
+          { label: 'Peer ID management',                         status: 'completed' },
+          { label: 'Reliable RPC channel',                       status: 'completed' },
+          { label: 'Unreliable-ordered sync channel',            status: 'completed' },
+          { label: 'Authenticated join with SDK version check',  status: 'completed' },
+          { label: 'send / broadcast API',                       status: 'completed' },
+          { label: 'Join rate limit per IP',                     status: 'completed' },
+          { label: 'Kick with reason',                           status: 'completed' },
+          { label: 'Ping & round-trip time',                     status: 'completed' }
         ]
       },
       {
