@@ -13,7 +13,7 @@ interface ReleaseInfo {
   server_size: string | null;
 }
 
-export function Download() {
+export function Download({ children }: { children?: react.ReactNode }) {
   const [info, setInfo] = react.useState<ReleaseInfo | null>(null);
   
   react.useEffect(() => {
@@ -29,6 +29,7 @@ export function Download() {
         <ui_button.Button variant="primary" disabled>
           <lucide.Download size={14} strokeWidth={2.5}/> Fetching release…
         </ui_button.Button>
+        {children}
       </div>
     );
   }
@@ -61,6 +62,8 @@ export function Download() {
       <p className="download-tos-note">
         By downloading, you agree to our <a href="/tos" className="download-tos-link">Terms of Service</a> and its conditions*
       </p>
+
+      {children}
     </div>
   );
 }
