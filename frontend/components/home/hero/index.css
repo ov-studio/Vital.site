@@ -106,7 +106,6 @@
   .hero-center   { overflow: visible; padding: 25px 20px;   }
   .hcorner       { display: none;                           }
   .hero-sub-lead { margin-bottom: 8px !important;           }
-  .hero-sub      { margin-bottom: clamp(30px, 2.5vw, 30px); }
 }
 
 @media (max-height: 1050px) {
