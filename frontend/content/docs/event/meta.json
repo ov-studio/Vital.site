@@ -27,6 +27,7 @@
         "signal__anticheat_sync",
         "signal__anticheat_animation",
         "signal__anticheat_component",
+        "signal__anticheat_blendshape",
         "signal__anticheat_dimension",
         "signal__entity_create",
         "signal__entity_destroy",
