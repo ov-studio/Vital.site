@@ -62,7 +62,7 @@ header.sticky,
   min-height: var(--nav-h) !important;
   max-height: var(--nav-h) !important;
   display: block !important; /* avoid flex re-centering the inner wrapper */
-  background: linear-gradient(var(--b10), var(--b10)), var(--bg5) !important;
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg5) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   box-sizing: border-box !important;
@@ -695,7 +695,6 @@ article#nd-page {
     background: color-mix(in srgb, var(--bg2) 80%, transparent) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
-    /* kill fumadocs default dim if different */
     opacity: 1 !important;
   }
 
