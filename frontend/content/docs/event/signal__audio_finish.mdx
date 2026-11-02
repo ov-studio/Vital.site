@@ -50,7 +50,6 @@ local index = 0
 local function next_track()
     index = index + 1
     if not playlist[index] then return end
-
     local entity = core.audio_2d.create(playlist[index])
     entity:play()
 end
