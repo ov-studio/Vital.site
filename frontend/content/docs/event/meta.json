@@ -40,6 +40,8 @@
         "signal__webview_resize",
         "signal__webview_message",
         "signal__particle_emit",
-        "signal__particle_finish"
+        "signal__particle_finish",
+        "signal__audio_start",
+        "signal__audio_finish"
     ]
 }
