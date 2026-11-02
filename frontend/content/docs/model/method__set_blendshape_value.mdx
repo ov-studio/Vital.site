@@ -10,7 +10,8 @@ badge: shared
 local status = self:set_blendshape_value(
     component,
     blendshape,
-    value
+    value,
+    sync = true
 )
 ```
 
@@ -21,6 +22,7 @@ local status = self:set_blendshape_value(
 | `string` | component | Path of the component containing the blendshape |
 | `string` | blendshape | Name of the blendshape to update<br/>Supports `*` as a wildcard to match multiple blend shapes by pattern |
 | `float` | value | Value to apply to the blendshape |
+| `bool` | sync | Whether the change is replicated to other peers:<br/>• When `true` - it is replicated, and a client must own the entity or an error is raised<br/>• When `false` - it only applies on this client, and works on entities it doesn't own<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 
@@ -43,4 +45,7 @@ entity:set_blendshape_value("Skeleton3D/Head", "eye_*", 0.5)
 
 -- Reset a blendshape to default
 entity:set_blendshape_value("Skeleton3D/Head", "sad", 0.0)
+
+-- Change a blendshape on this client only, such as an expression on another player's model
+entity:set_blendshape_value("Skeleton3D/Head", "blink", 1.0, false)
 ```

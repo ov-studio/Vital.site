@@ -20,7 +20,7 @@ local status = self:set_component_position(
 |------|------|-------------|
 | `string` | component | Path of the component to update |
 | `vector3` | position | Position to apply as `{x, y, z}` |
-| `bool` | sync | Whether the call is replicated to other peers<br/>Ignored on the server, where changes are always replicated |
+| `bool` | sync | Whether the change is replicated to other peers:<br/>• When `true` - it is replicated, and a client must own the entity or an error is raised<br/>• When `false` - it only applies on this client, and works on entities it doesn't own<br/>Ignored on the server, where changes are always replicated |
 
 ### Returns
 
