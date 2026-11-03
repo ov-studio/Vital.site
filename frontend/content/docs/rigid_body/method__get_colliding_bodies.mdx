@@ -28,7 +28,5 @@ local bodies = self:get_colliding_bodies()
 ```lua lineNumbers title="Get colliding bodies of a rigid body"
 local entity = physics.rigid.create()
 
-for i, body in ipairs(entity:get_colliding_bodies()) do
-    core.engine.print("info", "Rigid body colliding bodies:", body)
-end
+core.engine.iprint(entity:get_colliding_bodies())
 ```

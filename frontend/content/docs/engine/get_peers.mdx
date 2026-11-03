@@ -26,7 +26,5 @@ local peers = core.engine.get_peers()
 ### Examples
 
 ```lua lineNumbers title="List every connected peer"
-for _, peer_id in ipairs(core.engine.get_peers()) do
-    core.engine.print("info", "Peer connected:", peer_id)
-end
+core.engine.iprint(core.engine.get_peers())
 ```

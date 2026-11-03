@@ -28,7 +28,5 @@ local areas = self:get_overlapping_areas()
 ```lua lineNumbers title="Get overlapping areas on an area"
 local entity = physics.area.create()
 
-for i, other in ipairs(entity:get_overlapping_areas()) do
-    core.engine.print("info", "Area overlapping areas:", other)
-end
+core.engine.iprint(entity:get_overlapping_areas())
 ```

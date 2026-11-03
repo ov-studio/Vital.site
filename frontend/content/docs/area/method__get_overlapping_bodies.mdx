@@ -28,7 +28,5 @@ local bodies = self:get_overlapping_bodies()
 ```lua lineNumbers title="Get overlapping bodies on an area"
 local entity = physics.area.create()
 
-for i, body in ipairs(entity:get_overlapping_bodies()) do
-    core.engine.print("info", "Area overlapping bodies:", body)
-end
+core.engine.iprint(entity:get_overlapping_bodies())
 ```
