@@ -11,7 +11,7 @@ import './index.css';
  */
 export function Wallpaper({
   variant = 1,
-  opacity = 0.5,
+  opacity = 0.3,
   vignette = true,
   color = 'var(--rule)'
 }) {
