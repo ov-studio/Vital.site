@@ -36,7 +36,7 @@ local function launch()
 end
 
 util.event.on("particle:emit", function(emitter)
-    core.engine.print("info", "particle:emit:", emitter:get_amount(), "particles")
+    core.engine.print("info", "Emitter started emitting:", emitter:get_amount(), "particles")
 end)
 
 launch()

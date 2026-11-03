@@ -34,7 +34,7 @@ badge: client
 local entity = core.audio_2d.create("sounds/ambient.ogg")
 
 util.event.on("audio:start", function(audio)
-    core.engine.print("info", "audio:start:", audio:get_playback_position())
+    core.engine.print("info", "Audio started at:", audio:get_playback_position())
 end)
 
 entity:play()

@@ -32,6 +32,6 @@ badge: shared
 local area = physics.area.create()
 
 util.event.on("area:shape_enter", function(area, entity)
-    core.engine.print("info", "area:shape_enter:", entity:get_type())
+    core.engine.print("info", "Entity entered area shape:", entity:get_type())
 end)
 ```
