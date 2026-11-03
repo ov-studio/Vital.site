@@ -3,6 +3,7 @@ import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
 import * as component_atom_nodrag      from '@/components/atoms/nodrag';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
+import '@/app/docs/layout.css';
 
 const geist = Geist({
   subsets: ['latin'],
