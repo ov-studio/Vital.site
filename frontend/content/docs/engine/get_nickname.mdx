@@ -7,7 +7,7 @@ badge: client
 ### Syntax
 
 ```lua
-local username = core.engine.get_nickname(
+local result = core.engine.get_nickname(
     os_username = false
 )
 ```
@@ -22,7 +22,7 @@ local username = core.engine.get_nickname(
 
 | Type | Name | Description |
 |------|------|-------------|
-| `string` | username | Current player username, `"Unnamed"` if the operating system username cannot be resolved |
+| `string` | result | Current player username, `"Unnamed"` if the operating system username cannot be resolved |
 
 <Callout type="info">
   **The nickname can be changed at any time from the main menu.**
