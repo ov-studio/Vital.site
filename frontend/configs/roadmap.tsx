@@ -167,6 +167,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] Command: help',                     status: 'completed' },
           { label: '[Shared] Command: version',                  status: 'completed' },
           { label: '[Shared] Command: clear',                    status: 'completed' },
+          { label: '[Shared] Command: update',                   status: 'completed' },
           { label: '[Server] Command: info',                     status: 'completed' },
           { label: '[Server] Command: players',                  status: 'completed' },
           { label: '[Server] Command: kick <peer_id> [reason]',  status: 'completed' },
