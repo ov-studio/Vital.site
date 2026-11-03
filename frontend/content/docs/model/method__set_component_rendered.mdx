@@ -21,6 +21,15 @@ local status = self:set_component_rendered(
   - A component that stops rendering is kept alive, so it can be rendered again later without reloading the model.
 </Callout>
 
+<Callout type="warn">
+  **Replicated entities can only be modified by the server or the client that owns them.**
+
+  - **On the server** — always allowed, and the change is always replicated to every peer.
+  - **On the owning client** — allowed on entities it is the syncer of, refer [`self:get_syncer`](/docs/model/method/get_syncer).
+  - **On any other client** — raises an error when `sync` is `true`, since the change would be replicated.
+  - **When `sync` is `false`** — only changes this client's local view and is never replicated, so it works on entities the client does not own.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

@@ -12,6 +12,16 @@ local status = self:set_global_position(
 )
 ```
 
+<Callout type="warn">
+  **Modifying a replicated collision shape is only allowed for the server or the client that owns its body.**
+
+  - **On the server** — always allowed, and the change is replicated to every peer.
+  - **On the owning client** — allowed on entities it is the syncer of.
+  - **On any other client** — raises an error when the entity is owned by the server or by another client.
+  - **Client-local entities** — entities that are not replicated are unrestricted.
+  - **Attached entities** — a collision shape follows the authority of the body it is attached to.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

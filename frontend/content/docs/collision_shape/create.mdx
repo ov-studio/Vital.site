@@ -12,6 +12,15 @@ local instance = physics.collision_shape.create(
 )
 ```
 
+<Callout type="warn">
+  **Attaching requires authority over the target body.**
+
+  - **On the server** — always allowed.
+  - **On the owning client** — allowed when the client is the syncer of the body.
+  - **On any other client** — raises an error when the body is owned by the server or by another client.
+  - **Areas** — areas are not replicated, so attaching a shape to an area is unrestricted.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

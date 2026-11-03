@@ -12,6 +12,15 @@ local status = self:set_floor_stop_on_slope_enabled(
 )
 ```
 
+<Callout type="warn">
+  **Replicated entities can only be modified by the server or the client that owns them.**
+
+  - **On the server** — always allowed, and the change is replicated to every peer.
+  - **On the owning client** — allowed on entities it is the syncer of, refer [`self:get_syncer`](/docs/character_body/method/get_syncer).
+  - **On any other client** — raises an error when the entity is owned by the server or by another client.
+  - **Client-local entities** — entities that are not replicated are unrestricted.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
