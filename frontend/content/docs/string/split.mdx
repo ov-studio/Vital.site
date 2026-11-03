@@ -32,30 +32,44 @@ local parts = util.string.split(
 ```lua lineNumbers title="Split a string by comma"
 local parts = util.string.split("apple,banana,orange", ",")
 
-core.engine.print("info", parts[1]) -- 'apple'
-core.engine.print("info", parts[2]) -- 'banana'
-core.engine.print("info", parts[3]) -- 'orange'
+core.engine.iprint(parts)
+
+--[[
+Output:
+{
+    1: 'apple'
+    2: 'banana'
+    3: 'orange'
+}
+]]
 ```
 
 ```lua lineNumbers title="Split a string by a multi-character delimiter"
 local parts = util.string.split("one::two::three", "::")
 
-core.engine.print("info", parts[1]) -- 'one'
-core.engine.print("info", parts[2]) -- 'two'
-core.engine.print("info", parts[3]) -- 'three'
+core.engine.iprint(parts)
+
+--[[
+Output:
+{
+    1: 'one'
+    2: 'two'
+    3: 'three'
+}
+]]
 ```
 
 ```lua lineNumbers title="Split a string by space"
 local words = util.string.split("hello world lua", " ")
 
-for i, word in ipairs(words) do
-    core.engine.print("info", word)
-end
+core.engine.iprint(words)
 
 --[[
 Output:
-'hello'
-'world'
-'lua'
+{
+    1: 'hello'
+    2: 'world'
+    3: 'lua'
+}
 ]]
 ```
