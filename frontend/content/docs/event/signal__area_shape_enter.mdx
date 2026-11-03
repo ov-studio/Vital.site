@@ -14,8 +14,8 @@ badge: shared
 
 | Type | Name | Description |
 |------|------|-------------|
-| `area` | area | Area instance that was affected |
-| `userdata` | entity | Rigid, static, character, animatable body or area instance that triggered the signal |
+| `physics.area` | area | Area instance that was affected |
+| `physics.rigid` \| `physics.static` \| `physics.character` \| `physics.animatable` \| `physics.area` | entity | Entity instance that triggered the signal |
 
 <Callout type="info">
   **Only physics entities known to the sandbox trigger this signal.**
