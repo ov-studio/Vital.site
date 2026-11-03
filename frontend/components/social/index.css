@@ -18,4 +18,8 @@
 }
 .social-link:hover { color: var(--white) }
 
-.social-icon { height: 18px }
+.social-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}

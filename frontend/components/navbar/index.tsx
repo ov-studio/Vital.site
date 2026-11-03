@@ -7,6 +7,7 @@ import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as react            from 'react';
 import * as lucide           from 'lucide-react';
+import * as lu              from 'react-icons/lu';
 import './index.css';
 
 interface NavLink {
@@ -102,7 +103,7 @@ export function Navbar({ links = [] }: NavbarProps) {
               className="nav-auth-icon"
               aria-label="Open workspace"
             >
-              <lucide.Fingerprint className="nav-auth-svg" size={18} strokeWidth={2}/>
+              <lu.LuFingerprint className="nav-auth-svg" size={18}/>
             </a>
           ) : (
             <div className="nav-staff">
