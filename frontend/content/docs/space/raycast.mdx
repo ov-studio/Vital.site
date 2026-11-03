@@ -55,6 +55,6 @@ local hit = physics.space.raycast({0, 2, 0}, {0, 2, -10}, {
 })
 
 if hit then
-    core.engine.print("info", hit.position)
+    core.engine.print("info", "Hit position:", util.table.unpack(hit.position))
 end
 ```

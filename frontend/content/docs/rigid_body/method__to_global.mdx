@@ -31,5 +31,5 @@ local global_point = self:to_global(
 ```lua lineNumbers title="Convert a point to world space"
 local entity = physics.rigid.create()
 
-core.engine.print("info", entity:to_global({0, 0, 1}))
+core.engine.print("info", "Rigid body global point:", util.table.unpack(entity:to_global({0, 0, 1})))
 ```

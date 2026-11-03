@@ -33,5 +33,5 @@ core.model.load("character", "models/character.glb")
 
 local entity = core.model.create("character")
 
-core.engine.print("info", entity:to_local({0, 0, 0}))
+core.engine.print("info", "Model local point:", util.table.unpack(entity:to_local({0, 0, 0})))
 ```

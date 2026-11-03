@@ -31,5 +31,5 @@ local local_point = self:to_local(
 ```lua lineNumbers title="Convert a point to local space"
 local entity = physics.vehicle.create()
 
-core.engine.print("info", entity:to_local({0, 0, 0}))
+core.engine.print("info", "Vehicle body local point:", util.table.unpack(entity:to_local({0, 0, 0})))
 ```
