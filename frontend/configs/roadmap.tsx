@@ -109,10 +109,14 @@ export const Roadmap: RoadmapSection[] = build([
         label: 'Framework',
         desc:  'Godot-backed framework — platform targets, build configuration, and low-level engine internals',
         icon:  <lucide.Puzzle {...config_site.info.lucide}/>,
-        items: config_site.info.platforms.map(({ label, status }) => ({
-          label:  `Platform: ${label} support`,
-          status
-        }))
+        items: [
+          ...config_site.info.platforms.map(({ label, status }) => ({
+            label:  `Platform: ${label} support`,
+            status
+          })),
+          { label: 'Updater: Client auto-update',      status: 'completed' },
+          { label: 'Updater: Server auto-update',      status: 'completed' }
+        ]
       },
       {
         label: 'Splash',
