@@ -6,7 +6,6 @@ import * as ui_brand         from '@/ui/brand';
 import * as lib_auth_session from '@/lib/auth_session';
 import * as lib_page_loading from '@/lib/page_loading';
 import * as react            from 'react';
-import * as lucide           from 'lucide-react';
 import * as lu              from 'react-icons/lu';
 import './index.css';
 
