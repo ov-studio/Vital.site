@@ -17,7 +17,7 @@ local instance = physics.collision_shape.create(
 
   - **On the server** — always allowed.
   - **On the owning client** — allowed when the client is the syncer of the body.
-  - **On any other client** — raises an error when the body is owned by the server or by another client.
+  - **On any other client** — raises an error on server-owned or other clients' bodies.
   - **Areas** — areas are not replicated, so attaching a shape to an area is unrestricted.
 </Callout>
 

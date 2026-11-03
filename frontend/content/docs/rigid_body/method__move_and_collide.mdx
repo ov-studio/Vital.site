@@ -18,8 +18,8 @@ local collision = self:move_and_collide(
 
   - **On the server** — always allowed, and the new position is replicated to every peer.
   - **On the owning client** — allowed on entities it is the syncer of.
-  - **On any other client** — raises an error when the entity is owned by the server or by another client.
-  - **When `test_only` is `true`** — the motion is only tested and nothing is moved, so it works on any entity.
+  - **On any other client** — raises an error on server-owned or other clients' entities.
+  - **When `test_only` is `true`** — only tests the motion, so it works on any entity.
 </Callout>
 
 ### Parameters

@@ -18,7 +18,7 @@ local status = self:rotate(
 
   - **On the server** — always allowed, and the change is replicated to every peer.
   - **On the owning client** — allowed on entities it is the syncer of, refer [`self:get_syncer`](/docs/vehicle_body/method/get_syncer).
-  - **On any other client** — raises an error when the entity is owned by the server or by another client.
+  - **On any other client** — raises an error on server-owned or other clients' entities.
   - **Client-local entities** — entities that are not replicated are unrestricted.
 </Callout>
 
