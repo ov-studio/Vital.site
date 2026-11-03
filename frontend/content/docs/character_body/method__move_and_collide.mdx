@@ -35,6 +35,6 @@ local entity = physics.character.create()
 
 local collision = entity:move_and_collide({0, 0, -1})
 if collision then
-    core.engine.print("info", collision.normal)
+    core.engine.print("info", "Collision normal:", util.table.unpack(collision.normal))
 end
 ```
