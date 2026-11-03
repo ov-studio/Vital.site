@@ -53,7 +53,7 @@ export function Hero() {
 
       <div className="hero-center">
         <div className="hero-brand">
-          <ui_brand.Brand size="xxl" variant="logo-only" neon={true} flicker={true} rays={true}/>
+          <ui_brand.Brand size="xxl" variant="logo-only" neon={true} flicker={true} rays={false}/>
         </div>
 
         <div className="hero-motto">
