@@ -10,12 +10,6 @@ badge: client
 "audio:start"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `core.audio_2d` \| `core.audio_3d` | audio | Audio instance that started playing |
-
 <Callout type="info">
   **Fires once per playback, not once per loop.**
 
@@ -25,6 +19,12 @@ badge: client
   - Fires for both [`core.audio_2d`](/docs/audio_2d/create) and [`core.audio_3d`](/docs/audio_3d/create). Use `audio:is_type` to tell them apart.
   - Detected once per frame, so a play followed by a stop inside the same frame may not be reported.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.audio_2d` \| `core.audio_3d` | audio | Audio instance that started playing |
 
 ---
 

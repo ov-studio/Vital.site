@@ -10,19 +10,19 @@ badge: shared
 "area:enter"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `physics.area` | area | Area instance that was affected |
-| `physics.rigid` \| `physics.static` \| `physics.character` \| `physics.animatable` \| `physics.area` | entity | Entity instance that triggered the signal |
-
 <Callout type="info">
   **Only physics entities known to the sandbox trigger this signal.**
 
   - Fires for rigid, static, character and animatable bodies, as well as other areas.
   - Refer [`physics.area`](/docs/area/create) to create and configure the area that emits it.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `physics.area` | area | Area instance that was affected |
+| `physics.rigid` \| `physics.static` \| `physics.character` \| `physics.animatable` \| `physics.area` | entity | Entity instance that triggered the signal |
 
 ---
 

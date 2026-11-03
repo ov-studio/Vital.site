@@ -10,12 +10,6 @@ badge: client
 "particle:finish"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `particle.gpu` | emitter | Particle emitter whose cycle has finished |
-
 <Callout type="warn">
   **Only one-shot emitters ever finish.**
 
@@ -23,6 +17,12 @@ badge: client
   - Continuous emitters keep spawning particles, so they never fire this signal.
   - The emitter is still alive when the signal fires — chain the next effect from here, then call [`self:destroy`](/docs/gpu_particles/method/destroy) on it for fire and forget effects.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `particle.gpu` | emitter | Particle emitter whose cycle has finished |
 
 ---
 

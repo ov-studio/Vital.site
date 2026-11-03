@@ -10,18 +10,18 @@ badge: shared
 "sandbox:process"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `float` | delta | Time in seconds elapsed since the last tick |
-
 <Callout type="info">
   **This is the global tick hook for all game logic.**
 
   - Use `delta` to keep movement and timers framerate-independent.
   - Do not make `core.engine.draw_*` calls here — use [`sandbox:draw`](/docs/event/signal/sandbox_draw) for all rendering.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | delta | Time in seconds elapsed since the last tick |
 
 ---
 

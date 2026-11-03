@@ -10,6 +10,15 @@ badge: server
 "anticheat:animation"
 ```
 
+<Callout type="info">
+  **This signal is only fired on the server.**
+
+  - Fired when a connected peer sends something the server rejects. The server only reports it and never kicks anyone, so your script decides what to do.
+  - Bursts are throttled to one signal per peer and reason per second. `count` is how many violations happened since the last signal.
+  - A single report can be harmless, for example right after the entity's syncer changed with `set_syncer`. Act on repeated `count`, not on the first report.
+  - Use [`core.engine.disconnect_peer`](/docs/engine/disconnect_peer) to kick a peer.
+</Callout>
+
 ### Arguments
 
 | Type | Name | Description |
@@ -24,15 +33,6 @@ badge: server
 | Reason | Description |
 |--------|-------------|
 | `unauthorized` | The peer changed an animation layer or its bone filter on an entity it is not the syncer of |
-
-<Callout type="info">
-  **This signal is only fired on the server.**
-
-  - Fired when a connected peer sends something the server rejects. The server only reports it and never kicks anyone, so your script decides what to do.
-  - Bursts are throttled to one signal per peer and reason per second. `count` is how many violations happened since the last signal.
-  - A single report can be harmless, for example right after the entity's syncer changed with `set_syncer`. Act on repeated `count`, not on the first report.
-  - Use [`core.engine.disconnect_peer`](/docs/engine/disconnect_peer) to kick a peer.
-</Callout>
 
 ---
 

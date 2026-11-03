@@ -10,18 +10,18 @@ badge: client
 "webview:load"
 ```
 
+<Callout type="info">
+  **Fires once the page has fully loaded.**
+
+  - Safe to interact with page content or send initial messages after this fires.
+</Callout>
+
 ### Arguments
 
 | Type | Name | Description |
 |------|------|-------------|
 | `core.webview` | webview | The webview instance triggering the event |
 | `string` | url | The URL that finished loading |
-
-<Callout type="info">
-  **Fires once the page has fully loaded.**
-
-  - Safe to interact with page content or send initial messages after this fires.
-</Callout>
 
 ---
 

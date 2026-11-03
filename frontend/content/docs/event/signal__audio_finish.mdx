@@ -10,12 +10,6 @@ badge: client
 "audio:finish"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `core.audio_2d` \| `core.audio_3d` | audio | Audio instance whose playback has finished |
-
 <Callout type="warn">
   **Only playbacks that reach their natural end finish.**
 
@@ -25,6 +19,12 @@ badge: client
   - The audio is still alive when the signal fires, so you can play it again, chain the next sound or call [`self:destroy`](/docs/audio_2d/method/destroy) on it for fire and forget sounds.
   - Fires for both [`core.audio_2d`](/docs/audio_2d/create) and [`core.audio_3d`](/docs/audio_3d/create).
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.audio_2d` \| `core.audio_3d` | audio | Audio instance whose playback has finished |
 
 ---
 

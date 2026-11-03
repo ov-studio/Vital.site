@@ -10,12 +10,6 @@ badge: client
 "particle:emit"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `particle.gpu` | emitter | Particle emitter that started emitting |
-
 <Callout type="info">
   **Fires once per emission cycle, not once per particle.**
 
@@ -24,6 +18,12 @@ badge: client
   - Calling [`self:emit`](/docs/gpu_particles/method/emit) on an emitter that is already emitting does nothing and does not fire the signal.
   - Fires for every particle emitter type. Refer [`particle.gpu`](/docs/gpu_particles/create) to create and configure an emitter that fires it.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `particle.gpu` | emitter | Particle emitter that started emitting |
 
 ---
 

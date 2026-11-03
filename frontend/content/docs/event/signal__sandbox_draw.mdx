@@ -10,11 +10,6 @@ badge: client
 "sandbox:draw"
 ```
 
-### Arguments
-
-| No arguments are passed by this signal |
-|----------------------------------------|
-
 <Callout type="info">
   **All `core.engine.draw_*` calls must be made inside this signal.**
 
@@ -22,6 +17,11 @@ badge: client
   - Do not mutate simulation state here; read state updated in [`sandbox:process`](/docs/event/signal/sandbox_process) and draw from it.
   - For pure UI and panels where the only logic is layout, doing everything inside `sandbox:draw` is fine and keeps code in one place.
 </Callout>
+
+### Arguments
+
+| No arguments are passed by this signal |
+|----------------------------------------|
 
 ---
 

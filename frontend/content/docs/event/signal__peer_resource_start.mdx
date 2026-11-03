@@ -10,18 +10,18 @@ badge: server
 "peer:resource:start"
 ```
 
+<Callout type="info">
+  **This signal is only fired on the server.**
+
+  - It is fired once per peer after that peer has loaded the resource the server started.
+</Callout>
+
 ### Arguments
 
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | peer_id | Id of the peer that started the resource |
 | `string` | name | Name of the resource the peer started |
-
-<Callout type="info">
-  **This signal is only fired on the server.**
-
-  - It is fired once per peer after that peer has loaded the resource the server started.
-</Callout>
 
 ---
 

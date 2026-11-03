@@ -10,13 +10,6 @@ badge: client
 "peer:nickname:change"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `string` | old_name | Username before the change |
-| `string` | new_name | Username after the change |
-
 <Callout type="info">
   **This signal is only fired on the client.**
 
@@ -24,6 +17,13 @@ badge: client
   - It is not fired when the resulting username stays the same, for example when only surrounding whitespace changes.
   - It is not fired for the nickname loaded from the saved settings when the client starts, use [`core.engine.get_nickname`](/docs/engine/get_nickname) to read the initial value.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | old_name | Username before the change |
+| `string` | new_name | Username after the change |
 
 ---
 

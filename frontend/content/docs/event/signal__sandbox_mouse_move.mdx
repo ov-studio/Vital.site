@@ -10,19 +10,19 @@ badge: client
 "sandbox:mouse_move"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `float` | x | Horizontal cursor position in pixels from the left of the viewport |
-| `float` | y | Vertical cursor position in pixels from the top of the viewport |
-
 <Callout type="info">
   **Can fire multiple times per frame under fast cursor movement.**
 
   - Coordinates are in viewport-space pixels.
   - Store the latest values in `sandbox:mouse_move` and read them inside [`sandbox:draw`](/docs/event/signal/sandbox_draw) for cursor-relative UI.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | x | Horizontal cursor position in pixels from the left of the viewport |
+| `float` | y | Vertical cursor position in pixels from the top of the viewport |
 
 ---
 

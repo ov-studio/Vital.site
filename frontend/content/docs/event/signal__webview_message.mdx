@@ -10,19 +10,19 @@ badge: client
 "webview:message"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `core.webview` | webview | The webview instance that received the message |
-| `string` | message | The raw message string sent from the page |
-
 <Callout type="info">
   **This is the primary IPC channel between a webview page and Lua.**
 
   - Messages are sent from the page via `window.ipc.postMessage(message)`.
   - The message is a raw string — parse it as JSON if structured data is needed.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.webview` | webview | The webview instance that received the message |
+| `string` | message | The raw message string sent from the page |
 
 ---
 

@@ -10,19 +10,19 @@ badge: client
 "webview:preload"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `core.webview` | webview | The webview instance triggering the event |
-| `string` | url | The URL being loaded |
-
 <Callout type="info">
   **Fires at the start of a page load, before the page is ready.**
 
   - Kit JS modules are injected into the page at this point.
   - Use this to perform setup before the page content is available.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `core.webview` | webview | The webview instance triggering the event |
+| `string` | url | The URL being loaded |
 
 ---
 

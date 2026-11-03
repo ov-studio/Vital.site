@@ -10,19 +10,19 @@ badge: shared
 "sandbox:console_input"
 ```
 
-### Arguments
-
-| Type | Name | Description |
-|------|------|-------------|
-| `string` | command | The command name that was entered |
-| `table` | args | Array of additional arguments passed after the command |
-
 <Callout type="info">
   **Only fires for commands not handled by the engine itself.**
 
   - Built-in commands (`version`, `help`, `clear`, `start`, `stop`, etc.) are consumed internally and will not reach this signal.
   - Use this to implement custom console commands in Lua.
 </Callout>
+
+### Arguments
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | command | The command name that was entered |
+| `table` | args | Array of additional arguments passed after the command |
 
 ---
 
