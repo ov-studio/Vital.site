@@ -14,6 +14,7 @@ badge: server
   **This signal is only fired on the server.**
 
   - The server starts every running resource on the peer after this fires.
+  - Fires only after the peer has been authenticated and sent the full world state, so it is safe to interact with right away.
 </Callout>
 
 ### Arguments

@@ -14,6 +14,7 @@ badge: server
   **This signal is only fired on the server.**
 
   - Use it to clean up any state you keep per peer.
+  - Fires only for peers that already triggered [`peer:join`](/docs/event/signal/peer_join), a peer that drops before being admitted never reaches your scripts.
 </Callout>
 
 ### Arguments
