@@ -1,6 +1,6 @@
 footer {
-  border-top: 1px solid var(--b10);
-  background: var(--bg10);
+  border-top: 1px solid var(--b05);
+  background: var(--bg12);
   opacity: 0;
   animation: fade-in .55s .25s forwards;
 }
