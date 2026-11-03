@@ -178,7 +178,7 @@
     var(--b15) 342deg
   );
 
-  opacity: 1;
+  opacity: 0.5;
   mix-blend-mode: soft-light;
   transition: opacity 40ms linear;
   mask-image: radial-gradient(
