@@ -10,6 +10,10 @@
 
         "---Checker---",
         "is_loaded",
+        "is_wireframe_all",
+
+        "---Setter---",
+        "set_wireframe_all",
 
         "---⁝⁝Lifecycle---",
         "method__is_type",
@@ -23,6 +27,7 @@
         "method__is_visible_in_tree",
         "method__is_component_visible",
         "method__is_component_rendered",
+        "method__is_component_wireframe",
         "method__is_material_visible",
         "method__is_material_feature",
         "method__is_material_flag",
@@ -48,6 +53,7 @@
         "method__get_component_rotation",
         "method__get_component_global_rotation",
         "method__get_component_quaternion",
+        "method__get_component_lod_bias",
         "method__get_materials",
         "method__get_blendshapes",
         "method__get_bones",
@@ -78,6 +84,8 @@
         "method__set_component_rotation",
         "method__set_component_global_rotation",
         "method__set_component_quaternion",
+        "method__set_component_lod_bias",
+        "method__set_component_wireframe",
         "method__set_material_visible",
         "method__set_material_feature",
         "method__set_material_flag",

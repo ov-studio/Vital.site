@@ -1,0 +1,32 @@
+---
+title: core.model.is_wireframe_all
+description: Checks whether the global debug wireframe is enabled for models
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = core.model.is_wireframe_all()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the global debug wireframe is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the global debug wireframe"
+core.model.set_wireframe_all(true)
+
+core.engine.print("info", "Model wireframe-all enabled:", core.model.is_wireframe_all())
+```

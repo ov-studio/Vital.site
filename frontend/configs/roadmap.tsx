@@ -347,6 +347,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: core.model.unload',                   status: 'completed' },
           { label: '[Shared] API: core.model.create',                   status: 'completed' },
           { label: '[Shared] API: core.model.is_loaded',                status: 'completed' },
+          { label: '[Client] API: core.model.is_wireframe_all',         status: 'completed' },
+          { label: '[Client] API: core.model.set_wireframe_all',        status: 'completed' },
           { label: '[Shared] API: self:is_type',                        status: 'completed' },
           { label: '[Client] API: self:is_remote',                      status: 'completed' },
           { label: '[Client] API: self:is_streamed',                    status: 'completed' },
@@ -356,6 +358,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:is_visible_in_tree',             status: 'completed' },
           { label: '[Shared] API: self:is_component_visible',           status: 'completed' },
           { label: '[Shared] API: self:is_component_rendered',          status: 'completed' },
+          { label: '[Client] API: self:is_component_wireframe',         status: 'completed' },
           { label: '[Shared] API: self:is_material_visible',            status: 'completed' },
           { label: '[Shared] API: self:is_material_feature',            status: 'completed' },
           { label: '[Shared] API: self:is_material_flag',               status: 'completed' },
@@ -379,6 +382,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:get_component_rotation',         status: 'completed' },
           { label: '[Shared] API: self:get_component_global_rotation',  status: 'completed' },
           { label: '[Shared] API: self:get_component_quaternion',       status: 'completed' },
+          { label: '[Shared] API: self:get_component_lod_bias',         status: 'completed' },
           { label: '[Shared] API: self:get_materials',                  status: 'completed' },
           { label: '[Shared] API: self:get_blendshapes',                status: 'completed' },
           { label: '[Shared] API: self:get_bones',                      status: 'completed' },
@@ -407,6 +411,8 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:set_component_rotation',         status: 'completed' },
           { label: '[Shared] API: self:set_component_global_rotation',  status: 'completed' },
           { label: '[Shared] API: self:set_component_quaternion',       status: 'completed' },
+          { label: '[Shared] API: self:set_component_lod_bias',         status: 'completed' },
+          { label: '[Client] API: self:set_component_wireframe',        status: 'completed' },
           { label: '[Shared] API: self:set_material_visible',           status: 'completed' },
           { label: '[Shared] API: self:set_material_feature',           status: 'completed' },
           { label: '[Shared] API: self:set_material_flag',              status: 'completed' },
@@ -427,7 +433,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Shared] API: self:play_animation_layer',           status: 'completed' },
           { label: '[Shared] API: self:stop_animation_layer',           status: 'completed' },
           { label: 'Skeleton & bone transforms',                        status: 'partial'   },
-          { label: 'LOD (Level of Detail) control',                     status: 'pending'   }
+          { label: 'LOD (Level of Detail) control',                     status: 'completed' }
         ]
       },
       {
