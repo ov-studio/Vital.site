@@ -27,7 +27,7 @@
   max-width: none;
   max-height: none;
   object-fit: contain;
-  opacity: 0.015;
+  opacity: 0.012;
   filter:
     brightness(0) saturate(100%)
     invert(62%) sepia(48%) saturate(900%) hue-rotate(190deg) brightness(105%) contrast(105%);
@@ -196,7 +196,6 @@
   .hero-watermark-logo {
     width: min(220vh, 220vw);
     height: min(220vh, 220vw);
-    opacity: 0.012;
   }
 }
 
