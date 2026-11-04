@@ -13,11 +13,11 @@ badge: client
 <Callout type="info">
   **Fires once per playback, not once per loop.**
 
-  - Triggered by [`self:play`](/docs/audio_2d/method/play) when the audio was not already playing, and by `autoplay` on a freshly created audio.
-  - Calling [`self:play`](/docs/audio_2d/method/play) on audio that is already playing restarts it silently and does not fire the signal.
-  - Resuming from [`self:set_paused`](/docs/audio_2d/method/set_paused) does not fire the signal, the playback never stopped.
-  - Fires for both [`core.audio_2d`](/docs/audio_2d/create) and [`core.audio_3d`](/docs/audio_3d/create). Use `audio:is_type` to tell them apart.
-  - Detected once per frame, so a play followed by a stop inside the same frame may not be reported.
+  - **Trigger** — triggered by [`self:play`](/docs/audio_2d/method/play) when the audio was not already playing, and by `autoplay` on a freshly created audio.
+  - **Already playing** — calling [`self:play`](/docs/audio_2d/method/play) on audio that is already playing restarts it silently and does not fire the signal.
+  - **Resuming** — resuming from [`self:set_paused`](/docs/audio_2d/method/set_paused) does not fire the signal, the playback never stopped.
+  - **Audio types** — fires for both [`core.audio_2d`](/docs/audio_2d/create) and [`core.audio_3d`](/docs/audio_3d/create). Use `audio:is_type` to tell them apart.
+  - **Detection** — detected once per frame, so a play followed by a stop inside the same frame may not be reported.
 </Callout>
 
 ### Arguments

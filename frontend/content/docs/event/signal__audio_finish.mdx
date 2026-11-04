@@ -13,11 +13,11 @@ badge: client
 <Callout type="warn">
   **Only playbacks that reach their natural end finish.**
 
-  - Fires once the sound has played all the way through, after which [`self:is_playing`](/docs/audio_2d/method/is_playing) returns `false`.
-  - Calling [`self:stop`](/docs/audio_2d/method/stop) does not fire this signal, the playback was interrupted rather than finished.
-  - Looped audio never finishes. See [`self:set_looped`](/docs/audio_2d/method/set_looped).
-  - The audio is still alive when the signal fires, so you can play it again, chain the next sound or call [`self:destroy`](/docs/audio_2d/method/destroy) on it for fire and forget sounds.
-  - Fires for both [`core.audio_2d`](/docs/audio_2d/create) and [`core.audio_3d`](/docs/audio_3d/create).
+  - **Natural end** — fires once the sound has played all the way through, after which [`self:is_playing`](/docs/audio_2d/method/is_playing) returns `false`.
+  - **Stopping** — calling [`self:stop`](/docs/audio_2d/method/stop) does not fire this signal, the playback was interrupted rather than finished.
+  - **Looped audio** — looped audio never finishes. See [`self:set_looped`](/docs/audio_2d/method/set_looped).
+  - **Still alive** — the audio is still alive when the signal fires, so you can play it again, chain the next sound or call [`self:destroy`](/docs/audio_2d/method/destroy) on it for fire and forget sounds.
+  - **Audio types** — fires for both [`core.audio_2d`](/docs/audio_2d/create) and [`core.audio_3d`](/docs/audio_3d/create).
 </Callout>
 
 ### Arguments

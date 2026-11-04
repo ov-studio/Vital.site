@@ -13,9 +13,9 @@ local status = self:emit()
 <Callout type="info">
   **Fires [`particle:emit`](/docs/event/signal/particle_emit) when emission actually starts.**
 
-  - Calling it on an emitter that is already emitting does nothing and fires no signal.
-  - Emitters start emitting as soon as they are created, so this is only needed after `self:stop` or once a one-shot cycle has finished.
-  - To clear the live particles and begin a fresh cycle, use [`self:restart`](/docs/gpu_particles/method/restart) instead.
+  - **Already emitting** — calling it on an emitter that is already emitting does nothing and fires no signal.
+  - **When needed** — emitters start emitting as soon as they are created, so this is only needed after `self:stop` or once a one-shot cycle has finished.
+  - **Fresh cycle** — to clear the live particles and begin a fresh cycle, use [`self:restart`](/docs/gpu_particles/method/restart) instead.
 </Callout>
 
 ### Parameters

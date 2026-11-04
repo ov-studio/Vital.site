@@ -75,8 +75,8 @@ bootstrap:
 <Callout type="warn">
   **All keys are optional.**
 
-  - Every key has a built-in default and can be omitted without error.
-  - An absent or malformed `config.yaml` is non-fatal — the server starts with defaults and logs a warning.
+  - **Defaults** — every key has a built-in default and can be omitted without error.
+  - **Missing config** — an absent or malformed `config.yaml` is non-fatal; the server starts with defaults and logs a warning.
 </Callout>
 
 ---
@@ -238,8 +238,8 @@ masterlist:
   **Treat `token` like an API key.**
 
   - **Do not commit a real token to a public repository** — anyone with it can impersonate your server on the master-list.
-  - Contact a staff member on our [Discord](https://discord.vital-sandbox.com/) to obtain a token.
-  - Set `enabled: false` to keep your server off the public listing entirely (e.g. private or LAN servers).
+  - **Getting a token** — contact a staff member on our [Discord](https://discord.vital-sandbox.com/) to obtain a token.
+  - **Private servers** — set `enabled: false` to keep your server off the public listing entirely (e.g. private or LAN servers).
   - **One token per server** — a server starting with a token already in use logs `masterlist token already in use` and is not listed. To move a token, stop the original server first or wait a few minutes for its listing to expire.
 </Callout>
 

@@ -19,7 +19,7 @@ local promise = self:alter(
   - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
 </Callout>
 
-<Callout type="warning">
+<Callout type="warn">
   **This operation executes immediately and cannot be rolled back.** Ensure data is migrated or backed up before modifying or dropping columns.
 
   - **Modifying a column type** — existing data will be cast to the new type. Non-castable values may be truncated or cause an error depending on MySQL's strict mode setting.

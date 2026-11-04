@@ -13,8 +13,8 @@ badge: client
 <Callout type="info">
   **This is the primary IPC channel between a webview page and Lua.**
 
-  - Messages are sent from the page via `window.ipc.postMessage(message)`.
-  - The message is a raw string — parse it as JSON if structured data is needed.
+  - **Sending** — messages are sent from the page via `window.ipc.postMessage(message)`.
+  - **Format** — the message is a raw string; parse it as JSON if structured data is needed.
 </Callout>
 
 ### Arguments

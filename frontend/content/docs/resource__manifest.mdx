@@ -43,15 +43,15 @@ Script and file paths declared in the manifest are resolved relative to this fol
 <Callout type="idea">
   **Restarting resource**
 
-  - Restarting reloads the manifest, then compares old vs. new script hashes, file hashes, and dependency lists, reporting exactly what was added, modified, or deleted before stopping and re-starting the resource.
-  - This makes it possible to see at a glance whether a restart picked up the change you expected.
+  - **Restart** — restarting reloads the manifest, then compares old vs. new script hashes, file hashes, and dependency lists, reporting exactly what was added, modified, or deleted before stopping and re-starting the resource.
+  - **Result** — this makes it possible to see at a glance whether a restart picked up the change you expected.
 </Callout>
 
 <Callout type="info">
   **Reconnecting / late-joining clients**
 
-  - On peer join, the server broadcasts the full asset manifest, then sends a `resource:start` packet for every currently running resource, in the order they were originally started.
-  - This lets a client that connects mid-session receive every active resource without a full server restart.
+  - **Peer join** — on peer join, the server broadcasts the full asset manifest, then sends a `resource:start` packet for every currently running resource, in the order they were originally started.
+  - **Late joiners** — this lets a client that connects mid-session receive every active resource without a full server restart.
 </Callout>
 
 ---
@@ -94,8 +94,8 @@ files:
 <Callout type="warn">
   **Only `scripts` is mandatory.**
 
-  - A manifest with no `scripts` key, or where `scripts` isn't a list, is rejected outright and the resource is skipped during scan.
-  - `name`, `author`, `version`, `files`, and `dependencies` are all optional.
+  - **Missing scripts** — a manifest with no `scripts` key, or where `scripts` isn't a list, is rejected outright and the resource is skipped during scan.
+  - **Optional keys** — `name`, `author`, `version`, `files`, and `dependencies` are all optional.
 </Callout>
 
 | Key | Type | Required | Default | Used in | Description |
@@ -127,9 +127,9 @@ scripts:
 <Callout type="warn">
   **Invalid or unmatched entries fail the whole manifest.**
 
-  - A script entry missing `src` or `type` is a hard error — the manifest fails to parse.
-  - `type` must be exactly `"shared"`, `"server"`, or `"client"` — anything else is rejected.
-  - A `src` pattern that matches zero files is rejected — there's no "optional" script.
+  - **Missing fields** — a script entry missing `src` or `type` is a hard error; the manifest fails to parse.
+  - **Type** — `type` must be exactly `"shared"`, `"server"`, or `"client"`; anything else is rejected.
+  - **No matches** — a `src` pattern that matches zero files is rejected; there's no "optional" script.
 </Callout>
 
 | Field | Type | Description |
@@ -147,8 +147,8 @@ Like scripts, each pattern is expanded on disk; a pattern matching nothing produ
 <Callout type="info">
   **Files are hashed at parse time**.
 
-  - Changes after every restart can be detected as per [Resource](#resource) section.
-  - Models declared under `files` are additionally auto-detected and loaded as part of resource startup.
+  - **Change detection** — changes after every restart can be detected as per [Resource](#resource) section.
+  - **Models** — models declared under `files` are additionally auto-detected and loaded as part of resource startup.
 </Callout>
 
 ```yaml

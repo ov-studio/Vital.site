@@ -16,8 +16,8 @@ local status = core.engine.disconnect_peer(
 <Callout type="warn">
   **The peer must be currently connected.**
 
-  - An error is raised if `peer_id` does not belong to a connected peer.
-  - The `reason` is clipped to 200 characters.
+  - **Invalid peer** — an error is raised if `peer_id` does not belong to a connected peer.
+  - **Reason** — the `reason` is clipped to 200 characters.
 </Callout>
 
 ### Parameters

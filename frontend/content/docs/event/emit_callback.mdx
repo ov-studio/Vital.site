@@ -40,9 +40,9 @@ local result = util.event.emit_callback(
 <Callout type="warn">
   **On the server, a client's remote event only reaches handlers registered with [`remote = true`](/docs/event/on#config).**
 
-  - Handlers without it are local-only and are skipped, so a client cannot trigger them.
-  - Handlers that do receive a client's event see variable [`client`](/docs/event/on#variable-client) set to the sender's peer id.
-  - Refer to the [Event Cheatsheet](/docs/event/cheatsheet/event).
+  - **Local-only handlers** — handlers without it are local-only and are skipped, so a client cannot trigger them.
+  - **Sender** — handlers that do receive a client's event see variable [`client`](/docs/event/on#variable-client) set to the sender's peer id.
+  - **Cheatsheet** — refer to the [Event Cheatsheet](/docs/event/cheatsheet/event).
 </Callout>
 
 ### Parameters
@@ -93,9 +93,9 @@ A handler that throws a Lua error never leaves the promise pending. The error me
 <Callout type="warn">
   **Server to client [`util.event.emit_callback`](/docs/event/emit_callback) requires a valid `peer`.**
 
-  - `peer` is **mandatory** when calling with `{ remote = true }` from the server — omitting it throws an error.
-  - `peer` should refer to a currently connected peer — a disconnected or invalid peer-id does not throw: a warning is logged and the returned promise is rejected immediately (`ok = false`).
-  - Broadcasting a callback to multiple clients is not supported — use [`util.event.emit`](/docs/event/emit) instead if you need to notify all peers without expecting a reply.
+  - **Mandatory peer** — `peer` is **mandatory** when calling with `{ remote = true }` from the server; omitting it throws an error.
+  - **Connected peer** — `peer` should refer to a currently connected peer; a disconnected or invalid peer-id does not throw: a warning is logged and the returned promise is rejected immediately (`ok = false`).
+  - **Broadcasting** — broadcasting a callback to multiple clients is not supported; use [`util.event.emit`](/docs/event/emit) instead if you need to notify all peers without expecting a reply.
 </Callout>
 
 | Type | Key | Default | Side | Description |

@@ -13,8 +13,8 @@ badge: shared
 <Callout type="info">
   **This hook runs at a fixed rate, independent of the render framerate.**
 
-  - Prefer this over [`sandbox:process`](/docs/event/signal/sandbox_process) for forces, velocities and any other physics-body updates.
-  - Do not make `core.engine.draw_*` calls here — use [`sandbox:draw`](/docs/event/signal/sandbox_draw) for all rendering.
+  - **Physics updates** — prefer this over [`sandbox:process`](/docs/event/signal/sandbox_process) for forces, velocities and any other physics-body updates.
+  - **Rendering** — do not make `core.engine.draw_*` calls here; use [`sandbox:draw`](/docs/event/signal/sandbox_draw) for all rendering.
 </Callout>
 
 ### Arguments
