@@ -1,0 +1,37 @@
+---
+title: self:is_component_wireframe
+description: Checks whether the debug wireframe of a component on the model is enabled
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_component_wireframe(
+    component
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Component path to check, as returned by `self:get_components` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the debug wireframe is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the debug wireframe of a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+core.engine.print("info", "Wireframe:", entity:is_component_wireframe("Skeleton3D/Body"))
+```
