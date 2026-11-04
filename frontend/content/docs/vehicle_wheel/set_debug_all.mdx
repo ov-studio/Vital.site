@@ -18,6 +18,8 @@ local status = physics.vehicle_wheel.set_debug_all(
   - **Ring** — cyan while the wheel has full grip, shifting toward red as it skids, and magenta while it is airborne. The yellow spoke marks wheel rotation.
   - **Suspension** — a white cross at the connection point, an orange ray down to the bottom of the wheel at rest, a blue bar for the suspension travel range, and a line to the wheel center that turns from green to red as the spring compresses.
   - **Contact** — a red cross at the contact point, with the surface normal drawn from it.
+  - **Overrides wheels** — every vehicle wheel is set to `state`.
+  - **Per wheel** — use [`self:set_debug_visible`](/docs/vehicle_wheel/method/set_debug_visible) to toggle individually.
 </Callout>
 
 ### Parameters
