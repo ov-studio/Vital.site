@@ -211,8 +211,8 @@
   .hcorner       { display: none;                           }
   .hero-sub-lead { margin-bottom: 8px !important;           }
   .hero-watermark-logo {
-    width: min(220vh, 220vw);
-    height: min(220vh, 220vw);
+    width: min(320vh, 320vw);
+    height: min(320vh, 320vw);
   }
 }
 
