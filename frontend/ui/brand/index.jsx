@@ -14,7 +14,6 @@ import './index.css';
  * @param {string} [props.href]  Wrap mark in a link when set
  * @param {boolean} [props.neon=false]  Neon glow treatment
  * @param {boolean} [props.flicker=false]  Horror-style flicker (neon)
- * @param {boolean} [props.rays=true]  Cone rays under logo (neon only)
  */
 export function Brand({
   name,
@@ -24,12 +23,10 @@ export function Brand({
   color,
   href,
   neon = false,
-  flicker = false,
-  rays = true
+  flicker = false
 }) {
   const color_style = color ? ({ '--brand-color': color }) : undefined;
   const [glitch, setGlitch] = react.useState(false);
-  const show_rays = neon && rays;
 
   react.useEffect(() => {
     if (!flicker) {
@@ -86,7 +83,6 @@ export function Brand({
 
   const logo = variant !== 'wordmark-only' && (
     <div className="brand_logo-wrapper">
-      {show_rays && <span className="brand_rays" aria-hidden/>}
       {neon ? (
         <img
           src="/logo/logo.svg"
@@ -116,7 +112,6 @@ export function Brand({
     `brand--${size}`,
     `brand--${variant}`,
     neon ? 'brand--neon' : '',
-    show_rays ? 'brand--rays' : '',
     flicker ? 'brand--flicker' : '',
     flicker && glitch ? 'is-glitch' : '',
     className,
