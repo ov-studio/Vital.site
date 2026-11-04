@@ -13,16 +13,17 @@ nav::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
+  border-bottom: 1px solid var(--bg6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   pointer-events: none;
-  transition: box-shadow 1.75s, background .4s, border-color .4s;
+  opacity: 0;
+  transition: opacity 0.4s ease, border-color 0.4s ease;
 }
 
 nav.s::after {
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg5);
-  border-color: var(--bg6);
-  backdrop-filter: blur(20px);
+  opacity: 1;
 }
 
 .ni {
