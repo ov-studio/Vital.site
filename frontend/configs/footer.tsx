@@ -8,7 +8,8 @@ export const Footer_Flags = [
   'NL', 
   'RU', 
   'GB', 
-  'IE'
+  'IE',
+  'CA'
 ];
 
 export const Footer = [
