@@ -6,9 +6,14 @@
 }
 
 .brand_logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   width: var(--brand-logo-size);
   height: var(--brand-logo-size);
+  isolation: isolate;
 }
 
 .brand_logo {
@@ -142,76 +147,12 @@
   opacity: 0.45;
 }
 
-.brand_logo-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-  overflow: visible;
-}
-
-.brand_logo,
-.brand_logo--neon {
-  position: relative;
-  z-index: 1;
-}
-
-.brand_rays {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 0;
-  width: calc(var(--brand-logo-size) * 32);
-  height: calc(var(--brand-logo-size) * 32);
-  transform: translate(-50%, -47.8%);
-  pointer-events: none;
-  background: conic-gradient(
-    from 0deg at 50% 50%,
-    var(--b15) 18deg,
-    var(--b07) 40deg,
-    var(--b05) 47deg,
-    transparent 72deg,
-    transparent 288deg,
-    var(--b05) 313deg,
-    var(--b07) 320deg,
-    var(--b15) 342deg
-  );
-
-  opacity: 0.5;
-  mix-blend-mode: soft-light;
-  transition: opacity 40ms linear;
-  mask-image: radial-gradient(
-    ellipse 48% 62% at 50% 50%,
-    transparent 0,
-    #000 2.5%,
-    #000 52%,
-    transparent 88%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 48% 62% at 50% 50%,
-    transparent 0,
-    #000 2.5%,
-    #000 52%,
-    transparent 88%
-  );
-}
-
-.brand.is-glitch .brand_rays {
-  opacity: 0.08;
-}
-
 .brand.is-glitch .brand_logo--neon {
   filter:
     brightness(0) saturate(100%)
     invert(72%) sepia(48%) saturate(400%) hue-rotate(190deg) brightness(70%) contrast(90%)
     drop-shadow(0 0 0 transparent);
   opacity: 0.35;
-}
-
-.brand--rays,
-.brand--rays .brand_logo-wrapper {
-  overflow: visible;
 }
 
 
