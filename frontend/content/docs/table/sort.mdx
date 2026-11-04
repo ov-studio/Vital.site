@@ -59,8 +59,8 @@ core.engine.print("info", util.table.concat(words, ", ")) -- 'a, hi, hello, worl
 
 ```lua lineNumbers title="Sort strings case-insensitively"
 local names = {"Bob", "alice", "Charlie", "david"}
-util.table.sort(names, function(a, b) 
-    return util.string.lower(a) < util.string.lower(b) 
+util.table.sort(names, function(a, b)
+    return util.string.lower(a) < util.string.lower(b)
 end)
 
 core.engine.print("info", util.table.concat(names, ", ")) -- 'alice, Bob, Charlie, david'

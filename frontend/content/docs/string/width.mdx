@@ -19,7 +19,7 @@ local width = util.string.width(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` \| `int` | input | String to measure, or a single codepoint |
-| `bool` | ambiguous_as_double | When true - East Asian "ambiguous width" characters count as double-width instead of single-width |
+| `bool` | ambiguous_as_double | Determines how East Asian "ambiguous width" characters are counted:<br/>• When `true` - they count as double-width<br/>• When `false` - they count as single-width |
 | `int` | default_width | Width to use for codepoints with no defined display width |
 
 ### Returns

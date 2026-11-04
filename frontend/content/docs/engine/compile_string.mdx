@@ -51,7 +51,7 @@ local code = "x = 1 + 1"
 local try_expr = "return "..code
 
 local exec = (
-    core.engine.compile_string(try_expr) and 
+    core.engine.compile_string(try_expr) and
     core.engine.load_string(try_expr, nil, false)
 ) or core.engine.load_string(code, nil, false)
 

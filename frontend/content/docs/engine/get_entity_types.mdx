@@ -74,7 +74,7 @@ end
 
 ```lua lineNumbers title="Registers a monitor for every entity category"
 for _, category in ipairs(core.engine.get_entity_types()) do
-    util.monitor.register(category .. "_count", util.string.upper(category) .. "_COUNT", function() 
+    util.monitor.register(category .. "_count", util.string.upper(category) .. "_COUNT", function()
         return #core.engine.get_entities(category)
     end, util.monitor.stat_format.QUANTITY)
 end

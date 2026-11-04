@@ -43,8 +43,8 @@ local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shad
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_material(
-        {0, 0}, 
-        core.display.get_resolution(), 
+        {0, 0},
+        core.display.get_resolution(),
         entity
     )
 end)

@@ -61,7 +61,7 @@ local promise = util.http.get(
 ```lua lineNumbers title="Send a basic GET request"
 util.thread.create(function(self)
     local ok, result = self:await(util.http.get("https://api.example.com/info"))
-    
+
     if ok then
         core.engine.print("info", "Response:", result)
     else

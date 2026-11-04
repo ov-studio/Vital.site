@@ -30,8 +30,8 @@ local status = self:set_physics_material(
 |------|------|-------------|
 | `float` | friction | Friction coefficient to apply |
 | `float` | bounce | Bounce (restitution) coefficient to apply |
-| `bool` | rough | Whether friction combining should favor the rougher surface |
-| `bool` | absorbent | Whether bounce combining should favor the less bouncy surface |
+| `bool` | rough | Determines the friction combining behavior:<br/>• When `true` - friction combining favors the rougher surface<br/>• When `false` - friction combining does not favor the rougher surface |
+| `bool` | absorbent | Determines the bounce combining behavior:<br/>• When `true` - bounce combining favors the less bouncy surface<br/>• When `false` - bounce combining does not favor the less bouncy surface |
 
 ### Returns
 

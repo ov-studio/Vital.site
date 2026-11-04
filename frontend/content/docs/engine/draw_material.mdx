@@ -8,11 +8,11 @@ badge: client
 
 ```lua
 local status = core.engine.draw_material(
-    position, 
-    size, 
-    material, 
-    rotation = 0, 
-    pivot = {0, 0}, 
+    position,
+    size,
+    material,
+    rotation = 0,
+    pivot = {0, 0},
     color = {1, 1, 1, 1}
 )
 ```
@@ -151,8 +151,8 @@ local entity = core.shader.create("assets/shaders/ripple.glsl", core.shader.shad
 
 util.event.on("sandbox:draw", function()
     core.engine.draw_material(
-        {0, 0}, 
-        core.display.get_resolution(), 
+        {0, 0},
+        core.display.get_resolution(),
         entity
     )
 end)

@@ -29,13 +29,13 @@ local status = self:set_focussed(
 ### Examples
 
 ```lua lineNumbers title="Focus a webview and let it take over input forwarding"
-local hud = core.webview.create({ 
+local hud = core.webview.create({
     forward_input = true
 })
 
-local phone = core.webview.create({ 
+local phone = core.webview.create({
     forward_input = false
-    
+
 })
 
 hud:set_visible(true)

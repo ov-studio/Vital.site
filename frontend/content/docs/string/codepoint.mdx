@@ -22,7 +22,7 @@ local ... = util.string.codepoint(
 | `string` | input | String to read codepoints from |
 | `int` | start_at | Byte position to begin from - must be the start of a character - negative counts from end |
 | `int` | end_at | Byte position to end at (inclusive) - negative counts from end |
-| `bool` | lax | When true - skips validation and decodes even malformed sequences |
+| `bool` | lax | Determines whether validation is skipped:<br/>• When `true` - validation is skipped and even malformed sequences are decoded<br/>• When `false` - validation is performed |
 
 ### Returns
 

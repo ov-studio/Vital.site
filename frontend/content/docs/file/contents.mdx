@@ -26,7 +26,7 @@ local contents = util.file.contents(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | path | Directory path to check for contents |
-| `bool` | directory_search | Indicates whether to search only for directories, ignoring files |
+| `bool` | directory_search | Determines the search scope:<br/>• When `true` - only directories are searched, ignoring files<br/>• When `false` - files are included as well |
 
 ### Returns
 

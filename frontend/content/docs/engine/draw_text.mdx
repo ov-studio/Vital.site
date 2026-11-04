@@ -8,19 +8,19 @@ badge: client
 
 ```lua
 local status = core.engine.draw_text(
-    text, 
-    start_at, 
-    end_at, 
-    font, 
-    font_size, 
-    color = {1, 1, 1, 1}, 
+    text,
+    start_at,
+    end_at,
+    font,
+    font_size,
+    color = {1, 1, 1, 1},
     horizontal_alignment = core.engine.horizontal_alignment.LEFT,
     vertical_alignment = core.engine.vertical_alignment.TOP,
-    clip = false, 
-    wordwrap = false, 
-    stroke = 0, 
-    stroke_color = {1, 1, 1, 1}, 
-    rotation = 0, 
+    clip = false,
+    wordwrap = false,
+    stroke = 0,
+    stroke_color = {1, 1, 1, 1},
+    rotation = 0,
     pivot = {0, 0}
 )
 ```
@@ -45,8 +45,8 @@ local status = core.engine.draw_text(
 | `color` | color | Color of the text |
 | [`core.engine.horizontal_alignment`](/docs/engine/enum/horizontal_alignment) | horizontal_alignment | Horizontal alignment of the text within the bounding box |
 | [`core.engine.vertical_alignment`](/docs/engine/enum/vertical_alignment) | vertical_alignment | Vertical alignment of the text within the bounding box |
-| `bool` | clip | When `true`, text is clipped to the bounding box |
-| `bool` | wordwrap | When `true`, text wraps at the bounding box width |
+| `bool` | clip | Determines whether text is clipped:<br/>• When `true` - text is clipped to the bounding box<br/>• When `false` - text is not clipped |
+| `bool` | wordwrap | Determines whether text wraps:<br/>• When `true` - text wraps at the bounding box width<br/>• When `false` - text does not wrap |
 | `int` | stroke | Outline thickness in pixels<br/>Set to `0` to disable |
 | `color` | stroke_color | Color of the text outline |
 | `float` | rotation | Rotation angle in degrees |
