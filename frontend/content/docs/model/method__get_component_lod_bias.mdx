@@ -1,0 +1,37 @@
+---
+title: self:get_component_lod_bias
+description: Retrieves the LOD bias of a component on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local result = self:get_component_lod_bias(
+    component
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to query |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current LOD bias of the component |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the LOD bias of a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+core.engine.print("info", "LOD bias:", entity:get_component_lod_bias("Skeleton3D/Body"))
+```
