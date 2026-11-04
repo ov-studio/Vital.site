@@ -308,7 +308,6 @@ export function Studio() {
 
     const prev = {
       neon: logoNeon,
-      rays: logoRays,
       bg: logoBg,
       pad: logoPad,
       square: logoSquare,
@@ -326,40 +325,29 @@ export function Studio() {
     type LogoPreset = {
       path:   string;
       neon:   boolean;
-      rays:   boolean;
       bg:     boolean;
       square: boolean;
       round:  boolean;
     };
 
     const presets: LogoPreset[] = [
-      { path: 'transparent.png',                      neon: false, rays: false, bg: false, square: false, round: false },
-      { path: 'background.png',                       neon: false, rays: false, bg: true,  square: false, round: false },
-      { path: 'neon_transparent.png',                 neon: true,  rays: false, bg: false, square: false, round: false },
-      { path: 'neon_rays_transparent.png',            neon: true,  rays: true,  bg: false, square: false, round: false },
-      { path: 'neon_background.png',                  neon: true,  rays: false, bg: true,  square: false, round: false },
-      { path: 'neon_rays_background.png',             neon: true,  rays: true,  bg: true,  square: false, round: false },
-
-      { path: 'background_round.png',                 neon: false, rays: false, bg: true,  square: false, round: true  },
-      { path: 'neon_background_round.png',            neon: true,  rays: false, bg: true,  square: false, round: true  },
-      { path: 'neon_rays_background_round.png',       neon: true,  rays: true,  bg: true,  square: false, round: true  },
-
-      { path: 'transparent_square.png',               neon: false, rays: false, bg: false, square: true,  round: false },
-      { path: 'background_square.png',                neon: false, rays: false, bg: true,  square: true,  round: false },
-      { path: 'neon_transparent_square.png',          neon: true,  rays: false, bg: false, square: true,  round: false },
-      { path: 'neon_rays_transparent_square.png',     neon: true,  rays: true,  bg: false, square: true,  round: false },
-      { path: 'neon_background_square.png',           neon: true,  rays: false, bg: true,  square: true,  round: false },
-      { path: 'neon_rays_background_square.png',      neon: true,  rays: true,  bg: true,  square: true,  round: false },
-
-      { path: 'background_square_round.png',          neon: false, rays: false, bg: true,  square: true,  round: true  },
-      { path: 'neon_background_square_round.png',     neon: true,  rays: false, bg: true,  square: true,  round: true  },
-      { path: 'neon_rays_background_square_round.png', neon: true, rays: true,  bg: true,  square: true,  round: true  },
+      { path: 'transparent.png',                  neon: false, bg: false, square: false, round: false },
+      { path: 'background.png',                   neon: false, bg: true,  square: false, round: false },
+      { path: 'neon_transparent.png',             neon: true,  bg: false, square: false, round: false },
+      { path: 'neon_background.png',              neon: true,  bg: true,  square: false, round: false },
+      { path: 'background_round.png',             neon: false, bg: true,  square: false, round: true  },
+      { path: 'neon_background_round.png',        neon: true,  bg: true,  square: false, round: true  },
+      { path: 'transparent_square.png',           neon: false, bg: false, square: true,  round: false },
+      { path: 'background_square.png',            neon: false, bg: true,  square: true,  round: false },
+      { path: 'neon_transparent_square.png',      neon: true,  bg: false, square: true,  round: false },
+      { path: 'neon_background_square.png',       neon: true,  bg: true,  square: true,  round: false },
+      { path: 'background_square_round.png',      neon: false, bg: true,  square: true,  round: true  },
+      { path: 'neon_background_square_round.png', neon: true,  bg: true,  square: true,  round: true  },
     ];
 
     try {
       for (const p of presets) {
         setLogoNeon(p.neon);
-        setLogoRays(p.rays);
         setLogoBg(p.bg);
         setLogoPad(false);
         setLogoSquare(p.square);
@@ -384,7 +372,6 @@ export function Studio() {
     } 
     finally {
       setLogoNeon(prev.neon);
-      setLogoRays(prev.rays);
       setLogoBg(prev.bg);
       setLogoPad(prev.pad);
       setLogoSquare(prev.square);
@@ -521,7 +508,7 @@ export function Studio() {
                 style={{ width: OG_W, height: OG_H }}
               >
                 <div className="studio-og-content">
-                  <ui_brand.Brand size="xl" variant="logo-only" neon={true} rays={false}/>
+                  <ui_brand.Brand size="xl" variant="logo-only" neon={true}/>
                   {(tagline.trim() || ogPlaceholder) && (
                     <div
                       className={`studio-og-tagline${
@@ -551,7 +538,6 @@ export function Studio() {
             <div className="studio-controls">
               <div className="studio-controls-row">
                 <ui_checkbox.Checkbox label="Neon" checked={logoNeon} onChange={setLogoNeon}/>
-                <ui_checkbox.Checkbox label="Rays" checked={logoRays} disabled={!logoNeon} onChange={setLogoRays}/>
                 <ui_checkbox.Checkbox label="Background" checked={logoBg} onChange={setLogoBg}/>
               </div>
               <div className="studio-controls-row">
@@ -609,7 +595,6 @@ export function Studio() {
                   size="xxl"
                   variant="logo-only"
                   neon={logoNeon}
-                  rays={logoNeon && logoRays}
                 />
               </div>
               </div>
@@ -658,7 +643,7 @@ export function Studio() {
                   ].filter(Boolean).join(' ')}
                   style={{ width: APP_SIZE, height: APP_SIZE }}
                 >
-                  <ui_brand.Brand size="xxl" variant="logo-only" neon={true} rays={false}/>
+                  <ui_brand.Brand size="xxl" variant="logo-only" neon={true}/>
                 </div>
               </div>
             </div>
