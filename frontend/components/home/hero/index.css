@@ -27,12 +27,13 @@
   max-width: none;
   max-height: none;
   object-fit: contain;
-  opacity: 0.012;
+  opacity: 0;
   filter:
     brightness(0) saturate(100%)
     invert(62%) sepia(48%) saturate(900%) hue-rotate(190deg) brightness(105%) contrast(105%);
-  transform: translateY(2%) scale(1.08);
+  transform: translateY(6%) scale(1.18);
   will-change: transform, opacity;
+  animation: watermark-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
 }
 
 .hcorner {
@@ -173,10 +174,26 @@
   50%      { transform: rotate(18deg) scale(1.12); opacity: 1;   }
 }
 
+@keyframes watermark-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(6%) scale(1.18);
+  }
+  100% {
+    opacity: 0.012;
+    transform: translateY(2%) scale(1.08);
+  }
+}
+
 
 /* ── @media ── */
 @media (prefers-reduced-motion: reduce) {
   .hero-stat-icon { animation: none !important; }
+  .hero-watermark-logo {
+    animation: none !important;
+    opacity: 0.015;
+    transform: translateY(2%) scale(1.08);
+  }
 }
 
 @media (max-width: 960px) {
