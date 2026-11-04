@@ -14,11 +14,11 @@ local status = self:set_component_wireframe(
 ```
 
 <Callout type="info">
-  **The wireframe follows the LOD that is currently drawn.**
+  **The wireframe follows the mesh that is currently drawn.**
 
-  - **Level of detail** — the lines show the triangles of the active LOD, so you can watch a component thin out as the camera moves away, or as [`self:set_component_lod_bias`](/docs/model/method/set_component_lod_bias) changes.
+  - **Respects LOD** — draws whatever is currently visible, full detail or a lower LOD.
   - **Rigged components** — skinned components are supported.
-  - **Local only** — this is a debug view on this client, it is never replicated to other peers.
+  - **Local only** — a debug view on this client, never replicated to other peers.
 </Callout>
 
 ### Parameters

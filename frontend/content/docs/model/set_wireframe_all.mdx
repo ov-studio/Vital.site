@@ -13,11 +13,12 @@ local status = core.model.set_wireframe_all(
 ```
 
 <Callout type="info">
-  **The wireframe follows the LOD that is currently drawn.**
+  **The wireframe follows the mesh that is currently drawn.**
 
-  - **Level of detail** — the lines show the triangles of the active LOD, so you can watch a model thin out as the camera moves away, or as [`self:set_component_lod_bias`](/docs/model/method/set_component_lod_bias) changes.
-  - **Local only** — this is a debug view on this client, it is never replicated to other peers.
-  - **Overrides per-component choices** — every component of every model is set to `state`, refer [`self:set_component_wireframe`](/docs/model/method/set_component_wireframe) to toggle individual components.
+  - **Respects LOD** — draws whatever is currently visible, full detail or a lower LOD.
+  - **Local only** — a debug view on this client, never replicated to other peers.
+  - **Overrides components** — every component of every model is set to `state`.
+  - **Per component** — use [`self:set_component_wireframe`](/docs/model/method/set_component_wireframe) to toggle individually.
 </Callout>
 
 ### Parameters
