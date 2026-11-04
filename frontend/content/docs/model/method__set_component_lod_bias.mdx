@@ -1,0 +1,56 @@
+---
+title: self:set_component_lod_bias
+description: Sets the LOD bias of one or more components on the model
+badge: shared
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_lod_bias(
+    component,
+    bias
+)
+```
+
+<Callout type="info">
+  **LODs are generated automatically when a model loads, the bias only decides how early each one is used.**
+
+  - **`0`** — always uses the lowest LOD.
+  - **`1`** — the default.
+  - **Higher than `1`** — keeps more detail at a greater distance.
+  - **Local only** — a render setting on this client, it is never replicated to other peers.
+  - **Global threshold** — multiplies with `core.display.set_lod_threshold`, so the effective detail is roughly `bias / threshold`.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to update<br/>Supports `*` as a wildcard to match multiple components by pattern |
+| `float` | bias | LOD bias to apply, negative values are clamped to `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the LOD bias of various components on a model"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+-- Keep the body detailed for longer
+entity:set_component_lod_bias("Skeleton3D/Body", 2)
+
+-- Force every component to its lowest LOD
+entity:set_component_lod_bias("*", 0)
+
+-- Restore the default on all wheels using a wildcard
+entity:set_component_lod_bias("*Wheel_*", 1)
+```

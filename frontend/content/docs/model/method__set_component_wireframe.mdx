@@ -1,0 +1,54 @@
+---
+title: self:set_component_wireframe
+description: Shows or hides the debug wireframe of one or more components on the model
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_component_wireframe(
+    component,
+    state
+)
+```
+
+<Callout type="info">
+  **The wireframe follows the LOD that is currently drawn.**
+
+  - **Level of detail** — the lines show the triangles of the active LOD, so you can watch a component thin out as the camera moves away, or as [`self:set_component_lod_bias`](/docs/model/method/set_component_lod_bias) changes.
+  - **Rigged components** — skinned components are supported.
+  - **Local only** — this is a debug view on this client, it is never replicated to other peers.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | component | Path of the component to update<br/>Supports `*` as a wildcard to match multiple components by pattern |
+| `bool` | state | `true` to show the wireframe, `false` to hide it |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Show the debug wireframe on a component"
+core.model.load("character", "models/character.glb")
+
+local entity = core.model.create("character")
+
+entity:set_component_wireframe("Skeleton3D/Body", true)
+```
+
+```lua lineNumbers title="Check how a component reduces at its lowest LOD"
+local entity = core.model.create("character")
+
+entity:set_component_wireframe("*", true)
+entity:set_component_lod_bias("*", 0)
+```
