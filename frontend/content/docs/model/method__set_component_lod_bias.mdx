@@ -14,13 +14,12 @@ local status = self:set_component_lod_bias(
 ```
 
 <Callout type="info">
-  **LODs are generated automatically when a model loads, the bias only decides how early each one is used.**
+  **LODs are generated on load, the bias only sets how early each is used.**
 
-  - **`0`** — always uses the lowest LOD.
-  - **`1`** — the default.
-  - **Higher than `1`** — keeps more detail at a greater distance.
-  - **Local only** — a render setting on this client, it is never replicated to other peers.
-  - **Global threshold** — multiplies with `core.display.set_lod_threshold`, so the effective detail is roughly `bias / threshold`.
+  - **Values** — `0` always uses the lowest LOD, `1` is the default.
+  - **Higher values** — keep more detail at a greater distance.
+  - **Local only** — a render setting on this client, never replicated to other peers.
+  - **Threshold** — effective detail is `bias / core.display.set_lod_threshold`.
 </Callout>
 
 ### Parameters
