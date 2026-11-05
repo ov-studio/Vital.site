@@ -42,7 +42,7 @@ local result = util.event.emit_callback(
 
   - **Local-only handlers** — handlers without it are local-only and are skipped, so a client cannot trigger them.
   - **Sender** — handlers that do receive a client's event see variable [`client`](/docs/event/on#variable-client) set to the sender's peer id.
-  - **Cheatsheet** — refer to the [Event Cheatsheet](/docs/event/cheatsheet/event).
+  - **Cheatsheet** — see the [Event Cheatsheet](/docs/event/cheatsheet/event).
 </Callout>
 
 ### Parameters
@@ -50,7 +50,7 @@ local result = util.event.emit_callback(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name of the event to fire |
-| `table` | options | Routing options table<br/>Refer [Options](#options) section |
+| `table` | options | Routing options table<br/>See the [Options](#options) section |
 | `any` | ... | Arguments forwarded to every handler |
 
 ### Returns

@@ -16,7 +16,7 @@ local status = self:set_lock_rotation_enabled(
   **Replicated entities can only be modified by the server or the client that owns them.**
 
   - **On the server** — always allowed, and the change is replicated to every peer.
-  - **On the owning client** — allowed on entities it is the syncer of, refer [`self:get_syncer`](/docs/rigid_body/method/get_syncer).
+  - **On the owning client** — allowed on entities it is the syncer of, see [`self:get_syncer`](/docs/rigid_body/method/get_syncer).
   - **On any other client** — raises an error on server-owned or other clients' entities.
   - **Client-local entities** — entities that are not replicated are unrestricted.
 </Callout>

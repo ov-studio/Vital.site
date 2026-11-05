@@ -27,7 +27,7 @@ local status = util.event.on(
   - **Local-only (default)** — the handler fires for events emitted on the server itself. An event sent by a client never reaches it.
   - **`remote = true`** — the handler can also be triggered by clients. Inside it, variable [`client`](#variable-client) holds the caller's peer id.
   - **Built-in signals** — handlers for signals such as [`peer:join`](/docs/event/signal__peer_join) are local-only too, unless you set `remote = true`.
-  - **Cheatsheet** — refer to the [Event Cheatsheet](/docs/event/cheatsheet/event) for patterns.
+  - **Cheatsheet** — see the [Event Cheatsheet](/docs/event/cheatsheet/event) for patterns.
 </Callout>
 
 ### Parameters
@@ -36,7 +36,7 @@ local status = util.event.on(
 |------|------|-------------|
 | `string` | name | Name of the event to subscribe to |
 | `function` | exec | Handler function to invoke when the event fires |
-| `table` | config | Configuration table<br/>Refer [Config](#config) section |
+| `table` | config | Configuration table<br/>See the [Config](#config) section |
 
 ### Returns
 
