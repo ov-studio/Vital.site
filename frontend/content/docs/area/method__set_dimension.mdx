@@ -18,7 +18,7 @@ local status = self:set_dimension(
   - **Rendering** — the client only shows entities that match the dimension of its active camera.
   - **Physics** — bodies and areas only collide with, trigger, and get hit by queries of the same dimension.
   - **Hierarchy** — the dimension applies to the entity and all of its children.
-  - **Attached** — an entity parented to another entity always follows its parent's dimension and cannot set its own, the call raises an error. Detaching it keeps the dimension it had.
+  - **Attached** — a parented entity follows its parent's dimension, so setting its own raises an error.
 </Callout>
 
 ### Parameters

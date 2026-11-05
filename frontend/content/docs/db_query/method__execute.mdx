@@ -14,8 +14,8 @@ local promise = self:execute()
   **This function returns a promise and starts processing the query.**
 
   - **Result** — use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
-  - **Inside a thread** — `self:await(db_query:execute())` yields until the operation completes, then returns the resolved values.
-  - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
+  - **Inside a thread** — `self:await(db_query:execute())` waits for completion and returns the resolved values.
+  - **Outside a thread** — the promise is still created, but must be awaited from a thread.
 </Callout>
 
 ### Parameters

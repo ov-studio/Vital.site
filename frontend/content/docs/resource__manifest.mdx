@@ -43,15 +43,15 @@ Script and file paths declared in the manifest are resolved relative to this fol
 <Callout type="idea">
   **Restarting a resource reloads its manifest.**
 
-  - **Restart** — restarting reloads the manifest, then compares old vs. new script hashes, file hashes, and dependency lists, reporting exactly what was added, modified, or deleted before stopping and re-starting the resource.
+  - **Restart** — restarting reloads the manifest and reports what changed in scripts, files and dependencies.
   - **Result** — this makes it possible to see at a glance whether a restart picked up the change you expected.
 </Callout>
 
 <Callout type="info">
   **Reconnecting and late-joining clients receive every running resource.**
 
-  - **Peer join** — on peer join, the server broadcasts the full asset manifest, then sends a `resource:start` packet for every currently running resource, in the order they were originally started.
-  - **Late joiners** — this lets a client that connects mid-session receive every active resource without a full server restart.
+  - **Peer join** — the server broadcasts the asset manifest, then `resource:start` for each running resource in order.
+  - **Late joiners** — a client that connects mid-session still receives every active resource.
 </Callout>
 
 ---
@@ -94,7 +94,7 @@ files:
 <Callout type="warn">
   **Only `scripts` is mandatory.**
 
-  - **Missing scripts** — a manifest with no `scripts` key, or where `scripts` isn't a list, is rejected outright and the resource is skipped during scan.
+  - **Missing scripts** — a manifest without a `scripts` list is rejected and the resource is skipped during scan.
   - **Optional keys** — `name`, `author`, `version`, `files`, and `dependencies` are all optional.
 </Callout>
 

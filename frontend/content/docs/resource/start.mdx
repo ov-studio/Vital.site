@@ -17,7 +17,7 @@ local result = util.resource.start(
 
   - **Already running** — returns `false` if the resource is already running.
   - **Not loaded** — returns `false` if the resource has not been loaded.
-  - **Async** — the start is enqueued and executes on the next main thread tick; the resource will not be running immediately after this call returns.
+  - **Async** — the start is enqueued for the next main thread tick, the resource is not running yet when this returns.
 </Callout>
 
 ### Parameters

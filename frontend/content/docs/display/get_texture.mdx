@@ -16,7 +16,7 @@ local result = core.display.get_texture(
   **The live viewport cannot be sampled while it is being rendered.**
 
   - **Live viewport** — `last_frame = false` references the main viewport directly.
-  - **Previous frame** — `last_frame = true` references a copy of the last rendered frame; use it as a shader input such as in `self:set_param`.
+  - **Previous frame** — `last_frame = true` references a copy of the last rendered frame, usable in `self:set_param`.
 </Callout>
 
 ### Parameters

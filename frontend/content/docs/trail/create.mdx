@@ -13,10 +13,10 @@ local instance = particle.trail.create()
 <Callout type="info">
   **A trail draws the path it travels.**
 
-  - **Follows its position** — move it every frame, for example onto a bone with `model:get_bone_position`, and the trail draws the path it travelled.
+  - **Follows its position** — move it every frame, e.g. onto a bone, and the trail draws the path it travelled.
   - **Fades out** — the trail is full width and color at its start, then thins out and fades towards its end, see [`self:set_lifetime`](/docs/trail/method/set_lifetime), [`self:set_width`](/docs/trail/method/set_width) and [`self:set_color`](/docs/trail/method/set_color).
   - **At rest** — while the trail stands still it shrinks away on its own.
-  - **Not a particle emitter** — the trail is a mesh built from the path it travels, so it needs no emission, amount or velocity settings.
+  - **Not a particle emitter** — a mesh built from its path, so it needs no emission, amount or velocity settings.
 </Callout>
 
 ### Parameters

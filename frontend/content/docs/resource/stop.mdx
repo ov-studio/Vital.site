@@ -17,7 +17,7 @@ local result = util.resource.stop(
 
   - **Not running** — returns `false` if the resource is not currently running.
   - **Cleanup** — stopping a resource cleans up all its entities, threads, promises, timers, events, and exports automatically.
-  - **Async** — the stop is enqueued and executes on the next main thread tick; the resource will not be stopped immediately after this call returns.
+  - **Async** — the stop is enqueued for the next main thread tick, the resource is not stopped yet when this returns.
 </Callout>
 
 ### Parameters

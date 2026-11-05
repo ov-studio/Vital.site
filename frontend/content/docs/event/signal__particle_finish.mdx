@@ -15,7 +15,7 @@ badge: client
 
   - **One-shot cycle** — fires after [`self:burst`](/docs/gpu_particles/method/burst) or any emission cycle with [`self:set_one_shot`](/docs/gpu_particles/method/set_one_shot) enabled, once every particle has died.
   - **Continuous emitters** — continuous emitters keep spawning particles, so they never fire this signal.
-  - **Still alive** — the emitter is still alive when the signal fires; chain the next effect from here, then call [`self:destroy`](/docs/gpu_particles/method/destroy) on it for fire and forget effects.
+  - **Still alive** — the emitter is still alive when it fires, so chain the next effect or [`self:destroy`](/docs/gpu_particles/method/destroy) it.
 </Callout>
 
 ### Arguments

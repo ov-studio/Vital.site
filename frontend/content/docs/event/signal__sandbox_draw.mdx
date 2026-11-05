@@ -15,7 +15,7 @@ badge: client
 
   - **Frequency** — this fires per render frame, not per tick; it may run less frequently under low FPS.
   - **State** — do not mutate simulation state here; read state updated in [`sandbox:process`](/docs/event/signal/sandbox_process) and draw from it.
-  - **UI only** — for pure UI and panels where the only logic is layout, doing everything inside `sandbox:draw` is fine and keeps code in one place.
+  - **UI only** — for pure UI and panels, doing everything inside `sandbox:draw` is fine and keeps code in one place.
 </Callout>
 
 ### Arguments

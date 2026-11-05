@@ -15,8 +15,8 @@ local status = physics.collision_shape.set_debug_all(
 <Callout type="info">
   **Wireframe color shows whether the shape is replicated.**
 
-  - **Replicated** — orange wireframe, the shape sits on an entity that is synced from the server, so it exists for every player.
-  - **Not replicated** — green wireframe, the shape sits on a local entity created by a client-side script and is only present on this client.
+  - **Replicated** — orange wireframe, the shape is on a server-synced entity, so it exists for every player.
+  - **Not replicated** — green wireframe, the shape is on a client-side local entity and only exists on this client.
   - **Overrides shapes** — every collision shape is set to `state`.
   - **Per shape** — use [`self:set_debug_visible`](/docs/collision_shape/method/set_debug_visible) to toggle individually.
 </Callout>

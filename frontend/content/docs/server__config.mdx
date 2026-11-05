@@ -99,8 +99,8 @@ server:
   **Tags are picked from a fixed list.**
 
   - **Up to 5 tags** — extras are dropped.
-  - **Valid values only** — choose from the list in the table below; anything else is ignored and the server logs a warning on its next master-list heartbeat.
-  - **Used for filtering** — players filter the in-game server browser by these tags, so pick the ones that describe your server best.
+  - **Valid values only** — choose from the table below, anything else is ignored and logged as a warning.
+  - **Used for filtering** — players filter the server browser by these tags, so pick the ones that fit best.
 </Callout>
 
 | Key | Type | Default | Description |
@@ -155,7 +155,7 @@ network:
   **Join rate limit protects against reconnect spam.**
 
   - **Counted per IP** — at most `auth_rate_max` connections from the same address may authenticate within `auth_rate_window` seconds; extra attempts are rejected.
-  - **Why it exists** — every successful join makes the server send the full world state, so rapid reconnects would otherwise be expensive.
+  - **Why it exists** — every successful join sends the full world state, so rapid reconnects are expensive.
   - **Shared addresses** — raise `auth_rate_max` if many players join from one IP (LAN parties, NAT, cafés).
   - **Window length** — a short `auth_rate_window` is forgiving, a long one is stricter.
   - **Disabling** — set `auth_rate_max: 0` to turn the limit off; `auth_rate_window` is then ignored.
@@ -239,7 +239,7 @@ masterlist:
 
   - **Do not commit a real token to a public repository** — anyone with it can impersonate your server on the master-list.
   - **Getting a token** — contact a staff member on our [Discord](https://discord.vital-sandbox.com/) to obtain a token.
-  - **Private servers** — set `enabled: false` to keep your server off the public listing entirely (e.g. private or LAN servers).
+  - **Private servers** — set `enabled: false` to keep your server off the public listing, e.g. private or LAN servers.
   - **One token per server** — a server starting with a token already in use logs `masterlist token already in use` and is not listed. To move a token, stop the original server first or wait a few minutes for its listing to expire.
 </Callout>
 

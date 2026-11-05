@@ -15,8 +15,8 @@ local status = gfx.antialiasing.set_scaling_3d_scale(
 <Callout type="idea">
   **Supersampling antialiases what MSAA cannot reach.**
 
-  - **How it works** — The 3D scene, including post-process shaders that read the screen, depth and normal buffers, is rendered at `scale` times the window size and then filtered down to it.
-  - **Above `1.0`** — Antialiases shader-drawn output such as depth-based outlines, which MSAA and FXAA cannot smooth properly.
+  - **How it works** — the 3D scene, post-process shaders included, is rendered at `scale` times the window size.
+  - **Above `1.0`** — antialiases shader-drawn output like depth-based outlines that MSAA and FXAA cannot smooth.
   - **Below `1.0`** — Renders fewer pixels and upscales the result, trading image quality for performance.
   - **Cost** — GPU cost grows with the square of the scale, so `2.0` renders four times as many pixels.
 </Callout>

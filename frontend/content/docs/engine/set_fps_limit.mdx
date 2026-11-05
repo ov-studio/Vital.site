@@ -15,8 +15,8 @@ local status = core.engine.set_fps_limit(
 <Callout type="info">
   **Behaviour depends on where it is called.**
 
-  - **Server** — sets the FPS limit for every connected client. It applies instantly to all connected clients when changed at runtime, and to any client that joins later.
-  - **Client** — sets the local FPS limit, which can never exceed the server's limit. The lower of the two always applies.
+  - **Server** — sets the FPS limit for every client, applied instantly at runtime and to clients that join later.
+  - **Client** — sets the local FPS limit, which never exceeds the server's limit.
   - **No limit** — `0` removes the limit and is the default on both sides.
 </Callout>
 

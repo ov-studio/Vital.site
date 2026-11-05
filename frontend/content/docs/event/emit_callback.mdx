@@ -96,7 +96,7 @@ A handler that throws a Lua error never leaves the promise pending. The error me
 
   - **Mandatory peer** — `peer` is **mandatory** when calling with `{ remote = true }` from the server; omitting it throws an error.
   - **Connected peer** — `peer` should refer to a currently connected peer; a disconnected or invalid peer-id does not throw: a warning is logged and the returned promise is rejected immediately (`ok = false`).
-  - **Broadcasting** — broadcasting a callback to multiple clients is not supported; use [`util.event.emit`](/docs/event/emit) instead if you need to notify all peers without expecting a reply.
+  - **Broadcasting** — broadcasting a callback is not supported, use [`util.event.emit`](/docs/event/emit) to notify all peers without a reply.
 </Callout>
 
 | Type | Key | Default | Side | Description |

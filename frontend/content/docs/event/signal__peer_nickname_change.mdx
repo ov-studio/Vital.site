@@ -14,8 +14,8 @@ badge: client
   **This signal is only fired on the client.**
 
   - **Arguments** — both arguments are the effective username, an empty nickname resolves to the operating system username.
-  - **Unchanged name** — it is not fired when the resulting username stays the same, for example when only surrounding whitespace changes.
-  - **Initial value** — it is not fired for the nickname loaded from the saved settings when the client starts, use [`core.engine.get_nickname`](/docs/engine/get_nickname) to read the initial value.
+  - **Unchanged name** — it is not fired when the resulting username stays the same, e.g. when only whitespace changes.
+  - **Initial value** — it is not fired for the nickname loaded at client start, use [`core.engine.get_nickname`](/docs/engine/get_nickname) to read it.
 </Callout>
 
 ### Arguments

@@ -15,8 +15,8 @@ local status = self:set_dimension(
 <Callout type="idea">
   **Audio is only heard from the dimension it is in.**
 
-  - **Hearing** — the client mutes the instance while its active camera is in a different dimension. Playback keeps running while muted, so the timeline stays in sync.
-  - **Attached** — an instance parented to another entity always follows its parent's dimension and cannot set its own, the call raises an error. Detaching it keeps the dimension it had.
+  - **Hearing** — the client mutes it while its active camera is in another dimension, playback keeps running.
+  - **Attached** — a parented instance follows its parent's dimension, so setting its own raises an error.
 </Callout>
 
 ### Parameters
