@@ -13,10 +13,11 @@ local iterator = util.string.codes(
 )
 ```
 
-<Callout type="warn">
-    **This function's iterator returns byte positions not character positions.**
+<Callout type="info">
+  **This function's iterator returns byte positions, not character positions.**
 
-    Passing those positions into [`util.string.sub`](/docs/string/sub) or [`util.string.byte`](/docs/string/byte) - which now index by character will give incorrect results except by coincidence on pure-ASCII input.
+  - **Affected functions** — passing those positions into [`util.string.sub`](/docs/string/sub) or [`util.string.byte`](/docs/string/byte), which now index by character, gives incorrect results.
+  - **Exception** — it only works by coincidence on pure-ASCII input.
 </Callout>
 
 ### Parameters

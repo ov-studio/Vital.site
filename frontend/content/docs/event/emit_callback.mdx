@@ -83,7 +83,8 @@ A handler that throws a Lua error never leaves the promise pending. The error me
 <Callout type="info">
   **An empty slot cannot be told apart from a handler that returned nothing.**
 
-  With `collect_all = true`, `results[i][1] == nil` means either the handler failed or it simply returned no value. Return an explicit value (e.g. `true`) from handlers whose success you need to check.
+  - **Empty slot** — with `collect_all = true`, `results[i][1] == nil` means either the handler failed or it simply returned no value.
+  - **Explicit value** — return an explicit value (e.g. `true`) from handlers whose success you need to check.
 </Callout>
 
 ---

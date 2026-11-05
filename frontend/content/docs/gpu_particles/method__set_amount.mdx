@@ -12,10 +12,11 @@ local status = self:set_amount(
 )
 ```
 
-<Callout type="warn">
+<Callout type="info">
   **Changing the amount restarts the emitter.**
 
   - **Particles** — all live particles are cleared when the amount changes.
+  - **Minimum** — `amount` must be at least `1` particle per cycle.
 </Callout>
 
 ### Parameters

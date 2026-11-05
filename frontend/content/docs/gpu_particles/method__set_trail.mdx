@@ -13,10 +13,11 @@ local status = self:set_trail(
 )
 ```
 
-<Callout type="idea">
+<Callout type="info">
   **Keep the trail lifetime below the particle lifetime.**
 
   - **Culling** — trails reach far from the emitter; raise [`self:set_visibility_aabb`](/docs/gpu_particles/method/set_visibility_aabb) so they are not culled.
+  - **Minimum lifetime** — `lifetime` must be at least `0.01` seconds.
 </Callout>
 
 ### Parameters
