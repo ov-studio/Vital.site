@@ -44,6 +44,7 @@
 }
 
 .ui-table tbody tr {
+  background: linear-gradient(var(--b05), var(--b05)), var(--bg6);
   transition: background 0.15s ease;
 }
 
