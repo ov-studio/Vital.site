@@ -266,16 +266,18 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Display',
-        desc:  'Main window output — resolution query, live scene texture, and screenshot capture from Lua',
+        desc:  'Main window output — resolution query, live scene texture, mesh LOD threshold, and screenshot capture from Lua',
         icon:  <lucide.Monitor {...config_site.info.lucide}/>,
         items: [
-          { label: 'Lifecycle hooks',                            status: 'completed' },
-          { label: '[Client] API: core.display.get_resolution',  status: 'completed' },
-          { label: '[Client] API: core.display.get_texture',     status: 'completed' },
-          { label: '[Client] API: core.display.screenshot',      status: 'completed' },
-          { label: '[Client] API: self:is_type',                 status: 'completed' },
-          { label: '[Client] API: self:get_type',                status: 'completed' },
-          { label: '[Client] API: self:destroy',                 status: 'completed' }
+          { label: 'Lifecycle hooks',                               status: 'completed' },
+          { label: '[Client] API: core.display.get_resolution',     status: 'completed' },
+          { label: '[Client] API: core.display.get_texture',        status: 'completed' },
+          { label: '[Client] API: core.display.get_lod_threshold',  status: 'completed' },
+          { label: '[Client] API: core.display.set_lod_threshold',  status: 'completed' },
+          { label: '[Client] API: core.display.screenshot',         status: 'completed' },
+          { label: '[Client] API: self:is_type',                    status: 'completed' },
+          { label: '[Client] API: self:get_type',                   status: 'completed' },
+          { label: '[Client] API: self:destroy',                    status: 'completed' }
         ]
       },
       {
@@ -341,6 +343,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Lifecycle hooks',                                   status: 'completed' },
           { label: 'File formats: GLB',                                 status: 'completed' },
+          { label: 'Automatic mesh LODs - static and rigged',           status: 'completed' },
           { label: 'Animation layers - 256 soft cap',                   status: 'completed' },
           { label: 'Wildcard component / material targeting',           status: 'completed' },
           { label: '[Shared] API: core.model.load',                     status: 'completed' },
