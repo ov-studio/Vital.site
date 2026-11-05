@@ -54,7 +54,7 @@ local result = util.math.ult(1, -1)
 core.engine.print("info", result) -- true
 ```
 
-```lua lineNumbers title="maxinteger is less than -1 in unsigned comparison"
+```lua lineNumbers title="Unsigned comparison of maxinteger and -1"
 local result = util.math.ult(util.math.maxinteger, -1)
 
 core.engine.print("info", result) -- true

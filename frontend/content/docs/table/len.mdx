@@ -63,7 +63,7 @@ core.engine.print("info", util.table.len(t)) -- 3
 core.engine.print("info", #t) -- 3
 ```
 
-```lua lineNumbers title="util.table.len is reliable with nil holes"
+```lua lineNumbers title="Count a table with nil holes using util.table.len"
 local args = util.table.pack("a", nil, "b", nil, "c")
 
 core.engine.print("info", #args) -- May be incorrect with nil holes
@@ -85,7 +85,7 @@ if util.table.len(t) == 0 then
 end
 ```
 
-```lua lineNumbers title="util.table.len only counts the array part"
+```lua lineNumbers title="Count only the array part with util.table.len"
 local t = {10, 20, 30, key = "value"}
 local len = util.table.len(t)
 

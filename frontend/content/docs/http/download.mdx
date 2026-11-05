@@ -18,8 +18,9 @@ local promise = util.http.download(
 ```
 
 <Callout type="info">
-  **This function returns a promise and starts processing the query.** Use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
+  **This function returns a promise and starts processing the query.**
 
+  - **Result** — use [`thread:await`](/docs/thread/method/await) inside a thread to retrieve the result.
   - **Inside a thread** — `self:await(util.http.download(...))` yields until the file is saved, then returns the resolved values.
   - **Outside a thread** — the promise can still be created, but must be awaited from within a thread to retrieve the result.
 </Callout>
@@ -33,8 +34,9 @@ local promise = util.http.download(
 </Callout>
 
 <Callout type="warn">
-  **Downloads are limited to 1 GiB.** Anything larger is rejected.
+  **Downloads are limited to 1 GiB.**
 
+  - **Over the limit** — anything larger is rejected.
   - **Streamed to disk** — the file is written as it arrives, so large downloads do not use memory.
   - **Safe replace** — an existing file at `path` is only replaced once the download completes successfully.
 </Callout>

@@ -25,7 +25,7 @@ util.math.mininteger -- -9223372036854775808
 core.engine.print("info", util.math.mininteger) -- -9223372036854775808
 ```
 
-```lua lineNumbers title="mininteger minus 1 wraps around to maxinteger"
+```lua lineNumbers title="Wrap around from mininteger to maxinteger"
 local result = util.math.mininteger - 1
 
 core.engine.print("info", result) -- 9223372036854775807
@@ -42,7 +42,7 @@ end
 core.engine.print("info", largest) -- 400
 ```
 
-```lua lineNumbers title="mininteger is less than any other integer"
+```lua lineNumbers title="Compare mininteger with other integers"
 core.engine.print("info", util.math.mininteger < -1000000000) -- true
 ```
 

@@ -18,7 +18,7 @@ local status = core.engine.draw_material(
 ```
 
 <Callout type="warn">
-  **Must be called within the `"sandbox:draw"` util.event.** Invoking this function outside of that event will have no effect.
+  **Must be called within the `"sandbox:draw"` util.event.**
 
   - **Inside the event** — executes as expected, rendering the material to the canvas each frame.
   - **Outside the event** — the call will be silently ignored and nothing will be drawn.
@@ -26,15 +26,17 @@ local status = core.engine.draw_material(
 </Callout>
 
 <Callout type="info">
-  **Custom `fragment()` shaders may ignore `color`.** It's set as the vertex color and passed in as `uniform vec4 modulate`.
+  **Custom `fragment()` shaders may ignore `color`.**
 
+  - **Color** — it's set as the vertex color and passed in as `uniform vec4 modulate`.
   - **Honored** — `fragment()` never touches `COLOR`, or uses `COLOR *= modulate;`.
   - **Ignored** — `fragment()` bare-assigns `COLOR`, e.g. `COLOR = vec4(...);`.
 </Callout>
 
 <Callout type="info">
-  **`POST_PROCESS` shaders render full-screen.** `position`, `size`, `rotation`, `pivot` and `color` are ignored.
+  **`POST_PROCESS` shaders render full-screen.**
 
+  - **Ignored parameters** — `position`, `size`, `rotation`, `pivot` and `color` are ignored.
   - **Coverage** — the effect always covers the entire screen from the active camera.
   - **Lifetime** — call it every frame inside `"sandbox:draw"`; the effect turns off on the first frame it is not drawn.
 </Callout>

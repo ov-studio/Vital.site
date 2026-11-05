@@ -89,7 +89,7 @@ setmetatable(t, {__tostring = function() return "custom" end})
 core.engine.iprint(t, true) -- Shows metatable when show_hidden = true
 ```
 
-```lua lineNumbers title="iprint vs tostring for tables"
+```lua lineNumbers title="Compare iprint with tostring for tables"
 local t = {x = 1, y = 2} -- Better than tostring for tables
 
 core.engine.print(tostring(t)) -- 'table: 0x...'

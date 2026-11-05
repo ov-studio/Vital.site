@@ -13,8 +13,9 @@ local status = self:set_filter(
 ```
 
 <Callout type="warn">
-  **Mipmap-based filters require the image to already have a mipmap chain — no chain is generated on demand.**<br/>`NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the image was created without mipmaps.
+  **Mipmap-based filters require the image to already have a mipmap chain — no chain is generated on demand.**
 
+  - **Throws** — `NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the image was created without mipmaps.
   - **Generating mipmaps** — pass `mipmaps = true` to [`core.image.create`](/docs/image/create) upfront.
   - **Survives format changes** — [`self:convert`](/docs/image/method/convert) and [`self:compress`](/docs/image/method/compress) update the image in place, so filter override stays applied.
 </Callout>

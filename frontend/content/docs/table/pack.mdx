@@ -87,7 +87,7 @@ core.engine.print("info", t.n) -- 5
 core.engine.print("info", type(t[5])) -- 'table'
 ```
 
-```lua lineNumbers title="n field is more reliable than # with nils"
+```lua lineNumbers title="Prefer the n field over # when values can be nil"
 local t = util.table.pack(1, 2, nil, 4)
 
 core.engine.print("info", #t) -- 4 (might be 2 depending on implementation)

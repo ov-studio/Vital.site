@@ -12,7 +12,7 @@ Every resource in **Vital.sandbox** lives in its own folder under the server's `
 **Client builds** never read `manifest.yaml` — they receive an equivalent, pre-resolved manifest over the network from the server and register it locally.
 
 <Callout type="info">
-  **Where resources live**
+  **Each resource lives in its own folder.**
 
   - **Folder = resource** — each resource is a folder named after it, e.g. `resources/inventory/`.
   - **Fixed filename** — the manifest must be named exactly `manifest.yaml` and sit at the folder's root.
@@ -41,14 +41,14 @@ Script and file paths declared in the manifest are resolved relative to this fol
 - Resource name must contain only alphanumeric characters or underscores (`_`) — no spaces, dots, or slashes
 
 <Callout type="idea">
-  **Restarting resource**
+  **Restarting a resource reloads its manifest.**
 
   - **Restart** — restarting reloads the manifest, then compares old vs. new script hashes, file hashes, and dependency lists, reporting exactly what was added, modified, or deleted before stopping and re-starting the resource.
   - **Result** — this makes it possible to see at a glance whether a restart picked up the change you expected.
 </Callout>
 
 <Callout type="info">
-  **Reconnecting / late-joining clients**
+  **Reconnecting and late-joining clients receive every running resource.**
 
   - **Peer join** — on peer join, the server broadcasts the full asset manifest, then sends a `resource:start` packet for every currently running resource, in the order they were originally started.
   - **Late joiners** — this lets a client that connects mid-session receive every active resource without a full server restart.
@@ -145,7 +145,7 @@ A flat list of glob patterns for non-script assets — models, textures, sounds,
 Like scripts, each pattern is expanded on disk; a pattern matching nothing produces an error and the whole manifest fails.
 
 <Callout type="info">
-  **Files are hashed at parse time**.
+  **Files are hashed at parse time.**
 
   - **Change detection** — changes after every restart can be detected as per [Resource](#resource) section.
   - **Models** — models declared under `files` are additionally auto-detected and loaded as part of resource startup.

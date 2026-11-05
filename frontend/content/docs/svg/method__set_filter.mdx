@@ -13,8 +13,9 @@ local status = self:set_filter(
 ```
 
 <Callout type="warn">
-  **Mipmap-based filters require the texture to already have a svg chain — no chain is generated on demand.**<br/>`NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the SVG was created without mipmaps.
+  **Mipmap-based filters require the texture to already have a mipmap chain — no chain is generated on demand.**
 
+  - **Throws** — `NEAREST_MIPMAP`, `LINEAR_MIPMAP`, and their `ANISOTROPIC` variants throw if the SVG was created without mipmaps.
   - **Generating mipmaps** — pass `mipmaps = true` to [`core.svg.create`](/docs/svg/create) or [`core.svg.create_from_raw`](/docs/svg/create_from_raw) upfront.
   - **Survives updates** — [`self:update`](/docs/svg/method/update) replaces the SVG contents but the texture is updated in place, so filter override stays applied.
 </Callout>

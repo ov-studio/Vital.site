@@ -25,7 +25,7 @@ util.math.maxinteger -- 9223372036854775807
 core.engine.print("info", util.math.maxinteger) -- 9223372036854775807
 ```
 
-```lua lineNumbers title="maxinteger plus 1 wraps around to mininteger"
+```lua lineNumbers title="Wrap around from maxinteger to mininteger"
 local result = util.math.maxinteger + 1
 
 core.engine.print("info", result) -- -9223372036854775808
