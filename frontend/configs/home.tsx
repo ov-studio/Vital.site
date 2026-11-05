@@ -30,7 +30,7 @@ export const Features = [
     id:    'core',
     label: 'Core',
     angle: 51,
-    desc:  'Full programmatic control of every scene entity and surface — database, model, webview, canvas, font, image, svg, rendertarget, shader, camera, display, discord, and performance monitors.'
+    desc:  'Full programmatic control of every scene entity and surface — database, model with automatic mesh LODs, webview, canvas, font, image, svg, rendertarget, shader, camera, display, discord, and performance monitors.'
   },
   {
     id:    'utility',
