@@ -1,0 +1,38 @@
+---
+title: core.display.get_lod_threshold
+description: Retrieves the global LOD threshold used when rendering models
+badge: client
+---
+
+### Syntax
+
+```lua
+local threshold = core.display.get_lod_threshold()
+```
+
+<Callout type="info">
+  **The threshold is global and combines with each component's LOD bias.**
+
+  - **Effective detail** — roughly `bias / threshold`, so a higher threshold uses less detailed LODs.
+  - **Per component** — see [`self:get_component_lod_bias`](/docs/model/method/get_component_lod_bias) for a single component.
+  - **Local only** — a render setting on this client, never replicated to other peers.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | threshold | Current global LOD threshold |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the current LOD threshold"
+core.engine.print("info", "LOD threshold:", core.display.get_lod_threshold())
+```

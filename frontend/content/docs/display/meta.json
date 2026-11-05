@@ -5,6 +5,10 @@
         "---Getter---",
         "get_resolution",
         "get_texture",
+        "get_lod_threshold",
+
+        "---Setter---",
+        "set_lod_threshold",
 
         "---Misc---",
         "screenshot",

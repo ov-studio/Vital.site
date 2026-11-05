@@ -19,7 +19,7 @@ local status = self:set_component_lod_bias(
   - **Values** — `0` always uses the lowest LOD, `1` is the default.
   - **Higher values** — keep more detail at a greater distance.
   - **Local only** — a render setting on this client, never replicated to other peers.
-  - **Threshold** — effective detail is `bias / core.display.set_lod_threshold`.
+  - **Threshold** — effective detail is roughly `bias / threshold`, see [`core.display.set_lod_threshold`](/docs/display/set_lod_threshold).
 </Callout>
 
 ### Parameters

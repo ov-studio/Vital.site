@@ -1,0 +1,49 @@
+---
+title: core.display.set_lod_threshold
+description: Sets the global LOD threshold used when rendering models
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = core.display.set_lod_threshold(
+    threshold
+)
+```
+
+<Callout type="info">
+  **The threshold is global and combines with each component's LOD bias.**
+
+  - **Effective detail** — roughly `bias / threshold`, so a higher threshold uses less detailed LODs.
+  - **Zero** — `0` disables automatic LOD, so the highest detail is always used.
+  - **Negative values** — clamped to `0`.
+  - **Per component** — see [`self:set_component_lod_bias`](/docs/model/method/set_component_lod_bias) for a single component.
+  - **Local only** — a render setting on this client, never replicated to other peers.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | threshold | LOD threshold to apply, negative values are clamped to `0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Use less detailed LODs to improve performance"
+core.display.set_lod_threshold(2)
+```
+
+```lua lineNumbers title="Set the threshold and read it back"
+core.display.set_lod_threshold(2)
+
+core.engine.print("info", "LOD threshold:", core.display.get_lod_threshold())
+```
