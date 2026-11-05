@@ -68,9 +68,9 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
 
-.bm-name {
+.bm-table-wrap .ui-table td.bm-name {
   font-weight: 600;
-  color: var(--blue);
+  color: var(--text-soft);
   text-transform: capitalize;
 }
 
