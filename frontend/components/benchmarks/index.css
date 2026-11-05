@@ -50,6 +50,19 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
 }
 
+.bm-note.bm-overall {
+  margin-top: -6px;
+  animation-delay: .5s;
+}
+
+.bm-overall strong {
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.bm-overall--lua { color: var(--blue); font-weight: 600; }
+.bm-overall--gd  { color: var(--amber); font-weight: 600; }
+
 .bm-table-wrap {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
@@ -61,17 +74,17 @@
   text-transform: capitalize;
 }
 
-.bm-faster--lua {
+.bm-table-wrap .ui-table td.bm-faster--lua {
   color: var(--blue);
   font-weight: 500;
 }
 
-.bm-faster--gd {
+.bm-table-wrap .ui-table td.bm-faster--gd {
   color: var(--amber);
   font-weight: 500;
 }
 
-.bm-faster--tie {
+.bm-table-wrap .ui-table td.bm-faster--tie {
   color: var(--text-muted);
 }
 

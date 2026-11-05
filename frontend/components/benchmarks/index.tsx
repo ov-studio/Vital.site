@@ -62,6 +62,23 @@ function fmt_ratio(r?: number): string {
   return `${r.toFixed(2)}x`;
 }
 
+function overall_summary(tests: ScriptTest[]): { winner: 'Lua' | 'GDScript' | null; pct: number; wins: number; total: number } | null {
+  const ratios = tests
+    .map((t) => t.throughput_ratio)
+    .filter((r): r is number => typeof r === 'number' && Number.isFinite(r) && r > 0);
+  if (ratios.length === 0) return null;
+  const geo = Math.exp(ratios.reduce((a, r) => a + Math.log(r), 0) / ratios.length);
+  const lua_wins = ratios.filter((r) => r > 1).length;
+  if (Math.abs(geo - 1) < 0.005) return { winner: null, pct: 0, wins: 0, total: ratios.length };
+  const lua_ahead = geo > 1;
+  return {
+    winner: lua_ahead ? 'Lua' : 'GDScript',
+    pct:    (lua_ahead ? geo - 1 : 1 / geo - 1) * 100,
+    wins:   lua_ahead ? lua_wins : ratios.filter((r) => r < 1).length,
+    total:  ratios.length
+  };
+}
+
 function pretty_name(name?: string): string {
   if (!name) return '—';
   return name.replace(/_/g, ' ');
@@ -101,6 +118,7 @@ export function Benchmarks() {
   const data  = payload?.data;
   const tests = data?.scripting_tests ?? [];
   const env   = data?.environment ?? {};
+  const overall = overall_summary(tests);
 
   return (
     <ui_page.Page id="benchmarks">
@@ -148,6 +166,14 @@ export function Benchmarks() {
           <ui_section.Section titleClassName="bm-section-title bm-section-title--table">Benchmarks</ui_section.Section>
 
           {data?.note && <p className="bm-note">{data.note}*</p>}
+
+          {overall && (
+            <p className="bm-note bm-overall">
+              {overall.winner
+                ? <>Overall, <span className={overall.winner === 'Lua' ? 'bm-overall--lua' : 'bm-overall--gd'}>{overall.winner}</span> is faster by <strong>{overall.pct.toFixed(0)}%</strong> on average ({overall.wins} of {overall.total} tests).</>
+                : <>Overall, Lua and GDScript perform about the same.</>}
+            </p>
+          )}
 
           <ui_table.DataTable
             bordered
