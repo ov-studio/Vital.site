@@ -684,6 +684,18 @@ article#nd-page {
   #nd-sidebar-mobile[data-state="open"] {
     z-index: 200 !important;
     top: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Match desktop sidebar surface on any inner sheet/popover wrappers */
+  #nd-sidebar-mobile > *,
+  aside#nd-sidebar-mobile > *,
+  #nd-sidebar-mobile [data-state="open"],
+  #nd-sidebar-mobile .bg-fd-popover,
+  #nd-sidebar-mobile .bg-fd-background,
+  #nd-sidebar-mobile .bg-fd-card {
+    background: var(--bg12) !important;
   }
 
   /* Dim layer — match ui/modal overlay (bg2 mix + blur 20px) */
