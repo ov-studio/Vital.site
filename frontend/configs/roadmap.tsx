@@ -1635,7 +1635,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Shadow',
-        desc:  'Directional and positional shadow atlas size and depth, soft shadow filter quality, quadrant subdivision, and 2D shadow texture control from Lua',
+        desc:  'Directional and positional shadow atlas, soft filter quality, and 2D shadow texture control from Lua',
         icon:  <lucide.Eclipse {...config_site.info.lucide}/>,
         items: [
           { label: '[Client] Enum: gfx.shadow.quality',                              status: 'completed' },
