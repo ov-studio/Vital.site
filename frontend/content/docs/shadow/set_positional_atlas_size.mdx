@@ -16,7 +16,8 @@ local status = gfx.shadow.set_positional_atlas_size(
 <Callout type="idea">
   **A larger atlas gives sharper omni and spot light shadows at a memory cost.**
 
-  - **Shared** — the atlas is shared by every omni and spot light with shadows, and split into four quadrants, see [`gfx.shadow.set_positional_atlas_quadrant_subdiv`](/docs/shadow/set_positional_atlas_quadrant_subdiv).
+  - **Shared** — used by every omni and spot light with shadows.
+  - **Quadrants** — split into four quadrants, see [`gfx.shadow.set_positional_atlas_quadrant_subdiv`](/docs/shadow/set_positional_atlas_quadrant_subdiv).
   - **Cost** — memory and GPU cost grow with the square of the size, so `8192` uses four times as much as `4096`.
   - **Default** — `4096` with a 16-bit depth buffer.
 </Callout>

@@ -9,8 +9,8 @@ badge: client
 <Callout type="info">
   **The subdivision controls how many shadow maps a quadrant holds.**
 
-  - **Trade-off** — a quadrant is split evenly, more subdivisions fit more shadowed lights but each shadow map is smaller and blurrier.
-  - **Per quadrant** — every quadrant of the positional atlas is set independently, see [`gfx.shadow.set_positional_atlas_quadrant_subdiv`](/docs/shadow/set_positional_atlas_quadrant_subdiv).
+  - **Trade-off** — more subdivisions fit more shadowed lights, but each shadow map is smaller and blurrier.
+  - **Per quadrant** — each quadrant is set independently with [`gfx.shadow.set_positional_atlas_quadrant_subdiv`](/docs/shadow/set_positional_atlas_quadrant_subdiv).
 </Callout>
 
 | Constant | Description |

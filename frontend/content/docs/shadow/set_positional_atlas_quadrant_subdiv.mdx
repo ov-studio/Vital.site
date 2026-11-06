@@ -18,7 +18,7 @@ local status = gfx.shadow.set_positional_atlas_quadrant_subdiv(
 
   - **Close lights** — land in quadrants with few subdivisions, which have the sharpest shadow maps.
   - **Distant lights** — land in quadrants with many subdivisions, where a small shadow map is enough.
-  - **Capacity** — a quadrant only holds as many shadow maps as its subdivision allows, so lights beyond the available slots may lose their shadows.
+  - **Capacity** — a quadrant holds only as many shadow maps as its subdivision allows, extra lights may lose shadows.
   - **Default** — quadrants `0` and `1` use `X4`, quadrant `2` uses `X16` and quadrant `3` uses `X64`.
 </Callout>
 

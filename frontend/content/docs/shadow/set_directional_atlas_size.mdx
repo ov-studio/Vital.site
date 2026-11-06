@@ -16,7 +16,7 @@ local status = gfx.shadow.set_directional_atlas_size(
 <Callout type="idea">
   **A larger atlas gives sharper directional shadows at a memory cost.**
 
-  - **Shared** — the atlas is shared by every directional light with shadows, and split between the shadow cascades of each light.
+  - **Shared** — used by every directional light with shadows, and split between each light's cascades.
   - **Cost** — memory and GPU cost grow with the square of the size, so `8192` uses four times as much as `4096`.
   - **Default** — `4096` with a 16-bit depth buffer.
 </Callout>
