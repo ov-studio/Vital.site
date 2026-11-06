@@ -1,0 +1,23 @@
+---
+title: gfx.shadow.quality
+description: Enumeration of supported soft shadow filter qualities
+badge: client
+---
+
+### Values
+
+<Callout type="info">
+  **The filter quality is applied per light type.**
+
+  - **Separate settings** — directional lights use [`gfx.shadow.set_directional_filter_quality`](/docs/shadow/set_directional_filter_quality), positional lights use [`gfx.shadow.set_positional_filter_quality`](/docs/shadow/set_positional_filter_quality).
+  - **Cost** — higher qualities read more samples from the shadow map, so they are slower.
+</Callout>
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.shadow.quality.HARD` | No soft filtering. Fastest setting, shadow edges are hard and [shadow blur](/docs/directional_light/method/set_shadow_blur) is ignored |
+| `gfx.shadow.quality.VERY_LOW` | Very low quality soft filtering. Cheap, shadows can look grainy |
+| `gfx.shadow.quality.LOW` | Low quality soft filtering. The engine default |
+| `gfx.shadow.quality.MEDIUM` | Balanced soft filtering. Good compromise between performance and quality |
+| `gfx.shadow.quality.HIGH` | High quality soft filtering. Noticeable performance cost |
+| `gfx.shadow.quality.ULTRA` | Highest quality soft filtering. Very high performance cost |

@@ -1,0 +1,30 @@
+---
+title: gfx.shadow.get_positional_atlas_size
+description: Retrieves the current size of the positional shadow atlas
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.shadow.get_positional_atlas_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current atlas size in pixels |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the positional atlas size"
+core.engine.print("info", "Positional atlas size:", gfx.shadow.get_positional_atlas_size())
+```

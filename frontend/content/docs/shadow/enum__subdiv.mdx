@@ -1,0 +1,24 @@
+---
+title: gfx.shadow.subdiv
+description: Enumeration of supported subdivision levels of a positional shadow atlas quadrant
+badge: client
+---
+
+### Values
+
+<Callout type="info">
+  **The subdivision controls how many shadow maps a quadrant holds.**
+
+  - **Trade-off** — a quadrant is split evenly, more subdivisions fit more shadowed lights but each shadow map is smaller and blurrier.
+  - **Per quadrant** — every quadrant of the positional atlas is set independently, see [`gfx.shadow.set_positional_atlas_quadrant_subdiv`](/docs/shadow/set_positional_atlas_quadrant_subdiv).
+</Callout>
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.shadow.subdiv.DISABLED` | Quadrant is unused, no shadow maps are stored in it |
+| `gfx.shadow.subdiv.X1` | A single shadow map fills the whole quadrant. Highest resolution per light |
+| `gfx.shadow.subdiv.X4` | 4 shadow maps (2×2) |
+| `gfx.shadow.subdiv.X16` | 16 shadow maps (4×4) |
+| `gfx.shadow.subdiv.X64` | 64 shadow maps (8×8) |
+| `gfx.shadow.subdiv.X256` | 256 shadow maps (16×16) |
+| `gfx.shadow.subdiv.X1024` | 1024 shadow maps (32×32). Lowest resolution per light, only suited for scenes with a very large number of distant lights |

@@ -1,0 +1,48 @@
+---
+title: gfx.shadow.reset
+description: Restores all shadow settings to the values the engine started with
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.shadow.reset()
+```
+
+<Callout type="info">
+  **Shadow settings are also restored automatically when the session ends.**
+
+  - **Automatic** — leaving the server restores the startup values, no manual cleanup is required.
+  - **Manual** — call this to offer a restore defaults option, for example in a graphics settings menu.
+  - **Scope** — covers the directional atlas, positional atlas, filter qualities and 2D shadow texture.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Restore all shadow settings"
+gfx.shadow.reset()
+```
+
+```lua lineNumbers title="Apply a quality preset and restore it later"
+-- Apply a high quality preset
+gfx.shadow.set_directional_atlas_size(8192)
+gfx.shadow.set_directional_filter_quality(gfx.shadow.quality.HIGH)
+gfx.shadow.set_positional_filter_quality(gfx.shadow.quality.HIGH)
+
+-- Back to the engine defaults
+gfx.shadow.reset()
+```

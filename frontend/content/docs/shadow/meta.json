@@ -1,0 +1,33 @@
+{
+    "title": "Shadow",
+    "icon": "Eclipse",
+    "pages": [
+        "---Enum---",
+        "enum__quality",
+        "enum__subdiv",
+
+        "---Checker---",
+        "is_directional_atlas_16bits",
+        "is_positional_atlas_16bits",
+
+        "---Getter---",
+        "get_directional_atlas_size",
+        "get_directional_filter_quality",
+        "get_positional_atlas_size",
+        "get_positional_atlas_quadrant_subdiv",
+        "get_positional_filter_quality",
+        "get_canvas_texture_size",
+
+        "---Setter---",
+        "set_directional_atlas_size",
+        "set_directional_filter_quality",
+        "set_positional_atlas_size",
+        "set_positional_atlas_quadrant_subdiv",
+        "set_positional_filter_quality",
+        "set_canvas_texture_size",
+
+        "---Misc---",
+        "reset",
+        "..."
+    ]
+}

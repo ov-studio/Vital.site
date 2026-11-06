@@ -1,0 +1,30 @@
+---
+title: gfx.shadow.get_directional_filter_quality
+description: Retrieves the current soft shadow filter quality of directional lights
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.shadow.get_directional_filter_quality()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.shadow.quality`](/docs/shadow/enum/quality) | result | Current filter quality |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the directional filter quality"
+core.engine.print("info", "Directional filter quality:", gfx.shadow.get_directional_filter_quality())
+```

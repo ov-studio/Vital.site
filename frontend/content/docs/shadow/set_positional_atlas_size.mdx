@@ -1,0 +1,47 @@
+---
+title: gfx.shadow.set_positional_atlas_size
+description: Sets the size and depth precision of the positional shadow atlas
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.shadow.set_positional_atlas_size(
+    size,
+    is_16bits = nil
+)
+```
+
+<Callout type="idea">
+  **A larger atlas gives sharper omni and spot light shadows at a memory cost.**
+
+  - **Shared** — the atlas is shared by every omni and spot light with shadows, and split into four quadrants, see [`gfx.shadow.set_positional_atlas_quadrant_subdiv`](/docs/shadow/set_positional_atlas_quadrant_subdiv).
+  - **Cost** — memory and GPU cost grow with the square of the size, so `8192` uses four times as much as `4096`.
+  - **Default** — `4096` with a 16-bit depth buffer.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | size | Atlas size in pixels<br/>Must be between `256` and `16384`, values that are not a power of two are rounded up to the next one<br/>An error is raised if the value is out of range |
+| `bool` | is_16bits | Determines the depth precision of the atlas:<br/>• When `true` - uses a 16-bit depth buffer, lower memory usage and faster<br/>• When `false` - uses a 32-bit depth buffer, higher precision at double the memory cost<br/>• When omitted - keeps the current setting |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set an 8192 positional atlas"
+gfx.shadow.set_positional_atlas_size(8192)
+```
+
+```lua lineNumbers title="Set a 2048 positional atlas with 16-bit depth"
+gfx.shadow.set_positional_atlas_size(2048, true)
+```

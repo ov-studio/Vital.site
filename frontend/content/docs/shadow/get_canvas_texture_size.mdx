@@ -1,0 +1,30 @@
+---
+title: gfx.shadow.get_canvas_texture_size
+description: Retrieves the current size of the 2D shadow texture
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.shadow.get_canvas_texture_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current texture size in pixels |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the 2D shadow texture size"
+core.engine.print("info", "Canvas shadow texture size:", gfx.shadow.get_canvas_texture_size())
+```

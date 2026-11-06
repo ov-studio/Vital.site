@@ -1,0 +1,55 @@
+---
+title: gfx.shadow.set_positional_atlas_quadrant_subdiv
+description: Sets the subdivision level of a positional shadow atlas quadrant
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.shadow.set_positional_atlas_quadrant_subdiv(
+    quadrant,
+    subdiv
+)
+```
+
+<Callout type="idea">
+  **Lights are placed in a quadrant that matches how large they appear on screen.**
+
+  - **Close lights** — land in quadrants with few subdivisions, which have the sharpest shadow maps.
+  - **Distant lights** — land in quadrants with many subdivisions, where a small shadow map is enough.
+  - **Capacity** — a quadrant only holds as many shadow maps as its subdivision allows, so lights beyond the available slots may lose their shadows.
+  - **Default** — quadrants `0` and `1` use `X4`, quadrant `2` uses `X16` and quadrant `3` uses `X64`.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | quadrant | Quadrant index to target<br/>Must be between `0` and `3`, an error is raised otherwise |
+| [`gfx.shadow.subdiv`](/docs/shadow/enum/subdiv) | subdiv | Subdivision level to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Give the first quadrant fewer, sharper shadow maps"
+gfx.shadow.set_positional_atlas_quadrant_subdiv(0, gfx.shadow.subdiv.X1)
+```
+
+```lua lineNumbers title="Disable the last quadrant"
+gfx.shadow.set_positional_atlas_quadrant_subdiv(3, gfx.shadow.subdiv.DISABLED)
+```
+
+```lua lineNumbers title="Favor many lights over shadow resolution"
+gfx.shadow.set_positional_atlas_quadrant_subdiv(0, gfx.shadow.subdiv.X16)
+gfx.shadow.set_positional_atlas_quadrant_subdiv(1, gfx.shadow.subdiv.X64)
+gfx.shadow.set_positional_atlas_quadrant_subdiv(2, gfx.shadow.subdiv.X256)
+gfx.shadow.set_positional_atlas_quadrant_subdiv(3, gfx.shadow.subdiv.X1024)
+```

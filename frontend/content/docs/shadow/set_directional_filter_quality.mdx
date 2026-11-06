@@ -1,0 +1,44 @@
+---
+title: gfx.shadow.set_directional_filter_quality
+description: Sets the soft shadow filter quality of directional lights
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.shadow.set_directional_filter_quality(
+    quality
+)
+```
+
+<Callout type="info">
+  **Only directional lights are affected.**
+
+  - **Positional lights** — omni and spot lights use [`gfx.shadow.set_positional_filter_quality`](/docs/shadow/set_positional_filter_quality) instead.
+  - **Default** — [`gfx.shadow.quality.LOW`](/docs/shadow/enum/quality).
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.shadow.quality`](/docs/shadow/enum/quality) | quality | Filter quality to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set directional filter quality to high"
+gfx.shadow.set_directional_filter_quality(gfx.shadow.quality.HIGH)
+```
+
+```lua lineNumbers title="Disable soft filtering for directional lights"
+gfx.shadow.set_directional_filter_quality(gfx.shadow.quality.HARD)
+```

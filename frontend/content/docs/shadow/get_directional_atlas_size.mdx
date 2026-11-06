@@ -1,0 +1,30 @@
+---
+title: gfx.shadow.get_directional_atlas_size
+description: Retrieves the current size of the directional shadow atlas
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.shadow.get_directional_atlas_size()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current atlas size in pixels |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print the directional atlas size"
+core.engine.print("info", "Directional atlas size:", gfx.shadow.get_directional_atlas_size())
+```

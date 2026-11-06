@@ -1,0 +1,44 @@
+---
+title: gfx.shadow.set_positional_filter_quality
+description: Sets the soft shadow filter quality of positional lights
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.shadow.set_positional_filter_quality(
+    quality
+)
+```
+
+<Callout type="info">
+  **Only positional lights are affected.**
+
+  - **Directional lights** — use [`gfx.shadow.set_directional_filter_quality`](/docs/shadow/set_directional_filter_quality) instead.
+  - **Default** — [`gfx.shadow.quality.LOW`](/docs/shadow/enum/quality).
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.shadow.quality`](/docs/shadow/enum/quality) | quality | Filter quality to apply |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set positional filter quality to medium"
+gfx.shadow.set_positional_filter_quality(gfx.shadow.quality.MEDIUM)
+```
+
+```lua lineNumbers title="Disable soft filtering for positional lights"
+gfx.shadow.set_positional_filter_quality(gfx.shadow.quality.HARD)
+```

@@ -1,0 +1,39 @@
+---
+title: gfx.shadow.get_positional_atlas_quadrant_subdiv
+description: Retrieves the current subdivision level of a positional shadow atlas quadrant
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.shadow.get_positional_atlas_quadrant_subdiv(
+    quadrant
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | quadrant | Quadrant index to target<br/>Must be between `0` and `3` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`gfx.shadow.subdiv`](/docs/shadow/enum/subdiv) | result | Current subdivision level of the specified quadrant |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print subdivision of a specific quadrant"
+core.engine.print("info", "Quadrant 0 subdivision:", gfx.shadow.get_positional_atlas_quadrant_subdiv(0))
+```
+
+```lua lineNumbers title="Print subdivision of every quadrant"
+for quadrant = 0, 3 do
+    core.engine.print("info", "Quadrant " .. quadrant .. " subdivision:", gfx.shadow.get_positional_atlas_quadrant_subdiv(quadrant))
+end
+```
