@@ -1634,6 +1634,30 @@ export const Roadmap: RoadmapSection[] = build([
         ]
       },
       {
+        label: 'Shadow',
+        desc:  'Directional and positional shadow atlas size and depth, soft shadow filter quality, quadrant subdivision, and 2D shadow texture control from Lua',
+        icon:  <lucide.Eclipse {...config_site.info.lucide}/>,
+        items: [
+          { label: '[Client] Enum: gfx.shadow.quality',                              status: 'completed' },
+          { label: '[Client] Enum: gfx.shadow.subdiv',                               status: 'completed' },
+          { label: '[Client] API: gfx.shadow.is_directional_atlas_16bits',           status: 'completed' },
+          { label: '[Client] API: gfx.shadow.is_positional_atlas_16bits',            status: 'completed' },
+          { label: '[Client] API: gfx.shadow.get_directional_atlas_size',            status: 'completed' },
+          { label: '[Client] API: gfx.shadow.get_directional_filter_quality',        status: 'completed' },
+          { label: '[Client] API: gfx.shadow.get_positional_atlas_size',             status: 'completed' },
+          { label: '[Client] API: gfx.shadow.get_positional_atlas_quadrant_subdiv',  status: 'completed' },
+          { label: '[Client] API: gfx.shadow.get_positional_filter_quality',         status: 'completed' },
+          { label: '[Client] API: gfx.shadow.get_canvas_texture_size',               status: 'completed' },
+          { label: '[Client] API: gfx.shadow.set_directional_atlas_size',            status: 'completed' },
+          { label: '[Client] API: gfx.shadow.set_directional_filter_quality',        status: 'completed' },
+          { label: '[Client] API: gfx.shadow.set_positional_atlas_size',             status: 'completed' },
+          { label: '[Client] API: gfx.shadow.set_positional_atlas_quadrant_subdiv',  status: 'completed' },
+          { label: '[Client] API: gfx.shadow.set_positional_filter_quality',         status: 'completed' },
+          { label: '[Client] API: gfx.shadow.set_canvas_texture_size',               status: 'completed' },
+          { label: '[Client] API: gfx.shadow.reset',                                 status: 'completed' }
+        ]
+      },
+      {
         label: 'Sky',
         desc:  'Sky material mode, FOV, rotation, radiance size, and process mode control from Lua',
         icon:  <lucide.CloudSun {...config_site.info.lucide}/>,

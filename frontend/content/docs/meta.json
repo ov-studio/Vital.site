@@ -62,6 +62,7 @@
         "environment",
         "adjustment",
         "antialiasing",
+        "shadow",
         "sky",
         "sky_panorama",
         "sky_physical",
