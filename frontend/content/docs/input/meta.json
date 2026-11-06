@@ -1,6 +1,6 @@
 {
     "title": "Input",
-    "icon": "Keyboard",
+    "icon": "Gamepad2",
     "pages": [
         "---Enum---",
         "enum__key",

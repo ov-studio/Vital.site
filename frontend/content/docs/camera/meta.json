@@ -1,6 +1,6 @@
 {
     "title": "Camera",
-    "icon": "Camera",
+    "icon": "Video",
     "pages": [
         "---Enum---",
         "enum__projection",

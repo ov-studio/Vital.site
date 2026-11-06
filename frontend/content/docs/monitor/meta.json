@@ -1,6 +1,6 @@
 {
     "title": "Monitor",
-    "icon": "ChartLine",
+    "icon": "Activity",
     "pages": [
         "---Enum---",
         "enum__stat_native",

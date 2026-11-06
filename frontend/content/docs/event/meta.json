@@ -1,6 +1,6 @@
 {
     "title": "Event",
-    "icon": "Radio",
+    "icon": "Zap",
     "pages": [
         "---Reference---",
         "cheatsheet__event",
