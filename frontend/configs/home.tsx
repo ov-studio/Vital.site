@@ -42,7 +42,7 @@ export const Features = [
     id:    'graphics',
     label: 'Graphics',
     angle: 180,
-    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/SSR/SSIL, glow, volumetric fog, antialiasing, color grading, lighting, GPU particles, and ribbon trails.'
+    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/SSR/SSIL, glow, volumetric fog, antialiasing, shadow quality, color grading, lighting, GPU particles, and ribbon trails.'
   },
   {
     id:    'physics',
