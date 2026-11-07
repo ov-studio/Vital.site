@@ -29,10 +29,9 @@
   background-color: color-mix(in srgb, var(--blue) var(--wm-tint), var(--bg6));
   -webkit-mask: url('/logo/logo.svg') center / contain no-repeat;
   mask: url('/logo/logo.svg') center / contain no-repeat;
-  opacity: 0;
-  transform: translateY(6%) scale(1.18);
-  will-change: transform, opacity;
-  animation: watermark-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  transform: translateY(2%) scale(1.08);
+  will-change: transform;
+  animation: watermark-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
 .hcorner {
@@ -175,11 +174,11 @@
 
 @keyframes watermark-reveal {
   0% {
-    opacity: 0;
+    background-color: var(--bg6);
     transform: translateY(6%) scale(1.18);
   }
   100% {
-    opacity: 1;
+    background-color: color-mix(in srgb, var(--blue) var(--wm-tint), var(--bg6));
     transform: translateY(2%) scale(1.08);
   }
 }
@@ -190,7 +189,6 @@
   .hero-stat-icon { animation: none !important; }
   .hero-watermark-logo {
     animation: none !important;
-    opacity: 1;
     transform: translateY(2%) scale(1.08);
   }
 }
