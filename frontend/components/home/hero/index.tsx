@@ -48,12 +48,7 @@ export function Hero() {
       <ui_wallpaper.Wallpaper variant={1}/>
 
       <div className="hero-watermark" aria-hidden="true">
-        <img
-          src="/logo/logo.svg"
-          alt=""
-          className="hero-watermark-logo"
-          draggable={false}
-        />
+        <div className="hero-watermark-logo"/>
       </div>
 
       <div className="hcorner hcorner-tl"/>

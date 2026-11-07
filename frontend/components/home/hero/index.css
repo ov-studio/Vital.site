@@ -22,15 +22,14 @@
 }
 
 .hero-watermark-logo {
+  --wm-tint: 1.1%;
+  flex: none;
   width: min(200vh, 200vw);
   height: min(200vh, 200vw);
-  max-width: none;
-  max-height: none;
-  object-fit: contain;
+  background-color: color-mix(in srgb, var(--blue) var(--wm-tint), var(--bg6));
+  -webkit-mask: url('/logo/logo.svg') center / contain no-repeat;
+  mask: url('/logo/logo.svg') center / contain no-repeat;
   opacity: 0;
-  filter:
-    brightness(0) saturate(100%)
-    invert(62%) sepia(48%) saturate(900%) hue-rotate(190deg) brightness(105%) contrast(105%);
   transform: translateY(6%) scale(1.18);
   will-change: transform, opacity;
   animation: watermark-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
@@ -180,7 +179,7 @@
     transform: translateY(6%) scale(1.18);
   }
   100% {
-    opacity: 0.012;
+    opacity: 1;
     transform: translateY(2%) scale(1.08);
   }
 }
@@ -191,7 +190,7 @@
   .hero-stat-icon { animation: none !important; }
   .hero-watermark-logo {
     animation: none !important;
-    opacity: 0.012;
+    opacity: 1;
     transform: translateY(2%) scale(1.08);
   }
 }
