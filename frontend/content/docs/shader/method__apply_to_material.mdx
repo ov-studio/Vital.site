@@ -24,7 +24,7 @@ local count = self:apply_to_material(
   - **Priority** — when several shaders cover the same surface, the one with the highest `priority` is shown. On equal priority, the most recently applied shader wins. Applying the same shader to the same target again updates its priority and counts as the latest apply.
   - **Layered** — with `layered = true` the shader is drawn on top of the shown shader instead of replacing it. Every matching layered shader is drawn, spatial shaders only.
   - **Layer order** — `priority` decides the stacking, higher is drawn further on top. On equal priority, the most recently applied is on top.
-  - **Layer base** — layers sit on the shown shader, or on the mesh's own material when no shader won. Write `ALPHA` in the layer to let the base show through.
+  - **Layer base** — a layer is drawn over the shown shader. If no shader is shown, it is drawn over the mesh's own material. To see what is beneath a layer, make it transparent by setting `ALPHA` in the shader.
   - **One shader per surface** — when several assignments of the same shader match a surface, the most recently applied one decides base / layered and priority. Re-applying with the same patterns switches it between base and layered.
   - **Fallback** — when the shown shader is removed with [`self:remove_from_material`](/docs/shader/method/remove_from_material), destroyed or its resource stops, the next best shader takes over automatically. Layers stay on top. The surface only returns to its original material when no other shader covers it.
   - **Auto-binding** — see the [**Uniform Cheatsheet**](/docs/shader/cheatsheet/uniform) for uniform names populated automatically.
