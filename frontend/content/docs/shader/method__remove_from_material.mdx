@@ -18,7 +18,10 @@ local count = self:remove_from_material(
   **Surfaces fall back to the next best shader.**
 
   - **What is removed** — this shader's own assignments on the given target that are covered by `component` and `material`. `"*"` covers everything, so `self:remove_from_material(model, "*", "*")` removes all of them.
+  - **Layered** — base and layered assignments are removed alike. Remaining layers keep their order and stay on top.
+  - **Narrower pattern** — never removes a broader assignment. Removing `"Body"` leaves an assignment made with `"*"` on the other components.
   - **Fallback** — each affected surface is handed to the next best assignment (highest priority, then most recently applied) and returns to its original material only when no other shader covers it.
+  - **Earlier assignment** — if a later assignment of this shader was hiding an earlier one on the same surface, the earlier one shows again.
   - **Target** — a model instance removes assignments made for that model. `"*"` / `nil` removes assignments made with `"*"`. The two do not affect each other.
 </Callout>
 
