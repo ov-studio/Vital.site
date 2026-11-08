@@ -67,3 +67,15 @@ a:apply_to_material(model, "*", "*")
 b:apply_to_material(model, "*", "*") -- b is shown
 b:remove_from_material(model, "*", "*") -- a is shown again
 ```
+
+```lua lineNumbers title="Remove a layer and keep the base shader"
+core.model.load("character", "models/character.glb")
+
+local model = core.model.create("character")
+local base = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
+local puddle = core.shader.create("assets/shaders/puddle.glsl", core.shader.shader_mode.SPATIAL)
+
+base:apply_to_material(model, "*", "*")
+puddle:apply_to_material(model, "*", "*", nil, true) -- puddle is drawn over toon
+puddle:remove_from_material(model, "*", "*") -- only toon is shown again
+```
