@@ -663,6 +663,7 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: 'Lifecycle hooks',                                     status: 'completed' },
           { label: 'Auto-inherit BaseMaterial3D uniforms',                status: 'completed' },
+          { label: 'Layered shaders - stacked on top of the base shader', status: 'completed' },
           { label: 'Shader modes: Canvas Item / Spatial / Post Process',  status: 'completed' },
           { label: '[Client] Enum: core.shader.shader_mode',              status: 'completed' },
           { label: '[Client] API: core.shader.create',                    status: 'completed' },
