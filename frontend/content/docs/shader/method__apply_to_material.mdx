@@ -69,3 +69,39 @@ local highlight = core.shader.create("assets/shaders/highlight.glsl", core.shade
 highlight:apply_to_material(model, "*", "*", 100)
 base:apply_to_material(model, "*", "*") -- highlight is still shown, priority 100 beats 0
 ```
+
+```lua lineNumbers title="Draw a translucent shader on top of the base shader"
+core.model.load("character", "models/character.glb")
+
+local model = core.model.create("character")
+local base = core.shader.create("assets/shaders/toon.glsl", core.shader.shader_mode.SPATIAL)
+local puddle = core.shader.create("assets/shaders/puddle.glsl", core.shader.shader_mode.SPATIAL)
+
+base:apply_to_material(model, "*", "*")
+puddle:apply_to_material(model, "*", "*", nil, true) -- drawn over toon, base is visible where puddle's ALPHA is 0
+```
+
+```lua lineNumbers title="Stack several layers, higher priority is drawn further on top"
+local puddle = core.shader.create("assets/shaders/puddle.glsl", core.shader.shader_mode.SPATIAL)
+local snow = core.shader.create("assets/shaders/snow.glsl", core.shader.shader_mode.SPATIAL)
+
+puddle:apply_to_material("*", "*", "*", 0, true)
+snow:apply_to_material("*", "*", "*", 10, true) -- snow is drawn over puddle
+```
+
+```lua lineNumbers title="Layer on top of a surface's own material without replacing it"
+local puddle = core.shader.create("assets/shaders/puddle.glsl", core.shader.shader_mode.SPATIAL)
+
+puddle:apply_to_material("*", "*", "*", nil, true) -- shaders from other scripts keep working as the base
+```
+
+```lua lineNumbers title="Switch an assignment between base and layered"
+core.model.load("character", "models/character.glb")
+
+local model = core.model.create("character")
+local puddle = core.shader.create("assets/shaders/puddle.glsl", core.shader.shader_mode.SPATIAL)
+
+puddle:apply_to_material(model, "*", "*")              -- puddle is the base
+puddle:apply_to_material(model, "*", "*", 0, true)     -- same assignment, now layered
+puddle:apply_to_material(model, "Body", "*", 0, false) -- Body: puddle is the base again, other components stay layered
+```
