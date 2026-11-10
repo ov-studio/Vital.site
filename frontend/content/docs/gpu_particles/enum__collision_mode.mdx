@@ -1,0 +1,13 @@
+---
+title: particle.gpu.collision_mode
+description: Enumeration of what a particle does when it touches the world
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `particle.gpu.collision_mode.DISABLED` | Particles ignore the world collider |
+| `particle.gpu.collision_mode.RIGID` | Particles land on the surface and bounce or slide, depending on the bounce and friction |
+| `particle.gpu.collision_mode.HIDE` | Particles disappear the moment they touch the surface — rain and anything that should splash and vanish |
