@@ -84,3 +84,17 @@ util.event.on("sandbox:draw", function()
     core.engine.draw_material({0, 0}, {0, 0}, entity)
 end)
 ```
+
+```lua lineNumbers title="Compile a shader with an extra output written to a rendertarget"
+local raw = [[
+    void fragment() {
+        COLOR = vec4(0.0, 1.0, 0.0, 1.0);
+        VSDK_OUT(mask, vec4(1.0, 0.0, 0.0, 1.0));
+    }
+]]
+
+local entity = core.shader.create_from_raw(raw, core.shader.shader_mode.CANVAS_ITEM)
+local mask = core.rendertarget.create({512, 512}, true)
+
+entity:set_output("mask", mask)
+```
