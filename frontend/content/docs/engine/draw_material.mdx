@@ -41,6 +41,13 @@ local status = core.engine.draw_material(
   - **Lifetime** — call it every frame inside `"sandbox:draw"`; the effect turns off on the first frame it is not drawn.
 </Callout>
 
+<Callout type="info">
+  **`CANVAS_ITEM` shaders with outputs are drawn again for each output.**
+
+  - **Outputs** — every output bound with [`self:set_output`](/docs/shader/method/set_output) is drawn into its rendertarget.
+  - **Cost** — one extra draw per bound output.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
