@@ -645,6 +645,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Lifecycle hooks',                             status: 'completed' },
           { label: 'Alpha-transparent render surface',            status: 'completed' },
           { label: 'Immediate-mode per-frame updates',            status: 'completed' },
+          { label: 'On-demand 3D rendering for spatial shader outputs', status: 'completed' },
           { label: '[Client] API: core.rendertarget.create',      status: 'completed' },
           { label: '[Client] API: core.rendertarget.get_active',  status: 'completed' },
           { label: '[Client] API: core.rendertarget.set_active',  status: 'completed' },
