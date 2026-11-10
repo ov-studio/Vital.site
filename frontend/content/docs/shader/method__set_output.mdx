@@ -1,0 +1,75 @@
+---
+title: self:set_output
+description: Binds a shader output declared with VSDK_OUT to a rendertarget
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_output(
+    name,
+    rendertarget
+)
+```
+
+<Callout type="info">
+  **Every bound output costs one extra draw.**
+
+  - **Declaring** — outputs are declared in the shader with `VSDK_OUT(name, value)`, see the [**Output Cheatsheet**](/docs/shader/cheatsheet/output).
+  - **Canvas Item** — the output is drawn into the rendertarget each time the shader is drawn.
+  - **Spatial** — turns on 3D rendering for the rendertarget, up to `12` at once.
+  - **Unbinding** — pass `nil` as the `rendertarget` to stop drawing the output.
+  - **Unknown name** — raises an error listing the outputs declared in the shader.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `string` | name | Name of the output as declared with `VSDK_OUT` in the shader |
+| `rendertarget` \| `nil` | rendertarget | Rendertarget the output is drawn into<br/>Use `nil` to unbind the output |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw a canvas shader's second result into a rendertarget"
+local entity = core.shader.create_from_raw([[
+    void fragment() {
+        COLOR = vec4(0.0, 1.0, 0.0, 1.0);
+        VSDK_OUT(mask, vec4(1.0, 0.0, 0.0, 1.0));
+    }
+]], core.shader.shader_mode.CANVAS_ITEM)
+
+local mask = core.rendertarget.create({512, 512}, true)
+
+entity:set_output("mask", mask)
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_material({0, 0}, {512, 512}, entity) -- green on screen, red in "mask"
+end)
+```
+
+```lua lineNumbers title="Render a mask of a model's surfaces from a spatial shader"
+core.model.load("character", "models/character.glb")
+
+local model = core.model.create("character")
+local entity = core.shader.create_from_raw([[
+    void fragment() {
+        ALBEDO = vec3(0.0, 1.0, 0.0);
+        VSDK_OUT(mask, vec4(1.0, 0.0, 0.0, 1.0));
+    }
+]], core.shader.shader_mode.SPATIAL)
+
+local mask = core.rendertarget.create(core.display.get_resolution(), true)
+
+entity:set_output("mask", mask)
+entity:apply_to_material(model, "*", "*")
+```
