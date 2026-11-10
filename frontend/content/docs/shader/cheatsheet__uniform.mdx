@@ -92,13 +92,13 @@ No uniforms are auto-inherited. Use `shader:set_param` to feed all values.
 
 ## Priority
 
-```
-shader:set_param   ← always wins
-        ↓ (only if above not set)
-auto-bind from original surface material
-        ↓ (only if no original material or no match)
-uniform default value declared in GLSL
-```
+Highest first.
+
+| Order | Source | Used when |
+|---|---|---|
+| 1 | `shader:set_param` | Always, if set |
+| 2 | Original surface material | The model has one and the uniform name matches |
+| 3 | Default value declared in GLSL | Nothing above applies |
 
 ---
 
