@@ -674,6 +674,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:get_mode',                         status: 'completed' },
           { label: '[Client] API: self:get_code',                         status: 'completed' },
           { label: '[Client] API: self:set_param',                        status: 'completed' },
+          { label: '[Client] API: self:set_output',                       status: 'completed' },
           { label: '[Client] API: self:apply_to_material',                status: 'completed' },
           { label: '[Client] API: self:remove_from_material',             status: 'completed' }
         ]
