@@ -659,7 +659,7 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Shader',
-        desc:  'GLSL shader compilation from file or raw source, with full uniform control and model/rendertarget binding from Lua',
+        desc:  'GLSL shader compilation, uniform control, model binding, and extra rendertarget outputs from Lua',
         icon:  <lucide.Sliders  {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                                      status: 'completed' },
