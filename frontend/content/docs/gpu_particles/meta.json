@@ -12,6 +12,12 @@
         "create",
         "...",
 
+        "---Getter---",
+        "has_world_collision",
+
+        "---Setter---",
+        "set_world_collision",
+
         "---⁝⁝Lifecycle---",
         "method__is_type",
         "method__is_streamed",
