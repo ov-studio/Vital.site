@@ -74,7 +74,7 @@ What is not allowed, and what happens when it is broken.
 | Case | Behavior |
 |---|---|
 | `VSDK_OUT` outside `fragment()` | Error when the shader is created |
-| `post_process` shaders | Not supported, error when the shader is created |
+| `POST_PROCESS` shaders | Not supported, error when the shader is created |
 | Same name used more than once | Allowed, e.g. in different branches. The last one that ran is used |
 | `discard` before `VSDK_OUT` | The pixel is discarded in the output too |
 
