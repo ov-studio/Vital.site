@@ -4,6 +4,7 @@
     "pages": [
         "---Reference---",
         "cheatsheet__uniform",
+        "cheatsheet__output",
 
         "---Enum---",
         "enum__shader_mode",
