@@ -1,0 +1,107 @@
+---
+title: Output Cheatsheet
+description: Write extra results to rendertargets from the same shader — emulated multiple render targets with VSDK_OUT
+---
+
+A shader normally writes one result. Declare extra outputs with `VSDK_OUT(name, value)` inside `fragment()`
+and bind each one to a rendertarget with [`shader:set_output`](/docs/shader/method/set_output) — the world
+keeps rendering as usual while every output is written to its own rendertarget.
+
+Godot shaders can only write one output, so Vital compiles the shader once for the world and once per
+declared output, and draws each bound output again with its own variant.
+
+---
+
+## Syntax
+
+```glsl
+VSDK_OUT(name, value);
+```
+
+| Argument | Type | Description |
+|---|---|---|
+| `name` | identifier | Output name, bound with `shader:set_output(name, rendertarget)` |
+| `value` | `vec4` | Result written to the output |
+
+---
+
+## Passes
+
+| Pass | Behavior | Result |
+|---|---|---|
+| World | Does nothing | `COLOR` / `ALBEDO` render as usual |
+| Output | Last `VSDK_OUT` of its name that ran is written as the final color. Other names do nothing | Written to the bound rendertarget |
+
+Outputs that are not bound cost nothing. Each bound output costs one extra draw.
+
+---
+
+## Canvas Item
+
+| Property | Behavior |
+|---|---|
+| Output | Written to `COLOR` |
+| Drawn by | [`core.engine.draw_material`](/docs/engine/draw_material), with the same `position`, `size`, `rotation`, `pivot` and `color` |
+| Rendertarget | Any rendertarget. Skipped if it is the one currently being drawn to |
+
+---
+
+## Spatial
+
+The output is drawn on a hidden copy of every surface the shader is applied to, seen only by the output's rendertarget.
+
+| Property | Behavior |
+|---|---|
+| Pass | Unlit, without shadows or fog |
+| Alpha | Coverage of the shader's surfaces. If the shader writes `ALPHA`, the output's `.a` is used instead |
+| Occlusion | Surfaces of the same model that don't use the output are drawn opaque black. Other models don't occlude |
+| Camera | Copies the active camera. Use a rendertarget the size of the screen so it lines up |
+| Rendertarget | Binding turns on its 3D rendering. Up to `12` at once |
+| Skinned models | Skeleton, skin, blendshapes and `vertex()` displacement follow the original |
+
+---
+
+## Rules
+
+| Rule | Description |
+|---|---|
+| Placement | Directly inside `fragment()` only |
+| `POST_PROCESS` | Not supported |
+| Violations | Raise an error when the shader is created |
+| Same name | Can be used more than once, e.g. in different branches |
+| Early exits | `discard` and anything before the `VSDK_OUT` still apply to the output |
+
+---
+
+## Example
+
+```lua lineNumbers title="Spatial shader that renders green in the world and red into a rendertarget"
+local shader = core.shader.create_from_raw([[
+    void fragment() {
+        ALBEDO = vec3(0.0, 1.0, 0.0);               // world: green
+        VSDK_OUT(mask, vec4(1.0, 0.0, 0.0, 1.0));   // "mask" output: red
+    }
+]], core.shader.shader_mode.SPATIAL)
+
+local mask = core.rendertarget.create(core.display.get_resolution(), true)
+
+shader:set_output("mask", mask)
+shader:apply_to_material(my_model, "*", "*")
+```
+
+```lua lineNumbers title="Canvas Item shader with two outputs"
+local shader = core.shader.create_from_raw([[
+    void fragment() {
+        COLOR = vec4(0.0, 1.0, 0.0, 1.0);
+        VSDK_OUT(mask, vec4(1.0, 0.0, 0.0, 1.0));
+        VSDK_OUT(data, vec4(0.5, 0.25, 0.0, 1.0));
+    }
+]], core.shader.shader_mode.CANVAS_ITEM)
+
+shader:set_output("mask", core.rendertarget.create({512, 512}, true))
+shader:set_output("data", core.rendertarget.create({512, 512}, true))
+
+util.event.on("sandbox:draw", function()
+    core.engine.draw_material({0, 0}, {512, 512}, shader)
+end)
+```
