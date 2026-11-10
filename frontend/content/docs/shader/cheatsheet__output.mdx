@@ -29,26 +29,20 @@ VSDK_OUT(name, value);
 
 ## How It Renders
 
-The shader is drawn once for the world and once for each bound output.
-
-| Draw | What happens to `VSDK_OUT` | Where the result goes |
+| Draw | Result | Cost |
 |---|---|---|
-| World | Ignored | Screen, from `COLOR` / `ALBEDO` as usual |
-| Output | The last `VSDK_OUT` of that name that ran becomes the final color. Other names are ignored | The rendertarget bound to that name |
-
-Outputs that are not bound cost nothing. Each bound output costs one extra draw.
+| World | `COLOR` / `ALBEDO` to the screen. `VSDK_OUT` is ignored | Always drawn |
+| Output | Last `VSDK_OUT` of that name that ran, to its rendertarget | One extra draw per bound output. Unbound outputs are free |
 
 ---
 
 ## Canvas Item
 
-How an output behaves in a `canvas_item` shader.
-
 | Topic | Behavior |
 |---|---|
-| Color written | `COLOR` |
-| Drawn with | [`core.engine.draw_material`](/docs/engine/draw_material), using the same `position`, `size`, `rotation`, `pivot` and `color` |
-| Bound to the rendertarget being drawn to | Skipped |
+| Written color | `COLOR` |
+| Drawn by | [`core.engine.draw_material`](/docs/engine/draw_material), once per bound output |
+| Current target | An output bound to the rendertarget being drawn to is skipped |
 
 ---
 
