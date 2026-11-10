@@ -9,7 +9,7 @@ badge: client
 ```lua
 local status = self:set_output(
     name,
-    rendertarget
+    rendertarget = nil
 )
 ```
 
@@ -19,7 +19,7 @@ local status = self:set_output(
   - **Declaring** — outputs are declared in the shader with `VSDK_OUT(name, value)`, see the [**Output Cheatsheet**](/docs/shader/cheatsheet/output).
   - **Canvas Item** — the output is drawn into the rendertarget each time the shader is drawn.
   - **Spatial** — turns on 3D rendering for the rendertarget, up to `12` at once.
-  - **Unbinding** — pass `nil` as the `rendertarget` to stop drawing the output.
+  - **Unbinding** — omit the `rendertarget` to stop drawing the output.
   - **Unknown name** — raises an error listing the outputs declared in the shader.
 </Callout>
 
@@ -28,7 +28,7 @@ local status = self:set_output(
 | Type | Name | Description |
 |------|------|-------------|
 | `string` | name | Name of the output as declared with `VSDK_OUT` in the shader |
-| `rendertarget` \| `nil` | rendertarget | Rendertarget the output is drawn into<br/>Use `nil` to unbind the output |
+| `rendertarget` \| `nil` | rendertarget | Rendertarget the output is drawn into<br/>Omit to unbind the output |
 
 ### Returns
 
