@@ -1,0 +1,32 @@
+---
+title: self:reset_sub_emitter
+description: Removes the sub-emitter of the emitter
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:reset_sub_emitter()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Stop spawning splashes"
+local rain = particle.gpu.create()
+
+rain:reset_sub_emitter()
+```
