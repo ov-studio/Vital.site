@@ -1,0 +1,55 @@
+---
+title: particle.gpu.set_world_collision
+description: Creates or removes the world collider that particles collide with
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = particle.gpu.set_world_collision(
+    state,
+    size = {48, 60, 48},
+    resolution = 1024
+)
+```
+
+<Callout type="info">
+  **One shared collider, no baking and no map setup.**
+
+  - **Follows the camera** — the collider stays centred on the active camera and sees the level around it, snapped to whole texels so the surface does not shimmer while you move.
+  - **Top surface only** — it rasterizes what is drawn from above, so roofs, ceilings and ledges stop particles and the ground beneath them stays untouched.
+  - **Opt-in per emitter** — nothing collides until an emitter turns it on with [`self:set_collision`](/docs/gpu_particles/method/set_collision).
+  - **Layers** — it reads visual layers `1` to `19`. Emitters live on layer `20`, so their own quads are never taken for ground.
+  - **Cost** — the height map is redrawn when the collider moves, doubling the `resolution` quadruples the pixels.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines the collider state:<br/>• When `true` - creates the collider, or updates it if it already exists<br/>• When `false` - removes the collider |
+| `vector3` | size | Size of the covered volume in metres as `{x, y, z}`:<br/>• `x` and `z` - the area around the camera<br/>• `y` - the height of the volume, centred on the camera |
+| `int` | resolution | Height map size in pixels, rounded up to `256`, `512`, `1024`, `2048`, `4096` or `8192` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create the world collider with the defaults"
+particle.gpu.set_world_collision(true)
+```
+
+```lua lineNumbers title="Cover a larger area with a sharper height map"
+particle.gpu.set_world_collision(true, {80, 60, 80}, 2048)
+```
+
+```lua lineNumbers title="Remove the world collider"
+particle.gpu.set_world_collision(false)
+```
