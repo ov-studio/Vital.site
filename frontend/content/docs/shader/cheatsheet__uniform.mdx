@@ -86,7 +86,7 @@ Spatial shaders drawn on a full-screen quad. No uniforms are auto-inherited, fee
 
 | Topic | Behavior |
 |---|---|
-| Defaults | `shader_type spatial;` and `render_mode unshaded, cull_disabled, depth_test_disabled, depth_draw_never;` are added when the source omits them |
+| Render mode | `unshaded, cull_disabled, depth_test_disabled, depth_draw_never` unless your source sets its own |
 | Full-screen quad | Set `POSITION = vec4(VERTEX.xy, 1.0, 1.0);` in `vertex()` |
 | Drawing | `core.engine.draw_material` inside `"sandbox:draw"` |
 
