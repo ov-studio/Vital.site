@@ -1,0 +1,68 @@
+---
+title: self:set_sub_emitter
+description: Spawns the particles of another emitter wherever this emitter's particles are
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_sub_emitter(
+    emitter,
+    mode = particle.gpu.sub_emitter_mode.AT_COLLISION,
+    amount = 1,
+    frequency = 10
+)
+```
+
+<Callout type="info">
+  **The sub-emitter only emits what its parent spawns for it.**
+
+  - **Switched off** — the sub-emitter stops emitting on its own, set its look, lifetime, velocity and gravity like any other emitter.
+  - **Budget** — the sub-emitter's [`self:set_amount`](/docs/gpu_particles/method/set_amount) is the number of particles it can show at once. A full budget skips new spawns, so give it at least `spawns per second × amount × lifetime`.
+  - **Collision** — `AT_COLLISION` needs [`self:set_collision`](/docs/gpu_particles/method/set_collision) on this emitter and the collider from [`particle.gpu.set_world_collision`](/docs/gpu_particles/set_world_collision).
+  - **One at a time** — an emitter has a single sub-emitter, calling this again replaces it, [`self:reset_sub_emitter`](/docs/gpu_particles/method/reset_sub_emitter) removes it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `particle` | emitter | Emitter whose particles are spawned, must be another emitter |
+| [`particle.gpu.sub_emitter_mode`](/docs/gpu_particles/enum/sub_emitter_mode) | mode | Determines when the sub-emitter spawns |
+| `int` | amount | Number of particles spawned each time, at least `1` |
+| `float` | frequency | Spawns per second, only used by `CONSTANT` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Splash droplets where rain lands"
+particle.gpu.set_world_collision(true)
+
+-- droplets thrown up from every landing
+local splash = particle.gpu.create()
+splash:set_amount(1500)
+splash:set_lifetime(0.45)
+splash:set_direction({0, 1, 0})
+splash:set_spread(60)
+splash:set_gravity({0, -9.8, 0})
+splash:set_local_coords(false)
+
+-- rain that disappears on contact and spawns 3 droplets
+local rain = particle.gpu.create()
+rain:set_amount(6000)
+rain:set_lifetime(3.6)
+rain:set_emission_shape(particle.gpu.emission_shape.BOX, {17, 0.2, 17})
+rain:set_direction({0, -1, 0})
+rain:set_gravity({0, 0, 0})
+rain:set_local_coords(false)
+rain:set_collision(particle.gpu.collision_mode.HIDE)
+rain:set_sub_emitter(splash, particle.gpu.sub_emitter_mode.AT_COLLISION, 3)
+```
