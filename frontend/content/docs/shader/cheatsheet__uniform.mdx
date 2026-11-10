@@ -11,11 +11,22 @@ manually via `shader:set_param` takes priority over the auto-bind.
 
 ---
 
+## Canvas Item
+
+| Topic | Behavior |
+|---|---|
+| Auto-inherited uniforms | None, no `BaseMaterial3D` is involved |
+| Feeding values | `shader:set_param` |
+
+---
+
 ## Spatial
 
 ### Textures
 
-| Uniform name (case-insensitive, partial match) | Source slot |
+Any `sampler2D` uniform whose name contains one of the keywords (e.g. `my_albedo_tex`) gets the matching texture. Matching is case-insensitive.
+
+| Keywords | Source slot |
 |---|---|
 | `albedo_texture`, `diffuse_texture`, `basecolor_texture`, `base_color_texture` | Albedo / Base Color |
 | `normal_texture` | Normal Map |
@@ -24,12 +35,11 @@ manually via `shader:set_param` takes priority over the auto-bind.
 | `emission_texture` | Emission |
 | `occlusion_texture`, `ao_texture`, `ambient_texture` | Ambient Occlusion |
 
-Any sampler2D uniform whose name contains one of the keywords above (e.g. `my_albedo_tex`) gets
-the matching texture automatically.
-
 ### Scalars & Vectors
 
-| Uniform name (exact) | Type | Source value |
+Uniform names must match exactly.
+
+| Uniform name | Type | Source value |
 |---|---|---|
 | `roughness` | `float` | `BaseMaterial3D.roughness` |
 | `metallic` | `float` | `BaseMaterial3D.metallic` |
@@ -42,52 +52,43 @@ the matching texture automatically.
 
 ### Colors
 
-Declare as `vec4`, `vec3`, or `Color` — Vital coerces automatically.
+Uniform names must match exactly. Declare as `vec4`, `vec3` or `Color`, Vital converts automatically.
 
-| Uniform name (exact) | Source value |
+| Uniform name | Source value |
 |---|---|
 | `albedo_color`, `albedo` | `BaseMaterial3D.albedo` |
 | `emission`, `emission_color` | `BaseMaterial3D.emission` |
 
-### Channel Masks (ORM / packed textures)
+### Channel Masks
 
-Returns a `vec4` dot-product mask for the channel Godot reads for each property.
-Useful with glTF ORM textures (`ao=R, roughness=G, metallic=B`).
+Packed textures such as glTF ORM (`ao` = R, `roughness` = G, `metallic` = B). Each uniform is a `vec4` mask for the channel Godot reads for that property, so `dot(texture, mask)` extracts it.
 
-| Uniform name (exact) | Type | Example value (green channel) |
+| Uniform name | Type | Example value |
 |---|---|---|
 | `roughness_channel` | `vec4` | `vec4(0,1,0,0)` |
 | `metallic_channel` | `vec4` | `vec4(0,0,1,0)` |
 | `ao_channel` | `vec4` | `vec4(1,0,0,0)` |
 
-Usage in shader:
 ```glsl
 uniform sampler2D orm_texture;
 uniform vec4 roughness_channel;
 
 void fragment() {
-    float rough = dot(texture(orm_texture, UV), roughness_channel);
-    ROUGHNESS = rough;
+    ROUGHNESS = dot(texture(orm_texture, UV), roughness_channel);
 }
 ```
 
 ---
 
-## Canvas Item
-
-Canvas Item shaders use a different pipeline — no `BaseMaterial3D` is involved.
-No uniforms are auto-inherited. Use `shader:set_param` to feed all values.
-
----
-
 ## Post Process
 
-Post Process shaders are spatial shaders drawn on a full-screen quad — no `BaseMaterial3D` is involved.
-No uniforms are auto-inherited. Use `shader:set_param` to feed all values.
+Spatial shaders drawn on a full-screen quad. No uniforms are auto-inherited, feed values with `shader:set_param`.
 
-- **Defaults** — `shader_type spatial;` and `render_mode unshaded, cull_disabled, depth_test_disabled, depth_draw_never;` are added when your source omits them.
-- **Full-screen quad** — set `POSITION = vec4(VERTEX.xy, 1.0, 1.0);` in `vertex()` so the quad covers the screen.
-- **Drawing** — render it with `core.engine.draw_material` inside `"sandbox:draw"`.
+| Topic | Behavior |
+|---|---|
+| Defaults | `shader_type spatial;` and `render_mode unshaded, cull_disabled, depth_test_disabled, depth_draw_never;` are added when the source omits them |
+| Full-screen quad | Set `POSITION = vec4(VERTEX.xy, 1.0, 1.0);` in `vertex()` |
+| Drawing | `core.engine.draw_material` inside `"sandbox:draw"` |
 
 ---
 
