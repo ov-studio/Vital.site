@@ -642,19 +642,19 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Off-screen render surfaces — create, bind, and sample as textures in the scene',
         icon:  <lucide.Layers {...config_site.info.lucide}/>,
         items: [
-          { label: 'Lifecycle hooks',                             status: 'completed' },
-          { label: 'Alpha-transparent render surface',            status: 'completed' },
-          { label: 'Immediate-mode per-frame updates',            status: 'completed' },
-          { label: 'On-demand 3D rendering for spatial shader outputs', status: 'completed' },
-          { label: '[Client] API: core.rendertarget.create',      status: 'completed' },
-          { label: '[Client] API: core.rendertarget.get_active',  status: 'completed' },
-          { label: '[Client] API: core.rendertarget.set_active',  status: 'completed' },
-          { label: '[Client] API: self:is_type',                  status: 'completed' },
-          { label: '[Client] API: self:get_type',                 status: 'completed' },
-          { label: '[Client] API: self:destroy',                  status: 'completed' },
-          { label: '[Client] API: self:is_active',                status: 'completed' },
-          { label: '[Client] API: self:get_size',                 status: 'completed' },
-          { label: '[Client] API: self:set_active',               status: 'completed' }
+          { label: 'Lifecycle hooks',                                    status: 'completed' },
+          { label: 'Alpha-transparent render surface',                   status: 'completed' },
+          { label: 'Immediate-mode per-frame updates',                   status: 'completed' },
+          { label: 'On-demand 3D rendering for spatial shader outputs',  status: 'completed' },
+          { label: '[Client] API: core.rendertarget.create',             status: 'completed' },
+          { label: '[Client] API: core.rendertarget.get_active',         status: 'completed' },
+          { label: '[Client] API: core.rendertarget.set_active',         status: 'completed' },
+          { label: '[Client] API: self:is_type',                         status: 'completed' },
+          { label: '[Client] API: self:get_type',                        status: 'completed' },
+          { label: '[Client] API: self:destroy',                         status: 'completed' },
+          { label: '[Client] API: self:is_active',                       status: 'completed' },
+          { label: '[Client] API: self:get_size',                        status: 'completed' },
+          { label: '[Client] API: self:set_active',                      status: 'completed' }
         ]
       },
       {
