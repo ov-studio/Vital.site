@@ -1,0 +1,55 @@
+---
+title: self:set_collision
+description: Sets how particles react when they touch the world collider
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_collision(
+    mode,
+    bounce = 0,
+    friction = 0
+)
+```
+
+<Callout type="info">
+  **Needs the world collider.**
+
+  - **Collider** — create it once with [`particle.gpu.set_world_collision`](/docs/gpu_particles/set_world_collision), particles only collide inside the volume it covers.
+  - **Splashes** — combine `HIDE` with [`self:set_sub_emitter`](/docs/gpu_particles/method/set_sub_emitter) to spawn another emitter's particles where each particle lands.
+  - **Bounce and friction** — only used by `RIGID`.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| [`particle.gpu.collision_mode`](/docs/gpu_particles/enum/collision_mode) | mode | Collision mode to apply |
+| `float` | bounce | Determines how much speed is kept after a bounce<br/>Clamped between `0` and `1` |
+| `float` | friction | Determines how much a particle is slowed while sliding<br/>Clamped between `0` and `1` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Let particles bounce off the ground"
+local entity = particle.gpu.create()
+
+particle.gpu.set_world_collision(true)
+entity:set_collision(particle.gpu.collision_mode.RIGID, 0.4, 0.2)
+```
+
+```lua lineNumbers title="Make particles disappear on contact"
+local entity = particle.gpu.create()
+
+particle.gpu.set_world_collision(true)
+entity:set_collision(particle.gpu.collision_mode.HIDE)
+```
