@@ -1,0 +1,32 @@
+---
+title: particle.gpu.has_world_collision
+description: Checks whether the world collider for particles exists
+badge: client
+---
+
+### Syntax
+
+```lua
+local state = particle.gpu.has_world_collision()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | `true` if the world collider exists, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Create the world collider only once"
+if not particle.gpu.has_world_collision() then
+    particle.gpu.set_world_collision(true)
+end
+```
