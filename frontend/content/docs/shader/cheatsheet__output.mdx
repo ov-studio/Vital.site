@@ -14,6 +14,8 @@ declared output, and draws each bound output again with its own variant.
 
 ## Syntax
 
+Place it inside `fragment()`, once per output you want to write.
+
 ```glsl
 VSDK_OUT(name, value);
 ```
@@ -21,16 +23,18 @@ VSDK_OUT(name, value);
 | Argument | Type | Description |
 |---|---|---|
 | `name` | identifier | Output name, bound with `shader:set_output(name, rendertarget)` |
-| `value` | `vec4` | Result written to the output |
+| `value` | `vec4` | Color written to the output |
 
 ---
 
-## Passes
+## How It Renders
 
-| Pass | Behavior | Result |
+The shader is drawn once for the world and once for each bound output.
+
+| Draw | What happens to `VSDK_OUT` | Where the result goes |
 |---|---|---|
-| World | Does nothing | `COLOR` / `ALBEDO` render as usual |
-| Output | Last `VSDK_OUT` of its name that ran is written as the final color. Other names do nothing | Written to the bound rendertarget |
+| World | Ignored | Screen, from `COLOR` / `ALBEDO` as usual |
+| Output | The last `VSDK_OUT` of that name that ran becomes the final color. Other names are ignored | The rendertarget bound to that name |
 
 Outputs that are not bound cost nothing. Each bound output costs one extra draw.
 
@@ -38,38 +42,41 @@ Outputs that are not bound cost nothing. Each bound output costs one extra draw.
 
 ## Canvas Item
 
-| Property | Behavior |
+How an output behaves in a `canvas_item` shader.
+
+| Topic | Behavior |
 |---|---|
-| Output | Written to `COLOR` |
-| Drawn by | [`core.engine.draw_material`](/docs/engine/draw_material), with the same `position`, `size`, `rotation`, `pivot` and `color` |
-| Rendertarget | Any rendertarget. Skipped if it is the one currently being drawn to |
+| Color written | `COLOR` |
+| Drawn with | [`core.engine.draw_material`](/docs/engine/draw_material), using the same `position`, `size`, `rotation`, `pivot` and `color` |
+| Bound to the rendertarget being drawn to | Skipped |
 
 ---
 
 ## Spatial
 
-The output is drawn on a hidden copy of every surface the shader is applied to, seen only by the output's rendertarget.
+How an output behaves in a `spatial` shader. Each surface using the shader is drawn again, hidden, only for the output's rendertarget.
 
-| Property | Behavior |
+| Topic | Behavior |
 |---|---|
-| Pass | Unlit, without shadows or fog |
-| Alpha | Coverage of the shader's surfaces. If the shader writes `ALPHA`, the output's `.a` is used instead |
-| Occlusion | Surfaces of the same model that don't use the output are drawn opaque black. Other models don't occlude |
-| Camera | Copies the active camera. Use a rendertarget the size of the screen so it lines up |
-| Rendertarget | Binding turns on its 3D rendering. Up to `12` at once |
+| Lighting | Unlit, no shadows or fog |
+| Alpha | Surface coverage, or the output's `.a` if the shader writes `ALPHA` |
+| Surfaces not using the output | Drawn opaque black, so they still hide what is behind them. Other models don't |
+| Camera | Copies the active camera, so use a rendertarget the size of the screen |
+| Rendertarget | Binding turns on its 3D rendering, up to `12` rendertargets at once |
 | Skinned models | Skeleton, skin, blendshapes and `vertex()` displacement follow the original |
 
 ---
 
-## Rules
+## Limitations
 
-| Rule | Description |
+What is not allowed, and what happens when it is broken.
+
+| Case | Behavior |
 |---|---|
-| Placement | Directly inside `fragment()` only |
-| `POST_PROCESS` | Not supported |
-| Violations | Raise an error when the shader is created |
-| Same name | Can be used more than once, e.g. in different branches |
-| Early exits | `discard` and anything before the `VSDK_OUT` still apply to the output |
+| `VSDK_OUT` outside `fragment()` | Error when the shader is created |
+| `post_process` shaders | Not supported, error when the shader is created |
+| Same name used more than once | Allowed, e.g. in different branches. The last one that ran is used |
+| `discard` before `VSDK_OUT` | The pixel is discarded in the output too |
 
 ---
 
