@@ -24,6 +24,7 @@
 
         "---⁝⁝Setter---",
         "method__set_param",
+        "method__set_output",
 
         "---⁝⁝Misc---",
         "method__apply_to_material",
