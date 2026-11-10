@@ -1,0 +1,14 @@
+---
+title: particle.gpu.sub_emitter_mode
+description: Enumeration of when an emitter spawns the particles of its sub-emitter
+badge: client
+---
+
+### Values
+
+| Constant | Description |
+|----------|-------------|
+| `particle.gpu.sub_emitter_mode.CONSTANT` | Spawns continuously, at the given frequency per second |
+| `particle.gpu.sub_emitter_mode.AT_END` | Spawns where a particle reaches the end of its lifetime |
+| `particle.gpu.sub_emitter_mode.AT_COLLISION` | Spawns where a particle touches the world, see [`particle.gpu.set_world_collision`](/docs/gpu_particles/set_world_collision) |
+| `particle.gpu.sub_emitter_mode.AT_START` | Spawns where a particle is born |
