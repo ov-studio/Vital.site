@@ -196,10 +196,6 @@
 @media (max-width: 960px) {
   #hero        { padding-top: calc(var(--nav-h)*1.8);   }
   .hero-center { overflow: visible; padding: 25px 24px; }
-  .hero-watermark-logo {
-    width: min(200vh, 200vw);
-    height: min(200vh, 200vw);
-  }
 }
 
 @media (max-width: 640px) {
@@ -207,10 +203,6 @@
   .hero-center   { overflow: visible; padding: 25px 20px;   }
   .hcorner       { display: none;                           }
   .hero-sub-lead { margin-bottom: 8px !important;           }
-  .hero-watermark-logo {
-    width: min(320vh, 320vw);
-    height: min(320vh, 320vw);
-  }
 }
 
 @media (max-height: 1050px) {
