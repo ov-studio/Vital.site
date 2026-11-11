@@ -187,24 +187,21 @@
   50%      { transform: rotate(18deg) scale(1.12); opacity: 1;   }
 }
 
-@keyframes watermark-reveal {
-  0% {
-    background-color: var(--bg6);
-    transform: translateY(6%) scale(1.18);
-  }
-  100% {
-    background-color: color-mix(in srgb, var(--blue) var(--wm-tint), var(--bg6));
-    transform: translateY(2%) scale(1.08);
-  }
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 
 /* ── @media ── */
 @media (prefers-reduced-motion: reduce) {
   .hero-stat-icon { animation: none !important; }
-  .hero-watermark-logo {
-    animation: none !important;
-    transform: translateY(2%) scale(1.08);
+  .hero-slide {
+    transition: opacity 0.8s ease !important;
+    transform: scale(1) !important;
+  }
+  .hero-slide.is-active {
+    transform: scale(1) !important;
   }
 }
 
