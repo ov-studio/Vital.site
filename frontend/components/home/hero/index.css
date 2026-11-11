@@ -164,7 +164,7 @@
   font-family: var(--font-sacramento), cursive;
   font-weight: 400;
   font-size: clamp(1.04rem, 12.1vw, 18.4px);
-  background: var(--b10);
+  background: var(--b15);
   border-radius: 2px;
 }
 
