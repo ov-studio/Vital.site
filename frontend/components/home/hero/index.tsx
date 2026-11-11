@@ -84,8 +84,8 @@ export function Hero() {
             {config_site.info.description}
           </p>
           <p className="hero-sub-mid">
-            Full control over rendering, networking, threading, and assets — one seamless workflow.<br/>
-            From indie ideas to large scale multiplayer worlds, build without compromise.
+            Full control over rendering, networking, threading, and assets — one seamless workflow<br/>
+            From indie ideas to large scale multiplayer worlds, build without compromise
           </p>
         </div>
 
