@@ -7,9 +7,12 @@ import * as component_home_features     from '@/components/home/features';
 import * as component_home_ethos        from '@/components/home/ethos';
 import * as component_home_contributors from '@/components/home/contributors';
 import * as component_clientshell       from '@/components/clientshell';
-import * as component_jsonld           from '@/components/jsonld';
+import * as component_jsonld            from '@/components/jsonld';
+import * as lib_hero_slides             from '@/lib/hero_slides';
 
 export default function HomePage() {
+  const slides = lib_hero_slides.get_hero_slides();
+
   return (
     <component_clientshell.ClientShell>
       <component_jsonld.JsonLd/>
@@ -23,7 +26,7 @@ export default function HomePage() {
         { label: 'Documentations', href: '/docs' },
         { label: 'Roadmap', href: '/roadmap' }
       ]}/>
-      <component_home_hero.Hero/>
+      <component_home_hero.Hero slides={slides}/>
       <component_home_features.Features/>
       <component_home_ethos.Ethos/>
       <component_home_contributors.Contributors/>
