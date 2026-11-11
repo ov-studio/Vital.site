@@ -2,7 +2,7 @@ import * as lib_page_meta              from '@/lib/page_meta';
 import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
 import * as component_atom_nodrag      from '@/components/atoms/nodrag';
 import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
-import { Geist, Geist_Mono, Rajdhani } from 'next/font/google';
+import { Geist, Geist_Mono, Rajdhani, Signika } from 'next/font/google';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -22,13 +22,19 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani'
 });
 
+const signika = Signika({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-signika',
+});
+
 export const metadata = lib_page_meta.root_meta();
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geist_mono.variable} ${rajdhani.variable}`}
+      className={`${geist.variable} ${geist_mono.variable} ${rajdhani.variable} ${signika.variable}`}
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen font-sans">
