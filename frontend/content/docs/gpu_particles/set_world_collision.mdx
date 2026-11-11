@@ -17,11 +17,11 @@ local status = particle.gpu.set_world_collision(
 <Callout type="info">
   **One shared collider, no baking and no map setup.**
 
-  - **Follows the camera** — the collider stays centred on the active camera and sees the level around it, snapped to whole texels so the surface does not shimmer while you move.
-  - **Top surface only** — it rasterizes what is drawn from above, so roofs, ceilings and ledges stop particles and the ground beneath them stays untouched.
-  - **Opt-in per emitter** — nothing collides until an emitter turns it on with [`self:set_collision`](/docs/gpu_particles/method/set_collision).
-  - **Layers** — it reads visual layers `1` to `19`. Emitters live on layer `20`, so their own quads are never taken for ground.
-  - **Cost** — the height map is redrawn when the collider moves, doubling the `resolution` quadruples the pixels.
+  - **Follows the camera** — stays centred on the active camera and covers the level around it.
+  - **Top surface only** — roofs, ceilings and ledges stop particles, the ground beneath them stays untouched.
+  - **Opt-in** — emitters collide only after [`self:set_collision`](/docs/gpu_particles/method/set_collision).
+  - **Layers** — reads visual layers `1` to `19`, emitters live on layer `20`.
+  - **Cost** — doubling the `resolution` quadruples the pixels redrawn when the collider moves.
 </Callout>
 
 ### Parameters
