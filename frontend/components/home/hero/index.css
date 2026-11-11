@@ -164,8 +164,8 @@
 
 .hero-sub-mid {
   text-wrap: balance;
-  font-size: clamp(0.88rem, 1.1vw, 14.7px);
-  color: var(--b70);
+  font-size: clamp(0.88rem, 1.1vw, 15px);
+  color: var(--blue);
 }
 
 
