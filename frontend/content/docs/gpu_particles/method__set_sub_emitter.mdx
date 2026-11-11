@@ -18,10 +18,10 @@ local status = self:set_sub_emitter(
 <Callout type="info">
   **The sub-emitter only emits what its parent spawns for it.**
 
-  - **Switched off** — the sub-emitter stops emitting on its own, set its look, lifetime, velocity and gravity like any other emitter.
-  - **Budget** — the sub-emitter's [`self:set_amount`](/docs/gpu_particles/method/set_amount) is the number of particles it can show at once. A full budget skips new spawns, so give it at least `spawns per second × amount × lifetime`.
-  - **Collision** — `AT_COLLISION` needs [`self:set_collision`](/docs/gpu_particles/method/set_collision) on this emitter and the collider from [`particle.gpu.set_world_collision`](/docs/gpu_particles/set_world_collision).
-  - **One at a time** — an emitter has a single sub-emitter, calling this again replaces it, [`self:reset_sub_emitter`](/docs/gpu_particles/method/reset_sub_emitter) removes it.
+  - **Switched off** — it stops emitting on its own, style it like any other emitter.
+  - **Budget** — its [`self:set_amount`](/docs/gpu_particles/method/set_amount) is the most particles shown at once, a full budget skips spawns.
+  - **Collision** — `AT_COLLISION` needs [`self:set_collision`](/docs/gpu_particles/method/set_collision) and [`particle.gpu.set_world_collision`](/docs/gpu_particles/set_world_collision).
+  - **One at a time** — calling this again replaces it, [`self:reset_sub_emitter`](/docs/gpu_particles/method/reset_sub_emitter) removes it.
 </Callout>
 
 ### Parameters
