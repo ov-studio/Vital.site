@@ -42,7 +42,7 @@
 
 .ui-tab--active {
   color: var(--blue);
-  background: linear-gradient(var(--b15), var(--b15)), var(--bg7);
+  background: linear-gradient(var(--b20), var(--b20)), var(--bg7);
   z-index: 4;
 }
 
