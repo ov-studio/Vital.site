@@ -33,8 +33,13 @@ function softPlus(v: number | null | undefined) {
   return `${format(floor10(v))}+`;
 }
 
+const HERO_SLIDES = [
+  '/hero-slides/7.png',
+];
+
 export function Hero() {
   const [data, setData] = react.useState<StatsInfo | null>(null);
+  const [active, setActive] = react.useState(0);
 
   react.useEffect(() => {
     fetch(lib_api_url.get_api_url('/stats'))
@@ -43,12 +48,27 @@ export function Hero() {
       .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0, supporters: 0 }));
   }, []);
 
+  react.useEffect(() => {
+    if (HERO_SLIDES.length < 2) return;
+    const id = window.setInterval(() => {
+      setActive((i) => (i + 1) % HERO_SLIDES.length);
+    }, 5500);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section id="hero">
       <ui_wallpaper.Wallpaper variant={1}/>
 
-      <div className="hero-watermark" aria-hidden="true">
-        <div className="hero-watermark-logo"/>
+      <div className="hero-slideshow" aria-hidden="true">
+        {HERO_SLIDES.map((src, i) => (
+          <div
+            key={src}
+            className={`hero-slide${i === active ? ' is-active' : ''}`}
+            style={{ backgroundImage: `url(${src})` }}
+          />
+        ))}
+        <div className="hero-slideshow-overlay"/>
       </div>
 
       <div className="hcorner hcorner-tl"/>
