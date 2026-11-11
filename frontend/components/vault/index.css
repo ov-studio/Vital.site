@@ -31,18 +31,6 @@
   animation: slide-up var(--anim-dur) var(--anim-delay-4) forwards;
 }
 
-.vault-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: linear-gradient(var(--b20), var(--b20)), var(--bg7);
-  border: 3px solid var(--b10);
-  border-radius: 4px;
-  transition: border-color .25s, background .25s;
-}
-.vault-card:hover { border-color: var(--blue); }
-
 .vault-card-banner,
 .vault-modal-banner {
   position: relative;
