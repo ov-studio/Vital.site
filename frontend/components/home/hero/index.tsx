@@ -33,11 +33,11 @@ function softPlus(v: number | null | undefined) {
   return `${format(floor10(v))}+`;
 }
 
-const HERO_SLIDES = [
-  '/hero-slides/7.png',
-];
+interface HeroProps {
+  slides?: string[];
+}
 
-export function Hero() {
+export function Hero({ slides = [] }: HeroProps) {
   const [data, setData] = react.useState<StatsInfo | null>(null);
   const [active, setActive] = react.useState(0);
 
@@ -49,19 +49,19 @@ export function Hero() {
   }, []);
 
   react.useEffect(() => {
-    if (HERO_SLIDES.length < 2) return;
+    if (slides.length < 2) return;
     const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % HERO_SLIDES.length);
+      setActive((i) => (i + 1) % slides.length);
     }, 5500);
     return () => window.clearInterval(id);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section id="hero">
       <ui_wallpaper.Wallpaper variant={1}/>
 
       <div className="hero-slideshow" aria-hidden="true">
-        {HERO_SLIDES.map((src, i) => (
+        {slides.map((src, i) => (
           <div
             key={src}
             className={`hero-slide${i === active ? ' is-active' : ''}`}
