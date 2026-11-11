@@ -40,6 +40,7 @@ interface HeroProps {
 export function Hero({ slides = [] }: HeroProps) {
   const [data, setData] = react.useState<StatsInfo | null>(null);
   const [active, setActive] = react.useState(0);
+  const [ready, setReady] = react.useState(false);
 
   react.useEffect(() => {
     fetch(lib_api_url.get_api_url('/stats'))
@@ -47,6 +48,23 @@ export function Hero({ slides = [] }: HeroProps) {
       .then(setData)
       .catch(() => setData({ stars: 0, forks: 0, issues: 0, commits: 0, supporters: 0 }));
   }, []);
+
+  react.useEffect(() => {
+    if (slides.length === 0) return;
+    let raf = 0;
+    const reveal = () => { raf = window.requestAnimationFrame(() => setReady(true)); };
+    const img = new Image();
+    img.onload  = reveal;
+    img.onerror = reveal;
+    img.src = slides[0];
+    if (img.complete) reveal();
+    const fallback = window.setTimeout(reveal, 2000);
+    return () => {
+      window.cancelAnimationFrame(raf);
+      window.clearTimeout(fallback);
+      img.onload = img.onerror = null;
+    };
+  }, [slides]);
 
   react.useEffect(() => {
     if (slides.length < 2) return;
@@ -58,13 +76,11 @@ export function Hero({ slides = [] }: HeroProps) {
 
   return (
     <section id="hero">
-      <ui_wallpaper.Wallpaper variant={1}/>
-
-      <div className="hero-slideshow" aria-hidden="true">
+      <div className={`hero-slideshow${ready ? ' is-ready' : ''}`} aria-hidden="true">
         {slides.map((src, i) => (
           <div
             key={src}
-            className={`hero-slide${i === active ? ' is-active' : ''}`}
+            className={`hero-slide${ready && i === active ? ' is-active' : ''}`}
             style={{ backgroundImage: `url(${src})` }}
           />
         ))}
