@@ -75,7 +75,7 @@
   font-family: var(--font-geist), sans-serif;
   font-size: .75rem;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--text-muted);
 }
 
 .ui-card-body:not(:has(.ui-card-tagline)) .ui-card-title {
