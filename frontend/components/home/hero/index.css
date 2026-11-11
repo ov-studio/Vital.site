@@ -18,17 +18,35 @@
   overflow: hidden;
 }
 
-.hero-watermark-logo {
-  --wm-tint: 1.1%;
-  flex: none;
-  width: min(200vh, 200vw);
-  height: min(200vh, 200vw);
-  background-color: color-mix(in srgb, var(--blue) var(--wm-tint), var(--bg6));
-  -webkit-mask: url('/logo/logo.svg') center / contain no-repeat;
-  mask: url('/logo/logo.svg') center / contain no-repeat;
-  transform: translateY(2%) scale(1.08);
-  will-change: transform;
-  animation: watermark-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+.hero-slide {
+  position: absolute;
+  inset: -4%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 7s ease-out;
+  will-change: opacity, transform;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-slideshow-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg6) 0%, transparent) 0%,
+      color-mix(in srgb, var(--bg12) 70%, transparent) 100%
+    );
+  pointer-events: none;
 }
 
 .hcorner {
