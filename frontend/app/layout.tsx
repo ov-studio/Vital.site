@@ -1,7 +1,7 @@
-import * as lib_page_meta              from '@/lib/page_meta';
-import * as component_atom_tabtrap     from '@/components/atoms/tabtrap';
-import * as component_atom_nodrag      from '@/components/atoms/nodrag';
-import * as fumadocs_provider_next     from 'fumadocs-ui/provider/next';
+import * as lib_page_meta                       from '@/lib/page_meta';
+import * as component_atom_tabtrap              from '@/components/atoms/tabtrap';
+import * as component_atom_nodrag               from '@/components/atoms/nodrag';
+import * as fumadocs_provider_next              from 'fumadocs-ui/provider/next';
 import { Geist, Geist_Mono, Rajdhani, Signika } from 'next/font/google';
 
 const geist = Geist({
