@@ -137,14 +137,32 @@
 }
 
 .brand--flicker.is-glitch .brand_logo--neon {
-  opacity: 0.55;
+  opacity: 0.12;
   filter:
     brightness(0) saturate(100%)
-    invert(55%) sepia(8%) saturate(200%) hue-rotate(190deg) brightness(70%) contrast(90%);
+    invert(45%) sepia(8%) saturate(150%) hue-rotate(190deg) brightness(55%) contrast(90%);
 }
 
 .brand--flicker.is-glitch .brand_logo {
-  opacity: 0.45;
+  opacity: 0.25;
+}
+
+.brand--flicker.is-half .brand_logo--neon {
+  opacity: 0.5;
+  filter:
+    brightness(0) saturate(100%)
+    invert(60%) sepia(30%) saturate(700%) hue-rotate(190deg) brightness(85%) contrast(105%)
+    drop-shadow(0 0 var(--brand-neon-core-blur) var(--brand-neon-core));
+}
+
+.brand--flicker.is-surge .brand_logo--neon {
+  filter:
+    brightness(0) saturate(100%)
+    invert(80%) sepia(40%) saturate(1200%) hue-rotate(190deg) brightness(150%) contrast(112%)
+    drop-shadow(0 0 var(--brand-neon-ring) var(--blue))
+    drop-shadow(0 0 calc(var(--brand-neon-core-blur) * 2) var(--brand-neon-core))
+    drop-shadow(0 0 calc(var(--brand-neon-mid-blur) * 2.5) var(--brand-neon-mid))
+    drop-shadow(0 0 calc(var(--brand-neon-outer-blur) * 3) var(--brand-neon-glow));
 }
 
 .brand.is-glitch .brand_logo--neon {
@@ -195,6 +213,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .brand--flicker.is-glitch .brand_logo--neon,
+  .brand--flicker.is-surge .brand_logo--neon,
+  .brand--flicker.is-half .brand_logo--neon,
   .brand--flicker.is-glitch .brand_logo {
     opacity: 1;
     filter: unset;

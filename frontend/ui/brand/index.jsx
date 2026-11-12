@@ -13,7 +13,7 @@ import './index.css';
  * @param {string} [props.color]  Overrides --brand-color
  * @param {string} [props.href]  Wrap mark in a link when set
  * @param {boolean} [props.neon=false]  Neon glow treatment
- * @param {boolean} [props.flicker=false]  Horror-style flicker (neon)
+ * @param {boolean} [props.flicker=false]  Broken-bulb flicker (neon)
  */
 export function Brand({
   name,
@@ -26,11 +26,11 @@ export function Brand({
   flicker = false
 }) {
   const color_style = color ? ({ '--brand-color': color }) : undefined;
-  const [glitch, setGlitch] = react.useState(false);
+  const [phase, setPhase] = react.useState('on');
 
   react.useEffect(() => {
     if (!flicker) {
-      setGlitch(false);
+      setPhase('on');
       return;
     }
 
@@ -45,36 +45,34 @@ export function Brand({
     const rand = (min, max) =>
       min + Math.random() * (max - min);
 
-    const run = () => {
-      if (cancelled) return;
-
-      setGlitch(false);
-      timer = setTimeout(() => {
-        if (cancelled) return;
-
-        setGlitch(true);
-        timer = setTimeout(() => {
-          if (cancelled) return;
-
-          setGlitch(false);
-          if (Math.random() < 0.55) {
-            timer = setTimeout(() => {
-              if (cancelled) return;
-
-              setGlitch(true);
-              timer = setTimeout(() => {
-                if (cancelled) return;
-                setGlitch(false);
-                timer = setTimeout(run, rand(4000, 9000));
-              }, rand(40, 90));
-            }, rand(60, 160));
-          }
-          else timer = setTimeout(run, rand(4000, 9000));
-        }, rand(80, 200));
-      }, rand(3500, 7500));
+    // Broken bulb: mostly steady, then a short irregular sputter (dips and half-lit stumbles), sometimes catching with a small pop
+    const build_burst = () => {
+      const steps = [];
+      const sputters = 2 + Math.floor(Math.random() * 3);
+      for (let i = 0; i < sputters; i++) {
+        steps.push([Math.random() < 0.6 ? 'off' : 'half', rand(30, 110)]);
+        steps.push(['on', i === sputters - 1 ? 0 : rand(30, 280)]);
+      }
+      if (Math.random() < 0.35) {
+        steps.splice(steps.length - 1, 0, ['on', rand(60, 140)], ['surge', rand(50, 90)]);
+      }
+      return steps;
     };
 
-    timer = setTimeout(run, rand(2500, 4500));
+    const play = (steps, i = 0) => {
+      if (cancelled) return;
+      const [state, ms] = steps[i];
+      setPhase(state);
+      if (i >= steps.length - 1) {
+        timer = setTimeout(run, rand(7000, 15000));
+        return;
+      }
+      timer = setTimeout(() => play(steps, i + 1), ms);
+    };
+
+    const run = () => play(build_burst());
+
+    timer = setTimeout(run, rand(3000, 5000));
     return () => {
       cancelled = true;
       clearTimeout(timer);
@@ -113,7 +111,9 @@ export function Brand({
     `brand--${variant}`,
     neon ? 'brand--neon' : '',
     flicker ? 'brand--flicker' : '',
-    flicker && glitch ? 'is-glitch' : '',
+    flicker && phase === 'off' ? 'is-glitch' : '',
+    flicker && phase === 'half' ? 'is-half' : '',
+    flicker && phase === 'surge' ? 'is-surge' : '',
     className,
   ].filter(Boolean).join(' ');
 
