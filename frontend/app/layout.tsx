@@ -2,7 +2,7 @@ import * as lib_page_meta                       from '@/lib/page_meta';
 import * as component_atom_tabtrap              from '@/components/atoms/tabtrap';
 import * as component_atom_nodrag               from '@/components/atoms/nodrag';
 import * as fumadocs_provider_next              from 'fumadocs-ui/provider/next';
-import { Geist, Geist_Mono, Rajdhani, Signika } from 'next/font/google';
+import { Geist, Geist_Mono, Rajdhani, Signika, Tangerine, Cormorant_Garamond } from 'next/font/google';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -28,13 +28,26 @@ const signika = Signika({
   variable: '--font-signika',
 });
 
+const tangerine = Tangerine({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-tangerine'
+});
+
+const cormorant_garamond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  style: 'italic',
+  variable: '--font-cormorant-garamond'
+});
+
 export const metadata = lib_page_meta.root_meta();
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geist_mono.variable} ${rajdhani.variable} ${signika.variable}`}
+      className={`${geist.variable} ${geist_mono.variable} ${rajdhani.variable} ${signika.variable} ${tangerine.variable} ${cormorant_garamond.variable}`}
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen font-sans">
