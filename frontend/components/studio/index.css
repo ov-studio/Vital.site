@@ -248,9 +248,10 @@
   gap: 28px;
   width: 100%;
   height: 100%;
-  padding: 6% 8%;
+  padding: 0 8%;
   box-sizing: border-box;
   text-align: center;
+  transform: translateY(-14px);
 }
 
 .studio-banner-title {
