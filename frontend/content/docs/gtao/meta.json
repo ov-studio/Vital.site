@@ -8,6 +8,7 @@
 
         "---Checker---",
         "is_enabled",
+        "is_half_res",
 
         "---Getter---",
         "get_quality",
@@ -22,7 +23,6 @@
         "get_mip_offset",
         "get_blur",
         "get_smooth",
-        "get_half_res",
         
         "---Setter---",
         "set_enabled",
