@@ -39,7 +39,7 @@ interface TypewriterProps {
   speed?: number;
 }
 
-function Typewriter({ text, delay = 700, speed = 28 }: TypewriterProps) {
+function Typewriter({ text, delay = 600, speed = 21 }: TypewriterProps) {
   const [count, setCount] = react.useState(0);
   const [done, setDone] = react.useState(false);
 
@@ -60,7 +60,7 @@ function Typewriter({ text, delay = 700, speed = 28 }: TypewriterProps) {
         return;
       }
       const ch = text[i - 1];
-      const pause = ch === ',' ? 220 : ch === ' ' ? speed * 0.8 : speed + Math.random() * 22;
+      const pause = ch === ',' ? 170 : ch === ' ' ? speed * 0.8 : speed + Math.random() * 16;
       timer = window.setTimeout(tick, pause);
     };
 
