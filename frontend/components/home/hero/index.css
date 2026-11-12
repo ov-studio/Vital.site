@@ -205,24 +205,23 @@
   position: relative;
   display: inline-block;
   width: 0;
-  height: 1em;
-  vertical-align: text-bottom;
+  height: 0;
+  vertical-align: baseline;
 }
 
 .hero-type-caret::after {
   content: '';
   position: absolute;
-  left: 1px;
-  top: 0.05em;
+  left: 2px;
+  bottom: -0.25em;
   width: 2px;
-  height: 1em;
+  height: 1.2em;
+  border-radius: 1px;
   background: var(--brand-neon-core);
-  box-shadow: 0 0 6px var(--brand-neon-core);
-  animation: type-caret 1s steps(1) infinite;
 }
 
 .hero-type-caret.is-done::after {
-  animation: type-caret 1s steps(1) 3, type-caret-out .3s 3s forwards;
+  animation: type-caret-out .3s ease .35s forwards;
 }
 
 
@@ -242,11 +241,6 @@
 @keyframes stat-twinkle {
   0%, 100% { transform: rotate(0deg) scale(1);     opacity: .85; }
   50%      { transform: rotate(18deg) scale(1.12); opacity: 1;   }
-}
-
-@keyframes type-caret {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
 }
 
 @keyframes type-caret-out {
