@@ -238,9 +238,6 @@
   transform-origin: top left;
 }
 
-
-
-
 .studio-banner-content {
   position: relative;
   z-index: 1;
@@ -257,36 +254,45 @@
 }
 
 .studio-banner-title {
-  font-family: var(--font-rajdhani), sans-serif;
-  font-size: 4.25rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-family: var(--font-tangerine), cursive;
+  font-size: 9rem;
+  font-weight: 400;
+  letter-spacing: 0;
   text-transform: none;
   color: var(--white);
-  line-height: 1.05;
+  line-height: 1.25;
+  padding: 0 0.3em;
 }
 
-.studio-banner.is-neon .studio-banner-title {
-  color: var(--brand-neon-core);
-  text-shadow:
-    0 0 12px color-mix(in srgb, var(--brand-neon-mid) 70%, transparent),
-    0 0 36px color-mix(in srgb, var(--brand-neon-mid) 45%, transparent),
-    0 0 72px color-mix(in srgb, var(--brand-neon-core) 30%, transparent);
+.studio-banner.is-colored .studio-banner-title {
+  color: var(--blue);
 }
 
 .studio-banner-sub {
-  font-family: var(--font-geist), sans-serif;
-  font-size: 1.35rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-family: var(--font-cormorant-garamond), serif;
+  font-size: 2.6rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  white-space: nowrap;
   color: var(--text-muted);
-  max-width: 36ch;
 }
 
-.studio-banner.is-neon .studio-banner-sub {
-  color: color-mix(in srgb, var(--brand-neon-mid) 55%, var(--text-muted));
-  text-shadow: 0 0 18px color-mix(in srgb, var(--brand-neon-mid) 35%, transparent);
+.studio-banner-sub::before,
+.studio-banner-sub::after {
+  content: '';
+  width: 120px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.studio-banner.is-colored .studio-banner-sub {
+  color: color-mix(in srgb, var(--blue) 70%, var(--text-muted));
 }
 
 .studio-banner.is-round {
