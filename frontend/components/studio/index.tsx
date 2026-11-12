@@ -4,7 +4,6 @@ import * as ui_brand     from '@/ui/brand';
 import * as ui_search    from '@/ui/search';
 import * as ui_button    from '@/ui/button';
 import * as ui_tabs      from '@/ui/tabs';
-import * as ui_wallpaper from '@/ui/wallpaper';
 import * as ui_page      from '@/ui/page';
 import * as ui_pagehead  from '@/ui/pagehead';
 import * as ui_checkbox  from '@/ui/checkbox';
@@ -85,9 +84,7 @@ export function Studio() {
   const [bannerText, setBannerText] = react.useState('ov-studio');
   const [bannerSub, setBannerSub] = react.useState('Weaving ideas, pixel by pixel');
   const [bannerRound, setBannerRound] = react.useState(false);
-  const [bannerNeon, setBannerNeon] = react.useState(true);
-  const [bannerWallpaper, setBannerWallpaper] = react.useState(true);
-  const [bannerVignette, setBannerVignette] = react.useState(true);
+  const [bannerColored, setBannerColored] = react.useState(true);
   const [appServer, setAppServer] = react.useState(false);
   const [appRound, setAppRound] = react.useState(true);
   const [presetBusy, setPresetBusy] = react.useState(false);
@@ -671,9 +668,7 @@ export function Studio() {
               </div>
               <div className="studio-controls-row">
                 <ui_checkbox.Checkbox label="Rounded" checked={bannerRound} onChange={setBannerRound}/>
-                <ui_checkbox.Checkbox label="Neon text" checked={bannerNeon} onChange={setBannerNeon}/>
-                <ui_checkbox.Checkbox label="Wallpaper" checked={bannerWallpaper} onChange={setBannerWallpaper}/>
-                <ui_checkbox.Checkbox label="Vignette" checked={bannerVignette} disabled={!bannerWallpaper} onChange={setBannerVignette}/>
+                <ui_checkbox.Checkbox label="Colored" checked={bannerColored} onChange={setBannerColored}/>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
@@ -694,13 +689,10 @@ export function Studio() {
                   'studio-canvas',
                   'studio-banner',
                   bannerRound ? 'is-round' : '',
-                  bannerNeon ? 'is-neon' : '',
+                  bannerColored ? 'is-colored' : '',
                 ].filter(Boolean).join(' ')}
                 style={{ width: BANNER_W, height: BANNER_H }}
               >
-                {bannerWallpaper && (
-                  <ui_wallpaper.Wallpaper variant={18} vignette={bannerVignette}/>
-                )}
                 <div className="studio-banner-content">
                   <div className="studio-banner-title">{bannerText.trim() || '\u00a0'}</div>
                   {bannerSub.trim() && (
