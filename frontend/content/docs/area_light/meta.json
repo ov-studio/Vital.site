@@ -90,10 +90,10 @@
         "method__set_distance_fade_shadow",
         "method__set_distance_fade_length",
         "method__set_projector",
-        "method__reset_projector",
         "method__set_area",
         "method__set_area_normalize_energy",
         "method__set_texture",
+        "method__reset_projector",
         "method__reset_texture",
         
         "---⁝⁝Misc---",

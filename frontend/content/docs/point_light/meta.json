@@ -95,8 +95,8 @@
         "method__set_distance_fade_shadow",
         "method__set_distance_fade_length",
         "method__set_projector",
-        "method__reset_projector",
         "method__set_shadow_mode",
+        "method__reset_projector",
         
         "---⁝⁝Misc---",
         "method__translate",

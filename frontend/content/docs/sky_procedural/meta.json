@@ -24,7 +24,6 @@
         "set_sky_curve",
         "set_sky_energy_multiplier",
         "set_sky_cover",
-        "reset_sky_cover",
         "set_sky_cover_modulate",
         "set_ground_bottom_color",
         "set_ground_horizon_color",
@@ -34,6 +33,7 @@
         "set_sun_curve",
         "set_use_debanding",
         "set_energy_multiplier",
+        "reset_sky_cover",
         "..."
     ]
 }
