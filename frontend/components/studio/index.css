@@ -265,7 +265,7 @@
 }
 
 .studio-banner.is-colored .studio-banner-title {
-  color: var(--blue);
+  color: var(--brand-neon-core);
 }
 
 .studio-banner-sub {
@@ -292,7 +292,7 @@
 }
 
 .studio-banner.is-colored .studio-banner-sub {
-  color: color-mix(in srgb, var(--blue) 70%, var(--text-muted));
+  color: var(--brand-neon-mid);
 }
 
 .studio-banner.is-round {
