@@ -12,11 +12,18 @@ local status = gfx.gtao.set_enabled(
 )
 ```
 
+<Callout type="info">
+  **GTAO and SSAO both darken the scene.**
+
+  - **SSAO** — avoid enabling [`gfx.ssao.set_enabled`](/docs/ssao/set_enabled) together, the occlusion would be applied twice.
+  - **Default** — disabled.
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `bool` | state | Determines GTAO's state:<br/>• When `true` - GTAO is enabled<br/>• When `false` - GTAO is disabled<br/>Both SSAO and GTAO darken the scene, so avoid enabling them together |
+| `bool` | state | Determines GTAO's state:<br/>• When `true` - GTAO is enabled<br/>• When `false` - GTAO is disabled |
 
 ### Returns
 
