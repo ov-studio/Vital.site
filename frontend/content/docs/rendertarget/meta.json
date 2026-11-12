@@ -19,6 +19,7 @@
 
        "---⁝⁝Checker---",
         "method__is_active",
+        "method__is_hdr",
 
        "---⁝⁝Getter---",
         "method__get_size",

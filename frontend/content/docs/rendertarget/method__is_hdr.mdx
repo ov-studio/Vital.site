@@ -1,0 +1,32 @@
+---
+title: self:is_hdr
+description: Checks whether this instance uses a 16 bit float color format
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = self:is_hdr()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if this instance was created with `hdr`, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Check the color format of a rendertarget"
+local entity = core.rendertarget.create({512, 288}, true, true)
+
+core.engine.print("info", "Is rendertarget HDR:", entity:is_hdr()) -- true
+```

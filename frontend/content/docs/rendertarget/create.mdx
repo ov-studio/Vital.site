@@ -9,7 +9,8 @@ badge: client
 ```lua
 local instance = core.rendertarget.create(
     size,
-    transparent = false
+    transparent = false,
+    hdr = false
 )
 ```
 
@@ -19,6 +20,7 @@ local instance = core.rendertarget.create(
 |------|------|-------------|
 | `vector2` | size | Size of the rendertarget as `{width, height}` |
 | `bool` | transparent | Determines whether the rendertarget has a transparent background:<br/>• When `true` - the background is transparent<br/>• When `false` - the background is opaque |
+| `bool` | hdr | Determines the color format of the rendertarget:<br/>• When `true` - 16 bit float, values above `1` are kept and gradients stay smooth<br/>• When `false` - 8 bit, values are clamped between `0` and `1` |
 
 ### Returns
 
@@ -34,4 +36,10 @@ local instance = core.rendertarget.create(
 local entity = core.rendertarget.create({1920, 1080}, false)
 
 entity:set_active()
+```
+
+```lua lineNumbers title="Create an HDR rendertarget for light values above 1"
+local entity = core.rendertarget.create({512, 288}, true, true)
+
+core.engine.print("info", "HDR:", entity:is_hdr()) -- true
 ```
