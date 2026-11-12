@@ -32,7 +32,7 @@
 .studio-controls {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .studio-controls-row {
@@ -221,7 +221,6 @@
 .studio-banner-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 2560 / 640;
   overflow: hidden;
   border-radius: 4px;
   background: var(--bg6);
@@ -233,8 +232,6 @@
   left: 0;
   background-color: var(--bg6);
   overflow: hidden;
-  width: 2560px;
-  height: 640px;
   transform-origin: top left;
 }
 
@@ -274,7 +271,7 @@
   font-family: var(--font-cormorant-garamond), serif;
   font-size: 2.6rem;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.06em;
   white-space: nowrap;
   color: var(--text-muted);
@@ -291,6 +288,13 @@
 
 .studio-banner.is-colored .studio-banner-sub {
   color: var(--brand-neon-mid);
+}
+
+.studio-banner.is-youtube .studio-banner-content {
+  /* YouTube safe area visible on every device (TV, desktop, mobile) */
+  width: 1546px;
+  height: 423px;
+  padding: 0;
 }
 
 .studio-banner.is-round {

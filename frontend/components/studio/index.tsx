@@ -25,6 +25,7 @@ const LOGO_SQ_PAD = 460;
 const APP_SIZE = 256;
 const BANNER_W = 2560;
 const BANNER_H = 640;
+const BANNER_YT_H = 1440;
 
 function nextPaint(): Promise<void> {
   return new Promise((resolve) => {
@@ -85,6 +86,7 @@ export function Studio() {
   const [bannerSub, setBannerSub] = react.useState('Weaving ideas, pixel by pixel');
   const [bannerRound, setBannerRound] = react.useState(false);
   const [bannerColored, setBannerColored] = react.useState(false);
+  const [bannerYoutube, setBannerYoutube] = react.useState(false);
   const [appServer, setAppServer] = react.useState(false);
   const [appRound, setAppRound] = react.useState(true);
   const [presetBusy, setPresetBusy] = react.useState(false);
@@ -106,6 +108,8 @@ export function Studio() {
   const bannerWrapRef = react.useRef<HTMLDivElement>(null);
   const ogPreviewRef = react.useRef<HTMLDivElement>(null);
   const logoPreviewRef = react.useRef<HTMLDivElement>(null);
+
+  const bannerH = bannerYoutube ? BANNER_YT_H : BANNER_H;
 
   react.useEffect(() => {
     type Pair = {
@@ -152,7 +156,7 @@ export function Studio() {
         frame: bannerPreviewRef.current,
         canvas: bannerRef.current,
         nativeW: BANNER_W,
-        nativeH: BANNER_H,
+        nativeH: bannerH,
         fillWidth: true,
       },
     ];
@@ -194,7 +198,7 @@ export function Studio() {
       });
     }
     return () => cleanups.forEach((fn) => fn());
-  }, [section, logoW, logoH]);
+  }, [section, logoW, logoH, bannerH]);
 
 
   async function capturePng(
@@ -669,12 +673,13 @@ export function Studio() {
               <div className="studio-controls-row">
                 <ui_checkbox.Checkbox label="Rounded" checked={bannerRound} onChange={setBannerRound}/>
                 <ui_checkbox.Checkbox label="Colored" checked={bannerColored} onChange={setBannerColored}/>
+                <ui_checkbox.Checkbox label="YouTube" checked={bannerYoutube} onChange={setBannerYoutube}/>
               </div>
               <div className="studio-controls-row studio-controls-row--actions">
                 <ui_button.Button
                   variant="action"
                   size="lg"
-                  onClick={() => download(bannerRef, 'banner.png', BANNER_W, BANNER_H)}
+                  onClick={() => download(bannerRef, bannerYoutube ? 'banner_youtube.png' : 'banner.png', BANNER_W, bannerH)}
                 >
                   Download Asset
                 </ui_button.Button>
@@ -682,7 +687,7 @@ export function Studio() {
             </div>
 
             <div ref={bannerWrapRef} className="studio-preview-wrap studio-preview-wrap--banner">
-              <div ref={bannerPreviewRef} className="studio-banner-frame">
+              <div ref={bannerPreviewRef} className="studio-banner-frame" style={{ aspectRatio: `${BANNER_W} / ${bannerH}` }}>
               <div
                 ref={bannerRef}
                 className={[
@@ -690,8 +695,9 @@ export function Studio() {
                   'studio-banner',
                   bannerRound ? 'is-round' : '',
                   bannerColored ? 'is-colored' : '',
+                  bannerYoutube ? 'is-youtube' : '',
                 ].filter(Boolean).join(' ')}
-                style={{ width: BANNER_W, height: BANNER_H }}
+                style={{ width: BANNER_W, height: bannerH }}
               >
                 <div className="studio-banner-content">
                   <div className="studio-banner-title">{bannerText.trim() || '\u00a0'}</div>
