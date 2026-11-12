@@ -32,7 +32,7 @@
 .studio-controls {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .studio-controls-row {
