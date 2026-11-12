@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_power
+description: Retrieves the current final value power of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_power()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current power value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao final value power"
+core.engine.print("info", "GTAO final value power:", gfx.gtao.get_power())
+```

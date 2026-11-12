@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_radius_multiplier
+description: Sets the radius multiplier of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_radius_multiplier(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Radius multiplier value to apply<br/>Scales the effective sampling radius, compensating for the falloff applied at its edge. Values are clamped to `0.3` - `3.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Restore the default radius multiplier"
+gfx.gtao.set_radius_multiplier(1.457)
+```

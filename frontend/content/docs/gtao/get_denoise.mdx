@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_denoise
+description: Retrieves the current denoise level of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_denoise()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current denoise level:<br/>• `0` - Off<br/>• `1` - Sharp<br/>• `2` - Medium<br/>• `3` - Soft |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao denoise level"
+core.engine.print("info", "GTAO denoise level:", gfx.gtao.get_denoise())
+```

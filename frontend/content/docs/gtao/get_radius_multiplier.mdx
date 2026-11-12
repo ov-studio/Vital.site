@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_radius_multiplier
+description: Retrieves the current radius multiplier of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_radius_multiplier()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current radius multiplier value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao radius multiplier"
+core.engine.print("info", "GTAO radius multiplier:", gfx.gtao.get_radius_multiplier())
+```

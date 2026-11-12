@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_half_res
+description: Sets whether the GTAO post-processing effect is computed at half resolution
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_half_res(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines the resolution mode:<br/>• When `true` - Occlusion is computed at half resolution and upsampled with depth awareness, which is significantly faster<br/>• When `false` - Occlusion is computed at full resolution |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Compute gtao at full resolution"
+gfx.gtao.set_half_res(false)
+```

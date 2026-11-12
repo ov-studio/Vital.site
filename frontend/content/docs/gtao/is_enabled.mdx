@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.is_enabled
+description: Retrieves whether the GTAO post-processing effect is currently enabled
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.is_enabled()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if GTAO is enabled, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Print whether gtao is currently enabled"
+core.engine.print("info", "GTAO enabled:", gfx.gtao.is_enabled())
+```

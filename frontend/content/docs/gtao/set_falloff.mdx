@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_falloff
+description: Sets the falloff range of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_falloff(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Falloff range value to apply<br/>Controls the fraction of the radius over which occlusion fades out towards the edge of the sampling range. Values are clamped to `0.001` - `1.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Soften the edge of the occlusion"
+gfx.gtao.set_falloff(0.8)
+```

@@ -1,0 +1,40 @@
+{
+    "title": "GTAO",
+    "icon": "ScanEye",
+    "pages": [
+        "---Checker---",
+        "is_enabled",
+
+        "---Getter---",
+        "get_quality",
+        "get_denoise",
+        "get_radius",
+        "get_intensity",
+        "get_radius_multiplier",
+        "get_falloff",
+        "get_distribution",
+        "get_thin_occluder",
+        "get_power",
+        "get_mip_offset",
+        "get_blur",
+        "get_smooth",
+        "get_half_res",
+        
+        "---Setter---",
+        "set_enabled",
+        "set_half_res",
+        "set_quality",
+        "set_denoise",
+        "set_radius",
+        "set_intensity",
+        "set_radius_multiplier",
+        "set_falloff",
+        "set_distribution",
+        "set_thin_occluder",
+        "set_power",
+        "set_mip_offset",
+        "set_blur",
+        "set_smooth",
+        "..."
+    ]
+}

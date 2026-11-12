@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_quality
+description: Retrieves the current quality level of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_quality()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current quality level:<br/>• `0` - Low<br/>• `1` - Medium<br/>• `2` - High<br/>• `3` - Ultra |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao quality level"
+core.engine.print("info", "GTAO quality level:", gfx.gtao.get_quality())
+```

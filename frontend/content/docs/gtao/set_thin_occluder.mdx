@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_thin_occluder
+description: Sets the thin occluder compensation of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_thin_occluder(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Compensation value to apply<br/>Higher values reduce the occlusion cast by thin objects such as poles and fences. Values are clamped to `0.0` - `0.7` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Reduce occlusion from thin objects"
+gfx.gtao.set_thin_occluder(0.3)
+```

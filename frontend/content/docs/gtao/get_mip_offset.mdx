@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_mip_offset
+description: Retrieves the current depth MIP sampling offset of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_mip_offset()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current depth MIP sampling offset value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao depth MIP sampling offset"
+core.engine.print("info", "GTAO depth MIP sampling offset:", gfx.gtao.get_mip_offset())
+```

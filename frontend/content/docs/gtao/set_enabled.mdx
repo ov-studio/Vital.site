@@ -1,0 +1,37 @@
+---
+title: gfx.gtao.set_enabled
+description: Toggles the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_enabled(
+    state
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | state | Determines GTAO's state:<br/>• When `true` - GTAO is enabled<br/>• When `false` - GTAO is disabled<br/>Both SSAO and GTAO darken the scene, so avoid enabling them together |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Toggle gtao effect"
+-- Enable GTAO
+gfx.gtao.set_enabled(true)
+
+-- Disable GTAO
+gfx.gtao.set_enabled(false)
+```

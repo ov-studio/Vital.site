@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_falloff
+description: Retrieves the current falloff range of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_falloff()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current falloff range value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao falloff range"
+core.engine.print("info", "GTAO falloff range:", gfx.gtao.get_falloff())
+```

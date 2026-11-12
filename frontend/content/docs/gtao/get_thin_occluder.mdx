@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_thin_occluder
+description: Retrieves the current thin occluder compensation of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_thin_occluder()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current thin occluder compensation value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao thin occluder compensation"
+core.engine.print("info", "GTAO thin occluder compensation:", gfx.gtao.get_thin_occluder())
+```

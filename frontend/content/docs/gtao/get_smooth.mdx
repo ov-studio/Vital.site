@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_smooth
+description: Retrieves the current smoothing radius of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_smooth()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | result | Current smoothing radius, in pixels at occlusion resolution |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao smoothing radius"
+core.engine.print("info", "GTAO smoothing radius:", gfx.gtao.get_smooth())
+```

@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_distribution
+description: Retrieves the current sample distribution power of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_distribution()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current sample distribution power value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao sample distribution"
+core.engine.print("info", "GTAO sample distribution:", gfx.gtao.get_distribution())
+```

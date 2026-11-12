@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_power
+description: Sets the final value power of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_power(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Power value to apply<br/>Higher values increase the contrast of the occlusion, darkening occluded areas. Values are clamped to `0.5` - `5.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Increase occlusion contrast"
+gfx.gtao.set_power(2.2)
+```

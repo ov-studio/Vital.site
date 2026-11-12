@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_quality
+description: Sets the quality level of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_quality(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Quality level to apply:<br/>• `0` - Low<br/>• `1` - Medium<br/>• `2` - High<br/>• `3` - Ultra<br/>Higher levels take more samples per pixel at a higher GPU cost. Values are clamped to `0` - `3` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set the highest gtao quality"
+gfx.gtao.set_quality(3)
+```

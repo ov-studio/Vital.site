@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_intensity
+description: Sets the intensity of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_intensity(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Intensity value to apply<br/>Blends between no occlusion (`0.0`) and full occlusion (`1.0`). Values are clamped to `0.0` - `1.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply half of the occlusion"
+gfx.gtao.set_intensity(0.5)
+```

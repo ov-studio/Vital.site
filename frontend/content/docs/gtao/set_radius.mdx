@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_radius
+description: Sets the sampling radius of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_radius(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Radius value to apply, in world units<br/>Larger values extend the reach of the occlusion shadow around geometry. Values below `0.01` are clamped to `0.01` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Set a wider occlusion radius"
+gfx.gtao.set_radius(2.0)
+```

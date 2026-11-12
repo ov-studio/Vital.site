@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_mip_offset
+description: Sets the depth MIP sampling offset of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_mip_offset(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Offset value to apply<br/>Higher values sample sharper depth detail at a higher cost, lower values are faster and softer. Values are clamped to `0.0` - `30.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Sample sharper depth detail"
+gfx.gtao.set_mip_offset(3.3)
+```

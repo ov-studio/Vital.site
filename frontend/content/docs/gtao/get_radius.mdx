@@ -1,0 +1,30 @@
+---
+title: gfx.gtao.get_radius
+description: Retrieves the current sampling radius of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = gfx.gtao.get_radius()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | result | Current radius value |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Get the current gtao sampling radius"
+core.engine.print("info", "GTAO sampling radius:", gfx.gtao.get_radius())
+```

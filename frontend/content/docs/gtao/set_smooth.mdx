@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_smooth
+description: Sets the smoothing radius of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_smooth(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Radius to apply, in pixels at occlusion resolution<br/>Controls the depth-aware horizontal and vertical blur applied after denoising, edges between objects stay sharp. `0` disables it. Values are clamped to `0` - `8` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Apply a wide smoothing blur"
+gfx.gtao.set_smooth(6)
+```

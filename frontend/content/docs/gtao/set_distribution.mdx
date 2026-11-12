@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_distribution
+description: Sets the sample distribution power of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_distribution(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Distribution power value to apply<br/>Higher values concentrate samples closer to the pixel, favoring fine contact detail over wide occlusion. Values are clamped to `1.0` - `3.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Favor fine contact detail"
+gfx.gtao.set_distribution(2.5)
+```

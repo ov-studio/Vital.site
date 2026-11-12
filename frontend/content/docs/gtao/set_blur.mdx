@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_blur
+description: Sets the denoise blur strength of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_blur(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `float` | value | Blur value to apply<br/>Lower values blur more and produce smoother occlusion. Only applies when denoise is not `0`. Values are clamped to `0.05` - `5.0` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Smooth the occlusion further"
+gfx.gtao.set_blur(0.5)
+```

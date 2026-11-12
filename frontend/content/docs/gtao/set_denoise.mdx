@@ -1,0 +1,33 @@
+---
+title: gfx.gtao.set_denoise
+description: Sets the denoise level of the GTAO post-processing effect
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = gfx.gtao.set_denoise(
+    value
+)
+```
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | value | Denoise level to apply:<br/>• `0` - Off<br/>• `1` - Sharp<br/>• `2` - Medium<br/>• `3` - Soft<br/>Higher levels run more edge-aware denoise passes for smoother occlusion. Values are clamped to `0` - `3` |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Use the softest denoise"
+gfx.gtao.set_denoise(3)
+```
