@@ -1,0 +1,21 @@
+---
+title: gfx.gtao.denoise_mode
+description: Enumeration of supported GTAO denoise modes
+badge: client
+---
+
+### Values
+
+<Callout type="info">
+  **The denoise mode smooths the sampling noise of the occlusion.**
+
+  - **Applied with** — [`gfx.gtao.set_denoise`](/docs/gtao/set_denoise).
+  - **Combined** — it works together with [`gfx.gtao.set_blur`](/docs/gtao/set_blur) and [`gfx.gtao.set_smooth`](/docs/gtao/set_smooth).
+</Callout>
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.gtao.denoise_mode.OFF` | No denoising. The occlusion keeps its raw sampling noise |
+| `gfx.gtao.denoise_mode.SHARP` | A single denoise pass. Sharpest result, some noise remains |
+| `gfx.gtao.denoise_mode.MEDIUM` | Two denoise passes. Balanced smoothness and detail |
+| `gfx.gtao.denoise_mode.SOFT` | Three denoise passes. Smoothest result, the default |

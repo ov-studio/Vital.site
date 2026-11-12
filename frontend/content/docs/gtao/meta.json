@@ -2,6 +2,10 @@
     "title": "GTAO",
     "icon": "ScanEye",
     "pages": [
+        "---Enum---",
+        "enum__quality",
+        "enum__denoise_mode",
+
         "---Checker---",
         "is_enabled",
 

@@ -1,0 +1,21 @@
+---
+title: gfx.gtao.quality
+description: Enumeration of supported GTAO quality levels
+badge: client
+---
+
+### Values
+
+<Callout type="info">
+  **The quality level scales the number of samples taken per pixel.**
+
+  - **Applied with** — [`gfx.gtao.set_quality`](/docs/gtao/set_quality).
+  - **Cost** — higher qualities take more samples, so they are slower.
+</Callout>
+
+| Constant | Description |
+|----------|-------------|
+| `gfx.gtao.quality.LOW` | 1 slice and 2 steps per pixel. Fastest setting, occlusion is coarse and noisy |
+| `gfx.gtao.quality.MEDIUM` | 2 slices and 2 steps per pixel. Light cost with decent detail |
+| `gfx.gtao.quality.HIGH` | 3 slices and 3 steps per pixel. Balanced quality and performance, the default |
+| `gfx.gtao.quality.ULTRA` | 9 slices and 3 steps per pixel. Highest quality, very high performance cost |

@@ -1,6 +1,6 @@
 ---
 title: gfx.gtao.set_denoise
-description: Sets the denoise level of the GTAO post-processing effect
+description: Sets the denoise mode of the GTAO post-processing effect
 badge: client
 ---
 
@@ -8,15 +8,22 @@ badge: client
 
 ```lua
 local status = gfx.gtao.set_denoise(
-    value
+    mode
 )
 ```
+
+<Callout type="info">
+  **Denoising smooths the sampling noise of the occlusion.**
+
+  - **Default** — [`gfx.gtao.denoise_mode.SOFT`](/docs/gtao/enum/denoise_mode).
+  - **Cost** — each denoise pass adds a small GPU cost, [`gfx.gtao.denoise_mode.OFF`](/docs/gtao/enum/denoise_mode) is the cheapest.
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | value | Denoise level to apply:<br/>• `0` - Off<br/>• `1` - Sharp<br/>• `2` - Medium<br/>• `3` - Soft<br/>Higher levels run more edge-aware denoise passes for smoother occlusion. Values are clamped to `0` - `3` |
+| [`gfx.gtao.denoise_mode`](/docs/gtao/enum/denoise_mode) | mode | Denoise mode to apply |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.gtao.set_denoise(
 
 ### Examples
 
-```lua lineNumbers title="Use the softest denoise"
-gfx.gtao.set_denoise(3)
+```lua lineNumbers title="Set gtao denoise mode to soft"
+gfx.gtao.set_denoise(gfx.gtao.denoise_mode.SOFT)
+```
+
+```lua lineNumbers title="Disable gtao denoising"
+gfx.gtao.set_denoise(gfx.gtao.denoise_mode.OFF)
 ```

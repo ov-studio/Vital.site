@@ -8,15 +8,22 @@ badge: client
 
 ```lua
 local status = gfx.gtao.set_quality(
-    value
+    quality
 )
 ```
+
+<Callout type="info">
+  **Higher qualities take more samples per pixel.**
+
+  - **Default** — [`gfx.gtao.quality.HIGH`](/docs/gtao/enum/quality).
+  - **Cost** — higher qualities are slower, [`gfx.gtao.quality.ULTRA`](/docs/gtao/enum/quality) is the most expensive.
+</Callout>
 
 ### Parameters
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | value | Quality level to apply:<br/>• `0` - Low<br/>• `1` - Medium<br/>• `2` - High<br/>• `3` - Ultra<br/>Higher levels take more samples per pixel at a higher GPU cost. Values are clamped to `0` - `3` |
+| [`gfx.gtao.quality`](/docs/gtao/enum/quality) | quality | Quality level to apply |
 
 ### Returns
 
@@ -28,6 +35,10 @@ local status = gfx.gtao.set_quality(
 
 ### Examples
 
-```lua lineNumbers title="Set the highest gtao quality"
-gfx.gtao.set_quality(3)
+```lua lineNumbers title="Set gtao quality to ultra"
+gfx.gtao.set_quality(gfx.gtao.quality.ULTRA)
+```
+
+```lua lineNumbers title="Set gtao quality to low for maximum performance"
+gfx.gtao.set_quality(gfx.gtao.quality.LOW)
 ```

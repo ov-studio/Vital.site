@@ -1,6 +1,6 @@
 ---
 title: gfx.gtao.get_denoise
-description: Retrieves the current denoise level of the GTAO post-processing effect
+description: Retrieves the current denoise mode of the GTAO post-processing effect
 badge: client
 ---
 
@@ -19,12 +19,12 @@ local result = gfx.gtao.get_denoise()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | result | Current denoise level:<br/>• `0` - Off<br/>• `1` - Sharp<br/>• `2` - Medium<br/>• `3` - Soft |
+| [`gfx.gtao.denoise_mode`](/docs/gtao/enum/denoise_mode) | result | Current denoise mode |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the current gtao denoise level"
-core.engine.print("info", "GTAO denoise level:", gfx.gtao.get_denoise())
+```lua lineNumbers title="Print the current gtao denoise mode"
+core.engine.print("info", "GTAO denoise mode:", gfx.gtao.get_denoise())
 ```

@@ -1890,6 +1890,8 @@ export const Roadmap: RoadmapSection[] = build([
         desc:  'Ground-truth ambient occlusion quality, denoising, and smoothing control from Lua',
         icon:  <lucide.ScanEye {...config_site.info.lucide}/>,
         items: [
+          { label: '[Client] Enum: gfx.gtao.quality',             status: 'completed' },
+          { label: '[Client] Enum: gfx.gtao.denoise_mode',        status: 'completed' },
           { label: '[Client] API: gfx.gtao.is_enabled',           status: 'completed' },
           { label: '[Client] API: gfx.gtao.get_quality',          status: 'completed' },
           { label: '[Client] API: gfx.gtao.get_denoise',          status: 'completed' },

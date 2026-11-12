@@ -19,12 +19,12 @@ local result = gfx.gtao.get_quality()
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int` | result | Current quality level:<br/>• `0` - Low<br/>• `1` - Medium<br/>• `2` - High<br/>• `3` - Ultra |
+| [`gfx.gtao.quality`](/docs/gtao/enum/quality) | result | Current quality level |
 
 ---
 
 ### Examples
 
-```lua lineNumbers title="Get the current gtao quality level"
-core.engine.print("info", "GTAO quality level:", gfx.gtao.get_quality())
+```lua lineNumbers title="Print the current gtao quality"
+core.engine.print("info", "GTAO quality:", gfx.gtao.get_quality())
 ```
