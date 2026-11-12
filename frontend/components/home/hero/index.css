@@ -225,15 +225,6 @@
   animation: type-caret 1s steps(1) 3, type-caret-out .3s 3s forwards;
 }
 
-@keyframes type-caret {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
-}
-
-@keyframes type-caret-out {
-  to { opacity: 0; }
-}
-
 
 /* ── @keyframes ── */
 @keyframes corner-fade {
@@ -251,6 +242,15 @@
 @keyframes stat-twinkle {
   0%, 100% { transform: rotate(0deg) scale(1);     opacity: .85; }
   50%      { transform: rotate(18deg) scale(1.12); opacity: 1;   }
+}
+
+@keyframes type-caret {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+@keyframes type-caret-out {
+  to { opacity: 0; }
 }
 
 @keyframes slide-up {
