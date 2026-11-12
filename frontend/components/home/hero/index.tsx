@@ -33,6 +33,54 @@ function softPlus(v: number | null | undefined) {
   return `${format(floor10(v))}+`;
 }
 
+interface TypewriterProps {
+  text:   string;
+  delay?: number;
+  speed?: number;
+}
+
+function Typewriter({ text, delay = 700, speed = 28 }: TypewriterProps) {
+  const [count, setCount] = react.useState(0);
+  const [done, setDone] = react.useState(false);
+
+  react.useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(text.length);
+      setDone(true);
+      return;
+    }
+
+    let i = 0;
+    let timer = 0;
+    const tick = () => {
+      i++;
+      setCount(i);
+      if (i >= text.length) {
+        setDone(true);
+        return;
+      }
+      const ch = text[i - 1];
+      const pause = ch === ',' ? 220 : ch === ' ' ? speed * 0.8 : speed + Math.random() * 22;
+      timer = window.setTimeout(tick, pause);
+    };
+
+    setCount(0);
+    setDone(false);
+    timer = window.setTimeout(tick, delay);
+    return () => window.clearTimeout(timer);
+  }, [text, delay, speed]);
+
+  return (
+    <span className="hero-type" aria-label={text}>
+      <span className={`hero-type-text${count === 0 ? ' is-empty' : ''}`} aria-hidden="true">
+        {text.slice(0, count)}
+        <span className={`hero-type-caret${done ? ' is-done' : ''}`}/>
+      </span>
+      <span className="hero-type-rest" aria-hidden="true">{text.slice(count)}</span>
+    </span>
+  );
+}
+
 interface HeroProps {
   slides?: string[];
 }
@@ -117,7 +165,7 @@ export function Hero({ slides = [] }: HeroProps) {
 
         <div className="hero-sub">
           <p className="hero-sub-lead">
-            {config_site.info.description}
+            <Typewriter text={config_site.info.description}/>
           </p>
           <p className="hero-sub-mid">
             Full control over rendering, networking, threading, and assets — one seamless workflow<br/>
