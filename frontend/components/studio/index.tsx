@@ -428,6 +428,74 @@ export function Studio() {
     }
   }
 
+  async function downloadBannerPresets() {
+    if (presetBusy) return;
+    setPresetBusy(true);
+
+    const JSZip = await loadJSZip();
+    if (!JSZip) {
+      setPresetBusy(false);
+      return;
+    }
+
+    const prev = {
+      round: bannerRound,
+      colored: bannerColored,
+      youtube: bannerYoutube,
+    };
+
+    const zip = new JSZip();
+    const folder = zip.folder('public/banner');
+    if (!folder) {
+      setPresetBusy(false);
+      return;
+    }
+
+    type BannerPreset = {
+      path:    string;
+      round:   boolean;
+      colored: boolean;
+      youtube: boolean;
+    };
+
+    const presets: BannerPreset[] = [
+      { path: 'banner.png',                       round: false, colored: false, youtube: false },
+      { path: 'banner_round.png',                 round: true,  colored: false, youtube: false },
+      { path: 'banner_colored.png',               round: false, colored: true,  youtube: false },
+      { path: 'banner_colored_round.png',         round: true,  colored: true,  youtube: false },
+      { path: 'banner_youtube.png',               round: false, colored: false, youtube: true  },
+      { path: 'banner_youtube_round.png',         round: true,  colored: false, youtube: true  },
+      { path: 'banner_youtube_colored.png',       round: false, colored: true,  youtube: true  },
+      { path: 'banner_youtube_colored_round.png', round: true,  colored: true,  youtube: true  },
+    ];
+
+    try {
+      for (const p of presets) {
+        setBannerRound(p.round);
+        setBannerColored(p.colored);
+        setBannerYoutube(p.youtube);
+        await nextPaint();
+
+        const h = p.youtube ? BANNER_YT_H : BANNER_H;
+        const dataUrl = await capturePng(bannerRef, BANNER_W, h);
+        if (dataUrl) folder.file(p.path, dataUrlToBlob(dataUrl));
+      }
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      lib_download.trigger_download(blob, 'banner-presets.zip');
+    }
+    catch (err) {
+      console.error(err);
+      alert('Preset export failed – check console');
+    }
+    finally {
+      setBannerRound(prev.round);
+      setBannerColored(prev.colored);
+      setBannerYoutube(prev.youtube);
+      setPresetBusy(false);
+    }
+  }
+
   return (
     <ui_page.Page id="studio">
         <ui_pagehead.PageHead
@@ -682,6 +750,14 @@ export function Studio() {
                   onClick={() => download(bannerRef, bannerYoutube ? 'banner_youtube.png' : 'banner.png', BANNER_W, bannerH)}
                 >
                   Download Asset
+                </ui_button.Button>
+                <ui_button.Button
+                  variant="action"
+                  size="lg"
+                  disabled={presetBusy}
+                  onClick={downloadBannerPresets}
+                >
+                  {presetBusy ? 'Exporting…' : 'Download Preset'}
                 </ui_button.Button>
               </div>
             </div>
