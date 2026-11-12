@@ -258,8 +258,6 @@
   font-family: var(--font-tangerine), cursive;
   font-size: 9rem;
   font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
   color: var(--white);
   line-height: 1.25;
   padding: 0 0.3em;
@@ -278,7 +276,6 @@
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0.06em;
-  text-transform: none;
   white-space: nowrap;
   color: var(--text-muted);
 }

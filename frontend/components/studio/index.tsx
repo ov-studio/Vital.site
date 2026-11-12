@@ -84,7 +84,7 @@ export function Studio() {
   const [bannerText, setBannerText] = react.useState('ov-studio');
   const [bannerSub, setBannerSub] = react.useState('Weaving ideas, pixel by pixel');
   const [bannerRound, setBannerRound] = react.useState(false);
-  const [bannerColored, setBannerColored] = react.useState(true);
+  const [bannerColored, setBannerColored] = react.useState(false);
   const [appServer, setAppServer] = react.useState(false);
   const [appRound, setAppRound] = react.useState(true);
   const [presetBusy, setPresetBusy] = react.useState(false);
