@@ -32,7 +32,7 @@
 .studio-controls {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .studio-controls-row {
@@ -254,7 +254,7 @@
 .studio-banner-title {
   font-family: var(--font-tangerine), cursive;
   font-size: 9rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--white);
   line-height: 1.25;
   padding: 0 0.3em;
@@ -291,7 +291,6 @@
 }
 
 .studio-banner.is-youtube .studio-banner-content {
-  /* YouTube safe area visible on every device (TV, desktop, mobile) */
   width: 1546px;
   height: 423px;
   padding: 0;
