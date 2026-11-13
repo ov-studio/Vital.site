@@ -2019,6 +2019,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: 'Blend modes & draw order',                               status: 'completed' },
           { label: 'Mesh particles - draw particles as 3d meshes',           status: 'completed' },
           { label: 'World collision & sub-emitters',                         status: 'completed' },
+          { label: 'Draw emitters into a rendertarget only',                 status: 'completed' },
           { label: 'Distance culling - wired with main-menu',                status: 'completed' },
           { label: 'Custom materials: image / SVG / rendertarget / shader',  status: 'completed' },
           { label: '[Client] Enum: particle.gpu.draw_order',                 status: 'completed' },
