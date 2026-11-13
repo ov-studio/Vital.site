@@ -13,12 +13,11 @@ local status = self:set_layer(
 ```
 
 <Callout type="info">
-  **The emitter is simulated as usual, but only the rendertarget sees it.**
+  **Only the rendertarget sees the emitter.**
 
-  - **Main view** — `nil` draws the emitter into the main view again, which is the default.
-  - **Rendertarget** — the emitter is drawn only into the 3D view of that rendertarget, which gets its own 3D view that mirrors the main camera, turned on by this call. Use a `spatial` shader as the material to write the data you want to read back from it, for example the spot where a particle landed.
-  - **Collider** — an emitter on a rendertarget is never rasterized by the world collider either.
-  - **Destroying** — call `self:set_layer()` before destroying the rendertarget, its layer is given to the next one that needs it.
+  - **Rendertarget** — the emitter is drawn into its own 3D view, which mirrors the main camera.
+  - **Main view** — `nil` draws the emitter into the main view again.
+  - **Destroying** — call `self:set_layer()` before destroying the rendertarget.
 </Callout>
 
 ### Parameters
