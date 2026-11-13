@@ -2111,6 +2111,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] API: self:set_trail',                           status: 'completed' },
           { label: '[Client] API: self:set_material',                        status: 'completed' },
           { label: '[Client] API: self:set_mesh',                            status: 'completed' },
+          { label: '[Client] API: self:set_layer',                           status: 'completed' },
           { label: '[Client] API: self:set_collision',                       status: 'completed' },
           { label: '[Client] API: self:set_sub_emitter',                     status: 'completed' },
           { label: '[Client] API: self:reset_color_ramp',                    status: 'completed' },
