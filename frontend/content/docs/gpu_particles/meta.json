@@ -108,6 +108,7 @@
         "method__set_trail",
         "method__set_material",
         "method__set_mesh",
+        "method__set_layer",
         "method__set_collision",
         "method__set_sub_emitter",
         "method__reset_color_ramp",
