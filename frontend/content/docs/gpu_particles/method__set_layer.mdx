@@ -1,0 +1,45 @@
+---
+title: self:set_layer
+description: Draws this emitter only into a rendertarget instead of the main view
+badge: client
+---
+
+### Syntax
+
+```lua
+local status = self:set_layer(rendertarget = nil)
+```
+
+<Callout type="info">
+  **The emitter is simulated as usual, but only the rendertarget sees it.**
+
+  - **Main view** — `nil` draws the emitter into the main view again, which is the default.
+  - **Rendertarget** — the emitter is drawn only into the 3D view of that rendertarget, which gets its own 3D view that mirrors the main camera, turned on by this call. Use a `spatial` shader as the material to write the data you want to read back from it, for example the spot where a particle landed.
+  - **Collider** — an emitter on a rendertarget is never rasterized by the world collider either.
+  - **Destroying** — call `self:set_layer()` before destroying the rendertarget, its layer is given to the next one that needs it.
+</Callout>
+
+### Parameters
+
+| Type | Name | Description |
+|------|------|-------------|
+| `rendertarget` | rendertarget | Rendertarget that draws this emitter, `nil` restores the main view |
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | status | `true` on successful execution, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Draw an emitter into a rendertarget only"
+local ring = particle.gpu.create()
+local shader = core.shader.create("ring.gdshader", core.shader.shader_mode.SPATIAL)
+local buffer = core.rendertarget.create({960, 540}, true, true)
+
+ring:set_material(shader)
+ring:set_layer(buffer) -- nothing is seen on screen, the ring pixels end up in `buffer`
+```
