@@ -1,0 +1,154 @@
+/* ── Showcase deck ── */
+.deck {
+  width: 100%;
+  max-width: 525px;
+  margin-left: auto;
+}
+
+.deck-stack {
+  position: relative;
+  aspect-ratio: 3 / 4;
+}
+
+.dcard {
+  --step: 24px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(100% - 72px);
+  height: calc(100% - 72px);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+    border: 2px solid var(--bg);
+
+  border-radius: 8px;
+  background-color: var(--bg7);
+  background-size: cover;
+  background-position: center;
+  font-family: var(--font-geist), sans-serif;
+  text-align: left;
+  cursor: pointer;
+  transform: translate(calc(var(--d) * var(--step)), calc(var(--d) * var(--step) * -1));
+  filter: brightness(calc(1 - var(--d) * .14));
+  transition:
+    transform .6s cubic-bezier(.4, 0, .2, 1),
+    filter .6s ease,
+    opacity .5s ease,
+    box-shadow .6s ease;
+}
+.dcard.is-front { 
+  box-shadow: 12px 40px 40px rgba(0, 0, 0, .25); 
+    border: 2px solid var(--blue);
+
+}
+.dcard.is-hidden { opacity: 0; pointer-events: none; }
+
+.dcard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+.dcard-tag {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 2;
+  height: 24px;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 24px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--dim);
+  transition: color .3s;
+}
+.dcard.is-front .dcard-tag { color: var(--w80); }
+
+.dcard-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: block;
+  padding: 0 24px 22px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .4s ease, transform .5s ease;
+}
+.dcard.is-front .dcard-body {
+  opacity: 1;
+  transform: none;
+  transition-delay: .25s;
+}
+
+.dcard-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.dcard-desc {
+  display: block;
+  font-size: .95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.dcard-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 2px;
+  background: var(--blue);
+  transform-origin: left;
+  animation: dcard-fill linear forwards;
+}
+
+.deck-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.deck-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rule20);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+.deck-dot:hover { background: var(--text-muted); }
+.deck-dot.is-active { background: var(--blue); transform: scale(1.25); }
+
+@keyframes dcard-fill {
+  from { transform: scaleX(0) }
+  to   { transform: scaleX(1) }
+}
+
+@media (max-width: 1100px) {
+  .deck { margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+  .dcard { --step: 16px; width: calc(100% - 48px); height: calc(100% - 48px); border-radius: 12px; }
+  .deck-stack { aspect-ratio: 4 / 5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dcard, .dcard-body { transition: none; }
+}

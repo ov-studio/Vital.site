@@ -64,6 +64,51 @@ export const Features = [
   }
 ];
 
+export const Showcases = [
+  {
+    id:    'sandbox',
+    title: 'Sandbox',
+    desc:  'Per-resource Lua environments with hash-verified asset streaming.',
+    image: '/showcase/sandbox.png'
+  },
+  {
+    id:    'core',
+    title: 'Core',
+    desc:  'Models, webviews, shaders and cameras under full script control.',
+    image: '/showcase/core.png'
+  },
+  {
+    id:    'utility',
+    title: 'Utility',
+    desc:  'Threads, promises, http and a priority-ordered event system.',
+    image: '/showcase/utility.png'
+  },
+  {
+    id:    'graphics',
+    title: 'Graphics',
+    desc:  'Real-time SDFGI, SSAO, SSR and volumetric fog driven from Lua.',
+    image: '/showcase/graphics.png'
+  },
+  {
+    id:    'physics',
+    title: 'Physics',
+    desc:  'Rigid, character and vehicle bodies across isolated dimensions.',
+    image: '/showcase/physics.png'
+  },
+  {
+    id:    'audio',
+    title: 'Audio',
+    desc:  'Positional 3D playback with per-voice reverb, EQ and filters.',
+    image: '/showcase/audio.png'
+  },
+  {
+    id:    'network',
+    title: 'Network',
+    desc:  'ENet replication with client interpolation and late-join sync.',
+    image: '/showcase/network.png'
+  }
+];
+
 export const Ethos = [
   {
     title: 'Open Source',

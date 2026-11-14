@@ -1,133 +1,17 @@
 'use client';
-import * as config_home  from '@/configs/home';
-import * as ui_wallpaper from '@/ui/wallpaper';
-import * as react        from 'react';
+import * as config_home        from '@/configs/home';
+import * as ui_wallpaper       from '@/ui/wallpaper';
+import * as component_showcase from '@/components/home/showcase';
+import * as react              from 'react';
 import './index.css';
 
-interface NodeRef { el: HTMLDivElement | null }
-interface NodeState {
-  angle:    number;
-  radPhase: number;
-  radFreq:  number;
-  radAmp:   number;
-}
-
-const BASE_R = 0.46;
-const SPEED = 0.00025;
-const BLUE = [148, 178, 252] as const;
-
-function rng(lo: number, hi: number) { 
-  return lo + Math.random() * (hi - lo);
-}
-
-function make_state(i: number, total: number): NodeState {
-  return {
-    angle: (i / total) * Math.PI * 2,
-    radPhase: rng(0, Math.PI * 2),
-    radFreq: rng(0.00035, 0.00085),
-    radAmp: rng(10, 24)
-  };
-}
-
-function diagram(canvas: HTMLCanvasElement, nodeEls: HTMLDivElement[]) {
-  const ctx = canvas.getContext('2d')!;
-  let W = 0, H = 0, cx = 0, cy = 0, dpr = 1, raf = 0;
-
-  const N = nodeEls.length;
-  const states = Array.from({ length: N }, (_, i) => make_state(i, N));
-
-  function resize() {
-    const rect = canvas.parentElement!.getBoundingClientRect();
-    dpr = window.devicePixelRatio || 1;
-    W = rect.width; H = rect.height;
-    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
-    cx = W / 2; cy = H / 2;
-  }
-  resize();
-  const ro = new ResizeObserver(resize);
-  ro.observe(canvas.parentElement!);
-
-  let last = performance.now();
-  function frame(now: number) {
-    const dt = Math.min(now - last, 32); last = now;
-    ctx.resetTransform();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    const baseR = Math.min(W, H) * BASE_R;
-
-    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, baseR * 0.6);
-    grd.addColorStop(0, `rgba(${BLUE}, 0.04)`);
-    grd.addColorStop(1, 'transparent');
-    ctx.fillStyle = grd as unknown as string;
-    ctx.fillRect(0, 0, W, H);
-
-    for (const [rr, op] of [
-      [baseR * 1.18, 0.45], [baseR * 1.36, 0.18], [baseR * 0.44, 0.20],
-    ] as [number, number][]) {
-      ctx.beginPath();
-      ctx.arc(cx, cy, rr, 0, Math.PI * 2);
-      ctx.strokeStyle = `hsla(220,18%,9%,${op})`;
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
-
-    ctx.beginPath();
-    ctx.arc(cx, cy, baseR, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(${BLUE}, 0.06)`;
-    ctx.lineWidth = 4;
-    ctx.stroke();
-
-    const pos: { x: number; y: number }[] = [];
-    for (let i = 0; i < N; i++) {
-      const s = states[i];
-      s.angle += SPEED * dt;
-      s.radPhase += s.radFreq * dt;
-      const r = baseR + Math.sin(s.radPhase) * s.radAmp;
-      pos.push({ x: cx + Math.cos(s.angle) * r, y: cy + Math.sin(s.angle) * r });
-    }
-
-    for (let i = 0; i < N; i++) {
-      ctx.beginPath();
-      ctx.setLineDash([2, 6]);
-      ctx.moveTo(cx, cy);
-      ctx.lineTo(pos[i].x, pos[i].y);
-      ctx.strokeStyle = `rgba(${BLUE}, 0.25)`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.setLineDash([]);
-    }
-
-    for (let i = 0; i < N; i++) {
-      const { x, y } = pos[i];
-      const el = nodeEls[i];
-      if (el) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
-    }
-
-    raf = requestAnimationFrame(frame);
-  }
-
-  raf = requestAnimationFrame(frame);
-  return () => { cancelAnimationFrame(raf); ro.disconnect(); };
-}
-
 export function Features() {
-  const canvasRef = react.useRef<HTMLCanvasElement>(null);
-  const nodeRefs = react.useRef<NodeRef[]>(config_home.Features.map(() => ({ el: null })));
   const [selectedId, setSelectedId] = react.useState<string>(
     () => config_home.Features[0]?.id ?? ''
   );
 
   const select = react.useCallback((id: string) => {
     setSelectedId(id);
-  }, []);
-
-  react.useEffect(() => {
-    const canvas = canvasRef.current;
-    const nodeEls = nodeRefs.current.map(r => r.el).filter(Boolean) as HTMLDivElement[];
-    if (!canvas || nodeEls.length !== config_home.Features.length) return;
-    return diagram(canvas, nodeEls);
   }, []);
 
   return (
@@ -175,27 +59,7 @@ export function Features() {
           </div>
 
           <div className="feat-diagram rev-r">
-            <div className="fdiagram-wrap">
-              <canvas ref={canvasRef} className="fdiagram-canvas"/>
-
-              <div className="fhub">
-                <div className="fhub-inner">
-                  <span className="fhub-ring"/>
-                  <span className="fhub-ring fhub-ring-2"/>
-                  <span className="fhub-label">vsdk</span>
-                </div>
-              </div>
-
-              {config_home.Features.map((c, i) => (
-                <div
-                  key={c.id}
-                  className={`fnode-group${selectedId === c.id ? ' is-active' : ''}`}
-                  ref={el => { nodeRefs.current[i].el = el; }}
-                >
-                  <div className="fnode">{c.label}</div>
-                </div>
-              ))}
-            </div>
+            <component_showcase.Showcase selectedId={selectedId} onSelect={select}/>
           </div>
         </div>
       </div>

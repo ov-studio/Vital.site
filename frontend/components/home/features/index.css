@@ -81,109 +81,7 @@
 }
 .fcluster.is-active .fcluster-desc { color: var(--w80) }
 
-.feat-diagram { 
-  position: relative; 
-}
-
-.fdiagram-wrap {
-  position: relative;
-  aspect-ratio: 1;
-  max-width: 525px;
-  margin-left: auto;
-}
-
-.fdiagram-canvas { 
-  position: absolute; 
-  inset: 0; 
-  width: 100%; 
-  height: 100%; 
-  background: var(--bg6);
-}
-
-.fhub {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 4;
-  pointer-events: none;
-}
-
-.fhub-inner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  background: var(--bg3);
-  border: 10px solid var(--b30);
-  border-radius: 50%;
-}
-
-.fhub-label {
-  z-index: 1;
-  font-family: var(--font-geist), sans-serif;
-  font-size: .65rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-
-.fhub-ring {
-  position: absolute;
-  inset: -9px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  opacity: .15;
-  animation: fhub-pulse 3.5s ease-in-out infinite;
-}
-.fhub-ring-2 { inset: -20px; opacity: .08; animation-delay: 1.75s; }
-
-.fnode-group {
-  position: absolute;
-  z-index: 6;
-  transform: translate(-50%, -50%);
-  pointer-events: auto;
-}
-
-.fnode {
-  position: relative;
-  padding: 5px 10px;
-  font-family: var(--font-geist), sans-serif;
-  font-size: .7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: var(--bg6);
-  white-space: nowrap;
-  transition: border-color .3s, color .25s;
-}
-
-.fnode::before,
-.fnode::after {
-  content: '';
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-color: var(--blue);
-  border-style: solid;
-  opacity: 0;
-  transition: opacity .3s;
-}
-.fnode::before { top: -2px;    left: -2px;  border-width: 2px 0 0 2px; }
-.fnode::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-.fnode-group.is-active .fnode { border-color: var(--blue); color: var(--brand-neon-core); }
-.fnode-group.is-active .fnode::before,
-.fnode-group.is-active .fnode::after { opacity: 1 }
-
-
-/* ── @keyframes ── */
-@keyframes fhub-pulse {
-  0%, 100%  { transform: scale(1);    opacity: .15 }
-  50%       { transform: scale(1.05); opacity: .75 }
-}
+.feat-diagram { position: relative; }
 
 
 /* ── @media ── */
@@ -194,7 +92,7 @@
   }
 
   .feat-body    { display: flex; flex-direction: column; gap: 0; }
-  .feat-diagram { display: none; }
+  .feat-diagram { width: 100%; margin-top: 32px; }
   .feat-clusters { width: 100%; }
 }
 
