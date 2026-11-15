@@ -59,7 +59,7 @@
   line-height: 1.1;
   letter-spacing: .01em;
   text-transform: none;
-  color: var(--white);
+  color: var(--brand-neon-core);
 }
 
 .np-lead {
