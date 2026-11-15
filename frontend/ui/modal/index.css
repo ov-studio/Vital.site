@@ -423,6 +423,7 @@
 
   .ui-modal-actions .ui-btn--secondary {
     margin-left: 0;
+    justify-content: flex-start;
   }
 
   .ui-modal-controls {
