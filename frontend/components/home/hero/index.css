@@ -166,10 +166,9 @@
   padding-top: 2px;
   padding-bottom: 2px;
   color: var(--brand-neon-core);
-  line-height: 1.3;
   font-family: var(--font-signika), cursive;
-  font-weight: 400;
-  font-size: clamp(1.04rem, 12.1vw, 18.4px);
+  font-weight: 00;
+  font-size: clamp(1.04rem, 12.1vw, 17.2px);
 }
 
 .hero-sub-mid {
