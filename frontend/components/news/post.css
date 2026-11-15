@@ -4,8 +4,7 @@
 }
 
 .np {
-  max-width: 960px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .np-back {
@@ -75,7 +74,7 @@
   overflow: hidden;
   border-radius: 4px;
   background: var(--bg6);
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 6;
 }
 .np-cover img {
   display: block;
@@ -94,6 +93,11 @@
 .np-prose.ui-modal-prose > * + h3 { margin-top: 48px; }
 .np-prose.ui-modal-prose h2 { padding-bottom: 10px; font-size: 1.3rem; }
 .np-prose.ui-modal-prose h3 { font-size: 1.05rem; }
+
+/* Neutral emphasis: white headings and bold text instead of the brand tint */
+.np-prose.ui-modal-prose h2,
+.np-prose.ui-modal-prose strong { color: var(--white); }
+.np-prose.ui-modal-prose strong { font-weight: 600; }
 
 .np-tags {
   display: flex;
