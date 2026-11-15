@@ -53,9 +53,9 @@
 .np-title {
   margin: 20px 0 0;
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: .01em;
   text-transform: none;
   color: var(--brand-neon-core);
@@ -64,7 +64,7 @@
 .np-lead {
   margin: 16px 0 0;
   font-family: var(--font-geist), sans-serif;
-  font-size: 1.05rem;
+  font-size: .92rem;
   line-height: 1.7;
   color: var(--text-muted);
 }
@@ -85,14 +85,14 @@
 
 .np-prose.ui-modal-prose {
   margin-top: 48px;
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: .9rem;
+  line-height: 1.85;
 }
 .np-prose.ui-modal-prose > * + * { margin-top: 20px; }
 .np-prose.ui-modal-prose > * + h2,
 .np-prose.ui-modal-prose > * + h3 { margin-top: 48px; }
-.np-prose.ui-modal-prose h2 { padding-bottom: 10px; font-size: 1.3rem; }
-.np-prose.ui-modal-prose h3 { font-size: 1.05rem; }
+.np-prose.ui-modal-prose h2 { padding-bottom: 8px; font-size: 1.05rem; }
+.np-prose.ui-modal-prose h3 { font-size: .9rem; }
 
 /* Neutral emphasis: white headings and bold text instead of the brand tint */
 .np-prose.ui-modal-prose h2,
@@ -110,8 +110,8 @@
 /* ── @media ── */
 @media (max-width: 760px) {
   .np-head { margin-top: 28px; }
-  .np-title { font-size: 2.1rem; }
-  .np-lead { font-size: .95rem; }
+  .np-title { font-size: 1.7rem; }
+  .np-lead { font-size: .88rem; }
   .np-cover { margin-top: 28px; aspect-ratio: 16 / 9; }
-  .np-prose.ui-modal-prose { margin-top: 32px; font-size: .95rem; }
+  .np-prose.ui-modal-prose { margin-top: 32px; font-size: .86rem; }
 }
