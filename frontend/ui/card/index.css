@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   display: block;
-  background: linear-gradient(var(--b20), var(--b20)), var(--bg7);
+  background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
   border: 3px solid var(--b10);
   border-radius: 4px;
   transition: border-color .25s, background .25s;
