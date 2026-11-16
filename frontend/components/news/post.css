@@ -103,12 +103,12 @@
   padding-bottom: 8px;
   font-size: .95rem;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--white);
   border-bottom: 1px solid var(--b10);
 }
 .np-prose.ui-modal-prose blockquote h3::before {
   content: '# ';
-  color: var(--white);
+  color: var(--blue);
 }
 
 .np-tags {
