@@ -108,12 +108,8 @@
   padding-bottom: 8px;
   font-size: .95rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--brand-neon-core);
   border-bottom: 1px solid var(--b10);
-}
-.np-prose.ui-modal-prose blockquote h3::before {
-  content: '# ';
-  color: var(--blue);
 }
 
 .np-prose > * {
