@@ -3,7 +3,7 @@ import * as lib_page_meta         from '@/lib/page_meta';
 import * as component_overlay     from '@/components/overlay';
 import * as component_navbar      from '@/components/navbar';
 import * as component_footer      from '@/components/footer';
-import * as component_news        from '@/components/news';
+import * as component_news        from '@/components/news/list';
 import * as component_clientshell from '@/components/clientshell';
 import * as react                 from 'react';
 
