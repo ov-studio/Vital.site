@@ -46,21 +46,19 @@
 }
 
 .np-title {
-  margin: 20px 0 0;
+  margin: 24px 0 0;
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  line-height: 1.15;
   letter-spacing: .01em;
   text-transform: none;
   color: var(--brand-neon-core);
 }
 
 .np-lead {
-  margin: 16px 0 0;
+  margin: 10px 0 0;
   font-family: var(--font-geist), sans-serif;
   font-size: .92rem;
-  line-height: 1.7;
   color: var(--text-muted);
 }
 
