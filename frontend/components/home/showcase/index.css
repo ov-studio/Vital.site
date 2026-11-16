@@ -37,7 +37,6 @@
 }
 .dcard.is-front {
   border-color: var(--blue);
-  box-shadow: 12px 40px 40px rgba(0, 0, 0, .25);
 }
 .dcard.is-hidden { opacity: 0; pointer-events: none; }
 
