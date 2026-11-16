@@ -96,19 +96,19 @@
 .np-prose.ui-modal-prose h2 { padding-bottom: 8px; font-size: 1.05rem; }
 .np-prose.ui-modal-prose h3 { font-size: .9rem; }
 
-.np-prose.ui-modal-prose h2 { color: var(--brand-neon-core); }
+.np-prose.ui-modal-prose h2 { color: var(--brand-neon-mid); }
 .np-prose.ui-modal-prose strong { color: var(--brand-neon-core); font-weight: 600; }
 .np-prose.ui-modal-prose blockquote h2,
 .np-prose.ui-modal-prose blockquote h3 {
   padding-bottom: 8px;
   font-size: .95rem;
   font-weight: 600;
-  color: var(--brand-neon-mid);
+  color: var(--blue);
   border-bottom: 1px solid var(--b10);
 }
 .np-prose.ui-modal-prose blockquote h3::before {
   content: '# ';
-  color: var(--blue);
+  color: var(--white);
 }
 
 .np-tags {
