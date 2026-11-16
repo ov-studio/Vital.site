@@ -71,6 +71,12 @@ export function NewsPost() {
           <ShareButton slug={post.slug}/>
         </div>
 
+        {post.cover && (
+          <figure className="np-cover">
+            <img src={post.cover} alt={post.title}/>
+          </figure>
+        )}
+        
         <div className="np-head">
           <div className="np-meta">
             <span className="ui-modal-author">{post.author}</span>
@@ -86,11 +92,6 @@ export function NewsPost() {
           )}
         </div>
 
-        {post.cover && (
-          <figure className="np-cover">
-            <img src={post.cover} alt={post.title}/>
-          </figure>
-        )}
 
         <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
       </article>
