@@ -76,7 +76,7 @@
   border-radius: 6px;
   background: var(--bg6);
   aspect-ratio: 16 / 6;
-  max-height: 420px;
+  max-height: 375px;
 }
 .np-cover img {
   display: block;
