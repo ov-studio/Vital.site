@@ -1,4 +1,5 @@
 'use client';
+import * as ui_divider      from '@/ui/divider';
 import * as ui_empty        from '@/ui/empty';
 import * as ui_iconbutton   from '@/ui/iconbutton';
 import * as ui_page         from '@/ui/page';
@@ -52,7 +53,7 @@ export function NewsPost() {
     return (
       <ui_page.Page id="news-post">
         <div className="np">
-          <div className="np-top"><BackLink/></div>
+          <div className="np-top anim-in"><BackLink/></div>
           <ui_empty.EmptyState icon={<lucide.Newspaper size={24}/>}>
             {state === 'error'
               ? 'Failed to load news — check your connection and try again'
@@ -65,19 +66,19 @@ export function NewsPost() {
 
   return (
     <ui_page.Page id="news-post">
-      <article className="np anim-in anim-in--1">
-        <div className="np-top">
+      <article className="np">
+        <div className="np-top anim-in">
           <BackLink/>
           <ShareButton slug={post.slug}/>
         </div>
 
         {post.cover && (
-          <figure className="np-cover">
+          <figure className="np-cover anim-in anim-in--2">
             <img src={post.cover} alt={post.title}/>
           </figure>
         )}
-        
-        <div className="np-head">
+
+        <div className="np-head anim-in anim-in--3">
           <div className="np-meta">
             <span className="ui-modal-author">{post.author}</span>
             <span className="np-dot" aria-hidden="true"/>
@@ -92,6 +93,7 @@ export function NewsPost() {
           )}
         </div>
 
+        <ui_divider.Divider className="np-divider anim-in anim-in--4"/>
 
         <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
       </article>
