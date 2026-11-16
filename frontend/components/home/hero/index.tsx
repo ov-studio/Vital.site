@@ -2,7 +2,6 @@
 import * as config_site         from '@/configs/site';
 import * as config_home         from '@/configs/home';
 import * as ui_brand            from '@/ui/brand';
-import * as ui_wallpaper        from '@/ui/wallpaper';
 import * as component_download  from '@/components/download';
 import * as component_platforms from '@/components/platforms';
 import * as component_videoreel from '@/components/videoreel';
