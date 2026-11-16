@@ -33,13 +33,8 @@
 .np-meta {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-}
-.np-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--text-muted);
 }
 
 .np-date {

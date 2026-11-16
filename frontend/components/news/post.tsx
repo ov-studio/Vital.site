@@ -81,7 +81,6 @@ export function NewsPost() {
         <div className="np-head anim-in anim-in--3">
           <div className="np-meta">
             <span className="ui-modal-author">{post.author}</span>
-            <span className="np-dot" aria-hidden="true"/>
             <time className="np-date">{post.date}</time>
           </div>
           <h1 className="np-title">{post.title}</h1>
