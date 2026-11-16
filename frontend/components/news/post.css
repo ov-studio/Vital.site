@@ -53,6 +53,8 @@
   letter-spacing: .01em;
   text-transform: none;
   color: var(--brand-neon-core);
+  opacity: 1;
+  animation: none;
 }
 
 .np-lead {
