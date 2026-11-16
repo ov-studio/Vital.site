@@ -68,10 +68,10 @@
   width: 100%;
   margin: 40px 0 0;
   overflow: hidden;
-  border-radius: 6px;
   background: var(--bg6);
   aspect-ratio: 16 / 6;
   max-height: 375px;
+  clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
 }
 .np-cover img {
   display: block;
