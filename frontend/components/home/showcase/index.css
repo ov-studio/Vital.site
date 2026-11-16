@@ -127,7 +127,7 @@
 }
 
 @media (max-width: 640px) {
-  .dcard { --step: 16px; width: calc(100% - 48px); height: calc(100% - 48px); border-radius: 12px; }
+  .dcard { --step: 16px; width: calc(100% - 48px); height: calc(100% - 48px); }
   .deck-stack { aspect-ratio: 4 / 5; }
 }
 
