@@ -24,15 +24,11 @@ export function Showcase({ selectedId, onSelect }: ShowcaseProps) {
     setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
 
-  react.useEffect(() => {
-    if (paused || reduced) return;
-    const t = setTimeout(() => onSelect(items[(active + 1) % total].id), INTERVAL_MS);
-    return () => clearTimeout(t);
-  }, [active, paused, reduced, total, items, onSelect]);
+  const advance = () => onSelect(items[(active + 1) % total].id);
 
   return (
     <div
-      className="deck"
+      className={`deck${paused ? ' is-paused' : ''}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -60,8 +56,13 @@ export function Showcase({ selectedId, onSelect }: ShowcaseProps) {
                 <span className="dcard-title">{s.title}</span>
                 <span className="dcard-desc">{s.desc}</span>
               </span>
-              {front && !paused && !reduced && (
-                <span key={active} className="dcard-bar" style={{ animationDuration: `${INTERVAL_MS}ms` }}/>
+              {front && !reduced && (
+                <span
+                  key={active}
+                  className="dcard-bar"
+                  style={{ animationDuration: `${INTERVAL_MS}ms` }}
+                  onAnimationEnd={advance}
+                />
               )}
             </button>
           );

@@ -115,6 +115,8 @@
   animation: dcard-fill linear forwards;
 }
 
+.deck.is-paused .dcard-bar { animation-play-state: paused; }
+
 @keyframes dcard-fill {
   from { transform: scaleX(0) }
   to   { transform: scaleX(1) }
