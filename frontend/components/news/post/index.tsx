@@ -5,7 +5,7 @@ import * as ui_iconbutton   from '@/ui/iconbutton';
 import * as ui_page         from '@/ui/page';
 import * as ui_tagpill      from '@/ui/tagpill';
 import * as lib_hooks       from '@/lib/hooks';
-import * as news_posts      from '../use_posts';
+import * as news_posts      from '@/lib/news_posts';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
 import * as next_link       from 'next/link';

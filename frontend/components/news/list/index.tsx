@@ -5,7 +5,7 @@ import * as ui_empty        from '@/ui/empty';
 import * as ui_page         from '@/ui/page';
 import * as ui_pagehead     from '@/ui/pagehead';
 import * as ui_tagpill      from '@/ui/tagpill';
-import * as news_posts      from '../use_posts';
+import * as news_posts      from '@/lib/news_posts';
 import * as react           from 'react';
 import * as lucide          from 'lucide-react';
 import * as next_navigation from 'next/navigation';
