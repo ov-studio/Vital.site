@@ -223,7 +223,7 @@
 }
 
 .ui-modal-prose a {
-  color: var(--blue);
+  color: var(--brand-neon-mid);
   text-decoration: none;
   word-break: break-word;
   transition: opacity .2s;
