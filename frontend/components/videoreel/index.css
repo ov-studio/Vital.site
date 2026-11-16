@@ -159,67 +159,7 @@
   border: 0;
 }
 
-
 .vr-frame .ui-modal-body { padding: 0; }
-
-.vr-nav {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 12px 12px;
-}
-
-.vr-tab {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 18px;
-  min-height: 36px;
-  border: 0;
-  background: var(--b20);
-  color: var(--blue);
-  font-family: var(--font-geist), sans-serif;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background .2s, color .2s;
-}
-.vr-tab--prev { clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
-.vr-tab--next { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%); }
-.vr-tab:hover:not(:disabled) { background: var(--blue); color: var(--bg); }
-.vr-tab:disabled { opacity: .35; cursor: default; }
-
-.vr-now {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  text-align: center;
-}
-.vr-now-title {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: var(--font-rajdhani), sans-serif;
-  font-size: .95rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  color: var(--white);
-}
-.vr-now-count {
-  font-family: var(--font-rajdhani), sans-serif;
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  color: var(--text-muted);
-}
 
 
 /* ── @keyframes ── */
@@ -255,7 +195,6 @@
 
 
 @media (max-width: 640px) {
-  .vr-now-title { display: none; }
   .video-reel-card {
     flex: 0 0 168px;
     width: 168px;

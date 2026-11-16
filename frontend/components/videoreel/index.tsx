@@ -87,20 +87,7 @@ function VideoModal({
         </div>
       }
     >
-      <div className="vr-nav">
-        <button type="button" className="vr-tab vr-tab--prev" onClick={() => step(-1)} disabled={total < 2}>
-          <lucide.ChevronLeft size={14} strokeWidth={2.5}/>
-          Prev
-        </button>
-        <div className="vr-now">
-          <span className="vr-now-title">{display_title(video.title)}</span>
-          <span className="vr-now-count">{index + 1} / {total}</span>
-        </div>
-        <button type="button" className="vr-tab vr-tab--next" onClick={() => step(1)} disabled={total < 2}>
-          Next
-          <lucide.ChevronRight size={14} strokeWidth={2.5}/>
-        </button>
-      </div>
+
     </ui_modal.Modal>
   );
 }
