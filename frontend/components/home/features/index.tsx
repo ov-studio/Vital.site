@@ -10,10 +10,6 @@ export function Features() {
     () => config_home.Features[0]?.id ?? ''
   );
 
-  const select = react.useCallback((id: string) => {
-    setSelectedId(id);
-  }, []);
-
   return (
     <section id="features">
       <ui_wallpaper.Wallpaper variant={2}/>
@@ -24,7 +20,7 @@ export function Features() {
             <h2>Built for creators.<br/>Engineered for <span>production.</span></h2>
           </div>
           <a href="/docs" className="sec-link rev">
-            :: View documentations 
+            :: View documentations
           </a>
         </div>
 
@@ -40,11 +36,11 @@ export function Features() {
                   tabIndex={0}
                   className={`fcluster${active ? ' is-active' : ''}`}
                   style={{ '--ci': ci } as React.CSSProperties}
-                  onClick={() => select(c.id)}
+                  onClick={() => setSelectedId(c.id)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      select(c.id);
+                      setSelectedId(c.id);
                     }
                   }}
                 >
@@ -59,7 +55,7 @@ export function Features() {
           </div>
 
           <div className="feat-diagram rev-r">
-            <component_showcase.Showcase selectedId={selectedId} onSelect={select}/>
+            <component_showcase.Showcase selectedId={selectedId} onSelect={setSelectedId}/>
           </div>
         </div>
       </div>

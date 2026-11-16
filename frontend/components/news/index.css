@@ -10,8 +10,7 @@
   overflow: hidden;
   background: var(--bg6);
 }
-.news-banner--card    { aspect-ratio: 16 / 7; }
-.news-banner--modal { aspect-ratio: 16 / 6; }
+.news-banner--card { aspect-ratio: 16 / 7; }
 
 .news-banner img {
   display: block;

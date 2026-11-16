@@ -19,7 +19,7 @@ function ShareButton({ slug }: { slug: string }) {
 
   return (
     <ui_iconbutton.IconButton
-      className={`ui-modal-share np-share${copied ? ' copied' : ''}`}
+      className={`ui-modal-share${copied ? ' copied' : ''}`}
       title={copied ? 'Link copied' : 'Copy link'}
       icon={copied ? lucide.Check : lucide.Link}
       iconProps={{ size: 14, strokeWidth: 2.5 }}
@@ -47,7 +47,7 @@ export function NewsPost() {
     if (post) document.title = `${post.title} - Vital.sandbox`;
   }, [post]);
 
-  if (state === 'loading') return <ui_page.Page id="news-post"><></></ui_page.Page>;
+  if (state === 'loading') return <ui_page.Page id="news-post">{null}</ui_page.Page>;
 
   if (!post) {
     return (

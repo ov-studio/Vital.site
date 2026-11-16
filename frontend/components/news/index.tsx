@@ -11,9 +11,7 @@ import * as lucide          from 'lucide-react';
 import * as next_navigation from 'next/navigation';
 import './index.css';
 
-export type NewsEntry = news_posts.NewsEntry;
-
-function Banner({ post }: { post: NewsEntry }) {
+function Banner({ post }: { post: news_posts.NewsEntry }) {
   return (
     <div className="news-banner news-banner--card">
       {post.cover && <img src={post.cover} alt={post.title}/>}

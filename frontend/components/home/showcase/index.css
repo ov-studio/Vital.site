@@ -19,9 +19,7 @@
   height: calc(100% - 72px);
   padding: 0;
   overflow: hidden;
-  border: 0;
-    border: 2px solid var(--bg);
-
+  border: 2px solid var(--bg);
   border-radius: 8px;
   background-color: var(--bg7);
   background-size: cover;
@@ -37,10 +35,9 @@
     opacity .5s ease,
     box-shadow .6s ease;
 }
-.dcard.is-front { 
-  box-shadow: 12px 40px 40px rgba(0, 0, 0, .25); 
-    border: 2px solid var(--blue);
-
+.dcard.is-front {
+  border-color: var(--blue);
+  box-shadow: 12px 40px 40px rgba(0, 0, 0, .25);
 }
 .dcard.is-hidden { opacity: 0; pointer-events: none; }
 
