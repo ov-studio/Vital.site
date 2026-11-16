@@ -52,12 +52,12 @@
 .dcard-tag {
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 12px;
   z-index: 2;
   height: 24px;
   font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .08em;
+  font-weight: 600;
+  letter-spacing: .05em;
   line-height: 24px;
   text-transform: uppercase;
   white-space: nowrap;
@@ -73,7 +73,7 @@
   bottom: 0;
   z-index: 1;
   display: block;
-  padding: 0 24px 22px;
+  padding: 0 16px 16px;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity .4s ease, transform .5s ease;
@@ -86,19 +86,21 @@
 
 .dcard-title {
   display: block;
-  margin-bottom: 10px;
-  font-size: 1.6rem;
-  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .05em;
   line-height: 1.25;
-  color: #fff;
+  text-transform: uppercase;
+  color: var(--brand-neon-core);
 }
 
 .dcard-desc {
   display: block;
-  font-size: .95rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #fff;
+  font-size: .84rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--w80);
 }
 
 .dcard-bar {
@@ -112,25 +114,6 @@
   transform-origin: left;
   animation: dcard-fill linear forwards;
 }
-
-.deck-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 8px;
-}
-.deck-dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: var(--rule20);
-  cursor: pointer;
-  transition: background .3s, transform .3s;
-}
-.deck-dot:hover { background: var(--text-muted); }
-.deck-dot.is-active { background: var(--blue); transform: scale(1.25); }
 
 @keyframes dcard-fill {
   from { transform: scaleX(0) }

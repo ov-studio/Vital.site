@@ -67,18 +67,6 @@ export function Showcase({ selectedId, onSelect }: ShowcaseProps) {
           );
         })}
       </div>
-
-      <div className="deck-dots">
-        {items.map((s, i) => (
-          <button
-            key={s.id}
-            type="button"
-            aria-label={s.title}
-            className={`deck-dot${active === i ? ' is-active' : ''}`}
-            onClick={() => onSelect(s.id)}
-          />
-        ))}
-      </div>
     </div>
   );
 }
