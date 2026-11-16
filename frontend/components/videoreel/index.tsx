@@ -8,8 +8,6 @@ import './index.css';
 export interface VideoReelItem {
   id:           string;
   title:        string;
-  tagline?:     string;
-  author?:      string;
   youtube_id:   string;
 }
 
@@ -86,12 +84,9 @@ function VideoModal({
           />
         </div>
       }
-    >
-
-    </ui_modal.Modal>
+    />
   );
 }
-
 
 export function VideoReel({
   videos: videos_prop,
@@ -122,8 +117,6 @@ export function VideoReel({
             id: v.id || v.youtube_id,
             youtube_id: v.youtube_id,
             title: v.title,
-            author: v.author,
-            tagline: v.author,
           }))
         );
       })

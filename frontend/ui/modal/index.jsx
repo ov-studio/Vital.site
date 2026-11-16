@@ -25,7 +25,7 @@ function use_scroll_lock(active) {
  * @param {() => void} props.onClose
  * @param {import('react').ReactNode} [props.controls]  Top-right controls (share/close)
  * @param {import('react').ReactNode} [props.media]  Banner / player above body
- * @param {import('react').ReactNode} props.children
+ * @param {import('react').ReactNode} [props.children]
  * @param {string} [props.className]  Overlay class
  * @param {string} [props.frameClassName]  Frame class
  * @param {string} [props.labelledBy]  aria-labelledby
