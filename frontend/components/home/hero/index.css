@@ -167,14 +167,17 @@
   padding-bottom: 2px;
   color: var(--brand-neon-core);
   font-family: var(--font-signika), cursive;
-  font-weight: 00;
+  font-weight: 400;
   font-size: clamp(1.04rem, 12.1vw, 17.2px);
 }
 
 .hero-sub-mid {
   text-wrap: balance;
-  font-size: clamp(0.88rem, 1.1vw, 15px);
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.1vw, 15px);
   color: var(--blue);
+  -webkit-text-stroke: 1px var(--bg6);
+  paint-order: stroke fill;
 }
 
 .hero-type {
@@ -185,7 +188,7 @@
 .hero-type-text {
   padding: 3px 10px;
   margin: 0 -10px;
-  background: var(--b15);
+  background: var(--b20);
   border-radius: 2px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
