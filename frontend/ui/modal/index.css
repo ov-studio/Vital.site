@@ -243,9 +243,9 @@
   padding: 14px 20px;
   font-weight: 500;
   color: var(--dim);
-  border-left: 3px solid var(--b70);
+  border-left: 3px solid var(--brand-neon-mid);
   border-radius: 0 4px 4px 0;
-  background: var(--bg10);
+  background: linear-gradient(var(--b15), var(--b15)), var(--bg5) !important;
   background-origin: border-box;
 }
 .ui-modal-prose blockquote > * + * { margin-top: 8px; }
