@@ -6,16 +6,16 @@ import './index.css';
 const INTERVAL_MS = 5000;
 const VISIBLE     = 4;
 
+type Feature = (typeof config_home.Features)[number];
+
 interface ShowcaseProps {
-  selectedId: string;
-  onSelect:   (id: string) => void;
+  items:      readonly Feature[];
+  active:     number;
+  onSelect:   (index: number) => void;
 }
 
-export function Showcase({ selectedId, onSelect }: ShowcaseProps) {
-  const items = config_home.Showcases;
+export function Showcase({ items, active, onSelect }: ShowcaseProps) {
   const total = items.length;
-  const found = items.findIndex((s) => s.id === selectedId);
-  const active = found < 0 ? 0 : found;
 
   const [paused, setPaused]   = react.useState(false);
   const [reduced, setReduced] = react.useState(false);
@@ -24,7 +24,7 @@ export function Showcase({ selectedId, onSelect }: ShowcaseProps) {
     setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
 
-  const advance = () => onSelect(items[(active + 1) % total].id);
+  const advance = () => onSelect((active + 1) % total);
 
   return (
     <div
@@ -38,23 +38,23 @@ export function Showcase({ selectedId, onSelect }: ShowcaseProps) {
           const front = d === 0;
           return (
             <button
-              key={s.id}
+              key={s.label}
               type="button"
-              aria-label={s.title}
+              aria-label={s.label}
               className={`dcard${front ? ' is-front' : ''}${d >= VISIBLE ? ' is-hidden' : ''}`}
               style={{
                 '--d': Math.min(d, VISIBLE - 1),
                 zIndex: total - d,
-                backgroundImage: `url(${s.image}), linear-gradient(160deg, hsl(220, 40%, 15%), hsl(250, 21%, 7%))`
+                backgroundImage: `url(${s.showcase.image}), linear-gradient(160deg, hsl(220, 40%, 15%), hsl(250, 21%, 7%))`
               } as React.CSSProperties}
-              onClick={() => onSelect(front ? items[(active + 1) % total].id : s.id)}
+              onClick={() => onSelect(front ? (active + 1) % total : i)}
             >
               <span className="dcard-tag">
-                {s.title}
+                {s.label}
               </span>
               <span className="dcard-body">
-                <span className="dcard-title">{s.title}</span>
-                <span className="dcard-desc">{s.desc}</span>
+                <span className="dcard-title">{s.showcase.title}</span>
+                <span className="dcard-desc">{s.showcase.desc}</span>
               </span>
               {front && !reduced && (
                 <span

@@ -6,9 +6,7 @@ import * as react              from 'react';
 import './index.css';
 
 export function Features() {
-  const [selectedId, setSelectedId] = react.useState<string>(
-    () => config_home.Features[0]?.id ?? ''
-  );
+  const [selected, setSelected] = react.useState(0);
 
   return (
     <section id="features">
@@ -27,20 +25,20 @@ export function Features() {
         <div className="feat-body">
           <div className="feat-clusters rev-l" role="listbox" aria-label="Features">
             {config_home.Features.map((c, ci) => {
-              const active = selectedId === c.id;
+              const active = selected === ci;
               return (
                 <div
-                  key={c.id}
+                  key={c.label}
                   role="option"
                   aria-selected={active}
                   tabIndex={0}
                   className={`fcluster${active ? ' is-active' : ''}`}
                   style={{ '--ci': ci } as React.CSSProperties}
-                  onClick={() => setSelectedId(c.id)}
+                  onClick={() => setSelected(ci)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
-                      setSelectedId(c.id);
+                      setSelected(ci);
                     }
                   }}
                 >
@@ -55,7 +53,7 @@ export function Features() {
           </div>
 
           <div className="feat-diagram rev-r">
-            <component_showcase.Showcase selectedId={selectedId} onSelect={setSelectedId}/>
+            <component_showcase.Showcase items={config_home.Features} active={selected} onSelect={setSelected}/>
           </div>
         </div>
       </div>

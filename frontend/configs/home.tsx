@@ -21,91 +21,67 @@ export const Platforms = config_site.info.platforms.map(({ id, label, status }) 
 
 export const Features = [
   {
-    id:    'sandbox',
     label: 'Sandbox',
-    angle: 0,
-    desc:  'Runtime backbone of client and server — per-resource Lua environments, dependency-aware resource lifecycle, hash-verified asset streaming, cross-resource exports, and a built-in console.'
+    desc:  'Runtime backbone of client and server — per-resource Lua environments, dependency-aware resource lifecycle, hash-verified asset streaming, cross-resource exports, and a built-in console.',
+    showcase: {
+      title: 'Sandbox',
+      desc:  'Per-resource Lua environments with hash-verified asset streaming.',
+      image: '/showcase/sandbox.png'
+    }
   },
   {
-    id:    'core',
     label: 'Core',
-    angle: 51,
-    desc:  'Full programmatic control of every scene entity and surface — database, model with automatic mesh LODs, webview, canvas, font, image, svg, rendertarget, shader, camera, display, discord, and performance monitors.'
+    desc:  'Full programmatic control of every scene entity and surface — database, model with automatic mesh LODs, webview, canvas, font, image, svg, rendertarget, shader, camera, display, discord, and performance monitors.',
+    showcase: {
+      title: 'Core',
+      desc:  'Models, webviews, shaders and cameras under full script control.',
+      image: '/showcase/core.png'
+    }
   },
   {
-    id:    'utility',
     label: 'Utility',
-    angle: 102,
-    desc:  'All primitives a runtime script needs — math, string, table, easing, crypto, timer, thread, promise, http, file, shrinker, input, and a priority-ordered event system.'
+    desc:  'All primitives a runtime script needs — math, string, table, easing, crypto, timer, thread, promise, http, file, shrinker, input, and a priority-ordered event system.',
+    showcase: {
+      title: 'Utility',
+      desc:  'Threads, promises, http and a priority-ordered event system.',
+      image: '/showcase/utility.png'
+    }
   },
   {
-    id:    'graphics',
     label: 'Graphics',
-    angle: 180,
-    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/GTAO/SSR/SSIL, glow, volumetric fog, antialiasing, shadow quality, color grading, lighting, GPU particles, and ribbon trails.'
+    desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/GTAO/SSR/SSIL, glow, volumetric fog, antialiasing, shadow quality, color grading, lighting, GPU particles, and ribbon trails.',
+    showcase: {
+      title: 'Graphics',
+      desc:  'Real-time SDFGI, SSAO, SSR and volumetric fog driven from Lua.',
+      image: '/showcase/graphics.png'
+    }
   },
   {
-    id:    'physics',
     label: 'Physics',
-    angle: 231,
-    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, up to 65,535 isolated virtual dimensions, and collision and wheel debug visualizers.'
+    desc:  'Full Godot physics surface from Lua — rigid, static, character, animatable and vehicle bodies, raycasts, shapecasts, collision queries, trigger areas, up to 65,535 isolated virtual dimensions, and collision and wheel debug visualizers.',
+    showcase: {
+      title: 'Physics',
+      desc:  'Rigid, character and vehicle bodies across isolated dimensions.',
+      image: '/showcase/physics.png'
+    }
   },
   {
-    id:    'audio',
     label: 'Audio',
-    angle: 282,
-    desc:  'Complete audio control from Lua — stereo and positional 3D playback, per-voice effect chains (reverb, EQ, compression, filters), and multi-format streaming.'
+    desc:  'Complete audio control from Lua — stereo and positional 3D playback, per-voice effect chains (reverb, EQ, compression, filters), and multi-format streaming.',
+    showcase: {
+      title: 'Audio',
+      desc:  'Positional 3D playback with per-voice reverb, EQ and filters.',
+      image: '/showcase/audio.png'
+    }
   },
   {
-    id:    'network',
     label: 'Network',
-    angle: 333,
-    desc:  'Full multiplayer stack — ENet UDP transport with live RTT and packet-loss stats, packet-batched replication with client interpolation and late-join sync, and automatic physics body and dimension sync.'
-  }
-];
-
-export const Showcases = [
-  {
-    id:    'sandbox',
-    title: 'Sandbox',
-    desc:  'Per-resource Lua environments with hash-verified asset streaming.',
-    image: '/showcase/sandbox.png'
-  },
-  {
-    id:    'core',
-    title: 'Core',
-    desc:  'Models, webviews, shaders and cameras under full script control.',
-    image: '/showcase/core.png'
-  },
-  {
-    id:    'utility',
-    title: 'Utility',
-    desc:  'Threads, promises, http and a priority-ordered event system.',
-    image: '/showcase/utility.png'
-  },
-  {
-    id:    'graphics',
-    title: 'Graphics',
-    desc:  'Real-time SDFGI, SSAO, SSR and volumetric fog driven from Lua.',
-    image: '/showcase/graphics.png'
-  },
-  {
-    id:    'physics',
-    title: 'Physics',
-    desc:  'Rigid, character and vehicle bodies across isolated dimensions.',
-    image: '/showcase/physics.png'
-  },
-  {
-    id:    'audio',
-    title: 'Audio',
-    desc:  'Positional 3D playback with per-voice reverb, EQ and filters.',
-    image: '/showcase/audio.png'
-  },
-  {
-    id:    'network',
-    title: 'Network',
-    desc:  'ENet replication with client interpolation and late-join sync.',
-    image: '/showcase/network.png'
+    desc:  'Full multiplayer stack — ENet UDP transport with live RTT and packet-loss stats, packet-batched replication with client interpolation and late-join sync, and automatic physics body and dimension sync.',
+    showcase: {
+      title: 'Network',
+      desc:  'ENet replication with client interpolation and late-join sync.',
+      image: '/showcase/network.png'
+    }
   }
 ];
 
