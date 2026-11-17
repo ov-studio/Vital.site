@@ -26,7 +26,7 @@ export const Features = [
     showcase: {
       title: 'Sandbox',
       desc:  'Per-resource Lua environments with hash-verified asset streaming.',
-      image: '/showcase/sandbox.png'
+      image: '/showcase/features/sandbox.png'
     }
   },
   {
@@ -35,7 +35,7 @@ export const Features = [
     showcase: {
       title: 'Core',
       desc:  'Models, webviews, shaders and cameras under full script control.',
-      image: '/showcase/core.png'
+      image: '/showcase/features/core.png'
     }
   },
   {
@@ -44,7 +44,7 @@ export const Features = [
     showcase: {
       title: 'Utility',
       desc:  'Threads, promises, http and a priority-ordered event system.',
-      image: '/showcase/utility.png'
+      image: '/showcase/features/utility.png'
     }
   },
   {
@@ -53,7 +53,7 @@ export const Features = [
     showcase: {
       title: 'Dynamic Sky',
       desc:  'By @ov-anisa — a living sky with real moon phases, god rays and 14 weather presets.',
-      image: '/showcase/graphics.png'
+      image: '/showcase/features/dynamic_sky.png'
     }
   },
   {
@@ -62,7 +62,7 @@ export const Features = [
     showcase: {
       title: 'Physics',
       desc:  'Rigid, character and vehicle bodies across isolated dimensions.',
-      image: '/showcase/physics.png'
+      image: '/showcase/features/physics.png'
     }
   },
   {
@@ -71,7 +71,7 @@ export const Features = [
     showcase: {
       title: 'Audio',
       desc:  'Positional 3D playback with per-voice reverb, EQ and filters.',
-      image: '/showcase/audio.png'
+      image: '/showcase/features/audio.png'
     }
   },
   {
@@ -80,7 +80,7 @@ export const Features = [
     showcase: {
       title: 'Network',
       desc:  'ENet replication with client interpolation and late-join sync.',
-      image: '/showcase/network.png'
+      image: '/showcase/features/network.png'
     }
   }
 ];
