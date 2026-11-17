@@ -20,7 +20,7 @@
   padding: 0;
   overflow: hidden;
   border: 2px solid var(--bg);
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: var(--bg7);
   background-size: cover;
   background-position: center;
@@ -37,6 +37,7 @@
 }
 .dcard.is-front {
   border-color: var(--blue);
+  box-shadow: 12px 40px 40px rgba(0, 0, 0, .25);
 }
 .dcard.is-hidden { opacity: 0; pointer-events: none; }
 
@@ -102,6 +103,11 @@
   color: var(--w80);
 }
 
+.dcard-mention {
+  font-weight: 700;
+  color: #fff;
+}
+
 .dcard-bar {
   position: absolute;
   left: 0;
@@ -126,7 +132,7 @@
 }
 
 @media (max-width: 640px) {
-  .dcard { --step: 16px; width: calc(100% - 48px); height: calc(100% - 48px); }
+  .dcard { --step: 16px; width: calc(100% - 48px); height: calc(100% - 48px); border-radius: 12px; }
   .deck-stack { aspect-ratio: 4 / 5; }
 }
 

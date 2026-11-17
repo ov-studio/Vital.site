@@ -51,8 +51,8 @@ export const Features = [
     label: 'Graphics',
     desc:  'Full visual pipeline control from Lua — physically-based sky, global illumination (SDFGI), SSAO/GTAO/SSR/SSIL, glow, volumetric fog, antialiasing, shadow quality, color grading, lighting, GPU particles, and ribbon trails.',
     showcase: {
-      title: 'Graphics',
-      desc:  'Real-time SDFGI, SSAO, SSR and volumetric fog driven from Lua.',
+      title: 'Dynamic Sky',
+      desc:  'By @ov-anisa — a living sky with real moon phases, god rays and 14 weather presets.',
       image: '/showcase/graphics.png'
     }
   },

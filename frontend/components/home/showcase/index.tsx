@@ -14,9 +14,14 @@ interface ShowcaseProps {
   onSelect:   (index: number) => void;
 }
 
+function with_mentions(text: string) {
+  return text.split(/(@[\w-]+)/g).map((part, i) =>
+    part.startsWith('@') ? <strong key={i} className="dcard-mention">{part}</strong> : part
+  );
+}
+
 export function Showcase({ items, active, onSelect }: ShowcaseProps) {
   const total = items.length;
-
   const [paused, setPaused]   = react.useState(false);
   const [reduced, setReduced] = react.useState(false);
 
@@ -54,7 +59,7 @@ export function Showcase({ items, active, onSelect }: ShowcaseProps) {
               </span>
               <span className="dcard-body">
                 <span className="dcard-title">{s.showcase.title}</span>
-                <span className="dcard-desc">{s.showcase.desc}</span>
+                <span className="dcard-desc">{with_mentions(s.showcase.desc)}</span>
               </span>
               {front && !reduced && (
                 <span
