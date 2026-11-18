@@ -127,6 +127,11 @@
   --nav-h: 68px;
   
 
+  /* ── Shape ── */
+  --cut: 16px;          /* chamfer size of cut corners, override per element */
+  --frame-border: 3px;  /* neon outline thickness of framed panels */
+
+
   /* ── Motion ── */
   --anim-dur: .55s;
   --anim-dur-fast: .45s;
