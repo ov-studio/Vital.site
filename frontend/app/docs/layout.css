@@ -273,6 +273,16 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--b10);
 }
 
+/* Mobile sidebar rows: match desktop 4px border-radius */
+#nd-sidebar-mobile a,
+#nd-sidebar-mobile button[data-state],
+#nd-sidebar-mobile [data-state="open"],
+#nd-sidebar-mobile [data-state="closed"],
+#nd-sidebar-mobile a[data-active="true"],
+#nd-sidebar-mobile a[aria-current="page"] {
+  border-radius: 4px !important;
+}
+
 /* ── TOC ── */
 #nd-toc,
 [class*="border-fd-foreground"] a {
