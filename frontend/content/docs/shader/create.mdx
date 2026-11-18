@@ -21,6 +21,14 @@ local instance = core.shader.create(
   - **Example** — `:resource_a/assets/shaders/ripple.glsl` loads `assets/shaders/ripple.glsl` from inside `resource_a`.
 </Callout>
 
+<Callout type="info">
+  **Shader files can include other shader files.**
+
+  - **Directive** — `#include "path"` is replaced by the contents of the file, relative to the resource folder.
+  - **Once** — a file is only included once per shader, nesting is limited to `8` levels.
+  - **Reference** — see the [**Include Cheatsheet**](/docs/shader/cheatsheet/include).
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |

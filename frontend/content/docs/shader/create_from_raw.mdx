@@ -13,6 +13,13 @@ local instance = core.shader.create_from_raw(
 )
 ```
 
+<Callout type="warn">
+  **`#include` is not expanded in raw sources.**
+
+  - **Why** — a raw string has no resource folder to read included files from.
+  - **Alternative** — load the shader with [`core.shader.create`](/docs/shader/create) to use includes, see the [**Include Cheatsheet**](/docs/shader/cheatsheet/include).
+</Callout>
+
 ### Parameters
 
 | Type | Name | Description |
