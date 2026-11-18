@@ -128,8 +128,8 @@
   
 
   /* ── Shape ── */
-  --cut: 16px;          /* chamfer size of cut corners, override per element */
-  --frame-border: 3px;  /* neon outline thickness of framed panels */
+  --cut: 16px;
+  --frame-border: 3px;
 
 
   /* ── Motion ── */
