@@ -71,7 +71,7 @@
   background: var(--bg6);
   aspect-ratio: 16 / 6;
   max-height: 375px;
-  clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
+  clip-path: var(--clip-cut);
 }
 .np-cover img {
   display: block;
