@@ -52,7 +52,7 @@ export function Showcase({ items, active, onSelect }: ShowcaseProps) {
                 zIndex: total - d,
                 '--img': `url(${s.showcase.image})`
               } as React.CSSProperties}
-              onClick={() => onSelect(front ? (active + 1) % total : i)}
+              onClick={() => { if (!front) onSelect(i); }}
             >
               <span className="dcard-face">
                 <span className="dcard-tag">
