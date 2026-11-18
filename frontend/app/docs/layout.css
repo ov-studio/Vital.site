@@ -235,45 +235,7 @@ button[aria-label="Collapse Sidebar"] {
 }
 
 /* ── Sidebar page links — readable, not forced uppercase ── */
-#nd-sidebar a {
-  font-family: var(--font-geist), sans-serif;
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--text-soft);
-  border-radius: 4px;
-  transition: color 0.15s, background 0.15s;
-}
-
-#nd-sidebar a:hover {
-  color: var(--white);
-  background: var(--b10);
-}
-
-#nd-sidebar a[data-active="true"],
-#nd-sidebar a[aria-current="page"] {
-  color: var(--brand-neon-core);
-  background: var(--b15);
-  font-weight: 500;
-}
-
-/* ── Folder/folder-row items with chevron ── */
-#nd-sidebar button[data-state],
-#nd-sidebar [data-state="open"],
-#nd-sidebar [data-state="closed"] {
-  font-family: var(--font-geist), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-soft);
-  border-radius: 4px;
-}
-
-#nd-sidebar button[data-state]:hover {
-  color: var(--white);
-  background: var(--b10);
-}
-
-/* Mobile sidebar rows: match desktop radius + colors */
+#nd-sidebar a,
 #nd-sidebar-mobile a {
   font-family: var(--font-geist), sans-serif;
   font-size: 0.85rem;
@@ -284,19 +246,25 @@ button[aria-label="Collapse Sidebar"] {
   transition: color 0.15s, background 0.15s;
 }
 
+#nd-sidebar a:hover,
 #nd-sidebar-mobile a:hover {
   color: var(--white);
   background: var(--b10);
 }
 
+#nd-sidebar a[data-active="true"],
+#nd-sidebar a[aria-current="page"],
 #nd-sidebar-mobile a[data-active="true"],
 #nd-sidebar-mobile a[aria-current="page"] {
   color: var(--brand-neon-core);
   background: var(--b15);
   font-weight: 500;
-  border-radius: 4px !important;
 }
 
+/* ── Folder/folder-row items with chevron ── */
+#nd-sidebar button[data-state],
+#nd-sidebar [data-state="open"],
+#nd-sidebar [data-state="closed"],
 #nd-sidebar-mobile button[data-state],
 #nd-sidebar-mobile [data-state="open"],
 #nd-sidebar-mobile [data-state="closed"] {
@@ -307,6 +275,7 @@ button[aria-label="Collapse Sidebar"] {
   border-radius: 4px !important;
 }
 
+#nd-sidebar button[data-state]:hover,
 #nd-sidebar-mobile button[data-state]:hover {
   color: var(--white);
   background: var(--b10);
