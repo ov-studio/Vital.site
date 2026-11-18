@@ -661,13 +661,14 @@ export const Roadmap: RoadmapSection[] = build([
       },
       {
         label: 'Shader',
-        desc:  'GLSL shader compilation, uniform control, model binding, and extra rendertarget outputs from Lua',
+        desc:  'GLSL shader compilation, shared includes, uniform control, model binding, and extra rendertarget outputs from Lua',
         icon:  <lucide.Sliders  {...config_site.info.lucide}/>,
         items: [
           { label: 'Lifecycle hooks',                                      status: 'completed' },
           { label: 'Auto-inherit BaseMaterial3D uniforms',                 status: 'completed' },
           { label: 'Layered shaders - stacked on top of the base shader',  status: 'completed' },
           { label: 'Shader modes: Canvas Item / Spatial / Post Process',   status: 'completed' },
+          { label: 'Shader includes - #include directive',                 status: 'completed' },
           { label: 'Shader outputs - emulated MRT via VSDK_OUT',           status: 'completed' },
           { label: '[Client] Enum: core.shader.shader_mode',               status: 'completed' },
           { label: '[Client] API: core.shader.create',                     status: 'completed' },
