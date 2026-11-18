@@ -273,14 +273,43 @@ button[aria-label="Collapse Sidebar"] {
   background: var(--b10);
 }
 
-/* Mobile sidebar rows: match desktop 4px border-radius */
-#nd-sidebar-mobile a,
-#nd-sidebar-mobile button[data-state],
-#nd-sidebar-mobile [data-state="open"],
-#nd-sidebar-mobile [data-state="closed"],
+/* Mobile sidebar rows: match desktop radius + colors */
+#nd-sidebar-mobile a {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-soft);
+  border-radius: 4px !important;
+  transition: color 0.15s, background 0.15s;
+}
+
+#nd-sidebar-mobile a:hover {
+  color: var(--white);
+  background: var(--b10);
+}
+
 #nd-sidebar-mobile a[data-active="true"],
 #nd-sidebar-mobile a[aria-current="page"] {
+  color: var(--brand-neon-core);
+  background: var(--b15);
+  font-weight: 500;
   border-radius: 4px !important;
+}
+
+#nd-sidebar-mobile button[data-state],
+#nd-sidebar-mobile [data-state="open"],
+#nd-sidebar-mobile [data-state="closed"] {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  border-radius: 4px !important;
+}
+
+#nd-sidebar-mobile button[data-state]:hover {
+  color: var(--white);
+  background: var(--b10);
 }
 
 /* ── TOC ── */
