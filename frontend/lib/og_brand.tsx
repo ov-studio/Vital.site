@@ -97,13 +97,6 @@ export function load_og_font_bold(): ArrayBuffer {
   return load_font_file('Rajdhani-Bold.ttf');
 }
 
-/** Load the OG background placeholder as a base64 data URI. */
-export function load_og_placeholder_data_uri(): string {
-  const file = path.join(process.cwd(), 'public/og/placeholder.png');
-  const buf = fs.readFileSync(file);
-  return `data:image/png;base64,${buf.toString('base64')}`;
-}
-
 /** Y position of the tagline, vertically centering logo + gap + text. */
 export function og_tagline_top(): number {
   const group_h = OG_LOGO_H + OG_GAP + OG_TAG_SIZE;
