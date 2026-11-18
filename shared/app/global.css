@@ -6,6 +6,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  --clip-cut: polygon(
+    var(--cut) 0, 100% 0,
+    100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%,
+    0 100%, 0 var(--cut)
+  );
 }
 
 body {
