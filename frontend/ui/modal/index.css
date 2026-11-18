@@ -140,12 +140,6 @@
   text-transform: none;
 }
 
-.ui-modal-name--wrap {
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-}
-
 .ui-modal-tagline {
   margin: 0;
   font-family: var(--font-geist), sans-serif;
@@ -348,14 +342,6 @@
 
 .ui-modal-actions .ui-btn--secondary {
   margin-left: auto;
-}
-
-.ui-modal-error {
-  margin-top: 10px;
-  font-family: var(--font-geist), sans-serif;
-  font-size: .74rem;
-  color: var(--red);
-  flex-shrink: 0;
 }
 
 
