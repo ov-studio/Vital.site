@@ -139,11 +139,6 @@
   .deck { margin: 0 auto; }
 }
 
-@media (max-width: 640px) {
-  .dcard { --step: 16px; --cut: 12px; width: calc(100% - 48px); height: calc(100% - 48px); }
-  .deck-stack { aspect-ratio: 4 / 5; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .dcard, .dcard-body { transition: none; }
 }
