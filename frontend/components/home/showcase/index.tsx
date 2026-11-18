@@ -50,25 +50,27 @@ export function Showcase({ items, active, onSelect }: ShowcaseProps) {
               style={{
                 '--d': Math.min(d, VISIBLE - 1),
                 zIndex: total - d,
-                backgroundImage: `url(${s.showcase.image}), linear-gradient(160deg, hsl(220, 40%, 15%), hsl(250, 21%, 7%))`
+                '--img': `url(${s.showcase.image})`
               } as React.CSSProperties}
               onClick={() => onSelect(front ? (active + 1) % total : i)}
             >
-              <span className="dcard-tag">
-                {s.label}
+              <span className="dcard-face">
+                <span className="dcard-tag">
+                  {s.label}
+                </span>
+                <span className="dcard-body">
+                  <span className="dcard-title">{s.showcase.title}</span>
+                  <span className="dcard-desc">{with_mentions(s.showcase.desc)}</span>
+                </span>
+                {front && !reduced && (
+                  <span
+                    key={active}
+                    className="dcard-bar"
+                    style={{ animationDuration: `${INTERVAL_MS}ms` }}
+                    onAnimationEnd={advance}
+                  />
+                )}
               </span>
-              <span className="dcard-body">
-                <span className="dcard-title">{s.showcase.title}</span>
-                <span className="dcard-desc">{with_mentions(s.showcase.desc)}</span>
-              </span>
-              {front && !reduced && (
-                <span
-                  key={active}
-                  className="dcard-bar"
-                  style={{ animationDuration: `${INTERVAL_MS}ms` }}
-                  onAnimationEnd={advance}
-                />
-              )}
             </button>
           );
         })}
