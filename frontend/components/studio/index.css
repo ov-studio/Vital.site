@@ -158,11 +158,6 @@
   background-position: 0 0, 0 12px, 12px -12px, -12px 0;
 }
 
-.studio-logo.export-transparent {
-  background: transparent !important;
-  background-image: none !important;
-}
-
 .studio-og-tagline.is-placeholder {
   visibility: hidden;
   user-select: none;
