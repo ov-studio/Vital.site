@@ -12,7 +12,6 @@
 
 .dcard {
   --step: 24px;
-  --cut: 16px;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -21,7 +20,7 @@
   padding: 0;
   border: 0;
   background: var(--bg);
-  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  clip-path: var(--clip-cut);
   font-family: var(--font-geist), sans-serif;
   text-align: left;
   cursor: pointer;
@@ -38,13 +37,13 @@
 
 .dcard-face {
   position: absolute;
-  inset: 3px;
+  inset: var(--frame-border);
   overflow: hidden;
   background-color: var(--bg7);
   background-image: var(--img), linear-gradient(160deg, hsl(220, 40%, 15%), hsl(250, 21%, 7%));
   background-size: cover;
   background-position: center;
-  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  clip-path: var(--clip-cut);
 }
 .dcard-face::after {
   content: '';
