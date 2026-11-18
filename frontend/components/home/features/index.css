@@ -7,6 +7,10 @@
   border-top: 1px solid var(--rule12);
   scroll-margin-top: var(--nav-h);
 }
+#features > .sw { 
+  position: relative; 
+  z-index: 1; 
+}
 
 .feat-body {
   display: grid;
@@ -78,9 +82,6 @@
   transition: color .25s;
 }
 .fcluster.is-active .fcluster-desc { color: var(--w80) }
-
-
-#features > .sw { position: relative; z-index: 1; }
 
 
 /* ── @media ── */

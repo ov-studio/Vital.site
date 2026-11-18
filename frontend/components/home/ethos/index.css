@@ -7,6 +7,10 @@
   border-top: 1px solid var(--rule12);
   scroll-margin-top: var(--nav-h);
 }
+#ethos > .sw { 
+  position: relative; 
+  z-index: 1; 
+}
 
 .ethos-grid {
   display: grid;
@@ -89,5 +93,3 @@
   .ethos-grid { grid-template-columns: 1fr; }
   .ecard      { padding: 24px 20px 22px; }
 }
-
-#ethos > .sw { position: relative; z-index: 1; }

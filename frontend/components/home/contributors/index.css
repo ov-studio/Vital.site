@@ -7,7 +7,11 @@
   border-top: 1px solid var(--rule12);
   scroll-margin-top: var(--nav-h);
 }
-#contributors > .sw { width: 100%; position: relative; z-index: 1; }
+#contributors > .sw { 
+  width: 100%; 
+  position: relative; 
+  z-index: 1; 
+}
 
 .studio-note {
   display: flex;

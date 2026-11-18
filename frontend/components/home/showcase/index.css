@@ -12,18 +12,16 @@
 
 .dcard {
   --step: 24px;
+  --cut: 16px;
   position: absolute;
   left: 0;
   bottom: 0;
   width: calc(100% - 72px);
   height: calc(100% - 72px);
   padding: 0;
-  overflow: hidden;
-  border: 2px solid var(--bg);
-  border-radius: 8px;
-  background-color: var(--bg7);
-  background-size: cover;
-  background-position: center;
+  border: 0;
+  background: var(--bg);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
   font-family: var(--font-geist), sans-serif;
   text-align: left;
   cursor: pointer;
@@ -33,15 +31,22 @@
     transform .6s cubic-bezier(.4, 0, .2, 1),
     filter .6s ease,
     opacity .5s ease,
-    box-shadow .6s ease;
+    background .6s ease;
 }
-.dcard.is-front {
-  border-color: var(--blue);
-  box-shadow: 12px 40px 40px rgba(0, 0, 0, .25);
-}
+.dcard.is-front { background: var(--brand-neon-core); }
 .dcard.is-hidden { opacity: 0; pointer-events: none; }
 
-.dcard::after {
+.dcard-face {
+  position: absolute;
+  inset: 3px;
+  overflow: hidden;
+  background-color: var(--bg7);
+  background-image: var(--img), linear-gradient(160deg, hsl(220, 40%, 15%), hsl(250, 21%, 7%));
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.dcard-face::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -119,20 +124,23 @@
   transform-origin: left;
   animation: dcard-fill linear forwards;
 }
-
 .deck.is-paused .dcard-bar { animation-play-state: paused; }
 
+
+/* ── @keyframes ── */
 @keyframes dcard-fill {
   from { transform: scaleX(0) }
   to   { transform: scaleX(1) }
 }
 
+
+/* ── @media ── */
 @media (max-width: 1100px) {
   .deck { margin: 0 auto; }
 }
 
 @media (max-width: 640px) {
-  .dcard { --step: 16px; width: calc(100% - 48px); height: calc(100% - 48px); border-radius: 12px; }
+  .dcard { --step: 16px; --cut: 12px; width: calc(100% - 48px); height: calc(100% - 48px); }
   .deck-stack { aspect-ratio: 4 / 5; }
 }
 
