@@ -1,0 +1,76 @@
+---
+title: Include Cheatsheet
+description: Share code between shaders with the #include directive — one helper file, pulled into every shader that needs it
+---
+
+A shader file can pull in another shader file with `#include "path"`. The directive is replaced by the
+contents of the referenced file before the shader is compiled, so shared helpers live in one place.
+
+Godot's own `#include` only resolves `res://` paths, so Vital expands it itself, relative to the resource folder.
+
+---
+
+## Syntax
+
+Place it on its own line, usually below `shader_type` and `render_mode`.
+
+```glsl
+#include "path"
+```
+
+| Argument | Type | Description |
+|---|---|---|
+| `path` | string | Path of the shader file, relative to the resource folder like the shader's own path |
+
+---
+
+## How It Works
+
+| Topic | Behavior |
+|---|---|
+| Resolved by | [`core.shader.create`](/docs/shader/create), when the shader is loaded from a file |
+| Replaced with | The text of the included file, in place of the directive line |
+| Included once | A file is only included once per shader, so it can be included from several places without redefining its functions |
+| Nesting | Included files can include other files, up to `8` levels deep |
+| Comments | A line that starts with `//` is not a directive |
+
+---
+
+## Limitations
+
+What is not allowed, and what happens when it is broken.
+
+| Case | Behavior |
+|---|---|
+| [`core.shader.create_from_raw`](/docs/shader/create_from_raw) | Includes are not expanded, there is no resource folder to read from |
+| Missing file | Error when the shader is created |
+| Path without quotes | Error when the shader is created |
+| Nesting deeper than `8` levels | Error when the shader is created |
+| `shader_type`, `render_mode`, `fragment()`, `vertex()` in an included file | Not allowed, they belong in the shader that includes it. Keep included files to functions, constants and uniforms |
+
+---
+
+## Examples
+
+```glsl lineNumbers title="files/shaders/helper.gdshader"
+float sk_h21(vec2 p) {
+    vec3 q = fract(vec3(p.xyx) * 0.1031);
+    q += dot(q, q.yzx + 33.33);
+    return fract((q.x + q.y) * q.z);
+}
+```
+
+```lua lineNumbers title="Share a helper between two shaders"
+local raindrops = core.shader.create("files/shaders/raindrops.gdshader", core.shader.shader_mode.SPATIAL)
+local snowflakes = core.shader.create("files/shaders/snowflakes.gdshader", core.shader.shader_mode.SPATIAL)
+```
+
+```glsl lineNumbers title="files/shaders/raindrops.gdshader"
+shader_type spatial;
+
+#include "files/shaders/helper.gdshader"
+
+void fragment() {
+    ALBEDO = vec3(sk_h21(UV * 64.0));
+}
+```
