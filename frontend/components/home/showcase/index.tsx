@@ -24,16 +24,32 @@ export function Showcase({ items, active, onSelect }: ShowcaseProps) {
   const total = items.length;
   const [paused, setPaused]   = react.useState(false);
   const [reduced, setReduced] = react.useState(false);
+  const [inView, setInView]   = react.useState(true);
+  const rootRef               = react.useRef<HTMLDivElement>(null);
 
   react.useEffect(() => {
     setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
 
+  react.useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   const advance = () => onSelect((active + 1) % total);
+  const running = inView && !paused && !reduced;
 
   return (
     <div
-      className={`deck${paused ? ' is-paused' : ''}`}
+      ref={rootRef}
+      className={`deck${paused || !inView ? ' is-paused' : ''}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -62,7 +78,7 @@ export function Showcase({ items, active, onSelect }: ShowcaseProps) {
                   <span className="dcard-title">{s.showcase.title}</span>
                   <span className="dcard-desc">{with_mentions(s.showcase.desc)}</span>
                 </span>
-                {front && !reduced && (
+                {front && running && (
                   <span
                     key={active}
                     className="dcard-bar"
