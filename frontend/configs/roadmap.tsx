@@ -230,6 +230,7 @@ export const Roadmap: RoadmapSection[] = build([
           { label: '[Client] Enum: core.engine.vertical_alignment',    status: 'completed' },
           { label: '[Client] API: core.engine.is_sandbox_ui_visible',  status: 'completed' },
           { label: '[Client] API: core.engine.is_splash_visible',      status: 'completed' },
+          { label: '[Client] API: core.engine.is_mainmenu_visible',    status: 'completed' },
           { label: '[Client] API: core.engine.is_console_visible',     status: 'completed' },
           { label: '[Shared] API: core.engine.get_tick',               status: 'completed' },
           { label: '[Shared] API: core.engine.get_version',            status: 'completed' },

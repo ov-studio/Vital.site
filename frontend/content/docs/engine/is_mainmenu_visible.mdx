@@ -1,0 +1,30 @@
+---
+title: core.engine.is_mainmenu_visible
+description: Retrieves whether the main menu is currently visible
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = core.engine.is_mainmenu_visible()
+```
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if the main menu is visible, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Checks if the main menu is currently visible"
+core.engine.print("info", "Main menu visible:", core.engine.is_mainmenu_visible())
+```
