@@ -228,10 +228,10 @@ export const Roadmap: RoadmapSection[] = build([
         items: [
           { label: '[Client] Enum: core.engine.horizontal_alignment',  status: 'completed' },
           { label: '[Client] Enum: core.engine.vertical_alignment',    status: 'completed' },
-          { label: '[Client] API: core.engine.is_sandbox_ui_visible',  status: 'completed' },
           { label: '[Client] API: core.engine.is_splash_visible',      status: 'completed' },
           { label: '[Client] API: core.engine.is_mainmenu_visible',    status: 'completed' },
           { label: '[Client] API: core.engine.is_console_visible',     status: 'completed' },
+          { label: '[Client] API: core.engine.is_input_blocked',       status: 'completed' },
           { label: '[Shared] API: core.engine.get_tick',               status: 'completed' },
           { label: '[Shared] API: core.engine.get_version',            status: 'completed' },
           { label: '[Shared] API: core.engine.get_platform',           status: 'completed' },
