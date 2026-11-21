@@ -1,0 +1,47 @@
+---
+title: core.engine.is_input_blocked
+description: Retrieves whether game input is currently blocked by a UI
+badge: client
+---
+
+### Syntax
+
+```lua
+local result = core.engine.is_input_blocked()
+```
+
+<Callout type="warn">
+  **Scripts must check this themselves to stop reacting to game input.**
+
+  - **Covers** — the console, the main menu, the splash and any visible, non-overlay webview that has focus without `forward_input`.
+  - **Not covered** — `forward_input` webviews and overlays don't count, so the player can keep moving while they are open.
+  - **Your responsibility** — key binds and polled input (`util.input.is_pressed`, `util.input.get_cursor_velocity`) keep reporting while a UI is open, so check this flag each frame before moving or rotating.
+</Callout>
+
+### Parameters
+
+| No parameters are accepted by this function |
+|---------------------------------------------|
+
+### Returns
+
+| Type | Name | Description |
+|------|------|-------------|
+| `bool` | result | `true` if a UI is blocking game input, `false` otherwise |
+
+---
+
+### Examples
+
+```lua lineNumbers title="Checks if game input is currently blocked"
+core.engine.print("info", "Input blocked:", core.engine.is_input_blocked())
+```
+
+```lua lineNumbers title="Ignores movement and camera input while a UI is open"
+util.event.on("sandbox:process", function(delta)
+    if core.engine.is_input_blocked() then return end
+
+    local velocity = util.input.get_cursor_velocity()
+    -- Rotate the camera using velocity
+end)
+```
