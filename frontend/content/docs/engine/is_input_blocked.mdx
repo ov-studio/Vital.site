@@ -13,9 +13,9 @@ local result = core.engine.is_input_blocked()
 <Callout type="warn">
   **Scripts must check this themselves to stop reacting to game input.**
 
-  - **Covers** — the console, the main menu, the splash and any visible, non-overlay webview that has focus without `forward_input`.
-  - **Not covered** — `forward_input` webviews and overlays don't count, so the player can keep moving while they are open.
-  - **Your responsibility** — key binds and polled input (`util.input.is_pressed`, `util.input.get_cursor_velocity`) keep reporting while a UI is open, so check this flag each frame before moving or rotating.
+  - **Covers** — the console, the main menu, the splash and any visible, non-overlay webview that has focus without [`forward_input`](/docs/webview/create).
+  - **Not covered** — [`forward_input`](/docs/webview/create) webviews and overlays don't count, so the player can keep moving while they are open.
+  - **Your responsibility** — key binds and polled input ([`util.input.is_pressed`](/docs/input/is_pressed), [`util.input.get_cursor_velocity`](/docs/input/get_cursor_velocity)) keep reporting while a UI is open, so check this flag each frame before moving or rotating.
 </Callout>
 
 ### Parameters
