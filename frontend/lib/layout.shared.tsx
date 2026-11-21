@@ -6,8 +6,10 @@ import * as fumadocs_layout_shared from 'fumadocs-ui/layouts/shared';
 export function baseOptions(): fumadocs_layout_shared.BaseLayoutProps {
   return {
     nav: {
-      title: (
-        <ui_brand.Brand name={config_site.info.name} size="xs" className="footer-brand-lock"/>
+      title: (props) => (
+        <a {...props}>
+          <ui_brand.Brand name={config_site.info.name} size="xs" className="footer-brand-lock"/>
+        </a>
       )
     },
     themeSwitch: {
