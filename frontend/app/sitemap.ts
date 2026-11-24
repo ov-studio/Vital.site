@@ -18,6 +18,7 @@ export default function sitemap(): next.MetadataRoute.Sitemap {
   return [
     { url: frontend_url, changeFrequency: 'weekly' as const, priority: 1 },
     { url: `${frontend_url}/news`, changeFrequency: 'weekly' as const, priority: 0.8 },
+    { url: `${frontend_url}/faq`, changeFrequency: 'monthly' as const, priority: 0.6 },
     ...pages
   ];
 }
