@@ -11,10 +11,6 @@ export interface FAQSection {
   items: FAQItem[];
 }
 
-const repo    = `https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}`;
-const github  = config_site.info.social.github.href;
-const discord = config_site.info.social.discord.href;
-
 export const FAQ: FAQSection[] = [
   {
     name: 'General',
@@ -39,7 +35,7 @@ export const FAQ: FAQSection[] = [
         id: 'open-source',
         q: 'Is it free and open source?',
         a: [
-          `Yes. ${config_site.info.name} is open source and free to use for personal, educational, and commercial work. The exact license terms live in the [repository](${repo}) and apply alongside our [Terms of Service](/tos).`,
+          `Yes. ${config_site.info.name} is open source and free to use for personal, educational, and commercial work. The exact license terms live in the [repository](https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}) and apply alongside our [Terms of Service](/tos).`,
           'Being open source also means the whole project is readable, buildable, and open to contributions from anyone.',
         ]
       },
@@ -95,16 +91,16 @@ export const FAQ: FAQSection[] = [
         id: 'contribute',
         q: 'How can I contribute?',
         a: [
-          `Start with the [contributing guide](/docs/building) in the documentation, which explains how to set up and build the project. From there you can open an issue or a pull request on [GitHub](${github}), whether it is a bug fix, a new feature, or a documentation improvement.`,
-          `If you would like to discuss an idea before writing any code, join the [Discord](${discord}) and talk to the team first. We extremely value every human contribution, big or small.`,
+          `Start with the [contributing guide](/docs/building) in the documentation, which explains how to set up and build the project. From there you can open an issue or a pull request on [GitHub](${config_site.info.social.github.href}), whether it is a bug fix, a new feature, or a documentation improvement.`,
+          `If you would like to discuss an idea before writing any code, join the [Discord](${config_site.info.social.discord.href}) and talk to the team first. We extremely value every human contribution, big or small.`,
         ]
       },
       {
         id: 'report',
         q: 'How do I report a bug, a security issue, or a concern?',
         a: [
-          `Bugs and feature requests belong in the [GitHub issues](${repo}/issues) of the relevant repository, ideally with clear steps to reproduce.`,
-          `For security issues or anything sensitive, please contact the team privately on [Discord](${discord}) instead of posting publicly, so it can be handled before it affects anyone.`,
+          `Bugs and feature requests belong in the [GitHub issues](https://github.com/${config_site.info.git.sandbox.user}/${config_site.info.git.sandbox.repo}/issues) of the relevant repository, ideally with clear steps to reproduce.`,
+          `For security issues or anything sensitive, please contact the team privately on [Discord](${config_site.info.social.discord.href}) instead of posting publicly, so it can be handled before it affects anyone.`,
         ]
       }
     ]
