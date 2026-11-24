@@ -275,8 +275,8 @@
 .studio-banner-sub::before,
 .studio-banner-sub::after {
   content: '';
-  width: 120px;
-  height: 2px;
+  width: 80px;
+  height: 1px;
   background: currentColor;
   opacity: 0.45;
 }
