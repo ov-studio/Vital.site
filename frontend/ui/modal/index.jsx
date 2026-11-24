@@ -1,5 +1,6 @@
 'use client';
 import * as ui_iconbutton from '../iconbutton';
+import * as lib_hooks     from '@/lib/hooks';
 import * as lucide        from 'lucide-react';
 import * as react         from 'react';
 import * as react_dom     from 'react-dom';
@@ -31,6 +32,7 @@ function use_scroll_lock(active) {
  * @param {string} [props.labelledBy]  aria-labelledby
  * @param {string} [props.label]  aria-label
  * @param {number | string} [props.maxWidth=850]
+ * @param {string | (() => string)} [props.share]  Text/URL (or getter) copied by the default share control
  * @param {boolean} [props.showClose=true]  Default close control when controls unset
  * @param {boolean} [props.inline=false]  Render in-page (no portal, overlay, scroll lock or Esc handling)
  */
@@ -45,10 +47,13 @@ export function Modal({
   labelledBy,
   label,
   maxWidth = 850,
+  share,
   showClose = true,
   inline = false
 }) {
   use_scroll_lock(!inline);
+  const { copied: copied_key, copy } = lib_hooks.use_clipboard(2000);
+  const copied = copied_key !== null;
 
   react.useEffect(() => {
     if (inline) return;
@@ -63,14 +68,28 @@ export function Modal({
 
   const max_w = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
 
-  const default_controls = showClose ? (
-    <ui_iconbutton.IconButton
-      className="ui-modal-close"
-      icon={lucide.X}
-      iconProps={{ size: 14, strokeWidth: 2.5 }}
-      onClick={onClose}
-    />
-  ) : null;
+  const default_controls = (
+    <>
+      {share ? (
+        <ui_iconbutton.IconButton
+          className={`ui-modal-share${copied ? ' copied' : ''}`}
+          title={copied ? 'Link copied' : 'Copy link'}
+          icon={copied ? lucide.Check : lucide.Link}
+          iconProps={{ size: 14, strokeWidth: 2.5 }}
+          onClick={() => copy(typeof share === 'function' ? share() : share)}
+        />
+      ) : null}
+      {showClose ? (
+        <ui_iconbutton.IconButton
+          className="ui-modal-close"
+          title="Close"
+          icon={lucide.X}
+          iconProps={{ size: 14, strokeWidth: 2.5 }}
+          onClick={onClose}
+        />
+      ) : null}
+    </>
+  );
 
   const frame = (
     <div
