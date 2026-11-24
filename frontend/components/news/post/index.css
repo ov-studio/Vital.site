@@ -30,12 +30,12 @@
 
 .np-card {
   display: flow-root;
-  margin-top: 24px;
   background: var(--brand-neon-core);
   clip-path: var(--clip-cut);
 }
 
 .np-card-in {
+  position: relative;
   margin: var(--frame-border);
   overflow: hidden;
   background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
@@ -134,7 +134,6 @@
 
 /* ── @media ── */
 @media (max-width: 760px) {
-  .np-card { margin-top: 18px; }
   .np-inner { padding: 28px 20px 40px; }
   .np-title { font-size: 1.7rem; }
   .np-lead { font-size: .88rem; }

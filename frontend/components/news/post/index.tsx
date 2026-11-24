@@ -28,6 +28,19 @@ function ShareButton({ slug }: { slug: string }) {
   );
 }
 
+function CloseButton() {
+  const router = next_navigation.useRouter();
+  return (
+    <ui_iconbutton.IconButton
+      className="ui-modal-close"
+      title="Back to news"
+      icon={lucide.X}
+      iconProps={{ size: 14, strokeWidth: 2.5 }}
+      onClick={() => router.push('/news')}
+    />
+  );
+}
+
 function BackLink() {
   return (
     <next_link.default href="/news" className="np-back">
@@ -67,13 +80,13 @@ export function NewsPost() {
   return (
     <ui_page.Page id="news-post">
       <article className="np">
-        <div className="np-top anim-in">
-          <BackLink/>
-          <ShareButton slug={post.slug}/>
-        </div>
-
         <div className="np-card anim-in anim-in--2">
           <div className="np-card-in">
+            <div className="ui-modal-controls">
+              <ShareButton slug={post.slug}/>
+              <CloseButton/>
+            </div>
+
             {post.cover && (
               <figure className="np-cover">
                 <img src={post.cover} alt={post.title}/>
