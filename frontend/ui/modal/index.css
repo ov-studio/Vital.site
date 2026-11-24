@@ -235,6 +235,7 @@
 }
 
 .ui-modal-prose a {
+  font-weight: 600;
   color: var(--brand-neon-mid);
   text-decoration: none;
   word-break: break-word;
