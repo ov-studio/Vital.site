@@ -69,11 +69,14 @@
   overflow: hidden;
   padding: 0 22px;
   border-top: 1px solid transparent;
-  transition: padding .22s cubic-bezier(.4, 0, .2, 1), border-color .22s;
+  visibility: hidden;
+  transition: padding .22s cubic-bezier(.4, 0, .2, 1), border-color .22s, visibility 0s .22s;
 }
 .fcard--open .fcard-answer {
   padding: 16px 22px 24px;
   border-top-color: var(--b15);
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .fcard-p {
