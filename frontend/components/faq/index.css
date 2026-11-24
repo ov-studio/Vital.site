@@ -84,6 +84,16 @@
 }
 .fcard-p:last-child { margin-bottom: 0; }
 
+.fcard-link {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: var(--brand-neon-mid);
+  text-decoration: none;
+  transition: color .2s;
+}
+.fcard-link:hover { color: var(--white); }
+
 
 /* ── @keyframes ── */
 @keyframes fcategory-in {
