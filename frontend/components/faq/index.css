@@ -1,0 +1,104 @@
+#faq {
+  position: relative;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.faq-intro { margin-bottom: 80px; }
+
+.faq-body {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.fcategory {
+  opacity: 0;
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+  animation: fcategory-in .45s ease forwards;
+  animation-delay: calc(0.7s + var(--ci) * 90ms);
+}
+
+.fcategory-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule12);
+}
+
+.fcategory-list { display: flex; flex-direction: column; gap: 14px; }
+
+.fcard {
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+  background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
+  border-radius: 4px;
+  transition: background .3s;
+}
+
+.fcard-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 22px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.fcard-q {
+  font-family: var(--font-geist), sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--brand-neon-core);
+}
+
+.fchevron { color: var(--text-faint); flex-shrink: 0; transition: transform .2s, color .2s; }
+.fchevron--up { transform: rotate(180deg); color: var(--brand-neon-core); }
+
+.fcard-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows .22s cubic-bezier(.4, 0, .2, 1);
+}
+.fcard--open .fcard-wrap { grid-template-rows: 1fr; }
+
+.fcard-answer {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  border-top: 1px solid transparent;
+  transition: padding .22s cubic-bezier(.4, 0, .2, 1), border-color .22s;
+}
+.fcard--open .fcard-answer {
+  padding: 16px 22px 24px;
+  border-top-color: var(--b15);
+}
+
+.fcard-p {
+  margin-bottom: 12px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: .85rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+.fcard-p:last-child { margin-bottom: 0; }
+
+
+/* ── @keyframes ── */
+@keyframes fcategory-in {
+  from { opacity: 0; transform: translateY(8px) }
+  to   { opacity: 1; transform: none }
+}
+
+
+/* ── @media ── */
+@media (max-width: 960px) {
+  .faq-intro { margin-bottom: 60px; }
+  .faq-body  { gap: 60px; }
+  .fcard-head { padding: 18px; }
+  .fcard--open .fcard-answer { padding: 14px 18px 20px; }
+}

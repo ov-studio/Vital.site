@@ -6,6 +6,11 @@ export const pages = {
     description: `Terms and conditions governing your use of ${config_site.info.name} and its associated services`
   },
 
+  faq: {
+    title: 'FAQ',
+    description: 'Answers to common questions and concerns, including our views on AI usage'
+  },
+
   benchmarks: {
     title: 'Benchmarks',
     description: 'Live benchmark results from the latest Vital.benchmark output'
