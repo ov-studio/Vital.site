@@ -48,7 +48,11 @@ function FAQCard({ item }: { item: config_faq.FAQItem }) {
         role="button"
         tabIndex={0}
         aria-expanded={open}
-        onKeyDown={e => e.key === 'Enter' && setOpen(o => !o)}
+        onKeyDown={e => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          setOpen(o => !o);
+        }}
       >
         <span className="fcard-q">{item.q}</span>
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
