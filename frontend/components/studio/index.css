@@ -248,7 +248,7 @@
 
 .studio-banner-title {
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: 5.0rem;
+  font-size: 4.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--white);
@@ -276,7 +276,7 @@
 .studio-banner-sub::after {
   content: '';
   width: 80px;
-  height: 1px;
+  height: 2px;
   background: currentColor;
   opacity: 0.45;
 }
