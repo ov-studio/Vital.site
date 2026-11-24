@@ -237,7 +237,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
   width: 100%;
   height: 100%;
   padding: 0 8%;
@@ -262,7 +262,7 @@
 .studio-banner-sub {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 30px;
   font-family: var(--font-signika), serif;
   font-size: 1.5rem;
   font-weight: 400;
@@ -275,7 +275,7 @@
 .studio-banner-sub::before,
 .studio-banner-sub::after {
   content: '';
-  width: 80px;
+  width: 60px;
   height: 2px;
   background: currentColor;
   opacity: 0.45;
