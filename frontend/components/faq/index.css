@@ -48,10 +48,8 @@
 }
 
 .fcard-q {
-  font-family: var(--font-geist), sans-serif;
-  font-size: .82rem;
-  font-weight: 600;
-  line-height: 1.6;
+  font-size: .97rem;
+  font-weight: 500;
   color: var(--brand-neon-core);
 }
 
@@ -80,10 +78,9 @@
 
 .fcard-p {
   margin-bottom: 12px;
-  font-family: var(--font-geist), sans-serif;
-  font-size: .85rem;
+  font-size: .9rem;
   line-height: 1.85;
-  color: var(--text-muted);
+  color: var(--dim);
 }
 .fcard-p:last-child { margin-bottom: 0; }
 
