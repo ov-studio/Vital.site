@@ -169,6 +169,7 @@
   font-family: var(--font-signika), cursive;
   font-weight: 400;
   font-size: clamp(1.04rem, 12.1vw, 17.2px);
+  line-height: 2.25;
 }
 
 .hero-sub-mid {
@@ -186,10 +187,10 @@
 }
 
 .hero-type-text {
-  padding: 3px 10px;
+  padding: 5px 15px;
   margin: 0 -10px;
-  background: var(--b20);
-  border-radius: 2px;
+  background: var(--bg12);
+  border: 2px solid var(--blue);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
