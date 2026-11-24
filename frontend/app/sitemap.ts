@@ -17,8 +17,12 @@ export default function sitemap(): next.MetadataRoute.Sitemap {
 
   return [
     { url: frontend_url, changeFrequency: 'weekly' as const, priority: 1 },
+    { url: `${frontend_url}/benchmarks`, changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${frontend_url}/vault`, changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: `${frontend_url}/news`, changeFrequency: 'weekly' as const, priority: 0.8 },
-    { url: `${frontend_url}/faq`, changeFrequency: 'monthly' as const, priority: 0.6 }
+    { url: `${frontend_url}/roadmap`, changeFrequency: 'weekly' as const, priority: 0.7 },
+    { url: `${frontend_url}/faq`, changeFrequency: 'monthly' as const, priority: 0.6 },
+    { url: `${frontend_url}/tos`, changeFrequency: 'yearly' as const, priority: 0.3 },
     ...pages
   ];
 }
