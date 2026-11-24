@@ -5,7 +5,6 @@ import * as config_vault     from '@/configs/vault';
 import * as ui_modal         from '@/ui/modal';
 import * as ui_alert         from '@/ui/alert';
 import * as ui_tagpill       from '@/ui/tagpill';
-import * as ui_iconbutton    from '@/ui/iconbutton';
 import * as ui_card          from '@/ui/card';
 import * as ui_badge         from '@/ui/badge';
 import * as ui_filter        from '@/ui/filter';
@@ -171,13 +170,6 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
   const folder = is_dir ? resource.id : '';
   const [downloading, set_downloading] = react.useState(false);
   const [dl_error, set_dl_error] = react.useState<string | null>(null);
-  const { copied: copied_key, copy } = lib_hooks.use_clipboard(2000);
-  const copied = copied_key !== null;
-
-  const handle_share = react.useCallback(() => {
-    copy(`${window.location.origin}/vault/${encodeURIComponent(resource.id)}`);
-  }, [resource.id, copy]);
-
   const handle_download = react.useCallback(async () => {
     if (!is_dir || downloading) return;
     set_downloading(true);
@@ -190,28 +182,11 @@ function VaultModal({ resource, on_close, closing }: { resource: config_vault.Va
     finally { set_downloading(false); }
   }, [is_dir, folder, downloading]);
 
-  const controls = (
-    <>
-      <ui_iconbutton.IconButton
-        className={`ui-modal-share${copied ? ' copied' : ''}`}
-        icon={copied ? lucide.Check : lucide.Link}
-        iconProps={{ size: 14, strokeWidth: 2.5 }}
-        onClick={handle_share}
-      />
-      <ui_iconbutton.IconButton
-        className="ui-modal-close"
-        icon={lucide.X}
-        iconProps={{ size: 14, strokeWidth: 2.5 }}
-        onClick={on_close}
-      />
-    </>
-  );
-
   return (
     <ui_modal.Modal
       closing={closing}
       onClose={on_close}
-      controls={controls}
+      share={() => `${window.location.origin}/vault/${encodeURIComponent(resource.id)}`}
       media={<Banner src={resource.banner} size="modal"/>}
       label={resource.name}
       maxWidth={780}
