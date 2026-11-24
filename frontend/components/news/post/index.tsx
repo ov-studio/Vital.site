@@ -1,7 +1,7 @@
 'use client';
-import * as ui_divider      from '@/ui/divider';
 import * as ui_empty        from '@/ui/empty';
 import * as ui_iconbutton   from '@/ui/iconbutton';
+import * as ui_modal        from '@/ui/modal';
 import * as ui_page         from '@/ui/page';
 import * as ui_tagpill      from '@/ui/tagpill';
 import * as lib_hooks       from '@/lib/hooks';
@@ -10,7 +10,6 @@ import * as react           from 'react';
 import * as lucide          from 'lucide-react';
 import * as next_link       from 'next/link';
 import * as next_navigation from 'next/navigation';
-import '@/ui/modal/index.css';
 import './index.css';
 
 function ShareButton({ slug }: { slug: string }) {
@@ -28,19 +27,6 @@ function ShareButton({ slug }: { slug: string }) {
   );
 }
 
-function CloseButton() {
-  const router = next_navigation.useRouter();
-  return (
-    <ui_iconbutton.IconButton
-      className="ui-modal-close"
-      title="Back to news"
-      icon={lucide.X}
-      iconProps={{ size: 14, strokeWidth: 2.5 }}
-      onClick={() => router.push('/news')}
-    />
-  );
-}
-
 function BackLink() {
   return (
     <next_link.default href="/news" className="np-back">
@@ -51,6 +37,7 @@ function BackLink() {
 }
 
 export function NewsPost() {
+  const router       = next_navigation.useRouter();
   const searchParams = next_navigation.useSearchParams();
   const slug         = searchParams.get('slug') ?? '';
   const { posts, state } = news_posts.use_news_posts();
@@ -77,43 +64,49 @@ export function NewsPost() {
     );
   }
 
+  const close = () => router.push('/news');
+
   return (
     <ui_page.Page id="news-post">
-      <article className="np">
-        <div className="np-card anim-in anim-in--2">
-          <div className="np-card-in">
-            <div className="ui-modal-controls">
+      <article className="np anim-in anim-in--2">
+        <ui_modal.Modal
+          inline
+          onClose={close}
+          controls={
+            <>
               <ShareButton slug={post.slug}/>
-              <CloseButton/>
+              <ui_iconbutton.IconButton
+                className="ui-modal-close"
+                title="Back to news"
+                icon={lucide.X}
+                iconProps={{ size: 14, strokeWidth: 2.5 }}
+                onClick={close}
+              />
+            </>
+          }
+          media={post.cover ? (
+            <figure className="np-cover">
+              <img src={post.cover} alt={post.title}/>
+            </figure>
+          ) : null}
+        >
+          <ui_modal.ModalHeader
+            author={post.author}
+            version={post.date}
+            title={post.title}
+            tagline={post.description}
+            titleLevel={1}
+            divider={false}
+            wrap
+          />
+          {post.tags.length > 0 && (
+            <div className="ui-modal-tags np-tags">
+              {post.tags.map(t => <ui_tagpill.TagPill key={t} label={t}/>)}
             </div>
-
-            {post.cover && (
-              <figure className="np-cover">
-                <img src={post.cover} alt={post.title}/>
-              </figure>
-            )}
-
-            <div className="np-inner">
-              <header className="np-head">
-                <div className="np-meta">
-                  <span className="ui-modal-author">{post.author}</span>
-                  <time className="np-date">{post.date}</time>
-                </div>
-                <h1 className="np-title">{post.title}</h1>
-                {post.description && <p className="np-lead">{post.description}</p>}
-                {post.tags.length > 0 && (
-                  <div className="np-tags">
-                    {post.tags.map(t => <ui_tagpill.TagPill key={t} label={t}/>)}
-                  </div>
-                )}
-              </header>
-
-              <ui_divider.Divider className="np-divider"/>
-
-              <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
-            </div>
-          </div>
-        </div>
+          )}
+          <hr className="ui-modal-divider"/>
+          <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
+        </ui_modal.Modal>
       </article>
     </ui_page.Page>
   );
