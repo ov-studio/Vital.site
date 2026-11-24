@@ -73,30 +73,32 @@ export function NewsPost() {
         </div>
 
         <div className="np-card anim-in anim-in--2">
-          {post.cover && (
-            <figure className="np-cover">
-              <img src={post.cover} alt={post.title}/>
-            </figure>
-          )}
+          <div className="np-card-in">
+            {post.cover && (
+              <figure className="np-cover">
+                <img src={post.cover} alt={post.title}/>
+              </figure>
+            )}
 
-          <div className="np-inner">
-            <header className="np-head">
-              <div className="np-meta">
-                <span className="ui-modal-author">{post.author}</span>
-                <time className="np-date">{post.date}</time>
-              </div>
-              <h1 className="np-title">{post.title}</h1>
-              {post.description && <p className="np-lead">{post.description}</p>}
-              {post.tags.length > 0 && (
-                <div className="np-tags">
-                  {post.tags.map(t => <ui_tagpill.TagPill key={t} label={t}/>)}
+            <div className="np-inner">
+              <header className="np-head">
+                <div className="np-meta">
+                  <span className="ui-modal-author">{post.author}</span>
+                  <time className="np-date">{post.date}</time>
                 </div>
-              )}
-            </header>
+                <h1 className="np-title">{post.title}</h1>
+                {post.description && <p className="np-lead">{post.description}</p>}
+                {post.tags.length > 0 && (
+                  <div className="np-tags">
+                    {post.tags.map(t => <ui_tagpill.TagPill key={t} label={t}/>)}
+                  </div>
+                )}
+              </header>
 
-            <ui_divider.Divider className="np-divider"/>
+              <ui_divider.Divider className="np-divider"/>
 
-            <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
+              <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
+            </div>
           </div>
         </div>
       </article>

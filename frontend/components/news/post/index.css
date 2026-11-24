@@ -29,11 +29,18 @@
 }
 
 .np-card {
+  display: flow-root;
   margin-top: 24px;
+  background: var(--brand-neon-core);
+  clip-path: var(--clip-cut);
+}
+
+.np-card-in {
+  margin: var(--frame-border);
   overflow: hidden;
   background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
-  border-radius: 4px;
   clip-path: var(--clip-cut);
+  isolation: isolate;
 }
 
 .np-inner {
