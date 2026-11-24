@@ -146,7 +146,7 @@
 .rcard-desc {
   font-family: var(--font-geist), sans-serif;
   font-size: .78rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.7;
   color: var(--text-muted);
   transition: color .25s;
