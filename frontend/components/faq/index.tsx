@@ -7,6 +7,29 @@ import * as lib_anchor   from '@/lib/anchor';
 import * as react        from 'react';
 import './index.css';
 
+const LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+function render_text(text: string): react.ReactNode[] {
+  const nodes: react.ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(LINK_RE)) {
+    const idx = m.index ?? 0;
+    if (idx > last) nodes.push(text.slice(last, idx));
+    const external = /^https?:\/\//.test(m[2]);
+    nodes.push(
+      <a
+        key={idx}
+        href={m[2]}
+        className="fcard-link"
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >{m[1]}</a>
+    );
+    last = idx + m[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
 function FAQCard({ item }: { item: config_faq.FAQItem }) {
   const [open, setOpen] = react.useState(false);
 
@@ -37,7 +60,7 @@ function FAQCard({ item }: { item: config_faq.FAQItem }) {
 
       <div className="fcard-wrap">
         <div className="fcard-answer">
-          {item.a.map((p, i) => <p key={i} className="fcard-p">{p}</p>)}
+          {item.a.map((p, i) => <p key={i} className="fcard-p">{render_text(p)}</p>)}
         </div>
       </div>
     </div>
