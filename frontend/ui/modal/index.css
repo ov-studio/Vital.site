@@ -34,6 +34,17 @@
   animation: ui-modal-out .205s ease forwards;
 }
 
+.ui-modal-frame.ui-modal-frame--inline {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  animation: none !important;
+}
+
 .ui-modal {
   position: relative;
   display: flex;
@@ -138,6 +149,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: none;
+}
+
+.ui-modal-name.is-wrap,
+.ui-modal-tagline.is-wrap {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .ui-modal-tagline {

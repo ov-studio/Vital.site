@@ -32,6 +32,7 @@ function use_scroll_lock(active) {
  * @param {string} [props.label]  aria-label
  * @param {number | string} [props.maxWidth=850]
  * @param {boolean} [props.showClose=true]  Default close control when controls unset
+ * @param {boolean} [props.inline=false]  Render in-page (no portal, overlay, scroll lock or Esc handling)
  */
 export function Modal({
   closing = false,
@@ -44,19 +45,21 @@ export function Modal({
   labelledBy,
   label,
   maxWidth = 850,
-  showClose = true
+  showClose = true,
+  inline = false
 }) {
-  use_scroll_lock(true);
+  use_scroll_lock(!inline);
 
   react.useEffect(() => {
+    if (inline) return;
     function on_key(e) {
       if (e.key === 'Escape') onClose();
     }
     window.addEventListener('keydown', on_key);
     return () => window.removeEventListener('keydown', on_key);
-  }, [onClose]);
+  }, [onClose, inline]);
 
-  if (typeof document === 'undefined') return null;
+  if (!inline && typeof document === 'undefined') return null;
 
   const max_w = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
 
@@ -69,29 +72,35 @@ export function Modal({
     />
   ) : null;
 
+  const frame = (
+    <div
+      className={`ui-modal-frame${inline ? ' ui-modal-frame--inline' : ''}${closing ? ' closing' : ''}${frameClassName ? ` ${frameClassName}` : ''}`}
+      style={{ ['--ui-modal-max']: max_w }}
+      onClick={inline ? undefined : (e) => e.stopPropagation()}
+      role={inline ? undefined : 'dialog'}
+      aria-modal={inline ? undefined : 'true'}
+      aria-labelledby={labelledBy}
+      aria-label={label}
+    >
+      <div className="ui-modal">
+        <div className="ui-modal-controls">
+          {controls ?? default_controls}
+        </div>
+        {media}
+        <div className="ui-modal-body">{children}</div>
+      </div>
+    </div>
+  );
+
+  if (inline) return frame;
+
   return react_dom.createPortal(
     <div
       className={`ui-modal-overlay${closing ? ' closing' : ''}${className ? ` ${className}` : ''}`}
       onClick={onClose}
       role="presentation"
     >
-      <div
-        className={`ui-modal-frame${closing ? ' closing' : ''}${frameClassName ? ` ${frameClassName}` : ''}`}
-        style={{ ['--ui-modal-max']: max_w }}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={labelledBy}
-        aria-label={label}
-      >
-        <div className="ui-modal">
-          <div className="ui-modal-controls">
-            {controls ?? default_controls}
-          </div>
-          {media}
-          <div className="ui-modal-body">{children}</div>
-        </div>
-      </div>
+      {frame}
     </div>,
     document.body
   );
@@ -108,6 +117,8 @@ export function Modal({
  * @param {string} [props.tagline]
  * @param {boolean} [props.divider=true]  Show divider under meta
  * @param {string} [props.titleClassName]  Extra class on title (e.g. wrap)
+ * @param {boolean} [props.wrap=false]  Let title and tagline wrap instead of truncating
+ * @param {number} [props.titleLevel]  Expose the title as a heading of this level
  */
 export function ModalHeader({
   author,
@@ -118,7 +129,9 @@ export function ModalHeader({
   title,
   tagline,
   divider = true,
-  titleClassName = ''
+  titleClassName = '',
+  wrap = false,
+  titleLevel = undefined
 }) {
   const left = meta !== undefined ? meta : author;
   const right = value !== undefined ? value : version;
@@ -146,11 +159,15 @@ export function ModalHeader({
       ) : null}
 
       {title?.trim() ? (
-        <div className={`ui-modal-name${titleClassName ? ` ${titleClassName}` : ''}`}>
+        <div
+          className={`ui-modal-name${wrap ? ' is-wrap' : ''}${titleClassName ? ` ${titleClassName}` : ''}`}
+          role={titleLevel ? 'heading' : undefined}
+          aria-level={titleLevel}
+        >
           {title.trim()}
         </div>
       ) : null}
-      {tagline?.trim() ? <div className="ui-modal-tagline">{tagline.trim()}</div> : null}
+      {tagline?.trim() ? <div className={`ui-modal-tagline${wrap ? ' is-wrap' : ''}`}>{tagline.trim()}</div> : null}
       {divider ? <hr className="ui-modal-divider" /> : null}
     </>
   );
