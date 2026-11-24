@@ -262,7 +262,7 @@
 .studio-banner-sub {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 25px;
   font-family: var(--font-signika), serif;
   font-size: 1.4rem;
   font-weight: 500;
