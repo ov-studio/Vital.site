@@ -237,7 +237,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 25px;
   width: 100%;
   height: 100%;
   padding: 0 8%;
@@ -247,12 +247,12 @@
 }
 
 .studio-banner-title {
-  font-family: var(--font-tangerine), cursive;
-  font-size: 9rem;
-  font-weight: 500;
+  font-family: var(--font-rajdhani), sans-serif;
+  font-size: 4.0rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--white);
-  line-height: 1.25;
-  padding: 0 0.3em;
+  line-height: 1.5;
 }
 
 .studio-banner.is-colored .studio-banner-title {
