@@ -28,13 +28,31 @@
   justify-content: space-between;
 }
 
-.np-head { margin-top: 40px; }
+.np-card {
+  margin-top: 24px;
+  overflow: hidden;
+  background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
+  border-radius: 4px;
+}
+
+.np-inner {
+  padding: 40px 36px 56px;
+}
 
 .np-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
+}
+.np-meta .np-date::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: 12px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: var(--text-faint);
 }
 
 .np-date {
@@ -46,9 +64,10 @@
 }
 
 .np-title {
-  margin: 28px 0 0;
+  margin: 18px 0 0;
   font-family: var(--font-rajdhani), sans-serif;
-  font-size: 1.8rem;
+  font-size: 2.3rem;
+  line-height: 1.15;
   font-weight: 700;
   letter-spacing: .01em;
   text-transform: none;
@@ -58,20 +77,20 @@
 }
 
 .np-lead {
-  margin: 10px 0 0;
+  margin: 14px 0 0;
   font-family: var(--font-geist), sans-serif;
-  font-size: .92rem;
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--text-muted);
 }
 
 .np-cover {
   width: 100%;
-  margin: 40px 0 0;
+  margin: 0;
   overflow: hidden;
   background: var(--bg6);
   aspect-ratio: 16 / 6;
   max-height: 375px;
-  clip-path: var(--clip-cut);
 }
 .np-cover img {
   display: block;
@@ -84,18 +103,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .np-divider.ui-divider {
-  margin: 32px 0 0;
+  margin: 36px 0 0;
   padding: 0;
 }
 
 .np-prose.ui-modal-prose {
-  margin-top: 40px;
-  font-size: .9rem;
-  line-height: 1.85;
+  margin-top: 36px;
+  font-size: .95rem;
+  line-height: 1.9;
+}
+.np-prose.ui-modal-prose blockquote {
+  background: var(--bg9) !important;
+  border: 1px solid var(--b10);
 }
 .np-prose.ui-modal-prose > * + * { margin-top: 20px; }
 .np-prose.ui-modal-prose > * + h2,
@@ -128,12 +151,13 @@
 
 /* ── @media ── */
 @media (max-width: 760px) {
-  .np-head { margin-top: 28px; }
-  .np-title { font-size: 1.7rem; }
-  .np-lead { font-size: .88rem; }
-  .np-cover { margin-top: 28px; aspect-ratio: 16 / 9; }
+  .np-card { margin-top: 18px; }
+  .np-inner { padding: 28px 20px 40px; }
+  .np-title { font-size: 1.75rem; }
+  .np-lead { font-size: .92rem; }
+  .np-cover { aspect-ratio: 16 / 9; }
   .np-divider.ui-divider { margin-top: 24px; }
-  .np-prose.ui-modal-prose { margin-top: 28px; font-size: .86rem; }
+  .np-prose.ui-modal-prose { margin-top: 28px; font-size: .9rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

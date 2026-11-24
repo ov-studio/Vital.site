@@ -72,29 +72,33 @@ export function NewsPost() {
           <ShareButton slug={post.slug}/>
         </div>
 
-        {post.cover && (
-          <figure className="np-cover anim-in anim-in--2">
-            <img src={post.cover} alt={post.title}/>
-          </figure>
-        )}
-
-        <div className="np-head anim-in anim-in--3">
-          <div className="np-meta">
-            <span className="ui-modal-author">{post.author}</span>
-            <time className="np-date">{post.date}</time>
-          </div>
-          <h1 className="np-title">{post.title}</h1>
-          {post.description && <p className="np-lead">{post.description}</p>}
-          {post.tags.length > 0 && (
-            <div className="np-tags">
-              {post.tags.map(t => <ui_tagpill.TagPill key={t} label={t}/>)}
-            </div>
+        <div className="np-card anim-in anim-in--2">
+          {post.cover && (
+            <figure className="np-cover">
+              <img src={post.cover} alt={post.title}/>
+            </figure>
           )}
+
+          <div className="np-inner">
+            <header className="np-head">
+              <div className="np-meta">
+                <span className="ui-modal-author">{post.author}</span>
+                <time className="np-date">{post.date}</time>
+              </div>
+              <h1 className="np-title">{post.title}</h1>
+              {post.description && <p className="np-lead">{post.description}</p>}
+              {post.tags.length > 0 && (
+                <div className="np-tags">
+                  {post.tags.map(t => <ui_tagpill.TagPill key={t} label={t}/>)}
+                </div>
+              )}
+            </header>
+
+            <ui_divider.Divider className="np-divider"/>
+
+            <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
+          </div>
         </div>
-
-        <ui_divider.Divider className="np-divider anim-in anim-in--4"/>
-
-        <div className="np-prose ui-modal-prose" dangerouslySetInnerHTML={{ __html: post.html }}/>
       </article>
     </ui_page.Page>
   );
