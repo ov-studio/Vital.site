@@ -456,9 +456,6 @@ function VaultSubmitModal({
               {busy ? 'Opening PR…' : 'Open pull request'}
             </ui_button.Button>
           )}
-          <ui_button.Button variant="secondary" onClick={on_close} disabled={busy}>
-            Cancel
-          </ui_button.Button>
         </ui_modal.ModalActions>
       </ui_modal.ModalFooter>
     </ui_modal.Modal>
