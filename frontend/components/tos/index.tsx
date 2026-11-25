@@ -3,6 +3,7 @@ import * as config_pages from '@/configs/pages';
 import * as config_tos   from '@/configs/tos';
 import * as ui_page      from '@/ui/page';
 import * as ui_pagehead  from '@/ui/pagehead';
+import * as ui_divider   from '@/ui/divider';
 import './index.css';
 
 export function TOS() {
@@ -22,9 +23,9 @@ export function TOS() {
       <div className="tos-body">
         {config_tos.TOS.map((s, i) => (
           <div key={s.id} id={s.id} className="tos-section">
-            <div className="tos-section-head">
+            <ui_divider.Divider>
               <div className="sec-title">{i + 1}. {s.title}</div>
-            </div>
+            </ui_divider.Divider>
             {s.content.map((p, j) => (
               <p key={j} className="tos-section-p">{p}</p>
             ))}

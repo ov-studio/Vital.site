@@ -3,6 +3,7 @@ import * as config_pages from '@/configs/pages';
 import * as config_faq   from '@/configs/faq';
 import * as ui_page      from '@/ui/page';
 import * as ui_pagehead  from '@/ui/pagehead';
+import * as ui_divider   from '@/ui/divider';
 import * as lib_anchor   from '@/lib/anchor';
 import * as react        from 'react';
 import './index.css';
@@ -75,9 +76,9 @@ function SectionBlock({ section, index }: { section: config_faq.FAQSection; inde
   const anchor = lib_anchor.to_anchor(section.name);
   return (
     <div id={anchor} className="fcategory" style={{ '--ci': index } as React.CSSProperties}>
-      <div className="fcategory-head">
+      <ui_divider.Divider>
         <a className="sec-title" href={`#${anchor}`}># {section.name}</a>
-      </div>
+      </ui_divider.Divider>
       <div className="fcategory-list">
         {section.items.map(item => <FAQCard key={item.id} item={item}/>)}
       </div>

@@ -81,15 +81,6 @@
   contain-intrinsic-size: auto 400px;
 }
 
-.rcategory-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--rule12);
-}
-
 .rcategory-cols { display: flex; align-items: flex-start; gap: 14px; }
 .rcategory-col  { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
 

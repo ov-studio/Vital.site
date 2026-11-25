@@ -3,6 +3,7 @@ import * as config_pages   from '@/configs/pages';
 import * as config_roadmap from '@/configs/roadmap';
 import * as ui_page        from '@/ui/page';
 import * as ui_pagehead    from '@/ui/pagehead';
+import * as ui_divider     from '@/ui/divider';
 import * as lib_anchor     from '@/lib/anchor';
 import * as react          from 'react';
 import './index.css';
@@ -142,11 +143,11 @@ function SectionBlock({ section, index }: { section: config_roadmap.RoadmapSecti
 
   return (
     <div id={lib_anchor.to_anchor(section.name)} className="rcategory" style={{ '--ci': index } as React.CSSProperties}>
-      <div className="rcategory-head">
+      <ui_divider.Divider>
         <a className="sec-title" href={`#${lib_anchor.to_anchor(section.name)}`}>
           # {section.name}
         </a>
-      </div>
+      </ui_divider.Divider>
 
       <div className="rcategory-cols">
         {columns.map((col, ci) => (

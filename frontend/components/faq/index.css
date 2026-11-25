@@ -19,15 +19,6 @@
   animation-delay: calc(0.7s + var(--ci) * 90ms);
 }
 
-.fcategory-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--rule12);
-}
-
 .fcategory-list { display: flex; flex-direction: column; gap: 14px; }
 
 .fcard {
