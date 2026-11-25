@@ -37,30 +37,120 @@
   margin-top: 0;
 }
 
-.ws-panel--narrow {
-  opacity: 0;
-  animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
-  max-width: 380px;
-  padding: 24px;
+.ws-page--gate {
   display: flex;
   flex-direction: column;
+}
+.ws-page--gate > .sw {
+  display: grid;
+  flex: 1;
+  grid-template-rows: 1fr auto 1fr;
+  width: 100%;
+}
+.ws-page--gate .page-head {
+  align-self: start;
+  margin-bottom: 32px;
+}
+.ws-page--gate .ws-gate {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ws-gate {
+  opacity: 0;
+  animation: slide-up var(--anim-dur) var(--anim-delay-3) forwards;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 28px;
+}
+
+.ui-panel.ws-gate {
+  background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
+  border: none;
+  box-shadow: 0 0 8px var(--k45);
+}
+
+.ws-gate-head {
+  display: flex;
+  align-items: center;
   gap: 14px;
 }
 
-.ws-btn {
-  white-space: nowrap;
+.ws-gate-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--brand-neon-core);
+  background: var(--b10);
+  border: 1px solid var(--b15);
+  border-radius: 50%;
 }
 
-.ws-btn:disabled {
-  opacity: 0.55;
+.ws-gate-title {
+  font-family: var(--font-rajdhani), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
 }
 
-.ws-text {
-  margin: 0;
-  font-size: 0.9rem;
+.ws-gate-sub {
+  margin-top: 2px;
+  font-size: 0.85rem;
   line-height: 1.5;
+  color: var(--dim);
+}
+
+.ws-gate .ui-alert {
+  margin: 20px 0 0;
+}
+
+.ws-gate-divider { margin: 10px 0 16px; }
+
+.ws-gate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ws-gate-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
   color: var(--text-soft);
 }
+
+.ws-gate-list svg {
+  flex-shrink: 0;
+  color: var(--brand-neon-core);
+}
+
+.ws-gate-btn {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.ws-gate-note {
+  margin: 14px 0 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--dim);
+  text-align: center;
+}
+
+.ws-gate-note a {
+  font-weight: 600;
+  color: var(--brand-neon-mid);
+  text-decoration: none;
+  transition: color .2s;
+}
+.ws-gate-note a:hover { color: var(--white); }
 
 .ws-page .sec-title {
   opacity: 0;
@@ -80,7 +170,7 @@
   padding-bottom: 0;
 }
 
-.ws-page .ui-panel:not(.ws-panel--narrow) {
+.ws-page .ui-panel:not(.ws-gate) {
   opacity: 0;
   animation: slide-up var(--anim-dur) var(--anim-delay-5) forwards;
 }
@@ -195,6 +285,7 @@
 }
 
 @media (max-width: 720px)  {
+  .ws-gate { padding: 22px 18px; }
   .ws-profile-row > .ws-profile-card {
     grid-column: 1 / -1;
   }
