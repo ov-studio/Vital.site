@@ -10,6 +10,7 @@ import * as ui_page          from '@/ui/page';
 import * as ui_pagehead      from '@/ui/pagehead';
 import * as ui_panel         from '@/ui/panel';
 import * as ui_section       from '@/ui/section';
+import * as ui_divider       from '@/ui/divider';
 import * as ui_secret        from '@/ui/secret';
 import * as ui_button        from '@/ui/button';
 import * as ui_alert         from '@/ui/alert';
@@ -302,7 +303,7 @@ export function Workspace() {
   );
 
   return (
-    <ui_page.Page as="main" className="ws-page">
+    <ui_page.Page as="main" className={`ws-page${!session ? ' ws-page--gate' : ''}`}>
       <ui_pagehead.PageHead
         label="Workspace"
         title={<>Your servers.<br/>Managed in one <span>place.</span></>}
@@ -311,16 +312,39 @@ export function Workspace() {
       />
 
         {!session ? (
-          <ui_panel.Panel className="ws-panel--narrow">
-            <p className="ws-text">
-              {autoClose
-                ? 'Sign in with GitHub to continue your vault submission. This tab will close when you are done.'
-                : 'Sign in with GitHub to open your workspace.'}
-            </p>
+          <ui_panel.Panel className="ws-gate">
+            <div className="ws-gate-head">
+              <span className="ws-gate-icon"><lucide.Github size={20} strokeWidth={2}/></span>
+              <div>
+                <div className="ws-gate-title">Sign in to continue</div>
+                <div className="ws-gate-sub">
+                  {autoClose
+                    ? 'Sign in with GitHub to continue your vault submission. This tab will close when you are done.'
+                    : 'Use your GitHub account to open your workspace.'}
+                </div>
+              </div>
+            </div>
+
             {error_banner}
-            <ui_button.Button variant="secondary" className="ws-btn" onClick={login}>
-              Sign in with GitHub
+
+            {!autoClose && (
+              <>
+                <ui_divider.Divider className="ws-gate-divider"/>
+                <ul className="ws-gate-list">
+                  <li><lucide.ServerCog size={16} strokeWidth={2}/>Apply for masterlist tokens</li>
+                  <li><lucide.ClipboardCheck size={16} strokeWidth={2}/>Track your application status</li>
+                  <li><lucide.Package size={16} strokeWidth={2}/>Manage your vault submissions</li>
+                </ul>
+              </>
+            )}
+
+            <ui_button.Button className="ws-gate-btn" onClick={login}>
+              Sign in
             </ui_button.Button>
+
+            <p className="ws-gate-note">
+              By signing in you agree to the <a href="/tos">Terms of Service</a>.
+            </p>
           </ui_panel.Panel>
         ) : (
           <>
