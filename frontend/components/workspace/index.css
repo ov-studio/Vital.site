@@ -68,7 +68,7 @@
 .ui-panel.ws-gate {
   background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
   border: none;
-  box-shadow: 0 0 8px var(--k45);
+  clip-path: var(--clip-cut);
 }
 
 .ws-gate-head {
