@@ -32,8 +32,14 @@
     opacity .5s ease,
     background .6s ease;
 }
-.dcard.is-front { background: var(--brand-neon-core); cursor: default; }
-.dcard.is-hidden { opacity: 0; pointer-events: none; }
+.dcard.is-front { 
+  background: linear-gradient(var(--brand-neon-mid), var(--blue)), var(--bg10);
+  cursor: default;
+}
+.dcard.is-hidden { 
+  opacity: 0; 
+  pointer-events: none; 
+}
 
 .dcard-face {
   position: absolute;
