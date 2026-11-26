@@ -33,7 +33,7 @@
     background .6s ease;
 }
 .dcard.is-front { 
-  background: linear-gradient(var(--brand-neon-mid), var(--blue)), var(--bg10);
+  background: linear-gradient(var(--blue), var(--brand-neon-core)), var(--bg10);
   cursor: default;
 }
 .dcard.is-hidden { 

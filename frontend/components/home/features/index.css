@@ -35,7 +35,7 @@
   transition: border-color .3s, background .3s;
 }
 .fcluster.is-active {
-  border-color: var(--blue);
+  border-color: var(--brand-neon-core);
   background: linear-gradient(var(--b20), var(--b20)), var(--bg10);
 }
 
