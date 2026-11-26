@@ -44,7 +44,9 @@ export async function generateMetadata({params}: {params: Promise<Params>;}) {
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: { canonical: page.url },
     openGraph: {
+      url: page.url,
       images: [{ url: image.url }]
     }
   };
